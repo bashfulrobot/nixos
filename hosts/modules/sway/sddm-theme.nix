@@ -1,15 +1,15 @@
 { pkgs }:
 
 let
-  imgLink = "https://github.com/AngelJumbo/gruvbox-wallpapers/blob/main/wallpapers/pixelart/wall_secondary.png";
+  imgLink =
+    "https://github.com/AngelJumbo/gruvbox-wallpapers/blob/main/wallpapers/pixelart/wall_secondary.png";
 
   image = pkgs.fetchurl {
     url = imgLink;
-    sha256 = "sha256-Mmrsgym0qcnOmH5QNulrpFrUhsF311iNbKv49GHb0GM=";
+    sha256 = "sha256-YXHWibQQXVUAxfo7Mj7twCdcGQ6LEG/GgDWK4is1bPw=";
     # sha256 = pkgs.lib.fakeSha256;
   };
-in
-pkgs.stdenv.mkDerivation {
+in pkgs.stdenv.mkDerivation {
   name = "sddm-theme";
   src = pkgs.fetchFromGitHub {
     owner = "MarianArlt";
@@ -23,5 +23,5 @@ pkgs.stdenv.mkDerivation {
     cd $out/
     rm Background.jpg
     cp -r ${image} $out/Background.jpg
-   '';
+  '';
 }
