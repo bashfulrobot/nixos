@@ -26,9 +26,9 @@ in {
       "..." = "cd ../..";
       "...." = "cd ../../..";
       "....." = "cd ../../../..";
-      n = "cd ~/dev/nix/nixos-cfg/; yazi";
+      n = "cd ~/dev/nix/nixos/; yazi";
       nc =
-        "cd ~/dev/nix/nixos-cfg && git add . && git commit -S && rebuild && git push";
+        "cd ~/dev/nix/nixos && git add . && git commit -S && rebuild && git push";
       ls = "${pkgs.eza}/bin/eza -al --octal-permissions --icons";
       # ls = "${pkgs.eza}/bin/eza -al --octal-permissions";
       font-cache-refresh = "sudo fc-cache -f -v";
@@ -57,11 +57,11 @@ in {
       yless = "${pkgs.jless}/bin/jless --yaml";
       please = "${pkgs.shell-genie}/bin/shell-genie ask";
       rebuild =
-        "echo;echo '***** UPDATE APPIMAGES PERIODIALLY *****'; echo;  sleep 1; cd ~/dev/nix/nixos-cfg/; ${pkgs.just}/bin/just rebuild; cd -";
+        "echo;echo '***** UPDATE APPIMAGES PERIODIALLY *****'; echo;  sleep 1; cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just rebuild; cd -";
       upgrade =
-        "cd ~/dev/nix/nixos-cfg/; ${pkgs.just}/bin/just upgrade-system; cd -";
+        "cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just upgrade-system; cd -";
       dev-rebuild =
-        "cd ~/dev/nix/nixos-cfg/; ${pkgs.just}/bin/just dev-rebuild; cd -";
+        "cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just dev-rebuild; cd -";
     };
 
   };
