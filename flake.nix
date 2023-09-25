@@ -1,5 +1,5 @@
 {
-  description = "NixOS Gnome configuration for Dustin Krysak";
+  description = "NixOS Sway configuration for Dustin Krysak";
 
   inputs = {
 
@@ -17,10 +17,11 @@
 
     # Themes
     nix-colors.url = "github:misterio77/nix-colors";
- 
+
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, nur, nix-colors, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, nur
+    , nix-colors, ... }:
     let nixpkgsConfig = { overlays = [ ]; };
     in {
 
@@ -42,6 +43,30 @@
               home-manager.users.dustin = {
                 imports = [ ./home/dustin-krysak ];
               };
+
+              # Overlays
+              nixpkgs.overlays = [ nur.overlay ];
+
+              # Allow unfree packages
+              nixpkgs.config.allowUnfree = true;
+            }
+          ];
+        };
+
+        # rembot = desktophostname
+        rembot = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/rembot
+            nur.nixosModules.nur
+            nix-colors.homeManagerModules.default
+            nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.dustin = { imports = [ ./home/rembot ]; };
 
               # Overlays
               nixpkgs.overlays = [ nur.overlay ];
