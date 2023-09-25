@@ -1,0 +1,20 @@
+# Fonts
+user/fonts/berkley-mono/BerkeleyMono-Bold.ttf filter=git-crypt diff=git-crypt
+user/fonts/berkley-mono/BerkeleyMono-BoldItalic.ttf filter=git-crypt diff=git-crypt
+user/fonts/berkley-mono/BerkeleyMono-Italic.ttf filter=git-crypt diff=git-crypt
+user/fonts/berkley-mono/BerkeleyMono-Regular.ttf filter=git-crypt diff=git-crypt
+user/fonts/berkley-mono/BerkeleyMonoVariable-Italic.ttf filter=git-crypt diff=git-crypt
+user/fonts/berkley-mono/BerkeleyMonoVariable-Regular.ttf filter=git-crypt diff=git-crypt
+# Git
+user/git/default.original filter=git-crypt diff=git-crypt
+user/git/default.nix filter=git-crypt diff=git-crypt
+user/git/config.toml filter=git-crypt diff=git-crypt
+# Syncthing
+hosts/common/syncthing/syncthing-gui-login.nix filter=git-crypt diff=git-crypt
+# SSH
+user/ssh/default.nix filter=git-crypt diff=git-crypt
+user/ssh/id_rsa filter=git-crypt diff=git-crypt
+user/ssh/id_rsa_temp filter=git-crypt diff=git-crypt
+user/ssh/id_rsa_temp.pub filter=git-crypt diff=git-crypt
+user/ssh/id_rsa.base64 filter=git-crypt diff=git-crypt
+user/ssh/id_rsa.pub filter=git-crypt diff=git-crypt

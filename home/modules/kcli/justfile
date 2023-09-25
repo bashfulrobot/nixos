@@ -1,0 +1,59 @@
+# Docs
+# ---- https://github.com/casey/just
+# ---- https://stackabuse.com/how-to-change-the-output-color-of-echo-in-linux/
+# load a .env file if in the directory
+set dotenv-load
+# Ignore recipe lines beginning with #.
+set ignore-comments
+# Search justfile in parent directory if the first recipe on the command line is not found.
+set fallback
+
+# "_" hides the recipie from listings
+_default:
+    @just --list --list-prefix ····
+# _default:
+#     @just --choose
+
+# Print `just` help
+help:
+    @just --help
+# # Print your hostname
+# host:
+#     @echo `hostname`
+# # Print your user name
+# user:
+#     @echo {{env_var('USER')}}
+# # Print your homedir
+# home:
+#     @echo {{env_var('HOME')}}
+# # Print the directory where the justfile is located
+# root:
+#     @echo {{justfile_directory()}}
+# Download the latest ubuntu LTS
+download-lts:
+    kcli download image ubuntu2204
+# Download a custom image
+download-custom:
+    @echo "run something like: kcli download image -u https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img ubuntu2204"
+# List images available for download
+list-images:
+    kcli list available-image
+# Update kcli docker image
+kcli-update:
+    @kcli version; sleep 1; docker pull quay.io/karmab/kcli; kcli version
+# create default nat network on kvm
+init-nat:
+    kcli create network  -c 192.168.122.0/24 default
+# create default storage pool on kvm
+init-pool:
+    sudo kcli create pool -p /var/lib/libvirt/images default
+    sudo setfacl -m u:$(id -un):rwx /var/lib/libvirt/images
+# Configure a local kcli host
+init-local:
+    kcli create host kvm -H 127.0.0.1
+# Add connection to srv - over tailscale
+init-srv:
+    kcli create host -H 100.123.211.36 srv
+all:
+    just upgrade-system
+    just garbage
