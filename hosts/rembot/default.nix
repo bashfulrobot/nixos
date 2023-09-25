@@ -8,8 +8,8 @@
     ./hardware-configuration.nix
     ../modules
     ./steam.nix
-    ../common/syncthing/rembot.nix
-    ../common/syncthing/common.nix
+    ../modules/syncthing/rembot.nix
+    ../modules/syncthing/common.nix
 
   ];
 

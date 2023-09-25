@@ -5,6 +5,8 @@
     ./boot.nix
     ./hardware-configuration.nix
     ../modules
+    ../modules/syncthing/dustin-krysak.nix
+    ../modules/syncthing/common.nix
   ];
 
   networking.hostName = "dustin-krysak"; # Define your hostname.

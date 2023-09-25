@@ -8,7 +8,6 @@
     ./nix-settings
     ./pkgs
     ./sway
-    ./syncthing/dustin-krysak.nix
     ./virtualization
   ];
 
