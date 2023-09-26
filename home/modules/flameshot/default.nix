@@ -1,0 +1,1 @@
+services.dbus.packages = with pkgs; [ flameshot ];
