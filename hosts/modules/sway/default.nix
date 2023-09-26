@@ -67,6 +67,7 @@ in {
     brightnessctl # display brightness
     playerctl # media keys
     gnome.gnome-keyring # keyring
+    swayr # window switcher
   ];
 
   # Used for keyring in sway
