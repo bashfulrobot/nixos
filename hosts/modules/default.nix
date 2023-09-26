@@ -24,7 +24,21 @@
   users.users.dustin = {
     isNormalUser = true;
     description = "Dustin Krysak";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "onepassword"
+      "onepassword-cli"
+      "qemu"
+      "libvirt"
+      "kvm"
+      "polkituser"
+      "qemu-libvirtd"
+      "libvirtd"
+      "users"
+      "video"
+    ];
     packages = with pkgs; [ ];
   };
 

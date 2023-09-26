@@ -30,7 +30,9 @@
     set $menu bemenu-run
     # DK
     # screenshots
-    bindsym $mod+c exec grim  -g "$(slurp)" /tmp/$(date +'%H:%M:%S.png')
+    # bindsym $mod+c exec grim  -g "$(slurp)" /tmp/$(date +'%H:%M:%S.png')
+    bindsym Ctrl+Alt+p exec "flameshot gui"
+    bindsym Print exec "flameshot gui" # laptop
     # DK
     exec dbus-sway-environment
     # DK
@@ -52,7 +54,7 @@
     # Media keys
     bindsym --locked XF86AudioPlay exec playerctl play-pause
     bindsym --locked XF86AudioNext exec playerctl next
-    bindsym --locked XF86AudioPrev exec playerctl previous      
+    bindsym --locked XF86AudioPrev exec playerctl previous
 
     # DK - nm-applet
     exec nm-applet --indicator
@@ -69,6 +71,16 @@
     natural_scroll disabled
     }
 
+    # DK - swayr
+    bindsym $mod+Space       exec swayr switch-window
+    # bindsym $mod+Delete      exec swayr quit-window
+    # bindsym $mod+Tab         exec swayr switch-to-urgent-or-lru-window
+    # bindsym $mod+Next        exec swayr next-window all-workspaces
+    # bindsym $mod+Prior       exec swayr prev-window all-workspaces
+    # bindsym $mod+Shift+Space exec swayr switch-workspace-or-window
+    # bindsym $mod+c           exec swayr execute-swaymsg-command
+    # bindsym $mod+Tab+c     exec swayr execute-swayr-command
+
     ### Output configuration
     #
     # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
@@ -84,10 +96,10 @@
     #
     # Example configuration:
     #
-    # exec swayidle -w \
-    #          timeout 300 'swaylock -f -c 000000' \
-    #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    #          before-sleep 'swaylock -f -c 000000'
+    exec swayidle -w \
+             timeout 300 'swaylock -f -c 000000' \
+             timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+             before-sleep 'swaylock -f -c 000000'
     #
     # This will lock your screen after 300 seconds of inactivity, then turn off
     # your displays after another 300 seconds, and turn your screens back on when
@@ -204,7 +216,7 @@
         bindsym $mod+Shift+space floating toggle
 
         # Swap focus between the tiling area and the floating area
-        bindsym $mod+space focus mode_toggle
+        # bindsym $mod+space focus mode_toggle
 
         # Move focus to the parent container
         bindsym $mod+a focus parent
