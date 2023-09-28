@@ -111,6 +111,7 @@
     autorestic # restic automation tool
 
     ### GUI
+    gnome.nautilus # file manager
     libreoffice # office suite
     solaar # Linux manager for many Logitech keyboards, mice
     #spot # Native Spotify client

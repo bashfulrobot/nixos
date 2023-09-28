@@ -13,6 +13,7 @@
     ./git
     ./go
     ./kcli
+    ./nautilus
     ./ncspot
     ./neovim
     ./npm
