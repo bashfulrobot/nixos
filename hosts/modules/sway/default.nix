@@ -110,6 +110,22 @@ in {
       enable = true;
       theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
     };
+    #displayManager = {
+    #  defaultSession = "sway";
+    #  lightdm = {
+    #    enable = true;
+    #    greeters = {
+    #      gtk = {
+    #        enable = true;
+    #        theme.name = "adw-gtk3";
+    #        iconTheme.name = "GruvboxPlus";
+    #        cursorTheme.name = "Bibata-Modern-Ice";
+    #      };
+    #   };
+
+    # };
+    #};
+
   };
 
   # Hardware Support for Wayland Sway
