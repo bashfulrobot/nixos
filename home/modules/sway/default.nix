@@ -1,6 +1,6 @@
 { pkgs, config, inputs, ... }: {
 
-  #   imports = [ ./mako ];
+  #   imports = [ ./slurpshot ];
 
   home.file.".config/sway/config".text = ''
         # Default config for sway
@@ -30,9 +30,11 @@
     set $menu bemenu-run
     # DK
     # screenshots
-    # bindsym $mod+c exec grim  -g "$(slurp)" /tmp/$(date +'%H:%M:%S.png')
-    bindsym Ctrl+Alt+p exec "flameshot gui"
-    bindsym Print exec "flameshot gui" # laptop
+    # bindsym Ctrl+Alt+p exec grim  -g "$(slurp)" /home/dustin/Downloads/screenshots/$(date +'%H:%M:%S.png')
+    # bindsym Ctrl+Alt+p exec grim -g "$(slurp -d)" - | wl-copy
+    # bindsym Ctrl+Alt+p exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
+    bindsym Ctrl+Alt+p exec grim -g "$(slurp)" - | swappy -f -
+    bindsym Print exec grim -g "$(slurp)" - | swappy -f - # laptop
     # DK
     exec dbus-sway-environment
     # DK

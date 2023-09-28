@@ -8,7 +8,6 @@
     ./environment
     ./espanso
     # ./firefox
-    # ./flameshot
     ./fonts
     ./git
     ./go

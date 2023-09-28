@@ -6,7 +6,7 @@
       (writeScriptBin "clipboard-ocr" ''
         #!/usr/bin/env bash
 
-        ${flameshot}/bin/flameshot gui -r -s -p /tmp/ocr-tmp.png
+        grim  -g "$(slurp)" -t png /tmp/ocr-tmp.png')
         ${tesseract}/bin/tesseract /tmp/ocr-tmp.png /tmp/ocr-out
 
         ${coreutils}/bin/cat /tmp/ocr-out.txt | ${xclip}/bin/xclip -sel clip

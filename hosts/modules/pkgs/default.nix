@@ -120,7 +120,6 @@
     #    zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
     #tootle # Mastodon client
     morgen # AI calendar - testing
-    flameshot # screenshot tool
     #kooha # screen recording
     protonvpn-gui # VPN client
     _1password-gui # password management GUI
