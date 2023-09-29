@@ -1,6 +1,9 @@
 { pkgs, config, inputs, ... }: {
 
-  #   imports = [ ./slurpshot ];
+  imports = [
+    ./rofi
+    # ./sway-alttab
+  ];
 
   home.file.".config/sway/config".text = ''
         # Default config for sway
@@ -24,10 +27,10 @@
     # Note: pass the final command to swaymsg so that the resulting window can be opened
     # on the original workspace that the command was run on.
 
-    # Original
-    #set $menu dmenu_path | dmenu | xargs swaymsg exec --
+    set $menu "rofi -combi-modi drun,run -show combi"
     # DK
-    set $menu bemenu-run
+    # Emulate a form of alt tab
+    bindsym Alt+Tab exec rofi -show window
     # DK
     # screenshots
     # bindsym Ctrl+Alt+p exec grim  -g "$(slurp)" /home/dustin/Downloads/screenshots/$(date +'%H:%M:%S.png')

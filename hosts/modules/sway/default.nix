@@ -40,6 +40,7 @@ let
   };
 
 in {
+
   environment.systemPackages = with pkgs; [
     alacritty # gpu accelerated terminal
     dbus-sway-environment
@@ -56,7 +57,7 @@ in {
     slurp # screenshot functionality
     swappy # Screenshot editor
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    bemenu # wayland clone of dmenu
+    # rofi-wayland # installed via home-manager
     mako # notification system developed by swaywm maintainer
     wdisplays # tool to configure displays
     unzip # compression tool
