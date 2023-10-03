@@ -112,6 +112,7 @@
     autorestic # restic automation tool
 
     ### GUI
+    evince # pdf viewer
     gnome.nautilus # file manager
     libreoffice # office suite
     solaar # Linux manager for many Logitech keyboards, mice
