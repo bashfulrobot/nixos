@@ -11,6 +11,7 @@
     ./fonts
     ./git
     ./go
+    ./gpg
     ./kcli
     ./nautilus
     ./ncspot

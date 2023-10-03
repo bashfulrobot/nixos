@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 let
-  shadowenv-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  # shadowenv-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  shadowenv-vim = pkgs.vimUtils.buildVimPlugin {
     name = "shadowenv-nvim";
     src = pkgs.fetchFromGitHub {
       owner = "Arkham";
@@ -12,7 +13,7 @@ let
 
   # nix-prefetch-github numToStr Comment.nvim
 
-  comment-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  comment-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "comment-nvim";
     src = pkgs.fetchFromGitHub {
       owner = "numToStr";
