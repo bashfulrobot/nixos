@@ -5,6 +5,7 @@
 
     ### Terminal
     xfce.xfce4-terminal
+    dex # open desktop files from the terminal
     blackbox-terminal # encrypted terminal sessions
     bash-completion # bash shell completion
     tesseract # CLI OCR

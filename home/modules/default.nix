@@ -19,6 +19,7 @@
     ./npm
     ./python
     ./scripts
+    ./ssh
     ./starship
     ./sway
     ./terminal
