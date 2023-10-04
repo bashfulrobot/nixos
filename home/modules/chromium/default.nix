@@ -22,6 +22,7 @@
       { id = "niloccemoadcdkdjlinkgdfekeahmflj"; } # pocket
       { id = "lmhkmibdclhibdooglianggbnhcbcjeh"; } # Summarize (gpt)
       { id = "liecbddmkiiihnedobmlmillhodjkdmb"; } # Loom video recording
+      { id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
 
     ];
   };
