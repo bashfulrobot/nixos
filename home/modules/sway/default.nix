@@ -47,6 +47,10 @@
     exec configure-gtk
     # DK - Autostart 1password
     exec_always --no-startup-id 1password
+    # DK - Always put 1pass on workspace 10
+    # Can get class with: swaymsg -t get_tree
+    assign [class="1Password"] 10
+
     # DK
     # exec swaybg -i /home/dustin/Pictures/Wallpapers/zip_up.png
     # exec wpaperd # wallpaper
