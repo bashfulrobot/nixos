@@ -100,6 +100,7 @@ in {
   # enable sway window manager
   programs.sway = {
     enable = true;
+    # package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
     extraSessionCommands = ''
       export WLR_RENDERER_ALLOW_SOFTWARE=1

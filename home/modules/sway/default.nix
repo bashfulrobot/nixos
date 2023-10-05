@@ -91,6 +91,8 @@
     # bindsym $mod+c           exec swayr execute-swaymsg-command
     # bindsym $mod+Tab+c     exec swayr execute-swayr-command
 
+    # Swayfx settings
+    # corner_radius 10
     ### Output configuration
     #
     # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
