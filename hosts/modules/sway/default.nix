@@ -65,6 +65,7 @@ in {
     pulseaudio # volume keys
     pavucontrol # volume control panel
     pasystray # audio sys tray
+    pamixer # pulse audio
     networkmanagerapplet # network manager sys tray
     # waybar # Swaybar alt - installed via home-manager
     brightnessctl # display brightness
