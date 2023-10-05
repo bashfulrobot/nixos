@@ -81,6 +81,9 @@
     natural_scroll disabled
     }
 
+    # DK - keep my focus
+    focus_follows_mouse no
+
     # DK - swayr
     bindsym $mod+Space       exec swayr switch-window
     # bindsym $mod+Delete      exec swayr quit-window
