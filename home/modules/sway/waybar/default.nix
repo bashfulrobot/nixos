@@ -81,7 +81,7 @@
       layer = "top";
       position = "top";
       tray = { spacing = 10; };
-      modules-center = [ "sway/window" ];
+      #modules-center = [ "sway/window" ];
       modules-left = [ "sway/workspaces" "sway/mode" ];
       modules-right =
         [ "pulseaudio" "network" "bluetooth" "cpu" "memory" "temperature" ]
