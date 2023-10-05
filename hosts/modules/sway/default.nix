@@ -1,6 +1,11 @@
-{ config, pkgs, lib, ... }:
+{ config, osConfig, pkgs, lib, ... }:
 
 let
+
+  laptopPackages = if config.networking.hostName == "dustin-krysak" then
+    [ pkgs.batsignal ]
+  else
+    [ ];
   # bash script to let dbus know about important env variables and
   # propagate them to relevent services run at the end of sway config
   # see
@@ -41,40 +46,41 @@ let
 
 in {
 
-  environment.systemPackages = with pkgs; [
-    alacritty # gpu accelerated terminal
-    dbus-sway-environment
-    configure-gtk
-    wayland
-    xdg-utils # for opening default programs when clicking links
-    glib # gsettings
-    libsForQt5.qt5.qtquickcontrols2 # sddm theme
-    libsForQt5.qt5.qtgraphicaleffects # sddm theme
-    gnome3.adwaita-icon-theme # default gnome cursors
-    # swaylock
-    swaylock-effects # swaylock fork
-    swayidle
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    swappy # Screenshot editor
-    # swaybg # wallpapers
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    # rofi-wayland # installed via home-manager
-    mako # notification system developed by swaywm maintainer
-    wdisplays # tool to configure displays
-    unzip # compression tool
-    pulseaudio # volume keys
-    pavucontrol # volume control panel
-    pasystray # audio sys tray
-    blueberry # bluetooth cfg
-    pamixer # pulse audio
-    networkmanagerapplet # network manager sys tray
-    # waybar # Swaybar alt - installed via home-manager
-    brightnessctl # display brightness
-    playerctl # media keys
-    gnome.gnome-keyring # keyring
-    swayr # window switcher
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      alacritty # gpu accelerated terminal
+      dbus-sway-environment
+      configure-gtk
+      wayland
+      xdg-utils # for opening default programs when clicking links
+      glib # gsettings
+      libsForQt5.qt5.qtquickcontrols2 # sddm theme
+      libsForQt5.qt5.qtgraphicaleffects # sddm theme
+      gnome3.adwaita-icon-theme # default gnome cursors
+      # swaylock
+      swaylock-effects # swaylock fork
+      swayidle
+      grim # screenshot functionality
+      slurp # screenshot functionality
+      swappy # Screenshot editor
+      # swaybg # wallpapers
+      wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+      # rofi-wayland # installed via home-manager
+      mako # notification system developed by swaywm maintainer
+      wdisplays # tool to configure displays
+      unzip # compression tool
+      pulseaudio # volume keys
+      pavucontrol # volume control panel
+      pasystray # audio sys tray
+      blueberry # bluetooth cfg
+      pamixer # pulse audio
+      networkmanagerapplet # network manager sys tray
+      # waybar # Swaybar alt - installed via home-manager
+      brightnessctl # display brightness
+      playerctl # media keys
+      gnome.gnome-keyring # keyring
+      swayr # window switcher
+    ] ++ laptopPackages;
 
   # Used for keyring in sway
   services.gnome.gnome-keyring.enable = true;
@@ -152,4 +158,20 @@ in {
 
   # Needed for sway with home-manager
   security.polkit.enable = true;
+
+  # create systemd unit for batsignal if this is my laptop
+  systemd.user.services =
+    lib.mkIf (config.networking.hostName == "dustin-krysak") {
+      batsignal = {
+        Install.WantedBy = [ "graphical-session.target" ];
+        Unit = {
+          Description = "Battery status daemon";
+          PartOf = [ "graphical-session.target" ];
+        };
+        Service = {
+          Type = "simple";
+          ExecStart = "${pkgs.batsignal}/bin/batsignal";
+        };
+      };
+    };
 }
