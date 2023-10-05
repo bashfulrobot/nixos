@@ -3,6 +3,7 @@
   imports = [
     ./rofi
     ./swappy
+    ./waybar
     # ./wpaperd
     # ./sway-alttab
   ];
@@ -109,13 +110,6 @@
     # You can get the names of your outputs by running: swaymsg -t get_outputs
 
     ### Idle configuration
-    #
-    # Example configuration:
-    #
-    # exec swayidle -w \
-    #          timeout 300 'swaylock -f -c 000000' \
-    #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    #          before-sleep 'swaylock -f -c 000000'
 
     exec swayidle -w \
              timeout 300 'swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color d3869b --key-hl-color fabd2f --line-color 3c3836 --inside-color 282828 --separator-color 3c3836 --grace 2 --fade-in 0.2' \
@@ -283,19 +277,21 @@
     # Status Bar:
     #
     # Read `man 5 sway-bar` for more information about this section.
-    bar {
-        position top
+    # bar {
+    #     position top
 
-        # When the status_command prints a new line to stdout, swaybar updates.
-        # The default just shows the current date and time.
-        status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    #     # When the status_command prints a new line to stdout, swaybar updates.
+    #     # The default just shows the current date and time.
+    #     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
-        colors {
-            statusline #ffffff
-            background #323232
-            inactive_workspace #32323200 #32323200 #5c5c5c
-        }
-    }
+    #     colors {
+    #         statusline #ffffff
+    #         background #323232
+    #         inactive_workspace #32323200 #32323200 #5c5c5c
+    #     }
+    # }
+
+    bar swaybar_command waybar
 
     include /etc/sway/config.d/*
 
