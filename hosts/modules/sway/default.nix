@@ -56,6 +56,7 @@ in {
     grim # screenshot functionality
     slurp # screenshot functionality
     swappy # Screenshot editor
+    # swaybg # wallpapers
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
     # rofi-wayland # installed via home-manager
     mako # notification system developed by swaywm maintainer
