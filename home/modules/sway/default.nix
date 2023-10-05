@@ -46,7 +46,7 @@
     exec configure-gtk
     # DK
     # exec swaybg -i /home/dustin/Pictures/Wallpapers/zip_up.png
-    exec wpaperd # wallpaper
+    # exec wpaperd # wallpaper
     # DK
     default_border pixel 2
     # DK
