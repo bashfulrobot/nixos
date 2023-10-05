@@ -45,6 +45,8 @@
     exec dbus-sway-environment
     # DK
     exec configure-gtk
+    # DK - Autostart 1password
+    exec_always --no-startup-id 1password
     # DK
     # exec swaybg -i /home/dustin/Pictures/Wallpapers/zip_up.png
     # exec wpaperd # wallpaper
