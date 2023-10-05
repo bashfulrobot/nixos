@@ -66,6 +66,7 @@ in {
     pulseaudio # volume keys
     pavucontrol # volume control panel
     pasystray # audio sys tray
+    blueberry # bluetooth cfg
     pamixer # pulse audio
     networkmanagerapplet # network manager sys tray
     # waybar # Swaybar alt - installed via home-manager

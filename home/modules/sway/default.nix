@@ -68,13 +68,13 @@
     bindsym --locked XF86AudioPrev exec playerctl previous
 
     # DK - nm-applet
-    exec nm-applet --indicator
+    # exec nm-applet --indicator
 
     # DK - pasystray - shows volume notifications
-    exec pasystray --notify=all -S
+    # exec pasystray --notify=all -S
 
     # DK - blueman-applet
-    exec blueman-applet
+    # exec blueman-applet
 
     # DK - trackpad
     input type:touchpad {

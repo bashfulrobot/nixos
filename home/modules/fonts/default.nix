@@ -15,11 +15,12 @@ in {
     fira-code
     fira-code-symbols
     font-awesome
+    cantarell-fonts
     comic-mono
     # nerdfonts
-    # (nerdfonts.override {
-    #   fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
-    # })
+    (nerdfonts.override {
+      fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" "SourceCodePro" ];
+    })
   ];
 
 }
