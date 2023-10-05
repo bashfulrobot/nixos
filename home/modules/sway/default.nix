@@ -3,7 +3,7 @@
   imports = [
     ./rofi
     ./swappy
-    ./wpaperd
+    # ./wpaperd
     # ./sway-alttab
   ];
 
@@ -94,7 +94,8 @@
     ### Output configuration
     #
     # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-    output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+    # output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+    output * bg /home/dustin/Pictures/Wallpapers/gruvbox-wallpapers/wallpapers/mix/dead-robot.jpg fill
     #
     # Example configuration:
     #
