@@ -51,7 +51,8 @@ in {
     libsForQt5.qt5.qtquickcontrols2 # sddm theme
     libsForQt5.qt5.qtgraphicaleffects # sddm theme
     gnome3.adwaita-icon-theme # default gnome cursors
-    swaylock
+    # swaylock
+    swaylock-effects # swaylock fork
     swayidle
     grim # screenshot functionality
     slurp # screenshot functionality
