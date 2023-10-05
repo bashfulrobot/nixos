@@ -1,11 +1,11 @@
 { config, osConfig, pkgs, lib, ... }:
 
 let
+  hostname = config.networking.hostName;
 
-  laptopPackages = if config.networking.hostName == "dustin-krysak" then
-    [ pkgs.batsignal ]
-  else
-    [ ];
+  isDustinLaptop = hostname == "dustin-krysak";
+
+  laptopPackages = if isDustinLaptop then [ pkgs.batsignal ] else [ ];
   # bash script to let dbus know about important env variables and
   # propagate them to relevent services run at the end of sway config
   # see
@@ -160,18 +160,13 @@ in {
   security.polkit.enable = true;
 
   # create systemd unit for batsignal if this is my laptop
-  systemd.user.services =
-    lib.mkIf (config.networking.hostName == "dustin-krysak") {
-      batsignal = {
-        Install.WantedBy = [ "graphical-session.target" ];
-        Unit = {
-          Description = "Battery status daemon";
-          PartOf = [ "graphical-session.target" ];
-        };
-        Service = {
-          Type = "simple";
-          ExecStart = "${pkgs.batsignal}/bin/batsignal";
-        };
-      };
+  systemd.user.services = if isDustinLaptop then {
+    batsignal = {
+      enable = true;
+      description = "Battery status daemon";
+      script = "${pkgs.batsignal}/bin/batsignal";
     };
+  } else
+    { };
+
 }

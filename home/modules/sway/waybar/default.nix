@@ -5,31 +5,17 @@
     enable = true;
     systemd.enable = true;
     style = ''
-                                    ${
-                                      builtins.readFile
-                                      "${pkgs.waybar}/etc/xdg/waybar/style.css"
-                                    }
+      ${builtins.readFile "${pkgs.waybar}/etc/xdg/waybar/style.css"}
 
-                                    window#waybar {
-                                      background: transparent;
-                                      border-bottom: none;
-                                      border-top: none;
-                                    }
+      window#waybar {
+        background: transparent;
+        border-bottom: none;
+        border-top: none;
+      }
 
-                                    /* Each module */
-                                    #pulseaudio,
-                                    #network,
-                                    #bluetooth,
-                                    #cpu,
-                                    #memory,
-                                    #temperature,
-                                    #battery {
-                                        padding: 0.6em 2.0em;
-                                    }
-
-                                   #pulseaudio {
-          background-color: #89916C;
-          color: #231F26;
+      #pulseaudio {
+        background-color: #89916C;
+        color: #231F26;
       }
 
       #network {
@@ -62,15 +48,33 @@
           color: #231F26;
       }
 
-                                    * {
-                                      ${
-                                        if osConfig.networking.hostName
-                                        == "dustin-krysak" then ''
-                                          font-size: 18px;
-                                        '' else
-                                          "\n"
-                                      }
-                                    }
+      * {
+        ${
+          if osConfig.networking.hostName == "dustin-krysak" then ''
+            font-size: 16px;
+          '' else
+            "\n"
+        }
+      }
+
+      /* Each module */
+      #pulseaudio,
+      #network,
+      #bluetooth,
+      #cpu,
+      #memory,
+      #temperature,
+      #battery {
+        ${
+          if osConfig.networking.hostName == "dustin-krysak" then ''
+            /* padding: top right bottom left; */
+            padding: 0.4em 0.6em 0.4em 0.6em;
+          '' else ''
+            padding: 0.6em 2.0em 0.6em 2.0em;
+          ''
+        }
+
+      }
     '';
     settings = [{
       height = 30;
