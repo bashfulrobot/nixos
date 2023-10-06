@@ -9,8 +9,8 @@
 
       window#waybar {
         background: transparent;
-        /* border-bottom: none;*/
-        border-top: none;
+        border-bottom: none;
+        /*border-top: none;*/
       }
 
       #pulseaudio {
