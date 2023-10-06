@@ -9,7 +9,7 @@
 
       window#waybar {
         background: transparent;
-        border-bottom: none;
+        /* border-bottom: none;*/
         border-top: none;
       }
 
@@ -19,41 +19,52 @@
       }
 
       #network {
-          background-color: #4E5A44;
-          color: #231F26;
+        background-color: #4E5A44;
+        color: #231F26;
       }
 
       #bluetooth {
-          background-color: #231F26;
-          color: #89916C;
+        background-color: #231F26;
+        color: #89916C;
       }
 
       #cpu {
-          background-color: #4478A9;
-          color: #231F26;
+        background-color: #4478A9;
+        color: #231F26;
       }
 
       #memory {
-          background-color: #A85E41;
-          color: #231F26;
+        background-color: #A85E41;
+        color: #231F26;
       }
 
       #temperature {
-          background-color: #89916C;
-          color: #231F26;
+        background-color: #89916C;
+        color: #231F26;
       }
 
       #battery {
-          background-color: #4E5A44;
-          color: #231F26;
+        background-color: #4E5A44;
+        color: #231F26;
+      }
+
+      #clock {
+        background-color: #3C3836;
+        color: #ebdbb2;
+      }
+
+      #tray {
+        background-color: #282828;
+        color: #ebdbb2;
       }
 
       * {
         ${
           if osConfig.networking.hostName == "dustin-krysak" then ''
             font-size: 16px;
-          '' else
-            "\n"
+          '' else ''
+            /*else*/
+          ''
         }
       }
 
@@ -64,11 +75,13 @@
       #cpu,
       #memory,
       #temperature,
-      #battery {
+      #battery,
+      #clock,
+      #tray {
         ${
           if osConfig.networking.hostName == "dustin-krysak" then ''
             /* padding: top right bottom left; */
-            padding: 0.4em 0.6em 0.4em 0.6em;
+            padding: 0.4em 1.2em 0.4em 1.2em;
           '' else ''
             padding: 0.6em 2.0em 0.6em 2.0em;
           ''
@@ -77,10 +90,10 @@
       }
     '';
     settings = [{
-      height = 30;
+      height = 38;
       layer = "top";
       position = "top";
-      tray = { spacing = 10; };
+      tray = { spacing = 20; };
       #modules-center = [ "sway/window" ];
       modules-left = [ "sway/workspaces" "sway/mode" ];
       modules-right =

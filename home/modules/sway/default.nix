@@ -1,6 +1,7 @@
 { pkgs, config, inputs, ... }: {
 
   imports = [
+    ./mako
     ./rofi
     ./swappy
     ./waybar
