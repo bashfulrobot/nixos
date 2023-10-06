@@ -26,7 +26,9 @@ in {
       "..." = "cd ../..";
       "...." = "cd ../../..";
       "....." = "cd ../../../..";
-      n = "cd ~/dev/nix/nixos/; yazi";
+      y = "cd ~/; yazi";
+      ny = "cd ~/dev/nix/nixos/; yazi";
+      n = "cd ~/dev/nix/nixos/; nvim";
       nc =
         "cd ~/dev/nix/nixos && git add . && git commit -S && rebuild && git push";
       ls = "${pkgs.eza}/bin/eza -al --octal-permissions --icons";
