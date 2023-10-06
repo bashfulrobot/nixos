@@ -29,6 +29,12 @@
     # Your preferred application launcher
     set $menu "rofi -combi-modi drun,run -show combi"
 
+    # lock command for keyboard shortcut
+    set $lockman exec bash /etc/profiles/per-user/dustin/bin/lockman
+
+    # lock command for swayidle
+    set $lock swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color d3869b --key-hl-color fabd2f --line-color 3c3836 --inside-color 282828 --separator-color 3c3836 --grace 2 --fade-in 0.2
+
     ### Autostart Applications
     #
 
@@ -109,16 +115,19 @@
     #
 
     exec swayidle -w \
-      timeout 300 'swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color d3869b --key-hl-color fabd2f --line-color 3c3836 --inside-color 282828 --separator-color 3c3836 --grace 2 --fade-in 0.2' \
-      timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-      before-sleep 'swaylock --screenshots --clock --indicator --indicator-radius
-      100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color d3869b --key-hl-color fabd2f --line-color 3c3836 --inside-color 282828 --separator-color 3c3836 --grace 2 --fade-in 0.2'
+      timeout 300 $lock \
+      timeout 600 'swaymsg "output * power off"' \
+      resume 'swaymsg "output * power on"' \
+      before-sleep $lock
 
     ### Key bindings
     #
 
     # Emulate a form of alt tab
     bindsym Alt+Tab exec rofi -show window
+
+    # lock my screen
+    bindsym $mod+Alt+l exec $lockman
 
     # Take Screenshots
     bindsym Ctrl+Alt+p exec grim -g "$(slurp)" - | swappy -f -
@@ -288,4 +297,21 @@
     components = [ "pkcs11" "secrets" "ssh" ];
   };
 
+  home.packages = with pkgs;
+    [
+      (writeScriptBin "lockman" ''
+        #!/usr/bin/env bash
+
+        # Times the screen off and puts it to background
+        swayidle \
+            timeout 10 'swaymsg "output * dpms off"' \
+            resume 'swaymsg "output * dpms on"' &
+        # Locks the screen immediately
+        swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color d3869b --key-hl-color fabd2f --line-color 3c3836 --inside-color 282828 --separator-color 3c3836 --grace 2 --fade-in 0.2
+        # Kills last background task so idle timer doesn't keep running
+        kill %%
+
+        exit 0
+      '')
+    ];
 }
