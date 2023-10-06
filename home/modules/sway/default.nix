@@ -87,14 +87,14 @@
     #
     # Can get class with: swaymsg -t get_tree
 
-    # Always put 1pass on scratchpad
-    assign [class="1Password"] 10
+    # Always put 1pass on ws10
+    # assign [class="1Password"] 10
 
     ### Window Behavior
     #
 
     # Swayr Settings
-    bindsym $mod+Space       exec swayr switch-window
+    # bindsym $mod+Space       exec swayr switch-window
     # bindsym $mod+Delete      exec swayr quit-window
     # bindsym $mod+Tab         exec swayr switch-to-urgent-or-lru-window
     # bindsym $mod+Next        exec swayr next-window all-workspaces
@@ -150,12 +150,16 @@
 
     # Start a terminal
     bindsym $mod+Return exec $term
+    bindsym $mod+t exec $term
 
     # Kill focused window
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+Space exec $menu
+
+    # Start 1Password Quick Access
+    bindsym Control+Shift+Space exec 1password --quick-access
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
