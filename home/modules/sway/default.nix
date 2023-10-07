@@ -14,6 +14,37 @@
     ### Variables
     #
 
+    # Complete Gruvbox Dark soft color scheme
+    set $gruvbox-bg "#32302f"
+    set $gruvbox-bg1 "#3c3836"
+    set $gruvbox-bg2 "#504945"
+    set $gruvbox-bg3 "#665c54"
+    set $gruvbox-bg4 "#7c6f64"
+
+    set $gruvbox-fg "#d4be98"
+    set $gruvbox-fg1 "#ddc7a1"
+
+    set $gruvbox-red "#ea6962"
+    set $gruvbox-red1 "#d65d75"
+
+    set $gruvbox-green "#a9b665"
+    set $gruvbox-green1 "#afbe8c"
+
+    set $gruvbox-yellow "#d8a657"
+    set $gruvbox-yellow1 "#e3b86b"
+
+    set $gruvbox-blue "#7daea3"
+    set $gruvbox-blue1 "#89b482"
+
+    set $gruvbox-magenta "#d3869b"
+    set $gruvbox-magenta1 "#e0abc4"
+
+    set $gruvbox-cyan "#89b482"
+    set $gruvbox-cyan1 "#a2bdb9"
+
+    set $gruvbox-orange "#e78a4e"
+    set $gruvbox-orange1 "#f2a878"
+
     # Logo key. Use Mod1 for Alt.
     set $mod Mod4
 
@@ -56,6 +87,12 @@
     # Set the window borders
     default_border pixel 2
     default_floating_border pixel 2
+    # Configurations for window borders and title bars
+    client.focused $gruvbox-blue $gruvbox-bg $gruvbox-fg $gruvbox-green $gruvbox-yellow
+    client.focused_inactive $gruvbox-bg $gruvbox-bg $gruvbox-fg
+    client.focused_tab_title $gruvbox-bg $gruvbox-bg $gruvbox-fg
+    client.unfocused $gruvbox-bg $gruvbox-bg $gruvbox-fg
+    client.urgent $gruvbox-red $gruvbox-bg $gruvbox-fg
 
     # Swayfx settings:
     # corner_radius 10

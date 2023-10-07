@@ -1,4 +1,6 @@
 { config, ... }: {
+
+  imports = [ ./default-apps.nix ];
   # add environment variables
   home.sessionVariables = {
     EDITOR = "nvim";
