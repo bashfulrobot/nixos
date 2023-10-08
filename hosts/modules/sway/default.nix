@@ -6,6 +6,7 @@ let
   isDustinLaptop = hostname == "dustin-krysak";
 
   laptopPackages = if isDustinLaptop then [ pkgs.batsignal ] else [ ];
+
   # bash script to let dbus know about important env variables and
   # propagate them to relevent services run at the end of sway config
   # see
@@ -46,6 +47,8 @@ let
 
 in {
 
+  imports = [ ./sddm ];
+
   environment.systemPackages = with pkgs;
     [
       alacritty # gpu accelerated terminal
@@ -80,6 +83,7 @@ in {
       playerctl # media keys
       gnome.gnome-keyring # keyring
       swayr # window switcher
+      crudini # Used when building the SDDM themes - edit INI files in place
     ] ++ laptopPackages;
 
   # Used for keyring in sway
@@ -119,25 +123,7 @@ in {
     enable = true;
     layout = "us";
     xkbVariant = "";
-    displayManager.sddm = {
-      enable = true;
-      theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
-    };
-    #displayManager = {
-    #  defaultSession = "sway";
-    #  lightdm = {
-    #    enable = true;
-    #    greeters = {
-    #      gtk = {
-    #        enable = true;
-    #        theme.name = "adw-gtk3";
-    #        iconTheme.name = "GruvboxPlus";
-    #        cursorTheme.name = "Bibata-Modern-Ice";
-    #      };
-    #   };
-
-    # };
-    #};
+    # sddm settings imported
 
   };
 
