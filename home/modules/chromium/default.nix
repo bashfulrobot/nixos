@@ -6,8 +6,10 @@
     extensions = [
       { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; } # 1password
       { id = "kfimphpokifbjgmjflanmfeppcjimgah"; } # inoreader
-      { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # dark reader
-      { id = "ldgfbffkinooeloadekpmfoklnobpien"; } # raindrop.io
+      {
+        id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
+      } # dark reader
+      # { id = "ldgfbffkinooeloadekpmfoklnobpien"; } # raindrop.io
       { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
       { id = "lljedihjnnjjefafchaljkhbpfhfkdic"; } # jiffy reader
       { id = "haebnnbpedcbhciplfhjjkbafijpncjl"; } # tineye
@@ -19,8 +21,10 @@
       { id = "jldhpllghnbhlbpcmnajkpdmadaolakh"; } # todoist
       { id = "kgjfgplpablkjnlkjmjdecgdpfankdle"; } # zoom
       { id = "lcbjdhceifofjlpecfpeimnnphbcjgnc"; } # xbrowsersync
-      { id = "niloccemoadcdkdjlinkgdfekeahmflj"; } # pocket
-      { id = "lmhkmibdclhibdooglianggbnhcbcjeh"; } # Summarize (gpt)
+      {
+        id = "niloccemoadcdkdjlinkgdfekeahmflj";
+      } # pocket
+      # { id = "lmhkmibdclhibdooglianggbnhcbcjeh"; } # Summarize (gpt)
       { id = "liecbddmkiiihnedobmlmillhodjkdmb"; } # Loom video recording
       { id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
 
