@@ -77,7 +77,7 @@
           ];
         };
 
-        # nixdo = desktop hostname
+        # nixdo = server hostname
         nixdo = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           system = "x86_64-linux";
