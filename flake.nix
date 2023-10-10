@@ -81,7 +81,22 @@
         nixdo = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           system = "x86_64-linux";
-          modules = [ ./hosts/nixdo ];
+          modules = [
+            ./hosts/nixdo
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.dustin = { imports = [ ./home/rembot ]; };
+
+              # Overlays
+              nixpkgs.overlays = [ nur.overlay ];
+
+              # Allow unfree packages
+              nixpkgs.config.allowUnfree = true;
+            }
+          ];
+
         };
 
       };

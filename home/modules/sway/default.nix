@@ -144,6 +144,9 @@
     # Emulate a form of alt tab
     bindsym Alt+Tab exec rofi -show window
 
+    # Toggle waybar with mod+o
+    bindsym $mod+o exec killall -SIGUSR1 waybar
+
     # lock my screen
     bindsym $mod+Alt+l exec $lockman
 
