@@ -186,6 +186,14 @@
             };
           };
         };
+        "ms-edge" = {
+          path = "/home/dustin/.config/microsoft-edge";
+          devices = [ "rembot" ];
+          versioning = {
+            type = "simple";
+            params = { keep = "10"; };
+          };
+        };
 
       };
     };

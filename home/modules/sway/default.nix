@@ -4,6 +4,7 @@
     ./mako
     ./rofi
     ./swappy
+    ./swayidle
     ./waybar
     # ./wpaperd
     # ./sway-alttab
@@ -63,22 +64,6 @@
     # lock command for keyboard shortcut
     set $lockman exec bash /etc/profiles/per-user/dustin/bin/lockman
 
-    # lock command for swayidle
-    set $lock swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color d3869b --key-hl-color fabd2f --line-color 3c3836 --inside-color 282828 --separator-color 3c3836 --grace 2 --fade-in 0.2
-
-    ### Autostart Applications
-    #
-
-    exec dbus-sway-environment
-    exec configure-gtk
-    exec_always --no-startup-id 1password
-    # exec nm-applet --indicator
-    # exec pasystray --notify=all -S
-    # exec blueman-applet
-
-    ### Visuals
-    #
-
     # Set Wallpaper with wpaperd
     # exec wpaperd # wallpaper
     # Set Wallpaper
@@ -93,10 +78,6 @@
     client.focused_tab_title $gruvbox-bg $gruvbox-bg $gruvbox-fg
     client.unfocused $gruvbox-bg $gruvbox-bg $gruvbox-fg
     client.urgent $gruvbox-red $gruvbox-bg $gruvbox-fg
-
-    # Swayfx settings:
-    # corner_radius 10
-
     ### Hardware
     #
 
@@ -151,11 +132,11 @@
     ### Idle configuration
     #
 
-    exec swayidle -w \
-      timeout 300 $lock \
-      timeout 600 'swaymsg "output * power off"' \
-      resume 'swaymsg "output * power on"' \
-      before-sleep $lock
+    # exec swayidle -w \
+    #   timeout 10 $lock \
+    #   timeout 20 'swaymsg "output * power off"' \
+    #   resume 'swaymsg "output * power on"' \
+    #   before-sleep $lock
 
     ### Key bindings
     #

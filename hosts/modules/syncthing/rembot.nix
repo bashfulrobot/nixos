@@ -21,7 +21,7 @@
         "dustin-krysak" = {
           addresses = [ "tcp://100.89.22.75:22000" ];
           id =
-            "P2TVQGZ-ALRPJPL-AZCIVU7-WC4G5UB-JX2H57K-XQQTHUF-CZ3JSMS-Z6TGPQW";
+            "YIQDEHY-QM44YI5-4KP2ZJ5-3FEUIXF-5DVHZVV-VOSZGXH-QCZFLBJ-FKAK2AA";
         };
         "nixdo" = {
           # tailscale only
@@ -164,6 +164,14 @@
               cleanInterval = "3600";
               maxAge = "7776000"; # 90 days
             };
+          };
+        };
+        "ms-edge" = {
+          path = "/home/dustin/.config/microsoft-edge";
+          devices = [ "nixdo" ];
+          versioning = {
+            type = "simple";
+            params = { keep = "10"; };
           };
         };
 
