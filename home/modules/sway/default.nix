@@ -145,7 +145,7 @@
     bindsym Alt+Tab exec rofi -show window
 
     # Toggle waybar with mod+o
-    bindsym $mod+o exec killall -SIGUSR1 waybar
+    bindsym $mod+o exec killall -SIGUSR1 .waybar-wrapped
 
     # lock my screen
     bindsym $mod+Alt+l exec $lockman
