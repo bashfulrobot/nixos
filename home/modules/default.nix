@@ -3,7 +3,7 @@
   imports = [
     ./alacritty
     ./bash
-    # ./chromium
+    ./chromium
     ./desktop-files/tower.nix
     ./environment
     ./espanso
