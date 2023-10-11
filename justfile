@@ -15,12 +15,13 @@ _default:
 # _default:
 #     @just --choose
 _sway-reload:
-    @if [ "$(hostname)" = "nixdo" ]; then \
-        echo "skipping sway reload..."; \
-    else \
-        swaymsg reload; \
-        echo "sway reloaded..."; \
-    fi
+    @case $(hostname) in \
+        dustin-krysak|rembot) \
+            swaymsg reload; \
+            echo "Sway reloaded...";; \
+        *) \
+            echo "Skipping sway reload...";; \
+    esac
 
 # Print `just` help
 help:
