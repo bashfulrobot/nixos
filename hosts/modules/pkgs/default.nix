@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
+    killall # kill all instnaces of a running app
     xfce.xfce4-terminal
     dex # open desktop files from the terminal
     blackbox-terminal # encrypted terminal sessions
