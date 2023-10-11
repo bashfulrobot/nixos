@@ -27,6 +27,10 @@
       # { id = "lmhkmibdclhibdooglianggbnhcbcjeh"; } # Summarize (gpt)
       { id = "liecbddmkiiihnedobmlmillhodjkdmb"; } # Loom video recording
       { id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
+      { id = "oeopbcgkkoapgobdbedcemjljbihmemj"; } # Checker Plus for Gmail™
+      {
+        id = "hkhggnncdpfibdhinjiegagmopldibha";
+      } # Checker Plus for Google Calendar™
 
     ];
   };
