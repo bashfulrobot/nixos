@@ -2,6 +2,7 @@
   programs.chromium = {
     enable = true;
     package = pkgs.chromium;
+    # package = pkgs.google-chrome;
     commandLineArgs = [ "--ozone-platform-hint=auto" ];
     extensions = [
       { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; } # 1password

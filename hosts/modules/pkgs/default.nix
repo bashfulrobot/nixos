@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
+    killall # kill all instnaces of a running app
     xfce.xfce4-terminal
     dex # open desktop files from the terminal
     blackbox-terminal # encrypted terminal sessions
@@ -65,6 +66,7 @@
     sublime4 # code editor
     sublime-merge # GUI Git Client
     microsoft-edge # Browser
+    google-chrome # Browser - test zoom behavior
 
     # Causes:error: Package ‘python-2.7.18.6’ in /nix/store/zb2695k9v4hmjdki97p0yhd4mys270fs-source/pkgs/development/interpreters/python/cpython/2.7/default.nix:330 is marked as insecure, refusing to evaluate.
     # oni2 # code editor
@@ -137,6 +139,7 @@
     gruvbox-dark-gtk # theme
     gruvbox-gtk-theme # theme
     gruvbox-dark-icons-gtk # theme icons
+    epiphany # gnome web
 
     # Communication
     slack # instant messaging
