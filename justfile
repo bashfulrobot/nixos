@@ -1,6 +1,7 @@
 # Docs
 # ---- https://github.com/casey/just
 # ---- https://stackabuse.com/how-to-change-the-output-color-of-echo-in-linux/
+# ---- https://cheatography.com/linux-china/cheat-sheets/justfile/
 # load a .env file if in the directory
 set dotenv-load
 # Ignore recipe lines beginning with #.
@@ -13,6 +14,14 @@ _default:
     @just --list --list-prefix ····
 # _default:
 #     @just --choose
+_sway-reload:
+    @case $(hostname) in \
+        dustin-krysak|rembot) \
+            swaymsg reload; \
+            echo "Sway reloaded...";; \
+        *) \
+            echo "Skipping sway reload...";; \
+    esac
 
 # Print `just` help
 help:
@@ -32,17 +41,21 @@ help:
 # Rebuild nixos cfg on your current host.
 rebuild:
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}}
+    @just _sway-reload
 # Rebuild nixos cfg on your current host without git commit.
 dev-rebuild:
     @git add .
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}}
+    @just _sway-reload
 # Rebuild nixos cfg on your current host with show-trace.
 rebuild-trace:
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}} --show-trace
+    @just _sway-reload
 # Update Flake
 upgrade-system:
     @nix flake update --commit-lock-file
     @sudo nixos-rebuild switch --impure --upgrade --flake .#\{{`hostname`}} --show-trace
+    @just _sway-reload
 # Upgrade System
 update-flake:
     @nix flake update --commit-lock-file
