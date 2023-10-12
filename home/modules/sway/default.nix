@@ -144,6 +144,11 @@
     # Emulate a form of alt tab
     bindsym Alt+Tab exec rofi -show window
 
+    # Set selected window to 1080p to record a video or present screen
+    # $mod+Shift+space to toggle back from floating
+    #
+    bindsym $mod+period floating enable, resize set 1920 1080, move absolute position 1500 100
+
     # Toggle waybar with mod+o
     bindsym $mod+o exec killall -SIGUSR1 .waybar-wrapped
 
