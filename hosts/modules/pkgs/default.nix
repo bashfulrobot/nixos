@@ -138,6 +138,7 @@
     gruvbox-dark-gtk # theme
     gruvbox-gtk-theme # theme
     gruvbox-dark-icons-gtk # theme icons
+    epiphany # gnome web
 
     # Communication
     slack # instant messaging
