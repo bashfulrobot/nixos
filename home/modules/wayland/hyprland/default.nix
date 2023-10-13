@@ -71,8 +71,17 @@
     }
 
     # toolkit-specific scale
-    env = GDK_SCALE,2
+    env = GDK_SCALE,1
+    env = QT_AUTO_SCREEN_SCALE_FACTOR.1
     env = XCURSOR_SIZE,32
+
+    env = XDG_CURRENT_DESKTOP,Hyprland
+    env = XDG_SESSION_TYPE,wayland
+    env = XDG_SESSION_DESKTOP,Hyprland
+
+    env = GDK_BACKEND,wayland
+    env = QT_QPA_PLATFORM,wayland
+    env = SDL_VIDEODRIVER,wayland
 
     misc {
         disable_hyprland_logo = true
