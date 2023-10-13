@@ -5,7 +5,8 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
-    killall # kill all instnaces of a running app
+    wshowkeys # Show keys pressed in wayland
+    killall # kill all instances of a running app
     xfce.xfce4-terminal
     dex # open desktop files from the terminal
     blackbox-terminal # encrypted terminal sessions
@@ -147,5 +148,7 @@
     # thunderbird # email client
 
   ];
+
+  programs.wshowkeys.enable = true;
 
 }

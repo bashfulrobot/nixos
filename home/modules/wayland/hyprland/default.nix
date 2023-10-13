@@ -82,6 +82,9 @@
         # key_press_enables_dpms = true
     }
 
+    # swayidle
+    exec-once = swayidle -w
+
     # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
     # Execute your favorite apps at launch
@@ -119,7 +122,8 @@
         gaps_in = 5
         gaps_out = 20
         border_size = 2
-        col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+        # col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+        col.active_border = rgba(e0abc4ff) rgba(d3869bff) 45deg
         col.inactive_border = rgba(595959aa)
 
         layout = dwindle
@@ -195,6 +199,13 @@
     bind = $mainMod, E, exec, nautilus
     bind = $mainMod, V, togglefloating,
     bind = $mainMod, R, exec, rofi -combi-modi drun,run -show combi
+    bind = $mainMod, space, exec, rofi -combi-modi drun,run -show combi
+    # windows key only to launch menu
+    bindr = SUPER, SUPER_L, exec, rofi -combi-modi drun,run -show combi
+    # Lock screen
+    bind = $mainMod, L, exec, bash /etc/profiles/per-user/dustin/bin/lockman
+    # Screenshots
+    bind = CONTROLALT, P, exec grim -g "$(slurp)" - | swappy -f -
     bind = $mainMod, P, pseudo, # dwindle
     bind = $mainMod, J, togglesplit, # dwindle
 

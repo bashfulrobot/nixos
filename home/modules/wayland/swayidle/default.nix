@@ -14,7 +14,7 @@ in {
       }
       {
         timeout = 60;
-        command = "swaymsg 'output * dpms off'";
+        command = "hyprctl dispatch dpms off";
       }
     ];
 
@@ -25,7 +25,7 @@ in {
       }
       {
         event = "after-resume";
-        command = "swaymsg 'output * dpms on'";
+        command = "hyprctl dispatch dpms on";
       }
     ];
   };

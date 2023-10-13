@@ -67,6 +67,34 @@
         color: #d4be98;
       }
 
+      #workspaces {
+
+        border-radius: 0px;
+        border: solid 0px #fff;
+
+      }
+
+      #workspaces button.persistent {
+          color: #3c3836;
+      }
+
+      #workspaces button {
+          border-radius: 0px;
+          color: #fff;
+          text-shadow: 0px 0px 3px #fff;
+      }
+
+      #workspaces button.active {
+        background-color: #e0abc4;
+        color: #32302f;
+
+      }
+
+      #workspaces button:hover {
+        background-color: transparent;
+        color: #e0abc4;
+      }
+
         * {
           ${
             if osConfig.networking.hostName == "dustin-krysak" then ''
@@ -78,6 +106,7 @@
         }
 
         /* Each module */
+        #workspaces,
         #pulseaudio,
         #network,
         #bluetooth,
@@ -176,6 +205,26 @@
         format = "{temperatureC}°C {icon}";
         format-icons = [ "" "" "" ];
       };
+      "hyprland/workspaces" = {
+        disable-scroll = false;
+        on-scroll-up = "hyprctl dispatch workspace -1";
+        on-scroll-down = "hyprctl dispatch workspace +1";
+        # format = "{icon}";
+        # format-icons = [ ];
+        # "1": "一",
+        # "2": "二",
+        # "3": "三",
+        # "4": "四",
+        # "5": "五",
+        # "6": "六",
+        # "7": "七",
+        # "8": "八",
+        # "9": "九",
+        # "10": "〇",
+        # //		"active": "",
+        # //		"default": "󰧞"
+      };
+
     }];
   };
 }
