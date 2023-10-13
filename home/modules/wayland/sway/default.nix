@@ -1,11 +1,12 @@
 { pkgs, config, inputs, ... }: {
 
   imports = [
-    ./mako
-    ./rofi
-    ./swappy
-    ./swayidle
-    ./waybar
+    # ./mako
+    # ./rofi
+    # ./swappy
+    # ./swayidle
+    # ./waybar
+
     # ./wpaperd
     # ./sway-alttab
   ];

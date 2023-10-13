@@ -7,8 +7,8 @@
     ./insecure-packages
     ./nix-settings
     ./pkgs
-    ./sway
     ./virtualization
+    ./wayland
   ];
 
   # Enable networking

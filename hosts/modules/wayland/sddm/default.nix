@@ -177,6 +177,11 @@ let
   };
 
 in {
+
+  # install deps
+  imports = [ ./pkgdeps.nix ];
+
+  # themes
   environment.systemPackages = packages;
 
   services.xserver = {

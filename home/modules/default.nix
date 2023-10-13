@@ -21,10 +21,10 @@
     ./scripts
     ./ssh
     ./starship
-    ./sway
     ./terminal
     ./theme
     ./virter
+    ./wayland
     ./web-apps
     ./yazi
   ];

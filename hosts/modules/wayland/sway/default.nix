@@ -47,8 +47,6 @@ let
 
 in {
 
-  imports = [ ./sddm ];
-
   environment.systemPackages = with pkgs;
     [
       alacritty # gpu accelerated terminal
@@ -57,8 +55,6 @@ in {
       wayland
       xdg-utils # for opening default programs when clicking links
       glib # gsettings
-      libsForQt5.qt5.qtquickcontrols2 # sddm theme
-      libsForQt5.qt5.qtgraphicaleffects # sddm theme
       gnome3.adwaita-icon-theme # default gnome cursors
       # swaylock
       swaylock-effects # swaylock fork
@@ -83,7 +79,6 @@ in {
       playerctl # media keys
       gnome.gnome-keyring # keyring
       swayr # window switcher
-      crudini # Used when building the SDDM themes - edit INI files in place
     ] ++ laptopPackages;
 
   # Used for keyring in sway
@@ -123,8 +118,6 @@ in {
     enable = true;
     layout = "us";
     xkbVariant = "";
-    # sddm settings imported
-
   };
 
   # Hardware Support for Wayland Sway

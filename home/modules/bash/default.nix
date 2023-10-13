@@ -26,6 +26,7 @@ in {
       "..." = "cd ../..";
       "...." = "cd ../../..";
       "....." = "cd ../../../..";
+      instruqt = "/home/dustin/dev/sysdig/workshops/bin/instruqt";
       y = "cd ~/; yazi";
       ny = "cd ~/dev/nix/nixos/; yazi";
       n = "cd ~/dev/nix/nixos/; nvim";
