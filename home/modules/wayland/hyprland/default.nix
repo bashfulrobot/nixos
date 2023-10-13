@@ -205,7 +205,7 @@
     # Lock screen
     bind = $mainMod, L, exec, bash /etc/profiles/per-user/dustin/bin/lockman
     # Screenshots
-    bind = CONTROLALT, P, exec grim -g "$(slurp)" - | swappy -f -
+    bind = CONTROLALT, P, exec, grim -g "$(slurp)" - | swappy -f -
     bind = $mainMod, P, pseudo, # dwindle
     bind = $mainMod, J, togglesplit, # dwindle
 
