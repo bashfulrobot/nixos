@@ -104,7 +104,7 @@
       position = "top";
       tray = { spacing = 20; };
       #modules-center = [ "sway/window" ];
-      modules-left = [ "sway/workspaces" "sway/mode" ];
+      modules-left = [ "sway/workspaces" "sway/mode" "hyprland/workspaces" ];
       modules-right =
         [ "pulseaudio" "network" "bluetooth" "cpu" "memory" "temperature" ]
         ++ (if osConfig.networking.hostName == "dustin-krysak" then
