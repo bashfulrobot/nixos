@@ -116,7 +116,7 @@
         kb_options =
         kb_rules =
 
-        follow_mouse = 1
+        follow_mouse = 2
 
         touchpad {
             natural_scroll = no
@@ -213,6 +213,10 @@
     bindr = SUPER, SUPER_L, exec, rofi -combi-modi drun,run -show combi
     # Lock screen
     bind = $mainMod, L, exec, bash /etc/profiles/per-user/dustin/bin/lockman
+    # Fullscreen
+    bind = $mainMod, F, fullscreen
+    # Maximize
+    bind = SUPER_SHIFT, F, fullscreen, 1
     # Screenshots
     bind = CONTROLALT, P, exec, grim -g "$(slurp)" - | swappy -f -
     bind = $mainMod, P, pseudo, # dwindle
