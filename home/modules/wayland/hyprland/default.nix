@@ -64,6 +64,8 @@
     #
     # last is scaling. Set to 1
     monitor=,highres,auto,1
+    # Mirror monitor below. Get details with `hyprctl monitors`
+    # monitor=HDMI-A-1,1920x1200@60,0x0,1,mirror,eDP-1
 
     # unscale XWayland
     xwayland {
