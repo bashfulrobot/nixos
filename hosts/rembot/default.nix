@@ -4,6 +4,7 @@
   imports = [ # Include the results of the hardware scan.
     ./amdgpu.nix
     ./boot.nix
+    ./firewall.nix
     ./video.nix
     ./hardware-configuration.nix
     ../modules
