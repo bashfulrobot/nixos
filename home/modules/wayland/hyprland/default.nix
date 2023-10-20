@@ -131,7 +131,7 @@
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
         gaps_in = 5
-        gaps_out = 20
+        gaps_out = 15
         border_size = 2
         # col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
         col.active_border = rgba(e0abc4ff) rgba(d3869bff) 45deg

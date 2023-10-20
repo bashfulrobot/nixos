@@ -5,8 +5,122 @@
     enable = true;
     systemd.enable = true;
     style = ''
-      ${builtins.readFile "${pkgs.waybar}/etc/xdg/waybar/style.css"}
-      ${builtins.readFile ./waybar.css}
+        ${builtins.readFile "${pkgs.waybar}/etc/xdg/waybar/style.css"}
+
+        window#waybar {
+        /* Using Gruvbox bg2 for background with 70% transparency */
+        background-color:rgba(80, 73, 69, 0.85);
+        border-bottom: none;
+      }
+
+      #pulseaudio {
+        /* Using Gruvbox green1 for background and bg for color */
+        background-color: #afbe8c;
+        color: #32302f;
+      }
+
+      #network {
+        /* Using Gruvbox green for background and bg for color */
+        background-color: #a9b665;
+        color: #32302f;
+      }
+
+      #bluetooth {
+        /* Using Gruvbox bg for background and green1 for color */
+        background-color: #32302f;
+        color: #afbe8c;
+      }
+
+      #cpu {
+        /* Using Gruvbox blue for background and bg for color */
+        background-color: #7daea3;
+        color: #32302f;
+      }
+
+      #memory {
+        /* Using Gruvbox orange for background and bg for color */
+        background-color: #e78a4e;
+        color: #32302f;
+      }
+
+      #temperature {
+        /* Using Gruvbox green1 for background and bg for color */
+        background-color: #afbe8c;
+        color: #32302f;
+      }
+
+      #battery {
+        /* Using Gruvbox green for background and bg for color */
+        background-color: #a9b665;
+        color: #32302f;
+      }
+
+      #clock {
+        /* Using Gruvbox bg1 for background and fg for color */
+        background-color: #3c3836;
+        color: #d4be98;
+      }
+
+      #tray {
+        /* Using Gruvbox bg for background and fg for color */
+        background-color: #32302f;
+        color: #d4be98;
+      }
+
+      #workspaces {
+
+        border-radius: 0px;
+        border: solid 0px #fff;
+
+      }
+
+      #workspaces button.persistent {
+          color: #3c3836;
+      }
+
+      #workspaces button {
+          border-radius: 0px;
+          color: #fff;
+          text-shadow: 0px 0px 3px #fff;
+      }
+
+      #workspaces button.active {
+        background-color: #e0abc4;
+        color: #32302f;
+
+      }
+
+      #workspaces button:hover {
+        background-color: transparent;
+        color: #e0abc4;
+      }
+
+        * {
+          ${
+            if osConfig.networking.hostName == "dustin-krysak" then ''
+              font-size: 16px;
+            '' else ''
+              /*else*/
+            ''
+          }
+        }
+
+        /* Each module */
+        #workspaces,
+        #pulseaudio,
+        #network,
+        #bluetooth,
+        #cpu,
+        #memory,
+        #temperature,
+        #battery,
+        #clock,
+        #tray {
+          background-color: #000;
+          border-radius: 4px;
+          margin: 6px 3px;
+          padding: 6px 12px;
+        }
     '';
     settings = [{
       height = 20;
