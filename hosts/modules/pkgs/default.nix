@@ -51,6 +51,7 @@
     ntfy # shell notification tool
 
     ### Dev
+    ngrok
     pkg-config # allows packages to find out information about other packages
     codespelunker # code exploration tool
     httpie # HTTP client
@@ -89,6 +90,7 @@
     comma # Nix command wrapper
 
     ### Cloud
+    vagrant # lab automation
     cdrtools # mkisofs needed for cloud-init
     butane # flatcar/ignition configuration
     cloud-utils # cloud management utilities
@@ -125,7 +127,7 @@
     #spot # Native Spotify client
     appimage-run # Run AppImages
     wl-color-picker # Wayland color picker
-    # zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
+    #zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
     #tootle # Mastodon client
     morgen # AI calendar - testing
     #kooha # screen recording
