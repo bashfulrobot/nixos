@@ -14,6 +14,10 @@
       onBoot = "start";
       onShutdown = "suspend";
     };
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
 
   };
 
