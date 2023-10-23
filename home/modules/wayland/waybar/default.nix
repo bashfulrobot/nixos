@@ -11,16 +11,34 @@
     settings = [{
       height = 20;
       layer = "top";
-      position = "top";
+      position = "bottom";
+      margin-top = 0;
+      margin-bottom = 0;
       tray = { spacing = 20; };
-      #modules-center = [ "sway/window" ];
+      modules-center = [ "mpris" ];
       modules-left = [ "sway/workspaces" "sway/mode" "hyprland/workspaces" ];
-      modules-right =
-        [ "pulseaudio" "network" "bluetooth" "cpu" "memory" "temperature" ]
+      modules-right = [
+        # "wlr/taskbar"
+        "pulseaudio"
+        "bluetooth"
+        "network"
+      ]
+      # [ "pulseaudio" "network" "bluetooth" "cpu" "memory" "temperature" ]
         ++ (if osConfig.networking.hostName == "dustin-krysak" then
           [ "battery" ]
         else
-          [ ]) ++ [ "clock" "tray" ];
+          [ ]) ++ [ "tray" "clock" ];
+      # [ "clock" "tray" ];
+      "mpris" = {
+        "format" = " {player_icon} {dynamic}";
+        "format-paused" = "{status_icon} <i>{dynamic}</i>";
+        "player-icons" = {
+          "default" = "▶";
+          "mpv" = "🎵";
+        };
+        "status-icons" = { "paused" = "⏸"; };
+        "max-length" = 20;
+      };
       battery = {
         format = "{capacity}% {icon}";
         format-alt = "{time} {icon}";
@@ -105,6 +123,41 @@
         # //		"active": "",
         # //		"default": "󰧞"
       };
+
+      # "group/group-power" = {
+      #   orientation = "inherit";
+      #   # drawer = {
+      #   #   "transition-duration" = 500;
+      #   #   "children-class" = "not-power";
+      #   #   "transition-left-to-right" = false;
+      #   # };
+      #   modules = [
+      #     "custom/power" // First element is the "group leader" and won't ever be hidden
+      #     "custom/quit"
+      #     "custom/lock"
+      #     "custom/reboot"
+      #   ];
+      # };
+      # "custom/quit" = {
+      #   format = "󰗼";
+      #   tooltip = false;
+      #   "on-click" = "hyprctl dispatch exit";
+      # };
+      # "custom/lock" = {
+      #   format = "󰍁";
+      #   tooltip = false;
+      #   "on-click" = "swaylock";
+      # };
+      # "custom/reboot" = {
+      #   format = "󰜉";
+      #   tooltip = false;
+      #   "on-click" = "reboot";
+      # };
+      # "custom/power" = {
+      #   format = "";
+      #   tooltip = false;
+      #   "on-click" = "shutdown now";
+      # };
 
     }];
   };
