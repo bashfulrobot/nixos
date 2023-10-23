@@ -50,6 +50,7 @@ in {
   environment.systemPackages = with pkgs;
     [
       alacritty # gpu accelerated terminal
+      ironbar # hyprland waybar alt
       dbus-sway-environment
       configure-gtk
       wayland
