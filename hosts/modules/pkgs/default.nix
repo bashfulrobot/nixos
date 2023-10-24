@@ -65,7 +65,6 @@
     nodejs-18_x # JavaScript runtime
     # postman # API testing tool
     vscode # code editor
-    jetbrains-toolbox # jetbrains editors
     sublime4 # code editor
     sublime-merge # GUI Git Client
     microsoft-edge # Browser
