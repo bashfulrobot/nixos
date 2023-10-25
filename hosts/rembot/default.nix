@@ -11,6 +11,7 @@
     ./steam.nix
     ../modules/syncthing/rembot.nix
     ../modules/syncthing/common.nix
+    ../modules/hosts
 
   ];
 

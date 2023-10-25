@@ -13,6 +13,7 @@
     ./software.nix
     ./services.nix
     ./syncthing.nix
+    ../modules/hosts
   ];
 
   # Enable flakes and nix commands
