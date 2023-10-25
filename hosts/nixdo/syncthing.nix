@@ -45,7 +45,7 @@
             "ZHSE4N7-IBYDJLI-XZE7VSC-RE7LMKE-JYVTAPT-XIEGEQ4-I64EPDE-AJQRNAJ";
         };
         "dustin-krysak" = {
-          addresses = [ "tcp://100.89.22.75:22000" ];
+          addresses = [ "tcp://100.90.174.2:22000" ];
           id =
             "YIQDEHY-QM44YI5-4KP2ZJ5-3FEUIXF-5DVHZVV-VOSZGXH-QCZFLBJ-FKAK2AA";
         };
