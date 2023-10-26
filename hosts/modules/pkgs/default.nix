@@ -133,6 +133,7 @@
     morgen # AI calendar - testing
     #kooha # screen recording
     protonvpn-gui # VPN client
+    kooha # Screen recorder for x11/Wayland
     _1password-gui # password management GUI
     #bookworm # ePub reader
     obsidian # note-taking app
