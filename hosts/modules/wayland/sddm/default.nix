@@ -33,7 +33,8 @@ let
   customTheme = builtins.isAttrs theme;
 
   # Set your theme here.
-  theme = themes.abstractdark;
+  #theme = themes.abstractdark;
+  theme = themes.deepin;
   # theme = "breeze";
 
   themeName = if customTheme then theme.pkg.name else theme;
