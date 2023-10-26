@@ -126,6 +126,7 @@
     libreoffice # office suite
     solaar # Linux manager for many Logitech keyboards, mice
     #spot # Native Spotify client
+    mplayer # Video player
     appimage-run # Run AppImages
     wl-color-picker # Wayland color picker
     #zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
