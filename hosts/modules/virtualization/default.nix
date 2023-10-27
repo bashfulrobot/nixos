@@ -18,13 +18,13 @@
     #   enable = true;
     #   enableExtensionPack = true;
     # };
-    lxd = {
-      enable = true;
-      # ui = {
-      #   enable = true;
-      #   package = pkgs.unstable.lxd-unwrapped.ui;
-      # };
-    };
+    # lxd = {
+    #   enable = true;
+    # ui = {
+    #   enable = true;
+    #   package = pkgs.unstable.lxd-unwrapped.ui;
+    # };
+    # };
 
   };
 
