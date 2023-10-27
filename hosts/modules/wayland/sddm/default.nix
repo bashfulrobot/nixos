@@ -34,7 +34,7 @@ let
 
   # Set your theme here.
   #theme = themes.abstractdark;
-  theme = themes.deepin;
+  theme = themes.sugar-dark;
   # theme = "breeze";
 
   themeName = if customTheme then theme.pkg.name else theme;
