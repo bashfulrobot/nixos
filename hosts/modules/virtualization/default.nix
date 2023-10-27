@@ -20,10 +20,10 @@
     # };
     lxd = {
       enable = true;
-      ui = {
-        enable = true;
-        package = pkgs.unstable.lxd-unwrapped.ui;
-      };
+      # ui = {
+      #   enable = true;
+      #   package = pkgs.unstable.lxd-unwrapped.ui;
+      # };
     };
 
   };
