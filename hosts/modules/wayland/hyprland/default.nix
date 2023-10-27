@@ -22,6 +22,7 @@ in {
       # swaylock
       swaylock-effects # swaylock fork
       swayidle
+      hyprpaper # Set background Image
       grim # screenshot functionality
       slurp # screenshot functionality
       swappy # Screenshot editor

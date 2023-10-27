@@ -27,6 +27,16 @@
 
       nixosConfigurations = {
 
+        # NOT IN USE
+        # Look here on how to impliment. https://github.com/willswats/nixos-config/blob/d1743bc64404b5bbd4694b3a85fa27659c4ac702/flake.nix
+
+        # Global Variables - TO USE
+        # globals = {
+        #   user = user;
+        #   homeDir = homeDir;
+        #   wallpaper = ./wallpapers/minimal-desert.png;
+        # };
+
         # dustin-krysak = work laptop hostname
         dustin-krysak = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
