@@ -77,6 +77,9 @@ in {
       " Save and exit key mapping for Ctrl-X
       nnoremap <C-X> :wq<CR>
 
+      " Map "gcc" for comments to my preferred Ctrl-L
+      nnoremap <C-L> gcc
+
       " color scheme
       colorscheme gruvbox
     '';
