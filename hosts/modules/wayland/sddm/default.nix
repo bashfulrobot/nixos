@@ -56,7 +56,7 @@ let
         themeIni = [{
           section = "General";
           key = "background";
-          value = ./bg/background.png;
+          value = ./bg/kraken-transparent.png;
         }];
       };
       deps = with pkgs; [ qt5.qtmultimedia ];
@@ -75,7 +75,7 @@ let
         themeIni = [{
           section = "General";
           key = "background";
-          value = ./bg/background.png;
+          value = ./bg/kraken-transparent.png;
         }];
       };
       deps = with pkgs; [ ];
@@ -94,7 +94,7 @@ let
         themeIni = [{
           section = "General";
           key = "background";
-          value = ./bg/background.png;
+          value = ./bg/kraken-transparent.png;
         }];
       };
       deps = with pkgs; [ ];
@@ -113,7 +113,7 @@ let
         themeIni = [{
           section = "General";
           key = "background";
-          value = ./bg/background.png;
+          value = ./bg/kraken-transparent.png;
         }];
       };
       deps = with pkgs; [ ];
@@ -132,7 +132,7 @@ let
         themeIni = [{
           section = "General";
           key = "background";
-          value = ./bg/background.png;
+          value = ./bg/kraken-transparent.png;
         }];
       };
       deps = with pkgs; [ noto-fonts ];
@@ -151,7 +151,7 @@ let
         themeIni = [{
           section = "General";
           key = "background";
-          value = ./bg/background.png;
+          value = ./bg/kraken-transparent.png;
         }];
       };
       deps = with pkgs; [ font-awesome ];
@@ -170,7 +170,7 @@ let
         themeIni = [{
           section = "General";
           key = "background";
-          value = ./bg/background.png;
+          value = ./bg/kraken-transparent.png;
         }];
       };
       deps = with pkgs; [ ];

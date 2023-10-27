@@ -1,5 +1,5 @@
 { config, inputs, pkgs, ... }: {
 
-  imports = [ ./hyprland ./sddm ./sway ];
+  imports = [ ./hyprland ./sddm ];
 
 }

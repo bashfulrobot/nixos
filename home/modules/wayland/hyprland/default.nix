@@ -206,7 +206,7 @@
     # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
     bind = $mainMod, T, exec, alacritty
     bind = $mainMod, Q, killactive,
-    bind = $mainMod, M, exit,
+    bind = SUPER_SHIFT, M, exit,
     bind = $mainMod, E, exec, nautilus
     bind = $mainMod, V, togglefloating,
     bind = $mainMod, R, exec, rofi -combi-modi drun,run -show combi
@@ -224,8 +224,11 @@
     bind = $mainMod, P, pseudo, # dwindle
     bind = $mainMod, J, togglesplit, # dwindle
 
-    # Custom
+    # Toggle waybar visibility
     bind = $mainMod, o, exec, killall -SIGUSR1 .waybar-wrapped
+
+    # emulate alt-tab
+    bind = ALT, Tab, exec, rofi -show window
 
     # Move focus with mainMod + arrow keys
     bind = $mainMod, left, movefocus, l
