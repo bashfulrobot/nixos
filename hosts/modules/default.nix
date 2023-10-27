@@ -38,6 +38,7 @@
       "libvirtd"
       "users"
       "video"
+      "lxd"
     ];
     packages = with pkgs; [ ];
   };
