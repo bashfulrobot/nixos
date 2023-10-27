@@ -13,6 +13,8 @@ let
 
   # nix-prefetch-github numToStr Comment.nvim
 
+  # with visual, use "gc", with numbers , "gcc". Ie "4gcc" to comment 4 lines
+
   comment-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "comment-nvim";
     src = pkgs.fetchFromGitHub {
@@ -78,7 +80,7 @@ in {
       nnoremap <C-X> :wq<CR>
 
       " Map "gcc" for comments to my preferred Ctrl-L
-      nnoremap <C-L> gcc
+      nnoremap <C-L> gc<CR>
 
       " color scheme
       colorscheme gruvbox
