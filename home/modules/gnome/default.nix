@@ -31,7 +31,7 @@ with lib.hm.gvariant;
       two-finger-scrolling-enabled = true;
     };
 
-    "org/gnome/desktop/peripherals/mouse" = { natural-scroll = true; };
+    "org/gnome/desktop/peripherals/mouse" = { natural-scroll = false; };
 
     "org/gnome/settings-daemon/plugins/color" = { night-light-enabled = true; };
 
@@ -42,7 +42,11 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/user-theme" = { name = "Yaru-blue-dark"; };
 
-    "org/gnome/desktop/wm/keybindings" = { close = [ "<Super>q" ]; };
+    "org/gnome/desktop/wm/keybindings" = {
+      close = "['<Super>q']";
+      switch-applications = "['<Alt>Tab']";
+      switch-applications-backward = "['<Shift><Alt>Tab']";
+    };
 
     "org/gnome/Console" = {
       theme = "auto";
