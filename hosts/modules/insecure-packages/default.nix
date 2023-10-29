@@ -1,4 +1,5 @@
 {
   nixpkgs.config.permittedInsecurePackages =
-    [ "electron-21.4.0" "openssl-1.1.1v" "openssl-1.1.1w" ];
+    [ "electron-22.3.27" "electron-24.8.6" "openssl-1.1.1v" "openssl-1.1.1w" ];
+
 }
