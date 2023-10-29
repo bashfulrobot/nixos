@@ -36,6 +36,14 @@
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks # Gnome Tweaks
+    # Gnome Extensions
+    gnomeExtensions.user-themes
+    gnomeExtensions.bluetooth-quick-connect
+    gnomeExtensions.just-perfection
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.easyScreenCast
+    gnomeExtensions.forge
+
   ];
 
 }
