@@ -44,5 +44,23 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/wm/keybindings" = { close = [ "<Super>q" ]; };
 
+    "org/gnome/Console" = {
+      theme = "auto";
+      font-scale = 1.5;
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      ];
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
+      {
+        binding = "<Super>t";
+        command = "kgx";
+        name = "Terminal";
+      };
+
   };
 }
