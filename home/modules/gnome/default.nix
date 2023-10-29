@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 with lib.hm.gvariant;
 
@@ -62,5 +62,10 @@ with lib.hm.gvariant;
         name = "Terminal";
       };
 
+  };
+
+  home.file.".face" = {
+    source = ./.face;
+    target = ".face";
   };
 }
