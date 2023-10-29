@@ -143,6 +143,7 @@
     #droidcam # use iPhone as a camera input
     #onthespot # Spotify client
     gruvbox-dark-gtk # theme
+    yaru-theme # gtk theme
     gruvbox-gtk-theme # theme
     gruvbox-dark-icons-gtk # theme icons
     epiphany # gnome web

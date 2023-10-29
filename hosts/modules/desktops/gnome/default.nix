@@ -34,4 +34,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    gnome.gnome-tweaks # Gnome Tweaks
+  ];
+
 }

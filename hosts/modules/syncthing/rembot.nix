@@ -19,9 +19,9 @@
       devices = {
 
         "dustin-krysak" = {
-          addresses = [ "tcp://100.90.174.2:22000" ];
+          addresses = [ "tcp://100.124.99.18:22000" ];
           id =
-            "YIQDEHY-QM44YI5-4KP2ZJ5-3FEUIXF-5DVHZVV-VOSZGXH-QCZFLBJ-FKAK2AA";
+            "WZRTON7-M3U5XFL-5LEZR6P-NOA7CAO-S2VIUMU-25NXPX4-AQXHXGA-IBFO2QJ";
         };
         "nixdo" = {
           # tailscale only
