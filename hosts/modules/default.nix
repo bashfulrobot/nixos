@@ -8,7 +8,6 @@
     ./nix-settings
     ./pkgs
     ./virtualization
-    ./wayland
   ];
 
   # Enable networking

@@ -8,6 +8,7 @@
     ./video.nix
     ./hardware-configuration.nix
     ../modules
+    ../modules/desktops/wayland
     ./steam.nix
     ../modules/syncthing/rembot.nix
     ../modules/syncthing/common.nix

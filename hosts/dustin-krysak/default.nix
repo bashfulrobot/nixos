@@ -8,6 +8,7 @@
     ../modules/syncthing/dustin-krysak.nix
     ../modules/syncthing/common.nix
     ../modules/hosts
+    ../modules/desktops/gnome
   ];
 
   networking.hostName = "dustin-krysak"; # Define your hostname.
