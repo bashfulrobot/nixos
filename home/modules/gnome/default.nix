@@ -42,7 +42,7 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/user-theme" = { name = "Yaru-blue-dark"; };
 
-    "org/gnome/desktop/wm/keybindings" = { close = "['<Super>q']"; };
+    "org/gnome/desktop/wm/keybindings" = { close = [ "<Super>q" ]; };
 
   };
 }
