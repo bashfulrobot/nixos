@@ -4,13 +4,10 @@
   home.username = "dustin";
   home.homeDirectory = "/home/dustin";
 
-  imports = [ ../modules ../modules/wayland ];
+  imports = [ ../modules ../modules/gnome ];
 
   fonts.fontconfig.enable = true;
-  # Enable network Manager applet
-  services.network-manager-applet.enable = true;
-  # Enable pasystray applet
-  services.pasystray.enable = true;
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
