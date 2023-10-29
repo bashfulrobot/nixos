@@ -22,9 +22,7 @@
     ./ssh
     ./starship
     ./terminal
-    ./theme
     ./virter
-    ./wayland
     ./web-apps
     ./yazi
   ];

@@ -4,7 +4,7 @@
   home.username = "dustin";
   home.homeDirectory = "/home/dustin";
 
-  imports = [ ../modules ];
+  imports = [ ../modules ../modules/wayland ];
 
   fonts.fontconfig.enable = true;
   # Enable network Manager applet
