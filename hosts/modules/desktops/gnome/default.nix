@@ -41,7 +41,6 @@
     gnomeExtensions.bluetooth-quick-connect
     gnomeExtensions.just-perfection
     gnomeExtensions.blur-my-shell
-    gnomeExtensions.easyScreenCast
     gnomeExtensions.forge
 
   ];
