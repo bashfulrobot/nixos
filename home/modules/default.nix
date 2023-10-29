@@ -1,7 +1,7 @@
 { config, inputs, pkgs, ... }: {
 
   imports = [
-    ./alacritty
+    # ./alacritty
     ./bash
     ./chromium
     ./desktop-files/tower.nix
