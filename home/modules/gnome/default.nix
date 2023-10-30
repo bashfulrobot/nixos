@@ -11,10 +11,12 @@ with lib.hm.gvariant;
       enable-animations = true;
       font-antialiasing = "rgba";
       font-hinting = "full";
-      gtk-theme = "Yaru-blue-dark";
+      gtk-theme = "Pop-dark";
       icon-theme = "Yaru-bark-dark";
       locate-pointer = true;
     };
+
+    "org/gnome/desktop/sound" = { theme-name = "Pop"; };
 
     "org/gnome/shell/extensions/unite" = {
       desktop-name-text = "rembot";
@@ -51,15 +53,26 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/background" = {
       picture-uri =
-        "file:///home/dustin/Pictures/bluefin/WallPaper_SpringNight_Post.webp";
+        "file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.webp";
+      color-shading-type = "solid";
+      picture-options = "zoom";
+      primary-color = "#77767B";
+      secondary-color = "#000000";
     };
 
     "org/gnome/desktop/screensaver" = {
       picture-uri =
-        "file:///home/dustin/Pictures/bluefin/WallPaper_AutumnNight_Post.webp";
+        "file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.webp";
+      color-shading-type = "solid";
+      picture-options = "zoom";
+      primary-color = "#77767B";
+      secondary-color = "#000000";
     };
 
-    "org/gnome/mutter" = { center-new-windows = true; };
+    "org/gnome/mutter" = {
+      center-new-windows = true;
+      edge-tiling = false; # for pop-shell
+    };
 
     "org/gnome/desktop/peripherals/touchpad" = {
       two-finger-scrolling-enabled = true;
@@ -74,6 +87,16 @@ with lib.hm.gvariant;
       tray-pos = "right";
     };
 
+    "org/gnome/shell/extensions/pop-shell" = {
+      active-hint = true;
+      active-hint-border-radius = mkUint32 4;
+      fullscreen-launcher = true;
+      mouse-cursor-follows-active-window = false;
+      show-title = true;
+      smart-gaps = true;
+      tile-by-default = true;
+    };
+
     "org/gnome/shell" = {
       enabled-extensions = [
         "quick-settings-audio-panel@rayzeq.github.io"
@@ -83,11 +106,12 @@ with lib.hm.gvariant;
         "blur-my-shell@aunetx"
         "just-perfection-desktop@just-perfection"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "forge@jmmaranan.com"
+        # "forge@jmmaranan.com"
+        "pop-shell@system76.com"
       ];
     };
 
-    "org/gnome/shell/extensions/user-theme" = { name = "Yaru-blue-dark"; };
+    "org/gnome/shell/extensions/user-theme" = { name = "Pop"; };
 
     "org/gnome/shell/extensions/quick-settings-audio-panel" = {
       always-show-input-slider = true;

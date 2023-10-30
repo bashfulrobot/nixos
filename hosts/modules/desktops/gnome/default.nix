@@ -41,7 +41,8 @@
     gnomeExtensions.bluetooth-quick-connect
     gnomeExtensions.just-perfection
     gnomeExtensions.blur-my-shell
-    gnomeExtensions.forge
+    # gnomeExtensions.forge
+    gnomeExtensions.pop-shell
     gnomeExtensions.appindicator
 
   ];
