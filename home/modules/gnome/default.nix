@@ -53,7 +53,9 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/background" = {
       picture-uri =
-        "file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.webp";
+        "file:///home/dustin/Pictures/Wallpapers/pop/nick-nazzaro-desert.png";
+      picture-uri-dark =
+        "file:///home/dustin/Pictures/Wallpapers/pop/nick-nazzaro-desert.png";
       color-shading-type = "solid";
       picture-options = "zoom";
       primary-color = "#77767B";
@@ -62,7 +64,7 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/screensaver" = {
       picture-uri =
-        "file:///run/current-system/sw/share/backgrounds/gnome/vnc-l.webp";
+        "file:///home/dustin/Pictures/Wallpapers/pop/nick-nazzaro-jungle-red.png";
       color-shading-type = "solid";
       picture-options = "zoom";
       primary-color = "#77767B";
