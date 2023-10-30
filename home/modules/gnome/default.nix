@@ -130,6 +130,7 @@ with lib.hm.gvariant;
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
       ];
     };
 
@@ -138,6 +139,13 @@ with lib.hm.gvariant;
         binding = "<Super>t";
         command = "kgx";
         name = "Terminal";
+      };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
+      {
+        binding = "<Control><Alt>p";
+        command = "flameshot gui";
+        name = "Flameshot";
       };
 
   };
