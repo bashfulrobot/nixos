@@ -17,14 +17,16 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/unite" = {
+      desktop-name-text = "rembot";
       enable-titlebar-actions = true;
+      extend-left-box = false;
       greyscale-tray-icons = true;
       hide-activities-button = "always";
       hide-app-menu-icon = true;
       hide-dropdown-arrows = true;
       hide-window-titlebars = "maximized";
       notifications-position = "right";
-      reduce-panel-spacing = true;
+      reduce-panel-spacing = false;
       show-desktop-name = false;
       show-legacy-tray = true;
       show-window-buttons = "maximized";
@@ -34,6 +36,17 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/bluetooth-quick-connect" = {
       bluetooth-auto-power-on = true;
+      refresh-button-on = true;
+      show-battery-value-on = false;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell" = {
+      brightness = 0.7;
+      sigma = 35;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
+      compatibility = false;
     };
 
     "org/gnome/desktop/background" = {
@@ -56,14 +69,28 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/color" = { night-light-enabled = true; };
 
+    "org/gnome/shell/extensions/appindicator" = {
+      legacy-tray-enabled = true;
+      tray-pos = "right";
+    };
+
     "org/gnome/shell" = {
-      enabled-extensions =
-        "['quick-settings-audio-panel@rayzeq.github.io', 'unite@hardpixel.eu', 'appindicatorsupport@rgcjonas.gmail.com', 'bluetooth-quick-connect@bjarosze.gmail.com', 'blur-my-shell@aunetx', 'just-perfection-desktop@just-perfection', 'user-theme@gnome-shell-extensions.gcampax.github.com']";
+      enabled-extensions = [
+        "quick-settings-audio-panel@rayzeq.github.io"
+        "unite@hardpixel.eu"
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "bluetooth-quick-connect@bjarosze.gmail.com"
+        "blur-my-shell@aunetx"
+        "just-perfection-desktop@just-perfection"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "forge@jmmaranan.com"
+      ];
     };
 
     "org/gnome/shell/extensions/user-theme" = { name = "Yaru-blue-dark"; };
 
     "org/gnome/shell/extensions/quick-settings-audio-panel" = {
+      always-show-input-slider = true;
       media-control = "move";
       merge-panel = true;
       move-master-volume = true;
@@ -90,9 +117,9 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      close = "['<Super>q']";
-      switch-applications = "['<Alt>Tab']";
-      switch-applications-backward = "['<Shift><Alt>Tab']";
+      close = [ "<Super>q" ];
+      switch-applications = [ "<Alt>Tab" ];
+      switch-applications-backward = [ "<Shift><Alt>Tab" ];
     };
 
     "org/gnome/Console" = {
