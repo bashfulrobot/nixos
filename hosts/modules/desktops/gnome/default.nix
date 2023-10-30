@@ -42,6 +42,7 @@
     gnomeExtensions.just-perfection
     gnomeExtensions.blur-my-shell
     gnomeExtensions.forge
+    gnomeExtensions.appindicator
 
   ];
 
