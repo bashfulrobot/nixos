@@ -151,6 +151,7 @@ with lib.hm.gvariant;
       close = [ "<Super>q" ];
       switch-applications = [ "<Alt>Tab" ];
       switch-applications-backward = [ "<Shift><Alt>Tab" ];
+      toggle-fullscreen = [ "<Super>f" ];
     };
 
     "org/gnome/Console" = {
