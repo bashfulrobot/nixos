@@ -3,6 +3,12 @@
 with lib.hm.gvariant;
 
 {
+
+  home.file."dracula.png" = {
+    source = ./dracula.png;
+    target = ".local/share/backgrounds/dracula.png";
+  };
+
   dconf.settings = {
 
     "org/gnome/desktop/interface" = {
@@ -52,22 +58,20 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/background" = {
-      picture-uri =
-        "file:///home/dustin/Pictures/Wallpapers/pop/nick-nazzaro-desert.png";
+      picture-uri = "file:///home/dustin/.local/share/backgrounds/dracula.png";
       picture-uri-dark =
-        "file:///home/dustin/Pictures/Wallpapers/pop/nick-nazzaro-desert.png";
+        "file:///home/dustin/.local/share/backgrounds/dracula.png";
       color-shading-type = "solid";
       picture-options = "zoom";
-      primary-color = "#77767B";
+      primary-color = "#000000";
       secondary-color = "#000000";
     };
 
     "org/gnome/desktop/screensaver" = {
-      picture-uri =
-        "file:///home/dustin/Pictures/Wallpapers/pop/nick-nazzaro-jungle-red.png";
+      picture-uri = "file:///home/dustin/.local/share/backgrounds/dracula.png";
       color-shading-type = "solid";
       picture-options = "zoom";
-      primary-color = "#77767B";
+      primary-color = "#000000";
       secondary-color = "#000000";
     };
 
