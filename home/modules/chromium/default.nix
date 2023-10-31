@@ -32,6 +32,7 @@
       {
         id = "hkhggnncdpfibdhinjiegagmopldibha";
       } # Checker Plus for Google Calendar™
+      # { id = "gfapcejdoghpoidkfodoiiffaaibpaem"; } # Dracula theme, in case I can't do the pro
 
     ];
   };

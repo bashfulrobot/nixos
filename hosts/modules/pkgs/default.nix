@@ -148,6 +148,7 @@
     pop-gtk-theme # gtk theme
     gruvbox-gtk-theme # theme
     gruvbox-dark-icons-gtk # theme icons
+    colorpicker # colour picker
     epiphany # gnome web
 
     # Communication

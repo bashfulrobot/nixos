@@ -11,8 +11,8 @@ with lib.hm.gvariant;
       enable-animations = true;
       font-antialiasing = "rgba";
       font-hinting = "full";
-      gtk-theme = "Yaru-blue-dark";
-      icon-theme = "Yaru-blue-dark";
+      gtk-theme = "Dracula-gtk";
+      icon-theme = "Yaru-purple-dark";
       locate-pointer = true;
     };
 
@@ -97,6 +97,7 @@ with lib.hm.gvariant;
       show-title = true;
       smart-gaps = true;
       tile-by-default = true;
+      hint-color-rgba = "rgb(141,118,191)";
     };
 
     "org/gnome/shell" = {
@@ -113,7 +114,7 @@ with lib.hm.gvariant;
       ];
     };
 
-    "org/gnome/shell/extensions/user-theme" = { name = "Yaru-blue-dark"; };
+    "org/gnome/shell/extensions/user-theme" = { name = "Dracula-gtk"; };
 
     "org/gnome/shell/extensions/quick-settings-audio-panel" = {
       always-show-input-slider = true;
@@ -163,7 +164,8 @@ with lib.hm.gvariant;
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
       {
         binding = "<Super>t";
-        command = "kgx";
+        # command = "kgx";
+        command = "alacritty";
         name = "Terminal";
       };
 
