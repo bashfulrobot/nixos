@@ -25,7 +25,7 @@
           # tailscale only
           addresses = [ "tcp://100.69.151.20:22000" ];
           id =
-            "JYB4EDF-33276IS-BTPYWQ2-7E4P3NY-JW4JJLF-QOCCE3A-W6DWJ7H-6CI3AQU ";
+            "JYB4EDF-33276IS-BTPYWQ2-7E4P3NY-JW4JJLF-QOCCE3A-W6DWJ7H-6CI3AQU";
         };
       };
       folders = {
