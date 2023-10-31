@@ -118,7 +118,7 @@ with lib.hm.gvariant;
       ];
     };
 
-    "org/gnome/shell/extensions/user-theme" = { name = "Dracula-gtk"; };
+    "org/gnome/shell/extensions/user-theme" = { name = "dracula-gtk"; };
 
     "org/gnome/shell/extensions/quick-settings-audio-panel" = {
       always-show-input-slider = true;
