@@ -11,12 +11,12 @@ with lib.hm.gvariant;
       enable-animations = true;
       font-antialiasing = "rgba";
       font-hinting = "full";
-      gtk-theme = "Pop-dark";
-      icon-theme = "Yaru-bark-dark";
+      gtk-theme = "Yaru-blue-dark";
+      icon-theme = "Yaru-blue-dark";
       locate-pointer = true;
     };
 
-    "org/gnome/desktop/sound" = { theme-name = "Pop"; };
+    "org/gnome/desktop/sound" = { theme-name = "Yaru"; };
 
     "org/gnome/shell/extensions/unite" = {
       desktop-name-text = "rembot";
@@ -113,7 +113,7 @@ with lib.hm.gvariant;
       ];
     };
 
-    "org/gnome/shell/extensions/user-theme" = { name = "Pop"; };
+    "org/gnome/shell/extensions/user-theme" = { name = "Yaru-blue-dark"; };
 
     "org/gnome/shell/extensions/quick-settings-audio-panel" = {
       always-show-input-slider = true;
