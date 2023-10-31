@@ -17,7 +17,7 @@ with lib.hm.gvariant;
       enable-animations = true;
       font-antialiasing = "rgba";
       font-hinting = "full";
-      gtk-theme = "Dracula-gtk";
+      gtk-theme = "dracula-gtk";
       icon-theme = "Yaru-purple-dark";
       locate-pointer = true;
     };
