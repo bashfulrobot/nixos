@@ -57,6 +57,9 @@
   # Enable Espanso
   services.espanso.enable = true;
 
+  # Enable teamviewer
+  services.teamviewer.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
