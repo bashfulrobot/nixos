@@ -68,7 +68,8 @@
     sublime4 # code editor
     sublime-merge # GUI Git Client
     microsoft-edge # Browser
-    google-chrome # Browser - test zoom behavior
+    # google-chrome # Browser - test zoom behavior
+    teamviewer # remote support
 
     # Causes:error: Package ‘python-2.7.18.6’ in /nix/store/zb2695k9v4hmjdki97p0yhd4mys270fs-source/pkgs/development/interpreters/python/cpython/2.7/default.nix:330 is marked as insecure, refusing to evaluate.
     # oni2 # code editor
