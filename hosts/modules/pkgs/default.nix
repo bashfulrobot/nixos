@@ -51,6 +51,7 @@
     ntfy # shell notification tool
 
     ### Dev
+    bruno # API Tester
     ngrok
     pkg-config # allows packages to find out information about other packages
     codespelunker # code exploration tool
@@ -68,6 +69,7 @@
     sublime4 # code editor
     sublime-merge # GUI Git Client
     microsoft-edge # Browser
+    nheko # Matrix Client
     # google-chrome # Browser - test zoom behavior
     teamviewer # remote support
 
@@ -80,7 +82,8 @@
     bottom # system monitoring tool
     #lapce # editor written in Rust
     shell-genie # interact with the terminal in plain English
-
+    broot # Fuzzy finder
+    dysk # Mounted Disk Info
     ### Nix Toolswlpr
     # Nixd
     # https://github.com/nix-community/nixd/blob/main/docs/editor-setup.md
