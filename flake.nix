@@ -15,13 +15,9 @@
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
-    # Themes
-    nix-colors.url = "github:misterio77/nix-colors";
-
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, nur
-    , nix-colors, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, nur, ... }:
     let nixpkgsConfig = { overlays = [ ]; };
     in {
 
@@ -34,7 +30,6 @@
           modules = [
             ./hosts/dustin-krysak
             nur.nixosModules.nur
-            nix-colors.homeManagerModules.default
             nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
             home-manager.nixosModules.home-manager
             {
@@ -60,7 +55,6 @@
           modules = [
             ./hosts/rembot
             nur.nixosModules.nur
-            nix-colors.homeManagerModules.default
             nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
             home-manager.nixosModules.home-manager
             {
