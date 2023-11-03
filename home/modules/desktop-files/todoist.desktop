@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Todoist
+Comment=Task Mgmt Application
+Exec=appimage-run /home/dustin/Documents/appImages/Todoist-linux-x86_64-8.9.4.AppImage
+Icon=/home/dustin/dev/nix/nixos/home/modules/desktop-files/Todoist-Logo.png
+Categories=Network;InstantMessaging;
+Terminal=false

@@ -22,6 +22,11 @@
     target = ".local/share/applications/cursor.desktop";
   };
 
+  home.file."todoist.desktop" = {
+    source = ./todoist.desktop;
+    target = ".local/share/applications/todoist.desktop";
+  };
+
   # home.file."reboot.desktop" = {
   #   source = ./reboot.desktop;
   #   target = ".local/share/applications/reboot.desktop";
