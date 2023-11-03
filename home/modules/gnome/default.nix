@@ -24,6 +24,11 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/sound" = { theme-name = "Yaru"; };
 
+    "org/gnome/shell/extensions/libpanel" = {
+      row-spacing = 24;
+      padding = 20;
+    };
+
     "org/gnome/shell/extensions/unite" = {
       desktop-name-text = "rembot";
       enable-titlebar-actions = true;
