@@ -12,28 +12,28 @@
     target = ".local/share/applications/beeper.desktop";
   };
 
-  home.file."ncspot.desktop" = {
-    source = ./ncspot.desktop;
-    target = ".local/share/applications/ncspot.desktop";
-  };
+  # home.file."ncspot.desktop" = {
+  #   source = ./ncspot.desktop;
+  #   target = ".local/share/applications/ncspot.desktop";
+  # };
 
   home.file."cursor.desktop" = {
     source = ./cursor.desktop;
     target = ".local/share/applications/cursor.desktop";
   };
 
-  home.file."reboot.desktop" = {
-    source = ./reboot.desktop;
-    target = ".local/share/applications/reboot.desktop";
-  };
+  # home.file."reboot.desktop" = {
+  #   source = ./reboot.desktop;
+  #   target = ".local/share/applications/reboot.desktop";
+  # };
 
-  home.file."shutdown.desktop" = {
-    source = ./shutdown.desktop;
-    target = ".local/share/applications/shutdown.desktop";
-  };
+  # home.file."shutdown.desktop" = {
+  #   source = ./shutdown.desktop;
+  #   target = ".local/share/applications/shutdown.desktop";
+  # };
 
-  home.file."suspend.desktop" = {
-    source = ./suspend.desktop;
-    target = ".local/share/applications/suspend.desktop";
-  };
+  # home.file."suspend.desktop" = {
+  #   source = ./suspend.desktop;
+  #   target = ".local/share/applications/suspend.desktop";
+  # };
 }
