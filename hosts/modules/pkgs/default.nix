@@ -49,14 +49,14 @@
     sshfs # filesystem client over SSH
     openssl # cryptographic toolkit
     ntfy # shell notification tool
-		bottom # system monitoring tool
-		shell-genie # interact with the terminal in plain English
+    bottom # system monitoring tool
+    shell-genie # interact with the terminal in plain English
     broot # Fuzzy finder
     dysk # Mounted Disk Info
-		appimage-run # Run AppImages
+    appimage-run # Run AppImages
 
     ### Dev
-		helix # modal text editor
+    helix # modal text editor
     bruno # API Tester
     ngrok
     pkg-config # allows packages to find out information about other packages
@@ -80,8 +80,8 @@
     gptcommit # git commit message generator
     hugo # static site generator
     shfmt # shell script formatter
-    #lapce # editor written in Rust
-    
+    lapce # editor written in Rust
+
     ### Nix Tools
     # Nixd
     # https://github.com/nix-community/nixd/blob/main/docs/editor-setup.md
@@ -149,7 +149,7 @@
     gruvbox-dark-icons-gtk # theme icons
     colorpicker # colour picker
     epiphany # gnome web
-		microsoft-edge # Browser
+    microsoft-edge # Browser
     nheko # Matrix Client
     # google-chrome # Browser - test zoom behavior
     teamviewer # remote support
