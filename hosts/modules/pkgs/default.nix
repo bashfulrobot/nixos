@@ -27,7 +27,7 @@
     wget # file download utility
     xclip # command line interface to X clipboard
     ripgrep # grep alternative
-    #pdf-sign # pdf signing utility
+    pdf-sign # pdf signing utility
     du-dust # disk usage utility
     gdu # disk usage analyzer
     dua # disk usage analyzer
@@ -49,6 +49,11 @@
     sshfs # filesystem client over SSH
     openssl # cryptographic toolkit
     ntfy # shell notification tool
+		bottom # system monitoring tool
+		shell-genie # interact with the terminal in plain English
+    broot # Fuzzy finder
+    dysk # Mounted Disk Info
+		appimage-run # Run AppImages
 
     ### Dev
 		helix # modal text editor
@@ -60,32 +65,24 @@
     git # version control system
     git-crypt # repository encryption
     just # command runner
-    #difftastic # visual diff tool
+    difftastic # visual diff tool
     doppler # secret management tool
     gh # GitHub CLI tool
     espanso-wayland # text expander
     nodejs-18_x # JavaScript runtime
     # postman # API testing tool
     vscode # code editor
-    sublime4 # code editor
-    sublime-merge # GUI Git Client
-    microsoft-edge # Browser
-    nheko # Matrix Client
-    # google-chrome # Browser - test zoom behavior
-    teamviewer # remote support
-
+    #sublime4 # code editor
+    #sublime-merge # GUI Git Client
     # Causes:error: Package ‘python-2.7.18.6’ in /nix/store/zb2695k9v4hmjdki97p0yhd4mys270fs-source/pkgs/development/interpreters/python/cpython/2.7/default.nix:330 is marked as insecure, refusing to evaluate.
     # oni2 # code editor
     shadowenv # environment variable manager
     gptcommit # git commit message generator
     hugo # static site generator
     shfmt # shell script formatter
-    bottom # system monitoring tool
     #lapce # editor written in Rust
-    shell-genie # interact with the terminal in plain English
-    broot # Fuzzy finder
-    dysk # Mounted Disk Info
-    ### Nix Toolswlpr
+    
+    ### Nix Tools
     # Nixd
     # https://github.com/nix-community/nixd/blob/main/docs/editor-setup.md
     #nixd # nix language server
@@ -112,7 +109,6 @@
     google-cloud-sdk # Google Cloud SDK
     aws-iam-authenticator # AWS IAM authentication tool
     terraform # infrastructure as code tool
-    #age # simple file encryption tool
     ctop # container process monitoring
     virter # libvirtd management CLI client
 
@@ -132,12 +128,10 @@
     solaar # Linux manager for many Logitech keyboards, mice
     #spot # Native Spotify client
     mplayer # Video player
-    appimage-run # Run AppImages
     wl-color-picker # Wayland color picker
     zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
     #tootle # Mastodon client
     morgen # AI calendar - testing
-    #kooha # screen recording
     protonvpn-gui # VPN client
     kooha # Screen recorder for x11/Wayland
     flameshot # Screen capture
@@ -155,6 +149,10 @@
     gruvbox-dark-icons-gtk # theme icons
     colorpicker # colour picker
     epiphany # gnome web
+		microsoft-edge # Browser
+    nheko # Matrix Client
+    # google-chrome # Browser - test zoom behavior
+    teamviewer # remote support
 
     # Communication
     slack # instant messaging
