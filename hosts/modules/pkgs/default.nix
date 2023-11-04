@@ -51,6 +51,7 @@
     ntfy # shell notification tool
 
     ### Dev
+		helix # modal text editor
     bruno # API Tester
     ngrok
     pkg-config # allows packages to find out information about other packages
