@@ -12,12 +12,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, nur, ... }:
+  outputs =
+    inputs@{ self, nixpkgs, nixvim, home-manager, nixos-hardware, nur, ... }:
     let nixpkgsConfig = { overlays = [ ]; };
     in {
 
@@ -36,7 +42,8 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.dustin = {
-                imports = [ ./home/dustin-krysak ];
+                imports =
+                  [ ./home/dustin-krysak nixvim.homeManagerModules.nixvim ];
               };
 
               # Overlays
@@ -60,7 +67,10 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.dustin = { imports = [ ./home/rembot ]; };
+              home-manager.users.dustin = {
+                imports =
+                  [ ./home/rembot inputs.nixvim.homeManagerModules.nixvim ];
+              };
 
               # Overlays
               nixpkgs.overlays = [ nur.overlay ];
