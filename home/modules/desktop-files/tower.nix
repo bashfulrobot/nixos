@@ -27,6 +27,11 @@
   #   target = ".local/share/applications/todoist.desktop";
   # };
 
+  home.file."spacedrive.desktop" = {
+    source = ./spacedrive.desktop;
+    target = ".local/share/applications/spacedrive.desktop";
+  };
+
   # home.file."ncspot.desktop" = {
   #   source = ./ncspot.desktop;
   #   target = ".local/share/applications/ncspot.desktop";
