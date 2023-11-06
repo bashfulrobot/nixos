@@ -138,11 +138,11 @@
     _1password-gui # password management GUI
     #bookworm # ePub reader
     obsidian # note-taking app
-    # todoist-electron # task management app - moved to appimage due to bug
+    todoist-electron # task management app - moved to appimage due to bug
     virt-manager # virtual machine manager
     #droidcam # use iPhone as a camera input
     #onthespot # Spotify client
-    gruvbox-dark-gtk # theme
+    # gruvbox-dark-gtk # theme
     yaru-theme # gtk theme
     pop-gtk-theme # gtk theme
     gruvbox-gtk-theme # theme

@@ -22,10 +22,10 @@
     target = ".local/share/applications/beeper.desktop";
   };
 
-  home.file."todoist.desktop" = {
-    source = ./todoist.desktop;
-    target = ".local/share/applications/todoist.desktop";
-  };
+  # home.file."todoist.desktop" = {
+  #   source = ./todoist.desktop;
+  #   target = ".local/share/applications/todoist.desktop";
+  # };
 
   # home.file."ncspot.desktop" = {
   #   source = ./ncspot.desktop;
