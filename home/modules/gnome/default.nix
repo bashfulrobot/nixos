@@ -154,10 +154,10 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/wm/keybindings" = {
       close = [ "<Super>q" ];
-      # switch-applications = [ "<Alt>Tab" ];
-      # switch-applications-backward = [ "<Shift><Alt>Tab" ];
-      switch-windows = [ "<Alt>Tab" ];
-      switch-windows-backward = [ "<Shift><Alt>Tab" ];
+      switch-applications = [ "<Alt>Tab" ];
+      switch-applications-backward = [ "<Shift><Alt>Tab" ];
+      # switch-windows = [ "<Alt>Tab" ];
+      # switch-windows-backward = [ "<Shift><Alt>Tab" ];
       toggle-fullscreen = [ "<Super>f" ];
       maximize = [ "<Super>m" ];
       switch-to-workspace-1 = [ "<Super>1" ];
