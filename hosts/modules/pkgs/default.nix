@@ -14,6 +14,7 @@
     tesseract # CLI OCR
     gping # visual ping alternative
     ffmpeg_6-full # multimedia processing
+    libthai # Needed for some appImages
     libnotify # notification library
     lftp # file transfer program
     unzip # file decompression tool
