@@ -1,11 +1,5 @@
 # Notes
 
-<https://shen.hong.io/nixos-home-manager-wayland-sway/>
-
-<https://mipmip.github.io/home-manager-option-search/?query=sway>
-
-<https://nixos.wiki/wiki/Sway>
-
 <https://search.nixos.org/packages>
 
 - shows a mix of HM and non HM. Also shows global cfg
