@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
+    ncdu # disk usage analyzer
     wshowkeys # Show keys pressed in wayland
     killall # kill all instances of a running app
     xfce.xfce4-terminal
