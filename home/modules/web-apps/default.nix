@@ -232,8 +232,8 @@
   };
 
   home.file."br-jira.desktop" = {
-    source = ./desktop-files/br-jir.desktop;
-    target = ".local/share/applications/br-jir.desktop";
+    source = ./desktop-files/br-jira.desktop;
+    target = ".local/share/applications/br-jira.desktop";
   };
 
   home.file."jira.png" = {
