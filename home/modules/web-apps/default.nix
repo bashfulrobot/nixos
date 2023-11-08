@@ -231,4 +231,14 @@
     target = ".local/share/xdg-desktop-portal/icons/192x192/sysdig.png";
   };
 
+  home.file."br-jira.desktop" = {
+    source = ./desktop-files/br-jir.desktop;
+    target = ".local/share/applications/br-jir.desktop";
+  };
+
+  home.file."jira.png" = {
+    source = ./icons/jira.png;
+    target = ".local/share/xdg-desktop-portal/icons/192x192/jira.png";
+  };
+
 }
