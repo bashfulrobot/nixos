@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
+    gmailctl # cli to write gmail filters as code
     ncdu # disk usage analyzer
     wshowkeys # Show keys pressed in wayland
     killall # kill all instances of a running app
