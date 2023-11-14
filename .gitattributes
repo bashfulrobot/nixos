@@ -10,4 +10,6 @@ home/modules/ssh/id_rsa_temp filter=git-crypt diff=git-crypt
 home/modules/ssh/id_rsa_temp.pub filter=git-crypt diff=git-crypt
 home/modules/ssh/id_rsa.base64 filter=git-crypt diff=git-crypt
 home/modules/ssh/id_rsa.pub filter=git-crypt diff=git-crypt
+home/modules/ssh/id_ed25519 filter=git-crypt diff=git-crypt
+home/modules/ssh/id_ed25519.pub filter=git-crypt diff=git-crypt
 home/modules/dracula/pro/dracula.zip filter=git-crypt diff=git-crypt
