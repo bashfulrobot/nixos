@@ -17,13 +17,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    cosmic-edit.url =
+      "https://flakehub.com/f/pop-os/cosmic-edit/0.1.154.tar.gz";
+
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
   };
 
-  outputs =
-    inputs@{ self, nixpkgs, nixvim, home-manager, nixos-hardware, nur, ... }:
+  outputs = inputs@{ self, nixpkgs, nixvim, cosmic-edit, home-manager
+    , nixos-hardware, nur, ... }:
     let nixpkgsConfig = { overlays = [ ]; };
     in {
 
