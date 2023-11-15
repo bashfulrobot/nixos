@@ -157,7 +157,6 @@
     nheko # Matrix Client
     # google-chrome # Browser - test zoom behavior
     teamviewer # remote support
-    waydroid # Run Android apps in a container
 
     # Communication
     slack # instant messaging
