@@ -75,7 +75,7 @@
     nodejs-18_x # JavaScript runtime
     # postman # API testing tool
     vscode # code editor
-    inputs.cosmic-edit.packages.x86_64-linux.default # code editor
+    # inputs.cosmic-edit.packages.x86_64-linux.default # code editor
     #sublime4 # code editor
     #sublime-merge # GUI Git Client
     # Causes:error: Package ‘python-2.7.18.6’ in /nix/store/zb2695k9v4hmjdki97p0yhd4mys270fs-source/pkgs/development/interpreters/python/cpython/2.7/default.nix:330 is marked as insecure, refusing to evaluate.
@@ -157,6 +157,7 @@
     nheko # Matrix Client
     # google-chrome # Browser - test zoom behavior
     teamviewer # remote support
+    waydroid # Run Android apps in a container
 
     # Communication
     slack # instant messaging
