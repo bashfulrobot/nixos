@@ -2,7 +2,7 @@
 let
   # rev = "8bfea09aa6f1139479f80358b2e1e5c6dc991a58";
 in pkgs.stdenvNoCC.mkDerivation {
-  name = "dracula";
+  name = "dracula-gtk";
   dontConfigue = true;
 
   src = pkgs.fetchzip {
@@ -15,8 +15,8 @@ in pkgs.stdenvNoCC.mkDerivation {
   };
 
   installPhase = ''
-    mkdir -p $out/share/themes/dracula
-    cp -R $src/gtk-master/* $out/share/themes/dracula
+    mkdir -p $out/share/themes/dracula-gtk
+    cp -R $src/gtk-master/* $out/share/themes/dracula-gtk
   '';
 
   meta = with lib; {
