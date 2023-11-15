@@ -85,6 +85,7 @@
     hugo # static site generator
     shfmt # shell script formatter
     lapce # editor written in Rust
+		cosmic-edit # editor from system 76
 
     ### Nix Tools
     # Nixd
