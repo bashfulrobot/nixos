@@ -6,7 +6,10 @@ in pkgs.stdenvNoCC.mkDerivation {
   dontConfigue = true;
 
   src = pkgs.fetchzip {
-    url = "https://github.com/dracula/gtk/archive/master.zip";
+    # url = "https://github.com/dracula/gtk/archive/master.zip";
+    # sha256 = "sha256-VY4F1VyqvHnd7fbxHRC8rxoIkW2G+NGulArohGdYgy0=";
+    url =
+      "https://github.com/bashfulrobot/nixos/raw/main/home/modules/dracula/Dracula.zip";
     sha256 = "sha256-VY4F1VyqvHnd7fbxHRC8rxoIkW2G+NGulArohGdYgy0=";
     stripRoot = false;
   };
