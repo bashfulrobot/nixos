@@ -46,6 +46,7 @@
     # gnomeExtensions.forge
     gnomeExtensions.pop-shell
     gnomeExtensions.appindicator
+    gnomeExtensions.mullvad-indicator
 
   ];
 
