@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, secrets, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.

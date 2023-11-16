@@ -24,14 +24,18 @@
 
   outputs =
     inputs@{ self, nixpkgs, nixvim, home-manager, nixos-hardware, nur, ... }:
-    let nixpkgsConfig = { overlays = [ ]; };
+    with inputs;
+    let
+      nixpkgsConfig = { overlays = [ ]; };
+      secrets =
+        builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
     in {
 
       nixosConfigurations = {
 
         # dustin-krysak = work laptop hostname
         dustin-krysak = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs secrets; };
           system = "x86_64-linux";
           modules = [
             ./hosts/dustin-krysak
@@ -39,6 +43,7 @@
             nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
             home-manager.nixosModules.home-manager
             {
+              home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.dustin = {
@@ -57,14 +62,14 @@
 
         # rembot = desktop hostname
         rembot = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs secrets; };
           system = "x86_64-linux";
           modules = [
             ./hosts/rembot
             nur.nixosModules.nur
-            nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
             home-manager.nixosModules.home-manager
             {
+              home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.dustin = {
@@ -83,22 +88,11 @@
 
         # nixdo = server hostname
         nixdo = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs secrets; };
           system = "x86_64-linux";
           modules = [
             ./hosts/nixdo
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.dustin = { imports = [ ./home/rembot ]; };
 
-              # Overlays
-              nixpkgs.overlays = [ nur.overlay ];
-
-              # Allow unfree packages
-              nixpkgs.config.allowUnfree = true;
-            }
           ];
 
         };

@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }: {
+{ config, inputs, pkgs, secrets, ... }: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "dustin";

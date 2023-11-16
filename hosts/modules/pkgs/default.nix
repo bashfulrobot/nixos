@@ -127,6 +127,7 @@
 
     ### GUI
     evince # pdf viewer
+    midori # lightweight gtk web browser
     gnome.nautilus # file manager
     libreoffice # office suite
     solaar # Linux manager for many Logitech keyboards, mice

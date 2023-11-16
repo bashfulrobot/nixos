@@ -1,8 +1,5 @@
-# Fonts
-# Git
-home/modules/git/default.nix filter=git-crypt diff=git-crypt
-# Syncthing
-hosts/modules/syncthing/syncthing-gui-login.nix filter=git-crypt diff=git-crypt
+# Secrets Directory
+secrets/** filter=git-crypt diff=git-crypt
 # SSH
 home/modules/ssh/default.nix filter=git-crypt diff=git-crypt
 home/modules/ssh/id_rsa filter=git-crypt diff=git-crypt

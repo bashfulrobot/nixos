@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }: {
+{ config, inputs, pkgs, secrets, ... }: {
 
   imports = [
     ./alacritty
