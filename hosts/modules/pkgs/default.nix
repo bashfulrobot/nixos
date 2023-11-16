@@ -126,6 +126,7 @@
     autorestic # restic automation tool
 
     ### GUI
+    mullvad # VPN Client
     evince # pdf viewer
     midori # lightweight gtk web browser
     gnome.nautilus # file manager
