@@ -6,17 +6,16 @@ in pkgs.stdenvNoCC.mkDerivation {
   dontConfigue = true;
 
   src = pkgs.fetchzip {
-    # url = "https://github.com/dracula/gtk/archive/master.zip";
-    # sha256 = "sha256-VY4F1VyqvHnd7fbxHRC8rxoIkW2G+NGulArohGdYgy0=";
     url =
       "https://github.com/bashfulrobot/nixos/raw/main/home/modules/dracula/Dracula.zip";
-    sha256 = "sha256-VY4F1VyqvHnd7fbxHRC8rxoIkW2G+NGulArohGdYgy0=";
+    sha256 = "sha256-pd3OVLThX1S3RP7HXLAVW5NFRsoi2hYDozF1eTAGLu4=";
     stripRoot = false;
   };
 
   installPhase = ''
     mkdir -p $out/share/themes/dracula-gtk
-    cp -R $src/gtk-master/* $out/share/themes/dracula-gtk
+    cp -R $src/Dracula/* $out/share/themes/dracula-gtk
+    # touch $out/share/themes/dracula-gtk/dk-search
   '';
 
   meta = with lib; {
