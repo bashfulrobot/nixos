@@ -18,17 +18,17 @@
     #   enable = true;
     #   enableExtensionPack = true;
     # };
-    # lxd = {
-    # enable = true;
-    # ui = {
-    #   enable = true;
-    #   package = pkgs.unstable.lxd-unwrapped.ui;
-    # };
-    # };
-    multipass = {
+    lxd = {
       enable = true;
-      # logLevel = "trace";
+      # ui = {
+      #   enable = true;
+      #   package = pkgs.unstable.lxd-unwrapped.ui;
+      # };
     };
+    # multipass = {
+    #   enable = true;
+    #   # logLevel = "trace";
+    # };
   };
 
 }

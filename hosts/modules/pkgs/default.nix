@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
+    libxslt # A C library and tools to do XSL transformations - needed in my terraform scripts
     gmailctl # cli to write gmail filters as code
     ncdu # disk usage analyzer
     wshowkeys # Show keys pressed in wayland
