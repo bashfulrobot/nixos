@@ -65,3 +65,15 @@ kvm-local:
   pool: default
   type: kvm
   enabled: true
+rembot-ts:
+  host: 100.89.186.70
+  pool: default
+  protocol: ssh
+  type: kvm
+  user: dustin
+srv-ts:
+  host: 100.123.211.36
+  user: dustin
+  protocol: ssh
+  pool: default
+  type: kvm
