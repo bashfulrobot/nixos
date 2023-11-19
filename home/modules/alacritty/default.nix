@@ -114,20 +114,21 @@
       };
 
       font = {
+        # Old font - ""Liga SFMono Nerd Font"
         normal = {
-          family = "Liga SFMono Nerd Font";
+          family = "Victor Mono";
           style = "Regular";
         };
         bold = {
-          family = "Liga SFMono Nerd Font";
+          family = "Victor Mono";
           style = "Bold";
         };
         italic = {
-          family = "Liga SFMono Nerd Font";
+          family = "Victor Mono";
           style = "Italic";
         };
         bold_italic = {
-          family = "Liga SFMono Nerd Font";
+          family = "Victor Mono";
           style = "Bold Italic";
         };
         size = 18;

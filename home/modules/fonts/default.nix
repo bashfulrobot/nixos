@@ -17,6 +17,7 @@ in {
     font-awesome
     cantarell-fonts
     comic-mono
+    victor-mono
     # nerdfonts
     (nerdfonts.override {
       fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" "SourceCodePro" ];
