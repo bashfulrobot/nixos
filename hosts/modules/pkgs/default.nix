@@ -86,6 +86,7 @@
     shfmt # shell script formatter
     lapce # editor written in Rust
     cosmic-edit # editor from system 76
+    lunarvim # opinionated neovim
 
     ### Nix Tools
     # Nixd

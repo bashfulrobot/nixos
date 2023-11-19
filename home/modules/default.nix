@@ -16,7 +16,7 @@
     ./kcli
     ./nautilus
     ./ncspot
-    ./neovim
+    #    ./neovim
     ./npm
     ./python
     ./scripts
