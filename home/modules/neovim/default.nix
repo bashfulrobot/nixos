@@ -37,6 +37,7 @@ in {
       vim-nix
       vim-wayland-clipboard
       vim-surround
+      leap-nvim
       neoformat
       fzf-vim
       lightline-vim
