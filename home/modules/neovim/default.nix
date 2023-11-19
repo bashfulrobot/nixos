@@ -54,7 +54,8 @@ in {
       vim-visualstar
       vim-unimpaired
       vim-go
-      gruvbox # theme
+      #gruvbox # theme
+      dracula-nvim # theme
       nvim-web-devicons # theme related
     ];
     extraConfig = ''
@@ -85,7 +86,7 @@ in {
       nnoremap <C-L> gc<CR>
 
       " color scheme
-      colorscheme gruvbox
+      colorscheme dracula
     '';
 
   };
