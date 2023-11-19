@@ -42,6 +42,7 @@ in {
       lightline-vim
       shadowenv-vim
       comment-nvim
+      neoscroll-nvim
       supertab
       tabular
       vim-commentary
