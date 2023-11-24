@@ -8,7 +8,7 @@
     ./dracula
     ./environment
     ./espanso
-    # ./firefox
+    ./firefox
     ./fonts
     ./git
     ./go
@@ -16,7 +16,7 @@
     ./kcli
     ./nautilus
     ./ncspot
-    #    ./neovim
+    #    ./neovim - moved to lunarvim
     ./npm
     ./python
     ./scripts
@@ -25,7 +25,7 @@
     ./terminal
     ./virter
     ./web-apps
-    ./yazi
+    # ./yazi
   ];
 
 }

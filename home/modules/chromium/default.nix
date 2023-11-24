@@ -7,9 +7,7 @@
     extensions = [
       { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; } # 1password
       { id = "kfimphpokifbjgmjflanmfeppcjimgah"; } # inoreader
-      {
-        id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
-      } # dark reader
+      { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # dark reader
       # { id = "ldgfbffkinooeloadekpmfoklnobpien"; } # raindrop.io
       { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
       { id = "lljedihjnnjjefafchaljkhbpfhfkdic"; } # jiffy reader
@@ -22,20 +20,15 @@
       { id = "jldhpllghnbhlbpcmnajkpdmadaolakh"; } # todoist
       { id = "kgjfgplpablkjnlkjmjdecgdpfankdle"; } # zoom
       { id = "lcbjdhceifofjlpecfpeimnnphbcjgnc"; } # xbrowsersync
-      {
-        id = "niloccemoadcdkdjlinkgdfekeahmflj";
-      } # pocket
+      { id = "niloccemoadcdkdjlinkgdfekeahmflj"; } # pocket
       # { id = "lmhkmibdclhibdooglianggbnhcbcjeh"; } # Summarize (gpt)
       { id = "liecbddmkiiihnedobmlmillhodjkdmb"; } # Loom video recording
       { id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
       { id = "oeopbcgkkoapgobdbedcemjljbihmemj"; } # Checker Plus for Gmail™
-      {
-        id = "hkhggnncdpfibdhinjiegagmopldibha";
-      } # Checker Plus for Google Calendar™
+      { id = "hkhggnncdpfibdhinjiegagmopldibha"; } # Checker Plus for Google Calendar™
       # { id = "gfapcejdoghpoidkfodoiiffaaibpaem"; } # Dracula theme, in case I can't do the pro
-      {
-        id = "hefhjoddehdhdgfjhpnffhopoijdfnak"; # Privacy Party
-      }
+      { id = "hefhjoddehdhdgfjhpnffhopoijdfnak"; } # Privacy Party
+      { id = "ghbmnnjooekpmoecnnnilnnbdlolhkhi"; } # Google docs offline
 
     ];
   };

@@ -17,8 +17,8 @@
           gnome-shell-integration
           darkreader
           grammarly
-          gruvbox-dark-theme
           ublock-origin
+          dracula-dark-colorscheme
           markdownload
           privacy-badger
           multi-account-containers

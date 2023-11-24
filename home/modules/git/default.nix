@@ -36,7 +36,7 @@
       enable = true;
       gitCredentialHelper.enable = true;
       settings = {
-        editor = "nvim";
+        editor = "lvim";
         git_protocol = "ssh";
 
         prompt = "enabled";

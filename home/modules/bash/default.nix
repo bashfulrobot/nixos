@@ -34,6 +34,7 @@ in {
       ilog =
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track logs";
       y = "cd ~/; yazi";
+      e = "lvim";
       nvim = "lvim";
       vi = "lvim";
       vim = "lvim";
