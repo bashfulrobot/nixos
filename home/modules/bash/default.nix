@@ -26,6 +26,7 @@ in {
       "..." = "cd ../..";
       "...." = "cd ../../..";
       "....." = "cd ../../../..";
+      tf = "terraform";
       instruqt = "/home/dustin/dev/sysdig/workshops/bin/instruqt";
       ipull =
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track pull";
