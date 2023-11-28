@@ -180,6 +180,8 @@ with lib.hm.gvariant;
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
       ];
     };
 
@@ -196,6 +198,23 @@ with lib.hm.gvariant;
         binding = "<Control><Alt>p";
         command = "flameshot gui";
         name = "Flameshot";
+      };
+
+
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" =
+      {
+        binding = "<Super>b";
+        command = "chromium-browser";
+        name = "Browser";
+      };
+
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" =
+      {
+        binding = "<Super>e";
+        command = "code";
+        name = "Editor";
       };
 
   };
