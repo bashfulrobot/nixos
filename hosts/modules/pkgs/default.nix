@@ -99,6 +99,7 @@
     comma # Nix command wrapper
 
     ### Cloud
+    k0sctl # A bootstrapping and management tool for k0s clusters.
     vagrant # lab automation
     cdrtools # mkisofs needed for cloud-init
     butane # flatcar/ignition configuration
