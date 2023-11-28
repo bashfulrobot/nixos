@@ -39,7 +39,7 @@
       "video"
       "lxd"
     ];
-    packages = with pkgs; [ ];
+    # packages = with pkgs; [ ];
   };
 
   # Allow unfree packages
