@@ -6,8 +6,17 @@ This is the nixos cfg for a few of my systems. It tends to be under heavy dev as
 
 WIP, forever.
 
+## Notes
+
+### Espanso
+
+The Espanso service is funny. At times the service will not start after an update. The fix "seems" to be:
+
+- `upgrade` the system
+- unregister the espanso service with `espanso service unregister`
+- `reboot`, and let the `services.espanso.enable = true;` in my config start the service.
+
 ## TODO
 
 - I still don't like my structure
 - I send to follow KISS, but I am likely only scratching the surface in nix.
-
