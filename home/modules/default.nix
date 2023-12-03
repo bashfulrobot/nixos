@@ -22,6 +22,7 @@
     ./scripts
     ./ssh
     ./starship
+    # ./sysdig-cli-scanner
     ./terminal
     ./virter
     ./web-apps
