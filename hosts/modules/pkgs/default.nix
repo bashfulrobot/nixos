@@ -132,7 +132,7 @@
     autorestic # restic automation tool
 
     ### GUI
-    insync # Google Drive Sync Client
+    #insync # Google Drive Sync Client
     mullvad # VPN Client
     evince # pdf viewer
     midori # lightweight gtk web browser
