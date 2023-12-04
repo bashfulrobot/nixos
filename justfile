@@ -56,6 +56,10 @@ upgrade-system:
     @nix flake update --commit-lock-file
     @sudo nixos-rebuild switch --impure --upgrade --flake .#\{{`hostname`}} --show-trace
     # @just _sway-reload
+# Upgrade Release Flake
+upgrade-release:
+    @nix flake update --commit-lock-file
+    @sudo nixos-rebuild boot --impure --upgrade --flake .#\{{`hostname`}} --show-trace
 # Upgrade System
 update-flake:
     @nix flake update --commit-lock-file
