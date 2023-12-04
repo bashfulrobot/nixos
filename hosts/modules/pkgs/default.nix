@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
+    textsnatcher # copy text from images
     pup # Terminal HTML parser
     libxslt # A C library and tools to do XSL transformations - needed in my terraform scripts
     gmailctl # cli to write gmail filters as code
