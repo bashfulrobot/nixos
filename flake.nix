@@ -7,13 +7,10 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -22,8 +19,8 @@
 
   };
 
-  outputs =
-    inputs@{ self, nixpkgs, nixvim, home-manager, nixos-hardware, nur, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, nix-flatpak
+    , nur, ... }:
     with inputs;
     let
       nixpkgsConfig = { overlays = [ ]; };
@@ -42,13 +39,13 @@
             nur.nixosModules.nur
             nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
             home-manager.nixosModules.home-manager
+            nix-flatpak.nixosModules.nix-flatpak
             {
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.dustin = {
-                imports =
-                  [ ./home/dustin-krysak nixvim.homeManagerModules.nixvim ];
+                imports = [ ./home/dustin-krysak ];
               };
 
               # Overlays
@@ -67,15 +64,13 @@
           modules = [
             ./hosts/rembot
             nur.nixosModules.nur
+            nix-flatpak.nixosModules.nix-flatpak
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.dustin = {
-                imports =
-                  [ ./home/rembot inputs.nixvim.homeManagerModules.nixvim ];
-              };
+              home-manager.users.dustin = { imports = [ ./home/rembot ]; };
 
               # Overlays
               nixpkgs.overlays = [ nur.overlay ];

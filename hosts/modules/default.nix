@@ -4,6 +4,7 @@
     ./1password
     ./bluetooth
     ./dconf
+    ./flatpak
     ./insecure-packages
     ./nix-settings
     ./pkgs
