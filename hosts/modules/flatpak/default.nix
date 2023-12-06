@@ -28,5 +28,6 @@
     "com.todoist.Todoist" # Todoist Desltop
     "cafe.avery.Delfin" # Jellyfin client
     "com.github.phase1geo.minder" # Mindmapping
+    "com.github.Murmele.Gittyup" # Git GUI
   ];
 }
