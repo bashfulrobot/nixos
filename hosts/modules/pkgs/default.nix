@@ -151,7 +151,7 @@
     _1password-gui # password management GUI
     #bookworm # ePub reader
     obsidian # note-taking app
-    todoist-electron # task management app - moved to appimage due to bug
+    # todoist-electron # task management app - currently in a flatpak
     virt-manager # virtual machine manager
     #droidcam # use iPhone as a camera input
     #onthespot # Spotify client

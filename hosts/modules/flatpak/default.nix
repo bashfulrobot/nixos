@@ -24,6 +24,9 @@
     #   appId = "com.brave.Browser";
     #   origin = "flathub";
     # }
-    "com.obsproject.Studio"
+    "com.obsproject.Studio" # Video Editor
+    "com.todoist.Todoist" # Todoist Desltop
+    "cafe.avery.Delfin" # Jellyfin client
+    "com.github.phase1geo.minder" # Mindmapping
   ];
 }
