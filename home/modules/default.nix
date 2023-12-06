@@ -26,6 +26,7 @@
     ./terminal
     ./virter
     ./web-apps
+    ./xterm
     # ./yazi
   ];
 

@@ -76,6 +76,7 @@
     doppler # secret management tool
     gh # GitHub CLI tool
     espanso-wayland # text expander
+    wl-clipboard # Wayland clipboard - needed for espanso
     nodejs-18_x # JavaScript runtime
     # postman # API testing tool
     vscode # code editor
