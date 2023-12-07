@@ -14,6 +14,7 @@
     ./go
     ./gpg
     ./kcli
+    ./kubitect
     ./nautilus
     ./ncspot
     #    ./neovim - moved to lunarvim

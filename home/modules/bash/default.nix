@@ -76,6 +76,8 @@ in {
         "cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just upgrade-system; cd -";
       dev-rebuild =
         "cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just dev-rebuild; cd -";
+      kubitect =
+        "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/kubitect";
     };
 
   };
