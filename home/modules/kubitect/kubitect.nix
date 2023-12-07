@@ -27,4 +27,5 @@ pkgs.stdenv.mkDerivation {
     description = "kubitect - https://kubitect.io/.";
     maintainers = [ bashfulrobot ];
   };
+
 }
