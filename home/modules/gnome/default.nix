@@ -196,11 +196,9 @@ with lib.hm.gvariant;
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
       {
         binding = "<Control><Alt>p";
-        command = "flameshot gui";
-        name = "Flameshot";
+        command = "/etc/profiles/per-user/dustin/bin/screenshot-annotate.sh";
+        name = "Annotate Screenshot";
       };
-
-
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" =
       {
@@ -208,7 +206,6 @@ with lib.hm.gvariant;
         command = "chromium-browser";
         name = "Browser";
       };
-
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" =
       {
