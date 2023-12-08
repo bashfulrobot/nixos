@@ -147,7 +147,8 @@
     morgen # AI calendar - testing
     protonvpn-gui # VPN client
     kooha # Screen recorder for x11/Wayland
-    flameshot # Screen capture - moved to flatpak due to bug
+    flameshot # Screen capture - disabled due to bug
+    satty # annotation
     _1password-gui # password management GUI
     #bookworm # ePub reader
     obsidian # note-taking app

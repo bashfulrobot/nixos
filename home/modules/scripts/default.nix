@@ -3,18 +3,25 @@
 {
   home.packages = with pkgs;
     [
-      (writeScriptBin "clipboard-ocr" ''
+      (writeScriptBin "screenshot-annotate.sh" ''
         #!/usr/bin/env bash
 
-        grim  -g "$(slurp)" -t png /tmp/ocr-tmp.png')
-        ${tesseract}/bin/tesseract /tmp/ocr-tmp.png /tmp/ocr-out
+        # Directory where screenshots are stored
+        dir="$HOME/Pictures/Screenshots"
 
-        ${coreutils}/bin/cat /tmp/ocr-out.txt | ${xclip}/bin/xclip -sel clip
+        # Get the most recent screenshot
+        recent_screenshot=$(/run/current-system/sw/bin/ls -t "$dir"/Screenshot\ from\ *.png | head -n1)
 
-        ${coreutils}/bin/rm /tmp/ocr-tmp.png
-        ${coreutils}/bin/rm /tmp/ocr-out.txt
+        # Check if a file was found
+        if [[ -z "$recent_screenshot" ]]; then
+            echo "No screenshot files found in $dir"
+            exit 1
+        fi
 
-        exit 0
+        # Load the screenshot into the satty tool
+        satty --filename "$recent_screenshot"
+
+                exit 0
       '')
     ];
 }
