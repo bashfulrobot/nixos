@@ -2,6 +2,7 @@
 
 # Copy SSH keys to ~/.ssh
 cp id_* ~/.ssh/
+cp config ~/.ssh/
 
 # Set permissions for ~/.ssh
 sudo chmod 0700 ~/.ssh

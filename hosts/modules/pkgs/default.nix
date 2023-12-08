@@ -6,7 +6,6 @@
 
     ### Terminal
     textsnatcher # copy text from images
-    satty # flameshot alternative - screen annotation/capture
     pup # Terminal HTML parser
     libxslt # A C library and tools to do XSL transformations - needed in my terraform scripts
     gmailctl # cli to write gmail filters as code
@@ -148,7 +147,7 @@
     morgen # AI calendar - testing
     protonvpn-gui # VPN client
     kooha # Screen recorder for x11/Wayland
-    flameshot # Screen capture
+    flameshot # Screen capture - moved to flatpak due to bug
     _1password-gui # password management GUI
     #bookworm # ePub reader
     obsidian # note-taking app
