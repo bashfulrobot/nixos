@@ -150,6 +150,7 @@
     flameshot # Screen capture - disabled due to bug
     satty # annotation
     _1password-gui # password management GUI
+    helvum # A GTK patchbay for pipewire
     #bookworm # ePub reader
     obsidian # note-taking app
     # todoist-electron # task management app - currently in a flatpak
