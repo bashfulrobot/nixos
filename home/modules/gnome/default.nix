@@ -29,6 +29,8 @@ with lib.hm.gvariant;
       padding = 20;
     };
 
+    "org/gnome/shell/keybindings" = { show-screenshot-ui = "<Control><Alt>p"; };
+
     "org/gnome/shell/extensions/unite" = {
       desktop-name-text = "rembot";
       enable-titlebar-actions = true;
@@ -195,7 +197,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
       {
-        binding = "<Control><Alt>p";
+        binding = "<Control><Alt>a";
         command = "/etc/profiles/per-user/dustin/bin/screenshot-annotate.sh";
         name = "Annotate Screenshot";
       };
