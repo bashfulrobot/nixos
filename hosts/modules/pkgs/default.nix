@@ -102,11 +102,11 @@
 
     ### Cloud
     k0sctl # A bootstrapping and management tool for k0s clusters.
-    vagrant # lab automation
+    # vagrant # lab automation
     cdrtools # mkisofs needed for cloud-init
     butane # flatcar/ignition configuration
     cloud-utils # cloud management utilities
-    kubeone # Kubernetes cluster management
+    # kubeone # Kubernetes cluster management
     talosctl # Talos OS management tool - diabled until https://github.com/NixOS/nixpkgs/issues/264127 is fixed.
     kompose # Kubernetes container orchestration
     vultr-cli # Vultr cloud management
@@ -120,7 +120,7 @@
     aws-iam-authenticator # AWS IAM authentication tool
     terraform # infrastructure as code tool
     ctop # container process monitoring
-    virter # libvirtd management CLI client
+    # virter # libvirtd management CLI client
 
     ### Networking
     tailscale # zero-config VPN
@@ -135,19 +135,19 @@
     #insync # Google Drive Sync Client
     mullvad # VPN Client
     evince # pdf viewer
-    midori # lightweight gtk web browser
+    # midori # lightweight gtk web browser
     gnome.nautilus # file manager
     libreoffice # office suite
     solaar # Linux manager for many Logitech keyboards, mice
-    #spot # Native Spotify client
+    spot # Native Spotify client
     mplayer # Video player
     wl-color-picker # Wayland color picker
     zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
     #tootle # Mastodon client
-    morgen # AI calendar - testing
-    protonvpn-gui # VPN client
+    # morgen # AI calendar - testing
+    # protonvpn-gui # VPN client
     kooha # Screen recorder for x11/Wayland
-    flameshot # Screen capture - disabled due to bug
+    flameshot # Screen capture - currently has a bug
     satty # annotation
     _1password-gui # password management GUI
     helvum # A GTK patchbay for pipewire
@@ -157,14 +157,12 @@
     virt-manager # virtual machine manager
     #droidcam # use iPhone as a camera input
     #onthespot # Spotify client
-    # gruvbox-dark-gtk # theme
     yaru-theme # gtk theme
     pop-gtk-theme # gtk theme
     gruvbox-gtk-theme # theme
     gruvbox-dark-icons-gtk # theme icons
     colorpicker # colour picker
     epiphany # gnome web
-    microsoft-edge # Browser
     nheko # Matrix Client
     # google-chrome # Browser - test zoom behavior
     teamviewer # remote support
