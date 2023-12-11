@@ -14,3 +14,6 @@ fi
 
 # Load the screenshot into the satty tool
 satty --filename "$recent_screenshot"
+
+# Delete files older than 1 week
+find "$dir" -type f -mtime +7 -exec rm {} \;

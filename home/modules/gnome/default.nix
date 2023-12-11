@@ -29,8 +29,6 @@ with lib.hm.gvariant;
       padding = 20;
     };
 
-    "org/gnome/shell/keybindings" = { show-screenshot-ui = "<Control><Alt>p"; };
-
     "org/gnome/shell/extensions/unite" = {
       desktop-name-text = "rembot";
       enable-titlebar-actions = true;
@@ -170,6 +168,15 @@ with lib.hm.gvariant;
       move-to-workspace-2 = [ "<Shift><Super>2" ];
       move-to-workspace-3 = [ "<Shift><Super>3" ];
       move-to-workspace-4 = [ "<Shift><Super>4" ];
+      toggle-message-tray = [ "<Shift><Super>n" ];
+    };
+
+    "org/gnome/shell/keybindings" = {
+      show-screenshot-ui = [ "<Control><Alt>p" ];
+      switch-to-application-1 = [ ];
+      switch-to-application-2 = [ ];
+      switch-to-application-3 = [ ];
+      switch-to-application-4 = [ ];
       toggle-message-tray = [ "<Shift><Super>n" ];
     };
 

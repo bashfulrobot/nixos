@@ -1,27 +1,29 @@
 { config, lib, pkgs, ... }:
+let
+  screenshotAnnotateScript = ''
+    #!/usr/bin/env bash
 
-{
+    # Directory where screenshots are stored
+    dir="$HOME/Pictures/Screenshots"
+
+    # Get the most recent screenshot
+    recent_screenshot=$(/run/current-system/sw/bin/ls -t "$dir"/Screenshot\ from\ *.png | head -n1)
+
+    # Check if a file was found
+    if [[ -z "$recent_screenshot" ]]; then
+        echo "No screenshot files found in $dir"
+        exit 1
+    fi
+
+    # Load the screenshot into the satty tool
+    satty --filename "$recent_screenshot"
+
+    # Delete files older than 1 week
+    find "$dir" -type f -mtime +7 -exec rm {} \;
+
+    exit 0
+  '';
+in {
   home.packages = with pkgs;
-    [
-      (writeScriptBin "screenshot-annotate.sh" ''
-        #!/usr/bin/env bash
-
-        # Directory where screenshots are stored
-        dir="$HOME/Pictures/Screenshots"
-
-        # Get the most recent screenshot
-        recent_screenshot=$(/run/current-system/sw/bin/ls -t "$dir"/Screenshot\ from\ *.png | head -n1)
-
-        # Check if a file was found
-        if [[ -z "$recent_screenshot" ]]; then
-            echo "No screenshot files found in $dir"
-            exit 1
-        fi
-
-        # Load the screenshot into the satty tool
-        satty --filename "$recent_screenshot"
-
-                exit 0
-      '')
-    ];
+    [ (writeScriptBin "screenshot-annotate.sh" screenshotAnnotateScript) ];
 }
