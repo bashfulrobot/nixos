@@ -62,6 +62,7 @@
     appimage-run # Run AppImages
 
     ### Dev
+    ollama # Run AI Models
     helix # modal text editor
     bruno # API Tester
     ngrok
