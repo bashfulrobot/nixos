@@ -54,7 +54,7 @@
     fzf # command-line fuzzy finder
     sshfs # filesystem client over SSH
     openssl # cryptographic toolkit
-    ntfy # shell notification tool
+    # ntfy # shell notification tool
     bottom # system monitoring tool
     shell-genie # interact with the terminal in plain English
     broot # Fuzzy finder
