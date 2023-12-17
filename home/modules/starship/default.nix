@@ -2,8 +2,9 @@
   # Starship prompt
   # https://github.com/search?p=1&q=language%3Anix+programs.starship.settings&type=Code
   programs.starship = {
-    enable = true;
+    enable = false;
     enableBashIntegration = true;
+    # enableFishIntegration = true;
     settings = {
       add_newline = true;
       character = {

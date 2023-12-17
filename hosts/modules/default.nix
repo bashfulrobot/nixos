@@ -20,10 +20,14 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
+  # You can enable the fish shell and manage fish configuration and plugins with Home Manager, but to enable vendor fish completions provided by Nixpkgs you will also want to enable the fish shell in /etc/nixos/configuration.nix:
+  programs.fish.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dustin = {
     isNormalUser = true;
     description = "Dustin Krysak";
+    shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
       "wheel"

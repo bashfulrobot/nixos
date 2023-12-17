@@ -8,6 +8,7 @@
   services.gpg-agent = {
     enable = true;
     enableBashIntegration = true;
+    enableFishIntegration = true;
     # May not be needed. Testing
     # enableSshSupport = true;
   };
@@ -17,7 +18,5 @@
     enable = true;
     components = [ "pkcs11" "secrets" "ssh" ];
   };
-
-
 
 }

@@ -9,6 +9,7 @@
     ./environment
     ./espanso
     ./firefox
+    ./fish
     ./fonts
     ./git
     ./go

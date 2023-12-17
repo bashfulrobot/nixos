@@ -16,12 +16,14 @@ in {
     fira-code-symbols
     font-awesome
     cantarell-fonts
-    comic-mono
+    # comic-mono
     victor-mono
+    # Meslo Nerd Font patched for Powerlevel10k
+    meslo-lgs-nf
     # nerdfonts
-    (nerdfonts.override {
-      fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" "SourceCodePro" ];
-    })
+    # (nerdfonts.override {
+    #   fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" "SourceCodePro" ];
+    # })
   ];
 
 }

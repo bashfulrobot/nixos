@@ -11,6 +11,7 @@
     navi = {
       enable = true;
       enableBashIntegration = true;
+      enableFishIntegration = true;
     };
 
     carapace = { enable = true; };
