@@ -10,9 +10,9 @@
     libxslt # A C library and tools to do XSL transformations - needed in my terraform scripts
     gmailctl # cli to write gmail filters as code
     ncdu # disk usage analyzer
-    wshowkeys # Show keys pressed in wayland
+    # wshowkeys # Show keys pressed in wayland
     killall # kill all instances of a running app
-    xfce.xfce4-terminal
+    # xfce.xfce4-terminal
     dex # open desktop files from the terminal
     # blackbox-terminal # encrypted terminal sessions
     bash-completion # bash shell completion

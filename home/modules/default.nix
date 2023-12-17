@@ -14,7 +14,7 @@
     ./git
     ./go
     ./gpg
-    ./kcli
+    # ./kcli
     ./kubitect
     ./nautilus
     ./ncspot
@@ -26,7 +26,7 @@
     ./starship
     # ./sysdig-cli-scanner
     ./terminal
-    ./virter
+    # ./virter
     ./web-apps
     ./xterm
     # ./yazi

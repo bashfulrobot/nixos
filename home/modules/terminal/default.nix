@@ -8,11 +8,11 @@
     #   enable = true;
     #   enableBashIntegration = true;
     # };
-    navi = {
-      enable = true;
-      enableBashIntegration = true;
-      enableFishIntegration = true;
-    };
+    # navi = {
+    #   enable = true;
+    #   enableBashIntegration = true;
+    #   enableFishIntegration = true;
+    # };
 
     carapace = { enable = true; };
   };
