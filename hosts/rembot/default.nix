@@ -7,6 +7,7 @@
     ./firewall.nix
     ./video.nix
     ./hardware-configuration.nix
+    ./network.nix
     ../modules
     ../modules/desktops/gnome
     ./steam.nix
