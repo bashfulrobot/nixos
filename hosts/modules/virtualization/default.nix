@@ -10,7 +10,7 @@
     # lxd.enable = true;
     libvirtd = {
       enable = true;
-      # allowedBridges = "virbr0";
+      allowedBridges = [ "virbr0" "br0" ];
       onBoot = "start";
       onShutdown = "suspend";
     };
@@ -18,13 +18,13 @@
     #   enable = true;
     #   enableExtensionPack = true;
     # };
-    lxd = {
-      enable = true;
-      # ui = {
-      #   enable = true;
-      #   package = pkgs.unstable.lxd-unwrapped.ui;
-      # };
-    };
+    # lxd = {
+    #   enable = true;
+    # ui = {
+    #   enable = true;
+    #   package = pkgs.unstable.lxd-unwrapped.ui;
+    # };
+    # };
     # multipass = {
     #   enable = true;
     #   # logLevel = "trace";
