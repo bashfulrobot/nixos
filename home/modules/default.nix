@@ -4,6 +4,7 @@
     ./alacritty
     ./bash
     ./chromium
+    ./dagger
     ./desktop-files/tower.nix
     ./dracula
     ./environment
@@ -24,7 +25,7 @@
     ./scripts
     ./ssh
     ./starship
-    # ./sysdig-cli-scanner
+    ./sysdig-cli-scanner
     ./terminal
     # ./virter
     ./web-apps

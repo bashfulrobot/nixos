@@ -1,11 +1,12 @@
 { lib, pkgs, ... }:
 # https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt
 let version = "1.6.1";
-pkgs.stdenv.mkDerivation {
+in pkgs.stdenv.mkDerivation {
   name = "sysdig-cli-scanner";
   src = pkgs.fetchurl {
-    url = "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/${version}/linux/amd64/sysdig-cli-scanner";
-    sha256 = "0ldh303r5063kd5y73hhkbd9v11c98aki8wjizmchzx2blwlipy7";
+    url =
+      "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/${version}/linux/amd64/sysdig-cli-scanner";
+    sha256 = "sha256-6U2bEKBPmL0YIcXFH5dcgEqJSp3XMBfZ6PbZEve+KX0=";
   };
   phases = [ "installPhase" "patchPhase" ];
   installPhase = ''
