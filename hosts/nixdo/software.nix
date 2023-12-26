@@ -26,6 +26,7 @@
     tailscale
     just
     nixfmt
+    lunarvim
   ];
 
   # Install Docker
