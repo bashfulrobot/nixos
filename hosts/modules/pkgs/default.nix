@@ -173,6 +173,7 @@
     slack # instant messaging
     rocketchat-desktop # instant messaging
     thunderbird # email client
+    mailspring # email client
 
   ];
 
