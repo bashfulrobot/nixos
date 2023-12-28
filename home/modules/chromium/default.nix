@@ -37,7 +37,7 @@
       { id = "ghbmnnjooekpmoecnnnilnnbdlolhkhi"; } # Google docs offline
       { id = "cdglnehniifkbagbbombnjghhcihifij"; } # Kagi search
       { id = "pcmpcfapbekmbjjkdalcgopdkipoggdi"; } # Markdown downloader
-      { id = "gbmgphmejlcoihgedabhgjdkcahacjlj"; } # wallabag
+      { id = "admfbhjcnlacjbodldopmpjplnobgcje"; } # Shiori bookmarks
 
     ];
   };
