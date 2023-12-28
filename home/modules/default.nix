@@ -13,6 +13,7 @@
     ./fish
     ./fonts
     ./git
+    ./gnome-web
     ./go
     ./gpg
     # ./kcli
