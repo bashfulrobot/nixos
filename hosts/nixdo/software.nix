@@ -27,6 +27,7 @@
     just
     nixfmt
     lunarvim
+    fish
   ];
 
   # Install Docker

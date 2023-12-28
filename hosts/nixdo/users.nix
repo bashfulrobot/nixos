@@ -4,7 +4,7 @@
     isNormalUser = true;
     description = "dustin";
     extraGroups = [ "docker" "wheel" ];
-    shell = "/run/current-system/sw/bin/bash";
+    shell = "/run/current-system/sw/bin/fish";
   };
 
 }
