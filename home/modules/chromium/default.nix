@@ -36,6 +36,7 @@
       { id = "hefhjoddehdhdgfjhpnffhopoijdfnak"; } # Privacy Party
       { id = "ghbmnnjooekpmoecnnnilnnbdlolhkhi"; } # Google docs offline
       { id = "cdglnehniifkbagbbombnjghhcihifij"; } # Kagi search
+      { id = "pcmpcfapbekmbjjkdalcgopdkipoggdi"; } # Markdown downloader
 
     ];
   };
