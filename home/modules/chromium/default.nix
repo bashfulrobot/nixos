@@ -38,6 +38,7 @@
       { id = "cdglnehniifkbagbbombnjghhcihifij"; } # Kagi search
       { id = "pcmpcfapbekmbjjkdalcgopdkipoggdi"; } # Markdown downloader
       { id = "gcaimhkfmliahedmeklebabdgagipbia"; } # Archive Today
+      { id = "mphkdfmipddgfobjhphabphmpdckgfhb"; } # obsidian clipper
 
     ];
   };
