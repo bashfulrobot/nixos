@@ -127,7 +127,7 @@
     ### Networking
     tailscale # zero-config VPN
     # wgnord # nordvpn over wireguard
-     # localsend # send files locally # bug, need to troubleshoot TODO
+    # localsend # send files locally # bug, need to troubleshoot TODO
 
     ### Backup
     restic # backup program
@@ -135,6 +135,8 @@
 
     ### GUI
     #insync # Google Drive Sync Client
+    vivaldi # Browser
+    vivaldi-ffmpeg-codecs # Browser codecs
     mullvad # VPN Client
     evince # pdf viewer
     # midori # lightweight gtk web browser
