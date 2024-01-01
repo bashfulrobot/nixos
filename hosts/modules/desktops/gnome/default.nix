@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }: {
+{ lib, config, inputs, pkgs, ... }: {
 
   # imports = [ ./hyprland ./sddm ];
 
@@ -37,17 +37,43 @@
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks # Gnome Tweaks
     # Gnome Extensions
-    gnomeExtensions.user-themes
-    gnomeExtensions.bluetooth-quick-connect
-    gnomeExtensions.just-perfection
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.unite
-    gnomeExtensions.quick-settings-audio-panel
+    gnomeExtensions.user-themes # User Themes
+    gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
+    gnomeExtensions.just-perfection # Just Perfection
+    gnomeExtensions.blur-my-shell # Blur my Shell
+    gnomeExtensions.unite # Unite
+    gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
     # gnomeExtensions.forge
-    gnomeExtensions.pop-shell
-    gnomeExtensions.appindicator
-    gnomeExtensions.mullvad-indicator
+    gnomeExtensions.pop-shell # Pop Shell
+    gnomeExtensions.appindicator # AppIndicator support
+    gnomeExtensions.mullvad-indicator # Mullvad VPN
+    gnome.nautilus # file manager
+    gnome.adwaita-icon-theme # icon theme
+    gnome.gnome-settings-daemon # settings daemon
+    gnome2.GConf # configuration database system for old apps
 
   ];
+
+  #   Dynamic triple buffering
+  # Big merge request against Mutter improves the performance of the window manager by a lot (and is already used by Ubuntu). Not merged into nixpkgs due to philosophy of nixpkgs, but users are free to add this overlay to get it too.
+
+  # Currently it's adapted for Gnome 45.
+  nixpkgs.overlays = [
+    (final: prev: {
+      gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
+        mutter = gnomePrev.mutter.overrideAttrs (old: {
+          src = pkgs.fetchgit {
+            url = "https://gitlab.gnome.org/vanvugt/mutter.git";
+            # GNOME 45: triple-buffering-v4-45
+            rev = "0b896518b2028d9c4d6ea44806d093fd33793689";
+            sha256 = "sha256-mzNy5GPlB2qkI2KEAErJQzO//uo8yO0kPQUwvGDwR4w=";
+          };
+        });
+      });
+    })
+  ];
+
+  # You might need to disable aliases to make Dynamic triple buffering work:
+  # nixpkgs.config.allowAliases = false;
 
 }
