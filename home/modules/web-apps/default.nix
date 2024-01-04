@@ -161,15 +161,15 @@
     target = ".local/share/xdg-desktop-portal/icons/192x192/teams.png";
   };
 
-  home.file."elk.desktop" = {
-    source = ./desktop-files/elk.desktop;
-    target = ".local/share/applications/elk.desktop";
-  };
+  # home.file."elk.desktop" = {
+  #   source = ./desktop-files/elk.desktop;
+  #   target = ".local/share/applications/elk.desktop";
+  # };
 
-  home.file."elk.png" = {
-    source = ./icons/elk.png;
-    target = ".local/share/xdg-desktop-portal/icons/192x192/elk.png";
-  };
+  # home.file."elk.png" = {
+  #   source = ./icons/elk.png;
+  #   target = ".local/share/xdg-desktop-portal/icons/192x192/elk.png";
+  # };
 
   home.file."chatgpt.desktop" = {
     source = ./desktop-files/chatgpt.desktop;
@@ -181,35 +181,35 @@
     target = ".local/share/xdg-desktop-portal/icons/192x192/chatgpt.png";
   };
 
-  home.file."languagetool.desktop" = {
-    source = ./desktop-files/languagetool.desktop;
-    target = ".local/share/applications/languagetool.desktop";
-  };
+  # home.file."languagetool.desktop" = {
+  #   source = ./desktop-files/languagetool.desktop;
+  #   target = ".local/share/applications/languagetool.desktop";
+  # };
 
-  home.file."languagetool.png" = {
-    source = ./icons/languagetool.png;
-    target = ".local/share/xdg-desktop-portal/icons/192x192/languagetool.png";
-  };
+  # home.file."languagetool.png" = {
+  #   source = ./icons/languagetool.png;
+  #   target = ".local/share/xdg-desktop-portal/icons/192x192/languagetool.png";
+  # };
 
-  home.file."zoom-web.desktop" = {
-    source = ./desktop-files/zoom-web.desktop;
-    target = ".local/share/applications/zoom-web.desktop";
-  };
+  # home.file."zoom-web.desktop" = {
+  #   source = ./desktop-files/zoom-web.desktop;
+  #   target = ".local/share/applications/zoom-web.desktop";
+  # };
 
-  home.file."zoom.png" = {
-    source = ./icons/zoom.png;
-    target = ".local/share/xdg-desktop-portal/icons/192x192/zoom.png";
-  };
+  # home.file."zoom.png" = {
+  #   source = ./icons/zoom.png;
+  #   target = ".local/share/xdg-desktop-portal/icons/192x192/zoom.png";
+  # };
 
-  home.file."google.desktop" = {
-    source = ./desktop-files/google.desktop;
-    target = ".local/share/applications/google.desktop";
-  };
+  # home.file."google.desktop" = {
+  #   source = ./desktop-files/google.desktop;
+  #   target = ".local/share/applications/google.desktop";
+  # };
 
-  home.file."google.png" = {
-    source = ./icons/google.png;
-    target = ".local/share/xdg-desktop-portal/icons/192x192/google.png";
-  };
+  # home.file."google.png" = {
+  #   source = ./icons/google.png;
+  #   target = ".local/share/xdg-desktop-portal/icons/192x192/google.png";
+  # };
 
   home.file."salesforce.desktop" = {
     source = ./desktop-files/salesforce.desktop;
