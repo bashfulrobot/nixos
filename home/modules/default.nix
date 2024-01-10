@@ -9,7 +9,7 @@
     ./dracula
     ./environment
     ./espanso
-    ./firefox
+    # ./firefox
     ./fish
     ./fonts
     ./git
