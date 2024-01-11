@@ -112,7 +112,6 @@
     cloud-utils # cloud management utilities
     # kubeone # Kubernetes cluster management
     talosctl # Talos OS management tool - diabled until https://github.com/NixOS/nixpkgs/issues/264127 is fixed.
-    k8sgpt # k8s super powers
     kompose # Kubernetes container orchestration
     vultr-cli # Vultr cloud management
     kubectl # Kubernetes command-line tool

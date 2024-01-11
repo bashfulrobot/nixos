@@ -16,6 +16,7 @@
     ./gnome-web
     ./go
     ./gpg
+    ./k8sgpt
     # ./kcli
     ./kubitect
     ./nautilus
