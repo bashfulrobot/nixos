@@ -28,17 +28,17 @@ in {
         function shutdown_all_vms {
           local domains=$(virsh list --name --state-running)
           if [[ -z "$domains" ]]; then
-            echo "No running VMs detected."
+            echo '{{ Color "99" "0" "No running VMs detected." }} :disappointed:' | gum format -t template | gum format -t emoji
           else
-            echo "Shutting down the following VMs:"
+            echo '{{ Bold "Shutting down the following VMs:" }} :arrow_down:' | gum format -t template | gum format -t emoji
             for domain in $domains
             do
-              echo "Shutting down $domain..."
+              echo '{{ Italic "Shutting down" }} $domain... :hourglass_flowing_sand:' | gum format -t template | gum format -t emoji
               virsh shutdown $domain
               if [[ $? -eq 0 ]]; then
-                echo "$domain has been shut down successfully."
+                echo '$domain {{ Bold "has been shut down successfully." }} :thumbsup:' | gum format -t template | gum format -t emoji
               else
-                echo "Failed to shut down $domain."
+                echo '{{ Color "99" "0" "Failed to shut down" }} $domain. :thumbsdown:' | gum format -t template | gum format -t emoji
               fi
             done
           fi
