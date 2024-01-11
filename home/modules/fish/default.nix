@@ -25,24 +25,23 @@ in {
     # ];
     functions = {
       shutdown_all_local_vms = ''
-        function shutdown_all_vms {
-          local domains=$(virsh list --name --state-running)
-          if [[ -z "$domains" ]]; then
-            echo '{{ Color "99" "0" "No running VMs detected." }} :disappointed:' | gum format -t template | gum format -t emoji
+        function shutdown_all_local_vms
+          set domains (virsh list --name --state-running)
+          if test -z "$domains"
+            echo "No running VMs detected." | gum format -t template | gum format -t emoji
           else
-            echo '{{ Bold "Shutting down the following VMs:" }} :arrow_down:' | gum format -t template | gum format -t emoji
+            echo "Shutting down the following VMs:" | gum format -t template | gum format -t emoji
             for domain in $domains
-            do
-              echo '{{ Italic "Shutting down" }} $domain... :hourglass_flowing_sand:' | gum format -t template | gum format -t emoji
+              echo "Shutting down $domain..." | gum format -t template | gum format -t emoji
               virsh shutdown $domain
-              if [[ $? -eq 0 ]]; then
-                echo '$domain {{ Bold "has been shut down successfully." }} :thumbsup:' | gum format -t template | gum format -t emoji
+              if test $status -eq 0
+                echo "$domain has been shut down successfully." | gum format -t template | gum format -t emoji
               else
-                echo '{{ Color "99" "0" "Failed to shut down" }} $domain. :thumbsdown:' | gum format -t template | gum format -t emoji
-              fi
-            done
-          fi
-        }
+                echo "Failed to shut down $domain." | gum format -t template | gum format -t emoji
+              end
+            end
+          end
+        end
       '';
     };
     shellAliases = {
