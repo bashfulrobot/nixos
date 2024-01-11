@@ -26,18 +26,20 @@ in {
     functions = {
       shutdown_all_local_vms = ''
         function shutdown_all_local_vms
+          echo "Running shutdown_all_local_vms function..."
           set -l domains (virsh list --name --state-running)
+          echo "Domains: $domains"
           if test -z "$domains"
-            echo "No running VMs detected." | gum format -t template | gum format -t emoji
+            echo "No running VMs detected."
           else
-            echo "Shutting down the following VMs:" | gum format -t template | gum format -t emoji
+            echo "Shutting down the following VMs:"
             for domain in $domains
-              echo "Shutting down $domain..." | gum format -t template | gum format -t emoji
+              echo "Shutting down $domain..."
               virsh shutdown $domain
               if test $status -eq 0
-                echo "$domain has been shut down successfully." | gum format -t template | gum format -t emoji
+                echo "$domain has been shut down successfully."
               else
-                echo "Failed to shut down $domain." | gum format -t template | gum format -t emoji
+                echo "Failed to shut down $domain."
               end
             end
           end
