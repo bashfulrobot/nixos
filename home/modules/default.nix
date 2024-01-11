@@ -13,6 +13,7 @@
     ./fish
     ./fonts
     ./git
+    ./gitnuro
     ./gnome-web
     ./go
     ./gpg

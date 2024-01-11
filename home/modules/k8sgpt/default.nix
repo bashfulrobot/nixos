@@ -1,8 +1,8 @@
 { pkgs, ... }: {
-  # Install Dagger
+  # Install k8sgpt
   home.packages = with pkgs; [ k8sgpt ];
 
-  # Add dagger completions to fish shell
+  # Add k8sgpt completions to fish shell
   home.file.".local/share/fish/generated_completions/k8sgpt.fish".text = ''
     # fish completion for k8sgpt                               -*- shell-script -*-
 
