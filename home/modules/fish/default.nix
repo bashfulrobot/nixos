@@ -26,7 +26,7 @@ in {
     functions = {
       shutdown_all_local_vms = ''
         function shutdown_all_local_vms
-          set domains (virsh list --name --state-running)
+          set -l domains (virsh list --name --state-running)
           if test -z "$domains"
             echo "No running VMs detected." | gum format -t template | gum format -t emoji
           else
