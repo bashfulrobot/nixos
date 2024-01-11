@@ -81,6 +81,7 @@
     # postman # API testing tool
     vscode # code editor
     ox # code editor
+    gitnuro # git client
     sftpman # SftpMan consists of a CLI and a GTK application that make it simpler to setup and mount SSHFS/SFTP file systems.
     jetbrains.goland # Go IDE
     #sublime4 # code editor
