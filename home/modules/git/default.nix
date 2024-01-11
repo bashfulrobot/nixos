@@ -25,12 +25,12 @@
         a = "add";
         c = "commit";
       };
-      delta = { enable = true; };
-      # difftastic = {
-      #   enable = true;
-      #   background = "dark";
-      #   color = "always";
-      # };
+      # delta = { enable = true; };
+      difftastic = {
+        enable = true;
+        background = "dark";
+        color = "always";
+      };
     };
     gh = {
       enable = true;
