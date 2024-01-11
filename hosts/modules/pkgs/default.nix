@@ -135,8 +135,8 @@
 
     ### GUI
     #insync # Google Drive Sync Client
-    vivaldi # Browser
-    vivaldi-ffmpeg-codecs # Browser codecs
+    # vivaldi # Browser
+    # vivaldi-ffmpeg-codecs # Browser codecs
     mullvad # VPN Client
     evince # pdf viewer
     # midori # lightweight gtk web browser
