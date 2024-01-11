@@ -25,11 +25,24 @@ in {
     # ];
     functions = {
       shutdown_all_local_vms = ''
-        function shutdown_all_vms
-          for domain in (virsh list --name --state-running)
-            virsh shutdown $domain
-          end
-        end
+        function shutdown_all_vms {
+          local domains=$(virsh list --name --state-running)
+          if [[ -z "$domains" ]]; then
+            echo "No running VMs detected."
+          else
+            echo "Shutting down the following VMs:"
+            for domain in $domains
+            do
+              echo "Shutting down $domain..."
+              virsh shutdown $domain
+              if [[ $? -eq 0 ]]; then
+                echo "$domain has been shut down successfully."
+              else
+                echo "Failed to shut down $domain."
+              fi
+            done
+          fi
+        }
       '';
     };
     shellAliases = {
