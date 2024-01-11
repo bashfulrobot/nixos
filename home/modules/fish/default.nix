@@ -138,6 +138,7 @@ in {
     fishPlugins.done
     fishPlugins.forgit
     fishPlugins.sponge
+    gum
   ];
 
   # home.file.".config/fish/match/fish_variables".text = ''
