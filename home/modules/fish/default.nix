@@ -23,6 +23,15 @@ in {
     #     };
     #   }
     # ];
+    functions = {
+      shutdown_all_local_vms.text = ''
+        function shutdown_all_vms
+          for domain in (virsh list --name --state-running)
+            virsh shutdown $domain
+          end
+        end
+      '';
+    };
     shellAliases = {
       ".." = "cd ..";
       "..." = "cd ../..";
