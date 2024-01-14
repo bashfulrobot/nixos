@@ -198,7 +198,7 @@ with lib.hm.gvariant;
       {
         binding = "<Super>t";
         # command = "kgx";
-        command = "alacritty";
+        command = "blackbox";
         name = "Terminal";
       };
 
