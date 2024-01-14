@@ -142,6 +142,7 @@
     # vivaldi-ffmpeg-codecs # Browser codecs
     mullvad # VPN Client
     evince # pdf viewer
+    foliate # ebook reader
     # midori # lightweight gtk web browser
     libreoffice # office suite
     solaar # Linux manager for many Logitech keyboards, mice
@@ -157,7 +158,7 @@
     satty # annotation
     _1password-gui # password management GUI
     helvum # A GTK patchbay for pipewire
-    #bookworm # ePub reader
+    bookworm # ebook reader
     obsidian # note-taking app
     # todoist-electron # task management app - currently in a flatpak
     virt-manager # virtual machine manager

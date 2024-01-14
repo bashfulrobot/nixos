@@ -5,7 +5,7 @@
 
       # Enable true color support
       env.TERM = "alacritty";
-      dynamic_title = true;
+      # dynamic_title = true;
 
       scrolling = {
         history = 10000;
