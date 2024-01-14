@@ -63,7 +63,6 @@
 
     ### Dev
     ollama # Run AI Models
-    helix # modal text editor
     bruno # API Tester
     ngrok
     pkg-config # allows packages to find out information about other packages
@@ -80,7 +79,6 @@
     nodejs-18_x # JavaScript runtime
     # postman # API testing tool
     vscode # code editor
-    ox # code editor
     gitnuro # git client
     sftpman # SftpMan consists of a CLI and a GTK application that make it simpler to setup and mount SSHFS/SFTP file systems.
     jetbrains.goland # Go IDE
@@ -158,7 +156,6 @@
     satty # annotation
     _1password-gui # password management GUI
     helvum # A GTK patchbay for pipewire
-    bookworm # ebook reader
     obsidian # note-taking app
     # todoist-electron # task management app - currently in a flatpak
     virt-manager # virtual machine manager
