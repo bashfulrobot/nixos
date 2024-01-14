@@ -14,7 +14,7 @@
     killall # kill all instances of a running app
     # xfce.xfce4-terminal
     dex # open desktop files from the terminal
-    # blackbox-terminal # encrypted terminal sessions
+    blackbox-terminal # encrypted terminal sessions
     bash-completion # bash shell completion
     tesseract # CLI OCR
     gping # visual ping alternative
