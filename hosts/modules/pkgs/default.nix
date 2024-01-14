@@ -16,7 +16,7 @@
     dex # open desktop files from the terminal
     blackbox-terminal # encrypted terminal sessions
     bash-completion # bash shell completion
-    tesseract # CLI OCR
+    # tesseract # CLI OCR
     gping # visual ping alternative
     ffmpeg_6-full # multimedia processing
     libthai # Needed for some appImages
@@ -82,7 +82,7 @@
     gitnuro # git client
     sftpman # SftpMan consists of a CLI and a GTK application that make it simpler to setup and mount SSHFS/SFTP file systems.
     jetbrains.goland # Go IDE
-    #sublime4 # code editor
+    sublime4 # code editor
     #sublime-merge # GUI Git Client
     # Causes:error: Package ‘python-2.7.18.6’ in /nix/store/zb2695k9v4hmjdki97p0yhd4mys270fs-source/pkgs/development/interpreters/python/cpython/2.7/default.nix:330 is marked as insecure, refusing to evaluate.
     # oni2 # code editor
