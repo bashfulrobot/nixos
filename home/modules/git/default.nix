@@ -52,13 +52,13 @@
 
   home.file.".config/gptcommit/config.toml".text = ''
     model_provider = "openai"
-    allow_amend = true
+    allow_amend = false
     file_ignore = ["package-lock.json", "yarn.lock", "pnpm-lock.yaml", "Cargo.lock"]
 
     [openai]
     api_base = "https://api.openai.com/v1"
     api_key = "${secrets.openai.api-key}"
-    model = "gpt-3.5-turbo-16k"
+    #model = "gpt-3.5-turbo-16k"
     retries = 2
     proxy = ""
 
@@ -67,7 +67,7 @@
     You are an expert programmer summarizing a code change.
     You went over every staged file that was changed in it.
     For some of these files changes where too big and were omitted in the files diff summary.
-    Determine the best label for the commit.
+    Determine the best label for the commit. Only include info from the most recent changes.
 
     Here are the labels you can choose from:
 
@@ -93,6 +93,7 @@
     You are an expert programmer writing a commit message.
     You went over every staged file that was changed in it.
     For some of these files changes where too big and were omitted in the files diff summary.
+    Only include info from the most recent commit.
     Please summarize the commit.
     Write your response in bullet points, using the imperative tense.
     Starting each bullet point with a `-`.
@@ -104,7 +105,7 @@
     {{ summary_points }}
     ```
 
-    Remember to write only the most important points and do not write more than a few bullet points.
+    Remember to write only the most important points and do not write more than a few bullet points. Only include info from the most recent commit.
 
     THE COMMIT MESSAGE:
     """
@@ -114,7 +115,7 @@
     Some of these files changes were too big, and were omitted in the summaries below.
     Please summarize the commit into a single specific and cohesive theme.
     Write your response using the imperative tense following the kernel git commit style guide.
-    Write a high level title.
+    Write a high level title. Only include info from the most recent commit.
     Do not repeat the commit summaries or the file summaries.
     Do not list individual changes in the title.
 
@@ -131,7 +132,7 @@
     {{ summary_points }}
     ```
 
-    Remember to write only one line, no more than 50 characters.
+    Remember to write only one line, no more than 50 characters. Only include info from the most recent commit.
     THE COMMIT MESSAGE TITLE:
     """
     file_diff = """
@@ -145,7 +146,7 @@
     +++ b/lib/index.js
     ```
     This means that `lib/index.js` was modified in this commit. Note that this is only an example.
-    Then there is a specifier of the lines that were modified.
+    Then there is a specifier of the lines that were modified. Only include info from the most recent commit.
     A line starting with `+` means it was added.
     A line that starting with `-` means that line was deleted.
     A line that starts with neither `+` nor `-` is code given for context and better understanding.
@@ -159,7 +160,7 @@
     The summary should not include comments copied from the code.
     The output should be easily readable. When in doubt, write fewer comments and not more. Do not output comments that
     simply repeat the contents of the file.
-    Readability is top priority. Write only the most important comments about the diff.
+    Readability is top priority. Write only the most important comments about the diff. And include info from the most recent commit.
 
     EXAMPLE SUMMARY COMMENTS:
     ```
@@ -173,7 +174,7 @@
     Most commits will have less comments than this examples list.
     The last comment does not include the file names,
     because there were more than two relevant files in the hypothetical commit.
-    Do not include parts of the example in your summary.
+    Do not include parts of the example in your summary. Include info from the most recent commit only.
     It is given only as an example of appropriate comments.
 
     THE GIT DIFF TO BE SUMMARIZED:
