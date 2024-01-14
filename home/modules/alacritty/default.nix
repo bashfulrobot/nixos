@@ -21,7 +21,7 @@
       cursor = {
         style = "Block";
         unfocused_hollow = true;
-        blinking = "Always";
+        # blinking = "Always";
       };
 
       colors = {
