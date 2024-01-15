@@ -151,15 +151,15 @@
     target = ".local/share/xdg-desktop-portal/icons/192x192/tactiq.png";
   };
 
-  home.file."teams.desktop" = {
-    source = ./desktop-files/teams.desktop;
-    target = ".local/share/applications/teams.desktop";
-  };
+  # home.file."teams.desktop" = {
+  #   source = ./desktop-files/teams.desktop;
+  #   target = ".local/share/applications/teams.desktop";
+  # };
 
-  home.file."teams.png" = {
-    source = ./icons/teams.png;
-    target = ".local/share/xdg-desktop-portal/icons/192x192/teams.png";
-  };
+  # home.file."teams.png" = {
+  #   source = ./icons/teams.png;
+  #   target = ".local/share/xdg-desktop-portal/icons/192x192/teams.png";
+  # };
 
   # home.file."elk.desktop" = {
   #   source = ./desktop-files/elk.desktop;
