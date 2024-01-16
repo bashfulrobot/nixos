@@ -29,7 +29,8 @@
       { id = "pcmpcfapbekmbjjkdalcgopdkipoggdi"; } # Markdown downloader
       { id = "gcaimhkfmliahedmeklebabdgagipbia"; } # Archive Today
       { id = "mphkdfmipddgfobjhphabphmpdckgfhb"; } # obsidian clipper
-      { id = "egejbknaophaadmhijkepokfchkbnelc"; } # bypass medium 
+      { id = "egejbknaophaadmhijkepokfchkbnelc"; } # bypass medium
+      { id = "egiemoacchfofdhhlfhkdcacgaopncmi"; } # URL/Tab Manager
 
     ];
   };
