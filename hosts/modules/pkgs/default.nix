@@ -138,6 +138,8 @@
     #insync # Google Drive Sync Client
     # vivaldi # Browser
     # vivaldi-ffmpeg-codecs # Browser codecs
+    whatsapp-for-linux # WhatsApp client
+    whatsapp-emoji-font # WhatsApp emoji font
     mullvad # VPN Client
     evince # pdf viewer
     foliate # ebook reader
