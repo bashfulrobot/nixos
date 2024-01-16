@@ -139,7 +139,7 @@
     # vivaldi # Browser
     # vivaldi-ffmpeg-codecs # Browser codecs
     whatsapp-for-linux # WhatsApp client
-    whatsapp-emoji-font # WhatsApp emoji font
+    # whatsapp-emoji-font # WhatsApp emoji font - pegs CPU to 100% on build
     mullvad # VPN Client
     evince # pdf viewer
     foliate # ebook reader
