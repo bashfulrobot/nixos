@@ -57,6 +57,11 @@ in {
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track push";
       ilog =
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track logs";
+      gotf = "cd ~/dev/terraform";
+      gotf-e = "cd ~/dev/terraform && code -r .";
+      gon = "cd ~/dev/nix/nixos";
+      gon-e = "cd ~/dev/nix/nixos && code -r .";
+      goagent = "cd ~/dev/sysdig/sysdig-agent-deploy/";
       y = "cd ~/; yazi";
       e = "lvim";
       nvim = "lvim";
@@ -65,7 +70,7 @@ in {
       ny = "cd ~/dev/nix/nixos/; yazi";
       n = "cd ~/dev/nix/nixos/; lvim";
       nc =
-        "cd ~/dev/nix/nixos && git add . && git commit -S && rebuild && git push";
+        "cd ~/dev/nix/nixos && git add . && git commit -S && rebuild && cd ~/dev/nix/nixos && git push";
       ls = "${pkgs.eza}/bin/eza -al --octal-permissions --icons";
       # ls = "${pkgs.eza}/bin/eza -al --octal-permissions";
       font-cache-refresh = "sudo fc-cache -f -v";
