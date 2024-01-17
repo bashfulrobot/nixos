@@ -209,6 +209,13 @@ with lib.hm.gvariant;
         name = "Annotate Screenshot";
       };
 
+    # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
+    #   {
+    #     binding = "<Control><Alt>p";
+    #     command = "/run/current-system/sw/bin/flameshot gui";
+    #     name = "Screenshot";
+    #   };
+
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" =
       {
         binding = "<Super>b";

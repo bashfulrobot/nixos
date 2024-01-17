@@ -16,10 +16,8 @@ let
     fi
 
     # Load the screenshot into the satty tool
-    # satty --filename "$recent_screenshot"
-
-    #satty --filename "$recent_screenshot" --init-tool arrow --early-exit --fullscreen --output-filename "$dir/annotated-$(date +%Y-%m-%d-%H-%M-%S).png"
-    satty --filename "$recent_screenshot" --init-tool arrow --early-exit --fullscreen
+    # satty --filename "$recent_screenshot" --init-tool arrow --fullscreen
+    satty --filename "$recent_screenshot" --init-tool arrow --fullscreen --output-filename "$dir/annotated-$(date +%Y-%m-%d-%H-%M-%S).png"
 
     # Delete files older than 1 week
     find "$dir" -type f -mtime +7 -exec rm {} \;

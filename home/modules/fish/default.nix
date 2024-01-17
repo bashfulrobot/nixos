@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 let fd-flags = lib.concatStringsSep " " [ "--hidden" "--exclude '.git'" ];
 in {
   programs.fish = {
@@ -62,6 +62,7 @@ in {
       gon = "cd ~/dev/nix/nixos";
       gon-e = "cd ~/dev/nix/nixos && code -r .";
       goagent = "cd ~/dev/sysdig/sysdig-agent-deploy/";
+      gos = "cd ~/Pictures/Screenshots/";
       y = "cd ~/; yazi";
       e = "lvim";
       nvim = "lvim";
