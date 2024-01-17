@@ -31,6 +31,7 @@
       { id = "mphkdfmipddgfobjhphabphmpdckgfhb"; } # obsidian clipper
       { id = "egejbknaophaadmhijkepokfchkbnelc"; } # bypass medium
       { id = "egiemoacchfofdhhlfhkdcacgaopncmi"; } # URL/Tab Manager
+      { id = "bcelhaineggdgbddincjkdmokbbdhgch"; } # Mail message URL
 
     ];
   };
