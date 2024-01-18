@@ -56,7 +56,7 @@
     openssl # cryptographic toolkit
     # ntfy # shell notification tool
     bottom # system monitoring tool
-    shell-genie # interact with the terminal in plain English
+    # shell-genie # interact with the terminal in plain English
     broot # Fuzzy finder
     dysk # Mounted Disk Info
     appimage-run # Run AppImages
