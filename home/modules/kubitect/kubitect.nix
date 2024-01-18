@@ -5,7 +5,7 @@ pkgs.stdenv.mkDerivation {
   src = pkgs.fetchzip {
     name = "kubitect";
     url = "https://dl.kubitect.io/linux/amd64/latest?=.tar.gz";
-    sha256 = "sha256-q96v9BXVPdQJW6BNc8ORaEyXMHMrxjurVOBxBBBem2k=";
+    sha256 = "sha256-sjUQ5PERxDLLFPB1zMLHf06vxHDP+6kJfycps/5IebY=";
     stripRoot = false;
   };
   # Use patchElf to fix dynamic linking
