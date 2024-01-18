@@ -69,7 +69,7 @@ in {
       kc = "${pkgs.kubectx}/bin/kubectx";
       vms = "sudo ${pkgs.libvirt}/bin/virsh list --all";
       yless = "${pkgs.jless}/bin/jless --yaml";
-      please = "${pkgs.shell-genie}/bin/shell-genie ask";
+      # please = "${pkgs.shell-genie}/bin/shell-genie ask";
       rebuild =
         "echo;echo '***** UPDATE APPIMAGES PERIODIALLY *****'; echo;  sleep 1; cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just rebuild; cd -";
       upgrade =
