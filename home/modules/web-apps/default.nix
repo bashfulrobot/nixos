@@ -201,15 +201,15 @@
     target = ".local/share/xdg-desktop-portal/icons/192x192/zoom.png";
   };
 
-  # home.file."google.desktop" = {
-  #   source = ./desktop-files/google.desktop;
-  #   target = ".local/share/applications/google.desktop";
-  # };
+  home.file."google.desktop" = {
+    source = ./desktop-files/google.desktop;
+    target = ".local/share/applications/google.desktop";
+  };
 
-  # home.file."google.png" = {
-  #   source = ./icons/google.png;
-  #   target = ".local/share/xdg-desktop-portal/icons/192x192/google.png";
-  # };
+  home.file."google.png" = {
+    source = ./icons/google.png;
+    target = ".local/share/xdg-desktop-portal/icons/192x192/google.png";
+  };
 
   home.file."salesforce.desktop" = {
     source = ./desktop-files/salesforce.desktop;
