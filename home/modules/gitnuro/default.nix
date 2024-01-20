@@ -2,7 +2,7 @@
   # Install gitnuro
   home.packages = with pkgs; [ gitnuro ];
 
-  # Add gitnuro completions to fish shell
+  # Add gitnuro theme
   home.file.".config/gitnauro/gitnauro-dracula.json".text = ''
        {
         "primary": "#BD93F9",
