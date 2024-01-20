@@ -136,14 +136,11 @@
 
     ### GUI
     #insync # Google Drive Sync Client
-    # vivaldi # Browser
-    # vivaldi-ffmpeg-codecs # Browser codecs
     whatsapp-for-linux # WhatsApp client
     # whatsapp-emoji-font # WhatsApp emoji font - pegs CPU to 100% on build
     mullvad # VPN Client
     evince # pdf viewer
     foliate # ebook reader
-    # midori # lightweight gtk web browser
     libreoffice # office suite
     solaar # Linux manager for many Logitech keyboards, mice
     spot # Native Spotify client
@@ -169,8 +166,8 @@
     gruvbox-dark-icons-gtk # theme icons
     colorpicker # colour picker
     epiphany # gnome web
-    nheko # Matrix Client
-    # google-chrome # Browser - test zoom behavior
+    nheko # Matrix Clien
+    microsoft-edge # web browser
     teamviewer # remote support
 
     # Communication
