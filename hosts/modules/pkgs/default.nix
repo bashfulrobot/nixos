@@ -62,6 +62,7 @@
     appimage-run # Run AppImages
 
     ### Dev
+    zola # static site generator
     ollama # Run AI Models
     bruno # API Tester
     ngrok
