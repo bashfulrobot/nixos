@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
+    wlrctl # Command line utility for miscellaneous wlroots Wayland extensions
     rclone # Command line program to sync files and directories to and from major cloud storage
     syncrclone # Bidirectional sync tool for rclone
     textsnatcher # copy text from images
