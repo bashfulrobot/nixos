@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Elk
+# alt-f2 type "lg", go to windows. screenshot the class, open textsnatxcher, get from clipboard. paste here
 #StartupWMClass=chrome-elk.zone__home-Default
 Comment=Launch elk web client
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/elk.png
