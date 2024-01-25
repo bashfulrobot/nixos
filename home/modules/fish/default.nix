@@ -43,6 +43,28 @@ in {
           end
         end
       '';
+      download_kubeconfig = ''
+        function download_kubeconfig
+          if test (count $argv) -ne 2
+              echo "Error: This function requires two arguments: the remote server IP and the Kubernetes cluster name."
+              return 1
+          end
+
+          set ip $argv[1]
+          set kubeconfig_name $argv[2]
+          set url http://$ip:8080/kubeconfig
+
+          while ! curl -s --head $url | grep "200 OK" > /dev/null
+              echo "Waiting for the kubeconfig file to be available..."
+              sleep 5
+          end
+
+          cd ~/.kube/clusters/
+          wget $url
+          mv kubeconfig $kubeconfig_name-kubeconfig
+          code $kubeconfig_name-kubeconfig
+        end
+      '';
     };
     shellAliases = {
       ".." = "cd ..";
