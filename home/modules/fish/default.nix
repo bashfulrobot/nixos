@@ -65,6 +65,61 @@ in {
           code $kubeconfig_name-kubeconfig
         end
       '';
+      libvirt_list_all_networks = ''
+        function libvirt_list_all_networks -d "List all libvirt networks, with an optional filter"
+          if test (count $argv) -eq 1
+            set filter $argv[1]
+            sudo virsh net-list --all | grep $filter
+          else if test (count $argv) -eq 0
+            sudo virsh net-list --all
+          else
+            echo "Error: This function requires zero or one argument: an optional filter."
+            return 1
+          end
+        end
+      '';
+
+      libvirt_list_all_pools = ''
+        function libvirt_list_all_pools -d "List all libvirt pools, with an optional filter"
+          if test (count $argv) -eq 1
+            set filter $argv[1]
+            sudo virsh pool-list --all | grep $filter
+          else if test (count $argv) -eq 0
+            sudo virsh pool-list --all
+          else
+            echo "Error: This function requires zero or one argument: an optional filter."
+            return 1
+          end
+        end
+      '';
+
+      libvirt_list_all_images = ''
+        function libvirt_list_all_images -d "List all libvirt images, with an optional filter"
+          if test (count $argv) -eq 1
+            set filter $argv[1]
+            sudo virsh vol-list --all | grep $filter
+          else if test (count $argv) -eq 0
+            sudo virsh vol-list --all
+          else
+            echo "Error: This function requires zero or one argument: an optional filter."
+            return 1
+          end
+        end
+      '';
+
+      libvirt_list_all_vms = ''
+        function libvirt_list_all_vms -d "List all libvirt VMs, with an optional filter"
+          if test (count $argv) -eq 1
+            set filter $argv[1]
+            sudo virsh list --all | grep $filter
+          else if test (count $argv) -eq 0
+            sudo virsh list --all
+          else
+            echo "Error: This function requires zero or one argument: an optional filter."
+            return 1
+          end
+        end
+      '';
     };
     shellAliases = {
       ".." = "cd ..";
