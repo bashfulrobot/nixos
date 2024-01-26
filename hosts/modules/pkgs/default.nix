@@ -186,5 +186,6 @@
   ];
 
   programs.wshowkeys.enable = true;
+  programs.kdeconnect.enable = true;
 
 }

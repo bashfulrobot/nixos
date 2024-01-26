@@ -45,7 +45,7 @@
     gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
     gnomeExtensions.pop-shell # Pop Shell
     gnomeExtensions.appindicator # AppIndicator support
-    gnomeExtensions.gsconnect # GSConnect
+    # gnomeExtensions.gsconnect # GSConnect
     gnomeExtensions.gtk4-desktop-icons-ng-ding # Libadwaita/Gtk4 port of Desktop Icons NG with GSconnect Integration, Drag and Drop on to Dock or Dash.
     gnomeExtensions.do-not-disturb-while-screen-sharing-or-recording # Automatically switches on the "Do Not Disturb" mode while screen sharing or screen recording. As soon as screen sharing/recording is over, "Do Not Disturb" mode will be switched back off.
     # gnomeExtensions.easyScreenCast # Simplifies the use of the video recording function integrated in gnome shell
