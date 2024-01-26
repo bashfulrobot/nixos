@@ -44,7 +44,7 @@ in {
         end
       '';
       download_kubeconfig = ''
-        function download_kubeconfig
+         function download_kubeconfig
           if test (count $argv) -ne 2
               echo "Error: This function requires two arguments: the remote server IP and the Kubernetes cluster name."
               return 1
@@ -54,9 +54,13 @@ in {
           set kubeconfig_name $argv[2]
           set url http://$ip:8080/kubeconfig
 
-          while ! curl -s --head $url | grep "200 OK" > /dev/null
-              echo "Waiting for the kubeconfig file to be available..."
-              sleep 5
+          while true
+              if ! curl -s --head $url | grep "200 OK" > /dev/null
+                  echo "Waiting for the kubeconfig file to be available..."
+                  sleep 5
+              else
+                  break
+              end
           end
 
           cd ~/.kube/clusters/
@@ -127,6 +131,10 @@ in {
       "...." = "cd ../../..";
       "....." = "cd ../../../..";
       tf = "terraform";
+      tfa = "terraform apply";
+      tfd = "terraform destroy";
+      tfi = "terraform init -upgrade";
+      tfp = "terraform plan";
       instruqt = "/home/dustin/dev/sysdig/workshops/bin/instruqt";
       ipull =
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track pull";
@@ -135,6 +143,8 @@ in {
       ilog =
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track logs";
       gotf = "cd ~/dev/terraform";
+      gotfc = "cd ~/dev/terraform/clusters/";
+      gotfm = "cd ~/dev/terraform/modules/";
       gotf-e = "cd ~/dev/terraform && code -r .";
       gon = "cd ~/dev/nix/nixos";
       gon-e = "cd ~/dev/nix/nixos && code -r .";
@@ -170,7 +180,7 @@ in {
       hmcfg = "${pkgs.man}/bin/man home-configuration.nix";
       rustscan =
         "${pkgs.docker}/bin/docker run -it --rm --name rustscan rustscan/rustscan:latest";
-      kcfg = "cd ~/.kube && ${pkgs.just}/bin/just && cd -";
+      kcfg = "cd ~/.kube && ${pkgs.just}/bin/just";
       kns = "${pkgs.kubectx}/bin/kubens";
       kc = "${pkgs.kubectx}/bin/kubectx";
       vms = "sudo ${pkgs.libvirt}/bin/virsh list --all";
