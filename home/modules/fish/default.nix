@@ -54,13 +54,10 @@ in {
           set kubeconfig_name $argv[2]
           set url http://$ip:8080/kubeconfig
 
-          while true
-              if ! curl -s --head $url | grep "200 OK" > /dev/null
-                  echo "Waiting for the kubeconfig file to be available..."
-                  sleep 5
-              else
-                  break
-              end
+          while not
+           curl --output /dev/null --silent --head --fail "http://$IP_ADDRESS:8080/kubeconfig"
+            echo "Waiting for kubeconfig file to exist..."
+            sleep 5
           end
 
           cd ~/.kube/clusters/
