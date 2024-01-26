@@ -140,6 +140,8 @@ in {
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track push";
       ilog =
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track logs";
+      gosysdigagent = "cd ~/dev/sysdig/sysdig-agent-deploy/";
+      gosysdig = "cd ~/dev/sysdig/";
       gotf = "cd ~/dev/terraform";
       gotfc = "cd ~/dev/terraform/clusters/";
       gotfm = "cd ~/dev/terraform/modules/";
