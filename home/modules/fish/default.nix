@@ -132,6 +132,7 @@ in {
       tfd = "terraform destroy";
       tfi = "terraform init -upgrade";
       tfp = "terraform plan";
+      tfs = "terraform state list";
       instruqt = "/home/dustin/dev/sysdig/workshops/bin/instruqt";
       ipull =
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track pull";
