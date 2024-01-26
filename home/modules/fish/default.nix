@@ -135,11 +135,11 @@ in {
       tfs = "terraform state list";
       instruqt = "/home/dustin/dev/sysdig/workshops/bin/instruqt";
       ipull =
-        "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track pull";
+        "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track pull; prevd";
       ipush =
-        "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track push";
+        "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track push; prevd";
       ilog =
-        "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track logs";
+        "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track logs; prevd";
       gotf = "cd ~/dev/terraform";
       gotfc = "cd ~/dev/terraform/clusters/";
       gotfm = "cd ~/dev/terraform/modules/";
@@ -154,9 +154,9 @@ in {
       vi = "lvim";
       vim = "lvim";
       ny = "cd ~/dev/nix/nixos/; yazi";
-      n = "cd ~/dev/nix/nixos/; lvim";
+      n = "cd ~/dev/nix/nixos/; lvim; prevd";
       nc =
-        "cd ~/dev/nix/nixos && git add . && git commit -S && rebuild && cd ~/dev/nix/nixos && git push";
+        "cd ~/dev/nix/nixos && git add . && git commit -S && rebuild && cd ~/dev/nix/nixos && git push; prevd";
       ls = "${pkgs.eza}/bin/eza -al --octal-permissions --icons";
       # ls = "${pkgs.eza}/bin/eza -al --octal-permissions";
       font-cache-refresh = "sudo fc-cache -f -v";
@@ -178,7 +178,7 @@ in {
       hmcfg = "${pkgs.man}/bin/man home-configuration.nix";
       rustscan =
         "${pkgs.docker}/bin/docker run -it --rm --name rustscan rustscan/rustscan:latest";
-      kcfg = "cd ~/.kube && ${pkgs.just}/bin/just && prevd";
+      kcfg = "cd ~/.kube && ${pkgs.just}/bin/just; prevd";
       kns = "${pkgs.kubectx}/bin/kubens";
       kc = "${pkgs.kubectx}/bin/kubectx";
       vms = "sudo ${pkgs.libvirt}/bin/virsh list --all";
@@ -187,9 +187,9 @@ in {
       rebuild =
         "echo;echo '***** UPDATE APPIMAGES PERIODIALLY *****'; echo;  sleep 1; cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just rebuild; cd -";
       upgrade =
-        "cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just upgrade-system; cd -";
+        "cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just upgrade-system; prevd";
       dev-rebuild =
-        "cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just dev-rebuild; cd -";
+        "cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just dev-rebuild; prevd";
       kubitect =
         "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/kubitect";
     };
