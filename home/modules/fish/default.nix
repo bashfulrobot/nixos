@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, secrets, ... }:
 let fd-flags = lib.concatStringsSep " " [ "--hidden" "--exclude '.git'" ];
 in {
   programs.fish = {
@@ -222,7 +222,8 @@ in {
       auto_sync = true;
       sync_frequency = "5m";
       sync_address = "https://api.atuin.sh";
-      search_mode = "prefix";
+      search_mode = "fuzzy";
+
     };
   };
 
