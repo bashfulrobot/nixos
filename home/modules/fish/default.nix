@@ -191,7 +191,8 @@ in {
       hmcfg = "${pkgs.man}/bin/man home-configuration.nix";
       rustscan =
         "${pkgs.docker}/bin/docker run -it --rm --name rustscan rustscan/rustscan:latest";
-      kcfg = "cd ~/.kube && ${pkgs.just}/bin/just";
+      kcfg =
+        "sudo chown -R dustin ~/.kube && sudo chmod 0644 -R ~/.kube && cd ~/.kube && ${pkgs.just}/bin/just";
       kns = "${pkgs.kubectx}/bin/kubens";
       kc = "${pkgs.kubectx}/bin/kubectx";
       vms = "sudo ${pkgs.libvirt}/bin/virsh list --all";
