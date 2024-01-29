@@ -121,6 +121,17 @@ in {
           end
         end
       '';
+      send_to_phone = ''
+        function send_to_phone -d "Send a file to phone using Tailscale"
+            if test (count $argv) -ne 1
+                echo "Error: This function requires a file path as an argument."
+                return 1
+            end
+
+            set file_path $argv[1]
+            tailscale file cp $file_path maximus:
+        end
+      '';
     };
     shellAliases = {
       ".." = "cd ..";
