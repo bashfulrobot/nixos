@@ -132,6 +132,17 @@ in {
             tailscale file cp $file_path maximus:
         end
       '';
+      delete_all_in_namespace = ''
+        function delete_all_in_namespace -d "Delete all resources in a given Kubernetes namespace"
+          if test (count $argv) -ne 1
+              echo "Error: This function requires a namespace as an argument."
+              return 1
+          end
+
+          set namespace $argv[1]
+          kubectl --namespace $namespace delete (kubectl api-resources --namespaced=true --verbs=delete -o name | tr "\n" "," | sed -e 's/,$//') --all
+        end
+      '';
     };
     shellAliases = {
       ".." = "cd ..";
