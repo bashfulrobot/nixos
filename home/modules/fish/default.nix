@@ -192,7 +192,7 @@ in {
       rustscan =
         "${pkgs.docker}/bin/docker run -it --rm --name rustscan rustscan/rustscan:latest";
       kcfg =
-        "sudo chown -R dustin ~/.kube && sudo chmod 0644 -R ~/.kube && cd ~/.kube && ${pkgs.just}/bin/just";
+        "sudo chown -R dustin ~/.kube && sudo chmod -R 0700 ~/.kube && cd ~/.kube && ${pkgs.just}/bin/just";
       kns = "${pkgs.kubectx}/bin/kubens";
       kc = "${pkgs.kubectx}/bin/kubectx";
       vms = "sudo ${pkgs.libvirt}/bin/virsh list --all";
