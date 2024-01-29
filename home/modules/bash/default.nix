@@ -110,15 +110,15 @@ in {
     changeDirWidgetCommand = "fd --type d ${fd-flags}";
   };
 
-  programs.atuin = {
-    enable = false;
-    enableBashIntegration = false;
-    settings = {
-      auto_sync = true;
-      sync_frequency = "5m";
-      sync_address = "https://api.atuin.sh";
-      search_mode = "prefix";
-    };
-  };
+  # programs.atuin = {
+  #   enable = false;
+  #   enableBashIntegration = false;
+  #   settings = {
+  #     auto_sync = true;
+  #     sync_frequency = "5m";
+  #     sync_address = "https://api.atuin.sh";
+  #     search_mode = "prefix";
+  #   };
+  # };
 
 }
