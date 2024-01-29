@@ -223,7 +223,7 @@ in {
       sync_frequency = "5m";
       sync_address = "https://api.atuin.sh";
       search_mode = "fuzzy";
-      # search_mode_shell_up_key_binding = "directory";
+      filter_mode_shell_up_key_binding = "directory";
       style = "compact";
 
     };
