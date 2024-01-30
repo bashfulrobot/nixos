@@ -144,17 +144,25 @@ in {
         end
       '';
     };
-    shellAliases = {
-      ".." = "cd ..";
-      "..." = "cd ../..";
-      "...." = "cd ../../..";
-      "....." = "cd ../../../..";
+    shellAbbrs = {
+      k = "kubectl";
+      kcx = "kubectx";
+      kns = "kubens";
       tf = "terraform";
       tfa = "terraform apply";
       tfd = "terraform destroy";
       tfi = "terraform init -upgrade";
       tfp = "terraform plan";
       tfs = "terraform state list";
+      dc = "docker compose";
+      gc = "git add . && git commit -S && git push && git pull";
+    };
+    shellAliases = {
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+      "....." = "cd ../../../..";
+      kubectl = "${pkgs.kubecolor}/bin/kubecolor";
       instruqt = "/home/dustin/dev/sysdig/workshops/bin/instruqt";
       ipull =
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track pull";
@@ -162,7 +170,6 @@ in {
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track push";
       ilog =
         "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track logs";
-      gosysdigagent = "cd ~/dev/sysdig/sysdig-agent-deploy/";
       gosysdig = "cd ~/dev/sysdig/";
       gotf = "cd ~/dev/terraform";
       gotfc = "cd ~/dev/terraform/clusters/";
@@ -193,9 +200,6 @@ in {
       top = "${pkgs.bottom}/bin/btm";
       htop = "${pkgs.bottom}/bin/btm";
       #sed = "${pkgs.sd}/bin/sd";
-      k = "${pkgs.kubecolor}/bin/kubecolor";
-      kubectl = "${pkgs.kubecolor}/bin/kubecolor";
-      dc = "${pkgs.docker}/bin/docker compose";
       ping = "${pkgs.gping}/bin/gping";
       j = "${pkgs.just}/bin/just --choose";
       nixcfg = "${pkgs.man}/bin/man configuration.nix";
@@ -204,8 +208,6 @@ in {
         "${pkgs.docker}/bin/docker run -it --rm --name rustscan rustscan/rustscan:latest";
       kcfg =
         "sudo chown -R dustin ~/.kube && sudo chmod -R 0700 ~/.kube && cd ~/.kube && ${pkgs.just}/bin/just";
-      kns = "${pkgs.kubectx}/bin/kubens";
-      kc = "${pkgs.kubectx}/bin/kubectx";
       vms = "sudo ${pkgs.libvirt}/bin/virsh list --all";
       yless = "${pkgs.jless}/bin/jless --yaml";
       # please = "${pkgs.shell-genie}/bin/shell-genie ask";
