@@ -110,7 +110,7 @@
     comma # Nix command wrapper
 
     ### Cloud
-    cilium-cli # cilium cli 
+    cilium-cli # cilium cli
     kustomize # Kubernetes configuration management
     k0sctl # A bootstrapping and management tool for k0s clusters.
     # vagrant # lab automation
@@ -144,6 +144,7 @@
     autorestic # restic automation tool
 
     ### GUI
+    junction # default app selector
     #insync # Google Drive Sync Client
     whatsapp-for-linux # WhatsApp client
     # whatsapp-emoji-font # WhatsApp emoji font - pegs CPU to 100% on build
