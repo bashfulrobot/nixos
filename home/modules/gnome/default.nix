@@ -135,21 +135,34 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/just-perfection" = {
-      theme = true;
-      window-picker-icon = true;
-      window-demands-attention-focus = false;
-      startup-status = 1;
-      ripple-box = true;
-      dash-icon-size = 0;
-      app-menu-icon = true;
-      workspaces-in-app-grid = true;
-      workspace = true;
-      workspace-background-corner-size = 0;
-      show-apps-button = true;
-      search = true;
+      accessibility-menu = false;
       app-menu = true;
-      panel = true;
-      double-super-to-appgrid = true;
+      app-menu-icon = true;
+      background-menu = false;
+      controls-manager-spacing-size = 22;
+      dash = true;
+      dash-icon-size = 0;
+      double-super-to-appgrid = false;
+      keyboard-layout = false;
+      osd = false;
+      panel = false;
+      panel-in-overview = true;
+      panel-notification-icon = true;
+      ripple-box = false;
+      search = false;
+      show-apps-button = true;
+      startup-status = 0;
+      theme = true;
+      weather = false;
+      window-demands-attention-focus = true;
+      window-menu-take-screenshot-button = false;
+      window-picker-icon = false;
+      window-preview-caption = false;
+      window-preview-close-button = false;
+      workspace = false;
+      workspace-background-corner-size = 15;
+      workspace-popup = false;
+      workspaces-in-app-grid = false;
     };
 
     "org/gnome/desktop/wm/keybindings" = {
