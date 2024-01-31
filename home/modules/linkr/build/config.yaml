@@ -26,7 +26,7 @@ rules:
   - url: "github.com" # URL substring to match
     browser: "microsoft-edge" # Browser executable
 
-  - url: "https://app.vitally.io" # URL substring to match
+  - url: "https://sysdig.vitally.io/hubs/553ec776-875e-4a0e-a096-a3da3a0b6ea1/8acc40cb-e3ea-4da8-9570-4be27a10fff6" # URL substring to match
     browser: "microsoft-edge" # Browser executable
 
   - url: "https://zoom.us" # URL substring to match
