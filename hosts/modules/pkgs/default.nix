@@ -99,6 +99,7 @@
     lapce # editor written in Rust
     cosmic-edit # editor from system 76
     lunarvim # opinionated neovim
+    yai # Your AI Terminal
 
     ### Nix Tools
     # Nixd

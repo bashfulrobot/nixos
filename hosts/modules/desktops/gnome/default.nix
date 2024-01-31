@@ -41,7 +41,7 @@
     gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
     gnomeExtensions.just-perfection # Just Perfection
     gnomeExtensions.blur-my-shell # Blur my Shell
-
+    gnomeExtensions.syncthing-icon # Syncthing Icon
     gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
     gnomeExtensions.pop-shell # Pop Shell
     gnomeExtensions.appindicator # AppIndicator support
@@ -77,6 +77,38 @@
 
   ];
 
+  environment.gnome.excludePackages = with pkgs; [
+    gnome.cheese # photo booth
+    gnome.gedit # text editor
+    gnome.yelp # help viewer
+    gnome.file-roller # archive manager
+    gnome.geary # email client
+
+    # these should be self explanatory
+    gnome.gnome-maps
+    gnome.gnome-music
+    gnome.gnome-photos
+    gnome.gnome-system-monitor
+    gnome.gnome-weather
+
+    # disable gnome extensions
+    gnomeExtensions.applications-menu
+    gnomeExtensions.auto-move-windows
+    gnomeExtensions.gtk-title-bar
+    gnomeExtensions.gtk4-desktop-icons-ng-ding
+    gnomeExtensions.hide-top-bar
+    gnomeExtensions.launch-new-instance
+    gnomeExtensions.light-style
+    gnomeExtensions.native-window-placement
+    gnomeExtensions.next-up
+    gnomeExtensions.places-status-indicator
+    gnomeExtensions.removable-drive-menu
+    gnomeExtensions.screenshot-window-sizer
+    gnomeExtensions.syncthing-indicator
+    gnomeExtensions.window-list
+    gnomeExtensions.windownavigator
+    gnomeExtensions.workspace-indicator
+  ];
   #   Dynamic triple buffering
   # Big merge request against Mutter improves the performance of the window manager by a lot (and is already used by Ubuntu). Not merged into nixpkgs due to philosophy of nixpkgs, but users are free to add this overlay to get it too.
 
