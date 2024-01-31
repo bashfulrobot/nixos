@@ -120,6 +120,10 @@ with lib.hm.gvariant;
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         # "forge@jmmaranan.com"
         "pop-shell@system76.com"
+        "do-not-disturb-while-screen-sharing-or-recording@marcinjahn.com"
+        "fullscreen-notifications@sorrow.about.alice.pm.me"
+        "solaar-extension@sidevesh"
+        "undecorate@sun.wxg@gmail.com"
       ];
     };
 
@@ -182,6 +186,9 @@ with lib.hm.gvariant;
       move-to-workspace-3 = [ "<Shift><Super>3" ];
       move-to-workspace-4 = [ "<Shift><Super>4" ];
       toggle-message-tray = [ "<Shift><Super>n" ];
+      panel-run-dialog = [ "<Super>space" ];
+      switch-input-source = [ ];
+      switch-input-source-backward = [ ];
     };
 
     "org/gnome/shell/keybindings" = {
@@ -190,13 +197,18 @@ with lib.hm.gvariant;
       switch-to-application-2 = [ ];
       switch-to-application-3 = [ ];
       switch-to-application-4 = [ ];
-      toggle-message-tray = [ "<Shift><Super>n" ];
     };
 
     "org/gnome/Console" = {
       theme = "auto";
       font-scale = 1.5;
     };
+
+    "org/gnome/shell/extensions/do-not-disturb-while-screen-sharing-or-recording" =
+      {
+        dnd-on-screen-recording = true;
+        dnd-on-screen-sharing = true;
+      };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [

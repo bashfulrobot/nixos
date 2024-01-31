@@ -45,19 +45,19 @@
     gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
     gnomeExtensions.pop-shell # Pop Shell
     gnomeExtensions.appindicator # AppIndicator support
-    # gnomeExtensions.gsconnect # GSConnect
-    gnomeExtensions.gtk4-desktop-icons-ng-ding # Libadwaita/Gtk4 port of Desktop Icons NG with GSconnect Integration, Drag and Drop on to Dock or Dash.
     gnomeExtensions.do-not-disturb-while-screen-sharing-or-recording # Automatically switches on the "Do Not Disturb" mode while screen sharing or screen recording. As soon as screen sharing/recording is over, "Do Not Disturb" mode will be switched back off.
     # gnomeExtensions.easyScreenCast # Simplifies the use of the video recording function integrated in gnome shell
     gnomeExtensions.fullscreen-notifications # Enables all notifications in fullscreen mode
     gnomeExtensions.undecorate # Add undecorate item in window menu. Use ALT+Space to show window menu
     gnomeExtensions.solaar-extension # Allow Solaar to support certain features on non X11 systems
-    gnomeExtensions.next-up # Show your next calendar event in the status bar
+
     gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
-    gnomeExtensions.hide-top-bar # Hide the top bar except in overview
-    gnomeExtensions.gtk-title-bar # Remove title bars for non-GTK apps with minimal interference with the default workflow
 
     ## Extentions to try, or diusabled due to gnome shell version
+    #gnomeExtensions.next-up # Show your next calendar event in the status bar
+    #gnomeExtensions.hide-top-bar # Hide the top bar except in overview
+    # gnomeExtensions.gtk4-desktop-icons-ng-ding # Libadwaita/Gtk4 port of Desktop Icons NG with GSconnect Integration, Drag and Drop on to Dock or Dash.
+    # gnomeExtensions.gtk-title-bar # Remove title bars for non-GTK apps with minimal interference with the default workflow
     # gnomeExtensions.toggle-alacritty # Toggles Alacritty window via hotkey: Alt+z
     # gnomeExtensions.mullvad-indicator # Mullvad VPN
     # Screenshot Directory
@@ -67,6 +67,7 @@
     # gnomeExtensions.forge
     # gnomeExtensions.syncthing-indicator # Shell indicator for starting, monitoring and controlling the Syncthing daemon using SystemD
     # gnomeExtensions.syncthing-icon # Display Syncthing Icon in Top Bar
+    # gnomeExtensions.gsconnect # GSConnect
 
     # Gnome apps/services
     gnome.nautilus # file manager
