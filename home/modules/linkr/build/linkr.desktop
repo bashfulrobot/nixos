@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Linkr
+Comment=Web Browser rules engine
+Exec=linkr %u
+Categories=Network;WebBrowser;
+Terminal=false
+Type=Application
+MimeType=x-scheme-handler/http;x-scheme-handler/https;
+Icon=/home/dustin/.local/share/icons/hicolor/48x48/apps/linkr.png

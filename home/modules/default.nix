@@ -21,6 +21,7 @@
     ./k8sgpt
     ./kubitect
     ./lazygit
+    ./linkr
     ./nautilus
     ./ncspot
     #    ./neovim - moved to lunarvim
