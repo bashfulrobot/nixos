@@ -19,7 +19,6 @@
     ./go
     ./gpg
     ./k8sgpt
-    # ./kcli
     ./kubitect
     ./lazygit
     ./nautilus

@@ -17,8 +17,6 @@ in {
       HISTFILESIZE=99999
       HISTSIZE=99999
       shopt -s histappend
-      # kcli auto complete
-      # eval "$(register-python-argcomplete kcli)"
     '';
 
     shellAliases = {
