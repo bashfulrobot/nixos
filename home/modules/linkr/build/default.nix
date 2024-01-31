@@ -1,5 +1,4 @@
 { lib, pkgs, ... }:
-# https://download.sysdig.com/scanning/linkr/latest_version.txt
 let version = "0.0.1";
 in pkgs.stdenv.mkDerivation {
   name = "linkr";

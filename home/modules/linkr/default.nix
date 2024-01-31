@@ -16,4 +16,9 @@ in {
     target = ".local/share/icons/hicolor/48x48/apps/linkr.png";
   };
 
+  home.file."config.yaml" = {
+    source = ./build/config.yaml;
+    target = ".config/linkr/config.yaml";
+  };
+
 }
