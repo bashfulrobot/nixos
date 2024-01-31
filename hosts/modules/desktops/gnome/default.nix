@@ -87,7 +87,7 @@
     # these should be self explanatory
     gnome.gnome-maps
     gnome.gnome-music
-    gnome.gnome-photos
+    gnome-photos
     gnome.gnome-system-monitor
     gnome.gnome-weather
 
