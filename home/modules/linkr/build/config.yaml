@@ -16,6 +16,10 @@ rules:
     browser: "microsoft-edge" # Browser executable - still testing
     app: true # optional, use with browsers that support the --app flag
 
+  - url: "https://mail.google.com" # URL substring to match
+    browser: "microsoft-edge" # Browser executable - still testing
+    app: true # optional, use with browsers that support the --app flag
+
   - url: "youtube.com" # URL substring to match
     browser: "microsoft-edge" # Browser executable
     app: false
