@@ -31,3 +31,6 @@ rules:
 
   - url: "https://zoom.us" # URL substring to match
     browser: "microsoft-edge" # Browser executable
+
+  - url: "https://sysdigcloud.slack.com"
+    browser: "microsoft-edge"
