@@ -29,7 +29,7 @@
         Privacy = "device";
         FastConnectable = true;
         Enable = "Control,Gateway,Headset,Media,Sink,Socket,Source";
-        # Uncomment this in the first time you want to connect to AirPods.
+        #### Uncomment this in the first time you want to connect to AirPods.
         # In order to connect, you have to press the button on the back
         # of the AirPods case.
         # `breder` is only needed for the initial connection of the AirPods.

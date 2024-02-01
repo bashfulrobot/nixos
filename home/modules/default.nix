@@ -1,11 +1,11 @@
 { config, inputs, pkgs, secrets, ... }: {
 
   imports = [
-    ./alacritty
+    # ./alacritty
     ./bash
     ./blackbox-terminal
-    ./chromium
-    ./dagger
+    # ./chromium
+    # ./dagger
     ./desktop-files/tower.nix
     ./dracula
     ./environment
@@ -29,12 +29,12 @@
     ./python
     ./scripts
     ./ssh
-    ./starship
+    # ./starship
     ./sysdig-cli-scanner
     ./terminal
     # ./virter
     ./web-apps
-    ./xterm
+    # ./xterm
     # ./yazi
   ];
 
