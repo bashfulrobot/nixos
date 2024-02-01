@@ -34,3 +34,6 @@ rules:
 
   - url: "https://sysdigcloud.slack.com"
     browser: "microsoft-edge"
+
+  - url: "https://chat.developer.gov.bc.ca"
+    browser: "microsoft-edge"
