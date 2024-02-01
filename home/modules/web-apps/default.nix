@@ -191,15 +191,15 @@
   #   target = ".local/share/xdg-desktop-portal/icons/192x192/languagetool.png";
   # };
 
-  home.file."zoom-web.desktop" = {
-    source = ./desktop-files/zoom-web.desktop;
-    target = ".local/share/applications/zoom-web.desktop";
-  };
+  # home.file."zoom-web.desktop" = {
+  #   source = ./desktop-files/zoom-web.desktop;
+  #   target = ".local/share/applications/zoom-web.desktop";
+  # };
 
-  home.file."zoom.png" = {
-    source = ./icons/zoom.png;
-    target = ".local/share/xdg-desktop-portal/icons/192x192/zoom.png";
-  };
+  # home.file."zoom.png" = {
+  #   source = ./icons/zoom.png;
+  #   target = ".local/share/xdg-desktop-portal/icons/192x192/zoom.png";
+  # };
 
   home.file."google.desktop" = {
     source = ./desktop-files/google.desktop;
