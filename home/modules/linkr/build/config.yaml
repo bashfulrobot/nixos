@@ -37,3 +37,6 @@ rules:
 
   - url: "https://chat.developer.gov.bc.ca"
     browser: "microsoft-edge"
+
+  - url: "https://play.instruqt.com/"
+    browser: "microsoft-edge"
