@@ -137,7 +137,7 @@
 
     ### Networking
     tailscale # zero-config VPN
-    # wgnord # nordvpn over wireguard
+    wgnord # nordvpn over wireguard
     # localsend # send files locally # bug, need to troubleshoot TODO
 
     ### Backup
