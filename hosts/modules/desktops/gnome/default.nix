@@ -10,8 +10,10 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      layout = "us";
+      Variant = "";
+    };
   };
 
   # Enable sound with pipewire.
