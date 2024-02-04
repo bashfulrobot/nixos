@@ -1,7 +1,7 @@
 { config, inputs, pkgs, secrets, ... }: {
 
   imports = [
-    # ./alacritty
+    ./alacritty
     ./bash
     ./blackbox-terminal
     # ./chromium
