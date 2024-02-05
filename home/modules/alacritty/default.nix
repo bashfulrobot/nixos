@@ -139,28 +139,30 @@
         };
       };
 
-      key_bindings = [
-        {
-          key = "V";
-          mods = "Control|Shift";
-          action = "Paste";
-        }
-        {
-          key = "C";
-          mods = "Control|Shift";
-          action = "Copy";
-        }
-        {
-          key = "Up";
-          mods = "Control|Shift";
-          action = "ScrollPageUp";
-        }
-        {
-          key = "Down";
-          mods = "Control|Shift";
-          action = "ScrollPageDown";
-        }
-      ];
+      keyboard = {
+        bindings = [
+          {
+            key = "V";
+            mods = "Control|Shift";
+            action = "Paste";
+          }
+          {
+            key = "C";
+            mods = "Control|Shift";
+            action = "Copy";
+          }
+          {
+            key = "Up";
+            mods = "Control|Shift";
+            action = "ScrollPageUp";
+          }
+          {
+            key = "Down";
+            mods = "Control|Shift";
+            action = "ScrollPageDown";
+          }
+        ];
+      };
     };
   };
 }
