@@ -34,7 +34,7 @@
       { id = "bcelhaineggdgbddincjkdmokbbdhgch"; } # Mail message URL
       { id = "cfpdompphcacgpjfbonkdokgjhgabpij"; } # Glean browser extension
       { id = "jpfpebmajhhopeonhlcgidhclcccjcik"; } # Speed dial extention
-
+			{ id = "pddljdmihkpdfpkgmbhdomeeifpklgnm"; } # vertical tabs
     ];
   };
 }
