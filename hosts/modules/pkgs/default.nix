@@ -66,6 +66,7 @@
     appimage-run # Run AppImages
 
     ### Dev
+    gitnuro # git client
     zola # static site generator
     ollama # Run AI Models
     bruno # API Tester

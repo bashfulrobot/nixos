@@ -19,7 +19,7 @@ with lib.hm.gvariant;
       terminal-padding =
         mkTuple [ (mkUint32 0) (mkUint32 0) (mkUint32 0) (mkUint32 0) ];
       theme-bold-is-bright = true;
-      theme-dark = "Dracula";
+      # theme-dark = "Dracula"; # Done in themes directory
       window-height = mkUint32 1156;
       window-width = mkUint32 948;
       working-directory-mode = mkUint32 2;

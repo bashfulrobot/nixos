@@ -4,21 +4,13 @@ with lib.hm.gvariant;
 
 {
 
-  home.file."dracula.png" = {
-    source = ./dracula.png;
-    target = ".local/share/backgrounds/dracula.png";
-  };
-
   dconf.settings = {
 
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-      cursor-theme = "Yaru";
       enable-animations = true;
       font-antialiasing = "rgba";
       font-hinting = "full";
-      gtk-theme = "dracula-gtk";
-      icon-theme = "Yaru-purple-dark";
       locate-pointer = true;
     };
 
@@ -62,24 +54,6 @@ with lib.hm.gvariant;
       compatibility = false;
     };
 
-    "org/gnome/desktop/background" = {
-      picture-uri = "file:///home/dustin/.local/share/backgrounds/dracula.png";
-      picture-uri-dark =
-        "file:///home/dustin/.local/share/backgrounds/dracula.png";
-      color-shading-type = "solid";
-      picture-options = "zoom";
-      primary-color = "#000000";
-      secondary-color = "#000000";
-    };
-
-    "org/gnome/desktop/screensaver" = {
-      picture-uri = "file:///home/dustin/.local/share/backgrounds/dracula.png";
-      color-shading-type = "solid";
-      picture-options = "zoom";
-      primary-color = "#000000";
-      secondary-color = "#000000";
-    };
-
     "org/gnome/mutter" = {
       center-new-windows = true;
       edge-tiling = false; # for pop-shell
@@ -106,7 +80,7 @@ with lib.hm.gvariant;
       show-title = true;
       smart-gaps = true;
       tile-by-default = true;
-      hint-color-rgba = "rgb(141,118,191)";
+
     };
 
     "org/gnome/shell" = {
@@ -126,8 +100,6 @@ with lib.hm.gvariant;
         "undecorate@sun.wxg@gmail.com"
       ];
     };
-
-    "org/gnome/shell/extensions/user-theme" = { name = "dracula-gtk"; };
 
     "org/gnome/shell/extensions/quick-settings-audio-panel" = {
       always-show-input-slider = true;

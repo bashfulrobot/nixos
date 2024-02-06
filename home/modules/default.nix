@@ -7,14 +7,13 @@
     ./chromium
     # ./dagger
     ./desktop-files/tower.nix
-    ./dracula
+    ./themes/dracula
     ./environment
     ./espanso
     # ./firefox
     ./fish
     ./fonts
     ./git
-    ./gitnuro
     ./gnome-web
     ./go
     ./gpg
@@ -34,7 +33,6 @@
     ./terminal
     # ./virter
     ./web-apps
-    # ./xterm
     # ./yazi
   ];
 

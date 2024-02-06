@@ -1,7 +1,4 @@
-{ pkgs, ... }: {
-  # Install gitnuro
-  home.packages = with pkgs; [ gitnuro ];
-
+{ ... }: {
   # Add gitnuro theme
   home.file.".config/gitnauro/gitnauro-dracula.json".text = ''
        {
