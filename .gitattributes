@@ -11,4 +11,4 @@ home/modules/ssh/id_rsa.pub filter=git-crypt diff=git-crypt
 home/modules/ssh/id_ed25519 filter=git-crypt diff=git-crypt
 home/modules/ssh/id_ed25519_np filter=git-crypt diff=git-crypt
 home/modules/ssh/id_ed25519.pub filter=git-crypt diff=git-crypt
-home/modules/dracula/pro/dracula.zip filter=git-crypt diff=git-crypt
+home/modules/themes/dracula/pro/dracula.zip filter=git-crypt diff=git-crypt
