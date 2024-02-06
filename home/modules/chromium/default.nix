@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   programs.chromium = {
     enable = true;
-    package = pkgs.chromium;
-    # package = pkgs.google-chrome;
+    # package = pkgs.chromium;
+    package = pkgs.brave;
     commandLineArgs = [ "--ozone-platform-hint=auto" ];
     extensions = [
       { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; } # 1password
@@ -33,8 +33,10 @@
       { id = "egiemoacchfofdhhlfhkdcacgaopncmi"; } # URL/Tab Manager
       { id = "bcelhaineggdgbddincjkdmokbbdhgch"; } # Mail message URL
       { id = "cfpdompphcacgpjfbonkdokgjhgabpij"; } # Glean browser extension
-      { id = "jpfpebmajhhopeonhlcgidhclcccjcik"; } # Speed dial extention
-      { id = "akahnknmcbmgodngfjcflnaljdbhnlfo"; } # Vertical Tabs in Side Panel
+      {
+        id = "jpfpebmajhhopeonhlcgidhclcccjcik";
+      } # Speed dial extention
+      # { id = "akahnknmcbmgodngfjcflnaljdbhnlfo"; } # Vertical Tabs in Side Panel - Not needed in brave
       { id = "ncppfjladdkdaemaghochfikpmghbcpc"; } # Open as popup
     ];
   };
