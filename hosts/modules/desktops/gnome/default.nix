@@ -52,8 +52,8 @@
     gnomeExtensions.fullscreen-notifications # Enables all notifications in fullscreen mode
     gnomeExtensions.undecorate # Add undecorate item in window menu. Use ALT+Space to show window menu
     gnomeExtensions.solaar-extension # Allow Solaar to support certain features on non X11 systems
-
     gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
+    gnomeExtensions.looking-glass-button # Toggle the Looking Glass visibility by clicking on a panel icon.
 
     ## Extentions to try, or diusabled due to gnome shell version
     #gnomeExtensions.next-up # Show your next calendar event in the status bar
