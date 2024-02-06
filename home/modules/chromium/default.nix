@@ -33,6 +33,7 @@
       { id = "egiemoacchfofdhhlfhkdcacgaopncmi"; } # URL/Tab Manager
       { id = "bcelhaineggdgbddincjkdmokbbdhgch"; } # Mail message URL
       { id = "cfpdompphcacgpjfbonkdokgjhgabpij"; } # Glean browser extension
+      { id = "gphhapmejobijbbhgpjhcjognlahblep"; } # gnome extention plugins
       {
         id = "jpfpebmajhhopeonhlcgidhclcccjcik";
       } # Speed dial extention
