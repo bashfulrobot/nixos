@@ -35,6 +35,7 @@
       { id = "cfpdompphcacgpjfbonkdokgjhgabpij"; } # Glean browser extension
       { id = "jpfpebmajhhopeonhlcgidhclcccjcik"; } # Speed dial extention
       { id = "akahnknmcbmgodngfjcflnaljdbhnlfo"; } # Vertical Tabs in Side Panel
+      { id = "ncppfjladdkdaemaghochfikpmghbcpc"; } # Open as popup
     ];
   };
 }
