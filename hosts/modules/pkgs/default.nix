@@ -180,7 +180,7 @@
     colorpicker # colour picker
     epiphany # gnome web
     nheko # Matrix Clien
-    microsoft-edge # web browser
+    # microsoft-edge # web browser
     teamviewer # remote support
 
     # Communication
