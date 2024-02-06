@@ -58,6 +58,10 @@ with lib.hm.gvariant;
       center-new-windows = true;
       edge-tiling = false; # for pop-shell
     };
+    "org/gnome/mutter/keybindings" = {
+      toggle-tiled-left = [ ]; # for pop-shell
+      toggle-tiled-right = [ ]; # for pop-shell
+    };
 
     "org/gnome/desktop/peripherals/touchpad" = {
       two-finger-scrolling-enabled = true;
@@ -148,7 +152,9 @@ with lib.hm.gvariant;
       # switch-windows = [ "<Alt>Tab" ];
       # switch-windows-backward = [ "<Shift><Alt>Tab" ];
       toggle-fullscreen = [ "<Super>f" ];
-      maximize = [ "<Super>m" ];
+      # maximize = [ "<Super>m" ];
+      maximize = [ ];
+      unmaximize = [ ];
       switch-to-workspace-1 = [ "<Super>1" ];
       switch-to-workspace-2 = [ "<Super>2" ];
       switch-to-workspace-3 = [ "<Super>3" ];
