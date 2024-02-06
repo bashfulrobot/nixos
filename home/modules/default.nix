@@ -8,6 +8,7 @@
     # ./dagger
     ./desktop-files/tower.nix
     # ./themes/dracula
+    ./themes/pop
     ./environment
     ./espanso
     # ./firefox
