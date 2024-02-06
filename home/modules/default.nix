@@ -7,7 +7,7 @@
     ./chromium
     # ./dagger
     ./desktop-files/tower.nix
-    ./themes/dracula
+    # ./themes/dracula
     ./environment
     ./espanso
     # ./firefox
