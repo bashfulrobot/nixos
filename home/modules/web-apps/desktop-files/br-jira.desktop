@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Bashfulrobot Jira
-StartupWMClass=chrome-mail.google.com__mail_u_0_-Default
+StartupWMClass=brave-bashfulrobot.atlassian.net._jira_-Default
 Comment=Launch Bashfulrobot Jira
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/jira.png
 Exec=brave --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://bashfulrobot.atlassian.net/jira/" %U

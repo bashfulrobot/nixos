@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Nixos Discourse
-StartupWMClass=chrome-discourse.nixos.org__-Default
+StartupWMClass=brave-discourse.nixos.org__-Default
 Comment=Launch Nixos Discourse
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/nix.png
 Exec=brave --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://discourse.nixos.org/" %U

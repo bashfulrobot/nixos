@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=GitHub
-StartupWMClass=chrome-github.com__bashfulrobot-Default
+StartupWMClass=brave-github.com__bashfulrobot-Default
 Comment=Launch GitHub
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/github.png
 Exec=brave --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://github.com/bashfulrobot" %U

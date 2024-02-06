@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Tactiq
-StartupWMClass=chrome-app.tactiq.io__-Default
+StartupWMClass=brave-app.tactiq.io__-Default
 Comment=Launch tactiq
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/tactiq.png
 Exec=brave --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://app.tactiq.io/" %U
