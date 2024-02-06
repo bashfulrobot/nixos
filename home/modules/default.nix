@@ -3,7 +3,7 @@
   imports = [
     ./alacritty
     ./bash
-    ./blackbox-terminal
+    # ./blackbox-terminal
     ./chromium
     # ./dagger
     ./desktop-files/tower.nix
