@@ -4,7 +4,7 @@
   home.username = "dustin";
   home.homeDirectory = "/home/dustin";
 
-  imports = [ ../modules ../modules/gnome ];
+  imports = [ ../modules ../modules/gnome ../modules/desktop-files/tower.nix ];
 
   fonts.fontconfig.enable = true;
 

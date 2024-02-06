@@ -6,7 +6,7 @@
     # ./blackbox-terminal
     ./chromium
     # ./dagger
-    ./desktop-files/tower.nix
+    ./desktop-files/autostart.nix
     # ./themes/dracula
     ./themes/pop
     ./environment
