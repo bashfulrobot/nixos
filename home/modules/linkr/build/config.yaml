@@ -9,38 +9,38 @@ rules:
     browser: "epiphany" # Browser
 
   - url: "https://mail.google.com/mail/u/0/#inbox" # URL substring to match
-    browser: "chromium" # Browser executable - still testing
+    browser: "brave" # Browser executable - still testing
     app: true # optional, use with browsers that support the --app flag
 
   - url: "https://mail.google.com/mail/u/2/#inbox" # URL substring to match
-    browser: "chromium" # Browser executable - still testing
+    browser: "brave" # Browser executable - still testing
     app: true # optional, use with browsers that support the --app flag
 
   - url: "https://mail.google.com" # URL substring to match
-    browser: "chromium" # Browser executable - still testing
+    browser: "brave" # Browser executable - still testing
     app: true # optional, use with browsers that support the --app flag
 
   - url: "youtube.com" # URL substring to match
-    browser: "chromium" # Browser executable
+    browser: "brave" # Browser executable
     app: false
 
   - url: "github.com/bashfulrobot" # URL substring to match
-    browser: "chromium" # Browser executable
+    browser: "brave" # Browser executable
 
   - url: "github.com" # URL substring to match
-    browser: "chromium" # Browser executable
+    browser: "brave" # Browser executable
 
   - url: "https://sysdig.vitally.io/hubs/553ec776-875e-4a0e-a096-a3da3a0b6ea1/8acc40cb-e3ea-4da8-9570-4be27a10fff6" # URL substring to match
-    browser: "chromium" # Browser executable
+    browser: "brave" # Browser executable
 
   - url: "https://zoom.us" # URL substring to match
-    browser: "chromium" # Browser executable
+    browser: "brave" # Browser executable
 
   - url: "https://sysdigcloud.slack.com"
-    browser: "chromium"
+    browser: "brave"
 
   - url: "https://chat.developer.gov.bc.ca"
-    browser: "chromium"
+    browser: "brave"
 
   - url: "https://play.instruqt.com/"
-    browser: "chromium"
+    browser: "brave"
