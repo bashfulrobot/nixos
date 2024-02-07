@@ -8,7 +8,7 @@
     ../modules
     ../modules/gnome
     ../modules/desktop-files/laptop.nix
-    ./modules/desktop-files/laptop-autostart.nix
+    ../modules/desktop-files/laptop-autostart.nix
   ];
 
   fonts.fontconfig.enable = true;

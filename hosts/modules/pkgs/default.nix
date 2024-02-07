@@ -148,7 +148,8 @@
     autorestic # restic automation tool
 
     ### GUI
-    junction # default app selector
+    gnome.gnome-boxes # desktop vms
+    # junction # default app selector
     #insync # Google Drive Sync Client
     whatsapp-for-linux # WhatsApp client
     # whatsapp-emoji-font # WhatsApp emoji font - pegs CPU to 100% on build
