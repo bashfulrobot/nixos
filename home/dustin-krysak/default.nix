@@ -4,7 +4,12 @@
   home.username = "dustin";
   home.homeDirectory = "/home/dustin";
 
-  imports = [ ../modules ../modules/gnome ../modules/desktop-files/laptop.nix ];
+  imports = [
+    ../modules
+    ../modules/gnome
+    ../modules/desktop-files/laptop.nix
+    ./modules/desktop-files/laptop-autostart.nix
+  ];
 
   fonts.fontconfig.enable = true;
 

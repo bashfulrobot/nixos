@@ -4,7 +4,12 @@
   home.username = "dustin";
   home.homeDirectory = "/home/dustin";
 
-  imports = [ ../modules ../modules/gnome ../modules/desktop-files/tower.nix ];
+  imports = [
+    ../modules
+    ../modules/gnome
+    ../modules/desktop-files/tower.nix
+    ../modules/desktop-files/tower-autostart.nix
+  ];
 
   fonts.fontconfig.enable = true;
 
