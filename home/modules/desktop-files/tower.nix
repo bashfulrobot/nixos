@@ -12,10 +12,10 @@
     target = ".local/share/applications/reboot-firmware.desktop";
   };
 
-  # home.file."reboot-tailscale.desktop" = {
-  #   source = ./reboot-tailscale.desktop;
-  #   target = ".local/share/applications/reboot-tailscale.desktop";
-  # };
+  home.file."monokle.desktop" = {
+    source = ./monokle.desktop;
+    target = ".local/share/applications/monokle.desktop";
+  };
 
   home.file."beeper.desktop" = {
     source = ./beeper.desktop;

@@ -17,6 +17,11 @@
   #   target = ".local/share/applications/ncspot.desktop";
   # };
 
+  home.file."monokle.desktop" = {
+    source = ./monokle.desktop;
+    target = ".local/share/applications/monokle.desktop";
+  };
+
   home.file."cursor.desktop" = {
     source = ./cursor.desktop;
     target = ".local/share/applications/cursor.desktop";
