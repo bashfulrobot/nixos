@@ -65,6 +65,7 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/peripherals/touchpad" = {
       two-finger-scrolling-enabled = true;
+      tap-to-click = true;
     };
 
     "org/gnome/desktop/peripherals/mouse" = { natural-scroll = false; };
