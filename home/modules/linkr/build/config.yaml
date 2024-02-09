@@ -56,3 +56,7 @@ rules:
     browser: "brave"
   - url: "https://gemini.google.com"
     browser: "brave"
+  - url: "https://sysdig.atlassian.net"
+    browser: "brave"
+  - url: "https://atlassian.net"
+    browser: "brave"
