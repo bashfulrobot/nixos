@@ -163,8 +163,7 @@ in {
       "...." = "cd ../../..";
       "....." = "cd ../../../..";
       sysdig-cli-scanner-recent-version = "curl -L -s https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt";
-      sysdig-cli-scanner-get = 'curl -LO "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/$(curl -L -s https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt)/linux/amd64/sysdig-cli-scanner"
-''
+            sysdig-cli-scanner-get = ''curl -LO "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/$(curl -L -s https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt)/linux/amd64/sysdig-cli-scanner"'';
       kubectl = "${pkgs.kubecolor}/bin/kubecolor";
       instruqt = "/home/dustin/dev/sysdig/workshops/bin/instruqt";
       ipull =
