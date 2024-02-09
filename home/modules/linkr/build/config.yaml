@@ -54,3 +54,5 @@ rules:
     browser: "brave"
   - url: "https://slides.new"
     browser: "brave"
+  - url: "https://gemini.google.com"
+    browser: "brave"
