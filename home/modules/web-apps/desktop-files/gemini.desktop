@@ -1,1 +1,8 @@
-// add desktop. 
+[Desktop Entry]
+Type=Application
+Name=Gemini AI
+StartupWMClass=brave-google.ca__-Default
+Comment=Launch Google Gemini
+Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/google.png
+Exec=brave --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://google.ca" %U
+Terminal=false
