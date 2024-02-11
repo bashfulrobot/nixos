@@ -4,6 +4,7 @@
   imports = [ # Include the results of the hardware scan.
     ./boot.nix
     ./hardware-configuration.nix
+    ./virtualization.nix
     ../modules
     ../modules/syncthing/dustin-krysak.nix
     ../modules/syncthing/common.nix
