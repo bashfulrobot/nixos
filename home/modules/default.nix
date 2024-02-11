@@ -5,6 +5,7 @@
     ./bash
     # ./blackbox-terminal
     ./chromium
+    ./comics-downloader
     # ./dagger
     ./desktop-files/autostart.nix
     # ./themes/dracula
