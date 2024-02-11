@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
+    steam-run # helps run some static compiled binaries
     wtype # xdotool type for wayland
     wlrctl # Command line utility for miscellaneous wlroots Wayland extensions
     rclone # Command line program to sync files and directories to and from major cloud storage
