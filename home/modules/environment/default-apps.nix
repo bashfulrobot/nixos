@@ -15,7 +15,7 @@
     text/plain=code.desktop
     text/x-yaml=code.desktop
     application/x-shellscript=code.desktop
-    x-scheme-handler/chrome=linkr.desktop
+    x-scheme-handler/chrome=brave-browser.desktop
     application/x-extension-htm=linkr.desktop
     application/x-extension-html=linkr.desktop
     application/x-extension-shtml=linkr.desktop
@@ -24,16 +24,5 @@
     application/pdf=org.gnome.Evince.desktop
 
     [Added Associations]
-    application/xhtml+xml=linkr.desktop
-    text/markdown=code.desktop
-    application/x-yaml=code.desktop
-    text/plain=code.desktop
-    application/x-shellscript=code.desktop
-    x-scheme-handler/chrome=linkr.desktop
-    application/x-extension-htm=linkr.desktop
-    application/x-extension-html=linkr.desktop
-    application/x-extension-shtml=linkr.desktop
-    application/x-extension-xhtml=linkr.desktop
-    application/x-extension-xht=linkr.desktop
   '';
 }
