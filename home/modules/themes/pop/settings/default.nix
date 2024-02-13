@@ -15,7 +15,9 @@ with lib.hm.gvariant;
       cursor-theme = "Yaru";
       gtk-theme = "Pop-dark";
       icon-theme = "Yaru-bark-dark";
+      show-battery-percentage = true;
     };
+
 
     "org/gnome/desktop/sound" = { theme-name = "Yaru"; };
 
