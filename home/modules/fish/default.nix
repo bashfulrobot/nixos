@@ -189,7 +189,7 @@ in {
       ny = "cd ~/dev/nix/nixos/; yazi";
       n = "cd ~/dev/nix/nixos/; lvim";
       nc =
-        "cd ~/dev/nix/nixos && git add . && git commit -S && rm -f /home/dustin/.config/mimeapps.list && rebuild && cd ~/dev/nix/nixos && git push";
+        "clear && cd ~/dev/nix/nixos && git add . && git commit -S && rm -f /home/dustin/.config/mimeapps.list && rebuild && cd ~/dev/nix/nixos && git push";
       ls = "${pkgs.eza}/bin/eza -al --octal-permissions --icons";
       # ls = "${pkgs.eza}/bin/eza -al --octal-permissions";
       font-cache-refresh = "sudo fc-cache -f -v";
@@ -214,9 +214,9 @@ in {
       yless = "${pkgs.jless}/bin/jless --yaml";
       # please = "${pkgs.shell-genie}/bin/shell-genie ask";
       rebuild =
-        "echo;echo '***** UPDATE APPIMAGES PERIODIALLY *****'; echo;  sleep 1; cd ~/dev/nix/nixos/; rm -f /home/dustin/.config/mimeapps.list && ${pkgs.just}/bin/just rebuild; cd -";
-      upgrade = "cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just upgrade-system";
-      dev-rebuild = "cd ~/dev/nix/nixos/; rm -f /home/dustin/.config/mimeapps.list && ${pkgs.just}/bin/just dev-rebuild";
+        "clear && echo;echo '***** UPDATE APPIMAGES PERIODIALLY *****'; echo;  sleep 1; cd ~/dev/nix/nixos/; rm -f /home/dustin/.config/mimeapps.list && ${pkgs.just}/bin/just rebuild; cd -";
+      upgrade = "clear && cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just upgrade-system";
+      dev-rebuild = "clear && cd ~/dev/nix/nixos/; rm -f /home/dustin/.config/mimeapps.list && ${pkgs.just}/bin/just dev-rebuild";
       kubitect =
         "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/kubitect";
       comics-downloader = "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/comics-downloader";
