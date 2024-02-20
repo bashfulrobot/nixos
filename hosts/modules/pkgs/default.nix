@@ -168,7 +168,7 @@
     mplayer # Video player
     wl-color-picker # Wayland color picker
     zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
-    #tootle # Mastodon client
+    tootle # Mastodon client
     # morgen # AI calendar - testing
     # protonvpn-gui # VPN client
     kooha # Screen recorder for x11/Wayland
