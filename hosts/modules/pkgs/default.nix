@@ -5,6 +5,8 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
+    spotify-player # temrinal Spotify player - claims parity with official
+    spotdl # Spotify downloader
     steam-run # helps run some static compiled binaries
     file  
     wtype # xdotool type for wayland
@@ -151,6 +153,7 @@
     autorestic # restic automation tool
 
     ### GUI
+    spotube # Spotify player
     minder # mindmapping
     xmind # mindmapping
     gnome.gnome-boxes # desktop vms
