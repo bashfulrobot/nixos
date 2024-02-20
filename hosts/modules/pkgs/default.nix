@@ -153,7 +153,6 @@
     autorestic # restic automation tool
 
     ### GUI
-    spotube # Spotify player
     minder # mindmapping
     xmind # mindmapping
     gnome.gnome-boxes # desktop vms
@@ -166,7 +165,6 @@
     foliate # ebook reader
     libreoffice # office suite
     solaar # Linux manager for many Logitech keyboards, mice
-    spot # Native Spotify client
     mplayer # Video player
     wl-color-picker # Wayland color picker
     zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
@@ -182,7 +180,6 @@
     # todoist-electron # task management app - currently in a flatpak
     virt-manager # virtual machine manager
     #droidcam # use iPhone as a camera input
-    #onthespot # Spotify client
     yaru-theme # gtk theme
     pop-gtk-theme # gtk theme
     gruvbox-gtk-theme # theme
