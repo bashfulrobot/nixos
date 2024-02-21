@@ -20,6 +20,8 @@ in {
     victor-mono
     # Meslo Nerd Font patched for Powerlevel10k
     meslo-lgs-nf
+    # Helvetica for Camino
+    helvetica-neue-lt-std
     # nerdfonts
     # (nerdfonts.override {
     #   fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" "SourceCodePro" ];
