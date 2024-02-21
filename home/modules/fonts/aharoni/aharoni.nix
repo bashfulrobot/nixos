@@ -5,8 +5,8 @@ in pkgs.stdenv.mkDerivation {
   src = ./Aharoni.ttf;
   phases = [ "installPhase" "patchPhase" ];
   installPhase = ''
-    mkdir -p $out/share/fonts/ttf
-    cp -R $src $out/share/fonts/ttf/
+    mkdir -p $out/share/fonts
+    cp -R $src $out/share/fonts/
   '';
 
   meta = with lib; {
