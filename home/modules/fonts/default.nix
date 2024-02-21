@@ -4,13 +4,13 @@ with pkgs;
 let
   sfpro-font = pkgs.callPackage ./sfpro { };
   sf-mono-liga-font = pkgs.callPackage ./sfpro/liga { };
-  aharoni-font = pkgs.callPackage ./aharoni/aharoni.nix { };
-  aharoni-font-bold = pkgs.callPackage ./aharoni/aharoni-bold.nix { };
+  inter-font = pkgs.callPackage ./inter { }; # Helvetica Replacement
+  aharoni-font = pkgs.callPackage ./aharoni { };
 
 in {
   home.packages = with pkgs; [
     aharoni-font
-    aharoni-font-bold
+    inter-font
     sfpro-font
     sf-mono-liga-font
     roboto-slab

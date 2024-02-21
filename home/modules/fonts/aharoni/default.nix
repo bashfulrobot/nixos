@@ -2,7 +2,7 @@
 let version = "0.0.1";
 in pkgs.stdenv.mkDerivation {
   name = "aharoni-font";
-  src = ./Aharoni.ttf;
+  src = ./src/aharoni;
   phases = [ "installPhase" "patchPhase" ];
   installPhase = ''
     mkdir -p $out/share/fonts
@@ -10,7 +10,7 @@ in pkgs.stdenv.mkDerivation {
   '';
 
   meta = with lib; {
-    description = "aharoni font regular";
+    description = "aharoni font";
     maintainers = [ bashfulrobot ];
   };
 }

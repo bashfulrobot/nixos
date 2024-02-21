@@ -1,8 +1,8 @@
 { lib, pkgs, ... }:
 let version = "0.0.1";
 in pkgs.stdenv.mkDerivation {
-  name = "aharoni-font-bold";
-  src = ./Aharoni_Bold.ttf;
+  name = "inter-font";
+  src = ./src/inter;
   phases = [ "installPhase" "patchPhase" ];
   installPhase = ''
     mkdir -p $out/share/fonts
@@ -10,7 +10,7 @@ in pkgs.stdenv.mkDerivation {
   '';
 
   meta = with lib; {
-    description = "aharoni font bold";
+    description = "inter font";
     maintainers = [ bashfulrobot ];
   };
 }
