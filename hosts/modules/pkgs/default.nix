@@ -204,4 +204,6 @@
   programs.wshowkeys.enable = true;
   programs.kdeconnect.enable = true;
 
+  services.code-server.enable = true;
+
 }
