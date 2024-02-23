@@ -231,10 +231,10 @@
     target = ".local/share/xdg-desktop-portal/icons/192x192/sysdig.png";
   };
 
-  home.file."gemini.desktop" = {
-    source = ./desktop-files/gemini.desktop;
-    target = ".local/share/applications/gemini.desktop";
-  };
+  # home.file."gemini.desktop" = {
+  #   source = ./desktop-files/gemini.desktop;
+  #   target = ".local/share/applications/gemini.desktop";
+  # };
 
   # home.file."br-jira.desktop" = {
   #   source = ./desktop-files/br-jira.desktop;
