@@ -209,5 +209,7 @@
     user = "dustin";
     port = 8080;
     host = "localhost";
+    extensionsDir = "/home/dustin/.vscode-oss/extensions";
+    withoutConnectionToken = true; # So you don't need to grab the token that it generates here
   };
 }
