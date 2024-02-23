@@ -62,3 +62,5 @@ rules:
     browser: "brave"
   - url: "warp://"
     browser: "brave"
+  - url: "https://app.warp.dev"
+    browser: "brave"
