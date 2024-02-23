@@ -60,3 +60,5 @@ rules:
     browser: "brave"
   - url: "https://atlassian.net"
     browser: "brave"
+  - url: "warp://"
+    browser: "brave"
