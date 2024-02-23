@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=Linkedin
-StartupWMClass=brave-www.linkedin.com__feed_-Default
+StartupWMClass=chrome-www.linkedin.com__feed_-Default
 Comment=Launch linkedin
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/linkedin.png
-Exec=brave --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://www.linkedin.com/feed/" %U
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://www.linkedin.com/feed/" %U
 Terminal=false

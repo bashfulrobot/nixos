@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=Sysdig Calendar
-StartupWMClass=brave-calendar.google.com__calendar_u_1_r-Default
+StartupWMClass=chrome-calendar.google.com__calendar_u_1_r-Default
 Comment=Launch Sysdig Calendar
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/calendar.png
-Exec=brave --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://calendar.google.com/calendar/u/1/r" %U
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://calendar.google.com/calendar/u/1/r" %U
 Terminal=false

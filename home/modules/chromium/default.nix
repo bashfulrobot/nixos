@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   programs.chromium = {
     enable = true;
-    # package = pkgs.chromium;
-    package = pkgs.brave;
+    package = pkgs.chromium;
+    # package = pkgs.brave;
     commandLineArgs = [ "--ozone-platform-hint=auto" ];
     extensions = [
       { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; } # 1password

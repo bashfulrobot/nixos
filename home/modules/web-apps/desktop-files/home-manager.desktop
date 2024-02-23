@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=Nix Home Manager Search
-StartupWMClass=brave-mipmip.github.io__home-manager-option-search_-Default
+StartupWMClass=chrome-mipmip.github.io__home-manager-option-search_-Default
 Comment=Launch Home Manager Search
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/nix.png
-Exec=brave --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://mipmip.github.io/home-manager-option-search/" %U
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://mipmip.github.io/home-manager-option-search/" %U
 Terminal=false
