@@ -12,7 +12,7 @@
     ./themes/pop
     ./environment
     ./espanso
-    # ./firefox
+    ./firefox
     ./fish
     ./fonts
     ./git
