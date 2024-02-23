@@ -4,6 +4,32 @@
     enable = true;
     # package = pkgs.firefox-devedition;
 
+    package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+      extraPolicies = {
+        pipewireSupport = true;
+        CaptivePortal = false;
+        DisableFirefoxStudies = true;
+        DisablePocket = false;
+        DisableTelemetry = true;
+        DisableFirefoxAccounts = false;
+        NoDefaultBookmarks = true;
+        OfferToSaveLogins = false;
+        OfferToSaveLoginsDefault = false;
+        PasswordManagerEnabled = false;
+        FirefoxHome = {
+          Search = true;
+          Pocket = true;
+          Snippets = false;
+          TopSites = false;
+          Highlights = false;
+        };
+        UserMessaging = {
+          ExtensionRecommendations = false;
+          SkipOnboarding = true;
+        };
+      };
+    };
+
     profiles = {
       default = {
         id = 0;
