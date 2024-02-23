@@ -206,6 +206,7 @@
 
   services.openvscode-server = {
     enable = true;
+    user = "dustin";
     port = 8080;
     host = "localhost";
   };
