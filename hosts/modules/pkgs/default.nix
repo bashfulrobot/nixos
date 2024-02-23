@@ -5,7 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
-		rio # gpu terminal
+    rio # gpu terminal
     aichat # Use GPT-4(V), Gemini, LocalAI, Ollama and other LLMs in the terminal
     spotify-player # temrinal Spotify player - claims parity with official
     spotdl # Spotify downloader
