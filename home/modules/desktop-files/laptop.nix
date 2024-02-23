@@ -7,6 +7,11 @@
     target = ".local/share/applications/reboot-firmware.desktop";
   };
 
+  home.file."warp.desktop" = {
+    source = ./warp.desktop;
+    target = ".local/share/applications/warp.desktop";
+  };
+
   home.file."beeper.desktop" = {
     source = ./beeper.desktop;
     target = ".local/share/applications/beeper.desktop";
