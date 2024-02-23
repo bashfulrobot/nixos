@@ -118,7 +118,7 @@
     comma # Nix command wrapper
 
     ### Cloud
-    code-server # vscode in browser. Used for demos
+    openvscode-server # vscode in browser. Used for demos
     nodePackages_latest.cdk8s-cli # cdk8s-cli - https://cdk8s.io/docs/latest/get-started/go/#install-the-cli
     cilium-cli # cilium cli
     kustomize # Kubernetes configuration management
@@ -204,6 +204,9 @@
   programs.wshowkeys.enable = true;
   programs.kdeconnect.enable = true;
 
-  services.code-server.enable = true;
-
+  services.openvscode-server = {
+    enable = true;
+    port = 8080;
+    host = "localhost";
+  };
 }
