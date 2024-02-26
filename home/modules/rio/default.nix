@@ -3,8 +3,8 @@
     enable = true;
     settings = {
       cursor = "▇";
-      blinking-cursor = false;
-      theme = "default";
+      blinking-cursor = true;
+      theme = "pop";
       window = {
         foreground-opacity = 1.0;
         background-opacity = 0.96;
@@ -20,5 +20,11 @@
       #   args = ["-s" "local-dev" "attach" "-c" "local-dev"];
       # };
     };
+  };
+
+  # More themes here: https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/rio
+  home.file."pop.toml" = {
+    source = ./themes/pop.toml;
+    target = ".config/rio/themes/pop.toml";
   };
 }
