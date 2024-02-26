@@ -202,7 +202,7 @@ with lib.hm.gvariant;
       {
         binding = "<Super>t";
         # command = "kgx";
-        command = "alacritty";
+        command = "rio";
         name = "Terminal";
       };
 
