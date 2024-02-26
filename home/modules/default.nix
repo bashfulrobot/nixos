@@ -28,6 +28,7 @@
     #    ./neovim - moved to lunarvim
     ./npm
     ./python
+    ./rio
     ./scripts
     ./ssh
     # ./starship
