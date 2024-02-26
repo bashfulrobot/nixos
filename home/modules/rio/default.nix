@@ -13,7 +13,7 @@
       };
       fonts = {
         family = "MesloLGS NF";
-        size = 18;
+        size = 25;
       };
       # shell = {
       #   program = "${pkgs.zellij}/bin/zellij";
