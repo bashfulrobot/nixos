@@ -197,7 +197,7 @@ in {
       gon = "cd ~/dev/nix/nixos";
       gon-e = "cd ~/dev/nix/nixos && code -r .";
       goagent = "cd ~/dev/sysdig/sysdig-agent-deploy/";
-      gos = "cd ~/Pictures/Screenshots/";
+      goscreen = "cd ~/Pictures/Screenshots/";
       y = "cd ~/; yazi";
       e = "lvim";
       nvim = "lvim";
