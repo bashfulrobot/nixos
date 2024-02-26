@@ -5,6 +5,7 @@
       cursor = "▇";
       blinking-cursor = true;
       theme = "pop";
+      padding-x = 10;
       window = {
         foreground-opacity = 1.0;
         background-opacity = 0.96;
