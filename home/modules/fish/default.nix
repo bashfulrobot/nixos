@@ -24,6 +24,22 @@ in {
     #   }
     # ];
     functions = {
+      new-scratch = ''
+        function new-scratch
+          set date (date "+%Y-%m-%d")
+          set filename "$date-$argv[1].md"
+          touch $filename
+          echo "# "$date" "$argv[1] | tr '-' ' ' > $filename
+          echo >> $filename
+          echo "## Attendees" >> $filename
+          echo >> $filename
+          echo "## Summary" >> $filename
+          echo >> $filename
+          echo "## Action Items" >> $filename
+          echo >> $filename
+          lvim $filename
+        end
+      '';
       shutdown_all_local_vms = ''
         function shutdown_all_local_vms
           set -l domains (sudo virsh list --name --state-running)
@@ -177,6 +193,7 @@ in {
       gotfc = "cd ~/dev/terraform/clusters/";
       gotfm = "cd ~/dev/terraform/modules/";
       gotf-e = "cd ~/dev/terraform && code -r .";
+      gos = "cd ~/Documents/Scratch/";
       gon = "cd ~/dev/nix/nixos";
       gon-e = "cd ~/dev/nix/nixos && code -r .";
       goagent = "cd ~/dev/sysdig/sysdig-agent-deploy/";
