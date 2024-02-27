@@ -1,7 +1,7 @@
 { config, inputs, pkgs, secrets, ... }: {
 
   imports = [
-    ./alacritty
+    # ./alacritty
     ./bash
     # ./blackbox-terminal
     ./chromium
@@ -12,7 +12,7 @@
     ./themes/pop
     ./environment
     ./espanso
-    ./firefox
+    # ./firefox
     ./fish
     ./fonts
     ./git

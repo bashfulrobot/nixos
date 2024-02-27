@@ -1,11 +1,11 @@
 { lib, pkgs, ... }:
-let version = "0.33.8";
+let version = "0.33.9-alpha";
 in pkgs.stdenv.mkDerivation {
   name = "comics-downloader";
   src = pkgs.fetchurl {
     url =
-      "https://github.com/Girbons/comics-downloader/releases/download/v${version}/comics-downloader";
-    sha256 = "sha256-b2nFZSIuEopXKHELbQNyTUJfyNh3ksEUY62G+DY9G7Q=";
+      "https://github.com/Girbons/comics-downloader/releases/download/v${version}/comics-downloader-linux-x86-64";
+    sha256 = "sha256-zVvKIv8nFm01TRgIgZcCvQ73kBTFfE6LG1UoHB5dxmg=";
   };
   phases = [ "installPhase" "patchPhase" ];
   installPhase = ''
