@@ -19,6 +19,7 @@
     ./gnome-web
     ./go
     ./gpg
+    ./instruqt
     ./k8sgpt
     ./kubitect
     ./lazygit

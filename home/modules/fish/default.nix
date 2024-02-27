@@ -181,13 +181,12 @@ in {
       sysdig-cli-scanner-recent-version = "curl -L -s https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt";
             sysdig-cli-scanner-get = ''curl -LO "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/$(curl -L -s https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt)/linux/amd64/sysdig-cli-scanner"'';
       kubectl = "${pkgs.kubecolor}/bin/kubecolor";
-      instruqt = "/home/dustin/dev/sysdig/workshops/bin/instruqt";
       ipull =
-        "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track pull";
+        "instruqt track pull";
       ipush =
-        "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track push";
+        "instruqt track push";
       ilog =
-        "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track logs";
+        "instruqt track logs";
       gosysdig = "cd ~/dev/sysdig/";
       gotf = "cd ~/dev/terraform";
       gotfc = "cd ~/dev/terraform/clusters/";
