@@ -57,6 +57,33 @@
           ];
         };
 
+        # dustin-krysak = work laptop hostname
+        dustin-krysak = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs secrets; };
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/evo
+            nur.nixosModules.nur
+            # nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
+            home-manager.nixosModules.home-manager
+            nix-flatpak.nixosModules.nix-flatpak
+            {
+              home-manager.extraSpecialArgs = { inherit secrets; };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.dustin = {
+                imports = [ ./home/evo ];
+              };
+
+              # Overlays
+              nixpkgs.overlays = [ nur.overlay ];
+
+              # Allow unfree packages
+              nixpkgs.config.allowUnfree = true;
+            }
+          ];
+        };
+
         # rembot = desktop hostname
         rembot = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs secrets; };
