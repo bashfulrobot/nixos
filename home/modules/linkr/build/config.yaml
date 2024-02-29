@@ -64,3 +64,5 @@ rules:
     browser: "brave"
   - url: "https://app.warp.dev"
     browser: "brave"
+  - url: "https://app.todoist.com/"
+    browser: "brave"
