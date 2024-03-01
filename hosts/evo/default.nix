@@ -4,9 +4,10 @@
   imports = [ # Include the results of the hardware scan.
     ./boot.nix
     ./hardware-configuration.nix
+    ./nvidia.nix
     ./virtualization.nix
     ../modules
-    ../modules/syncthing/dustin-krysak.nix
+    ../modules/syncthing/evo.nix
     ../modules/syncthing/common.nix
     ../modules/hosts
     ../modules/desktops/gnome

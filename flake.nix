@@ -57,8 +57,8 @@
           ];
         };
 
-        # dustin-krysak = work laptop hostname
-        dustin-krysak = nixpkgs.lib.nixosSystem {
+        # evo = work laptop hostname
+        evo = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs secrets; };
           system = "x86_64-linux";
           modules = [

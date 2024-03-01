@@ -27,9 +27,10 @@
       # Colours specified in the theme folder
 
       window = {
-        decorations = "full";
-        # decorations = "none";
+        # decorations = "full";
+        decorations = "none";
         # startup_mode = "Windowed";
+        opacity = 0.96;
         dynamic_padding = true;
         padding = {
           x = 30;

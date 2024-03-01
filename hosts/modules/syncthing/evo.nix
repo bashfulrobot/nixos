@@ -21,11 +21,12 @@
           id =
             "ZHSE4N7-IBYDJLI-XZE7VSC-RE7LMKE-JYVTAPT-XIEGEQ4-I64EPDE-AJQRNAJ";
         };
+
       };
       folders = {
         "Desktop" = {
           path = "/home/dustin/Desktop";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           # keep just a handful of old versions of the config files. This ensures that I’m not eating up a ton of disk space, while giving me the ability to roll back far enough to resolve issues I create for myself.
           versioning = {
             type = "simple";
@@ -34,7 +35,7 @@
         };
         "Documents" = {
           path = "/home/dustin/Documents";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
 
           #  The gist of staggered versioning is Syncthing will keep new versions created with an RPO of down to 30 seconds for the first hour, hourly versions for the first day, daily versions for the first month, and weekly versions until the maxAge is reached.
 
@@ -49,7 +50,7 @@
         };
         "Downloads" = {
           path = "/home/dustin/Downloads";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           versioning = {
             type = "simple";
             params = { keep = "10"; };
@@ -57,7 +58,7 @@
         };
         "Music" = {
           path = "/home/dustin/Music";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           versioning = {
             type = "simple";
             params = { keep = "10"; };
@@ -65,7 +66,7 @@
         };
         "Pictures" = {
           path = "/home/dustin/Pictures";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           versioning = {
             type = "simple";
             params = { keep = "10"; };
@@ -73,7 +74,7 @@
         };
         "Videos" = {
           path = "/home/dustin/Videos";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           versioning = {
             type = "simple";
             params = { keep = "10"; };
@@ -81,7 +82,7 @@
         };
         "dev" = {
           path = "/home/dustin/dev";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           versioning = {
             type = "staggered";
             params = {
@@ -92,7 +93,7 @@
         };
         ".gnupg" = {
           path = "/home/dustin/.gnupg";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           ignorePerms =
             false; # By default, Syncthing doesn't sync file permissions. This line enables it for this folder.
           versioning = {
@@ -105,7 +106,7 @@
         };
         ".aws" = {
           path = "/home/dustin/.aws";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           versioning = {
             type = "staggered";
             params = {
@@ -116,7 +117,7 @@
         };
         ".kube" = {
           path = "/home/dustin/.kube";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           versioning = {
             type = "staggered";
             params = {
@@ -127,7 +128,7 @@
         };
         ".doppler" = {
           path = "/home/dustin/.doppler";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           versioning = {
             type = "staggered";
             params = {
@@ -138,7 +139,7 @@
         };
         "virter" = {
           path = "/home/dustin/.config/virter";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           versioning = {
             type = "staggered";
             params = {
@@ -149,7 +150,7 @@
         };
         "bin" = {
           path = "/home/dustin/bin";
-          devices = [ "evo" "rembot" ];
+          devices = [ "rembot" ];
           versioning = {
             type = "staggered";
             params = {

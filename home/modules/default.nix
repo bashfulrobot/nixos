@@ -1,7 +1,7 @@
 { config, inputs, pkgs, secrets, ... }: {
 
   imports = [
-    # ./alacritty
+    ./alacritty
     ./bash
     # ./blackbox-terminal
     ./chromium
@@ -9,7 +9,7 @@
     # ./dagger
     ./desktop-files/autostart.nix
     # ./themes/dracula
-    ./themes/pop
+    ./themes/gruvbox
     ./environment
     ./espanso
     # ./firefox
@@ -29,7 +29,7 @@
     #    ./neovim - moved to lunarvim
     ./npm
     ./python
-    ./rio
+    # ./rio # issues with my nvidia laptop gpu
     ./scripts
     ./ssh
     # ./starship
