@@ -7,6 +7,7 @@
     ./flatpak
     ./insecure-packages
     ./nix-settings
+    ./openvscode-server
     ./pkgs
     ./virtualization
   ];
