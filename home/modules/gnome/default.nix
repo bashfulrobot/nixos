@@ -103,6 +103,7 @@ with lib.hm.gvariant;
         "fullscreen-notifications@sorrow.about.alice.pm.me"
         "solaar-extension@sidevesh"
         "undecorate@sun.wxg@gmail.com"
+        "GPU_profile_selector@lorenzo9904.gmail.com"
       ];
     };
 

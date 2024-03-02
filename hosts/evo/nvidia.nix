@@ -67,7 +67,7 @@ in {
     };
   };
 
-  environment.systemPackages = [ nvidia-offload no-offload ];
+  environment.systemPackages = [ nvidia-offload no-offload pkgs.gnomeExtensions.gpu-profile-selector ];
 
   specialisation = {
 

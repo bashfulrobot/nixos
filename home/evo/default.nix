@@ -7,6 +7,7 @@
   imports = [
     ../modules
     ../modules/gnome
+    ../modules/gnome/nvidia.nix
     ../modules/desktop-files/laptop.nix
     ../modules/desktop-files/laptop-autostart.nix
   ];
