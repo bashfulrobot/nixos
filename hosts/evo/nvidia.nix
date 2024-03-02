@@ -1,46 +1,168 @@
-{ config, lib, pkgs, ... }:
-{
+# Get BusID:
+# lspci | rg "VGA|3D controller"
+# it will be in hexadecimal format, convert it to decimal
+# https://www.binaryhexconverter.com/hex-to-decimal-converter
+{ config, pkgs, ... }:
+let
+  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec "$@"
+  '';
+  no-offload = pkgs.writeShellScriptBin "no-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=0
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=
+    export __GLX_VENDOR_LIBRARY_NAME=
+    export __VK_LAYER_NV_optimus=
+    exec "$@"
+  '';
+  # sink-intel-service = {
+  #   enable = true;
+  #   wantedBy = ["graphical.target"];
+  #   after = ["graphical.target"];
+  #   description = "source nvidia sink intel";
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #     User = "root";
+  #     RemainAfterExit = "yes";
+  #     ExecStart = "${pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource modesetting NVIDIA-0 && xrandr --auto";
+  #   };
+  # };
+in {
 
-  # Enable OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+  # NVIDIA drivers are unfree.
+  nixpkgs.config.allowUnfree = pkgs.lib.mkForce true;
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+    nvidia = {
+      # Optionally, you may need to select the appropriate driver version for your specific GPU.
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+      modesetting.enable = true;
+      prime = {
+        offload.enable = true;
+        # allowExternalGpu = true;
+
+        # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
+        intelBusId = "PCI:0:2:0";
+
+        # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
+        nvidiaBusId = "PCI:1:0:0";
+
+      };
+
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
+
+    };
   };
 
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
+  environment.systemPackages = [ nvidia-offload no-offload ];
 
-  hardware.nvidia = {
+  specialisation = {
 
-    # Modesetting is required.
-    modesetting.enable = true;
+    sync.configuration = {
+      system.nixos.tags = [ "sync" ];
 
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
-    # of just the bare essentials.
-    powerManagement.enable = false;
+      boot = {
+        kernelParams = [
+          "acpi_rev_override"
+          "mem_sleep_default=deep"
+          "nvidia-drm.modeset=1"
+        ];
+        # kernelPackages = pkgs.linuxPackages_5_4;
+        # extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+      };
 
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
+      services.xserver = {
+        # videoDrivers = [ "nvidia" ];
 
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of
-    # supported GPUs is at:
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
-    # Only available from driver 515.43.04+
-    # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
+        config = ''
+          Section "Device"
+              Identifier  "Intel Graphics"
+              Driver      "intel"
+              #Option      "AccelMethod"  "sna" # default
+              #Option      "AccelMethod"  "uxa" # fallback
+              Option      "TearFree"        "true"
+              Option      "SwapbuffersWait" "true"
+              BusID       "PCI:0:2:0"
+              #Option      "DRI" "2"             # DRI3 is now default
+          EndSection
 
-    # Enable the Nvidia settings menu,
-	# accessible via `nvidia-settings`.
-    nvidiaSettings = true;
+          Section "Device"
+              Identifier "nvidia"
+              Driver "nvidia"
+              BusID "PCI:1:0:0"
+              Option "AllowEmptyInitialConfiguration"
+          EndSection
+        '';
+        screenSection = ''
+          Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+          Option         "AllowIndirectGLXProtocol" "off"
+          Option         "TripleBuffer" "on"
+        '';
+      };
 
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+      hardware.nvidia.modesetting.enable = true;
+      hardware.nvidia.prime.offload.enable = pkgs.lib.mkForce false;
+      hardware.nvidia.prime.sync.enable = pkgs.lib.mkForce true;
+      hardware.nvidia.powerManagement.enable = pkgs.lib.mkForce false;
+      hardware.nvidia.powerManagement.finegrained = pkgs.lib.mkForce false;
+
+      # systemd.services.sink-intel-service = sink-intel-service;
+    };
+    reverse-prime.configuration = {
+      system.nixos.tags = [ "reverse-prime" ];
+
+      hardware.nvidia.modesetting.enable = true;
+      hardware.nvidia.prime.offload.enable = pkgs.lib.mkForce false;
+      hardware.nvidia.prime.sync.enable = pkgs.lib.mkForce false;
+      hardware.nvidia.powerManagement.enable = pkgs.lib.mkForce false;
+      hardware.nvidia.powerManagement.finegrained = pkgs.lib.mkForce false;
+
+      hardware.nvidia.prime.reverseSync.enable = true;
+
+      services.xserver = {
+        # videoDrivers = [ "nvidia" ];
+
+        config = ''
+          Section "Device"
+              Identifier  "Intel Graphics"
+              Driver      "intel"
+              #Option      "AccelMethod"  "sna" # default
+              #Option      "AccelMethod"  "uxa" # fallback
+              Option      "TearFree"        "true"
+              Option      "SwapbuffersWait" "true"
+              BusID       "PCI:0:2:0"
+              #Option      "DRI" "2"             # DRI3 is now default
+          EndSection
+
+          # Section "Device"
+          #     Identifier "nvidia"
+          #     Driver "nvidia"
+          #     BusID "PCI:1:0:0"
+          #     Option "AllowEmptyInitialConfiguration"
+          # EndSection
+        '';
+        screenSection = ''
+          Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+          Option         "AllowIndirectGLXProtocol" "off"
+          Option         "TripleBuffer" "on"
+        '';
+      };
+
+      # systemd.services.sink-intel-service = sink-intel-service;
+    };
   };
 
 }

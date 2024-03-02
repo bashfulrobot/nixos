@@ -168,6 +168,14 @@
             };
           };
         };
+        "ms-edge" = {
+          path = "/home/dustin/.config/microsoft-edge";
+          devices = [ "nixdo" ];
+          versioning = {
+            type = "simple";
+            params = { keep = "10"; };
+          };
+        };
 
       };
     };

@@ -4,6 +4,7 @@
   imports = [ # Include the results of the hardware scan.
     ./boot.nix
     ./hardware-configuration.nix
+    ./hardware-quirks.nix
     ./nvidia.nix
     ./virtualization.nix
     ../modules
