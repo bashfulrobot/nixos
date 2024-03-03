@@ -18,6 +18,6 @@ in pkgs.stdenvNoCC.mkDerivation {
 
   meta = with lib; {
     description = "A San Franciso Pro font derivation.";
-    maintainers = [ jnsgruk ];
+    maintainers = [ bashfulrobot ];
   };
 }

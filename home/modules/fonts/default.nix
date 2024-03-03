@@ -6,9 +6,11 @@ let
   sf-mono-liga-font = pkgs.callPackage ./sfpro/liga { };
   inter-font = pkgs.callPackage ./inter { }; # Helvetica Replacement
   aharoni-font = pkgs.callPackage ./aharoni { };
+  monaspace-font = pkgs.callPackage ./monaspace { };
 
 in {
   home.packages = with pkgs; [
+    monaspace-font
     aharoni-font
     inter-font
     sfpro-font

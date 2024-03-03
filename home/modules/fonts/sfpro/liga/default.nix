@@ -18,6 +18,6 @@ in pkgs.stdenvNoCC.mkDerivation {
 
   meta = with lib; {
     description = "A patched San Franciso Mono with ligatures font derivation.";
-    maintainers = [ jnsgruk ];
+    maintainers = [ bashfulrobot ];
   };
 }
