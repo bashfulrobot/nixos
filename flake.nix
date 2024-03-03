@@ -7,6 +7,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    envycontrol.url = "github:bayasdev/envycontrol";
+
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     home-manager = {
@@ -19,7 +21,7 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, nix-flatpak
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, envycontrol, nix-flatpak
     , nur, ... }:
     with inputs;
     let
