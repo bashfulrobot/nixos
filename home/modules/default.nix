@@ -31,6 +31,7 @@
     ./python
     # ./rio # issues with my nvidia laptop gpu
     ./scripts
+    ./seabird
     ./ssh
     # ./starship
     ./sysdig-cli-scanner

@@ -12,6 +12,11 @@
     target = ".local/share/applications/warp.desktop";
   };
 
+  home.file."seabird.desktop" = {
+    source = ./seabird.desktop;
+    target = ".local/share/applications/seabird.desktop";
+  };
+
   home.file."beeper.desktop" = {
     source = ./beeper.desktop;
     target = ".local/share/applications/beeper.desktop";

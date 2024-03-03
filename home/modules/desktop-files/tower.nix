@@ -12,6 +12,11 @@
     target = ".local/share/applications/reboot-firmware.desktop";
   };
 
+  home.file."seabird.desktop" = {
+    source = ./seabird.desktop;
+    target = ".local/share/applications/seabird.desktop";
+  };
+
   home.file."monokle.desktop" = {
     source = ./monokle.desktop;
     target = ".local/share/applications/monokle.desktop";
