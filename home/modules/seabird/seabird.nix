@@ -8,7 +8,7 @@ in pkgs.stdenv.mkDerivation {
     url =
       "https://github.com/getseabird/seabird/releases/download/v${version}/seabird_linux_amd64.tar.gz";
 
-    sha256 = "sha256-sjUQ5PERxDLLFPB1zMLHf06vxHDP+6kJfycps/5IebY=";
+    sha256 = "sha256-j5KQ6dEXkS28K2pxtdPM4geQ2vttV4Q+pvfi86yBPBc=";
     stripRoot = false;
   };
 
