@@ -2,7 +2,7 @@
 # lspci | rg "VGA|3D controller"
 # it will be in hexadecimal format, convert it to decimal
 # https://www.binaryhexconverter.com/hex-to-decimal-converter
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 let
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
@@ -35,6 +35,16 @@ in {
   # NVIDIA drivers are unfree.
   nixpkgs.config.allowUnfree = pkgs.lib.mkForce true;
 
+  environment.systemPackages = [
+    nvidia-offload
+    no-offload
+    pkgs.gnomeExtensions.gpu-profile-selector
+    inputs.envycontrol.packages.x86_64-linux.default
+  ];
+
+  #  Use Home manager to configire the gnome extention
+  # home-manager.users.noaccos.homeModules.programs.browsers.firefox.gnomeIntegration = true;
+
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     opengl = {
@@ -66,8 +76,6 @@ in {
 
     };
   };
-
-  environment.systemPackages = [ nvidia-offload no-offload pkgs.gnomeExtensions.gpu-profile-selector ];
 
   specialisation = {
 
