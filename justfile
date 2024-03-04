@@ -71,6 +71,11 @@ update-rebuild:
 garbage:
     @sudo nix-collect-garbage -d
 # Run garbage collect, update and rebuild
+# Update Hardware Firmware
+run-fwup:
+    @sudo fwupdmgr refresh
+    @sudo fwupdmgr get-updates
+    @sudo fwupdmgr update
 all:
     just upgrade-system
     just garbage
