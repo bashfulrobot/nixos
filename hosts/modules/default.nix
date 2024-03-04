@@ -63,6 +63,9 @@
   # Enable Espanso
   services.espanso.enable = true;
 
+  # Enable Firmware Updates
+  services.fwupd.enable = true;
+
   # Enable teamviewer
   services.teamviewer.enable = true;
 
