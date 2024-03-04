@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
+    usbutils # usb utilities like lsusb
     pciutils # list all PCI devices
     aichat # Use GPT-4(V), Gemini, LocalAI, Ollama and other LLMs in the terminal
     spotify-player # temrinal Spotify player - claims parity with official
