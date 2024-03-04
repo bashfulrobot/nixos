@@ -7,6 +7,7 @@
     ./hardware-quirks.nix
     ./nvidia.nix
     ./virtualization.nix
+    ./wifi.nix
     ../modules
     ../modules/syncthing/evo.nix
     ../modules/syncthing/common.nix
