@@ -36,8 +36,8 @@ in {
   nixpkgs.config.allowUnfree = pkgs.lib.mkForce true;
 
   environment.systemPackages = [
-    nvidia-offload
-    no-offload
+    # nvidia-offload
+    # no-offload
     pkgs.gnomeExtensions.gpu-profile-selector
     inputs.envycontrol.packages.x86_64-linux.default
   ];
@@ -56,7 +56,7 @@ in {
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-      modesetting.enable = true;
+      # modesetting.enable = true;
       prime = {
         offload.enable = true;
         # allowExternalGpu = true;
@@ -77,100 +77,100 @@ in {
     };
   };
 
-  specialisation = {
+  # specialisation = {
 
-    sync.configuration = {
-      system.nixos.tags = [ "sync" ];
+  #   sync.configuration = {
+  #     system.nixos.tags = [ "sync" ];
 
-      boot = {
-        kernelParams = [
-          "acpi_rev_override"
-          "mem_sleep_default=deep"
-          "nvidia-drm.modeset=1"
-        ];
-        # kernelPackages = pkgs.linuxPackages_5_4;
-        # extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
-      };
+  #     boot = {
+  #       kernelParams = [
+  #         "acpi_rev_override"
+  #         "mem_sleep_default=deep"
+  #         "nvidia-drm.modeset=1"
+  #       ];
+  #       # kernelPackages = pkgs.linuxPackages_5_4;
+  #       # extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  #     };
 
-      services.xserver = {
-        # videoDrivers = [ "nvidia" ];
+  #     services.xserver = {
+  #       # videoDrivers = [ "nvidia" ];
 
-        config = ''
-          Section "Device"
-              Identifier  "Intel Graphics"
-              Driver      "intel"
-              #Option      "AccelMethod"  "sna" # default
-              #Option      "AccelMethod"  "uxa" # fallback
-              Option      "TearFree"        "true"
-              Option      "SwapbuffersWait" "true"
-              BusID       "PCI:0:2:0"
-              #Option      "DRI" "2"             # DRI3 is now default
-          EndSection
+  #       config = ''
+  #         Section "Device"
+  #             Identifier  "Intel Graphics"
+  #             Driver      "intel"
+  #             #Option      "AccelMethod"  "sna" # default
+  #             #Option      "AccelMethod"  "uxa" # fallback
+  #             Option      "TearFree"        "true"
+  #             Option      "SwapbuffersWait" "true"
+  #             BusID       "PCI:0:2:0"
+  #             #Option      "DRI" "2"             # DRI3 is now default
+  #         EndSection
 
-          Section "Device"
-              Identifier "nvidia"
-              Driver "nvidia"
-              BusID "PCI:1:0:0"
-              Option "AllowEmptyInitialConfiguration"
-          EndSection
-        '';
-        screenSection = ''
-          Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
-          Option         "AllowIndirectGLXProtocol" "off"
-          Option         "TripleBuffer" "on"
-        '';
-      };
+  #         Section "Device"
+  #             Identifier "nvidia"
+  #             Driver "nvidia"
+  #             BusID "PCI:1:0:0"
+  #             Option "AllowEmptyInitialConfiguration"
+  #         EndSection
+  #       '';
+  #       screenSection = ''
+  #         Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+  #         Option         "AllowIndirectGLXProtocol" "off"
+  #         Option         "TripleBuffer" "on"
+  #       '';
+  #     };
 
-      hardware.nvidia.modesetting.enable = true;
-      hardware.nvidia.prime.offload.enable = pkgs.lib.mkForce false;
-      hardware.nvidia.prime.sync.enable = pkgs.lib.mkForce true;
-      hardware.nvidia.powerManagement.enable = pkgs.lib.mkForce false;
-      hardware.nvidia.powerManagement.finegrained = pkgs.lib.mkForce false;
+  #     hardware.nvidia.modesetting.enable = true;
+  #     hardware.nvidia.prime.offload.enable = pkgs.lib.mkForce false;
+  #     hardware.nvidia.prime.sync.enable = pkgs.lib.mkForce true;
+  #     hardware.nvidia.powerManagement.enable = pkgs.lib.mkForce false;
+  #     hardware.nvidia.powerManagement.finegrained = pkgs.lib.mkForce false;
 
-      # systemd.services.sink-intel-service = sink-intel-service;
-    };
-    reverse-prime.configuration = {
-      system.nixos.tags = [ "reverse-prime" ];
+  #     # systemd.services.sink-intel-service = sink-intel-service;
+  #   };
+  #   reverse-prime.configuration = {
+  #     system.nixos.tags = [ "reverse-prime" ];
 
-      hardware.nvidia.modesetting.enable = true;
-      hardware.nvidia.prime.offload.enable = pkgs.lib.mkForce false;
-      hardware.nvidia.prime.sync.enable = pkgs.lib.mkForce false;
-      hardware.nvidia.powerManagement.enable = pkgs.lib.mkForce false;
-      hardware.nvidia.powerManagement.finegrained = pkgs.lib.mkForce false;
+  #     hardware.nvidia.modesetting.enable = true;
+  #     hardware.nvidia.prime.offload.enable = pkgs.lib.mkForce false;
+  #     hardware.nvidia.prime.sync.enable = pkgs.lib.mkForce false;
+  #     hardware.nvidia.powerManagement.enable = pkgs.lib.mkForce false;
+  #     hardware.nvidia.powerManagement.finegrained = pkgs.lib.mkForce false;
 
-      hardware.nvidia.prime.reverseSync.enable = true;
+  #     hardware.nvidia.prime.reverseSync.enable = true;
 
-      services.xserver = {
-        # videoDrivers = [ "nvidia" ];
+  #     services.xserver = {
+  #       # videoDrivers = [ "nvidia" ];
 
-        config = ''
-          Section "Device"
-              Identifier  "Intel Graphics"
-              Driver      "intel"
-              #Option      "AccelMethod"  "sna" # default
-              #Option      "AccelMethod"  "uxa" # fallback
-              Option      "TearFree"        "true"
-              Option      "SwapbuffersWait" "true"
-              BusID       "PCI:0:2:0"
-              #Option      "DRI" "2"             # DRI3 is now default
-          EndSection
+  #       config = ''
+  #         Section "Device"
+  #             Identifier  "Intel Graphics"
+  #             Driver      "intel"
+  #             #Option      "AccelMethod"  "sna" # default
+  #             #Option      "AccelMethod"  "uxa" # fallback
+  #             Option      "TearFree"        "true"
+  #             Option      "SwapbuffersWait" "true"
+  #             BusID       "PCI:0:2:0"
+  #             #Option      "DRI" "2"             # DRI3 is now default
+  #         EndSection
 
-          # Section "Device"
-          #     Identifier "nvidia"
-          #     Driver "nvidia"
-          #     BusID "PCI:1:0:0"
-          #     Option "AllowEmptyInitialConfiguration"
-          # EndSection
-        '';
-        screenSection = ''
-          Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
-          Option         "AllowIndirectGLXProtocol" "off"
-          Option         "TripleBuffer" "on"
-        '';
-      };
+  #         # Section "Device"
+  #         #     Identifier "nvidia"
+  #         #     Driver "nvidia"
+  #         #     BusID "PCI:1:0:0"
+  #         #     Option "AllowEmptyInitialConfiguration"
+  #         # EndSection
+  #       '';
+  #       screenSection = ''
+  #         Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+  #         Option         "AllowIndirectGLXProtocol" "off"
+  #         Option         "TripleBuffer" "on"
+  #       '';
+  #     };
 
-      # systemd.services.sink-intel-service = sink-intel-service;
-    };
-  };
+  #     # systemd.services.sink-intel-service = sink-intel-service;
+  #   };
+  # };
 
 }

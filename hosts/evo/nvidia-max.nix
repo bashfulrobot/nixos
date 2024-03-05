@@ -2,7 +2,7 @@
 # lspci | rg "VGA|3D controller"
 # it will be in hexadecimal format, convert it to decimal
 # https://www.binaryhexconverter.com/hex-to-decimal-converter
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
@@ -34,7 +34,7 @@ in {
 
   # NVIDIA drivers are unfree.
   nixpkgs.config.allowUnfree = pkgs.lib.mkForce true;
-
+ # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     opengl = {
@@ -43,11 +43,12 @@ in {
       driSupport32Bit = true;
     };
     nvidia = {
+      # Modesetting is required.
+      modesetting.enable = true;
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-      modesetting.enable = true;
-      prime = {
+prime = {
         offload.enable = true;
         # allowExternalGpu = true;
 
