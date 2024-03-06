@@ -42,6 +42,7 @@
       # { id = "akahnknmcbmgodngfjcflnaljdbhnlfo"; } # Vertical Tabs in Side Panel - Not needed in brave
       { id = "ncppfjladdkdaemaghochfikpmghbcpc"; } # Open as popup
       { id = "oodfdmglhbbkkcngodjjagblikmoegpa"; } # t.ly url shortener
+      { id = "bkdgflcldnnnapblkhphbgpggdiikppg"; } # duckduckgo
     ];
   };
 }
