@@ -142,7 +142,7 @@ with lib.hm.gvariant;
       window-menu-take-screenshot-button = false;
       window-picker-icon = false;
       window-preview-caption = false;
-      window-preview-close-button = false;
+      window-preview-close-button = true;
       workspace = true;
       workspace-background-corner-size = 15;
       workspace-popup = false;
