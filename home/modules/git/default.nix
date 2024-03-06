@@ -19,6 +19,7 @@
         user = { signingkey = lib.mkForce "${secrets.git.ssh-signing-key}"; };
         commit.gpgsign = true;
         gpg.format = "ssh";
+        gpg.ssh.allowedSignersFile  = "~/.config/git/allowed_signers";
       };
       # signing = {
       #   key = "${secrets.git.signing-key}";
@@ -52,6 +53,10 @@
     };
     gitui = { enable = true; };
   };
+
+home.file.".config/git/allowed_signers".text = ''
+"${secrets.git.email}" "${secrets.git.ssh-signing-key}"
+'';
 
   home.file.".config/gptcommit/config.toml".text = ''
     model_provider = "openai"
