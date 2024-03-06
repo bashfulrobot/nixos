@@ -18,6 +18,7 @@
         credential.helper = "store";
         user = { signingkey = lib.mkForce "${secrets.git.ssh-signing-key}"; };
         commit.gpgsign = true;
+        tag.gpgsign = true;
         gpg.format = "ssh";
         gpg.ssh.allowedSignersFile  = "~/.config/git/allowed_signers";
       };
