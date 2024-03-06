@@ -16,11 +16,14 @@
         rebase.autoSquash = true;
         url."git@github.com:".pushInsteadOf = "https://github.com";
         credential.helper = "store";
+        user = { signingkey = lib.mkForce "${secrets.git.ssh-signing-key}"; };
+        commit.gpgsign = true;
+        gpg.format = "ssh";
       };
-      signing = {
-        key = "${secrets.git.signing-key}";
-        signByDefault = true;
-      };
+      # signing = {
+      #   key = "${secrets.git.signing-key}";
+      #   signByDefault = true;
+      # };
       aliases = {
         a = "add";
         c = "commit";
