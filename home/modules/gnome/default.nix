@@ -140,12 +140,12 @@ with lib.hm.gvariant;
       weather = false;
       window-demands-attention-focus = true;
       window-menu-take-screenshot-button = false;
-      window-picker-icon = false;
+      window-picker-icon = true;
       window-preview-caption = false;
       window-preview-close-button = true;
       workspace = true;
       workspace-background-corner-size = 15;
-      workspace-popup = false;
+      workspace-popup = true;
       workspaces-in-app-grid = false;
     };
 
