@@ -17,6 +17,8 @@
       extraPackages = with pkgs; [ vaapiVdpau ];
     };
     nvidia = {
+      # Enable the Nvidia driver.
+      enable = true;
       # Modesetting is required.
       # Since NVIDIA does not support automatic KMS late loading, enabling DRM (Direct Rendering Manager) kernel mode setting is required to make Wayland compositors function properly, or to allow for Xorg#Rootless_Xorg.
       modesetting.enable = true;
