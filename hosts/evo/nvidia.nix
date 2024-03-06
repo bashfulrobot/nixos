@@ -45,11 +45,11 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
-      offload = {
-        sync.enable = true;
-        # enable = true;
-        # enableOffloadCmd = true;
-      };
+
+      sync.enable = true;
+      # enable = true;
+      # enableOffloadCmd = true;
+
       # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
       intelBusId = "PCI:0:2:0";
 
