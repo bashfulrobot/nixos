@@ -7,6 +7,9 @@
     driSupport32Bit = true;
   };
 
+  # NVIDIA drivers are unfree.
+  nixpkgs.config.allowUnfree = pkgs.lib.mkForce true;
+
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
 
