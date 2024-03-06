@@ -56,7 +56,7 @@
   };
 
 home.file.".config/git/allowed_signers".text = ''
-"${secrets.git.email}" "${secrets.git.ssh-signing-key}"
+"${secrets.git.email}" "${secrets.git.ssh-signing-key-content}"
 '';
 
   home.file.".config/gptcommit/config.toml".text = ''
