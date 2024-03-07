@@ -1,4 +1,16 @@
 { pkgs, ... }: {
+
+  # Install necessary packages
+  environment.systemPackages = with pkgs; [
+    virt-manager
+    virt-viewer
+    spice
+    spice-gtk
+    spice-protocol
+    win-virtio
+    win-spice
+  ];
+
   virtualisation = {
     docker.enable = true;
     # multipass.enable = true;
@@ -13,22 +25,17 @@
       allowedBridges = [ "virbr0" "br0" ];
       onBoot = "start";
       onShutdown = "suspend";
+      # https://github.com/tompreston/qemu-ovmf-swtpm
+      # qemu = {
+      #   swtpm.enable = true;
+      #   ovmf.enable = true;
+      #   ovmf.packages = [ pkgs.OVMFFull.fd ];
+      # };
     };
-    # virtualbox.host = {
-    #   enable = true;
-    #   enableExtensionPack = true;
-    # };
-    # lxd = {
-    #   enable = true;
-    # ui = {
-    #   enable = true;
-    #   package = pkgs.unstable.lxd-unwrapped.ui;
-    # };
-    # };
-    # multipass = {
-    #   enable = true;
-    #   # logLevel = "trace";
-    # };
+
+    spiceUSBRedirection.enable = true;
+
   };
+  services.spice-vdagentd.enable = true;
 
 }
