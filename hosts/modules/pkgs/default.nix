@@ -172,7 +172,7 @@
     wl-color-picker # Wayland color picker
     zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
     tuba # Mastodon client
-    # morgen # AI calendar - testing
+    morgen # AI calendar - testing
     # protonvpn-gui # VPN client
     kooha # Screen recorder for x11/Wayland
     # flameshot # Screen capture - currently has a bug

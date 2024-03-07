@@ -16,7 +16,7 @@
       # Enables 32-bit Direct Rendering Infrastructure (DRI) support, which allows the graphics driver to directly render graphics in 32-bit applications using OpenGL
       driSupport32Bit = true;
       # Adds the 'vaapiVdpau' package to the extra packages for OpenGL
-      # extraPackages = with pkgs; [ vaapiVdpau ];
+      extraPackages = with pkgs; [ vaapiVdpau intel-media-driver vaapiIntel libvdpau-va-gl ];
     };
     nvidia = {
       # Modesetting is required.
