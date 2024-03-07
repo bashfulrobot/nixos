@@ -41,6 +41,7 @@
       # accessible via `nvidia-settings`.
       nvidiaSettings = true;
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
+      # Note: As of early March 2024 the production driver has been updated from 535 to 550. This is a breaking change for some people, especially those on Wayland.
       package = config.boot.kernelPackages.nvidiaPackages.production;
       #### Special config to load the latest 535 driver for the support of the 4070 SUPER
       # https://github.com/NixOS/nixpkgs/issues/289292
