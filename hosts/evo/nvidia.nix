@@ -4,7 +4,7 @@
   # NVIDIA drivers are unfree.
   nixpkgs.config.allowUnfree = pkgs.lib.mkForce true;
   # Sets the default video driver for the X server and Wayland to "nvidia"
-  services.xserver.videoDrivers = lib.mkDefault [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     opengl = {
       # Enables the graphics driver for OpenGL
@@ -36,12 +36,31 @@
       # Only available from driver 515.43.04+
       # Currently alpha-quality/buggy, so false is currently the recommended setting.
       ## Confirmed my card is in there.
-      open = true;
+      open = false;
       # Enable the Nvidia settings menu,
       # accessible via `nvidia-settings`.
       nvidiaSettings = true;
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      # package = config.boot.kernelPackages.nvidiaPackages.latest;
+      #### Special config to load the latest 535 driver for the support of the 4070 SUPER
+      # https://github.com/NixOS/nixpkgs/issues/289292
+      package = let
+        rcu_patch = pkgs.fetchpatch {
+          url =
+            "https://github.com/gentoo/gentoo/raw/c64caf53/x11-drivers/nvidia-drivers/files/nvidia-drivers-470.223.02-gpl-pfn_valid.patch";
+          hash = "sha256-eZiQQp2S/asE7MfGvfe6dA/kdCvek9SYa/FFGp24dVg=";
+        };
+      in config.boot.kernelPackages.nvidiaPackages.mkDriver {
+        version = "535.154.05";
+        sha256_64bit = "sha256-fpUGXKprgt6SYRDxSCemGXLrEsIA6GOinp+0eGbqqJg=";
+        sha256_aarch64 = "sha256-G0/GiObf/BZMkzzET8HQjdIcvCSqB1uhsinro2HLK9k=";
+        openSha256 = "sha256-wvRdHguGLxS0mR06P5Qi++pDJBCF8pJ8hr4T8O6TJIo=";
+        settingsSha256 = "sha256-9wqoDEWY4I7weWW05F4igj1Gj9wjHsREFMztfEmqm10=";
+        persistencedSha256 =
+          "sha256-d0Q3Lk80JqkS1B54Mahu2yY/WocOqFFbZVBh+ToGhaE=";
+
+        patches = [ rcu_patch ];
+      };
       prime = {
         offload = {
           enable = true;
