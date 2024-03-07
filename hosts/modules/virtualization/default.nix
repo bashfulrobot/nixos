@@ -11,6 +11,9 @@
     win-spice
   ];
 
+  # Add user to libvirtd group
+  users.users.dustin.extraGroups = [ "libvirtd" "docker" "qemu" "kvm" "qemu-libvirtd" "lxd"];
+
   virtualisation = {
     docker.enable = true;
     # multipass.enable = true;

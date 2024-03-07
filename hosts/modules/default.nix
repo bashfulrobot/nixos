@@ -32,18 +32,11 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "docker"
       "onepassword"
       "onepassword-cli"
-      "qemu"
-      "libvirt"
-      "kvm"
       "polkituser"
-      "qemu-libvirtd"
-      "libvirtd"
       "users"
       "video"
-      "lxd"
     ];
     # packages = with pkgs; [ ];
   };
