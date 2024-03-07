@@ -5,7 +5,9 @@
   nixpkgs.config.allowUnfree = true;
   # Sets the default video driver for the X server and Wayland to "nvidia"
   services.xserver.videoDrivers = [ "nvidia" ];
+
   hardware = {
+
     opengl = {
       # Enables the graphics driver for OpenGL
       enable = true;
@@ -14,7 +16,7 @@
       # Enables 32-bit Direct Rendering Infrastructure (DRI) support, which allows the graphics driver to directly render graphics in 32-bit applications using OpenGL
       driSupport32Bit = true;
       # Adds the 'vaapiVdpau' package to the extra packages for OpenGL
-      extraPackages = with pkgs; [ vaapiVdpau ];
+      # extraPackages = with pkgs; [ vaapiVdpau ];
     };
     nvidia = {
       # Modesetting is required.
@@ -40,6 +42,7 @@
       # Enable the Nvidia settings menu,
       # accessible via `nvidia-settings`.
       nvidiaSettings = true;
+
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       # Note: As of early March 2024 the production driver has been updated from 535 to 550. This is a breaking change for some people, especially those on Wayland.
       package = config.boot.kernelPackages.nvidiaPackages.production;
