@@ -2,7 +2,7 @@
 
 {
   # NVIDIA drivers are unfree.
-  nixpkgs.config.allowUnfree = pkgs.lib.mkForce true;
+  nixpkgs.config.allowUnfree = true;
   # Sets the default video driver for the X server and Wayland to "nvidia"
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
@@ -68,9 +68,10 @@
           enableOffloadCmd = true; # Provides `nvidia-offload` command.
         };
         # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
-        intelBusId = "PCI:0:2:0";
+        intelBusId = "PCI:0:0:2";
         # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
-        nvidiaBusId = "PCI:1:0:0";
+        # nvidiaBusId = "PCI:1:0:0";
+        nvidiaBusId = "PCI:0:1:0";
       };
     };
   };
