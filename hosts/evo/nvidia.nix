@@ -82,4 +82,8 @@
 # Get BusID:
 # lspci | rg "VGA|3D controller"
 # it will be in hexadecimal format, convert it to decimal
-# https://www.binaryhexconverter.com/hex-to-decimal-converter
+# It is good to check the conversion with the following command:
+# ❯ lspci -s 0:2:0
+# 02:00.0 Non-Volatile memory controller: SK hynix Platinum P41/PC801 NVMe Solid State Drive
+# ❯ lspci -s 0:1:0
+# 01:00.0 3D controller: NVIDIA Corporation AD106M [GeForce RTX 4070 Max-Q / Mobile] (rev a1)
