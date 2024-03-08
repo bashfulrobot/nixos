@@ -170,9 +170,9 @@
     solaar # Linux manager for many Logitech keyboards, mice
     mplayer # Video player
     wl-color-picker # Wayland color picker
-    zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
-    tuba # Mastodon client
-    morgen # AI calendar - testing
+    # zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
+    # tuba # Mastodon client
+    # morgen # AI calendar - testing
     # protonvpn-gui # VPN client
     kooha # Screen recorder for x11/Wayland
     # flameshot # Screen capture - currently has a bug
@@ -191,18 +191,18 @@
     epiphany # gnome web
     # nheko # Matrix Clien
     # microsoft-edge # web browser
-    teamviewer # remote support
+    # teamviewer # remote support
 
     # Communication
     slack # instant messaging
-    rocketchat-desktop # instant messaging
+    # rocketchat-desktop # instant messaging
     # thunderbird # email client
     # mailspring # email client
 
   ];
 
   programs.wshowkeys.enable = true;
-  programs.kdeconnect.enable = true;
+  # programs.kdeconnect.enable = true;
 
   services.openvscode-server = {
     enable = true;

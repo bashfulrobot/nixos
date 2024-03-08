@@ -11,6 +11,7 @@
     ../modules/syncthing/common.nix
     ../modules/hosts
     ../modules/desktops/gnome
+    ../modules/kolide
   ];
 
   networking.hostName = "evo"; # Define your hostname.

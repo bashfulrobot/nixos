@@ -19,10 +19,15 @@
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
+    kolide-launcher = {
+      url = "github:/kolide/nix-agent/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, envycontrol, nix-flatpak
-    , nur, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, envycontrol
+    , nix-flatpak, nur, kolide-launcher, ... }:
     with inputs;
     let
       nixpkgsConfig = { overlays = [ ]; };
@@ -69,13 +74,12 @@
             # nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
             home-manager.nixosModules.home-manager
             nix-flatpak.nixosModules.nix-flatpak
+            kolide-launcher.nixosModules.kolide-launcher
             {
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.dustin = {
-                imports = [ ./home/evo ];
-              };
+              home-manager.users.dustin = { imports = [ ./home/evo ]; };
 
               # Overlays
               nixpkgs.overlays = [ nur.overlay ];
