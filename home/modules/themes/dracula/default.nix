@@ -6,7 +6,7 @@ let
   dracula-gtk = pkgs.callPackage ./gtk { };
 
 in {
-  home.packages = with pkgs; [ dracula-gtk ];
+  home.packages = with pkgs; [ dracula-gtk yaru-theme ];
 
   # App / Desktop themes
   imports =

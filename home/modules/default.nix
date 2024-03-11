@@ -8,9 +8,7 @@
     ./comics-downloader
     # ./dagger
     ./desktop-files/autostart.nix
-    # ./themes/dracula
-    # ./themes/gruvbox
-    ./themes/adwaita
+    ./themes/yaru
     ./environment
     ./espanso
     # ./firefox

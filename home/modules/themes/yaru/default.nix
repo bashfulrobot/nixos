@@ -6,8 +6,7 @@ let
   # dracula-gtk = pkgs.callPackage ./gtk { };
 
 in {
-  # Getting yaru cursor, sound and icon themes
-  home.packages = with pkgs; [ gruvbox-dark-gtk gruvbox-dark-icons-gtk yaru-theme ];
+  home.packages = with pkgs; [ yaru-theme ];
 
   # App / Desktop themes
   imports =
