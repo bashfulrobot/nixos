@@ -9,7 +9,8 @@
     # ./dagger
     ./desktop-files/autostart.nix
     # ./themes/dracula
-    ./themes/gruvbox
+    # ./themes/gruvbox
+    ./themes/adwaita
     ./environment
     ./espanso
     # ./firefox
