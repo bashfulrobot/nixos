@@ -4,7 +4,7 @@
   imports = [ # Include the results of the hardware scan.
     ./boot.nix
     ./hardware-configuration.nix
-    ./hardware-quirks.nix
+    ./nixos-hardware.nix
     ./virtualization.nix
     ../modules
     ../modules/syncthing/evo.nix

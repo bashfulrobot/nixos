@@ -8,6 +8,7 @@
     ./video.nix
     ./hardware-configuration.nix
     # ./network.nix
+    ./nixos-hardware.nix
     ../modules
     ../modules/desktops/gnome
     ./steam.nix
