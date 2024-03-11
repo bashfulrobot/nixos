@@ -5,7 +5,7 @@ with lib.hm.gvariant;
 {
 
   home.file."finalizer.png" = {
-    source = ./../wallpapers/finalizer.png;
+    source = ./../../wallpapers/finalizer.png;
     target = ".local/share/backgrounds/finalizer.png";
   };
 

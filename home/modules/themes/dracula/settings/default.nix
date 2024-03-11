@@ -5,7 +5,7 @@ with lib.hm.gvariant;
 {
 
   home.file."dracula.png" = {
-    source = ./dracula.png;
+    source = ./../../wallpapers/dracula.png;
     target = ".local/share/backgrounds/dracula.png";
   };
 
