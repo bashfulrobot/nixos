@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 # https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt
-let version = "1.8.5";
+let version = "1.9.0";
 in pkgs.stdenv.mkDerivation {
   name = "sysdig-cli-scanner";
   src = pkgs.fetchurl {
