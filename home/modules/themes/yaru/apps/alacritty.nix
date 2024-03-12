@@ -3,15 +3,15 @@
     settings = {
       colors = {
         primary = {
-          background = "#2C001E";
+          background = "#3D3D3D";  // Gray background
           foreground = "#F2F2F2";
         };
         cursor = {
-          text = "#2C001E";
+          text = "#3D3D3D";  // Gray text
           cursor = "#F2F2F2";
         };
         vi_mode_cursor = {
-          text = "#2C001E";
+          text = "#3D3D3D";  // Gray text
           cursor = "#F2F2F2";
         };
         selection = {
@@ -29,17 +29,17 @@
           };
         };
         footer_bar = {
-          background = "#2C001E";
+          background = "#3D3D3D";  // Gray background
           foreground = "#F2F2F2";
         };
         hints = {
           start = {
-            foreground = "#2C001E";
+            foreground = "#3D3D3D";  // Gray foreground
             background = "#F2F2F2";
           };
           end = {
             foreground = "#F2F2F2";
-            background = "#2C001E";
+            background = "#3D3D3D";  // Gray background
           };
         };
         line_indicator = {
@@ -47,7 +47,7 @@
           background = "None";
         };
         normal = {
-          black = "#2C001E";
+          black = "#3D3D3D";  // Gray black
           red = "#FF5555";
           green = "#50FA7B";
           yellow = "#F1FA8C";
@@ -67,7 +67,7 @@
           white = "#FFFFFF";
         };
         dim = {
-          black = "#2C001E";
+          black = "#3D3D3D";  // Gray black
           red = "#FF5555";
           green = "#50FA7B";
           yellow = "#F1FA8C";

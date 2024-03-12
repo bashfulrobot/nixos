@@ -6,11 +6,11 @@
         "primaryVariant": "#4C2294",
         "onPrimary": "#F2F2F2",
         "secondary": "#50FA7B",
-        "onBackground": "#2C001E",
+        "onBackground": "#3D3D3D",  // Gray background
         "onBackgroundSecondary": "#4C2294",
         "error": "#FF5555",
         "onError": "#F2F2F2",
-        "background": "#2C001E",
+        "background": "#3D3D3D",  // Gray background
         "backgroundSelected": "#4C2294",
         "surface": "#4C2294",
         "secondarySurface": "#4C2294",
