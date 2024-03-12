@@ -7,7 +7,7 @@ in pkgs.stdenvNoCC.mkDerivation {
 
   src = pkgs.fetchzip {
     url =
-      "https://github.com/bashfulrobot/nixos/raw/main/home/modules/dracula/Dracula.zip";
+      "https://github.com/bashfulrobot/nixos/raw/main/home/modules/themes/dracula/Dracula.zip";
     sha256 = "sha256-pd3OVLThX1S3RP7HXLAVW5NFRsoi2hYDozF1eTAGLu4=";
     stripRoot = false;
   };
