@@ -11,7 +11,7 @@
       env.TERM = "alacritty";
       # env.TERM = "xterm-256color";
 
-      shell.program = "tmux";
+      # shell.program = "tmux";
 
       selection.save_to_clipboard = true;
 
