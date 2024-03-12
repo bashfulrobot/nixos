@@ -37,6 +37,7 @@
   services.xserver.libinput.enable = true;
 
   environment.systemPackages = with pkgs; [
+    libadwaita # Adwaita libs
     gnome.gnome-tweaks # Gnome Tweaks
     # Gnome Extensions
     gnomeExtensions.user-themes # User Themes
