@@ -1,10 +1,20 @@
 { pkgs, ... }: {
+
+  home.packages = with pkgs; [
+    mimeo
+  ];
   programs.alacritty = {
     enable = true;
     settings = {
 
       # Enable true color support
       env.TERM = "alacritty";
+      # env.TERM = "xterm-256color";
+
+      shell.program = "tmux";
+
+      selection.save_to_clipboard = true;
+
       # dynamic_title = true;
 
       scrolling = {
@@ -63,7 +73,15 @@
           y = 1;
         };
       };
-
+      hints = {
+        enabled = [{
+          regex = ''
+            (mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>"\\s{-}\\^⟨⟩`]+'';
+          command = "${pkgs.mimeo}/bin/mimeo";
+          post_processing = true;
+          mouse.enabled = true;
+        }];
+      };
       keyboard = {
         bindings = [
           {
