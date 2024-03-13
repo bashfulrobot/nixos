@@ -66,7 +66,15 @@
 
         # evo = new work laptop hostname
         evo = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs secrets; };
+          # format different due to kolide-launcher
+          # nixpkgs.config.allowUnfree = true; only applies to non-flakes.
+          specialArgs = {
+            inherit inputs secrets;
+            pkgs = import nixpkgs {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+          };
           system = "x86_64-linux";
           modules = [
             ./hosts/evo
