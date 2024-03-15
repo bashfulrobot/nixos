@@ -175,7 +175,7 @@
     morgen # AI calendar - testing
     # protonvpn-gui # VPN client
     kooha # Screen recorder for x11/Wayland
-    # flameshot # Screen capture - currently has a bug
+    flameshot # Screen capture - currently has a bug
     satty # annotation
     _1password-gui # password management GUI
     # helvum # A GTK patchbay for pipewire
