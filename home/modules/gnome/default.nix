@@ -209,11 +209,17 @@ with lib.hm.gvariant;
         name = "Terminal";
       };
 
+    # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
+    #   {
+    #     binding = "<Control><Alt>a";
+    #     command = "/etc/profiles/per-user/dustin/bin/screenshot-annotate.sh";
+    #     name = "Annotate Screenshot";
+    #   };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
       {
-        binding = "<Control><Alt>a";
-        command = "/etc/profiles/per-user/dustin/bin/screenshot-annotate.sh";
-        name = "Annotate Screenshot";
+        binding = "<Control><Alt>p";
+        command = "/run/current-system/sw/bin/flameshot gui";
+        name = "Flameshot";
       };
 
     # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
