@@ -11,7 +11,7 @@
     enableFishIntegration = true;
     # May not be needed. Testing
     # enableSshSupport = true;
-    # pinentryPackage = pkgs.gnupg;
+
   };
 
   ### Gnome-Keyring
