@@ -39,6 +39,7 @@
   environment.systemPackages = with pkgs; [
     libadwaita # Adwaita libs
     gnome.gnome-tweaks # Gnome Tweaks
+    pinentry-gnome3 # Gnome3 pinentry
     # Gnome Extensions
     gnomeExtensions.user-themes # User Themes
     gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
