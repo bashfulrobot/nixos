@@ -31,5 +31,6 @@
     # "com.github.Murmele.Gittyup" # Git GUI
     "com.belmoussaoui.ReadItLater" # Wallabag client
     "sa.sy.bluerecorder" # Screen recorder
+    com.hunterwittenborn.Celeste # Cloud storage Sync GUI
   ];
 }
