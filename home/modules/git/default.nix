@@ -21,6 +21,7 @@
         tag.gpgsign = true;
         gpg.format = "ssh";
         gpg.ssh.allowedSignersFile  = "~/.config/git/allowed_signers";
+        core.fsmonitor = true;
       };
       # signing = {
       #   key = "${secrets.git.signing-key}";
