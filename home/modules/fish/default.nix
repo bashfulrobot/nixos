@@ -25,126 +25,109 @@ in {
     # ];
     functions = {
       new-scratch = ''
-        function new-scratch
-          set date (date "+%Y-%m-%d")
-          set filename "$date-$argv[1].md"
-          touch $filename
-          echo "# "$date" "$argv[1] | tr '-' ' ' > $filename
-          echo >> $filename
-          echo "## Attendees" >> $filename
-          echo >> $filename
-          echo "## Summary" >> $filename
-          echo >> $filename
-          echo "## Action Items" >> $filename
-          echo >> $filename
-          lvim $filename
-        end
+        set date (date "+%Y-%m-%d")
+        set filename "$date-$argv[1].md"
+        touch $filename
+        echo "# "$date" "$argv[1] | tr '-' ' ' > $filename
+        echo >> $filename
+        echo "## Attendees" >> $filename
+        echo >> $filename
+        echo "## Summary" >> $filename
+        echo >> $filename
+        echo "## Action Items" >> $filename
+        echo >> $filename
+        lvim $filename
       '';
       run_nix_package = ''
-        function run_nix_package
-          set -x NIXPKGS_ALLOW_UNFREE 1
-          nix run nixpkgs#$argv[1] --impure
-        end
+        set -x NIXPKGS_ALLOW_UNFREE 1
+        nix run nixpkgs#$argv[1] --impure
       '';
       shutdown_all_local_vms = ''
-        function shutdown_all_local_vms
-          set -l domains (sudo virsh list --name --state-running)
-          if test -z "$domains"
-            echo "No running VMs detected." | gum format -t template | gum format -t emoji
-          else
-            echo "Shutting down the following VMs:" | gum format -t template | gum format -t emoji
-            for domain in $domains
-              echo "Shutting down $domain..." | gum format -t template | gum format -t emoji
-              sudo virsh shutdown $domain
-              if test $status -eq 0
-                echo "$domain has been shut down successfully." | gum format -t template | gum format -t emoji
-              else
-                echo "Failed to shut down $domain." | gum format -t template | gum format -t emoji
-              end
+        set -l domains (sudo virsh list --name --state-running)
+        if test -z "$domains"
+          echo "No running VMs detected." | gum format -t template | gum format -t emoji
+        else
+          echo "Shutting down the following VMs:" | gum format -t template | gum format -t emoji
+          for domain in $domains
+            echo "Shutting down $domain..." | gum format -t template | gum format -t emoji
+            sudo virsh shutdown $domain
+            if test $status -eq 0
+              echo "$domain has been shut down successfully." | gum format -t template | gum format -t emoji
+            else
+              echo "Failed to shut down $domain." | gum format -t template | gum format -t emoji
             end
           end
         end
       '';
       download_kubeconfig = ''
-         function download_kubeconfig
-          if test (count $argv) -ne 2
-              echo "Error: This function requires two arguments: the remote server IP and the Kubernetes cluster name."
-              return 1
-          end
-
-          set ip $argv[1]
-          set kubeconfig_name $argv[2]
-          set url http://$ip:8080/kubeconfig
-
-          while not curl --output /dev/null --silent --head --fail $url
-            echo "Waiting for kubeconfig file to exist..."
-            sleep 5
-          end
-
-          cd ~/.kube/clusters/
-          wget $url
-          mv $kubeconfig_name-kubeconfig $kubeconfig_name-kubeconfig-old
-          mv kubeconfig $kubeconfig_name-kubeconfig
-          code $kubeconfig_name-kubeconfig
+        if test (count $argv) -ne 2
+            echo "Error: This function requires two arguments: the remote server IP and the Kubernetes cluster name."
+            return 1
         end
+
+        set ip $argv[1]
+        set kubeconfig_name $argv[2]
+        set url http://$ip:8080/kubeconfig
+
+        while not curl --output /dev/null --silent --head --fail $url
+          echo "Waiting for kubeconfig file to exist..."
+          sleep 5
+        end
+
+        cd ~/.kube/clusters/
+        wget $url
+        mv $kubeconfig_name-kubeconfig $kubeconfig_name-kubeconfig-old
+        mv kubeconfig $kubeconfig_name-kubeconfig
+        code $kubeconfig_name-kubeconfig
       '';
       libvirt_list_all_networks = ''
-        function libvirt_list_all_networks -d "List all libvirt networks, with an optional filter"
-          if test (count $argv) -eq 1
-            set filter $argv[1]
-            sudo virsh net-list --all | grep $filter
-          else if test (count $argv) -eq 0
-            sudo virsh net-list --all
-          else
-            echo "Error: This function requires zero or one argument: an optional filter."
-            return 1
-          end
+        if test (count $argv) -eq 1
+          set filter $argv[1]
+          sudo virsh net-list --all | grep $filter
+        else if test (count $argv) -eq 0
+          sudo virsh net-list --all
+        else
+          echo "Error: This function requires zero or one argument: an optional filter."
+          return 1
         end
       '';
 
       libvirt_list_all_pools = ''
-        function libvirt_list_all_pools -d "List all libvirt pools, with an optional filter"
-          if test (count $argv) -eq 1
-            set filter $argv[1]
-            sudo virsh pool-list --all | grep $filter
-          else if test (count $argv) -eq 0
-            sudo virsh pool-list --all
-          else
-            echo "Error: This function requires zero or one argument: an optional filter."
-            return 1
-          end
+        if test (count $argv) -eq 1
+          set filter $argv[1]
+          sudo virsh pool-list --all | grep $filter
+        else if test (count $argv) -eq 0
+          sudo virsh pool-list --all
+        else
+          echo "Error: This function requires zero or one argument: an optional filter."
+          return 1
         end
       '';
 
       libvirt_list_all_images = ''
-        function libvirt_list_all_images -d "List all libvirt images, with an optional filter"
-          if test (count $argv) -eq 1
-            set filter $argv[1]
-            sudo virsh vol-list --all | grep $filter
-          else if test (count $argv) -eq 0
-            sudo virsh vol-list --all
-          else
-            echo "Error: This function requires zero or one argument: an optional filter."
-            return 1
-          end
+        if test (count $argv) -eq 1
+          set filter $argv[1]
+          sudo virsh vol-list --pool $filter
+        else if test (count $argv) -eq 0
+          sudo virsh vol-list --pool default
+        else
+          echo "Error: This function requires zero or one argument: an optional volume name filter."
+          return 1
         end
       '';
 
       libvirt_list_all_vms = ''
-        function libvirt_list_all_vms -d "List all libvirt VMs, with an optional filter"
-          if test (count $argv) -eq 1
-            set filter $argv[1]
-            sudo virsh list --all | grep $filter
-          else if test (count $argv) -eq 0
-            sudo virsh list --all
-          else
-            echo "Error: This function requires zero or one argument: an optional filter."
-            return 1
-          end
+        if test (count $argv) -eq 1
+          set filter $argv[1]
+          sudo virsh list --all | grep $filter
+        else if test (count $argv) -eq 0
+          sudo virsh list --all
+        else
+          echo "Error: This function requires zero or one argument: an optional filter."
+          return 1
         end
       '';
       send_to_phone = ''
-        function send_to_phone -d "Send a file to phone using Tailscale"
             if test (count $argv) -ne 1
                 echo "Error: This function requires a file path as an argument."
                 return 1
@@ -152,18 +135,15 @@ in {
 
             set file_path $argv[1]
             tailscale file cp $file_path maximus:
-        end
       '';
       delete_all_in_namespace = ''
-        function delete_all_in_namespace -d "Delete all resources in a given Kubernetes namespace"
-          if test (count $argv) -ne 1
-              echo "Error: This function requires a namespace as an argument."
-              return 1
-          end
-
-          set namespace $argv[1]
-          kubectl --namespace $namespace delete (kubectl api-resources --namespaced=true --verbs=delete -o name | tr "\n" "," | sed -e 's/,$//') --all
+        if test (count $argv) -ne 1
+            echo "Error: This function requires a namespace as an argument."
+            return 1
         end
+
+        set namespace $argv[1]
+        kubectl --namespace $namespace delete (kubectl api-resources --namespaced=true --verbs=delete -o name | tr "\n" "," | sed -e 's/,$//') --all
       '';
     };
     shellAbbrs = {
