@@ -40,6 +40,12 @@ in {
           lvim $filename
         end
       '';
+      run_nix_package = ''
+        function run_nix_package
+          set -x NIXPKGS_ALLOW_UNFREE 1
+          nix run nixpkgs#$argv[1] --impure
+        end
+      '';
       shutdown_all_local_vms = ''
         function shutdown_all_local_vms
           set -l domains (sudo virsh list --name --state-running)
@@ -238,7 +244,8 @@ in {
       kubitect =
         "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/kubitect";
       # comics-downloader = "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/comics-downloader";
-      comma-db = "nix run 'nixpkgs#nix-index' --extra-experimental-features 'nix-command flakes'";
+      comma-db =
+        "nix run 'nixpkgs#nix-index' --extra-experimental-features 'nix-command flakes'";
     };
 
   };
@@ -282,13 +289,9 @@ in {
     gum
   ];
 
-
-
   # home.file."fish_variables" = {
   #   source = ./fish_variables;
   #   target = ".config/fish/fish_variables";
   # };
-
-
 
 }
