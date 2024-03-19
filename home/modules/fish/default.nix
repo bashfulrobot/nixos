@@ -238,6 +238,7 @@ in {
       kubitect =
         "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/kubitect";
       # comics-downloader = "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/comics-downloader";
+      comma-db = "nix run 'nixpkgs#nix-index' --extra-experimental-features 'nix-command flakes'";
     };
 
   };
