@@ -127,9 +127,9 @@
     cdrtools # mkisofs needed for cloud-init
     # butane # flatcar/ignition configuration
     cloud-utils # cloud management utilities
-    # fluxcd # FluxCD Gitops Cli
-    argocd-autopilot # https://argocd-autopilot.readthedocs.io/en/stable/
-    argocd # Gitops - cli
+    fluxcd # FluxCD Gitops Cli
+    # argocd-autopilot # https://argocd-autopilot.readthedocs.io/en/stable/
+    # argocd # Gitops - cli
     # kubeone # Kubernetes cluster management
     talosctl # Talos OS management tool - diabled until https://github.com/NixOS/nixpkgs/issues/264127 is fixed.
     kompose # Kubernetes container orchestration
