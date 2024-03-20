@@ -9,6 +9,7 @@
     ./nix-settings
     ./openvscode-server
     ./pkgs
+    ./sunshine
     ./virtualization
   ];
 
