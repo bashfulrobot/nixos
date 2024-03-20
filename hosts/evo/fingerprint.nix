@@ -14,7 +14,7 @@
   };
 
   # Used to allow a password login on first login as an alternative to just a fingerprint. As described here: https://github.com/NixOS/nixpkgs/issues/171136
-  # security.pam.services.login.fprintAuth = false;
+  security.pam.services.login.fprintAuth = false;
   # similarly to how other distributions handle the fingerprinting login
   security.pam.services.gdm-fingerprint =
     lib.mkIf (config.services.fprintd.enable) {
