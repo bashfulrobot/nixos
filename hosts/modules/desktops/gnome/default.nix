@@ -63,7 +63,6 @@
     # gnomeExtensions.gtk4-desktop-icons-ng-ding # Libadwaita/Gtk4 port of Desktop Icons NG with GSconnect Integration, Drag and Drop on to Dock or Dash.
     # gnomeExtensions.gtk-title-bar # Remove title bars for non-GTK apps with minimal interference with the default workflow
     # gnomeExtensions.toggle-alacritty # Toggles Alacritty window via hotkey: Alt+z
-    # gnomeExtensions.mullvad-indicator # Mullvad VPN
     # Screenshot Directory
     # Hide Top Bar
     # Grand Theft Focus

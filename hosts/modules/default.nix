@@ -6,10 +6,11 @@
     ./dconf
     ./flatpak
     ./insecure-packages
+    ./mullvad
     ./nix-settings
     ./openvscode-server
     ./pkgs
-    ./sunshine
+    # ./sunshine
     ./virtualization
   ];
 

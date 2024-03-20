@@ -163,7 +163,6 @@
     #insync # Google Drive Sync Client
     whatsapp-for-linux # WhatsApp client
     # whatsapp-emoji-font # WhatsApp emoji font - pegs CPU to 100% on build
-    mullvad # VPN Client
     evince # pdf viewer
     foliate # ebook reader
     libreoffice # office suite
