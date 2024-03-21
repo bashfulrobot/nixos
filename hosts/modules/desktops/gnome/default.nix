@@ -44,8 +44,8 @@
     gnomeExtensions.user-themes # User Themes
     gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
     gnomeExtensions.just-perfection # Just Perfection
-    gnomeExtensions.fly-pie # Fly Pie mouse menu
-    gnomeExtensions.paperwm # tilig window manager
+    # gnomeExtensions.fly-pie # Fly Pie mouse menu
+    # gnomeExtensions.paperwm # tilig window manager
     gnomeExtensions.blur-my-shell # Blur my Shell
     gnomeExtensions.syncthing-icon # Syncthing Icon
     gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
