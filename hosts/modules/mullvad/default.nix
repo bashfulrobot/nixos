@@ -11,4 +11,25 @@
     package = pkgs.mullvad-vpn; # adds gui
   };
 
+  # Mullvad needs resolvd to be enabled
+
+  networking = {
+    nameservers =
+    [ "100.100.100.100" "1.1.1.1" "1.0.0.1" ];
+    networkmanager.dns = "systemd-resolved";
+  };
+
+  services.resolved = {
+    enable = true;
+    dnssec = "allow-downgrade";
+    domains = [ "~." ];
+    fallbackDns = [ "8.8.8.8" "9.9.9.9" ];
+    dnsovertls = "true";
+    # llmnr = "true";
+    # extraConfig = ''
+    #   Domains=~.
+    #   MulticastDNS=true
+    # '';
+  };
+
 }
