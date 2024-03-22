@@ -157,7 +157,6 @@
 
     ### GUI
     # minder # mindmapping
-    xmind # mindmapping
     gnome.gnome-boxes # desktop vms
     # junction # default app selector
     #insync # Google Drive Sync Client

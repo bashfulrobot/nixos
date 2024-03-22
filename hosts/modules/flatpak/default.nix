@@ -32,5 +32,6 @@
     "com.belmoussaoui.ReadItLater" # Wallabag client
     "sa.sy.bluerecorder" # Screen recorder
     "com.hunterwittenborn.Celeste" # Cloud storage Sync GUI
+    "net.xmind.XMind" # Mindmapping
   ];
 }
