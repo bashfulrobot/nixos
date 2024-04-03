@@ -4,9 +4,9 @@ with lib.hm.gvariant;
 
 {
 
-  home.file."finalizer.png" = {
-    source = ./../../wallpapers/finalizer.png;
-    target = ".local/share/backgrounds/finalizer.png";
+  home.file."nord-wallpaper.png" = {
+    source = ./../../wallpapers/nord-wallpaper.png;
+    target = ".local/share/backgrounds/nord-wallpaper.png";
   };
 
   dconf.settings = {
@@ -20,9 +20,9 @@ with lib.hm.gvariant;
     "org/gnome/desktop/sound" = { theme-name = "Yaru"; };
 
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///home/dustin/.local/share/backgrounds/finalizer.png";
+      picture-uri = "file:///home/dustin/.local/share/backgrounds/nord-wallpaper.png";
       picture-uri-dark =
-        "file:///home/dustin/.local/share/backgrounds/finalizer.png";
+        "file:///home/dustin/.local/share/backgrounds/nord-wallpaper.png";
       color-shading-type = "solid";
       picture-options = "zoom";
       primary-color = "#000000";
@@ -30,7 +30,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/screensaver" = {
-      picture-uri = "file:///home/dustin/.local/share/backgrounds/finalizer.png";
+      picture-uri = "file:///home/dustin/.local/share/backgrounds/nord-wallpaper.png";
       color-shading-type = "solid";
       picture-options = "zoom";
       primary-color = "#000000";
