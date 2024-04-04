@@ -56,17 +56,6 @@ upgrade-system:
     @nix flake update --commit-lock-file
     @sudo nixos-rebuild switch --impure --upgrade --flake .#\{{`hostname`}} --show-trace
     # @just _sway-reload
-# Upgrade Release Flake
-upgrade-release:
-    @nix flake update --commit-lock-file
-    @sudo nixos-rebuild boot --impure --upgrade --flake .#\{{`hostname`}} --show-trace
-# Upgrade System
-update-flake:
-    @nix flake update --commit-lock-file
-# Update Flake & Rebuild nixos cfg on your current host.
-update-rebuild:
-    just update-flake
-    just rebuild
 # Garbage collect the current host
 garbage:
     # @sudo nix-collect-garbage -d
@@ -74,7 +63,7 @@ garbage:
 # Run garbage collect, update and rebuild
 # Update Hardware Firmware
 run-fwup:
-    @sudo fwupdmgr refresh
+    @sudo fwupdmgr refresh --force
     @sudo fwupdmgr get-updates
     @sudo fwupdmgr update
 all:
