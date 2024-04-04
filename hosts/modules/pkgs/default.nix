@@ -115,6 +115,7 @@
     # https://github.com/nix-community/nixd/blob/main/docs/editor-setup.md
     #nixd # nix language server
     nixfmt # Nix code formatter
+    nixfmt-rfc-style # Nix code formatter
     nix-index # Nix package indexer
     nix-prefetch-github # Get sha256 info for GitHub
     comma # Nix command wrapper
