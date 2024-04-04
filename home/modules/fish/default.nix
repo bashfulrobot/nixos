@@ -42,6 +42,9 @@ in {
         set -x NIXPKGS_ALLOW_UNFREE 1
         nix run nixpkgs#$argv[1] --impure
       '';
+      search_nixpkgs = ''
+        nix-env -qaP | grep -i $pattern
+      '';
       shutdown_all_local_vms = ''
         set -l domains (sudo virsh list --name --state-running)
         if test -z "$domains"
@@ -128,13 +131,13 @@ in {
         end
       '';
       send_to_phone = ''
-            if test (count $argv) -ne 1
-                echo "Error: This function requires a file path as an argument."
-                return 1
-            end
+        if test (count $argv) -ne 1
+            echo "Error: This function requires a file path as an argument."
+            return 1
+        end
 
-            set file_path $argv[1]
-            tailscale file cp $file_path maximus:
+        set file_path $argv[1]
+        tailscale file cp $file_path maximus:
       '';
       delete_all_in_namespace = ''
         if test (count $argv) -ne 1
