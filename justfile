@@ -53,7 +53,8 @@ rebuild-trace:
     @just _sway-reload
 # Update Flake
 upgrade-system:
-    @nix flake update --commit-lock-file
+    # @nix flake update --commit-lock-file
+    @nix flake update
     @sudo nixos-rebuild switch --impure --upgrade --flake .#\{{`hostname`}} --show-trace
     # @just _sway-reload
 # Garbage collect the current host
