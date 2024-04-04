@@ -231,6 +231,16 @@
     target = ".local/share/xdg-desktop-portal/icons/192x192/sysdig.png";
   };
 
+    home.file."fr-project.desktop" = {
+    source = ./desktop-files/fr-project.desktop;
+    target = ".local/share/applications/fr-project.desktop";
+  };
+
+  home.file."asana-logo.svg" = {
+    source = ./icons/asana-logo.svg;
+    target = ".local/share/xdg-desktop-portal/icons/192x192/asana-logo.svg";
+  };
+
   # home.file."gemini.desktop" = {
   #   source = ./desktop-files/gemini.desktop;
   #   target = ".local/share/applications/gemini.desktop";
@@ -245,7 +255,5 @@
   #   source = ./icons/jira.png;
   #   target = ".local/share/xdg-desktop-portal/icons/192x192/jira.png";
   # };
-
-  
 
 }
