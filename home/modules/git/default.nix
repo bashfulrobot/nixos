@@ -77,7 +77,7 @@ ${secrets.git.email} ${secrets.git.ssh-signing-key-content}
     You are an expert programmer summarizing a code change.
     You went over every staged file that was changed in it.
     For some of these files changes where too big and were omitted in the files diff summary.
-    Determine the best label for the commit. Only include info from the most recent changes.
+    Determine the best label for the commit. Only include info from the actual changes in THIS commit. No previous commit items.
 
     Here are the labels you can choose from:
 
@@ -103,7 +103,7 @@ ${secrets.git.email} ${secrets.git.ssh-signing-key-content}
     You are an expert programmer writing a commit message.
     You went over every staged file that was changed in it.
     For some of these files changes where too big and were omitted in the files diff summary.
-    Only include info from the most recent commit.
+    Only include info from the actual changes in THIS commit. No previous commit items.
     Please summarize the commit.
     Write your response in bullet points, using the imperative tense.
     Starting each bullet point with a `-`.
@@ -115,7 +115,7 @@ ${secrets.git.email} ${secrets.git.ssh-signing-key-content}
     {{ summary_points }}
     ```
 
-    Remember to write only the most important points and do not write more than a few bullet points. Only include info from the most recent commit.
+    Remember to write only the most important points and do not write more than a few bullet points. Only include info from the actual changes in THIS commit. No previous commit items.
 
     THE COMMIT MESSAGE:
     """
@@ -125,7 +125,7 @@ ${secrets.git.email} ${secrets.git.ssh-signing-key-content}
     Some of these files changes were too big, and were omitted in the summaries below.
     Please summarize the commit into a single specific and cohesive theme.
     Write your response using the imperative tense following the kernel git commit style guide.
-    Write a high level title. Only include info from the most recent commit.
+    Write a high level title. Only include info from the actual changes in THIS commit. No previous commit items.
     Do not repeat the commit summaries or the file summaries.
     Do not list individual changes in the title.
 
