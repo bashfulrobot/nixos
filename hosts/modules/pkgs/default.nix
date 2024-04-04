@@ -92,8 +92,6 @@
     nodejs-18_x # JavaScript runtime
     # postman # API testing tool
     vscode # code editor
-    gnome-builder # IDE
-		helix # code editor
     sftpman # SftpMan consists of a CLI and a GTK application that make it simpler to setup and mount SSHFS/SFTP file systems.
     # jetbrains.goland # Go IDE
     rclone-browser # Graphical Frontend to Rclone written in Qt
