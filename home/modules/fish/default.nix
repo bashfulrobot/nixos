@@ -163,6 +163,7 @@ in {
       gc = "git add . && git commit -S && git push && git pull";
     };
     shellAliases = {
+      oc = "~/.npm-packages/bin/opencommit";
       ncdu = "${pkgs.gdu}/bin/gdu";
       ".." = "cd ..";
       "..." = "cd ../..";
