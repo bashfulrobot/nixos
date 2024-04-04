@@ -4,5 +4,6 @@ Name=ChatGPT
 StartupWMClass=chrome-chat.openai.com__-Default
 Comment=Launch ChatGPT
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/chatgpt.png
-Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://chat.openai.com/" %U
+# Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://chat.openai.com/" %U
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode "https://chat.openai.com/" %U
 Terminal=false
