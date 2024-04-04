@@ -12,6 +12,7 @@ with lib.hm.gvariant;
       font-antialiasing = "rgba";
       font-hinting = "full";
       locate-pointer = true;
+      gtk-enable-primary-paste = true;
     };
 
     "org/gnome/desktop/sound" = { theme-name = "Yaru"; };
@@ -65,9 +66,11 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/peripherals/touchpad" = {
       two-finger-scrolling-enabled = true;
-      tap-to-click = true;
+      edge-scrolling-enabled = false;
+      tap-to-click = false;
       natural-scroll = false;
       disable-while-typing = true;
+      click-method = "fingers";
     };
 
     "org/gnome/desktop/peripherals/mouse" = { natural-scroll = false; };
