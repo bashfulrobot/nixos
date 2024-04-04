@@ -8,14 +8,14 @@
     usbutils # usb utilities like lsusb
     pciutils # list all PCI devices
     aichat # Use GPT-4(V), Gemini, LocalAI, Ollama and other LLMs in the terminal
-    spotify-player # temrinal Spotify player - claims parity with official
+    spotify-player # terminal Spotify player - claims parity with official
     # spotdl # Spotify downloader
     steam-run # helps run some static compiled binaries
     file
     wtype # xdotool type for wayland
     wlrctl # Command line utility for miscellaneous wlroots Wayland extensions
     rclone # Command line program to sync files and directories to and from major cloud storage
-    syncrclone # Bidirectional sync tool for rclone
+    # syncrclone # Bidirectional sync tool for rclone
     textsnatcher # copy text from images
     pup # Terminal HTML parser
     libxslt # A C library and tools to do XSL transformations - needed in my terraform scripts
