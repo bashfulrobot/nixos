@@ -73,6 +73,7 @@
     appimage-run # Run AppImages
 
     ### Dev
+    watchman # file watcher
     # gitnuro # git client
     # zola # static site generator
     ollama # Run AI Models
