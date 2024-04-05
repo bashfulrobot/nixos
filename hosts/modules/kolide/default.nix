@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, lib, ... }: {
+{ pkgs, config, inputs, lib, secrets, ... }: {
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
@@ -8,15 +8,15 @@
 
   environment.etc."kolide-k2/secret" = {
     mode = "0600";
-    text = "";
+    text = "${secrets.kolide.secret}";
   };
 
   services.kolide-launcher = {
     enable = true;
-    kolideHostname = "dustin-krysak";
     rootDirectory = "/var/kolide-k2/dustin-krysak";
-    updateChannel = "nightly";
-    autoupdateInterval = "2m";
-    autoupdaterInitialDelay = "1m";
+    # updateChannel = "nightly";
+    updateChannel = "stable";
+   # autoupdateInterval = "2m"; # default is 1h
+   # autoupdaterInitialDelay = "1m"; # default is 1h
   };
 }
