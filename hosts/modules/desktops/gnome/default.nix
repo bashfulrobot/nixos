@@ -82,10 +82,6 @@
 
   ];
 
-  environment.excludePackages = with pkgs;
-    [
-      epiphany # web browser
-    ];
   environment.gnome.excludePackages = with pkgs; [
     gnome.cheese # photo booth
     gedit # text editor
