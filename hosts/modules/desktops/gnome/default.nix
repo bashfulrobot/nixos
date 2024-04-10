@@ -82,12 +82,16 @@
 
   ];
 
+  environment.excludePackages = with pkgs;
+    [
+      epiphany # web browser
+    ];
   environment.gnome.excludePackages = with pkgs; [
     gnome.cheese # photo booth
     gedit # text editor
     gnome.yelp # help viewer
     gnome.file-roller # archive manager
-    # gnome.geary # email client
+    gnome.geary # email client
 
     # these should be self explanatory
     gnome.gnome-maps
