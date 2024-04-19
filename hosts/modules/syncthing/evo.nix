@@ -6,7 +6,7 @@
     # Sets the Config Directory (important because I sync it as a part of my .config files)
     # Note: if you don’t persist the configDir, the device ID will change after each nixos-rebuild switch.
     # ToDo - add a host variable, then add to sync
-    configDir = "/home/dustin/.config/syncthing/dustin-krysak";
+    configDir = "/home/dustin/.config/syncthing/evo";
 
     # Declaring the devices - no automated way to grab the device ID’s.
     # Hop into the web interface of each device and go to Settings -> Show ID,
