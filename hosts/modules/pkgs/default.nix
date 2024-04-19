@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
+    texliveSmall # get pdflatex
     usbutils # usb utilities like lsusb
     pciutils # list all PCI devices
     aichat # Use GPT-4(V), Gemini, LocalAI, Ollama and other LLMs in the terminal
@@ -30,6 +31,7 @@
     tesseract # CLI OCR
     gping # visual ping alternative
     ffmpeg_6-full # multimedia processing
+    v4l-utils # camera controls
     libthai # Needed for some appImages
     libnotify # notification library
     # lftp # file transfer program
