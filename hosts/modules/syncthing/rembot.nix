@@ -28,7 +28,7 @@
           # tailscale only
           addresses = [ "tcp://100.67.177.44:22000" ];
           id =
-            "ZT226OX-25W5B4G-GZMPWIL-EKQ5RGT-2L2PMOK-UKMRIRJ-263AWGR-45PKAA5";
+            "2742LWN-YCAKICC-MS2PPBE-LXGLB57-Z3SXBKB-K57Y5X7-IO6PFMO-RJOKNQZ";
         };
 
       };
