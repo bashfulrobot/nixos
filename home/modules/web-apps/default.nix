@@ -256,4 +256,14 @@
   #   target = ".local/share/xdg-desktop-portal/icons/192x192/jira.png";
   # };
 
+  home.file."syncthing.desktop" = {
+    source = ./desktop-files/syncthing.desktop;
+    target = ".local/share/applications/syncthing.desktop";
+  };
+
+  home.file."syncthing.png" = {
+    source = ./icons/syncthing.png;
+    target = ".local/share/xdg-desktop-portal/icons/192x192/syncthing.png";
+  };
+
 }
