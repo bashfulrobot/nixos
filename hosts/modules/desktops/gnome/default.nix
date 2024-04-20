@@ -99,8 +99,7 @@
     # disable gnome extensions
     gnomeExtensions.applications-menu
     gnomeExtensions.auto-move-windows
-    # gnomeExtensions.gtk-title-bar
-    gnomeExtensions.gtk4-desktop-icons-ng-ding
+     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.hide-top-bar
     gnomeExtensions.launch-new-instance
     gnomeExtensions.light-style
@@ -109,7 +108,6 @@
     gnomeExtensions.places-status-indicator
     gnomeExtensions.removable-drive-menu
     gnomeExtensions.screenshot-window-sizer
-    gnomeExtensions.syncthing-indicator
     gnomeExtensions.window-list
     gnomeExtensions.windownavigator
     gnomeExtensions.workspace-indicator
