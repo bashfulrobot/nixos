@@ -38,31 +38,31 @@
       nixosConfigurations = {
 
         # dustin-krysak = work laptop hostname
-        dustin-krysak = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs secrets; };
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/dustin-krysak
-            nur.nixosModules.nur
-            nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
-            home-manager.nixosModules.home-manager
-            nix-flatpak.nixosModules.nix-flatpak
-            {
-              home-manager.extraSpecialArgs = { inherit secrets; };
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.dustin = {
-                imports = [ ./home/dustin-krysak ];
-              };
+        # dustin-krysak = nixpkgs.lib.nixosSystem {
+        #   specialArgs = { inherit inputs secrets; };
+        #   system = "x86_64-linux";
+        #   modules = [
+        #     ./hosts/dustin-krysak
+        #     nur.nixosModules.nur
+        #     nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
+        #     home-manager.nixosModules.home-manager
+        #     nix-flatpak.nixosModules.nix-flatpak
+        #     {
+        #       home-manager.extraSpecialArgs = { inherit secrets; };
+        #       home-manager.useGlobalPkgs = true;
+        #       home-manager.useUserPackages = true;
+        #       home-manager.users.dustin = {
+        #         imports = [ ./home/dustin-krysak ];
+        #       };
 
-              # Overlays
-              nixpkgs.overlays = [ nur.overlay ];
+        #       # Overlays
+        #       nixpkgs.overlays = [ nur.overlay ];
 
-              # Allow unfree packages
-              nixpkgs.config.allowUnfree = true;
-            }
-          ];
-        };
+        #       # Allow unfree packages
+        #       nixpkgs.config.allowUnfree = true;
+        #     }
+        #   ];
+        # };
 
         # evo = new work laptop hostname
         evo = nixpkgs.lib.nixosSystem {
