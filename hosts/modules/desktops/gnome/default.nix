@@ -99,7 +99,7 @@
     # disable gnome extensions
     gnomeExtensions.applications-menu
     gnomeExtensions.auto-move-windows
-    gnomeExtensions.gtk-title-bar
+    # gnomeExtensions.gtk-title-bar
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.hide-top-bar
     gnomeExtensions.launch-new-instance
