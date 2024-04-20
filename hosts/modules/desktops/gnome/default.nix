@@ -47,7 +47,6 @@
     # gnomeExtensions.fly-pie # Fly Pie mouse menu
     # gnomeExtensions.paperwm # tilig window manager
     gnomeExtensions.blur-my-shell # Blur my Shell
-    gnomeExtensions.syncthing-icon # Syncthing Icon
     gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
     gnomeExtensions.pop-shell # Pop Shell
     gnomeExtensions.appindicator # AppIndicator support
