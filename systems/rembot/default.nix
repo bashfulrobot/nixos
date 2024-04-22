@@ -9,5 +9,5 @@
 
   ];
 
-  networking.hostName = "rembot"; # Define your hostname.
+
 }

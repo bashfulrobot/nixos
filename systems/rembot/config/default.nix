@@ -9,4 +9,6 @@
     ./video # video specific configuration
     # ./kolide
   ];
+
+  networking.hostName = "rembot"; # Define your hostname.
 }
