@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Warp
+Comment=Warp Terminal
+Exec=appimage-run /home/dustin/Documents/appImages/Warp-x86_64.AppImage
+Icon=/home/dustin/dev/nix/nixos/modules/desktop-files/src/warp.svg
+Categories=Terminal
+Terminal=false

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Restart tailscale on Desktop
+Comment=Reboot the computer and boot into Windows
+Exec=sudo tailscale down && sleep 2 && sudo tailscale up --ssh --advertise-routes=192.168.168.0/23
+Icon=system-reboot
+Terminal=false
+Type=Application
+Categories=System;

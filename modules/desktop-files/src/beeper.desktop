@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Beeper
+Comment=Instant Messaging Application
+Exec=appimage-run /home/dustin/Documents/appImages/beeper-3.97.44x86_64.AppImage
+Icon=/home/dustin/dev/nix/nixos/modules/desktop-files/src/Beeper-Logo.png
+Categories=Network;InstantMessaging;
+Terminal=false
