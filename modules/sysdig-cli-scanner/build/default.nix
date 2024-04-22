@@ -6,7 +6,7 @@ in pkgs.stdenv.mkDerivation {
   src = pkgs.fetchurl {
     url =
       "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/${version}/linux/amd64/sysdig-cli-scanner";
-    sha256 = "sha256-mU9D0PGUIUV7JGnDrVG2EGeWb38MIzZ9RRbi+SqMjBo=";
+    sha256 = "sha256-OQZoTLDevZPpckllApQ0V2flj4LxAiJjoWi2BsPxvCo=";
   };
   phases = [ "installPhase" "patchPhase" ];
   installPhase = ''
