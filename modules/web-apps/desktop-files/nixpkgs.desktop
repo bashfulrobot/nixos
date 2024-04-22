@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Nixpkgs Search
+StartupWMClass=chrome-search.nixos.org__packages-Default
+Comment=Launch Nixpkgs Search
+Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/nix.png
+#Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://search.nixos.org/packages" %U
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  "https://search.nixos.org/packages" %U
+Terminal=false

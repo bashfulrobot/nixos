@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Sysdig Monitor Lab
+Comment=Launch Sysdig Monitor Lab
+StartupWMClass=chrome-docs.sysdig.com__en_-Default
+Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/sysdig.png
+#Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://us2.app.sysdig.com"
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode "https://us2.app.sysdig.com"
+StartupNotify=true
+Terminal=false
+Type=Application
