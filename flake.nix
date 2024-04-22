@@ -1,5 +1,5 @@
 {
-  description = "NixOS Sway configuration for Dustin Krysak";
+  description = "NixOS configuration for Dustin Krysak";
 
   inputs = {
 
@@ -33,36 +33,13 @@
       nixpkgsConfig = { overlays = [ ]; };
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
+      username = if builtins.getEnv "SUDO_USER" != "" then
+        builtins.getEnv "SUDO_USER"
+      else
+        builtins.getEnv "USER";
     in {
 
       nixosConfigurations = {
-
-        # dustin-krysak = work laptop hostname
-        # dustin-krysak = nixpkgs.lib.nixosSystem {
-        #   specialArgs = { inherit inputs secrets; };
-        #   system = "x86_64-linux";
-        #   modules = [
-        #     ./hosts/dustin-krysak
-        #     nur.nixosModules.nur
-        #     nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
-        #     home-manager.nixosModules.home-manager
-        #     nix-flatpak.nixosModules.nix-flatpak
-        #     {
-        #       home-manager.extraSpecialArgs = { inherit secrets; };
-        #       home-manager.useGlobalPkgs = true;
-        #       home-manager.useUserPackages = true;
-        #       home-manager.users.dustin = {
-        #         imports = [ ./home/dustin-krysak ];
-        #       };
-
-        #       # Overlays
-        #       nixpkgs.overlays = [ nur.overlay ];
-
-        #       # Allow unfree packages
-        #       nixpkgs.config.allowUnfree = true;
-        #     }
-        #   ];
-        # };
 
         # evo = new work laptop hostname
         evo = nixpkgs.lib.nixosSystem {
@@ -77,7 +54,7 @@
           };
           system = "x86_64-linux";
           modules = [
-            ./hosts/evo
+            ./systems/evo
             nur.nixosModules.nur
             # nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
             home-manager.nixosModules.home-manager
@@ -87,7 +64,9 @@
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.dustin = { imports = [ ./home/evo ]; };
+              home-manager.users."${username}" = {
+                # imports = [ ./home/evo ];
+              };
 
               # Overlays
               nixpkgs.overlays = [ nur.overlay ];
@@ -103,7 +82,7 @@
           specialArgs = { inherit inputs secrets; };
           system = "x86_64-linux";
           modules = [
-            ./hosts/rembot
+            ./systems/rembot
             nur.nixosModules.nur
             nix-flatpak.nixosModules.nix-flatpak
             home-manager.nixosModules.home-manager
@@ -111,7 +90,9 @@
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.dustin = { imports = [ ./home/rembot ]; };
+              home-manager.users."${username}" = {
+                # imports = [ ./home/rembot ];
+              };
 
               # Overlays
               nixpkgs.overlays = [ nur.overlay ];
@@ -127,7 +108,7 @@
           specialArgs = { inherit inputs secrets; };
           system = "x86_64-linux";
           modules = [
-            ./hosts/nixdo
+            ./systems/nixdo
 
           ];
 
