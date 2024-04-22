@@ -3,14 +3,12 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./boot.nix
-    ./hardware-configuration.nix
-    ./nixos-hardware.nix
-    ./virtualization.nix
-    ../../modules
-    ../../modules/syncthing/evo.nix
-    ../../modules/syncthing/common.nix
-    ../../modules/hosts
-    ../../modules/desktops/gnome
+    ./hardware-configuration.nix # Include the hardware-configuration.nix file from installation
+    ./nixos-hardware.nix # hardware specific configuration
+    ../../modules/desktops/gnome # Desktop for this system
+    ../../modules # common modules to all workstations
+    ../../modules/syncthing
+
     ../../modules/desktop-files/laptop
     # ../../modules/kolide
   ];
