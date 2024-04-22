@@ -3,10 +3,9 @@
 {
   imports = [ # Include the results of the hardware scan.
 
-    ./video # video specific configuration
     ./hardware # hardware specific configuration
+    ./config # workstation specific modules
     ../../modules # common modules to all workstations
-    ../../modules/rembot.nix # workstation specific modules
 
   ];
 

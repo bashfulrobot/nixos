@@ -4,7 +4,7 @@
   imports = [ # Include the results of the hardware scan.
 
     ./hardware # hardware specific configuration
-    ../../modules/evo.nix # workstation specific modules
+    ./config # workstation specific modules
     ../../modules # common modules to all workstations
 
   ];
