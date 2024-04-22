@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Seabird
-Comment=K8S Manager
-Exec=seabirdird
-Icon=/home/dustin/dev/nix/nixos/home/modules/desktop-files/seabird.svg
-Categories=
-Terminal=false

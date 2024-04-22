@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Nixos Discourse
-StartupWMClass=msedge-discourse.nixos.org__-Default
-Comment=Launch Nixos Discourse
-Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/nix.png
-Exec=microsoft-edge-stable --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://discourse.nixos.org/" %U
-Terminal=false

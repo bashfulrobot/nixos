@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Grammarly
-StartupWMClass=chrome-app.grammarly.com__-Default
-Comment=Launch Grammarly
-Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/grammarly.png
-Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://app.grammarly.com/" %U
-Terminal=false
