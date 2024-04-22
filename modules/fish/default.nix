@@ -226,7 +226,7 @@ in {
       yless = "${pkgs.jless}/bin/jless --yaml";
       # please = "${pkgs.shell-genie}/bin/shell-genie ask";
       rebuild =
-        "clear && echo;echo '***** UPDATE APPIMAGES PERIODIALLY *****'; echo;  sleep 1; cd ~/dev/nix/nixos/; rm -f /home/dustin/.config/mimeapps.list && ${pkgs.just}/bin/just rebuild; cd -";
+        "clear && echo;echo '***** UPDATE APPIMAGES PERIODIALLY *****'; echo;  sleep 1; cd ~/dev/nix/nixos/ && ${pkgs.just}/bin/just rebuild";
       upgrade =
         "clear && cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just upgrade-system";
       dev-rebuild =
