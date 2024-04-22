@@ -24,7 +24,7 @@
         "network"
       ]
       # [ "pulseaudio" "network" "bluetooth" "cpu" "memory" "temperature" ]
-        ++ (if osConfig.networking.hostName == "dustin-krysak" then
+        ++ (if osConfig.networking.hostName == "evo" then
           [ "battery" ]
         else
           [ ]) ++ [ "tray" "clock" ];

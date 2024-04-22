@@ -97,7 +97,7 @@
 
         * {
           ${
-            if osConfig.networking.hostName == "dustin-krysak" then ''
+            if osConfig.networking.hostName == "evo" then ''
               font-size: 16px;
             '' else ''
               /*else*/
@@ -131,7 +131,7 @@
       modules-left = [ "sway/workspaces" "sway/mode" "hyprland/workspaces" ];
       modules-right =
         [ "pulseaudio" "network" "bluetooth" "cpu" "memory" "temperature" ]
-        ++ (if osConfig.networking.hostName == "dustin-krysak" then
+        ++ (if osConfig.networking.hostName == "evo" then
           [ "battery" ]
         else
           [ ]) ++ [ "clock" "tray" ];

@@ -27,7 +27,7 @@
         "custom/snip"
         "backlight"
         "keyboard-state"
-      ] ++ (if osConfig.networking.hostName == "dustin-krysak" then [
+      ] ++ (if osConfig.networking.hostName == "evo" then [
         "battery"
         "battery#bat2"
       ] else

@@ -13,7 +13,7 @@
 
   services.kolide-launcher = {
     enable = true;
-    rootDirectory = "/var/kolide-k2/dustin-krysak";
+    rootDirectory = "/var/kolide-k2/evo";
     # updateChannel = "nightly";
     updateChannel = "stable";
    # autoupdateInterval = "2m"; # default is 1h

@@ -6,7 +6,7 @@ let
   else
     builtins.getEnv "USER";
 in {
-  imports = [ ./syncthing-gui-login.nix ./${hostname} ];
+  imports = [ ./syncthing-gui-login.nix ./evo ];
 
   environment.systemPackages = with pkgs; [
     syncthing

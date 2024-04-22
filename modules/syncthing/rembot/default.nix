@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./common.nix ];
+  # imports = [ ./common.nix ];
 
   services.syncthing = {
 
@@ -18,12 +18,6 @@
     settings = {
       devices = {
 
-        "dustin-krysak" = {
-          addresses = [ "tcp://100.124.99.18:22000" ];
-          id =
-            "WZRTON7-M3U5XFL-5LEZR6P-NOA7CAO-S2VIUMU-25NXPX4-AQXHXGA-IBFO2QJ";
-        };
-
         "evo" = {
           # tailscale only
           addresses = [ "tcp://100.67.177.44:22000" ];
@@ -35,7 +29,7 @@
       folders = {
         "Desktop" = {
           path = "/home/dustin/Desktop";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           # keep just a handful of old versions of the config files. This ensures that I’m not eating up a ton of disk space, while giving me the ability to roll back far enough to resolve issues I create for myself.
           versioning = {
             type = "simple";
@@ -44,7 +38,7 @@
         };
         "Documents" = {
           path = "/home/dustin/Documents";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
 
           #  The gist of staggered versioning is Syncthing will keep new versions created with an RPO of down to 30 seconds for the first hour, hourly versions for the first day, daily versions for the first month, and weekly versions until the maxAge is reached.
 
@@ -59,7 +53,7 @@
         };
         "Downloads" = {
           path = "/home/dustin/Downloads";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           versioning = {
             type = "simple";
             params = { keep = "10"; };
@@ -67,7 +61,7 @@
         };
         "Music" = {
           path = "/home/dustin/Music";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           versioning = {
             type = "simple";
             params = { keep = "10"; };
@@ -75,7 +69,7 @@
         };
         "Pictures" = {
           path = "/home/dustin/Pictures";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           versioning = {
             type = "simple";
             params = { keep = "10"; };
@@ -83,7 +77,7 @@
         };
         "Videos" = {
           path = "/home/dustin/Videos";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           versioning = {
             type = "simple";
             params = { keep = "10"; };
@@ -91,7 +85,7 @@
         };
         "dev" = {
           path = "/home/dustin/dev";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           versioning = {
             type = "staggered";
             params = {
@@ -102,7 +96,7 @@
         };
         ".gnupg" = {
           path = "/home/dustin/.gnupg";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           ignorePerms =
             false; # By default, Syncthing doesn't sync file permissions. This line enables it for this folder.
           versioning = {
@@ -115,7 +109,7 @@
         };
         ".aws" = {
           path = "/home/dustin/.aws";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           versioning = {
             type = "staggered";
             params = {
@@ -126,7 +120,7 @@
         };
         ".kube" = {
           path = "/home/dustin/.kube";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           versioning = {
             type = "staggered";
             params = {
@@ -137,7 +131,7 @@
         };
         ".doppler" = {
           path = "/home/dustin/.doppler";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           versioning = {
             type = "staggered";
             params = {
@@ -148,7 +142,7 @@
         };
         "virter" = {
           path = "/home/dustin/.config/virter";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           versioning = {
             type = "staggered";
             params = {
@@ -159,7 +153,7 @@
         };
         "bin" = {
           path = "/home/dustin/bin";
-          devices = [ "evo" "dustin-krysak" ];
+          devices = [ "evo" ];
           versioning = {
             type = "staggered";
             params = {

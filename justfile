@@ -16,7 +16,7 @@ _default:
 #     @just --choose
 # _sway-reload:
 #     @case $(hostname) in \
-#         dustin-krysak|rembot) \
+#         evo|rembot) \
 #             swaymsg reload; \
 #             echo "Sway reloaded...";; \
 #         *) \

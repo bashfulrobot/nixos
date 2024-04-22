@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./common.nix ];
+  # imports = [ ./common.nix ];
   services.syncthing = {
     # Sets the Config Directory (important because I sync it as a part of my .config files)
     # Note: if you don’t persist the configDir, the device ID will change after each nixos-rebuild switch.

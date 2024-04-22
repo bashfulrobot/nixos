@@ -3,7 +3,7 @@
 let
   hostname = config.networking.hostName;
 
-  isDustinLaptop = hostname == "dustin-krysak";
+  isDustinLaptop = hostname == "evo";
 
   laptopPackages = if isDustinLaptop then [ pkgs.batsignal ] else [ ];
 in {
