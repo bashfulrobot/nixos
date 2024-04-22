@@ -1,14 +1,5 @@
 # Secrets Directory
 secrets/** filter=git-crypt diff=git-crypt
-# SSH
-home/modules/ssh/config filter=git-crypt diff=git-crypt
-home/modules/ssh/default.nix filter=git-crypt diff=git-crypt
-home/modules/ssh/id_rsa filter=git-crypt diff=git-crypt
-home/modules/ssh/id_rsa_temp filter=git-crypt diff=git-crypt
-home/modules/ssh/id_rsa_temp.pub filter=git-crypt diff=git-crypt
-home/modules/ssh/id_rsa.base64 filter=git-crypt diff=git-crypt
-home/modules/ssh/id_rsa.pub filter=git-crypt diff=git-crypt
-home/modules/ssh/id_ed25519 filter=git-crypt diff=git-crypt
-home/modules/ssh/id_ed25519_np filter=git-crypt diff=git-crypt
-home/modules/ssh/id_ed25519.pub filter=git-crypt diff=git-crypt
-home/modules/themes/dracula/pro/dracula.zip filter=git-crypt diff=git-crypt
+modules/themes/dracula/dracula.zip filter=git-crypt diff=git-crypt
+modules/themes/dracula/Dracula-new.zip filter=git-crypt diff=git-crypt
+modules/themes/dracula/pro/dracula.zip filter=git-crypt diff=git-crypt
