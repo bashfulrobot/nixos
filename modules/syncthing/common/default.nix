@@ -1,12 +1,11 @@
-{ config, pkgs, secrets, ... }:
+{ config, pkgs, ... }:
 let
-  hostname= builtins.getEnv "hostname";
   username = if builtins.getEnv "SUDO_USER" != "" then
     builtins.getEnv "SUDO_USER"
   else
     builtins.getEnv "USER";
 in {
-  imports = [ ./syncthing-gui-login.nix ./evo ];
+  imports = [ ./syncthing-gui-login.nix ];
 
   environment.systemPackages = with pkgs; [
     syncthing

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  # imports = [ ./common.nix ];
+  imports = [ ../common ];
 
   services.syncthing = {
 

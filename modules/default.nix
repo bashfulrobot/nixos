@@ -21,6 +21,7 @@
     ./go
     ./gpg
     ./home-manager
+    ./hosts
     ./insecure-packages
     ./instruqt
     ./k8sgpt

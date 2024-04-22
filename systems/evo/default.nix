@@ -2,15 +2,11 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-    ./boot.nix
-    ./hardware-configuration.nix # Include the hardware-configuration.nix file from installation
-    ./nixos-hardware.nix # hardware specific configuration
-    ../../modules/desktops/gnome # Desktop for this system
-    ../../modules # common modules to all workstations
-    ../../modules/syncthing
 
-    ../../modules/desktop-files/laptop
-    # ../../modules/kolide
+    ./hardware # hardware specific configuration
+    ../../modules/evo.nix # workstation specific modules
+    ../../modules # common modules to all workstations
+
   ];
 
   networking.hostName = "evo"; # Define your hostname.

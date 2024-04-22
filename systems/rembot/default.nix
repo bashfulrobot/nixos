@@ -2,19 +2,11 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-    ./amdgpu.nix
-    ./boot.nix
-    ./firewall.nix
-    ./video.nix
-    ./hardware-configuration.nix
-    # ./network.nix
-    ./nixos-hardware.nix
-    ../../modules
-    ../../modules/desktops/gnome
-    ../../modules/desktop-files/tower
-    ./steam.nix
-    ../../modules/syncthing
-    ../../modules/hosts
+
+    ./video # video specific configuration
+    ./hardware # hardware specific configuration
+    ../../modules # common modules to all workstations
+    ../../modules/rembot.nix # workstation specific modules
 
   ];
 
