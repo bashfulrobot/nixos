@@ -21,11 +21,11 @@ in {
     enable = true;
     systemService = true;
     # Sets the user that Syncthing runs as
-    user = "dustin";
+    user = "${username}";
     # Sets the group that Syncthing runs as
     group = "users";
     # Sets the Data Directory (the default sync directory, but we won’t use this)
-    dataDir = "/home/dustin";
+    dataDir = "/home/${username}";
     # Sets the Web Interface to listen on all interfaces (for machines that are headless, I set to 0.0.0.0, otherwise 127.0.0.1)
     # Todo - bind to tailscale IP
     guiAddress = "0.0.0.0:8384";
