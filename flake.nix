@@ -64,9 +64,9 @@
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."${username}" = {
-                # imports = [ ./home/evo ];
-              };
+              # home-manager.users."${username}" = {
+              # imports = [ ./home/evo ];
+              # };
 
               # Overlays
               nixpkgs.overlays = [ nur.overlay ];
@@ -90,9 +90,9 @@
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."${username}" = {
-                # imports = [ ./home/rembot ];
-              };
+              # home-manager.users."${username}" = {
+              # imports = [ ./home/rembot ];
+              # };
 
               # Overlays
               nixpkgs.overlays = [ nur.overlay ];
