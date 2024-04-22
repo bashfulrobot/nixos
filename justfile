@@ -68,6 +68,9 @@ garbage:
     @sudo nix-collect-garbage --delete-older-than 7d
 # Run garbage collect, update and rebuild
 # Update Hardware Firmware
+# update nix database for use with comma
+nixdb:
+    nix run 'nixpkgs#nix-index' --extra-experimental-features 'nix-command flakes'
 run-fwup:
     @sudo fwupdmgr refresh --force
     @sudo fwupdmgr get-updates

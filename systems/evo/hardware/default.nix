@@ -4,7 +4,7 @@
   imports = [
     ../../../modules/fprintd
     ../../../modules/wifi
-    ../../../modules/nvidia
+    ./nvidia.nix
     ./boot.nix
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.common-cpu-intel
