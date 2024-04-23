@@ -99,6 +99,7 @@ in {
       # Nvidia settings
       gnomeExtensions.gpu-profile-selector
       inputs.envycontrol.packages.x86_64-linux.default
+      glxinfo
     ];
 
     dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
