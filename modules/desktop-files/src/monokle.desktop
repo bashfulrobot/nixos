@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Monokle
-Comment=K8s Management
-Exec=appimage-run /home/dustin/Documents/appImages/Monokle-linux-2.4.5-x86_64.AppImage
-Icon=/home/dustin/dev/nix/nixos/modules/desktop-files/src/monokle.png
-Categories=
-Terminal=false

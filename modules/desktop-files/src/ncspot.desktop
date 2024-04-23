@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=ncspot
-Comment=Listen to Spotify from the command line
-Exec=kgx -e ncspot
-Terminal=false
-Type=Application
-Icon=dev.alextren.Spot
-Categories=Audio;Music;Player;

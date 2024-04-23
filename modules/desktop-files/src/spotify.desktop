@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Spotify
-Comment=SPotify Terminal Player
-Exec=rio -e spotify_player
-Icon=/home/dustin/dev/nix/nixos/modules/desktop-files/src/Spotify.png
-Categories=Terminal
-Terminal=false

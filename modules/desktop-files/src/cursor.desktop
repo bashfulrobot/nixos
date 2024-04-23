@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Cursor
-Comment=AI Assisted IDE
-Exec=appimage-run /home/dustin/Documents/appImages/cursor-0.25.3x86_64.AppImage
-Icon=/home/dustin/dev/nix/nixos/modules/desktop-files/src/cursor-logo.png
-Categories=Dev;Editing;Text;
-Terminal=false

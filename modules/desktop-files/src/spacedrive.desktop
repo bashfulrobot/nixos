@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Spacedrive
-Comment=Cloud File Browser
-Exec=appimage-run /home/dustin/Documents/appImages/Spacedrive-linux-x86_64.AppImage
-Icon=/home/dustin/dev/nix/nixos/modules/desktop-files/src/Spacedrive-Logo.png
-Categories=
-Terminal=false
