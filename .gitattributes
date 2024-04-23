@@ -1,5 +1,5 @@
 # Secrets Directory
 secrets/** filter=git-crypt diff=git-crypt
-modules/themes/dracula/dracula.zip filter=git-crypt diff=git-crypt
-modules/themes/dracula/Dracula-new.zip filter=git-crypt diff=git-crypt
-modules/themes/dracula/pro/dracula.zip filter=git-crypt diff=git-crypt
+modules/workstation/desktops/gnome/themes/dracula/dracula.zip filter=git-crypt diff=git-crypt
+modules/workstation/desktops/gnome/themes/dracula/Dracula-new.zip filter=git-crypt diff=git-crypt
+modules/workstation/desktops/gnome/themes/dracula/pro/dracula.zip filter=git-crypt diff=git-crypt
