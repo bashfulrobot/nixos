@@ -245,6 +245,16 @@ in {
       target = ".local/share/xdg-desktop-portal/icons/192x192/asana-logo.svg";
     };
 
+    home.file."miro.desktop" = {
+      source = ./desktop-files/miro.desktop;
+      target = ".local/share/applications/miro.desktop";
+    };
+
+    home.file."miro.svg" = {
+      source = ./icons/miro.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/miro.svg";
+    };
+
     # home.file."gemini.desktop" = {
     #   source = ./desktop-files/gemini.desktop;
     #   target = ".local/share/applications/gemini.desktop";
