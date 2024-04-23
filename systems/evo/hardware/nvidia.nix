@@ -74,14 +74,14 @@ in {
 
     prime = {
 
-      # offload = {
-      #     enable = true;
-      #     enableOffloadCmd = true;
-      # };
+      offload = {
+          enable = true;
+          enableOffloadCmd = true;
+      };
 
       # OR
 
-      sync.enable = true;
+      # sync.enable = true;
 
       # Make sure to use the correct Bus ID values for your system!
       # https://wiki.nixos.org/wiki/Nvidia#Configuring_Optimus_PRIME:_Bus_ID_Values_(Mandatory)
