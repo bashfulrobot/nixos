@@ -26,7 +26,7 @@ in {
     };
   };
 
-   environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     libadwaita # Adwaita libs
     gnome.gnome-tweaks # Gnome Tweaks
     pinentry-gnome3 # Gnome3 pinentry
@@ -338,6 +338,7 @@ in {
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
         ];
       };
 
@@ -383,7 +384,13 @@ in {
           name = "Editor";
         };
 
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" =
+        {
+          binding = "<Control><Alt>o";
+          command = "/etc/profiles/per-user/dustin/bin/screenshot-ocr.sh";
+          name = "OCR Screenshot";
+        };
+
     };
   };
-
 }
