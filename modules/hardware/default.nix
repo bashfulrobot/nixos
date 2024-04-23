@@ -1,0 +1,11 @@
+{ ... }: {
+
+  imports = [
+
+    ./audio
+    ./bluetooth
+    ./touchpad
+
+  ];
+
+}
