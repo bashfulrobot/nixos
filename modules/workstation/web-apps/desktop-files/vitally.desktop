@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Vitally
+StartupWMClass=chrome-sysdig.vitally.io__hubs_1e32f87e-4c3e-42ca-b3ef-c559dd27e9e2_f70aaf40-d744-49b2-adfa-87a2bf01420b-Default
+Comment=Launch Vitally
+Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/vitally.png
+#Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://sysdig.vitally.io/hubs/1e32f87e-4c3e-42ca-b3ef-c559dd27e9e2/f70aaf40-d744-49b2-adfa-87a2bf01420b" %U
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  "https://sysdig.vitally.io/hubs/1e32f87e-4c3e-42ca-b3ef-c559dd27e9e2/f70aaf40-d744-49b2-adfa-87a2bf01420b" %U
+Terminal=false

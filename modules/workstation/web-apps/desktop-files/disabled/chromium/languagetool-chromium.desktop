@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=LanguageTool
+StartupWMClass=chrome-languagetool.org__editor_-Default
+Comment=Launch LanguageTool
+Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/languagetool.png
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://languagetool.org/editor/" %U
+Terminal=false
