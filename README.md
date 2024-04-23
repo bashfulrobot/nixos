@@ -16,6 +16,20 @@ The Espanso service is funny. At times, the service will not start after an upda
 - Unregister the Espanso service with `espanso service unregister`
 - `reboot`, and let the `services.espanso.enable = true;` in my config, start the service.
 
+### Getting StartupWMClass For Web Apps
+
+Getting the StartupWMClass is a pain in wayland.
+
+#### Steps for my setup
+
+- create the base desktop file, and rebuild
+- open the app
+- enable the looking glass gnome extension
+- open looking glass and go to `windows`
+- take a screenshot of *ONLY* the class text
+- press `ctrl-alt-o` and it will run a script to OCR the text from my the screenshot and put the results on my clipboard
+- paste it into the desktop file, and rebuild
+
 ## TODO
 
 - I still don't like my structure
