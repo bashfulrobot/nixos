@@ -8,7 +8,6 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware
     ./networking
-    ../../modules/hosts
     ./config
   ];
 

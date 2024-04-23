@@ -4,7 +4,7 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware
     ./networking
-     ../../modules/hosts
+     ../../../modules/workstation/hosts
   ];
 
   # Enable flakes and nix commands

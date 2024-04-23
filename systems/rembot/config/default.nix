@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ../../../modules/desktops/gnome # Desktop for this system
-    ../../../modules/syncthing/rembot # Syncthing configuration
-    ../../../modules/desktop-files/tower # Custom menu items
-    ../../../modules/steam # Steam configuration
+    ../../../modules/workstation/desktops/gnome # Desktop for this system
+    ../../../modules/workstation/syncthing/rembot # Syncthing configuration
+    ../../../modules/workstation/desktop-files/tower # Custom menu items
+    ../../../modules/workstation/steam # Steam configuration
     ./video # video specific configuration
     # ./kolide
   ];

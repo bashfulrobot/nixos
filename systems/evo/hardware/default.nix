@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ../../../modules/fprintd
-    ../../../modules/wifi
+    ../../../modules/hardware/fprintd
+    ../../../modules/hardware/wifi
     ./nvidia.nix
     ./boot.nix
     ./hardware-configuration.nix
