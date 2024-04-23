@@ -5,7 +5,7 @@
   environment.systemPackages = with pkgs; [
 
     ### Terminal
-    xwininfo # Get StartupWMClass from a window in xwayland
+    xorg.xwininfo # Get StartupWMClass from a window in xwayland
     texliveSmall # get pdflatex
     usbutils # usb utilities like lsusb
     pciutils # list all PCI devices
