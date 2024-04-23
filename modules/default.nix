@@ -1,50 +1,12 @@
 { config, inputs, pkgs, ... }: {
 
   imports = [
-    ./1password
-    ./alacritty
-    ./autojump
-    ./bash
-    ./blackbox-terminal
-    ./bluetooth
-    ./chromium
-    ./comics-downloader
-    ./dagger
-    ./dconf
-    ./environment
-    ./espanso
-    ./fish
-    ./flatpak
-    ./fonts
-    ./git
-    ./gnome-web
-    ./go
-    ./gpg
-    ./home-manager
-    ./hosts
-    ./insecure-packages
-    ./instruqt
-    ./k8sgpt
-    ./kubitect
-    ./linkr
-    ./mullvad
-    ./nautilus
-    ./nix-settings
-    ./npm
-    ./openvscode-server
-    ./pkgs
-    ./python
-    # ./rio # issues with my nvidia laptop gpu
-    ./scripts
-    ./seabird
-    ./spotify-player
-    ./ssh
-    # ./sunshine
-    ./sysdig-cli-scanner
-    ./terminal
-    ./themes/nord
-    ./virtualization
-    ./web-apps
+
+    ./hardware
+    ./nix
+    ./platform-services
+    ./workstation
+
   ];
 
   # as per https://discourse.nixos.org/t/clicked-links-in-desktop-apps-not-opening-browers/29114/28
