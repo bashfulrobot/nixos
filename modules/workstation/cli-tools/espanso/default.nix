@@ -6,6 +6,9 @@ let
     builtins.getEnv "USER";
 in {
 
+  # Enable Espanso
+  services.espanso.enable = true;
+
   home-manager.users."${username}" = {
 
     home.packages = with pkgs;

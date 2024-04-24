@@ -148,7 +148,6 @@
     # virter # libvirtd management CLI client
 
     ### Networking
-    tailscale # zero-config VPN
     wgnord # nordvpn over wireguard
     # localsend # send files locally # bug, need to troubleshoot TODO
 
@@ -190,7 +189,6 @@
     # epiphany # gnome web
     # nheko # Matrix Clien
     # microsoft-edge # web browser
-    # teamviewer # remote support
 
     # Communication
     slack # instant messaging

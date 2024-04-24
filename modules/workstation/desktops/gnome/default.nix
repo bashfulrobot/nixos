@@ -10,7 +10,7 @@ in {
 
   # imports = [ ./hyprland ./sddm ];
 
-  imports = [ ./themes/nord ];
+  imports = [ ./themes/nord ../addons/xdg ];
 
   services.xserver.enable = true;
 

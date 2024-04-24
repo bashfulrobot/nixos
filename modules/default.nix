@@ -6,78 +6,9 @@
     ./nix
     ./platform-services
     ./workstation
+    ./users
 
   ];
-
-  # as per https://discourse.nixos.org/t/clicked-links-in-desktop-apps-not-opening-browers/29114/28
-  xdg.portal.config.common.default = [ "*" ];
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "America/Vancouver";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_CA.UTF-8";
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.dustin = {
-    isNormalUser = true;
-    description = "Dustin Krysak";
-    shell = pkgs.fish;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "onepassword"
-      "onepassword-cli"
-      "polkituser"
-      "users"
-      "video"
-    ];
-    # packages = with pkgs; [ ];
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable Tailscale
-  services.tailscale.enable = true;
-
-  # Enable Espanso
-  services.espanso.enable = true;
-
-  # Enable Firmware Updates
-  services.fwupd.enable = true;
-
-  # Enable teamviewer
-  services.teamviewer.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-gnome3;
-  };
-
-  # naughty
-  security.sudo.wheelNeedsPassword = false;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

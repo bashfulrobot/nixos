@@ -38,6 +38,8 @@
     ./spotify-player
     ./ssh
     # ./sunshine
+    ./tailscale
+    ./teamviewer
     ./web-apps
 
   ];

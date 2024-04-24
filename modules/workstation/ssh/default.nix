@@ -5,6 +5,10 @@ let
   else
     builtins.getEnv "USER";
 in {
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
   home-manager.users."${username}" = {
     programs.ssh = {
       enable = true;
