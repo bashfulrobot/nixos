@@ -6,11 +6,11 @@
     ./alacritty
     ./autostart
     ./bash
-    ./blackbox-terminal
+    # ./blackbox-terminal
     ./chromium
     ./cli-tools
-    ./comics-downloader
-    ./dagger
+    # ./comics-downloader
+    # ./dagger
     ./dconf
     ./environment
     ./fish
@@ -29,7 +29,7 @@
     ./mullvad
     ./nautilus
     ./npm
-    ./openvscode-server
+    # ./openvscode-server
     ./pkgs
     ./python
     # ./rio
@@ -38,7 +38,7 @@
     ./ssh
     # ./sunshine
     ./tailscale
-    ./teamviewer
+    # ./teamviewer
     ./web-apps
 
   ];
