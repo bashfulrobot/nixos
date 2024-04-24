@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Pocketcasts
+StartupWMClass=chrome-play.pocketcasts.com__podcasts-Default
+Comment=Launch Pocketcasts
+Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/pocketcasts.png
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://play.pocketcasts.com/podcasts" %U
+Terminal=false
