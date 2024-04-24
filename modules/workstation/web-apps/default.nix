@@ -200,15 +200,15 @@ in {
     #   target = ".local/share/xdg-desktop-portal/icons/192x192/languagetool.png";
     # };
 
-    # home.file."zoom-web.desktop" = {
-    #   source = ./desktop-files/zoom-web.desktop;
-    #   target = ".local/share/applications/zoom-web.desktop";
-    # };
+    home.file."zoom-recordings.desktop" = {
+      source = ./desktop-files/zoom-recordings.desktop;
+      target = ".local/share/applications/zoom-recordings.desktop";
+    };
 
-    # home.file."zoom.png" = {
-    #   source = ./icons/zoom.png;
-    #   target = ".local/share/xdg-desktop-portal/icons/192x192/zoom.png";
-    # };
+    home.file."zoom.png" = {
+      source = ./icons/zoom.png;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/zoom.png";
+    };
 
     home.file."google.desktop" = {
       source = ./desktop-files/google.desktop;
@@ -218,6 +218,26 @@ in {
     home.file."google.png" = {
       source = ./icons/google.png;
       target = ".local/share/xdg-desktop-portal/icons/192x192/google.png";
+    };
+
+    home.file."pocketcasts.desktop" = {
+      source = ./desktop-files/pocketcasts.desktop;
+      target = ".local/share/applications/pocketcasts.desktop";
+    };
+
+    home.file."pocketcasts.png" = {
+      source = ./icons/pocketcasts.png;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/pocketcasts.png";
+    };
+
+    home.file."duckduckgo.desktop" = {
+      source = ./desktop-files/duckduckgo.desktop;
+      target = ".local/share/applications/duckduckgo.desktop";
+    };
+
+    home.file."duckduckgo.svg" = {
+      source = ./icons/duckduckgo.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/duckduckgo.svg";
     };
 
     home.file."salesforce.desktop" = {
