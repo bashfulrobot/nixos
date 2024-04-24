@@ -4,6 +4,5 @@ Name=Intercom
 StartupWMClass=chrome-app.intercom.com__a_inbox_tdx7wtfd_inbox_admin_5474778-Default
 Comment=Launch intercom
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/intercom.png
-#Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://app.intercom.com/a/inbox/tdx7wtfd/inbox/admin/5474778" %U
-Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  "https://app.intercom.com/a/inbox/tdx7wtfd/inbox/admin/5474778" %U
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://app.intercom.com/a/inbox/tdx7wtfd/inbox/admin/5474778" %U
 Terminal=false

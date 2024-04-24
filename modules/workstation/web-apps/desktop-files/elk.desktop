@@ -4,6 +4,5 @@ Name=Elk
 StartupWMClass=chrome-elk.zone__home-Default
 Comment=Launch elk web client
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/elk.png
-#Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://elk.zone/home" %U
-Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  "https://elk.zone/home" %U
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://elk.zone/home" %U
 Terminal=false

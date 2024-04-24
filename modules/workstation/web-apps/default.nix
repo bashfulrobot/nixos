@@ -270,6 +270,16 @@ in {
     #   target = ".local/share/xdg-desktop-portal/icons/192x192/jira.png";
     # };
 
+    home.file."jira.desktop" = {
+      source = ./desktop-files/jira.desktop;
+      target = ".local/share/applications/jira.desktop";
+    };
+
+    home.file."jira.png" = {
+      source = ./icons/jira.png;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/jira.png";
+    };
+
     home.file."syncthing.desktop" = {
       source = ./desktop-files/syncthing.desktop;
       target = ".local/share/applications/syncthing.desktop";

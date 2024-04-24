@@ -4,7 +4,6 @@ Name=Syncthing
 StartupWMClass=
 Comment=Launch Syncthing Web UI
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/syncthing.png
-# Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://bashfulrobot.atlassian.net/jira/" %U
-Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode "http://localhost:8384" %U
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="http://localhost:8384" %U
 
 Terminal=false
