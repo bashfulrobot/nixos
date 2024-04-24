@@ -4,5 +4,5 @@ Name=Tactiq
 StartupWMClass=msedge-app.tactiq.io__-Default
 Comment=Launch tactiq
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/tactiq.png
-Exec=microsoft-edge-stable --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://app.tactiq.io/" %U
+Exec=microsoft-edge-stable --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://app.tactiq.io/" %U
 Terminal=false

@@ -4,5 +4,5 @@ Name=LanguageTool
 StartupWMClass=msedge-languagetool.org__editor_-Default
 Comment=Launch LanguageTool
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/languagetool.png
-Exec=microsoft-edge-stable --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://languagetool.org/editor/" %U
+Exec=microsoft-edge-stable --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://languagetool.org/editor/" %U
 Terminal=false

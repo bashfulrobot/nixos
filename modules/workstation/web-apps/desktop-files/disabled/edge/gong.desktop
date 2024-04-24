@@ -4,5 +4,5 @@ Name=Gong
 StartupWMClass=msedge-us-2318.app.gong.io__home-Default
 Comment=Launch Gong
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/gong.png
-Exec=microsoft-edge-stable --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://us-2318.app.gong.io/home" %U
+Exec=microsoft-edge-stable --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://us-2318.app.gong.io/home" %U
 Terminal=false

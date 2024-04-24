@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=FR Asana Project
-#StartupWMClass=chrome-calendar.google.com__calendar_u_1_r-Default
+StartupWMClass=chrome-app.asana.com__0_1206917372920471_1206917374324235-Default
 Comment=Launch Sysdig FR Asana Project
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/asana-logo.svg
-Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://app.asana.com/0/1206917372920471/1206917374324235" %U
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://app.asana.com/0/1206917372920471/1206917374324235" %U
 Terminal=false

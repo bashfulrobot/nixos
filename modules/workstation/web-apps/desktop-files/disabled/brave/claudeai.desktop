@@ -5,5 +5,5 @@ Comment=Launch Claude AI
 StartupWMClass=brave-claude.ai__chat-Default
 
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/claudeai.png
-Exec=brave --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode  --app="https://claude.ai/chat" %U
+Exec=brave --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://claude.ai/chat" %U
 Terminal=false
