@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Sysdig Jira
-StartupWMClass=chrome-sysdig.atlassian.net__jira_software_c_projects_FR_boards_443-Default
+StartupWMClass=chrome-sysdig.atlassian.net__jira_software_c_projects_FR_boards_449-Default
 Comment=Launch Sysdig Jira
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/jira.png
 Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://sysdig.atlassian.net/jira/software/c/projects/FR/boards/449" %U
