@@ -34,7 +34,6 @@
     ./python
     # ./rio
     ./scripts
-    ./seabird
     ./spotify-player
     ./ssh
     # ./sunshine

@@ -30,8 +30,8 @@
     # "com.github.phase1geo.minder" # Mindmapping
     # "com.github.Murmele.Gittyup" # Git GUI
     "com.belmoussaoui.ReadItLater" # Wallabag client
-    "sa.sy.bluerecorder" # Screen recorder
     "com.hunterwittenborn.Celeste" # Cloud storage Sync GUI
     "net.xmind.XMind" # Mindmapping
+    "dev.skynomads.Seabird" # kubernetes client
   ];
 }
