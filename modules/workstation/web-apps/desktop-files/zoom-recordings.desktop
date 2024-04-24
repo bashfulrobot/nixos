@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Zoom Recordings
+StartupWMClass=chrome-zoom.us__recording-Default
+Comment=Launch Zoom Recordings
+Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/zoom.png
+Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://zoom.us/recording" %U
+Terminal=false
