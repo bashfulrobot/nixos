@@ -157,6 +157,8 @@
     autorestic # restic automation tool
 
     ### GUI
+    gimp-with-plugins # image editor
+    inkscape-with-extensions # vector graphics editor
     xournalpp # note taking/pdf annotator
     # minder # mindmapping
     gnome.gnome-boxes # desktop vms
