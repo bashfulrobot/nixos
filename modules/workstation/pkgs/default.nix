@@ -156,6 +156,7 @@
     autorestic # restic automation tool
 
     ### GUI
+    xournalpp # note taking/pdf annotator
     # minder # mindmapping
     gnome.gnome-boxes # desktop vms
     # junction # default app selector
