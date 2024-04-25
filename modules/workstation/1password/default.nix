@@ -1,14 +1,23 @@
 { config, secrets, pkgs, ... }:
-{
-  # {imported to configuration.nix direct as home-manager does not support 1password
-  programs._1password = { enable = true; };
+
+let
+  username = if builtins.getEnv "SUDO_USER" != "" then
+    builtins.getEnv "SUDO_USER"
+  else
+    builtins.getEnv "USER";
+in {
 
   # Enable the 1Passsword GUI with myself as an authorized user for polkit
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = [ "dustin" ];
+    polkitPolicyOwners = [ "${username}" ];
   };
 
-  home-manager.users."${secrets.user.username}".programs.btop.enable = true;
+  home-manager.users."${username}" = {
+    home.file."1password.desktop" = {
+      source = ./1password.desktop;
+      target = ".config/autostart/1password.desktop";
+    };
+  };
 
 }

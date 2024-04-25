@@ -4,7 +4,6 @@
 
     ./1password
     ./alacritty
-    ./autostart
     ./bash
     ./blackbox-terminal
     ./chromium

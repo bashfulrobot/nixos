@@ -14,6 +14,7 @@ in {
       bat = { enable = true; };
       jq = { enable = true; };
       k9s = { enable = true; };
+      btop = { enable = true; };
       # zellij = {
       #   enable = true;
       #   enableBashIntegration = true;
