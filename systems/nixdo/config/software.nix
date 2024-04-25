@@ -26,7 +26,6 @@
     tailscale
     just
     nixfmt
-    lunarvim
     fish
   ];
 

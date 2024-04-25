@@ -25,7 +25,8 @@
     ./k8sgpt
     # ./kolide
     ./kubitect
-    ./linkr
+    # ./linkr
+    ./lunarvim
     ./mullvad
     ./nautilus
     ./npm

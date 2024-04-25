@@ -8,7 +8,6 @@ in {
 
   # add environment variables
   home-manager.users."${username}".home.sessionVariables = {
-    EDITOR = "lvim";
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     MANROFFOPT = "-c";
     XDG_CURRENT_DESKTOP = "gnome";
