@@ -170,15 +170,15 @@ in {
     #   target = ".local/share/xdg-desktop-portal/icons/192x192/teams.png";
     # };
 
-    # home.file."elk.desktop" = {
-    #   source = ./desktop-files/elk.desktop;
-    #   target = ".local/share/applications/elk.desktop";
-    # };
+    home.file."elk.desktop" = {
+      source = ./desktop-files/elk.desktop;
+      target = ".local/share/applications/elk.desktop";
+    };
 
-    # home.file."elk.png" = {
-    #   source = ./icons/elk.png;
-    #   target = ".local/share/xdg-desktop-portal/icons/192x192/elk.png";
-    # };
+    home.file."elk.svg" = {
+      source = ./icons/elk.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/elk.svg";
+    };
 
     home.file."chatgpt.desktop" = {
       source = ./desktop-files/chatgpt.desktop;
