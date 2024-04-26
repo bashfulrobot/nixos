@@ -46,9 +46,9 @@ in {
       target = ".local/share/applications/sysdig-drive.desktop";
     };
 
-    home.file."drive.png" = {
-      source = ./icons/drive.png;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/drive.png";
+    home.file."google-drive.svg" = {
+      source = ./icons/google-drive.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/google-drive.svg";
     };
 
     home.file."claudeai.desktop" = {
