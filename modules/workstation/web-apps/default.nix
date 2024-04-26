@@ -225,9 +225,9 @@ in {
       target = ".local/share/applications/google.desktop";
     };
 
-    home.file."google.png" = {
-      source = ./icons/google.png;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/google.png";
+    home.file."google.svg" = {
+      source = ./icons/google.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/google.svg";
     };
 
     home.file."pocketcasts.desktop" = {
