@@ -26,9 +26,14 @@ in {
       target = ".local/share/applications/br-mail.desktop";
     };
 
-    home.file."gmail.png" = {
-      source = ./icons/gmail.png;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/gmail.png";
+    home.file."br-gmail.svg" = {
+      source = ./icons/br-gmail.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/br-gmail.svg";
+    };
+
+    home.file."sysdig-gmail.svg" = {
+      source = ./icons/sysdig-gmail.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/sysdig-gmail.svg";
     };
 
     home.file."sysdig-calendar.desktop" = {
