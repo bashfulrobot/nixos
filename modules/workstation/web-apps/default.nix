@@ -111,9 +111,9 @@ in {
       target = ".local/share/applications/grammarly.desktop";
     };
 
-    home.file."grammarly.png" = {
-      source = ./icons/grammarly.png;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/grammarly.png";
+    home.file."grammarly.svg" = {
+      source = ./icons/grammarly.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/grammarly.svg";
     };
 
     home.file."intercom.desktop" = {
