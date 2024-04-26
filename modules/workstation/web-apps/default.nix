@@ -36,9 +36,9 @@ in {
       target = ".local/share/applications/sysdig-calendar.desktop";
     };
 
-    home.file."calendar.png" = {
-      source = ./icons/calendar.png;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/calendar.png";
+    home.file."google-calendar.svg" = {
+      source = ./icons/google-calendar.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/google-calendar.svg";
     };
 
     home.file."sysdig-drive.desktop" = {
@@ -56,9 +56,9 @@ in {
       target = ".local/share/applications/claudeai.desktop";
     };
 
-    home.file."claudeai.png" = {
-      source = ./icons/claudeai.png;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/claudeai.png";
+    home.file."claudeai.svg" = {
+      source = ./icons/claudeai.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/claudeai.svg";
     };
 
     home.file."vitally.desktop" = {
@@ -185,9 +185,9 @@ in {
       target = ".local/share/applications/chatgpt.desktop";
     };
 
-    home.file."chatgpt.png" = {
-      source = ./icons/chatgpt.png;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/chatgpt.png";
+    home.file."chatgpt.svg" = {
+      source = ./icons/chatgpt.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/chatgpt.svg";
     };
 
     # home.file."languagetool.desktop" = {
