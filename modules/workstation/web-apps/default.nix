@@ -81,9 +81,14 @@ in {
       target = ".local/share/applications/github-code-search.desktop";
     };
 
-    home.file."github.png" = {
-      source = ./icons/github.png;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/github.png";
+    home.file."github.svg" = {
+      source = ./icons/github.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/github.svg";
+    };
+
+     home.file."github-code.svg" = {
+      source = ./icons/github-code.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/github-code.svg";
     };
 
     home.file."gong.desktop" = {
