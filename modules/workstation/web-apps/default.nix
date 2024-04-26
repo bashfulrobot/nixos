@@ -101,9 +101,9 @@ in {
       target = ".local/share/applications/gong.desktop";
     };
 
-    home.file."gong.png" = {
-      source = ./icons/gong.png;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/gong.png";
+    home.file."gong.svg" = {
+      source = ./icons/gong.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/gong.svg";
     };
 
     home.file."grammarly.desktop" = {
