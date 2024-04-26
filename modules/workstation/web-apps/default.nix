@@ -305,6 +305,16 @@ in {
       target = ".local/share/xdg-desktop-portal/icons/192x192/jira.png";
     };
 
+    home.file."confluence.desktop" = {
+      source = ./desktop-files/confluence.desktop;
+      target = ".local/share/applications/confluence.desktop";
+    };
+
+    home.file."confluence.svg" = {
+      source = ./icons/confluence.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/confluence.svg";
+    };
+
     home.file."syncthing.desktop" = {
       source = ./desktop-files/syncthing.desktop;
       target = ".local/share/applications/syncthing.desktop";
