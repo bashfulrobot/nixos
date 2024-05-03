@@ -23,7 +23,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than +2";
+      options = "--delete-older-than 5D";
     };
   };
 

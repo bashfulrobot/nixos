@@ -65,7 +65,7 @@ upgrade-system:
 # Garbage collect the current host
 garbage:
     # @sudo nix-collect-garbage -d
-    @sudo nix-collect-garbage --delete-older-than 7d
+    @sudo nix-collect-garbage --delete-older-than 5d
 # Run garbage collect, update and rebuild
 # Update Hardware Firmware
 # update nix database for use with comma
