@@ -182,7 +182,6 @@
     _1password-gui # password management GUI
     # helvum # A GTK patchbay for pipewire
     obsidian # note-taking app
-    # todoist-electron # task management app - currently in a flatpak
     virt-manager # virtual machine manager
     #droidcam # use iPhone as a camera input
     yaru-theme # gtk theme

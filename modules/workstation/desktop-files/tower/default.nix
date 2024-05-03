@@ -36,11 +36,6 @@ in {
       target = ".local/share/applications/beeper.desktop";
     };
 
-    # home.file."todoist.desktop" = {
-    #   source = ../src/todoist.desktop;
-    #   target = ".local/share/applications/todoist.desktop";
-    # };
-
     home.file."spacedrive.desktop" = {
       source = ../src/spacedrive.desktop;
       target = ".local/share/applications/spacedrive.desktop";

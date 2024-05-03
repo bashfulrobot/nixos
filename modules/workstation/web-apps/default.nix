@@ -170,15 +170,15 @@ in {
       target = ".local/share/xdg-desktop-portal/icons/192x192/tactiq.png";
     };
 
-    # home.file."teams.desktop" = {
-    #   source = ./desktop-files/teams.desktop;
-    #   target = ".local/share/applications/teams.desktop";
-    # };
+    home.file."todoist.desktop" = {
+      source = ./desktop-files/todoist.desktop;
+      target = ".local/share/applications/todoist.desktop";
+    };
 
-    # home.file."teams.png" = {
-    #   source = ./icons/teams.png;
-    #   target = ".local/share/xdg-desktop-portal/icons/192x192/teams.png";
-    # };
+    home.file."todoist.svg" = {
+      source = ./icons/todoist.svg;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/todoist.svg";
+    };
 
     home.file."elk.desktop" = {
       source = ./desktop-files/elk.desktop;
