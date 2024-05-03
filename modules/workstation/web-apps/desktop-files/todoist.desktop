@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Todoist
-StartupWMClass=chrome-mail.google.com__mail_u_0_-Default
+StartupWMClass=chrome-app.todoist.com__-Default
 Comment=Launch Todoist
 Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/todoist.svg
 Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://app.todoist.com/" %U
