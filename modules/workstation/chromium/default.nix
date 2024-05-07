@@ -13,6 +13,7 @@ in {
       commandLineArgs = [ "--ozone-platform-hint=auto" ];
       extensions = [
         { id = "cfpenpohaapdgnkglcbgjiooipcbcebi"; } # easy window resize
+        { id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
         { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; } # 1password
         { id = "kfimphpokifbjgmjflanmfeppcjimgah"; } # inoreader
         { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # dark reader

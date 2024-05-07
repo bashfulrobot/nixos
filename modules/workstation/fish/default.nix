@@ -173,6 +173,7 @@ in {
         gc = "git add . && git commit -S && git push && git pull";
       };
       shellAliases = {
+        tailscale-up-lt = "sudo tailscale up --ssh --accept-routes --operator=$USER";
         oc = "~/.npm-packages/bin/opencommit";
         ncdu = "${pkgs.gdu}/bin/gdu";
         ".." = "cd ..";
