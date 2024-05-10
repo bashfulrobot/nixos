@@ -15,6 +15,7 @@ in {
     suites = {
       common.enable = true;
       developer.enable = true;
+      devops.enable = true;
       media.enable = true;
       office.enable = true;
       web-apps.enable = true;
