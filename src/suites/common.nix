@@ -24,6 +24,7 @@ in {
       fish.enable = true;
       alacritty.enable = true;
       tailscale.enable = true;
+      # ptyxis.enable = true; # just packaged. Wiating to show nixpkgs
     };
 
     sys = {
