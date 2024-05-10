@@ -14,7 +14,6 @@
     ./instruqt
     ./k8sgpt
     # ./kolide
-    ./kubitect
     # ./linkr
     ./lunarvim
     ./mullvad
