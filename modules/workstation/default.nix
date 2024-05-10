@@ -2,20 +2,11 @@
 
   imports = [
 
-    ./1password
-    ./alacritty
-    ./bash
     ./blackbox-terminal
-    ./chromium
     ./cli-tools
     ./comics-downloader
     ./dagger
-    ./dconf
-    ./environment
-    ./fish
     ./flatpak
-    ./fonts
-    ./git
     ./gnome-web
     ./go
     ./gpg
@@ -29,17 +20,10 @@
     ./mullvad
     ./nautilus
     ./npm
-    ./openvscode-server
     ./pkgs
     ./python
     # ./rio
-    ./scripts
-    ./spotify-player
-    ./ssh
-    # ./sunshine
-    ./tailscale
-    ./teamviewer
-    ./web-apps
+     # ./sunshine
 
   ];
 

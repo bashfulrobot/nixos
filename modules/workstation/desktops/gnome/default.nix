@@ -339,6 +339,8 @@ in {
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
         ];
       };
 
@@ -389,6 +391,20 @@ in {
           binding = "<Control><Alt>o";
           command = "/etc/profiles/per-user/dustin/bin/screenshot-ocr.sh";
           name = "OCR Screenshot";
+        };
+
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" =
+        {
+          binding = "<Control><Shift>x";
+          command = "/run/current-system/sw/bin/1password --quick-access";
+          name = "1password quick access";
+        };
+
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6" =
+        {
+          binding = "<Alt>p";
+          command = "/run/current-system/sw/bin/1password --toggle";
+          name = "show 1password";
         };
 
     };

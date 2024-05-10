@@ -9,10 +9,9 @@
     ./video # video specific configuration
     # ./kolide
 
-    ../../../modules/workstation/firefox
   ];
 
-  programs.firefox.enable = true;
+  # archetype.workstation = true;
 
   networking.hostName = "rembot"; # Define your hostname.
 }

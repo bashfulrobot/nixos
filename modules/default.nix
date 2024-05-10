@@ -3,7 +3,7 @@
   imports = [
 
     ./hardware
-    ./nix
+    # ./nix
     ./platform-services
     ./workstation
     ./users
