@@ -105,20 +105,20 @@ in {
   # Big merge request against Mutter improves the performance of the window manager by a lot (and is already used by Ubuntu). Not merged into nixpkgs due to philosophy of nixpkgs, but users are free to add this overlay to get it too.
 
   # Currently it's adapted for Gnome 45.
-  nixpkgs.overlays = [
-    (final: prev: {
-      gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
-        mutter = gnomePrev.mutter.overrideAttrs (old: {
-          src = pkgs.fetchgit {
-            url = "https://gitlab.gnome.org/vanvugt/mutter.git";
-            # GNOME 45: triple-buffering-v4-45
-            rev = "0b896518b2028d9c4d6ea44806d093fd33793689";
-            sha256 = "sha256-mzNy5GPlB2qkI2KEAErJQzO//uo8yO0kPQUwvGDwR4w=";
-          };
-        });
-      });
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
+  #       mutter = gnomePrev.mutter.overrideAttrs (old: {
+  #         src = pkgs.fetchgit {
+  #           url = "https://gitlab.gnome.org/vanvugt/mutter.git";
+  #           # GNOME 45: triple-buffering-v4-45
+  #           rev = "0b896518b2028d9c4d6ea44806d093fd33793689";
+  #           sha256 = "sha256-mzNy5GPlB2qkI2KEAErJQzO//uo8yO0kPQUwvGDwR4w=";
+  #         };
+  #       });
+  #     });
+  #   })
+  # ];
 
   # You might need to disable aliases to make Dynamic triple buffering work:
   # nixpkgs.config.allowAliases = false;

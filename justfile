@@ -62,15 +62,18 @@ upgrade-system:
     @nix flake update
     @sudo nixos-rebuild switch --impure --upgrade --flake .#\{{`hostname`}} --show-trace
     # @just _sway-reload
-# Garbage collect the current host
+# Garbage Collect items older than 5 days on the current host
 garbage:
-    # @sudo nix-collect-garbage -d
     @sudo nix-collect-garbage --delete-older-than 5d
-# Run garbage collect, update and rebuild
-# Update Hardware Firmware
+
+### The below will delete from the Nix store everything that is not used by the current generations of each  profile
+# Garbage collect all, clear build cache
+garbage-buiild-cache:
+    @sudo nix-collect-garbage -d
 # update nix database for use with comma
 nixdb:
     nix run 'nixpkgs#nix-index' --extra-experimental-features 'nix-command flakes'
+# Update Hardware Firmware
 run-fwup:
     @sudo fwupdmgr refresh --force
     @sudo fwupdmgr get-updates
