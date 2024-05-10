@@ -11,7 +11,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    apps = { kubitect.enable = true; };
+    cli = { kubitect.enable = true; };
 
   };
 }
