@@ -14,6 +14,7 @@ in {
 
     apps = {
       betterbird.enable = true;
+      xmind.enable = true;
     };
 
   };

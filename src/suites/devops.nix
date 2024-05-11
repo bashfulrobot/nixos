@@ -11,6 +11,9 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    apps = {
+      seabird.enable = true;
+    };
     cli = {
       kubitect.enable = true;
       dagger.enable = true;

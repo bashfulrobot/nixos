@@ -13,6 +13,10 @@ in {
   config = lib.mkIf cfg.enable {
 
     cli = { spotify-player.enable = true; };
+    apps = {
+      obs.enable = true;
+      delfin.enable = true;
+    };
 
   };
 }

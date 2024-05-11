@@ -19,9 +19,12 @@ in {
       brave.enable = true;
       epiphany.enable = true;
       mullvad.enable = false;
+      readitlater.enable = true;
+      celeste.enable = true;
     };
 
     cli = {
+      comics-downloader.enable = true;
       common.enable = true;
       espanso.enable = true;
       environment.enable = true;
