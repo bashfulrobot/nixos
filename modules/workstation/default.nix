@@ -2,7 +2,6 @@
 
   imports = [
 
-    ./cli-tools
     ./comics-downloader
     ./flatpak
     ./go
