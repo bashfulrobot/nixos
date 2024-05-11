@@ -55,6 +55,17 @@ in {
       overrideDevices = true;
       overrideFolders = true;
     };
+    home-manager.users."${username}" = {
+      home.file."syncthing.desktop" = {
+        source = ./syncthing.desktop;
+        target = ".local/share/applications/syncthing.desktop";
+      };
+
+      home.file."syncthing.png" = {
+        source = ./syncthing.png;
+        target = ".local/share/xdg-desktop-portal/icons/192x192/syncthing.png";
+      };
+    };
   } // lib.mkIf cfg.host.evo {
     # Configuration when host evo is enabled
     services.syncthing = {
