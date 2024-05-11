@@ -11,6 +11,9 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    cli = { sysdig-cli-scanner.enable = true; };
+    cli = {
+      sysdig-cli-scanner.enable = true;
+      instruqt.enable = true;
+    };
   };
 }

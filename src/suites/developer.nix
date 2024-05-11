@@ -13,9 +13,17 @@ in {
   config = lib.mkIf cfg.enable {
 
     apps = { openvscode-server.enable = true; };
+
     cli = {
       git.enable = true;
       lunarvim.enable = true;
     };
+
+    dev = {
+      go.enable = true;
+      npm.enable = true;
+      python.enable = true;
+    };
+
   };
 }
