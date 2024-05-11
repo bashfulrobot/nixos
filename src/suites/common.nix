@@ -13,6 +13,8 @@ in {
   config = lib.mkIf cfg.enable {
 
     apps = {
+      nautilus.enable = true;
+      common.enable = true;
       one-password.enable = true;
       chromium.enable = true;
       firefox.enable = true;
