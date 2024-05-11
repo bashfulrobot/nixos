@@ -10,7 +10,7 @@ in {
     cli.ptyxis.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable spotify_player.";
+      description = "Enable ptyxis terminal.";
     };
   };
 

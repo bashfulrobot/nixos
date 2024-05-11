@@ -11,7 +11,10 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    cli = { kubitect.enable = true; };
+    cli = {
+      kubitect.enable = true;
+      dagger.enable = true;
+    };
 
   };
 }

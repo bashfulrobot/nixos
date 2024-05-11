@@ -15,6 +15,8 @@
     workstation.enable = true;
   };
 
+  hw = { touchpad.enable = true; };
+
   suites = { tech-support.enable = true; };
 
   networking.hostName = "evo"; # Define your hostname.

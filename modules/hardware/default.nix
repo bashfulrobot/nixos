@@ -6,7 +6,6 @@
     ./bluetooth
     ./fwupd
     ./networking
-    ./touchpad
 
   ];
 

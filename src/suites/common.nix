@@ -16,6 +16,8 @@ in {
       one-password.enable = true;
       chromium.enable = true;
       firefox.enable = true;
+      brave.enable = true;
+      mullvad.enable = false;
     };
 
     cli = {
@@ -28,6 +30,7 @@ in {
     };
 
     sys = {
+      hosts.enable = true;
       fonts.enable = true;
       ssh.enable = true;
       scripts = {
