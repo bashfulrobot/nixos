@@ -1,29 +1,41 @@
-{ pkgs, ... }: {
+{ pkgs, config, lib, ... }:
+let cfg = config.users.dustin;
+in {
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.dustin = {
-    isNormalUser = true;
-    description = "Dustin Krysak";
-    shell = pkgs.fish;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "onepassword"
-      "onepassword-cli"
-      "polkituser"
-      "users"
-      "video"
-    ];
+  options = {
+    users.dustin.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable the Dustin user.";
+    };
   };
 
-  # Set your time zone.
-  time.timeZone = "America/Vancouver";
+  config = lib.mkIf cfg.enable {
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_CA.UTF-8";
+    # Define a user account. Don't forget to set a password with ‘passwd’.
+    users.users.dustin = {
+      isNormalUser = true;
+      description = "Dustin Krysak";
+      shell = pkgs.fish;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "onepassword"
+        "onepassword-cli"
+        "polkituser"
+        "users"
+        "video"
+      ];
+    };
 
-  # naughty
-  security.sudo.wheelNeedsPassword = false;
+    # Set your time zone.
+    time.timeZone = "America/Vancouver";
 
+    # Select internationalisation properties.
+    i18n.defaultLocale = "en_CA.UTF-8";
+
+    # naughty
+    security.sudo.wheelNeedsPassword = false;
+  };
 
 }
