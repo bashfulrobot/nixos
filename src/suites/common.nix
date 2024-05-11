@@ -27,12 +27,14 @@ in {
       alacritty.enable = true;
       tailscale.enable = true;
       ptyxis.enable = false; # just packaged. Wiating to show nixpkgs
+      blackbox-terminal.enable = false;
     };
 
     sys = {
       hosts.enable = true;
       fonts.enable = true;
       ssh.enable = true;
+      gpg.enable = true;
       scripts = {
         hw-scan.enable = true;
         screenshots.enable = true;
