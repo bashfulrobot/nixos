@@ -13,27 +13,56 @@ in {
       default = false;
       description = "Enable helix editor.";
     };
-  };
 
-  config = lib.mkIf cfg.enable {
+    cli.helix.enableGpt = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable helix-gpt.";
+    };
 
-    environment.systemPackages = with pkgs;
-      [
-        helix
-        helix-gpt
-      ];
-
-    home-manager.users."${username}" = {
-      home = {
-
-        sessionVariables = { EDITOR = "hx"; };
-
-        # file."config.lua" = {
-        #   source = ./config/config.lua;
-        #   target = ".config/lvim/config.lua";
-        # };
-
-      };
+    cli.helix.customConfig = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable custom helix config.";
     };
   };
+
+  config = lib.mkMerge [
+    (lib.mkIf cfg.enable {
+      environment.systemPackages = with pkgs; [ helix ];
+
+      home-manager.users."${username}" = {
+        home = {
+          sessionVariables = { EDITOR = "hx"; };
+        };
+      };
+    })
+
+    (lib.mkIf cfg.enableGpt {
+      environment.systemPackages = with pkgs; [ helix-gpt ];
+
+      home-manager.users."${username}" = {
+        home = {
+          sessionVariables = {
+            COPILOT_API_KEY = "123"; # Required if using copilot handler
+            HANDLER = "copilot";
+          };
+
+          file."languages.toml" = {
+            source = ./config/languages.toml;
+            target = ".helix/languages.toml";
+          };
+        };
+      };
+    })
+
+    (lib.mkIf cfg.customConfig {
+      home-manager.users."${username}" = {
+        home.file."config.toml" = {
+          source = ./config/config.toml;
+          target = ".config/helix/config.toml";
+        };
+      };
+    })
+  ];
 }
