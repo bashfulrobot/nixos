@@ -189,7 +189,6 @@
     gruvbox-gtk-theme # theme
     gruvbox-dark-icons-gtk # theme icons
     colorpicker # colour picker
-    # epiphany # gnome web
     # nheko # Matrix Clien
     # microsoft-edge # web browser
 

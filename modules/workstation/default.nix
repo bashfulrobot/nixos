@@ -5,7 +5,6 @@
     ./cli-tools
     ./comics-downloader
     ./flatpak
-    ./gnome-web
     ./go
     ./instruqt
     ./k8sgpt

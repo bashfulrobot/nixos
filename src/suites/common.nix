@@ -17,6 +17,7 @@ in {
       chromium.enable = true;
       firefox.enable = true;
       brave.enable = true;
+      epiphany.enable = true;
       mullvad.enable = false;
     };
 
@@ -40,6 +41,8 @@ in {
         screenshots.enable = true;
       };
     };
+
+    hw = { audio.enable = true; };
 
   };
 }
