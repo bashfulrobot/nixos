@@ -22,6 +22,8 @@ in {
     };
 
     cli = {
+      common.enable = true;
+      espanso.enable = true;
       environment.enable = true;
       bash.enable = true;
       fish.enable = true;
