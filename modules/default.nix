@@ -2,8 +2,6 @@
 
   imports = [
 
-    ./hardware
-    # ./nix
     ./platform-services
     ./workstation
     ./users

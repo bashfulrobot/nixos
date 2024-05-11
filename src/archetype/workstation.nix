@@ -12,6 +12,14 @@ in {
 
   config = lib.mkIf cfg.enable {
 
+    nixcfg = {
+      home-manager.enable = true;
+      insecure-packages.enable = true;
+      nix-settings.enable = true;
+    };
+
+    sys = { dconf.enable = true; };
+
     suites = {
       common.enable = true;
       developer.enable = true;
