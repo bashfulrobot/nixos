@@ -15,6 +15,7 @@ in {
       seabird.enable = true;
     };
     cli = {
+      k8sgpt.enable = true;
       kubitect.enable = true;
       dagger.enable = true;
     };

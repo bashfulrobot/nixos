@@ -36,6 +36,7 @@ in {
       tailscale.enable = true;
       ptyxis.enable = false; # just packaged. Wiating to show nixpkgs
       blackbox-terminal.enable = false;
+      linkr.enable = false;
     };
 
     sys = {

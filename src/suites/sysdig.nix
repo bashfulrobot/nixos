@@ -11,6 +11,9 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+
+    apps = { kolide.enable = false; };
+
     cli = {
       sysdig-cli-scanner.enable = true;
       instruqt.enable = true;
