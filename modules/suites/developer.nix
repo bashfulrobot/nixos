@@ -17,11 +17,7 @@ in {
     cli = {
       git.enable = true;
       lunarvim.enable = false;
-      helix = {
-        enable = true;
-        customConfig = false;
-        enableGpt = false;
-      };
+      helix.enable = true;
 
     };
 
