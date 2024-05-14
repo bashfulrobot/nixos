@@ -16,8 +16,18 @@ let
 
   # Filters out directories that belong to home-manager, and don't end with .nix or are this file.
   # Also, make the strings absolute
+
+# No Trace
   validFiles = dir:
     map (file: ./. + "/${file}") (filter (file:
       !hasInfix "home-manager" file && !hasInfix "build" file && !hasInfix "disabled" file && file
       != "autoimport.nix" && hasSuffix ".nix" file) (files dir));
+
+# With Trace
+# validFiles = dir:
+#     map (file: let absFile = ./. + "/${file}"; in builtins.trace "Importing ${absFile} from ${builtins.dirOf absFile}" absFile)
+#     (filter (file:
+#       !hasInfix "home-manager" file && !hasInfix "build" file && !hasInfix "disabled" file && file
+#       != "autoimport.nix" && hasSuffix ".nix" file) (files dir));
+
 in { imports = validFiles ./.; }
