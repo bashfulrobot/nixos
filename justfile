@@ -56,6 +56,9 @@ dev-rebuild-trace:
 rebuild-trace:
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}} --show-trace
     @just _sway-reload
+# Rebuild nixos cfg in a vm host with show-trace.
+rebuild-vm:
+    @sudo nixos-rebuild build-vm --impure --flake .#\{{`hostname`}} --show-trace
 # Update Flake
 upgrade-system:
     # @nix flake update --commit-lock-file
