@@ -1,3 +1,4 @@
+# Port to home-manager
 { pkgs, config, lib, ... }:
 let
     cfg = config.apps.firefox;
