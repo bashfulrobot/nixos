@@ -58,7 +58,6 @@ in {
       };
       gvfs.enable = true;
 
-      xterm.enable = false;
     };
     # Configure keymap in X11
     xserver = {
@@ -118,6 +117,7 @@ in {
       gnome-disks.enable = true;
       pantheon-tweaks.enable = true;
       seahorse.enable = true;
+      xterm.enable = false;
 
     };
 
