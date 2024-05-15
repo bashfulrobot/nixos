@@ -60,6 +60,12 @@ in {
 
       # Configure keymap in X11
       xserver = {
+        enable = true;
+        xkb = {
+          layout = "us";
+          variant = "";
+        };
+
         displayManager = {
 
           lightdm.enable = true;
@@ -79,20 +85,17 @@ in {
               monitor
             ];
           };
-          excludePackages = [ pkgs.xterm ];
-          enable = true;
-          xkb = {
-            layout = "us";
-            variant = "";
-          };
+
         };
-        # TODO: add option to enable/disable flatpak remote for elementary apps
-        # Add the flatpak remote for elementary apps
-        flatpak.remotes = [{
-          name = "appcenter";
-          location = "https://flatpak.elementary.io/repo.flatpakrepo";
-        }];
+
       };
+
+      # TODO: add option to enable/disable flatpak remote for elementary apps
+      # Add the flatpak remote for elementary apps
+      flatpak.remotes = [{
+        name = "appcenter";
+        location = "https://flatpak.elementary.io/repo.flatpakrepo";
+      }];
 
     };
 
@@ -148,6 +151,12 @@ in {
       #   target = ".face";
       # };
 
+      services = {
+        gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
+        # https://nixos.wiki/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
+        mpris-proxy.enable = true;
+      };
+
       gtk = {
         enable = true;
         cursorTheme = {
@@ -162,7 +171,7 @@ in {
         };
 
         gtk2 = {
-          configLocation = "${config.xdg.configHome}/.gtkrc-2.0";
+          configLocation = "/home/${username}/.gtkrc-2.0";
           extraConfig = ''
             gtk-application-prefer-dark-theme = 1
             gtk-decoration-layout = ":minimize,maximize,close"
@@ -204,7 +213,7 @@ in {
       };
 
       home.file = {
-        "${config.xdg.configHome}/autostart/ibus-daemon.desktop".text = ''
+        "/home/${username}/autostart/ibus-daemon.desktop".text = ''
 
           [Desktop Entry]
           Name=IBus Daemon
@@ -216,7 +225,7 @@ in {
           NoDisplay=true
           StartupNotify=false'';
 
-        "${config.xdg.configHome}/autostart/monitor.desktop".text = ''
+        "/home/${username}/autostart/monitor.desktop".text = ''
 
           [Desktop Entry]
           Name=Monitor Indicators
@@ -227,12 +236,6 @@ in {
           Categories=
           Terminal=false
           StartupNotify=false'';
-      };
-
-      services = {
-        gpg-agent.pinentryFlavor = lib.mkForce "gnome3";
-        # https://nixos.wiki/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
-        mpris-proxy.enable = true;
       };
 
       systemd.user.services = {
@@ -322,7 +325,7 @@ in {
         "org/gnome/desktop/interface" = {
           clock-format = "24h";
           color-scheme = "prefer-dark";
-          cursor-size = mkInt32 32;
+          # cursor-size = mkInt32 32;
           cursor-theme = "elementary";
           document-font-name = "Work Sans 12";
           font-name = "Work Sans 12";
