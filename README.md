@@ -18,19 +18,29 @@ The Espanso service is funny. At times, the service will not start after an upda
 
 ### Getting StartupWMClass For Web Apps
 
-Getting the StartupWMClass is a pain in wayland.
+Getting the StartupWMClass is a pain in Wayland.
 
 #### Steps for my setup
 
 - create the base desktop file, and rebuild
 - open the app
-- enable the looking glass gnome extension
+- enable the looking-glass gnome extension
 - open looking glass and go to `windows`
 - take a screenshot of *ONLY* the class text
-- press `ctrl-alt-o` and it will run a script to OCR the text from my the screenshot and put the results on my clipboard
+- press `ctrl-alt-o`, and it will run a script to OCR the text from my the screenshot and put the results on my clipboard
 - paste it into the desktop file, and rebuild
 
 ## TODO
 
-- I still don't like my structure
-- I like to follow the KISS method, but I am likely only scratching the surface in Nix.
+- finish Pantheon
+    - [ ] small window controls
+    - [ ] set my preferred keyboard shortcuts for:
+        - [ ] going to workspaces
+        - [ ] closing windows
+        - [ ] terminal launch
+        - [ ] 1password
+    - [ ] no app indicators
+    - [ ] missing panel until you use Superkey
+    - [ ] finish adding options to Pantheon for optional config
+    - [ ] set wallpaper
+- [ ] Test A********
