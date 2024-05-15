@@ -114,10 +114,10 @@ in {
 
     # Enable variuos programs
     programs = {
-      evince.enable = isInstall;
-      gnome-disks.enable = isInstall;
-      pantheon-tweaks.enable = isInstall;
-      seahorse.enable = isInstall;
+      evince.enable = true;
+      gnome-disks.enable = true;
+      pantheon-tweaks.enable = true;
+      seahorse.enable = true;
 
     };
 
