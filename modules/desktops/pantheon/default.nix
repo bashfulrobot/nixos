@@ -58,41 +58,42 @@ in {
       };
       gvfs.enable = true;
 
-    };
-    # Configure keymap in X11
-    xserver = {
-      displayManager = {
+      # Configure keymap in X11
+      xserver = {
+        displayManager = {
 
-        lightdm.enable = true;
-        lightdm.greeters.pantheon.enable = true;
+          lightdm.enable = true;
+          lightdm.greeters.pantheon.enable = true;
 
-        # TODO: add option to enable/disable auto-suspend
-        # Disable autoSuspend; my Pantheon session kept auto-suspending
-        # - https://discourse.nixos.org/t/why-is-my-new-nixos-install-suspending/19500
-        # gdm.autoSuspend = if (desktop == "pantheon") then true else false;
+          # TODO: add option to enable/disable auto-suspend
+          # Disable autoSuspend; my Pantheon session kept auto-suspending
+          # - https://discourse.nixos.org/t/why-is-my-new-nixos-install-suspending/19500
+          # gdm.autoSuspend = if (desktop == "pantheon") then true else false;
 
-      };
-      desktopManager = {
-        pantheon = {
+        };
+        desktopManager = {
+          pantheon = {
+            enable = true;
+            extraWingpanelIndicators = with pkgs; [
+              wingpanel-indicator-ayatana
+              monitor
+            ];
+          };
+          excludePackages = [ pkgs.xterm ];
           enable = true;
-          extraWingpanelIndicators = with pkgs; [
-            wingpanel-indicator-ayatana
-            monitor
-          ];
+          xkb = {
+            layout = "us";
+            variant = "";
+          };
         };
-        excludePackages = [ pkgs.xterm ];
-        enable = true;
-        xkb = {
-          layout = "us";
-          variant = "";
-        };
+        # TODO: add option to enable/disable flatpak remote for elementary apps
+        # Add the flatpak remote for elementary apps
+        flatpak.remotes = [{
+          name = "appcenter";
+          location = "https://flatpak.elementary.io/repo.flatpakrepo";
+        }];
       };
-      # TODO: add option to enable/disable flatpak remote for elementary apps
-      # Add the flatpak remote for elementary apps
-      flatpak.remotes = [{
-        name = "appcenter";
-        location = "https://flatpak.elementary.io/repo.flatpakrepo";
-      }];
+
     };
 
     environment = {
@@ -117,7 +118,6 @@ in {
       gnome-disks.enable = true;
       pantheon-tweaks.enable = true;
       seahorse.enable = true;
-      xterm.enable = false;
 
     };
 
