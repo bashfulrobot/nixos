@@ -34,21 +34,23 @@ in {
 
     # TODO: add option to enable/disable auto-suspend
     # will need to use merge with the other config in xserver.displayManager.gdm.autoSuspend
-    # security = {
-    #     # Disable autoSuspend; my Pantheon session kept auto-suspending
-    #     # - https://discourse.nixos.org/t/why-is-my-new-nixos-install-suspending/19500
-    #     polkit.extraConfig = ''
-    #       polkit.addRule(function(action, subject) {
-    #           if (action.id == "org.freedesktop.login1.suspend" ||
-    #               action.id == "org.freedesktop.login1.suspend-multiple-sessions" ||
-    #               action.id == "org.freedesktop.login1.hibernate" ||
-    #               action.id == "org.freedesktop.login1.hibernate-multiple-sessions")
-    #           {
-    #               return polkit.Result.NO;
-    #           }
-    #       });
-    #     '';
-    #   };
+    security = {
+      #     # Disable autoSuspend; my Pantheon session kept auto-suspending
+      #     # - https://discourse.nixos.org/t/why-is-my-new-nixos-install-suspending/19500
+      #     polkit.extraConfig = ''
+      #       polkit.addRule(function(action, subject) {
+      #           if (action.id == "org.freedesktop.login1.suspend" ||
+      #               action.id == "org.freedesktop.login1.suspend-multiple-sessions" ||
+      #               action.id == "org.freedesktop.login1.hibernate" ||
+      #               action.id == "org.freedesktop.login1.hibernate-multiple-sessions")
+      #           {
+      #               return polkit.Result.NO;
+      #           }
+      #       });
+      #     '';
+      # keyring does not start otherwise
+      pam.services.lightdm.enableGnomeKeyring = true;
+    };
 
     services = {
       gnome = {
@@ -199,7 +201,7 @@ in {
         };
 
         theme = {
-          name = "io.elementary.stylesheet.blueberry";
+          name = "io.elementary.stylesheet.slate";
           package = pkgs.pantheon.elementary-gtk-theme;
         };
       };
@@ -273,7 +275,10 @@ in {
 
         "io/elementary/desktop/agent-geoclue2" = { location-enabled = true; };
 
-        "io/elementary/desktop/wingpanel" = { use-transparency = false; };
+        # TODO: Do I like this?
+        "io/elementary/desktop/wingpanel" = { use-transparency = true; };
+
+        "io/elementary/desktop/wingpanel/keyboard" = { capslock = true; };
 
         "io/elementary/desktop/wingpanel/datetime" = { clock-format = "24h"; };
 
@@ -318,23 +323,38 @@ in {
           pinned-only = false;
           position = "left";
           theme = "Transparent";
+          pressure-reveal = true;
+        };
+
+        "org/gnome/desktop/background" = {
+          picture-uri =
+            "file:///home/dustin/.local/share/backgrounds/nord-wallpaper.png";
+          picture-uri-dark =
+            "file:///home/dustin/.local/share/backgrounds/nord-wallpaper.png";
+          color-shading-type = "solid";
+          picture-options = "zoom";
+          # primary-color = "#000000";
+          # secondary-color = "#000000";
         };
 
         "org/gnome/desktop/datetime" = { automatic-timezone = true; };
 
         "org/gnome/desktop/interface" = {
+          locate-pointer = true;
           clock-format = "24h";
           color-scheme = "prefer-dark";
           # cursor-size = mkInt32 32;
           cursor-theme = "elementary";
           document-font-name = "Work Sans 12";
           font-name = "Work Sans 12";
-          gtk-theme = "io.elementary.stylesheet.blueberry";
+          gtk-theme = "io.elementary.stylesheet.slate";
           gtk-enable-primary-paste = true;
           icon-theme = "elementary";
           monospace-font-name = "FiraCode Nerd Font Mono Medium 13";
           text-scaling-factor = mkDouble 1.0;
         };
+
+        "org/gnome/desktop/peripherals/touchpad" = { natural-scroll = false; };
 
         "org/gnome/desktop/session" = { idle-delay = mkInt32 900; };
 
