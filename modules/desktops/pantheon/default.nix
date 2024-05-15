@@ -58,6 +58,10 @@ in {
       };
       gvfs.enable = true;
 
+      xterm.enable = false;
+    };
+    # Configure keymap in X11
+    xserver = {
       displayManager = {
 
         lightdm.enable = true;
@@ -77,10 +81,6 @@ in {
             monitor
           ];
         };
-        xterm.enable = false;
-      };
-      # Configure keymap in X11
-      xserver = {
         excludePackages = [ pkgs.xterm ];
         enable = true;
         xkb = {
