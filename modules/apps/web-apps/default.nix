@@ -173,15 +173,15 @@ in {
       target = ".local/share/xdg-desktop-portal/icons/192x192/nix.png";
     };
 
-    home.file."tactiq.desktop" = {
-      source = ./desktop-files/tactiq.desktop;
-      target = ".local/share/applications/tactiq.desktop";
-    };
+    # home.file."tactiq.desktop" = {
+    #   source = ./desktop-files/tactiq.desktop;
+    #   target = ".local/share/applications/tactiq.desktop";
+    # };
 
-    home.file."tactiq.png" = {
-      source = ./icons/tactiq.png;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/tactiq.png";
-    };
+    # home.file."tactiq.png" = {
+    #   source = ./icons/tactiq.png;
+    #   target = ".local/share/xdg-desktop-portal/icons/192x192/tactiq.png";
+    # };
 
     home.file."todoist.desktop" = {
       source = ./desktop-files/todoist.desktop;
