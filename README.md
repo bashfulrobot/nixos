@@ -11,7 +11,7 @@ WIP, forever.
 - All code under the `modules` folder is imported via `autoimport.nix`. The modules folder code is set up with options, which are not used unless you enable the options in your system config.
 - the`modules` are then grouped into `suites` and enabled there. But can be enabled directly in the system config if you prefer or need a "one-off".
 - The `suites` are then enabled in the `archetype`, a grouping (i.e., laptop, server, tower, workstation) of `suites` enabled for a specific system.
-- The `archetype` on the systems of choice
+- Then `archetype` on the systems of choice
 
 ### Example of a system cfg
 
@@ -48,6 +48,21 @@ archetype = {
         spacedrive = true;
         };
     };
+```
+
+### Home Manager Useage
+
+- I do use Home Manager, but not in the usual pattern.
+- I hated having two different locations to configure the same application if I had to (or wanted to) use base nix and home manager config.
+- So, I figured out how to have it all in one file.
+The `modules/desktops/gnome/default.nix` have an excellent example of this.
+
+```
+# Above is traditional NixOS config
+
+##### Home Manager Config options #####
+    home-manager.users."${username}" = {
+# Everything in here is home-manager config
 ```
 
 ## Notes
