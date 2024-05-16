@@ -55,7 +55,7 @@ archetype = {
 - I do use Home Manager, but not in the usual pattern.
 - I hated having two different locations to configure the same application if I had to (or wanted to) use base nix and home manager config.
 - So, I figured out how to have it all in one file.
-The `modules/desktops/gnome/default.nix` have an excellent example of this.
+The `modules/desktops/gnome/default.nix` have an excellent example of this. In that file you will see:
 
 ```
 # Above is traditional NixOS config
