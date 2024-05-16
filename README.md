@@ -67,7 +67,8 @@ The `modules/desktops/gnome/default.nix` have an excellent example of this. In t
 
 ### Secrets
 
-- My secrets just use `git-crypt`I know about SOPs, etc., but I wanted to be able to make a secret substitution in my code.
+- My secrets just use `git-crypt`.
+- I know about SOPs, etc., but I wanted to be able to make a secret substitution in my code.
 You can see its use in `modules/cli/git/default.nix`, such as (I was rendering a config file for a tool):
 
 ```
