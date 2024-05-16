@@ -374,11 +374,11 @@ in {
           switch-to-workspace-6 = [ "<Super>6" ];
           switch-to-workspace-7 = [ "<Super>7" ];
           switch-to-workspace-8 = [ "<Super>8" ];
-          # switch-to-workspace-down = [ "<Control><Alt>Down" ];
-          # switch-to-workspace-last = [ "<Control><Alt>End" ];
-          # switch-to-workspace-left = [ "<Control><Alt>Left" ];
-          # switch-to-workspace-right = [ "<Control><Alt>Right" ];
-          # switch-to-workspace-up = [ "<Control><Alt>Up" ];
+          switch-to-workspace-down = [ "<Control><Alt>Down" ];
+          switch-to-workspace-last = [ "<Control><Alt>End" ];
+          switch-to-workspace-left = [ "<Control><Alt>Left" ];
+          switch-to-workspace-right = [ "<Control><Alt>Right" ];
+          switch-to-workspace-up = [ "<Control><Alt>Up" ];
           move-to-workspace-1 = [ "<Super><Shift>1" ];
           move-to-workspace-2 = [ "<Super><Shift>2" ];
           move-to-workspace-3 = [ "<Super><Shift>3" ];
@@ -387,11 +387,11 @@ in {
           move-to-workspace-6 = [ "<Super><Shift>6" ];
           move-to-workspace-7 = [ "<Super><Shift>7" ];
           move-to-workspace-8 = [ "<Super><Shift>8" ];
-          # move-to-workspace-down = [ "<Super><Alt>Down" ];
-          # move-to-workspace-last = [ "<Super><Alt>End" ];
-          # move-to-workspace-left = [ "<Super><Alt>Left" ];
-          # move-to-workspace-right = [ "<Super><Alt>Right" ];
-          # move-to-workspace-up = [ "<Super><Alt>Up" ];
+          move-to-workspace-down = [ "<Super><Alt>Down" ];
+          move-to-workspace-last = [ "<Super><Alt>End" ];
+          move-to-workspace-left = [ "<Super><Alt>Left" ];
+          move-to-workspace-right = [ "<Super><Alt>Right" ];
+          move-to-workspace-up = [ "<Super><Alt>Up" ];
         };
 
         "org/gnome/desktop/wm/preferences" = {
