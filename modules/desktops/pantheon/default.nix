@@ -28,7 +28,7 @@ in {
           default = [ "pantheon" "gtk" ];
           "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
         };
-        common.default = [ "*" ];
+        # common.default = [ "*" ];
       };
     };
 
@@ -148,10 +148,14 @@ in {
     ##### Home Manager Config options #####
     home-manager.users."${username}" = {
 
-      # home.file.".face" = {
-      #   source = ./.face;
-      #   target = ".face";
-      # };
+      home.sessionVariables = {
+        XDG_CURRENT_DESKTOP = "Pantheon";
+      };
+
+      home.file.".face" = {
+        source = ./.face;
+        target = ".face";
+      };
 
       services = {
         gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
@@ -328,10 +332,10 @@ in {
 
         "org/gnome/desktop/background" = {
           picture-uri =
-            "file:///home/dustin/.local/share/backgrounds/nord-wallpaper.png";
+            "file:///run/current-system/sw/share/backgrounds/odin-dark.jpg";
           picture-uri-dark =
-            "file:///home/dustin/.local/share/backgrounds/nord-wallpaper.png";
-          color-shading-type = "solid";
+            "file:///run/current-system/sw/share/backgrounds/odin-dark.jpg";
+          color-shading-type = "unset";
           picture-options = "zoom";
           # primary-color = "#000000";
           # secondary-color = "#000000";
@@ -361,32 +365,33 @@ in {
         "org/gnome/desktop/sound" = { theme-name = "elementary"; };
 
         "org/gnome/desktop/wm/keybindings" = {
-          switch-to-workspace-1 = [ "<Control><Alt>1" "<Control><Alt>Home" ];
-          switch-to-workspace-2 = [ "<Control><Alt>2" ];
-          switch-to-workspace-3 = [ "<Control><Alt>3" ];
-          switch-to-workspace-4 = [ "<Control><Alt>4" ];
-          switch-to-workspace-5 = [ "<Control><Alt>5" ];
-          switch-to-workspace-6 = [ "<Control><Alt>6" ];
-          switch-to-workspace-7 = [ "<Control><Alt>7" ];
-          switch-to-workspace-8 = [ "<Control><Alt>8" ];
-          switch-to-workspace-down = [ "<Control><Alt>Down" ];
-          switch-to-workspace-last = [ "<Control><Alt>End" ];
-          switch-to-workspace-left = [ "<Control><Alt>Left" ];
-          switch-to-workspace-right = [ "<Control><Alt>Right" ];
-          switch-to-workspace-up = [ "<Control><Alt>Up" ];
-          move-to-workspace-1 = [ "<Super><Alt>1" ];
-          move-to-workspace-2 = [ "<Super><Alt>2" ];
-          move-to-workspace-3 = [ "<Super><Alt>3" ];
-          move-to-workspace-4 = [ "<Super><Alt>4" ];
-          move-to-workspace-5 = [ "<Super><Alt>5" ];
-          move-to-workspace-6 = [ "<Super><Alt>6" ];
-          move-to-workspace-7 = [ "<Super><Alt>7" ];
-          move-to-workspace-8 = [ "<Super><Alt>8" ];
-          move-to-workspace-down = [ "<Super><Alt>Down" ];
-          move-to-workspace-last = [ "<Super><Alt>End" ];
-          move-to-workspace-left = [ "<Super><Alt>Left" ];
-          move-to-workspace-right = [ "<Super><Alt>Right" ];
-          move-to-workspace-up = [ "<Super><Alt>Up" ];
+          close = [ "<Super>q" ];
+          switch-to-workspace-1 = [ "<Super>1" "<Control><Alt>Home" ];
+          switch-to-workspace-2 = [ "<Super>2" ];
+          switch-to-workspace-3 = [ "<Super>3" ];
+          switch-to-workspace-4 = [ "<Super>4" ];
+          switch-to-workspace-5 = [ "<Super>5" ];
+          switch-to-workspace-6 = [ "<Super>6" ];
+          switch-to-workspace-7 = [ "<Super>7" ];
+          switch-to-workspace-8 = [ "<Super>8" ];
+          # switch-to-workspace-down = [ "<Control><Alt>Down" ];
+          # switch-to-workspace-last = [ "<Control><Alt>End" ];
+          # switch-to-workspace-left = [ "<Control><Alt>Left" ];
+          # switch-to-workspace-right = [ "<Control><Alt>Right" ];
+          # switch-to-workspace-up = [ "<Control><Alt>Up" ];
+          move-to-workspace-1 = [ "<Super><Shift>1" ];
+          move-to-workspace-2 = [ "<Super><Shift>2" ];
+          move-to-workspace-3 = [ "<Super><Shift>3" ];
+          move-to-workspace-4 = [ "<Super><Shift>4" ];
+          move-to-workspace-5 = [ "<Super><Shift>5" ];
+          move-to-workspace-6 = [ "<Super><Shift>6" ];
+          move-to-workspace-7 = [ "<Super><Shift>7" ];
+          move-to-workspace-8 = [ "<Super><Shift>8" ];
+          # move-to-workspace-down = [ "<Super><Alt>Down" ];
+          # move-to-workspace-last = [ "<Super><Alt>End" ];
+          # move-to-workspace-left = [ "<Super><Alt>Left" ];
+          # move-to-workspace-right = [ "<Super><Alt>Right" ];
+          # move-to-workspace-up = [ "<Super><Alt>Up" ];
         };
 
         "org/gnome/desktop/wm/preferences" = {
@@ -412,28 +417,61 @@ in {
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
           ];
         };
 
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
           {
             binding = "<Super>e";
-            command = "io.elementary.files -n ~/";
-            name = "File Manager";
+            command = "code";
+            name = "Editor";
           };
 
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
           {
             binding = "<Super>t";
-            command = "io.elementary.terminal";
+            command = "alacritty";
             name = "Terminal";
           };
 
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" =
           {
-            binding = "<Primary><Alt>t";
-            command = "io.elementary.terminal";
-            name = "Terminal";
+            binding = "<Super>b";
+            command = "firefox";
+            name = "Browser";
+          };
+
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" =
+          {
+            binding = "<Control><Alt>a";
+            command =
+              "/etc/profiles/per-user/dustin/bin/screenshot-annotate.sh";
+            name = "Annotate Screenshot";
+          };
+
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" =
+          {
+            binding = "<Control><Alt>o";
+            command = "/etc/profiles/per-user/dustin/bin/screenshot-ocr.sh";
+            name = "OCR Screenshot";
+          };
+
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" =
+          {
+            binding = "<Control><Shift>x";
+            command = "/run/current-system/sw/bin/1password --quick-access";
+            name = "1password quick access";
+          };
+
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6" =
+          {
+            binding = "<Alt>p";
+            command = "/run/current-system/sw/bin/1password --toggle";
+            name = "show 1password";
           };
 
         "org/gnome/settings-daemon/plugins/power" = {
@@ -443,7 +481,7 @@ in {
         };
 
         #"org/gnome/settings-daemon/plugins/xsettings" = {
-        #  overrides = "{\'Gtk/DialogsUseHeader\': <0>, \'Gtk/ShellShowsAppMenu\': <0>, \'Gtk/EnablePrimaryPaste\': <1>, \'Gtk/DecorationLayout\': <\':minimize,maximize,close,menu\'>, \'Gtk/ShowUnicodeMenu\': <0>}";
+        #  overrides = "{\'Gtk/DialogsUseHeader\': <0>, \'Gtk/ShellShowsAppMenu\': <0>, \'Gtk/EnablePrimaryPaste\': <1>, \'Gtk/DecorationLayout\': <\':minimize,maximize,menu\'>, \'Gtk/ShowUnicodeMenu\': <0>}";
         #};
 
         "org/gtk/gtk4/Settings/FileChooser" = { clock-format = "24h"; };
