@@ -167,6 +167,7 @@ in {
       autorestic # restic automation tool
 
       ### GUI
+      cinny-desktop # another matrix client
       gimp-with-plugins # image editor
       inkscape-with-extensions # vector graphics editor
       xournalpp # note taking/pdf annotator
