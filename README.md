@@ -13,7 +13,7 @@ WIP, forever.
 - The `suites` are then enabled in the `archetype`, a grouping (i.e., laptop, server, tower, workstation) of `suites` enabled for a specific system.
 - The `archetype` on the systems of choice
 
-Example of a system cfg.
+### Example of a system cfg
 
 ```
 
