@@ -121,6 +121,7 @@ Getting the StartupWMClass is a pain in Wayland.
     - [ ] add a screenshot shortcut that accounts for the desktop keyboard
     - [ ] set user photo
     - [ ] The fingerprint reader seems to want a manual login after locking the laptop. You should be able to use a fingerprint.
+    - [ ] My screenshot OCR script seems to not work in Pantheon. I need to fix that.
 - Firefox
     - [ ] change FF to be declarative
     - [ ] test FF web wrapper
