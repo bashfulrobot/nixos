@@ -113,6 +113,7 @@ in {
         appeditor
         formatter
         pick-colour-picker
+        pantheon-tweaks
       ];
       pantheon.excludePackages = with pkgs; [ pkgs.pantheon.epiphany ];
     };
