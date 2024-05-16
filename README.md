@@ -109,4 +109,6 @@ Getting the StartupWMClass is a pain in Wayland.
 - Firefox
     - [ ] change FF to be declarative
     - [ ] test FF web wrapper
+- user name
+    - [ ] eval where the user name is used and make it a variable
 - [ ] Test A********
