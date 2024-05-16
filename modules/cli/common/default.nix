@@ -15,6 +15,10 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    environment.systemPackages = with pkgs;
+      [
+        xdg-utils
+      ];
     home-manager.users."${username}" = {
       programs = {
         autojump = {
