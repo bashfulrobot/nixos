@@ -136,6 +136,10 @@ in {
     ##### Home Manager Config options #####
     home-manager.users."${username}" = {
 
+      home.sessionVariables = {
+        XDG_CURRENT_DESKTOP = "gnome";
+      };
+
       home.file.".face" = {
         source = ./.face;
         target = ".face";

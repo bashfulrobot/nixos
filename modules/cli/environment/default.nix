@@ -22,7 +22,6 @@ in {
   home-manager.users."${username}".home.sessionVariables = {
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     MANROFFOPT = "-c";
-    XDG_CURRENT_DESKTOP = "gnome";
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORM = "wayland";
     NIXOS_OZONE_WL = 1; # fixed electron apps blurriness
