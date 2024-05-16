@@ -6,6 +6,50 @@ This repo contains the nixos cfg for a few of my systems. It tends to be under h
 
 WIP, forever.
 
+## Code Flow
+
+- All code under the `modules` folder is imported via `autoimport.nix`. The modules folder code is set up with options, which are not used unless you enable the options in your system config.
+- the`modules` are then grouped into `suites` and enabled there. But can be enabled directly in the system config if you prefer or need a "one-off".
+- The `suites` are then enabled in the `archetype`, a grouping (i.e., laptop, server, tower, workstation) of `suites` enabled for a specific system.
+- The `archetype` on the systems of choice
+
+Example of a system cfg.
+
+```
+
+# Shows using the archetype to enable a laptop and workstation
+archetype = {
+    laptop.enable = true;
+    workstation.enable = true;
+  };
+
+    # enable my user of choice
+    # Note - still some refactoring in some modules to adjust if you move from a "dustin" user to an additional user or different user
+    users.dustin.enable = true;
+
+    # enable the desktop I want to use on this system
+    desktops.pantheon.enable = true;
+
+    # enable an app directly vs via an archetype or suite
+    apps = {
+        syncthing = {
+            enable = true;
+            host.evo = true;
+        };
+
+        # another exaple of direct module use
+        desktopFile = {
+        enable = true;
+        reboot-firmware = true;
+        seabird = true;
+        beeper = true;
+        monokle = true;
+        cursor = true;
+        spacedrive = true;
+        };
+    };
+```
+
 ## Notes
 
 ### Espanso
@@ -32,15 +76,22 @@ Getting the StartupWMClass is a pain in Wayland.
 
 ## TODO
 
-- finish Pantheon
+- Pantheon
     - [ ] small window controls
-    - [ ] set my preferred keyboard shortcuts for:
-        - [ ] going to workspaces
-        - [ ] closing windows
-        - [ ] terminal launch
-        - [ ] 1password
+    - [ ] chromium web apps do not launch
+    - [x] set my preferred keyboard shortcuts for:
+        - [x] going to workspaces
+        - [x] closing windows
+        - [x] terminal launch
+        - [x] 1password
     - [ ] no app indicators
-    - [ ] missing panel until you use Superkey
+    - [x] missing panel until you use Superkey
     - [ ] finish adding options to Pantheon for optional config
-    - [ ] set wallpaper
+    - [x] set wallpaper
+    - [ ] add a screenshot shortcut that accounts for the desktop keyboard
+    - [ ] set user photo
+    - [ ] The fingerprint reader seems to want a manual login after locking the laptop. You should be able to use a fingerprint.
+- Firefox
+    - [ ] change FF to be declarative
+    - [ ] test FF web wrapper
 - [ ] Test A********
