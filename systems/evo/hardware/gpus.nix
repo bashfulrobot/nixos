@@ -6,8 +6,6 @@
 
   boot = {
     blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
-
-    initrd.systemd.enable = true;
     kernelModules = [ "kvm-intel" "nvidia" ];
   };
 
