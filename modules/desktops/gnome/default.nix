@@ -283,7 +283,7 @@ in {
           double-super-to-appgrid = false;
           keyboard-layout = false;
           osd = true;
-          panel = false;
+          panel = true;
           panel-in-overview = true;
           panel-notification-icon = true;
           ripple-box = false;
@@ -291,6 +291,8 @@ in {
           show-apps-button = true;
           startup-status = 0;
           theme = true;
+          # top-panel-position = 0; #top
+          top-panel-position = 1; #bottom
           weather = false;
           window-demands-attention-focus = true;
           window-menu-take-screenshot-button = false;
