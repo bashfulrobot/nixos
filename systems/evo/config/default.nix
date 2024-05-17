@@ -10,8 +10,8 @@
 
   users.dustin.enable = true;
 
-  # desktops.gnome.enable = true;
-  desktops.pantheon.enable = true;
+  desktops.gnome.enable = true;
+  # desktops.pantheon.enable = true;
 
   apps = {
     syncthing = {

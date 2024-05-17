@@ -10,6 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
+  # May have been a helper in getting my nvidia gpu going
   boot.initrd.systemd.enable = true;
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];

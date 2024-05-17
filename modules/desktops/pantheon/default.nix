@@ -114,6 +114,7 @@ in {
         formatter
         pick-colour-picker
         pantheon-tweaks
+        accountsservice
       ];
       pantheon.excludePackages = with pkgs; [ pkgs.pantheon.epiphany ];
     };
@@ -146,12 +147,12 @@ in {
       };
     };
 
+    services.accounts-daemon.enable = true;
+
     ##### Home Manager Config options #####
     home-manager.users."${username}" = {
 
-      home.sessionVariables = {
-        XDG_CURRENT_DESKTOP = "Pantheon";
-      };
+      home.sessionVariables = { XDG_CURRENT_DESKTOP = "Pantheon"; };
 
       home.file.".face" = {
         source = ./.face;
