@@ -124,11 +124,12 @@ Getting the StartupWMClass is a pain in Wayland.
     - [ ] set user photo
     - [ ] The fingerprint reader seems to want a manual login after locking the laptop. You should be able to use a fingerprint.
     - [ ] My screenshot OCR script seems to not work in Pantheon. I need to fix that.
+    - VSCode
+        - [x] vscode not seeing keyring
 - Firefox
     - [ ] change FF to be declarative
     - [ ] test FF web wrapper
-- VSCode
-    - [x] vscode not seeing keyring
+
 - user name
     - [ ] eval where the user name is used and make it a variable
 - [ ] Test A********
