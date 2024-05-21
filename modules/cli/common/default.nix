@@ -18,6 +18,7 @@ in {
     environment.systemPackages = with pkgs;
       [
         xdg-utils
+        tcpdump
       ];
     home-manager.users."${username}" = {
       programs = {
