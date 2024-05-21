@@ -8,6 +8,10 @@
     workstation.enable = true;
   };
 
+  suites = {
+    tech-support.enable = true;
+  };
+
   users.dustin.enable = true;
 
   desktops.gnome.enable = true;

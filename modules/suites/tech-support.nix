@@ -12,7 +12,10 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    apps = { teamviewer.enable = true; };
+    apps = {
+      teamviewer.enable = false;
+      anydesk.enable = true;
+    };
 
   };
 }
