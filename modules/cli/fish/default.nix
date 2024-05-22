@@ -183,6 +183,7 @@ in {
           gc = "git add . && git commit -S && git push && git pull";
         };
         shellAliases = {
+          hm-logs = "sudo systemctl restart home-manager-dustin.service; journalctl -xeu home-manager-dustin.service";
           tailscale-up-lt =
             "sudo tailscale up --ssh --accept-routes --operator=$USER";
           oc = "~/.npm-packages/bin/opencommit";
