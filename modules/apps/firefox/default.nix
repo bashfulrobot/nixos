@@ -26,9 +26,9 @@ in {
         package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
           extraPolicies = {
             pipewireSupport = true;
-            CaptivePortal = false;
+            CaptivePortal = true;
             DisableFirefoxStudies = true;
-            DisablePocket = false;
+            DisablePocket = true;
             DisableTelemetry = true;
             DisableFirefoxAccounts = false;
             NoDefaultBookmarks = true;
