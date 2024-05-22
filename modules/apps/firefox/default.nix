@@ -37,7 +37,7 @@ in {
             PasswordManagerEnabled = false;
             FirefoxHome = {
               Search = true;
-              Pocket = true;
+              Pocket = false;
               Snippets = false;
               TopSites = false;
               Highlights = false;
