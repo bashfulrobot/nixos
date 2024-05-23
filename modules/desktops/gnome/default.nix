@@ -216,7 +216,7 @@ in {
         "org/gnome/desktop/peripherals/touchpad" = {
           two-finger-scrolling-enabled = true;
           edge-scrolling-enabled = false;
-          tap-to-click = false;
+          tap-to-click = true;
           natural-scroll = false;
           disable-while-typing = true;
           click-method = "fingers";
