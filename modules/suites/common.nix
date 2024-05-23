@@ -28,7 +28,7 @@ in {
     cli = {
       comics-downloader.enable = true;
       common.enable = true;
-      espanso.enable = true;
+      espanso.enable = false;
       environment.enable = true;
       bash.enable = true;
       fish.enable = true;
