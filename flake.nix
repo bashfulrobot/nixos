@@ -65,14 +65,17 @@
             home-manager.nixosModules.home-manager
             nix-flatpak.nixosModules.nix-flatpak
             kolide-launcher.nixosModules.kolide-launcher
-            avalanche.homeModules.desktop
+            # avalanche.homeModules.desktop
             {
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
               # Overlays
-              nixpkgs.overlays = [ nur.overlay ];
+              nixpkgs.overlays = [
+                nur.overlay
+                # avalanche.overlays.default
+                ];
 
               # Allow unfree packages
               nixpkgs.config.allowUnfree = true;
