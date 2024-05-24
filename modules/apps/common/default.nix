@@ -205,8 +205,9 @@ in {
 
       # Communication
       slack # instant messaging
-      # rocketchat-desktop # instant messaging
-      # thunderbird # email client
+      signal-desktop # instant messaging
+      rocketchat-desktop # instant messaging
+      thunderbird # email client 
       # mailspring # email client
 
     ];
