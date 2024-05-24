@@ -3,7 +3,12 @@
 
   inputs = {
 
-   nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    avalanche = {
+      url = "github.com:snowfallorg/avalanche";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -27,7 +32,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, envycontrol
-    , nix-flatpak, nur, kolide-launcher, ... }:
+    , nix-flatpak, nur, kolide-launcher, avalanche, ... }:
     with inputs;
     let
       nixpkgsConfig = { overlays = [ ]; };
@@ -39,7 +44,7 @@
         builtins.getEnv "USER";
     in {
 
-        nixosConfigurations = {
+      nixosConfigurations = {
 
         # evo = new work laptop hostname
         evo = nixpkgs.lib.nixosSystem {
@@ -60,13 +65,11 @@
             home-manager.nixosModules.home-manager
             nix-flatpak.nixosModules.nix-flatpak
             kolide-launcher.nixosModules.kolide-launcher
+            avalanche.homeModules.desktop
             {
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              # home-manager.users."${username}" = {
-              # imports = [ ./home/evo ];
-              # };
 
               # Overlays
               nixpkgs.overlays = [ nur.overlay ];
@@ -90,9 +93,6 @@
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              # home-manager.users."${username}" = {
-              # imports = [ ./home/rembot ];
-              # };
 
               # Overlays
               nixpkgs.overlays = [ nur.overlay ];
