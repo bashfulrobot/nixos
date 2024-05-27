@@ -38,18 +38,17 @@ in {
     # networking.firewall.allowedTCPPorts = [ 8384 22000 ];
     # networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
-    home-manager.users."${username}" = {
-      home.file."syncthing.desktop" = {
+    home.file = {
+      "syncthing.desktop" = {
         source = ./syncthing.desktop;
         target = ".local/share/applications/syncthing.desktop";
       };
 
-      home.file."syncthing.png" = {
+      "syncthing.png" = {
         source = ./syncthing.png;
         target = ".local/share/xdg-desktop-portal/icons/192x192/syncthing.png";
       };
     };
-
     services.syncthing = lib.mkMerge [
       {
         enable = true;
