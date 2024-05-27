@@ -4,7 +4,7 @@
   inputs = {
 
     avalanche = {
-      url = "github.com:snowfallorg/avalanche";
+      url = "github:snowfallorg/avalanche";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -65,17 +65,14 @@
             home-manager.nixosModules.home-manager
             nix-flatpak.nixosModules.nix-flatpak
             kolide-launcher.nixosModules.kolide-launcher
-            # avalanche.homeModules.desktop
+            avalanche.nixosModules."avalanche/desktop"
             {
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
               # Overlays
-              nixpkgs.overlays = [
-                nur.overlay
-                # avalanche.overlays.default
-                ];
+              nixpkgs.overlays = [ nur.overlay avalanche.overlays.default ];
 
               # Allow unfree packages
               nixpkgs.config.allowUnfree = true;
@@ -118,5 +115,6 @@
         };
 
       };
+
     };
 }
