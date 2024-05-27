@@ -38,17 +38,26 @@ in {
     # networking.firewall.allowedTCPPorts = [ 8384 22000 ];
     # networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
-    home.file = {
-      "syncthing.desktop" = {
-        source = ./syncthing.desktop;
-        target = ".local/share/applications/syncthing.desktop";
-      };
-
-      "syncthing.png" = {
-        source = ./syncthing.png;
-        target = ".local/share/xdg-desktop-portal/icons/192x192/syncthing.png";
-      };
+  home.file = {
+    "syncthing.desktop" = {
+      source = ./syncthing.desktop;
+      target = ".local/share/applications/syncthing.desktop";
     };
+
+    "syncthing.png" = {
+      source = ./syncthing.png;
+      target = ".local/share/xdg-desktop-portal/icons/192x192/syncthing.png";
+    };
+
+    "dev/.stignore" = {
+      text = ''
+        .git
+        .DS_Store
+      '';
+      target = "dev/.stignore";
+    };
+  };
+
     services.syncthing = lib.mkMerge [
       {
         enable = true;
