@@ -8,13 +8,18 @@
     workstation.enable = true;
   };
 
-  suites = {
-    tech-support.enable = true;
-  };
+  suites = { tech-support.enable = true; };
 
   users.dustin.enable = true;
 
-  desktops.gnome.enable = true;
+  # snowfallorg.avalanche.desktop.enable = true;
+  # desktops.avalanche.enable = true;
+  # desktops.gnome.enable = true;
+  desktops = {
+    hyprland.enable = true;
+    addons.waybar.enable = true;
+  };
+
   # desktops.pantheon.enable = true;
 
   apps = {

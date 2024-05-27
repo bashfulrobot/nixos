@@ -17,8 +17,9 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    snowfallorg.avalanche.desktop.enable = true;
     home-manager.users."${username}" = {
-      snowfallorg.avalanche.desktop.enable = false;
+
     };
   };
 }
