@@ -21,7 +21,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-
+    # networking = { networkmanager.enable = true; };
     # Enable Display Manager
     services.greetd = {
       enable = true;
@@ -90,7 +90,6 @@ in {
         grimblast # Screenshot
         greetd.tuigreet
         iwgtk # wifi gtk app
-        nmtui # network manager TUI
 
         # qutebrowser
         # zathura

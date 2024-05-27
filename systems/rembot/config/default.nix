@@ -14,7 +14,11 @@
     workstation.enable = true;
   };
 
-  desktops.gnome.enable = true;
+  # desktops.gnome.enable = true;
+  desktops = {
+    hyprland.enable = true;
+    addons.waybar.enable = true;
+  };
 
   apps = {
     syncthing = {
