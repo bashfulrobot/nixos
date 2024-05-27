@@ -35,7 +35,7 @@ in {
             gtk-layer-shell = true;
             height = 0;
             modules-left = [ "clock" "hyprland/workspaces" ];
-            modules-center = [ "custom/uptime" ];
+            # modules-center = [ "custom/uptime" ];
             modules-right =
               [ "pulseaudio" "temperature" "cpu" "memory" "tray" ];
             clock = {
@@ -43,12 +43,12 @@ in {
               tooltip = false;
             };
             "hyprland/workspaces" = { };
-            "custom/uptime" = {
-              exec = ./scripts/uptime.sh;
-              interval = "60";
-              tooltip = false;
-              format = "{}";
-            };
+            # "custom/uptime" = {
+            #   exec = ./scripts/uptime.sh;
+            #   interval = "60";
+            #   tooltip = false;
+            #   format = "{}";
+            # };
             pulseaudio = {
               format = "<span color='#cba6f7'>{icon}</span>{volume}%";
               tooltip = false;

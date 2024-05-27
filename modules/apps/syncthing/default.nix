@@ -38,26 +38,6 @@ in {
     # networking.firewall.allowedTCPPorts = [ 8384 22000 ];
     # networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
-  home.file = {
-    "syncthing.desktop" = {
-      source = ./syncthing.desktop;
-      target = ".local/share/applications/syncthing.desktop";
-    };
-
-    "syncthing.png" = {
-      source = ./syncthing.png;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/syncthing.png";
-    };
-
-    "dev/.stignore" = {
-      text = ''
-        .git
-        .DS_Store
-      '';
-      target = "dev/.stignore";
-    };
-  };
-
     services.syncthing = lib.mkMerge [
       {
         enable = true;
@@ -409,5 +389,38 @@ in {
         };
       })
     ];
+
+    home-manager.users."${username}" = {
+      home.file = {
+        "syncthing.desktop" = {
+          text = ''
+            [Desktop Entry]
+            Type=Application
+            Name=Syncthing
+            StartupWMClass=chrome-localhost__-Default
+            Comment=Launch Syncthing Web UI
+            Icon=/home/"${username}"/.local/share/xdg-desktop-portal/icons/192x192/syncthing.png
+            Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="http://localhost:8384" %U
+
+            Terminal=false
+          '';
+          target = ".local/share/applications/syncthing.desktop";
+        };
+
+        "syncthing.png" = {
+          source = ./syncthing.png;
+          target =
+            ".local/share/xdg-desktop-portal/icons/192x192/syncthing.png";
+        };
+
+        "dev/.stignore" = {
+          text = ''
+            .git
+            .DS_Store
+          '';
+          target = "dev/.stignore";
+        };
+      };
+    };
   };
 }

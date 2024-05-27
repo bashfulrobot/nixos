@@ -89,6 +89,7 @@ in {
         xwayland # X session
         grimblast # Screenshot
         greetd.tuigreet
+        iwgtk # wifi gtk app
 
         # qutebrowser
         # zathura
@@ -191,10 +192,10 @@ in {
             };
             gestures = if hostName == "dustin-krysak" || hostName == "evo"
             || hostName == "probook" then {
-              dustin-krysakspace_swipe = true;
-              dustin-krysakspace_swipe_fingers = 3;
-              dustin-krysakspace_swipe_distance = 100;
-              dustin-krysakspace_swipe_create_new = true;
+              workspace_swipe = true;
+              workspace_swipe_fingers = 3;
+              workspace_swipe_distance = 100;
+              workspace_swipe_create_new = true;
             } else
               { };
 
