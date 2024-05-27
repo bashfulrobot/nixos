@@ -90,7 +90,7 @@ in {
         grimblast # Screenshot
         greetd.tuigreet
         iwgtk # wifi gtk app
-        mntui # network manager TUI
+        nmtui # network manager TUI
 
         # qutebrowser
         # zathura
