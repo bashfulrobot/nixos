@@ -23,13 +23,16 @@ in {
   config = lib.mkIf cfg.enable {
     # networking = { networkmanager.enable = true; };
     # Enable Display Manager
-    services.greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command =
-            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
-          user = "greeter";
+    services = {
+      gnome.gnome-keyring.enable = true;
+      greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command =
+              "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
+            user = "greeter";
+          };
         };
       };
     };
@@ -98,12 +101,19 @@ in {
       ];
     };
 
-    security.pam.services.hyprlock = {
-      # text = "auth include system-auth";
-      text = "auth include login";
-      fprintAuth = if hostName == "evo" then true else false;
-      enableGnomeKeyring = true;
+    security.pam.services = {
+      greetd = { enableGnomeKeyring = true; };
+      hyprlock = {
+        # text = "auth include system-auth";
+        text = "auth include login";
+        fprintAuth = if hostName == "evo" then true else false;
+        enableGnomeKeyring = true;
+      };
+
     };
+
+    xdg.portal.config.common."org.freedesktop.impl.portal.Secret" =
+      [ "gnome-keyring" ];
 
     programs = {
       hyprland = {
@@ -278,7 +288,10 @@ in {
       };
 
       services = {
-
+        gnome-keyring = {
+          enable = true;
+          components = [ "pkcs11" "secrets" "ssh" ];
+        };
         hyprpaper = {
           enable = true;
           settings = {
