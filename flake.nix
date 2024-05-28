@@ -21,6 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Hyprswitch (for windows switching in Hyprland)
+    hyprswitch = {
+      url = "github:h3rmt/hyprswitch/release";
+    };
+
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
@@ -32,7 +37,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, envycontrol
-    , nix-flatpak, nur, kolide-launcher, avalanche, ... }:
+    , nix-flatpak, nur, kolide-launcher, hyprswitch, avalanche, ... }:
     with inputs;
     let
       nixpkgsConfig = { overlays = [ ]; };

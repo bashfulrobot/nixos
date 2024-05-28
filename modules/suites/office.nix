@@ -13,7 +13,7 @@ in {
   config = lib.mkIf cfg.enable {
 
     apps = {
-      betterbird.enable = true;
+      betterbird.enable = false;
       xmind.enable = true;
     };
 

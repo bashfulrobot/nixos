@@ -257,7 +257,10 @@ in {
               # Run Menu
               "SUPER,Space,exec, pkill wofi || ${pkgs.wofi}/bin/wofi --show drun"
               # emulate alt-tab
-              "ALT,Tab,exec, wofi --show window"
+              # "ALT, Tab, exec, hyprswitch"
+              # "ALT SHIFT, Tab, exec, hyprswitch -r"
+              "ALT, Tab, exec, hyprswitch --sort-recent --ignore-workspaces --ignore-monitors"
+              "ALT SHIFT, Tab, exec, hyprswitch --sort-recent --ignore-workspaces --ignore-monitors -r"
               "SUPER, J, togglesplit," # dwindle
               "SUPER,Q,killactive,"
               "SUPER,Escape,exit,"
