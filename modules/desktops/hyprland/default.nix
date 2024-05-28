@@ -301,8 +301,8 @@ in {
           settings = {
             ipc = true;
             splash = false;
-            preload = "$HOME/.config/wall.png";
-            wallpaper = ",$HOME/.config/wall.png";
+            preload = "$HOME/Pictures/wallpapers/skullskates.png";
+            wallpaper = ",$HOME/Pictures/wallpapers/skullskates.png";
           };
         };
       };
