@@ -257,7 +257,8 @@ in {
               # Run Menu
               "SUPER,Space,exec, pkill wofi || ${pkgs.wofi}/bin/wofi --show drun"
               # emulate alt-tab
-              "ALT,Tab,exec, wofi -show window"
+              "ALT,Tab,exec, wofi --show window"
+              "SUPER, J, togglesplit," # dwindle
               "SUPER,Q,killactive,"
               "SUPER,Escape,exit,"
               "SUPER,F,fullscreen,"
@@ -332,7 +333,7 @@ in {
             ipc = true;
             splash = false;
             preload = "$HOME/Pictures/wallpapers/skullskates.png";
-            wallpaper = "$HOME/Pictures/wallpapers/skullskates.png";
+            wallpaper = ",$HOME/Pictures/wallpapers/skullskates.png";
           };
         };
         hypridle = {
@@ -361,6 +362,14 @@ in {
       };
 
       programs = {
+        wofi = {
+          enable = true;
+          settings = {
+            key_forward = "Ctrl-n";
+            key_backward = "Ctrl-p";
+            key_expand = "Tab";
+          };
+        };
         hyprlock = {
           enable = true;
           settings = {
