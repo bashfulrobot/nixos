@@ -245,8 +245,16 @@ in {
             debug = { damage_tracking = 2; };
 
             "$mod" = "SUPER";
-
+            bindm = [
+              # Move/resize windows with mainMod + LMB/RMB and dragging
+              "SUPER,mouse:272, movewindow"
+              "SUPER,mouse:273, resizewindow"
+            ];
             bind = [
+              # Scroll through existing workspaces with mainMod + scroll
+              "SUPER, mouse_down, workspace, e+1"
+              "SUPER, mouse_up, workspace, e-1"
+              # Run Menu
               "SUPER,Space,exec, pkill wofi || ${pkgs.wofi}/bin/wofi --show drun"
               # emulate alt-tab
               "ALT,Tab,exec, wofi -show window"
