@@ -22,6 +22,9 @@ let
       fi
     fi
   '';
+  hypralt = pkgs.writeShellScript "hypralt" ''
+    hyprctl clients | rg ^Window | wofi --dmenu | awk '{print $2}' | xargs -I{} hyprctl dispatcher focuswindow "address:0x{}"
+  '';
 in {
   options = {
     desktops.hyprland.enable = lib.mkOption {
@@ -106,6 +109,9 @@ in {
         grimblast # Screenshot
         greetd.tuigreet
         iwgtk # wifi gtk app
+        jq # used in my alttab script
+        gojq # used in my alttab script - faster than jq
+        libnotify # used in my alttab script
 
         # qutebrowser
         # zathura
@@ -125,8 +131,25 @@ in {
 
     };
 
-    xdg.portal.config.common."org.freedesktop.impl.portal.Secret" =
-      [ "gnome-keyring" ];
+    xdg = {
+      portal = with pkgs; {
+        config.common."org.freedesktop.impl.portal.Secret" =
+          [ "gnome-keyring" ];
+        configPackages = [
+          xdg-desktop-portal-gtk
+          xdg-desktop-portal-hyprland
+          # xdg-desktop-portal
+        ];
+        extraPortals = [
+          xdg-desktop-portal-gtk
+          xdg-desktop-portal-hyprland
+          # xdg-desktop-portal
+        ];
+        xdgOpenUsePortal = true;
+
+      };
+
+    };
 
     programs = {
       hyprland = {
@@ -251,24 +274,16 @@ in {
               "SUPER,mouse:272, movewindow"
               "SUPER,mouse:273, resizewindow"
             ];
-            bindr = [
-              # Hyperswitch
-              "SUPER, SUPER_L, exec, hyprswitch --stop-daemon"
-            ];
-            bindrn = [
-              # Hyperswitch
-              ",escape, exec, pkill hyprswitch"
-            ];
+
             bind = [
               # Scroll through existing workspaces with mainMod + scroll
               "SUPER, mouse_down, workspace, e+1"
               "SUPER, mouse_up, workspace, e-1"
               # Run Menu
               "SUPER,Space,exec, pkill wofi || ${pkgs.wofi}/bin/wofi --show drun"
-              # hyprswitch
-              "SUPER,Tab,exec, hyperswitch --daemon"
-              # "ALT, Tab, exec, hyprswitch --sort-recent --ignore-workspaces --ignore-monitors"
-              # "ALT SHIFT, Tab, exec, hyprswitch --sort-recent --ignore-workspaces --ignore-monitors -r"
+              # alttab
+              "ALT, Tab, exec, ${hypralt.outPath}"
+              # "ALT, Tab, exec, ${alttab.outPath} | ${pkgs.wofi}/bin/wofi --show dmenu"
               "SUPER, J, togglesplit," # dwindle
               "SUPER,Q,killactive,"
               "SUPER,Escape,exit,"
