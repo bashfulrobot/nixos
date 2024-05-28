@@ -11,6 +11,17 @@ let
     builtins.getEnv "SUDO_USER"
   else
     builtins.getEnv "USER";
+  lockScript = pkgs.writeShellScript "lock-script" ''
+    action=$1
+    ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
+    if [ $? == 1 ]; then
+      if [ "$action" == "lock" ]; then
+        ${pkgs.hyprlock}/bin/hyprlock
+      elif [ "$action" == "suspend" ]; then
+        ${pkgs.systemd}/bin/systemctl suspend
+      fi
+    fi
+  '';
 in {
   options = {
     desktops.hyprland.enable = lib.mkOption {
@@ -45,6 +56,8 @@ in {
         XDG_CURRENT_DESKTOP = "Hyprland";
         XDG_SESSION_TYPE = "wayland";
         XDG_SESSION_DESKTOP = "Hyprland";
+        # TODO: Testing
+        XCURSOR_SIZE = "24";
       };
 
       sessionVariables = if hostName == "evo" then {
@@ -141,7 +154,7 @@ in {
       wayland.windowManager = {
         hyprland = {
           enable = true;
-          xwayland.enable = true;
+          xwayland = { enable = true; };
           settings = {
             general = {
               border_size = 2;
@@ -152,6 +165,9 @@ in {
               resize_on_border = true;
               hover_icon_on_border = false;
               layout = "dwindle";
+              monitor = ",highres,auto,1";
+              # Mirror monitor below. Get details with `hyprctl monitors`
+              # monitor=HDMI-A-1,1920x1200@60,0x0,1,mirror,eDP-1
             };
             decoration = {
               rounding = 6;
@@ -161,7 +177,7 @@ in {
               drop_shadow = false;
             };
             animations = {
-              enabled = false;
+              enabled = true;
               bezier = [
                 "overshot, 0.05, 0.9, 0.1, 1.05"
                 "smoothOut, 0.5, 0, 0.99, 0.99"
@@ -193,7 +209,7 @@ in {
               sensitivity = 0.8;
               touchpad = if hostName == "dustin-krysak" || hostName == "evo"
               || hostName == "probook" then {
-                natural_scroll = true;
+                natural_scroll = false;
                 scroll_factor = 0.2;
                 middle_button_emulation = true;
                 tap-to-click = true;
@@ -214,6 +230,10 @@ in {
               force_split = 2;
               preserve_split = true;
             };
+            master = {
+              # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+              new_is_master = true;
+            };
             misc = {
               disable_hyprland_logo = true;
               disable_splash_rendering = true;
@@ -228,6 +248,8 @@ in {
 
             bind = [
               "SUPER,Space,exec, pkill wofi || ${pkgs.wofi}/bin/wofi --show drun"
+              # emulate alt-tab
+              "ALT,Tab,exec, wofi -show window"
               "SUPER,Q,killactive,"
               "SUPER,Escape,exit,"
               "SUPER,F,fullscreen,"
@@ -270,7 +292,7 @@ in {
         # x11.enable = true;
         package = pkgs.bibata-cursors;
         name = "Bibata-Modern-Classic";
-        size = 16;
+        size = 20;
       };
 
       gtk = {
@@ -302,11 +324,81 @@ in {
             ipc = true;
             splash = false;
             preload = "$HOME/Pictures/wallpapers/skullskates.png";
-            wallpaper = ",$HOME/Pictures/wallpapers/skullskates.png";
+            wallpaper = "$HOME/Pictures/wallpapers/skullskates.png";
+          };
+        };
+        hypridle = {
+          enable = true;
+          settings = {
+            general = {
+              before_sleep_cmd = "${pkgs.systemd}/bin/loginctl lock-session";
+              after_sleep_cmd =
+                "${config.programs.hyprland.package}/bin/hyprctl dispatch dpms on";
+              ignore_dbus_inhibit = true;
+              lock_cmd =
+                "pidof ${pkgs.hyprlock}/bin/hyprlock || ${pkgs.hyprlock}/bin/hyprlock";
+            };
+            listener = [
+              {
+                timeout = 300;
+                on-timeout = "${lockScript.outPath} lock";
+              }
+              {
+                timeout = 1800;
+                on-timeout = "${lockScript.outPath} suspend";
+              }
+            ];
           };
         };
       };
 
+      programs = {
+        hyprlock = {
+          enable = true;
+          settings = {
+            general = {
+              hide_cursor = true;
+              no_fade_in = false;
+              disable_loading_bar = true;
+              grace = 0;
+            };
+            background = [{
+              monitor = "";
+              path = "$HOME/Pictures/wallpapers/skullskates.png";
+              color = "rgba(25, 20, 20, 1.0)";
+              blur_passes = 1;
+              blur_size = 0;
+              brightness = 0.2;
+            }];
+            input-field = [{
+              monitor = "";
+              size = "250, 60";
+              outline_thickness = 2;
+              dots_size = 0.2;
+              dots_spacing = 0.2;
+              dots_center = true;
+              outer_color = "rgba(0, 0, 0, 0)";
+              inner_color = "rgba(0, 0, 0, 0.5)";
+              font_color = "rgb(200, 200, 200)";
+              fade_on_empty = false;
+              placeholder_text =
+                ''<i><span foreground="##cdd6f4">Input Password...</span></i>'';
+              hide_input = false;
+              position = "0, -120";
+              halign = "center";
+              valign = "center";
+            }];
+            label = [{
+              monitor = "";
+              text = "$TIME";
+              font_size = 120;
+              position = "0, 80";
+              valign = "center";
+              halign = "center";
+            }];
+          };
+        };
+      };
     };
   };
 }
