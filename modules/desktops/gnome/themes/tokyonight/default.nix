@@ -37,7 +37,7 @@ in {
           monospace-font-name = "Victor Mono 13";
           cursor-theme = "Adwaita";
           gtk-theme = "Tokyonight-Dark-BL-LB";
-          icon-theme = "Tokyonight-Dark-Cyan";
+          icon-theme = "Tokyonight-Dark";
         };
 
         # "org/gnome/desktop/sound" = { theme-name = "tokyonight-gtk-theme"; };
