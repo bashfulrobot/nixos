@@ -6,7 +6,6 @@ let
     builtins.getEnv "SUDO_USER"
   else
     builtins.getEnv "USER";
-  tokyonight-gtk-theme-gtk = pkgs.callPackage ./build { };
 in {
   options = {
     desktops.gnome.themes.tokyonight.enable = lib.mkOption {
@@ -19,7 +18,7 @@ in {
   config = lib.mkIf cfg.enable {
     home-manager.users."${username}" = {
       # Getting yaru cursor, sound and icon themes
-      home.packages = with pkgs; [ tokyonight-gtk-theme ];
+      home.packages = with pkgs; [ tokyonight-gtk-theme work-sans ];
       # https://github.com/kevin-nel/tokyo-night-gtksourceview
       home.file."tokyo-night.xml" = {
         source = ./config/tokyo-night.xml;
@@ -33,12 +32,15 @@ in {
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 
         "org/gnome/desktop/interface" = {
+          document-font-name = "Work Sans 12";
+          font-name = "Work Sans 12";
+          monospace-font-name = "Victor Mono 13";
           cursor-theme = "Adwaita";
-          gtk-theme = "tokyonight-gtk-theme";
-          icon-theme = "Adwaita";
+          gtk-theme = "Tokyonight-Dark-BL-LB";
+          icon-theme = "Tokyonight-Dark-Cyan";
         };
 
-        "org/gnome/desktop/sound" = { theme-name = "tokyonight-gtk-theme"; };
+        # "org/gnome/desktop/sound" = { theme-name = "tokyonight-gtk-theme"; };
 
         "org/gnome/desktop/background" = {
           picture-uri =
@@ -61,11 +63,15 @@ in {
         };
 
         "org/gnome/shell/extensions/pop-shell" = {
-          hint-color-rgba = "rgb(129, 161, 193)";
+          # hint-color-rgba = "rgb(129, 161, 193)";
+          hint-color-rgba = "rgb(122, 162, 247)";
+          gap-inner = 6;
+          gap-outer = 6;
+          ctive-hint-border-radius = 6;
         };
 
         "org/gnome/shell/extensions/user-theme" = {
-          name = "tokyonight-gtk-themeic-darker";
+          name = "Tokyonight-Dark-BL-LB'";
         };
 
       };
@@ -73,30 +79,30 @@ in {
       # Add gitnuro theme
       home.file.".config/gitnauro/gitnauro-tokyonight-gtk-theme-dark.json".text =
         ''
-             {
-              "primary": "#88C0D0",
-              "primaryVariant": "#81A1C1",
-              "onPrimary": "#2E3440",
-              "secondary": "#8FBCBB",
-              "onBackground": "#D8DEE9",
-              "onBackgroundSecondary": "#E5E9F0",
-              "error": "#BF616A",
-              "onError": "#D8DEE9",
-              "background": "#2E3440",
-              "backgroundSelected": "#3B4252",
-              "surface": "#434C5E",
-              "secondarySurface": "#4C566A",
-              "tertiarySurface": "#5E81AC",
-              "addFile": "#A3BE8C",
-              "deletedFile": "#BF616A",
-              "modifiedFile": "#D08770",
-              "conflictingFile": "#EBCB8B",
-              "dialogOverlay": "#000000",
-              "normalScrollbar": "#4C566A",
-              "hoverScrollbar": "#D08770",
-              "diffLineAdded": "#A3BE8C",
-              "diffLineRemoved": "#BF616A",
-              "isLight": false
+          {
+          "primary": "#7aa2f7",
+          "primaryVariant": "#32344a",
+          "onPrimary": "#1a1b26",
+          "secondary": "#9ece6a",
+          "onBackground": "#a9b1d6",
+          "onBackgroundSecondary": "#787c99",
+          "error": "#f7768e",
+          "onError": "#a9b1d6",
+          "background": "#1a1b26",
+          "backgroundSelected": "#32344a",
+          "surface": "#444b6a",
+          "secondarySurface": "#32344a",
+          "tertiarySurface": "#7aa2f7",
+          "addFile": "#9ece6a",
+          "deletedFile": "#f7768e",
+          "modifiedFile": "#e0af68",
+          "conflictingFile": "#ff9e64",
+          "dialogOverlay": "#1a1b26",
+          "normalScrollbar": "#32344a",
+          "hoverScrollbar": "#e0af68",
+          "diffLineAdded": "#9ece6a",
+          "diffLineRemoved": "#f7768e",
+          "isLight": false
           }
         '';
 

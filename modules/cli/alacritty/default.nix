@@ -69,21 +69,21 @@ in {
 
           font = {
             # Old font - ""Liga SFMono Nerd Font"
-            # Old font - "Victor Mono"
+            # Old font - "MesloLGS NF"
             normal = {
-              family = "MesloLGS NF";
+              family = "Victor Mono";
               style = "Regular";
             };
             bold = {
-              family = "MesloLGS NF";
+              family = "Victor Mono";
               style = "Bold";
             };
             italic = {
-              family = "MesloLGS NF";
+              family = "Victor Mono";
               style = "Italic";
             };
             bold_italic = {
-              family = "MesloLGS NF";
+              family = "Victor Mono";
               style = "Bold Italic";
             };
             size = 18;
