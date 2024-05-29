@@ -14,11 +14,11 @@
 
   # snowfallorg.avalanche.desktop.enable = true;
   # desktops.avalanche.enable = true;
-  # desktops.gnome.enable = true;
-  desktops = {
-    hyprland.enable = true;
-    addons.waybar.enable = true;
-  };
+  desktops.gnome.enable = true;
+  # desktops = {
+  #   hyprland.enable = true;
+  #   addons.waybar.enable = true;
+  # };
 
   # desktops.pantheon.enable = true;
 
