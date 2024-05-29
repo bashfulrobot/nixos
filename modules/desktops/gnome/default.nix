@@ -18,7 +18,8 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    desktops.gnome.themes.nord.enable = true;
+    # desktops.gnome.themes.nord.enable = true;
+    desktops.gnome.themes.tokyonight.enable = true;
 
     xdg.portal.config.common.default = [ "*" ];
 
@@ -163,8 +164,6 @@ in {
           locate-pointer = true;
           gtk-enable-primary-paste = true;
         };
-
-        "org/gnome/desktop/sound" = { theme-name = "Yaru"; };
 
         "org/gnome/shell/extensions/libpanel" = {
           row-spacing = 24;
