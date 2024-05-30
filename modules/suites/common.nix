@@ -23,6 +23,7 @@ in {
       mullvad.enable = false;
       readitlater.enable = true;
       celeste.enable = true;
+      cosmic-web-apps.enable = true;
     };
 
     cli = {
