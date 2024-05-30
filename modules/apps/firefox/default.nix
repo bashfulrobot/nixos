@@ -20,18 +20,17 @@ in {
     # https://addons.mozilla.org/en-CA/firefox/addon/pwas-for-firefox/
     environment.systemPackages = with pkgs; [ firefoxpwa ];
 
-    programs.firefox = {
-      enable = true;
-      package = pkgs.wrapFirefox pkgs.firefox-unwrapped;
-      nativeMessagingHosts.packages = with pkgs; [ firefoxpwa ];
-    };
+    # programs.firefox = {
+    #   enable = true;
+    #   package = pkgs.wrapFirefox pkgs.firefox-unwrapped;
+    #   nativeMessagingHosts.packages = with pkgs; [ firefoxpwa ];
+    # };
 
     home-manager.users."${username}" = {
 
       programs.firefox = {
         enable = true;
         # package = pkgs.firefox-devedition;
-        # nativeMessagingHosts.packages = with pkgs; [ firefoxpwa ];
         package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
           extraPolicies = {
             pipewireSupport = true;
