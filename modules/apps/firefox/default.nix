@@ -17,12 +17,21 @@ in {
 
   config = lib.mkIf cfg.enable {
 
+    # https://addons.mozilla.org/en-CA/firefox/addon/pwas-for-firefox/
+    environment.systemPackages = with pkgs; [ firefoxpwa ];
+
+    programs.firefox = {
+      enable = true;
+      package = pkgs.wrapFirefox pkgs.firefox-unwrapped;
+      nativeMessagingHosts.packages = with pkgs; [ firefoxpwa ];
+    };
+
     home-manager.users."${username}" = {
 
       programs.firefox = {
         enable = true;
         # package = pkgs.firefox-devedition;
-
+        # nativeMessagingHosts.packages = with pkgs; [ firefoxpwa ];
         package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
           extraPolicies = {
             pipewireSupport = true;
@@ -54,30 +63,31 @@ in {
             id = 0;
             name = "Default";
             isDefault = true;
-            extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-              # Currently using firefox sync
-              # see: https://github.com/nix-community/nur-combined/blob/master/repos/rycee/pkgs/firefox-addons/generated-firefox-addons.nix
-              # https-everywhere
-              # languagetool
-              # onepassword-password-manager
-              # gnome-shell-integration
-              # darkreader
-              # grammarly
-              # ublock-origin
-              # dracula-dark-colorscheme
-              # markdownload
-              # privacy-badger
-              # multi-account-containers
-              # new-window-without-toolbar
-              # decentraleyes
-              # okta-browser-plugin
-              # theater-mode-for-youtube
-              # link-cleaner
-              # # xbrowsersync
-              # redirector
-              # auto-tab-discard
-              # amp2html
-            ];
+            extensions = with pkgs.nur.repos.rycee.firefox-addons;
+              [
+                # Currently using firefox sync
+                # see: https://github.com/nix-community/nur-combined/blob/master/repos/rycee/pkgs/firefox-addons/generated-firefox-addons.nix
+                # https-everywhere
+                # languagetool
+                # onepassword-password-manager
+                # gnome-shell-integration
+                # darkreader
+                # grammarly
+                # ublock-origin
+                # dracula-dark-colorscheme
+                # markdownload
+                # privacy-badger
+                # multi-account-containers
+                # new-window-without-toolbar
+                # decentraleyes
+                # okta-browser-plugin
+                # theater-mode-for-youtube
+                # link-cleaner
+                # # xbrowsersync
+                # redirector
+                # auto-tab-discard
+                # amp2html
+              ];
             # bookmarks = {
             #   "📎 Add bookmark" = {
             #     url =
