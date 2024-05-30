@@ -13,10 +13,27 @@ in {
       default = false;
       description = "Enable gnome-web (Epiphany) browser.";
     };
+
+    apps.epiphany.useFlatpak = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Use Flatpak for installing gnome-web (Epiphany) browser.";
+    };
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ epiphany ];
+
+    # use regular package
+    environment.systemPackages = lib.mkIf (!cfg.useFlatpak) [ pkgs.epiphany ];
+
+    # use flatpak package
+    services.flatpak.packages = lib.mkIf cfg.useFlatpak [
+      "org.gnome.Epiphany"
+      #  Allow you to simply create web applications from given URL working inside separate window of your browser of choice.
+      # May need to move FF to flatpak to get this to work
+      # Or use an alternate brower like GNOME Web
+    ];
+
     home-manager.users."${username}" = {
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 

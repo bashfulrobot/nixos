@@ -19,7 +19,10 @@ in {
       chromium.enable = true;
       firefox.enable = true;
       brave.enable = true;
-      epiphany.enable = true;
+      epiphany = {
+        enable = false;
+        useFlatpak = true;
+      };
       mullvad.enable = false;
       readitlater.enable = true;
       celeste.enable = true;
