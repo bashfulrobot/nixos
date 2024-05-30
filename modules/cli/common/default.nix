@@ -16,6 +16,13 @@ in {
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ xdg-utils tcpdump ];
+
+    programs.nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/dustin/dev/nix/nixos";
+    };
     home-manager.users."${username}" = {
       programs = {
         autojump = {
@@ -27,12 +34,7 @@ in {
         jq = { enable = true; };
         k9s = { enable = true; };
         btop = { enable = true; };
-        nh = {
-          enable = true;
-          clean.enable = true;
-          clean.extraArgs = "--keep-since 4d --keep 3";
-          flake = "/home/dustin/dev/nix/nixos";
-        };
+
         # zellij = {
         #   enable = true;
         #   enableBashIntegration = true;
