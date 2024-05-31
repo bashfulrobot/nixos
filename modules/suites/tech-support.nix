@@ -13,9 +13,11 @@ in {
   config = lib.mkIf cfg.enable {
 
     apps = {
-      teamviewer.enable = false;
+      teamviewer.enable = true;
       anydesk.enable = true;
     };
+
+    environment.systemPackages = with pkgs; [ rustdesk-flutter rustdesk ];
 
   };
 }

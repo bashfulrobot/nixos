@@ -14,6 +14,8 @@
     workstation.enable = true;
   };
 
+  suites = { tech-support.enable = true; };
+
   desktops.gnome.enable = true;
   # desktops = {
   #   hyprland.enable = true;
