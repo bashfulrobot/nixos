@@ -356,6 +356,7 @@ in {
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
           ];
         };
 
@@ -421,6 +422,13 @@ in {
             binding = "<Alt>p";
             command = "/run/current-system/sw/bin/1password --toggle";
             name = "show 1password";
+          };
+
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7" =
+          {
+            binding = "<Super>f";
+            command = "/etc/profiles/per-user/dustin/bin/nautilus ~/dev";
+            name = "open files in ~/dev";
           };
 
       };

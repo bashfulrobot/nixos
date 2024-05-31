@@ -39,6 +39,10 @@ in {
           gtk-theme = "Tokyonight-Dark-BL-LB";
           icon-theme = "Tokyonight-Dark";
         };
+        "org/gnome/extensions/appindicator" = {
+          icon-saturation = 0.99999999999999989;
+
+        };
 
         # "org/gnome/desktop/sound" = { theme-name = "tokyonight-gtk-theme"; };
 
