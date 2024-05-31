@@ -27,10 +27,10 @@ in {
 
         sessionVariables = { EDITOR = "lvim"; };
 
-        file."config.lua" = {
-          source = ./config/config.lua;
-          target = ".config/lvim/config.lua";
-        };
+        # file."config.lua" = {
+        #   source = ./config/config.lua;
+        #   target = ".config/lvim/config.lua";
+        # };
 
       };
     };
