@@ -16,7 +16,7 @@ in {
 
     cli = {
       git.enable = true;
-      lunarvim.enable = false;
+      lunarvim.enable = true;
       helix.enable = false;
 
     };
