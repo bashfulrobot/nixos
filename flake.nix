@@ -16,15 +16,15 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
+    jeezyvim.url = "github:LGUG2Z/JeezyVim";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Hyprswitch (for windows switching in Hyprland)
-    hyprswitch = {
-      url = "github:h3rmt/hyprswitch/release";
-    };
+    hyprswitch = { url = "github:h3rmt/hyprswitch/release"; };
 
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
@@ -37,7 +37,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, envycontrol
-    , nix-flatpak, nur, kolide-launcher, hyprswitch, avalanche, ... }:
+    , nix-flatpak, nur, kolide-launcher, hyprswitch, avalanche, jeezyvim, ... }:
     with inputs;
     let
       nixpkgsConfig = { overlays = [ ]; };
@@ -71,13 +71,18 @@
             nix-flatpak.nixosModules.nix-flatpak
             kolide-launcher.nixosModules.kolide-launcher
             avalanche.nixosModules."avalanche/desktop"
+
             {
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
               # Overlays
-              nixpkgs.overlays = [ nur.overlay avalanche.overlays.default ];
+              nixpkgs.overlays = [
+                nur.overlay
+                avalanche.overlays.default
+                inputs.jeezyvim.overlays.default
+              ];
 
               # Allow unfree packages
               nixpkgs.config.allowUnfree = true;
@@ -100,7 +105,10 @@
               home-manager.useUserPackages = true;
 
               # Overlays
-              nixpkgs.overlays = [ nur.overlay ];
+              nixpkgs.overlays = [
+                nur.overlay
+                inputs.jeezyvim.overlays.default
+                 ];
 
               # Allow unfree packages
               nixpkgs.config.allowUnfree = true;

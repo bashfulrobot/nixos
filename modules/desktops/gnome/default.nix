@@ -426,7 +426,7 @@ in {
 
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7" =
           {
-            binding = "<Super>f";
+            binding = "<Super>n";
             command = "/etc/profiles/per-user/dustin/bin/nautilus ~/dev";
             name = "open files in ~/dev";
           };
