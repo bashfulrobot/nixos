@@ -30,7 +30,7 @@ in {
             jeezyvim # opinionated neovim
           ];
 
-        sessionVariables = { EDITOR = "jvim"; };
+        sessionVariables = { EDITOR = "nvim"; };
 
         # file."config.lua" = {
         #   source = ./config/config.lua;
