@@ -56,7 +56,7 @@ in {
             echo >> $filename
             echo "## Action Items" >> $filename
             echo >> $filename
-            lvim $filename
+            nvim $filename
           '';
           run_nix_package = ''
             set -x NIXPKGS_ALLOW_UNFREE 1
@@ -211,12 +211,11 @@ in {
           goagent = "cd ~/dev/sysdig/sysdig-agent-deploy/";
           goscreen = "cd ~/Pictures/Screenshots/";
           y = "cd ~/; yazi";
-          e = "lvim";
-          nvim = "lvim";
-          vi = "lvim";
-          vim = "lvim";
+          e = "nvim";
+          vi = "nvim";
+          vim = "nvim";
           ny = "cd ~/dev/nix/nixos/; yazi";
-          n = "cd ~/dev/nix/nixos/; lvim";
+          n = "cd ~/dev/nix/nixos/; nvim";
           nc =
             "clear && cd ~/dev/nix/nixos && git add . && git commit -S && rm -f /home/dustin/.config/mimeapps.list && rebuild && cd ~/dev/nix/nixos && git push";
           ls = "${pkgs.eza}/bin/eza -al --octal-permissions --icons";
