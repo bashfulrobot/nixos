@@ -15,6 +15,7 @@ in {
     apps = {
       betterbird.enable = false;
       xmind.enable = true;
+      bluemail.enable = true;
     };
 
   };
