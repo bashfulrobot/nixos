@@ -183,15 +183,15 @@ in {
     #   target = ".local/share/xdg-desktop-portal/icons/192x192/tactiq.png";
     # };
 
-    home.file."todoist.desktop" = {
-      source = ./desktop-files/todoist.desktop;
-      target = ".local/share/applications/todoist.desktop";
-    };
+    # home.file."todoist.desktop" = {
+    #   source = ./desktop-files/todoist.desktop;
+    #   target = ".local/share/applications/todoist.desktop";
+    # };
 
-    home.file."todoist.svg" = {
-      source = ./icons/todoist.svg;
-      target = ".local/share/xdg-desktop-portal/icons/192x192/todoist.svg";
-    };
+    # home.file."todoist.svg" = {
+    #   source = ./icons/todoist.svg;
+    #   target = ".local/share/xdg-desktop-portal/icons/192x192/todoist.svg";
+    # };
 
     home.file."elk.desktop" = {
       source = ./desktop-files/elk.desktop;

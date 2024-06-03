@@ -16,6 +16,7 @@ in {
       betterbird.enable = false;
       xmind.enable = true;
       bluemail.enable = true;
+      todoist.enable = true;
     };
 
   };
