@@ -208,7 +208,7 @@ in {
       signal-desktop # instant messaging
       rocketchat-desktop # instant messaging
       # thunderbird # email client
-      # mailspring # email client
+      mailspring # email client
 
     ];
 
