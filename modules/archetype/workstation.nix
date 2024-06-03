@@ -18,7 +18,10 @@ in {
       nix-settings.enable = true;
     };
 
-    sys = { dconf.enable = true; };
+    sys = {
+      dconf.enable = true;
+      xdg.enable = true;
+      };
 
     suites = {
       common.enable = true;

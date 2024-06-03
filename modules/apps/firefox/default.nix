@@ -20,6 +20,14 @@ in {
     # https://addons.mozilla.org/en-CA/firefox/addon/pwas-for-firefox/
     environment.systemPackages = with pkgs; [ firefoxpwa ];
 
+    xdg.mime.defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
+    };
+
     # programs.firefox = {
     #   enable = true;
     #   package = pkgs.wrapFirefox pkgs.firefox-unwrapped;
