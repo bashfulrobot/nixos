@@ -81,7 +81,7 @@
               nixpkgs.overlays = [
                 nur.overlay
                 avalanche.overlays.default
-                inputs.jeezyvim.overlays.default
+                jeezyvim.overlays.default
               ];
 
               # Allow unfree packages
@@ -107,7 +107,7 @@
               # Overlays
               nixpkgs.overlays = [
                 nur.overlay
-                inputs.jeezyvim.overlays.default
+                jeezyvim.overlays.default
                  ];
 
               # Allow unfree packages
