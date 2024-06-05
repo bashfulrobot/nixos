@@ -16,7 +16,7 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-    jeezyvim.url = "github:LGUG2Z/JeezyVim";
+    nvim.url = "github:bashfulrobot/jvim";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -37,7 +37,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, envycontrol
-    , nix-flatpak, nur, kolide-launcher, hyprswitch, avalanche, jeezyvim, ... }:
+    , nix-flatpak, nur, kolide-launcher, hyprswitch, avalanche, nvim, ... }:
     with inputs;
     let
       nixpkgsConfig = { overlays = [ ]; };
@@ -81,7 +81,7 @@
               nixpkgs.overlays = [
                 nur.overlay
                 avalanche.overlays.default
-                jeezyvim.overlays.default
+                nvim.overlays.default
               ];
 
               # Allow unfree packages
@@ -107,7 +107,7 @@
               # Overlays
               nixpkgs.overlays = [
                 nur.overlay
-                jeezyvim.overlays.default
+                nvim.overlays.default
                  ];
 
               # Allow unfree packages

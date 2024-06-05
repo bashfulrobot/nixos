@@ -11,7 +11,7 @@ in {
     cli.nvim.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable jeezyvim editor.";
+      description = "Enable nvim editor.";
     };
   };
 
@@ -46,48 +46,48 @@ in {
                   action = ":CommentToggle<CR>";
                   key = "<Space>/";
                 }
-                # toggle copilot-chat
-                {
-                  mode = "n";
-                  action = ":CopilotChatToggle<CR>";
-                  key = "<Space>c";
-                }
-                # explain the active selection
-                {
-                  mode = "n";
-                  action = ":CopilotChatExplain<CR>";
-                  key = "<Leader>e";
-                }
-                # review the selected code
-                {
-                  mode = "n";
-                  action = ":CopilotChatReview<CR>";
-                  key = "<Leader>r";
-                }
-                # fix the selected code
-                {
-                  mode = "n";
-                  action = ":CopilotChatFix<CR>";
-                  key = "<Leader>f";
-                }
-                # optimize the selected code
-                {
-                  mode = "n";
-                  action = ":CopilotChatOptimize<CR>";
-                  key = "<Leader>o";
-                }
-                # add documentation for the selection
-                {
-                  mode = "n";
-                  action = ":CopilotChatDocs<CR>";
-                  key = "<Leader>d";
-                }
-                # generate tests for the code
-                {
-                  mode = "n";
-                  action = ":CopilotChatTests<CR>";
-                  key = "<Leader>t";
-                }
+                # # toggle copilot-chat
+                # {
+                #   mode = "n";
+                #   action = ":CopilotChatToggle<CR>";
+                #   key = "<Space>c";
+                # }
+                # # explain the active selection
+                # {
+                #   mode = "n";
+                #   action = ":CopilotChatExplain<CR>";
+                #   key = "<Leader>e";
+                # }
+                # # review the selected code
+                # {
+                #   mode = "n";
+                #   action = ":CopilotChatReview<CR>";
+                #   key = "<Leader>r";
+                # }
+                # # fix the selected code
+                # {
+                #   mode = "n";
+                #   action = ":CopilotChatFix<CR>";
+                #   key = "<Leader>f";
+                # }
+                # # optimize the selected code
+                # {
+                #   mode = "n";
+                #   action = ":CopilotChatOptimize<CR>";
+                #   key = "<Leader>o";
+                # }
+                # # add documentation for the selection
+                # {
+                #   mode = "n";
+                #   action = ":CopilotChatDocs<CR>";
+                #   key = "<Leader>d";
+                # }
+                # # generate tests for the code
+                # {
+                #   mode = "n";
+                #   action = ":CopilotChatTests<CR>";
+                #   key = "<Leader>t";
+                # }
                 # {
                 #   mode = "n";
                 #   action = ":vsplit<CR>";
@@ -138,7 +138,7 @@ in {
                 copilot-cmp.enable = pkgs.lib.mkForce false;
                 diffview.enable = pkgs.lib.mkForce false;
                 helm.enable = pkgs.lib.mkForce false;
-                lazygit.enable = true;
+                lazygit.enable = pkgs.lib.mkForce true;
                 multicursors.enable = pkgs.lib.mkForce false;
                 nix.enable = pkgs.lib.mkForce false;
                 nix-develop.enable = pkgs.lib.mkForce false;
