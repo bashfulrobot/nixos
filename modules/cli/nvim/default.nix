@@ -17,7 +17,7 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    home-manager.users."${username}" = {
+    home-manager.users."${username}" = lib.trace "nvim HM module ran"  {
       home = {
 
         # packages = with pkgs;
@@ -59,48 +59,7 @@ in {
                   action = ":w<CR>";
                   key = "<C-s>";
                 }
-                # # toggle copilot-chat
-                # {
-                #   mode = "n";
-                #   action = ":CopilotChatToggle<CR>";
-                #   key = "<Space>c";
-                # }
-                # # explain the active selection
-                # {
-                #   mode = "n";
-                #   action = ":CopilotChatExplain<CR>";
-                #   key = "<C-Space>e";
-                # }
-                # # review the selected code
-                # {
-                #   mode = "n";
-                #   action = ":CopilotChatReview<CR>";
-                #   key = "<C-Space>r";
-                # }
-                # # fix the selected code
-                # {
-                #   mode = "n";
-                #   action = ":CopilotChatFix<CR>";
-                #   key = "<C-Space>f";
-                # }
-                # # optimize the selected code
-                # {
-                #   mode = "n";
-                #   action = ":CopilotChatOptimize<CR>";
-                #   key = "<C-Space>o";
-                # }
-                # # add documentation for the selection
-                # {
-                #   mode = "n";
-                #   action = ":CopilotChatDocs<CR>";
-                #   key = "<C-Space>d";
-                # }
-                # # generate tests for the code
-                # {
-                #   mode = "n";
-                #   action = ":CopilotChatTests<CR>";
-                #   key = "<C-Space>t";
-                # }
+
                 # {
                 #   mode = "n";
                 #   action = ":vsplit<CR>";

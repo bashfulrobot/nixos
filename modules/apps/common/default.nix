@@ -167,7 +167,6 @@ in {
       autorestic # restic automation tool
 
       ### GUI
-      cinny-desktop # another matrix client
       gimp-with-plugins # image editor
       inkscape-with-extensions # vector graphics editor
       xournalpp # note taking/pdf annotator
@@ -200,10 +199,11 @@ in {
       gruvbox-gtk-theme # theme
       gruvbox-dark-icons-gtk # theme icons
       colorpicker # colour picker
-      # nheko # Matrix Clien
+
       # microsoft-edge # web browser
 
       # Communication
+      nheko # Matrix Client
       slack # instant messaging
       signal-desktop # instant messaging
       rocketchat-desktop # instant messaging
