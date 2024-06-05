@@ -40,7 +40,9 @@
     , nix-flatpak, nur, kolide-launcher, hyprswitch, avalanche, nvim, ... }:
     with inputs;
     let
-      nixpkgsConfig = { overlays = [ ]; };
+      # nixpkgsConfig = { overlays = [ ]; };
+      workstationOverlays =
+        [ nur.overlay avalanche.overlays.default nvim.overlays.default ];
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
       username = if builtins.getEnv "SUDO_USER" != "" then
@@ -77,12 +79,8 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
-              # Overlays
-              nixpkgs.overlays = [
-                nur.overlay
-                avalanche.overlays.default
-                nvim.overlays.default
-              ];
+              # Overlays - specified in "workstationOverlays"
+              nixpkgs.overlays = workstationOverlays;
 
               # Allow unfree packages
               nixpkgs.config.allowUnfree = true;
@@ -104,11 +102,8 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
-              # Overlays
-              nixpkgs.overlays = [
-                nur.overlay
-                nvim.overlays.default
-                 ];
+              # Overlays - specified in "workstationOverlays"
+              nixpkgs.overlays = workstationOverlays;
 
               # Allow unfree packages
               nixpkgs.config.allowUnfree = true;
