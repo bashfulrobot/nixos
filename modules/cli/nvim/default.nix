@@ -28,6 +28,7 @@ in {
         sessionVariables = { EDITOR = "nvim"; };
 
         packages = [
+          pkgs.vimPlugins.CopilotChat-nvim
           (pkgs.jeezyvim.nixvimExtend {
             # you can put anything under the "Options" section of the NixVim docs here
             # https://nix-community.github.io/nixvim/
@@ -40,11 +41,23 @@ in {
             config = {
               keymaps = [
 
-                # toggle comments
+                # toggle comments on selected lines (visual mode)
+                {
+                  mode = "v";
+                  action = "gc";
+                  key = "<Space>.";
+                }
+                # toggle comments on current line (normal mode) (ctrl=/)
                 {
                   mode = "n";
-                  action = ":CommentToggle<CR>";
-                  key = "<Space>/";
+                  action = "gcc";
+                  key = "<C-c>";
+                }
+                # save file with ctrl-s
+                {
+                  mode = "n";
+                  action = ":w<CR>";
+                  key = "<C-s>";
                 }
                 # # toggle copilot-chat
                 # {
@@ -56,37 +69,37 @@ in {
                 # {
                 #   mode = "n";
                 #   action = ":CopilotChatExplain<CR>";
-                #   key = "<Leader>e";
+                #   key = "<C-Space>e";
                 # }
                 # # review the selected code
                 # {
                 #   mode = "n";
                 #   action = ":CopilotChatReview<CR>";
-                #   key = "<Leader>r";
+                #   key = "<C-Space>r";
                 # }
                 # # fix the selected code
                 # {
                 #   mode = "n";
                 #   action = ":CopilotChatFix<CR>";
-                #   key = "<Leader>f";
+                #   key = "<C-Space>f";
                 # }
                 # # optimize the selected code
                 # {
                 #   mode = "n";
                 #   action = ":CopilotChatOptimize<CR>";
-                #   key = "<Leader>o";
+                #   key = "<C-Space>o";
                 # }
                 # # add documentation for the selection
                 # {
                 #   mode = "n";
                 #   action = ":CopilotChatDocs<CR>";
-                #   key = "<Leader>d";
+                #   key = "<C-Space>d";
                 # }
                 # # generate tests for the code
                 # {
                 #   mode = "n";
                 #   action = ":CopilotChatTests<CR>";
-                #   key = "<Leader>t";
+                #   key = "<C-Space>t";
                 # }
                 # {
                 #   mode = "n";
@@ -131,20 +144,22 @@ in {
                 # https://nix-community.github.io/nixvim/plugins/airline/index.html
 
                 # readme - for config: https://github.com/m4xshen/autoclose.nvim?tab=readme-ov-file#-configuration
-                autoclose.enable = pkgs.lib.mkForce false;
+                autoclose.enable = pkgs.lib.mkForce true;
                 clipboard-image.enable = pkgs.lib.mkForce false;
-                markdown-preview.enable = pkgs.lib.mkForce false;
-                # copilot-chat.enable = true; #plugin isn't in nixvim yet?
+                markdown-preview.enable = pkgs.lib.mkForce true;
+                commentary.enable = pkgs.lib.mkForce true;
+                # Does not show in nikpgs, but is there under "vimPlugins.CopilotChat-nvim"
+                # copilot-chat.enable = pkgs.lib.mkForce true;
                 copilot-cmp.enable = pkgs.lib.mkForce false;
                 diffview.enable = pkgs.lib.mkForce false;
-                helm.enable = pkgs.lib.mkForce false;
-                lazygit.enable = pkgs.lib.mkForce true;
+                helm.enable = pkgs.lib.mkForce true;
+                lazygit.enable = true;
                 multicursors.enable = pkgs.lib.mkForce false;
-                nix.enable = pkgs.lib.mkForce false;
-                nix-develop.enable = pkgs.lib.mkForce false;
-                nvim-colorizer.enable = pkgs.lib.mkForce false;
+                nix.enable = pkgs.lib.mkForce true;
+                nix-develop.enable = pkgs.lib.mkForce true;
+                nvim-colorizer.enable = pkgs.lib.mkForce true;
                 obsidian.enable = pkgs.lib.mkForce false;
-                todo-comments.enable = pkgs.lib.mkForce false;
+                todo-comments.enable = pkgs.lib.mkForce true;
 
               };
             };
