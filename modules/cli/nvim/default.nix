@@ -11,7 +11,7 @@ in {
     cli.nvim.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable jeezyvim editor.";
+      description = "Enable nvim editor.";
     };
   };
 
