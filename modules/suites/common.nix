@@ -17,20 +17,20 @@ in {
       common.enable = true;
       one-password.enable = true;
       chromium.enable = true;
-      firefox.enable = true;
+      firefox.enable = false;
       brave.enable = true;
       epiphany = {
         enable = false;
-        useFlatpak = true;
+        useFlatpak = false;
       };
       mullvad.enable = false;
       readitlater.enable = true;
       celeste.enable = true;
-      cosmic-web-apps.enable = true;
+      cosmic-web-apps.enable = false;
     };
 
     cli = {
-      comics-downloader.enable = true;
+      comics-downloader.enable = false;
       common.enable = true;
       espanso.enable = false;
       environment.enable = true;
@@ -38,7 +38,7 @@ in {
       fish.enable = true;
       alacritty.enable = true;
       tailscale.enable = true;
-      ptyxis.enable = false; # just packaged. Wiating to show nixpkgs
+      ptyxis.enable = true;
       blackbox-terminal.enable = false;
       linkr.enable = false;
     };
