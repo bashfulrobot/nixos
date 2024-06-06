@@ -18,7 +18,7 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = [ pkgs.intel-media-driver vaapiVdpau ];
+      extraPackages = [ pkgs.intel-media-driver pkgs.vaapiVdpau ];
     };
 
     nvidia = {
