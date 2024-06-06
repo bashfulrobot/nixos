@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Gitbutler
+Comment=Git Application
+Exec=appimage-run /home/dustin/Documents/appImages/git-butler_0.12.1_amd64.AppImage
+Icon=/home/dustin/dev/nix/nixos/modules/desktop-files/src/gitbutler.png
+Categories=Utilities;
+Terminal=false

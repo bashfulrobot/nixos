@@ -92,6 +92,11 @@ in {
       default = false;
       description = "Enable reboot-windows.desktop";
     };
+    apps.desktopFile.gitbutler = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable gitbutler.desktop";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -111,6 +116,10 @@ in {
       home.file."beeper.desktop" = lib.mkIf cfg.beeper {
         source = ./src/beeper.desktop;
         target = ".local/share/applications/beeper.desktop";
+      };
+      home.file."gitbutler.desktop" = lib.mkIf cfg.gitbutler {
+        source = ./src/gitbutler.desktop;
+        target = ".local/share/applications/gitbutler.desktop";
       };
       home.file."monokle.desktop" = lib.mkIf cfg.monokle {
         source = ./src/monokle.desktop;
