@@ -15,7 +15,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ xdg-utils tcpdump ];
+    environment.systemPackages = with pkgs; [ xdg-utils tcpdump silver-searcher ];
 
     # programs.nh = {
     #   enable = true;
