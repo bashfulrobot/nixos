@@ -47,6 +47,14 @@ dev-rebuild:
     @git add .
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}}
     # @just _sway-reload
+# Test nixos cfg on your current host without git commit. Switches, but does not create a bootloader entry
+dev-test:
+    @git add .
+    @sudo nixos-rebuild test --impure --flake .#\{{`hostname`}}
+# Test (with Trace) nixos cfg on your current host without git commit. Switches, but does not create a bootloader entry
+dev-test-trace:
+    @git add .
+    @sudo nixos-rebuild test --impure --flake .#\{{`hostname`}} --show-trace
 # Rebuild and trace nixos cfg on your current host without git commit.
 dev-rebuild-trace:
     @git add .
