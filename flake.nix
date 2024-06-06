@@ -55,25 +55,13 @@
 
         # evo = new work laptop hostname
         evo = nixpkgs.lib.nixosSystem {
-          # format different due to kolide-launcher
-          # nixpkgs.config.allowUnfree = true; only applies to non-flakes.
-          specialArgs = {
-            inherit inputs secrets;
-            pkgs = import nixpkgs {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-          };
+          specialArgs = { inherit inputs secrets; };
           system = "x86_64-linux";
           modules = [
             ./systems/evo
             nur.nixosModules.nur
-            # nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
-            home-manager.nixosModules.home-manager
             nix-flatpak.nixosModules.nix-flatpak
-            kolide-launcher.nixosModules.kolide-launcher
-            avalanche.nixosModules."avalanche/desktop"
-
+            home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = { inherit secrets; };
               home-manager.useGlobalPkgs = true;
