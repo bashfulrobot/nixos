@@ -51,7 +51,7 @@
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
         offload = true;
-        offload.enableOffloadCmd = true;
+        # offload.enableOffloadCmd = true;
         # Make the Intel iGP default. The NVIDIA Quadro is for CUDA/NVENC
         # reverseSync.enable = true;
         # sync.enable = true;
