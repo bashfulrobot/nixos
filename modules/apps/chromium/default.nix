@@ -65,6 +65,11 @@ in {
           { id = "lbaenccijpceocophfjmecmiipgmacoi"; } # Wizardshot
         ];
       };
+      # force chromium to use wayland - https://skerit.com/en/make-electron-applications-use-the-wayland-renderer
+      home.file.".config/chromium-flags.conf".text = ''
+        --enable-features=UseOzonePlatform
+        --ozone-platform=wayland
+      '';
     };
   };
 }
