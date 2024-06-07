@@ -15,7 +15,7 @@ in {
       # TODO: refactor these packages out into the proper moduls/suites
 
       ### Terminal
-      xorg.xwininfo # Get StartupWMClass from a window in xwayland
+
       texliveSmall # get pdflatex
       usbutils # usb utilities like lsusb
       pciutils # list all PCI devices
@@ -23,8 +23,7 @@ in {
       # spotdl # Spotify downloader
       steam-run # helps run some static compiled binaries
       file
-      wtype # xdotool type for wayland
-      wlrctl # Command line utility for miscellaneous wlroots Wayland extensions
+
       rclone # Command line program to sync files and directories to and from major cloud storage
       # syncrclone # Bidirectional sync tool for rclone
       textsnatcher # copy text from images
@@ -32,7 +31,7 @@ in {
       libxslt # A C library and tools to do XSL transformations - needed in my terraform scripts
       gmailctl # cli to write gmail filters as code
       # ncdu # disk usage analyzer - replaced with gdu
-      # wshowkeys # Show keys pressed in wayland
+
       killall # kill all instances of a running app
       # xfce.xfce4-terminal
       dex # open desktop files from the terminal
@@ -97,7 +96,6 @@ in {
       just # command runner
       doppler # secret management tool
 
-      wl-clipboard # Wayland clipboard - needed for espanso
       nodejs-18_x # JavaScript runtime
       # postman # API testing tool
       sftpman # SftpMan consists of a CLI and a GTK application that make it simpler to setup and mount SSHFS/SFTP file systems.
@@ -180,8 +178,8 @@ in {
       libreoffice # office suite
       solaar # Linux manager for many Logitech keyboards, mice
       mplayer # Video player
-      wl-color-picker # Wayland color picker
-      zoom-us # video conferencing - Disabled due to a bug with ultrawides and wayland
+
+      zoom-us # video conferencing
       # tuba # Mastodon client
       morgen # AI calendar - testing
       # protonvpn-gui # VPN client

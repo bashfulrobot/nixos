@@ -18,6 +18,9 @@ in {
 
   config = lib.mkIf cfg.enable {
 
+    # Enable Wayland specific settings
+    desktops.addons.wayland.enable = true;
+
     # desktops.gnome.themes.nord.enable = true;
     desktops.gnome.themes.tokyonight.enable = true;
 
