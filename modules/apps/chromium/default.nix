@@ -62,6 +62,7 @@ in {
           { id = "oodfdmglhbbkkcngodjjagblikmoegpa"; } # t.ly url shortener
           { id = "bkdgflcldnnnapblkhphbgpggdiikppg"; } # duckduckgo
           { id = "blkggjdmcfjdbmmmlfcpplkchpeaiiab"; } # Omnivore
+          { id = "lbaenccijpceocophfjmecmiipgmacoi"; } # Wizardshot
         ];
       };
     };
