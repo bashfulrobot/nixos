@@ -1,11 +1,8 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 
 let
   cfg = config.sys.gpg;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -23,7 +20,7 @@ in {
       pinentryPackage = pkgs.pinentry-gnome3;
     };
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       ### GPG
       programs.gpg = { enable = true; };
 

@@ -2,15 +2,12 @@
 # Nvidia - https://wiki.hyprland.org/Nvidia/
 #  Source - https://github.com/MatthiasBenaets/nixos-config/blob/2d9d8c7f847e586d2e2ec14ed669416e4a758ea4/rsc/archive/dwm/hyprland.nix
 
-{ pkgs, config, lib, inputs, ... }:
+{ user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.desktops.hyprland;
   hostName = builtins.getEnv "HOSTNAME";
   # Used in my home manager code at the bottom of the file.
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
   lockScript = pkgs.writeShellScript "lock-script" ''
     action=$1
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
@@ -172,7 +169,7 @@ in {
       AllowHybridSleep=yes
     ''; # Clamshell Mode
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 
       wayland.windowManager = {
         hyprland = {

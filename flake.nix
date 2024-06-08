@@ -40,22 +40,20 @@
     , nix-flatpak, nur, kolide-launcher, hyprswitch, avalanche, nvim, ... }:
     with inputs;
     let
-      # nixpkgsConfig = { overlays = [ ]; };
+      # Add overlays here, then pass the "workstationOverlays" reference into machine config.
       workstationOverlays =
         [ nur.overlay avalanche.overlays.default nvim.overlays.default ];
-      secrets =
-        builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
-      username = if builtins.getEnv "SUDO_USER" != "" then
-        builtins.getEnv "SUDO_USER"
-      else
-        builtins.getEnv "USER";
+      # Load secrets. This folder is encryted with git-crypt
+      secrets = builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
+      # Load user settings
+      user-settings = builtins.fromJSON (builtins.readFile "${self}/settings/setttings.json");
     in {
 
       nixosConfigurations = {
 
         # evo = new work laptop hostname
         evo = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs secrets; };
+          specialArgs = { inherit user-settings inputs secrets; };
           system = "x86_64-linux";
           modules = [
             ./systems/evo
@@ -63,7 +61,7 @@
             nix-flatpak.nixosModules.nix-flatpak
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = { inherit secrets; };
+              home-manager.extraSpecialArgs = { inherit user-settings secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
@@ -78,7 +76,7 @@
 
         # rembot = desktop hostname
         rembot = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs secrets; };
+          specialArgs = { inherit user-settings inputs secrets; };
           system = "x86_64-linux";
           modules = [
             ./systems/rembot
@@ -86,7 +84,7 @@
             nix-flatpak.nixosModules.nix-flatpak
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = { inherit secrets; };
+              home-manager.extraSpecialArgs = { inherit user-settings secrets; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
@@ -101,7 +99,7 @@
 
         # nixdo = server hostname
         nixdo = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs secrets; };
+          specialArgs = { inherit user-settings inputs secrets; };
           system = "x86_64-linux";
           modules = [
             ./systems/nixdo

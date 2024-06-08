@@ -1,10 +1,7 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.apps.openvscode-server;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -23,10 +20,10 @@ in {
 
     services.openvscode-server = {
       enable = true;
-      user = "${username}";
+      user = "${user-settings.user.username}";
       port = 8080;
       host = "localhost";
-      extensionsDir = "/home/${username}/.vscode-oss/extensions";
+      extensionsDir = "/home/${user-settings.user.username}/.vscode-oss/extensions";
       withoutConnectionToken =
         true; # So you don't need to grab the token that it generates here
     };

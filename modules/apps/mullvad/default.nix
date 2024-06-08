@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ user-settings, config, lib, pkgs, ... }:
 let cfg = config.apps.mullvad;
 in {
 

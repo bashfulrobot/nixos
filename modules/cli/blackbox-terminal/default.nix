@@ -1,10 +1,7 @@
-{ pkgs, inputs, lib, config, ... }:
+{ user-settings, pkgs, inputs, lib, config, ... }:
 let
   cfg = config.cli.blackbox-terminal;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     cli.blackbox-terminal.enable = lib.mkOption {
@@ -15,7 +12,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 
       home.packages = with pkgs;
         [

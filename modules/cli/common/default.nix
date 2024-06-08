@@ -1,10 +1,7 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.cli.common;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     cli.common.enable = lib.mkOption {
@@ -23,7 +20,7 @@ in {
     #   clean.extraArgs = "--keep-since 4d --keep 3";
     #   flake = "/home/dustin/dev/nix/nixos";
     # };
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       programs = {
         autojump = {
           enable = true;

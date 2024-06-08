@@ -1,10 +1,7 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.apps.kvm;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -29,7 +26,7 @@ in {
     ];
 
     # Add user to libvirtd group
-    users.users."${username}".extraGroups =
+    users.users."${user-settings.user.username}".extraGroups =
       [ "libvirtd" "qemu" "kvm" "qemu-libvirtd" "lxd" ];
 
     virtualisation = {

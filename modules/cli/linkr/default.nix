@@ -1,12 +1,9 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 
 let
   cfg = config.cli.linkr;
   linkr = pkgs.callPackage ./build { };
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     cli.linkr.enable = lib.mkOption {
@@ -17,7 +14,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       home.packages = with pkgs; [ linkr ];
 
       home.file."linkr.desktop" = {

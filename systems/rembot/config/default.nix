@@ -7,7 +7,8 @@
 
   ];
 
-  users.dustin.enable = true;
+  # User name specified in the settings
+  users.default.enable = true;
 
   archetype = {
     tower.enable = true;

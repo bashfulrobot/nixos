@@ -1,11 +1,8 @@
-{ pkgs, config, lib, secrets, ... }:
+{ user-settings, pkgs, config, lib, secrets, ... }:
 
 let
   cfg = config.apps.syncthing;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     apps.syncthing.enable = lib.mkOption {
@@ -47,11 +44,11 @@ in {
         };
         systemService = true;
         # Sets the user that Syncthing runs as
-        user = "${username}";
+        user = "${user-settings.user.username}";
         # Sets the group that Syncthing runs as
         group = "users";
         # Sets the Data Directory (the default sync directory, but we won’t use this)
-        dataDir = "/home/${username}";
+        dataDir = "${user-settings.user.home}";
         # Sets the Web Interface to listen on all interfaces (for machines that are headless, I set to 0.0.0.0, otherwise 127.0.0.1)
         # Todo - bind to tailscale IP
         guiAddress = "0.0.0.0:8384";
@@ -66,7 +63,7 @@ in {
         # Sets the Config Directory (important because I sync it as a part of my .config files)
         # Note: if you don’t persist the configDir, the device ID will change after each nixos-rebuild switch.
         # ToDo - add a host variable, then add to sync
-        configDir = "/home/${username}/.config/syncthing/evo";
+        configDir = "${user-settings.user.home}/.config/syncthing/evo";
 
         # Declaring the devices - no automated way to grab the device ID’s.
         # Hop into the web interface of each device and go to Settings -> Show ID,
@@ -85,7 +82,7 @@ in {
           };
           folders = {
             "Desktop" = {
-              path = "/home/${username}/Desktop";
+              path = "${user-settings.user.home}/Desktop";
               devices = [ "rembot" ];
               # keep just a handful of old versions of the config files. This ensures that I’m not eating up a ton of disk space, while giving me the ability to roll back far enough to resolve issues I create for myself.
               versioning = {
@@ -94,7 +91,7 @@ in {
               };
             };
             "Documents" = {
-              path = "/home/${username}/Documents";
+              path = "${user-settings.user.home}/Documents";
               devices = [ "rembot" ];
 
               #  The gist of staggered versioning is Syncthing will keep new versions created with an RPO of down to 30 seconds for the first hour, hourly versions for the first day, daily versions for the first month, and weekly versions until the maxAge is reached.
@@ -109,7 +106,7 @@ in {
               };
             };
             "Downloads" = {
-              path = "/home/${username}/Downloads";
+              path = "${user-settings.user.home}/Downloads";
               devices = [ "rembot" ];
               versioning = {
                 type = "simple";
@@ -117,7 +114,7 @@ in {
               };
             };
             "Music" = {
-              path = "/home/${username}/Music";
+              path = "${user-settings.user.home}/Music";
               devices = [ "rembot" ];
               versioning = {
                 type = "simple";
@@ -125,7 +122,7 @@ in {
               };
             };
             "Pictures" = {
-              path = "/home/${username}/Pictures";
+              path = "${user-settings.user.home}/Pictures";
               devices = [ "rembot" ];
               versioning = {
                 type = "simple";
@@ -133,7 +130,7 @@ in {
               };
             };
             "Videos" = {
-              path = "/home/${username}/Videos";
+              path = "${user-settings.user.home}/Videos";
               devices = [ "rembot" ];
               versioning = {
                 type = "simple";
@@ -141,7 +138,7 @@ in {
               };
             };
             "dev" = {
-              path = "/home/${username}/dev";
+              path = "${user-settings.user.home}/dev";
               devices = [ "rembot" ];
               versioning = {
                 type = "staggered";
@@ -152,7 +149,7 @@ in {
               };
             };
             ".gnupg" = {
-              path = "/home/${username}/.gnupg";
+              path = "${user-settings.user.home}/.gnupg";
               devices = [ "rembot" ];
               ignorePerms =
                 false; # By default, Syncthing doesn't sync file permissions. This line enables it for this folder.
@@ -165,7 +162,7 @@ in {
               };
             };
             ".aws" = {
-              path = "/home/${username}/.aws";
+              path = "${user-settings.user.home}/.aws";
               devices = [ "rembot" ];
               versioning = {
                 type = "staggered";
@@ -176,7 +173,7 @@ in {
               };
             };
             ".kube" = {
-              path = "/home/${username}/.kube";
+              path = "${user-settings.user.home}/.kube";
               devices = [ "rembot" ];
               versioning = {
                 type = "staggered";
@@ -187,7 +184,7 @@ in {
               };
             };
             ".doppler" = {
-              path = "/home/${username}/.doppler";
+              path = "${user-settings.user.home}/.doppler";
               devices = [ "rembot" ];
               versioning = {
                 type = "staggered";
@@ -198,7 +195,7 @@ in {
               };
             };
             "virter" = {
-              path = "/home/${username}/.config/virter";
+              path = "${user-settings.user.home}/.config/virter";
               devices = [ "rembot" ];
               versioning = {
                 type = "staggered";
@@ -209,7 +206,7 @@ in {
               };
             };
             "bin" = {
-              path = "/home/${username}/bin";
+              path = "${user-settings.user.home}/bin";
               devices = [ "rembot" ];
               versioning = {
                 type = "staggered";
@@ -230,7 +227,7 @@ in {
         # Sets the Config Directory (important because I sync it as a part of my .config files)
         # Note: if you don’t persist the configDir, the device ID will change after each nixos-rebuild switch.
         # ToDo - add a host variable, then add to sync
-        configDir = "/home/${username}/.config/syncthing/rembot";
+        configDir = "${user-settings.user.home}/.config/syncthing/rembot";
 
         # Declaring the devices - no automated way to grab the device ID’s.
         # Hop into the web interface of each device and go to Settings -> Show ID,
@@ -250,7 +247,7 @@ in {
           };
           folders = {
             "Desktop" = {
-              path = "/home/${username}/Desktop";
+              path = "${user-settings.user.home}/Desktop";
               devices = [ "evo" ];
               # keep just a handful of old versions of the config files. This ensures that I’m not eating up a ton of disk space, while giving me the ability to roll back far enough to resolve issues I create for myself.
               versioning = {
@@ -259,7 +256,7 @@ in {
               };
             };
             "Documents" = {
-              path = "/home/${username}/Documents";
+              path = "${user-settings.user.home}/Documents";
               devices = [ "evo" ];
 
               #  The gist of staggered versioning is Syncthing will keep new versions created with an RPO of down to 30 seconds for the first hour, hourly versions for the first day, daily versions for the first month, and weekly versions until the maxAge is reached.
@@ -274,7 +271,7 @@ in {
               };
             };
             "Downloads" = {
-              path = "/home/${username}/Downloads";
+              path = "${user-settings.user.home}/Downloads";
               devices = [ "evo" ];
               versioning = {
                 type = "simple";
@@ -282,7 +279,7 @@ in {
               };
             };
             "Music" = {
-              path = "/home/${username}/Music";
+              path = "${user-settings.user.home}/Music";
               devices = [ "evo" ];
               versioning = {
                 type = "simple";
@@ -290,7 +287,7 @@ in {
               };
             };
             "Pictures" = {
-              path = "/home/${username}/Pictures";
+              path = "${user-settings.user.home}/Pictures";
               devices = [ "evo" ];
               versioning = {
                 type = "simple";
@@ -298,7 +295,7 @@ in {
               };
             };
             "Videos" = {
-              path = "/home/${username}/Videos";
+              path = "${user-settings.user.home}/Videos";
               devices = [ "evo" ];
               versioning = {
                 type = "simple";
@@ -306,7 +303,7 @@ in {
               };
             };
             "dev" = {
-              path = "/home/${username}/dev";
+              path = "${user-settings.user.home}/dev";
               devices = [ "evo" ];
               versioning = {
                 type = "staggered";
@@ -317,7 +314,7 @@ in {
               };
             };
             ".gnupg" = {
-              path = "/home/${username}/.gnupg";
+              path = "${user-settings.user.home}/.gnupg";
               devices = [ "evo" ];
               ignorePerms =
                 false; # By default, Syncthing doesn't sync file permissions. This line enables it for this folder.
@@ -330,7 +327,7 @@ in {
               };
             };
             ".aws" = {
-              path = "/home/${username}/.aws";
+              path = "${user-settings.user.home}/.aws";
               devices = [ "evo" ];
               versioning = {
                 type = "staggered";
@@ -341,7 +338,7 @@ in {
               };
             };
             ".kube" = {
-              path = "/home/${username}/.kube";
+              path = "${user-settings.user.home}/.kube";
               devices = [ "evo" ];
               versioning = {
                 type = "staggered";
@@ -352,7 +349,7 @@ in {
               };
             };
             ".doppler" = {
-              path = "/home/${username}/.doppler";
+              path = "${user-settings.user.home}/.doppler";
               devices = [ "evo" ];
               versioning = {
                 type = "staggered";
@@ -363,7 +360,7 @@ in {
               };
             };
             "virter" = {
-              path = "/home/${username}/.config/virter";
+              path = "${user-settings.user.home}/.config/virter";
               devices = [ "evo" ];
               versioning = {
                 type = "staggered";
@@ -374,7 +371,7 @@ in {
               };
             };
             "bin" = {
-              path = "/home/${username}/bin";
+              path = "${user-settings.user.home}/bin";
               devices = [ "evo" ];
               versioning = {
                 type = "staggered";
@@ -390,7 +387,7 @@ in {
       })
     ];
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       home.file = {
         "syncthing.desktop" = {
           text = ''
@@ -399,7 +396,7 @@ in {
             Name=Syncthing
             StartupWMClass=chrome-localhost__-Default
             Comment=Launch Syncthing Web UI
-            Icon=/home/"${username}"/.local/share/xdg-desktop-portal/icons/192x192/syncthing.png
+            Icon=${user-settings.user.home}/.local/share/xdg-desktop-portal/icons/192x192/syncthing.png
             Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="http://localhost:8384" %U
 
             Terminal=false

@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 
 let
   cfg = config.sys.fonts;
@@ -8,10 +8,7 @@ let
   aharoni-font = pkgs.callPackage ./build/aharoni { };
   monaspace-font = pkgs.callPackage ./build/monaspace { };
 
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -24,7 +21,7 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 
       fonts.fontconfig.enable = true;
 

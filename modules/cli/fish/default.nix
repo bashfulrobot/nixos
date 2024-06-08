@@ -1,11 +1,8 @@
-{ lib, pkgs, secrets, config, ... }:
+{ user-settings, lib, pkgs, secrets, config, ... }:
 let
   cfg = config.cli.fish;
   fd-flags = lib.concatStringsSep " " [ "--hidden" "--exclude '.git'" ];
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -20,7 +17,7 @@ in {
     # You can enable the fish shell and manage fish configuration and plugins with Home Manager, but to enable vendor fish completions provided by Nixpkgs you will also want to enable the fish shell in /etc/nixos/configuration.nix:
     programs.fish.enable = true;
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       programs.fish = {
         enable = true;
         interactiveShellInit = ''

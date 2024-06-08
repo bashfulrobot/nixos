@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let cfg = config.apps.obs;
 in {
   options = {

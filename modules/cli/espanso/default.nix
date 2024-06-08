@@ -1,12 +1,9 @@
 # Espanso on nix is a problem. Breaks frequently. This is a workaround to get it working.
 # https://github.com/ingbarrozo/espanso
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.cli.espanso;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     cli.espanso.enable = lib.mkOption {
@@ -19,9 +16,9 @@ in {
   config = lib.mkIf cfg.enable {
 
     # Add user to input group
-    users.users."${username}".extraGroups = [ "input" ];
+    users.users."${user-settings.user.username}".extraGroups = [ "input" ];
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 
       imports = [ ./ingbarrozo/espanso/build ];
 

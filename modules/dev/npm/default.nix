@@ -1,10 +1,7 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
 cfg = config.dev.npm;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     dev.npm.enable = lib.mkOption {
@@ -15,7 +12,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-  home-manager.users."${username}" = {
+  home-manager.users."${user-settings.user.username}" = {
     home.file.".npmrc".text = ''
       prefix = ~/.npm-packages
 

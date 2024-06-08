@@ -1,11 +1,8 @@
-{ pkgs, config, lib, inputs, ... }:
+{ user-settings, pkgs, config, lib, inputs, ... }:
 
 let
   cfg = config.desktops.gnome.themes.tokyonight;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     desktops.gnome.themes.tokyonight.enable = lib.mkOption {
@@ -16,7 +13,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       # Getting yaru cursor, sound and icon themes
       home.packages = with pkgs; [ tokyonight-gtk-theme work-sans ];
       # https://github.com/kevin-nel/tokyo-night-gtksourceview

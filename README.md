@@ -63,7 +63,7 @@ The `modules/desktops/gnome/default.nix` have an excellent example of this. In t
 # Above is traditional NixOS config
 
 ##### Home Manager Config options #####
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 # Everything in here is home-manager config
 ```
 

@@ -1,10 +1,7 @@
-{ pkgs, config, lib, inputs, ... }:
+{ user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.apps.desktopFile;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     apps.desktopFile.enable = lib.mkOption {
@@ -100,7 +97,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       home.file."reboot-firmware.desktop" = lib.mkIf cfg.reboot-firmware {
         source = ./src/reboot-firmware.desktop;
         target = ".local/share/applications/reboot-firmware.desktop";

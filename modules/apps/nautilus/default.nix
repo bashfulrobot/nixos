@@ -1,10 +1,7 @@
-{ pkgs, config, lib, inputs, ... }:
+{ user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.apps.nautilus;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 
 in {
   options = {
@@ -16,7 +13,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       home.packages = with pkgs;
         [
           gnome.nautilus # file manager

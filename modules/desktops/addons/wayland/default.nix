@@ -1,11 +1,8 @@
-{ pkgs, config, lib, inputs, ... }:
+{ user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.desktops.addons.wayland;
   # Used in my home manager code at the bottom of the file.
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     desktops.addons.wayland.enable = lib.mkOption {
@@ -25,7 +22,7 @@ in {
         wl-clipboard # Wayland clipboard - needed for espanso
         wl-color-picker # Wayland color picker
       ];
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 
     };
   };

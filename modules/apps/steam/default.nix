@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ user-settings, lib, config, pkgs, ... }:
 let cfg = config.apps.steam;
 in {
 

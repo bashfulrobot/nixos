@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ user-settings, config, pkgs, lib, ... }:
 let
     cfg = config.apps.betterbird;
 in

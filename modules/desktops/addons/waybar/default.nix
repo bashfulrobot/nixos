@@ -1,12 +1,8 @@
-# { lib, config, inputs, pkgs, ... }:
-{ pkgs, config, lib, inputs, ... }:
+{ user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.desktops.addons.waybar;
   # Used in my home manager code at the bottom of the file.
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     desktops.addons.waybar.enable = lib.mkOption {
@@ -20,7 +16,7 @@ in {
     # environment.systemPackages = with pkgs; [
     #   waybar
     # ];
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       programs.waybar = {
         enable = true;
         package = pkgs.waybar;

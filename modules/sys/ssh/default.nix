@@ -1,10 +1,7 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.sys.ssh;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -19,7 +16,7 @@ in {
     # Enable the OpenSSH daemon.
     services.openssh.enable = true;
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       programs.ssh = {
         enable = true;
         extraConfig = ''

@@ -1,10 +1,7 @@
-{ inputs, lib, config, pkgs, ... }:
+{ user-settings, inputs, lib, config, pkgs, ... }:
 let
   cfg = config.apps.firefox;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -34,7 +31,7 @@ in {
     #   nativeMessagingHosts.packages = with pkgs; [ firefoxpwa ];
     # };
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 
       programs.firefox = {
         enable = true;

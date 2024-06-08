@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.sys.scripts.hw-scan;
   hwScan = ''
@@ -16,10 +16,7 @@ let
 
   '';
 
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     sys.scripts.hw-scan.enable = lib.mkOption {
@@ -30,7 +27,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       home.packages = with pkgs;
         [
           (writeScriptBin "hardware-scan.sh" hwScan)

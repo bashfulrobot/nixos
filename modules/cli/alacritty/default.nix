@@ -1,10 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ user-settings, config, pkgs, lib, ... }:
 let
   cfg = config.cli.alacritty;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -18,7 +15,7 @@ in {
   config = lib.mkIf cfg.enable {
 
     ### HOME MANAGER SETTINGS
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 
       home.packages = with pkgs; [ mimeo ];
 

@@ -10,7 +10,8 @@
 
   suites = { tech-support.enable = true; };
 
-  users.dustin.enable = true;
+  # User name specified in the settings
+  users.default.enable = true;
 
   # snowfallorg.avalanche.desktop.enable = true;
   # desktops.avalanche.enable = true;

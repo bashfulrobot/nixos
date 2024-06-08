@@ -1,10 +1,7 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.apps.vscode;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     apps.vscode.enable = lib.mkOption {
@@ -18,7 +15,7 @@ in {
     environment.systemPackages = with pkgs; [
       vscode
     ];
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 
       # force vscode to use wayland - https://skerit.com/en/make-electron-applications-use-the-wayland-renderer
       home.file.".config/code-flags.conf".text = ''

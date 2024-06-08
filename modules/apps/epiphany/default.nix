@@ -1,10 +1,7 @@
-{ lib, inputs, pkgs, config, ... }:
+{ user-settings, lib, inputs, pkgs, config, ... }:
 let
   cfg = config.apps.epiphany;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 
 in {
   options = {
@@ -34,7 +31,7 @@ in {
       # Or use an alternate brower like GNOME Web
     ];
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 
         "org/gnome/epiphany/web" = {

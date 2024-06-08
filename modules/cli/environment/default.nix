@@ -1,10 +1,7 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.cli.environment;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -19,7 +16,7 @@ in {
 
   config = lib.mkIf cfg.enable {
   # add environment variables
-  home-manager.users."${username}".home.sessionVariables = {
+  home-manager.users."${user-settings.user.username}".home.sessionVariables = {
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     MANROFFOPT = "-c";
     XDG_SESSION_TYPE = "wayland";

@@ -1,10 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ user-settings, config, pkgs, lib, ... }:
 let
   cfg = config.apps.web-apps;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -17,7 +14,7 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-  home-manager.users."${username}" = {
+  home-manager.users."${user-settings.user.username}" = {
     home.file."sysdig-mail.desktop" = {
       source = ./desktop-files/sysdig-mail.desktop;
       target = ".local/share/applications/sysdig-mail.desktop";

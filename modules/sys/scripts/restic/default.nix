@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.sys.scripts.restic;
   resticPruneNextstar = ''
@@ -11,10 +11,7 @@ let
     exit 0
   '';
 
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     sys.scripts.restic.enable = lib.mkOption {
@@ -25,7 +22,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       home.packages = with pkgs;
         [
           (writeScriptBin "restic-prune-nexstar.sh" resticPruneNextstar)

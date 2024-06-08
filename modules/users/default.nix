@@ -1,21 +1,21 @@
-{ pkgs, config, lib, ... }:
-let cfg = config.users.dustin;
+{ user-settings, pkgs, config, lib, ... }:
+let cfg = config.users.default;
 in {
 
   options = {
-    users.dustin.enable = lib.mkOption {
+    users.default.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable the Dustin user.";
+      description = "Enable the Default user.";
     };
   };
 
   config = lib.mkIf cfg.enable {
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.dustin = {
+    users.users."${user-settings.user.username}" = {
       isNormalUser = true;
-      description = "Dustin Krysak";
+      description = "${user-settings.user.full-name}";
       shell = pkgs.fish;
       extraGroups = [
         "networkmanager"

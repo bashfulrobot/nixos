@@ -1,10 +1,7 @@
-{ lib, config, ... }:
+{ user-settings, lib, config, ... }:
 let
   cfg = config.nixcfg.home-manager;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -17,11 +14,11 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       # Home Manager needs a bit of information about you and the
       # paths it should manage.
-      home.username = "${username}";
-      home.homeDirectory = "/home/${username}";
+      home.username = "${user-settings.user.username}";
+      home.homeDirectory = "${user-settings.user.home}";
 
       # imports = [
 

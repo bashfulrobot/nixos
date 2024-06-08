@@ -1,11 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ user-settings, config, lib, pkgs, ... }:
 let
   cfg = config.cli.bash;
   fd-flags = lib.concatStringsSep " " [ "--hidden" "--exclude '.git'" ];
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -18,7 +15,7 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       home.packages = with pkgs;
         [
           bash-completion # bash shell completion
@@ -48,13 +45,13 @@ in {
           "...." = "cd ../../..";
           "....." = "cd ../../../..";
           tf = "terraform";
-          instruqt = "/home/dustin/dev/sysdig/workshops/bin/instruqt";
+          instruqt = "/home/${user-settings.user.username}/dev/sysdig/workshops/bin/instruqt";
           ipull =
-            "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track pull";
+            "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/${user-settings.user.username}/dev/sysdig/workshops/bin/instruqt track pull";
           ipush =
-            "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track push";
+            "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/${user-settings.user.username}/dev/sysdig/workshops/bin/instruqt track push";
           ilog =
-            "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/dustin/dev/sysdig/workshops/bin/instruqt track logs";
+            "cd ~/dev/sysdig/workshops/instruqt/tracks/monitor/troubleshooting-essentials-with-advisor/; /home/${user-settings.user.username}/dev/sysdig/workshops/bin/instruqt track logs";
           y = "cd ~/; yazi";
           e = "lvim";
           nvim = "lvim";
@@ -98,9 +95,9 @@ in {
           dev-rebuild =
             "cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just dev-rebuild; cd -";
           kubitect =
-            "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/kubitect";
+            "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/${user-settings.user.username}/bin/kubitect";
           comics-downloader =
-            "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/comics-downloader";
+            "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/${user-settings.user.username}/bin/comics-downloader";
         };
 
       };

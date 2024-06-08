@@ -1,10 +1,5 @@
-{ secrets, lib, pkgs, config, ... }:
-let
-  cfg = config.cli.git;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+{ user-settings, secrets, lib, pkgs, config, ... }:
+let cfg = config.cli.git;
 in {
   options = {
     cli.git.enable = lib.mkOption {
@@ -15,7 +10,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 
       home.packages = with pkgs; [
         git-crypt # repository encryption

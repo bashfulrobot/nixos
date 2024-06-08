@@ -1,12 +1,9 @@
 # https://github.com/wimpysworld/nix-config/blob/main/nixos/_mixins/desktop/pantheon/default.nix - much pilphered from here
-{ pkgs, config, lib, inputs, ... }:
+{ user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.desktops.pantheon;
   # Used in my home manager code at the bottom of the file.
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     desktops.pantheon.enable = lib.mkOption {
@@ -150,7 +147,7 @@ in {
     services.accounts-daemon.enable = true;
 
     ##### Home Manager Config options #####
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 
       home.sessionVariables = { XDG_CURRENT_DESKTOP = "Pantheon"; };
 
@@ -179,7 +176,7 @@ in {
         };
 
         gtk2 = {
-          configLocation = "/home/${username}/.gtkrc-2.0";
+          configLocation = "${user-settings.user.home}/.gtkrc-2.0";
           extraConfig = ''
             gtk-application-prefer-dark-theme = 1
             gtk-decoration-layout = ":minimize,maximize,close"
@@ -221,7 +218,7 @@ in {
       };
 
       home.file = {
-        "/home/${username}/autostart/ibus-daemon.desktop".text = ''
+        "${user-settings.user.home}/autostart/ibus-daemon.desktop".text = ''
 
           [Desktop Entry]
           Name=IBus Daemon
@@ -233,7 +230,7 @@ in {
           NoDisplay=true
           StartupNotify=false'';
 
-        "/home/${username}/autostart/monitor.desktop".text = ''
+        "${user-settings.user.home}/autostart/monitor.desktop".text = ''
 
           [Desktop Entry]
           Name=Monitor Indicators

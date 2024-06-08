@@ -1,10 +1,7 @@
-{ pkgs, secrets, config, lib, ... }:
+{ user-settings, pkgs, secrets, config, lib, ... }:
 let
   cfg = config.apps.teamviewer;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {

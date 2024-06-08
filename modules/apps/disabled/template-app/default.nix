@@ -22,13 +22,10 @@
 #
 # =============================================================================
 
-{ pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.apps.template-app;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
 
   options = {
@@ -44,7 +41,7 @@ in {
     # Regular nix configuration
     environment.systemPackages = with pkgs; [ template-app ];
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       # Home-manager configuration
      };
   };

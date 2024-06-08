@@ -1,10 +1,7 @@
-{ pkgs, secrets, config, lib, ... }:
+{ user-settings, pkgs, secrets, config, lib, ... }:
 let
   cfg = config.cli.helix;
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 in {
   options = {
     cli.helix.enable = lib.mkOption {
@@ -17,7 +14,7 @@ in {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ helix helix-gpt ];
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
 
       home = {
         sessionVariables = {

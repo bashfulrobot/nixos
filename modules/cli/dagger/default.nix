@@ -1,12 +1,9 @@
-{ pkgs, secrets, config, lib, ... }:
+{ user-settings, pkgs, secrets, config, lib, ... }:
 
 let
   cfg = config.cli.dagger;
   dagger = pkgs.callPackage ./build { };
-  username = if builtins.getEnv "SUDO_USER" != "" then
-    builtins.getEnv "SUDO_USER"
-  else
-    builtins.getEnv "USER";
+
 
 in {
   options = {
@@ -19,7 +16,7 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    home-manager.users."${username}" = {
+    home-manager.users."${user-settings.user.username}" = {
       # Install Dagger
       home.packages = with pkgs; [ dagger ];
 
