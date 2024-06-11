@@ -2,7 +2,6 @@
 let
   cfg = config.desktops.gnome;
   # Used in my home manager code at the bottom of the file.
-
 in {
   options = {
     desktops.gnome.enable = lib.mkOption {
@@ -14,22 +13,33 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    # Enable Wayland specific settings
-    desktops.addons.wayland.enable = true;
-
-    # desktops.gnome.themes.nord.enable = false;
-    desktops.gnome.themes.tokyonight.enable = true;
+    desktops = {
+      addons = {
+        # Enable Wayland specific settings
+        wayland.enable = true;
+      };
+      themes = {
+        nord.enable = false;
+        tokyonight.enable = false;
+        adwaita.enable = true;
+      };
+    };
 
     xdg.portal.config.common.default = [ "*" ];
 
-    services.xserver.enable = true;
+    # services.xserver.enable = true;
 
     # Enable the GNOME Desktop Environment.
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+    #services.xserver.displayManager.gdm.enable = true;
+    #services.xserver.desktopManager.gnome.enable = true;
 
-    # Configure keymap in X11
     services.xserver = {
+      enable = true;
+      # Enable the GNOME Desktop Environment.
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+
+      # Configure keymap in X11
       xkb = {
         layout = "us";
         variant = "";
@@ -78,7 +88,6 @@ in {
       gnome.adwaita-icon-theme # icon theme
       gnome.gnome-settings-daemon # settings daemon
       gnome2.GConf # configuration database system for old apps
-
     ];
 
     environment.gnome.excludePackages = with pkgs; [
@@ -111,34 +120,10 @@ in {
       gnomeExtensions.windownavigator
       gnomeExtensions.workspace-indicator
     ];
-    #   Dynamic triple buffering
-    # Big merge request against Mutter improves the performance of the window manager by a lot (and is already used by Ubuntu). Not merged into nixpkgs due to philosophy of nixpkgs, but users are free to add this overlay to get it too.
-
-    # Currently it's adapted for Gnome 45.
-    # nixpkgs.overlays = [
-    #   (final: prev: {
-    #     gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
-    #       mutter = gnomePrev.mutter.overrideAttrs (old: {
-    #         src = pkgs.fetchgit {
-    #           url = "https://gitlab.gnome.org/vanvugt/mutter.git";
-    #           # GNOME 45: triple-buffering-v4-45
-    #           rev = "0b896518b2028d9c4d6ea44806d093fd33793689";
-    #           sha256 = "sha256-mzNy5GPlB2qkI2KEAErJQzO//uo8yO0kPQUwvGDwR4w=";
-    #         };
-    #       });
-    #     });
-    #   })
-    # ];
-
-    # You might need to disable aliases to make Dynamic triple buffering work:
-    # nixpkgs.config.allowAliases = false;
 
     ##### Home Manager Config options #####
     home-manager.users."${user-settings.user.username}" = {
-
-      home.sessionVariables = {
-        XDG_CURRENT_DESKTOP = "gnome";
-      };
+      home.sessionVariables = { XDG_CURRENT_DESKTOP = "gnome"; };
 
       home.file.".face" = {
         source = ./.face;
@@ -146,7 +131,6 @@ in {
       };
 
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
-
         #  Set Media Keys
         "org/gnome/settings-daemon/plugins/media-keys" = {
           play = [ "AudioPlay" ];
@@ -239,7 +223,6 @@ in {
           show-title = true;
           smart-gaps = true;
           tile-by-default = true;
-
         };
 
         "org/gnome/shell" = {
@@ -267,7 +250,6 @@ in {
           merge-panel = true;
           move-master-volume = true;
           panel-position = "bottom";
-
         };
 
         "org/gnome/shell/extensions/just-perfection" = {
@@ -290,7 +272,7 @@ in {
           startup-status = 0;
           theme = true;
           # top-panel-position = 0; #top
-          top-panel-position = 1; #bottom
+          top-panel-position = 1; # bottom
           weather = false;
           window-demands-attention-focus = true;
           window-menu-take-screenshot-button = false;
@@ -429,7 +411,6 @@ in {
             command = "/etc/profiles/per-user/dustin/bin/nautilus ~/dev";
             name = "open files in ~/dev";
           };
-
       };
     };
   };
