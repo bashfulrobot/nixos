@@ -200,7 +200,6 @@ in {
       # microsoft-edge # web browser
 
       # Communication
-      nheko # Matrix Client
       fractal # Matrix Client
       slack # instant messaging
       signal-desktop # instant messaging
