@@ -17,7 +17,7 @@ in {
     # Enable Wayland specific settings
     desktops.addons.wayland.enable = true;
 
-    # desktops.gnome.themes.nord.enable = true;
+    # desktops.gnome.themes.nord.enable = false;
     desktops.gnome.themes.tokyonight.enable = true;
 
     xdg.portal.config.common.default = [ "*" ];
