@@ -18,7 +18,7 @@ in {
         # Enable Wayland specific settings
         wayland.enable = true;
       };
-      themes = {
+      gnome.themes = {
         nord.enable = false;
         tokyonight.enable = false;
         adwaita.enable = true;
