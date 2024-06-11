@@ -17,8 +17,8 @@ in {
       common.enable = true;
       one-password.enable = true;
       chromium.enable = true;
-      firefox.enable = false;
-      brave.enable = true;
+      firefox.enable = true;
+      brave.enable = false;
       epiphany = {
         enable = false;
         useFlatpak = false;
