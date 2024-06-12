@@ -20,8 +20,8 @@ in {
       };
       gnome.themes = {
         nord.enable = false;
-        tokyonight.enable = false;
-        adwaita.enable = true;
+        tokyonight.enable = true;
+        adwaita.enable = false;
       };
     };
 
