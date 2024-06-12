@@ -10,7 +10,7 @@
 
   boot = {
     kernelModules = [ "nvidia" ];
-    extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+    # extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
   };
 
   hardware = {
