@@ -11,7 +11,7 @@
   boot = {
     initrd.kernelModules = [ "nvidia" ];
     extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
-    # kernelParams = [ "ibt=off" ];
+    kernelParams = [ "ibt=off" ];
   };
 
   hardware = {
@@ -59,7 +59,7 @@
       nvidiaSettings = true;
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
 
       # # Special config to load the latest (535 or 550) driver for the support of the 4070 SUPER
       # package = let
