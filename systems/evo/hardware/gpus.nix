@@ -11,7 +11,7 @@
   boot = {
     initrd.kernelModules = [ "nvidia" ];
     extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
-    kernelParams = [ "ibt=off" ];
+    # kernelParams = [ "ibt=off" ];
   };
 
   hardware = {
