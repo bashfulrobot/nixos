@@ -1,6 +1,5 @@
 { user-settings, inputs, lib, config, pkgs, ... }:
-let
-  cfg = config.apps.firefox;
+let cfg = config.apps.firefox;
 
 in {
 
@@ -104,7 +103,7 @@ in {
       };
 
       home.sessionVariables = {
-        # MOZ_ENABLE_WAYLAND = 1; # done in avalanche deskstop
+        MOZ_ENABLE_WAYLAND = 1; # done in avalanche deskstop
         MOZ_USE_XINPUT2 = "1";
       };
     };

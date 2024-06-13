@@ -9,8 +9,9 @@
   ];
 
   boot = {
-    kernelModules = [ "nvidia" ];
+    initrd.kernelModules = [ "nvidia" ];
     extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+    kernelParams = [ "ibt=off" ];
   };
 
   hardware = {
@@ -18,7 +19,7 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = [ pkgs.intel-media-driver pkgs.vaapiVdpau ];
+      # extraPackages = [ pkgs.intel-media-driver pkgs.vaapiVdpau ];
     };
 
     nvidia = {
@@ -42,13 +43,15 @@
       # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
       # Only available from driver 515.43.04+
       # Currently alpha-quality/buggy, so false is currently the recommended setting.
-      open = false;
+      # open = false;
 
       prime = {
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
-        offload.enable = true;
-        offload.enableOffloadCmd = true;
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
         # Make the Intel iGP default. The NVIDIA Quadro is for CUDA/NVENC
         # reverseSync.enable = true;
         # sync.enable = true;

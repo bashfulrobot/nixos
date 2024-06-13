@@ -9,7 +9,7 @@ in {
         "https://sysdig.vitally.io/hubs/553ec776-875e-4a0e-a096-a3da3a0b6ea1/8acc40cb-e3ea-4da8-9570-4be27a10fff6";
       id = 0;
 
-      extraSettings = config.programs.firefox.profiles."${username}".settings;
+      extraSettings = config.programs.firefox.profiles."Default".settings; # must match the profile name I did in my FF module
       backgroundColor = "#202225";
 
       comment = "Customer Success Dashboard.";
