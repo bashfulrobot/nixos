@@ -16,9 +16,14 @@ in {
       nautilus.enable = true;
       common.enable = true;
       one-password.enable = true;
-      chromium.enable = true;
+      chrome-based-browser = {
+        enable = true;
+        # Currently supported browsers are "brave" or "chromium".
+        browser = "brave";
+      };
+      chromium.enable = false;
+
       firefox.enable = true;
-      brave.enable = false;
       epiphany = {
         enable = false;
         useFlatpak = false;
@@ -30,6 +35,7 @@ in {
     };
 
     cli = {
+      rclone.enable = false; # WIP
       comics-downloader.enable = false;
       common.enable = true;
       espanso.enable = false;
