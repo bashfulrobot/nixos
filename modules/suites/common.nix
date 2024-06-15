@@ -21,8 +21,6 @@ in {
         # Currently supported browsers are "brave" or "chromium".
         browser = "brave";
       };
-      chromium.enable = false;
-
       firefox.enable = true;
       epiphany = {
         enable = false;
