@@ -20,8 +20,8 @@ in {
     cli = {
       git.enable = true;
       lunarvim.enable = false;
-      nvim.enable = true;
-      helix.enable = false;
+      nvim.enable = false;
+      helix.enable = true;
 
     };
 
