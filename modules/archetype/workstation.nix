@@ -30,7 +30,6 @@ in {
       media.enable = true;
       office.enable = true;
       sysdig.enable = true;
-      web-apps.enable = true;
     };
   };
 }
