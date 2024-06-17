@@ -41,6 +41,7 @@ in {
         #   }
         # ];
         functions = {
+
           new-scratch = ''
             set date (date "+%Y-%m-%d")
             set filename "$date-$argv[1].md"
