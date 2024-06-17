@@ -165,6 +165,18 @@ in {
             set namespace $argv[1]
             kubectl --namespace $namespace delete (kubectl api-resources --namespaced=true --verbs=delete -o name | tr "\n" "," | sed -e 's/,$//') --all
           '';
+          k_stuck_terminating = ''
+                if test -z $argv[1]
+                    echo "Please provide a namespace."
+                    return 1
+                end
+
+                kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n $argv[1]
+            end '';
+          k_force_terminating_ns = ''
+            set NS (kubectl get ns | grep Terminating | awk 'NR==1 {print $1}')
+            kubectl get namespace $NS -o json | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/" | kubectl replace --raw /api/v1/namespaces/$NS/finalize -f -
+          '';
         };
         shellAbbrs = {
           k = "kubectl";
@@ -180,7 +192,8 @@ in {
           gc = "git add . && git commit -S && git push && git pull";
         };
         shellAliases = {
-          hm-logs = "sudo systemctl restart home-manager-dustin.service; journalctl -xeu home-manager-dustin.service";
+          hm-logs =
+            "sudo systemctl restart home-manager-dustin.service; journalctl -xeu home-manager-dustin.service";
           tailscale-up-lt =
             "sudo tailscale up --ssh --accept-routes --operator=$USER";
           oc = "~/.npm-packages/bin/opencommit";
