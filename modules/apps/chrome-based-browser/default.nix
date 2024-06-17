@@ -27,9 +27,10 @@ in {
         commandLineArgs = [ "--ozone-platform-hint=auto" ];
         extensions = [
           { id = "cfpenpohaapdgnkglcbgjiooipcbcebi"; } # easy window resize
+          # { id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
           #{ id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
           { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; } # 1password
-          { id = "kfimphpokifbjgmjflanmfeppcjimgah"; } # inoreader
+          # { id = "kfimphpokifbjgmjflanmfeppcjimgah"; } # inoreader
           { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # dark reader
           #{ id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
           #{ id = "lljedihjnnjjefafchaljkhbpfhfkdic"; } # jiffy reader
