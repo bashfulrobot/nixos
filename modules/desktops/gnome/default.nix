@@ -242,6 +242,7 @@ in {
             "solaar-extension@sidevesh"
             "undecorate@sun.wxg@gmail.com"
             "GPU_profile_selector@lorenzo9904.gmail.com"
+            "window-calls@domandoman.xyz"
           ];
         };
 
