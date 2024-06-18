@@ -13,6 +13,9 @@ in {
   config = lib.mkIf cfg.enable {
 
     # apps = { kolide.enable = false; };
+    apps = {
+      vitally.enable = true;
+    };
 
     cli = {
       sysdig-cli-scanner.enable = true;

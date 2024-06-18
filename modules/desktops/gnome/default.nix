@@ -67,6 +67,7 @@ in {
       gnomeExtensions.solaar-extension # Allow Solaar to support certain features on non X11 systems
       gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
       gnomeExtensions.looking-glass-button # Toggle the Looking Glass visibility by clicking on a panel icon.
+      gnomeExtensions.window-calls # allows me to run my fish funciton to get the wmc_class of a window
 
       ## Extentions to try, or diusabled due to gnome shell version
       #gnomeExtensions.next-up # Show your next calendar event in the status bar
