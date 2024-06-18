@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=GitHub Code Search
-StartupWMClass=chrome-github.com__search-Default
-Comment=Launch GitHub Code Search
-Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/github-code.svg
-Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://github.com/search?type=code&auto_enroll=true" %U
-Terminal=false

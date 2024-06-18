@@ -15,6 +15,8 @@ in {
     # apps = { kolide.enable = false; };
     apps = {
       vitally.enable = true;
+      gcal-sysdig.enable = true;
+      gmail-sysdig.enable = true;
     };
 
     cli = {

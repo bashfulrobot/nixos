@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Sysdig Mail
-StartupWMClass=chrome-mail.google.com__mail_u_1_-Default
-Comment=Launch Sysdig Gmail
-Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/sysdig-gmail.svg
-Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://mail.google.com/mail/u/1/#search/is:unread" %U
-Terminal=false

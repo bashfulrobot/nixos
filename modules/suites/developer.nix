@@ -15,7 +15,7 @@ in {
     apps = {
       openvscode-server.enable = true;
       vscode.enable = true;
-      };
+    };
 
     cli = {
       git.enable = true;

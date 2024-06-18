@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=DuckDuckGo
-StartupWMClass=chrome-duckduckgo.com__-Default
-Comment=Launch DuckDuckGo
-Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/duckduckgo.svg
-Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://duckduckgo.com/" %U
-Terminal=false

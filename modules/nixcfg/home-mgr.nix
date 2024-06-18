@@ -19,7 +19,7 @@ in {
       home.username = "${user-settings.user.username}";
       home.homeDirectory = "${user-settings.user.home}";
 
-      imports = [ ../../lib/ff-webwrap ];
+      # imports = [ ../../lib/cbb-webwrap ];
 
       # This value determines the Home Manager release that your
       # configuration is compatible with. This helps avoid breakage

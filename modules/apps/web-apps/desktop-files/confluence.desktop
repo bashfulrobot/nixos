@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Sysdig confluence
-StartupWMClass=chrome-sysdig.atlassian.net__wiki_spaces_~62200ee98a4bb60068f21eea_pages_2786295881_T0C-Default
-Comment=Launch Sysdig confluence
-Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/confluence.svg
-Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://sysdig.atlassian.net/wiki/spaces/~62200ee98a4bb60068f21eea/pages/2786295881/TOC" %U
-Terminal=false

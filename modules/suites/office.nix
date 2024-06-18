@@ -15,8 +15,10 @@ in {
     apps = {
       betterbird.enable = false;
       xmind.enable = true;
-      bluemail.enable = true;
+      bluemail.enable = false;
       todoist.enable = true;
+      gcal-br.enable = true;
+      gmail-br.enable = true;
     };
 
   };

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Miro
-StartupWMClass=chrome-miro.com__app_dashboard_-Default
-Comment=Launch Miro
-Icon=/home/dustin/.local/share/xdg-desktop-portal/icons/192x192/zoom.png
-#Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://sysdig.zoom.us/meeting#/upcoming" %U
-Exec=chromium --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --app="https://miro.com/app/dashboard/" %U
-Terminal=false

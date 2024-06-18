@@ -2,18 +2,18 @@
 { user-settings, config, pkgs, lib, makeDesktopItem, ... }:
 
 let
-  cfg = config.apps.vitally;
+  cfg = config.apps.nixpkgs-search;
 
   # Import the makeDesktopApp function
   makeDesktopApp = pkgs.callPackage ../../../lib/cbb-webwrap { };
 
   # I temp create an app in brave to download all the icons, then I place then in the correct folder
   nixosSearchApp = makeDesktopApp {
-    name = "Vitally";
-    url = "https://sysdig.vitally.io/hubs/553ec776-875e-4a0e-a096-a3da3a0b6ea1/8acc40cb-e3ea-4da8-9570-4be27a10fff6";
+    name = "Nixpkgs Search";
+    url = "https://search.nixos.org/packages";
     binary = "${pkgs.brave}/bin/brave";
-    startupWMClass = "brave-sysdig.vitally.io__hubs_553ec776-875e-4a0e-a096-a3da3a0b6ea1_8acc40cb-e3ea-4da8-9570-4be27a10fff6-Default";
-    iconSizes = ["32" "48" "64" "96" "128" "256" ];
+    startupWMClass = "brave-search.nixos.org__packages-Default";
+    iconSizes = [ "16" "32" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons
     # iconPath = ././modules/apps/nixos-search/icons; # path to icons
@@ -22,7 +22,7 @@ let
 in {
 
   options = {
-    apps.vitally.enable = lib.mkOption {
+    apps.nixpkgs-search.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable the nixpkgs search App.";
