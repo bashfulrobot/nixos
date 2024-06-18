@@ -2,7 +2,7 @@
 { user-settings, config, pkgs, lib, makeDesktopItem, ... }:
 
 let
-  cfg = config.apps.home-manager-search;
+  cfg = config.apps.hm-search;
 
   # Import the makeDesktopApp function
   makeDesktopApp = pkgs.callPackage ../../../lib/cbb-webwrap { };
@@ -21,7 +21,7 @@ let
 in {
 
   options = {
-    apps.home-manager-search.enable = lib.mkOption {
+    apps.hm-search.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable the Home Manager Search App.";

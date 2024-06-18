@@ -17,7 +17,7 @@ in {
       vscode.enable = true;
       nixpkgs-search.enable = true;
       nixos-discourse.enable = true;
-      home-manager-search.enable = true;
+      hm-search.enable = true;
       github-code-search.enable = true;
     };
 
