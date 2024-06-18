@@ -217,10 +217,7 @@ in {
         };
 
         "org/gnome/shell/extensions/pop-shell" = {
-          active-hint = false;
-          active-hint-border-radius = mkUint32 0;
-          gap-outer = mkUint32 8;
-          gap-inner = mkUint32 8;
+
           fullscreen-launcher = true;
           mouse-cursor-follows-active-window = false;
           show-title = true;

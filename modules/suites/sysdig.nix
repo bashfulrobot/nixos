@@ -17,6 +17,7 @@ in {
       vitally.enable = true;
       gcal-sysdig.enable = true;
       gmail-sysdig.enable = true;
+      sfdc.enable = true;
     };
 
     cli = {

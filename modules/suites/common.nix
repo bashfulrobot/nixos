@@ -30,7 +30,6 @@ in {
       readitlater.enable = true;
       celeste.enable = true;
       cosmic-web-apps.enable = false;
-      nixpkgs-search.enable = true;
     };
 
     cli = {

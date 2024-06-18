@@ -13,8 +13,12 @@ in {
   config = lib.mkIf cfg.enable {
 
     apps = {
-      openvscode-server.enable = true;
+      openvscode-server.enable = false;
       vscode.enable = true;
+      nixpkgs-search.enable = true;
+      nixos-discourse.enable = true;
+      home-manager-search.enable = true;
+      github-code-search.enable = true;
     };
 
     cli = {

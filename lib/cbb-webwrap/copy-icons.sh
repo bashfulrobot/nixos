@@ -20,7 +20,7 @@ if [ ! -d "$target_path" ]; then
 fi
 
 # Get the only directory under Manifest Resources
-dir=$(exa -D $HOME/.config/BraveSoftware/Brave-Browser/Default/Web\ Applications/Manifest\ Resources/)
+dir=$(exa $HOME/.config/BraveSoftware/Brave-Browser/Default/Web\ Applications/Manifest\ Resources/ | tr -d '[:space:]')
 
 # Copy all files from the Icons subdirectory to the target directory
-cp "$dir/Icons/"* $target_path
+cp $HOME/.config/BraveSoftware/Brave-Browser/Default/Web\ Applications/Manifest\ Resources/$dir/Icons/* $target_path

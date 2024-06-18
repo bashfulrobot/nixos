@@ -64,11 +64,11 @@ in {
         };
 
         "org/gnome/shell/extensions/pop-shell" = {
-          # hint-color-rgba = "rgb(129, 161, 193)";
+          active-hint = false;
           hint-color-rgba = "rgb(122, 162, 247)";
           gap-inner = 6;
           gap-outer = 6;
-          ctive-hint-border-radius = 6;
+          active-hint-border-radius = 6;
         };
 
         "org/gnome/shell/extensions/user-theme" = {
