@@ -2,7 +2,7 @@
 let rev = "7723040ef50633da5094f01f93b96dae5e9b9299";
 in pkgs.stdenvNoCC.mkDerivation {
   name = "sf-mono-liga-font";
-  dontConfigue = true;
+  dontConfigure = true;
 
   src = pkgs.fetchzip {
     url =

@@ -5,7 +5,7 @@
 { lib, pkgs, ... }:
 pkgs.stdenvNoCC.mkDerivation {
   name = "sway-alttab";
-  dontConfigue = true;
+  dontConfigure = true;
 
   src = pkgs.fetchurl {
     url =

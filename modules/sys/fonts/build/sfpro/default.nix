@@ -2,7 +2,7 @@
 let rev = "8bfea09aa6f1139479f80358b2e1e5c6dc991a58";
 in pkgs.stdenvNoCC.mkDerivation {
   name = "sfpro-font";
-  dontConfigue = true;
+  dontConfigure = true;
 
   src = pkgs.fetchzip {
     url =

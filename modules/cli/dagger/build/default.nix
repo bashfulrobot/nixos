@@ -3,7 +3,7 @@
 let version = "0.9.5";
 in pkgs.stdenv.mkDerivation {
   name = "dagger";
-  dontConfigue = true;
+  dontConfigure = true;
   src = pkgs.fetchzip {
     url =
       "https://github.com/dagger/dagger/releases/download/v${version}/dagger_v${version}_linux_amd64.tar.gz";

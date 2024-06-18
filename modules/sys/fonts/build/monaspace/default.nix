@@ -2,7 +2,7 @@
 let version = "1.000";
 in pkgs.stdenvNoCC.mkDerivation {
   name = "monaspace-font";
-  dontConfigue = true;
+  dontConfigure = true;
 
   src = pkgs.fetchzip {
     url =
