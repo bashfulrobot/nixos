@@ -15,8 +15,6 @@
     workstation.enable = true;
   };
 
-  suites = { tech-support.enable = true; };
-
   desktops.gnome.enable = true;
   # desktops = {
   #   hyprland.enable = true;
@@ -36,11 +34,11 @@
       reboot-windows = true;
       seabird = true;
       beeper = true;
-      monokle = true;
-      cursor = true;
-      spacedrive = true;
+      monokle = false;
+      cursor = false;
+      spacedrive = false;
       solaar = true;
-      warp = true;
+      warp = false;
 
     };
   };

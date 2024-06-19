@@ -13,8 +13,6 @@
     workstation.enable = true;
   };
 
-  suites = { tech-support.enable = true; };
-
   # User name specified in the settings
   users.default.enable = true;
 
@@ -39,9 +37,9 @@
       reboot-firmware = true;
       seabird = true;
       beeper = true;
-      monokle = true;
-      cursor = true;
-      spacedrive = true;
+      monokle = false;
+      cursor = false;
+      spacedrive = false;
     };
   };
 
