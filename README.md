@@ -11,8 +11,6 @@ WIP, forever.
 ## Code Flow
 
 - All code under the `modules` folder is imported via `autoimport.nix`. The modules folder code is set up with options, which are not used unless you enable the options in your system config.
-- the`modules` are then grouped into `suites` and enabled there. But can be enabled directly in the system config if you prefer or need a "one-off".
-- The `suites` are then enabled in the `archetype`, a grouping (i.e., laptop, server, tower, workstation) of `suites` enabled for a specific system.
 - Then `archetype` on the systems of choice
 
 ### Example of a system cfg
@@ -30,7 +28,7 @@ archetype = {
     users.dustin.enable = true;
 
     # enable the desktop I want to use on this system
-    desktops.pantheon.enable = true;
+    desktops.gnome.enable = true;
 
     # enable an app directly vs via an archetype or suite
     apps = {
@@ -96,15 +94,22 @@ The Espanso service is funny. At times, the service will not start after an upda
 
 Getting the StartupWMClass is a pain in Wayland.
 
+- I enabled the `Window Class` extension in Gnome.
+- Then you can use a command to get the class of the window.
+- see the `get_wm_class` fish shell function in my `fish` module.
+
 #### Steps for my setup
 
-- create the base desktop file, and rebuild
-- open the app
-- enable the looking-glass gnome extension
-- open looking glass and go to `windows`
-- take a screenshot of *ONLY* the class text
-- press `ctrl-alt-o`, and it will run a script to OCR the text from my the screenshot and put the results on my clipboard
-- paste it into the desktop file, and rebuild
+- Note, I use brave, but this also works with chromium, or any browser that supports the same cli flags. You can set the desired brower in the module where you define the web app. See `modules/apps/gcal-br/default.nix` for an example.
+- Temporarily create a desktop shortcut for the site to wrap in brave
+- Copy the icons using the `lib/cbb-webwrap/copy-icons.`sh` script
+- Delete the app in brave
+- run `brave --new-window --app="https://URL"` and leave it running
+- Run `get_wm_class` in the terminal to get the StartupWMClass (save it somewhere)
+- I have a nix function for creating a web app in `lib/cbb-webwrap/default.nix`An excellent example of how to use that nix function can be seen in `modules/apps/gcal-br/default.nix`
+- Icons will be funky until you log out and back in or reboot
+- Enable web app in the `modules/archetype/workstation.nix` file (or as appropriate in your setup)
+- rebuild
 
 ## TODO
 
@@ -126,9 +131,6 @@ Getting the StartupWMClass is a pain in Wayland.
     - [ ] My screenshot OCR script seems to not work in Pantheon. I need to fix that.
     - VSCode
         - [x] vscode not seeing keyring
-- Firefox
-    - [ ] change FF to be declarative
-    - [ ] test FF web wrapper
 
 - user name
     - [ ] eval where the user name is used and make it a variable
