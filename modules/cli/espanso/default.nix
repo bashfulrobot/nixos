@@ -33,19 +33,6 @@ in {
         keyboard_layout:
           layout: "us"
       '';
-
-      home.file.".config/espanso/match/ascii.yml".text = ''
-        matches:
-            - trigger: "_shrug"
-              replace: ¯\\_(ツ)_/¯
-            - trigger: "_flip"
-              replace: (╯°□°）╯︵ ┻━┻
-            - trigger: "_unflip"
-              replace: ┬──┬ ノ( ゜-゜ノ)
-            - trigger: "_lenny"
-              replace: ( ͡° ͜ʖ ͡°)
-      '';
-
       home.file.".config/espanso/match/base.yml".text = ''
         matches:
             - trigger: "_noarch"
@@ -144,16 +131,6 @@ in {
         matches:
           - trigger: "_feral"
             replace: 'lftp -u msgedme aether.feralhosting.com -e "cd /media/sdac1/msgedme/private/deluge/data/"'
-          - trigger: "_dl"
-            replace: MYFILEBOT="/home/dustin/docker/filebot" && cd $MYFILEBOT && rsync --progress -avze ssh feral:/media/sdac1/msgedme/private/deluge/data/dl/ ./process
-          - trigger: "_rnt"
-            replace: 'MYFILEBOT="/home/dustin/docker/filebot"&& MYPLEX="/home/dustin/docker/plex" && cd $MYFILEBOT && docker run --rm -it -v $MYFILEBOT/process:/process -v $MYPLEX:/media -v data:/data rednoah/filebot -r -rename /process --format "{plex}" --db thetvdb --lang en --action copy --conflict override --output /media -non-strict && sudo chown -R dustin:dustin $MYPLEX/TV*'
-          - trigger: "_rnm"
-            replace: 'MYFILEBOT="/home/dustin/docker/filebot";MYPLEX="/home/dustin/docker/plex";cd $MYFILEBOT; docker run --rm -it -v $MYFILEBOT/process:/process -v $MYPLEX:/media -v data:/data rednoah/filebot -r -rename /process --format "{plex}" --db themoviedb --lang en --action copy --conflict override --output /media -non-strict; sudo chown -R dustin:dustin $MYPLEX/Movies'
-          - trigger: "_gtv"
-            replace: 'clear && echo "Getting Files" && echo && MYFILEBOT="/home/dustin/docker/filebot" && MYPLEX="/home/dustin/docker/plex" && cd $MYFILEBOT && rsync --progress -avze ssh feral:/media/sdac1/msgedme/private/deluge/data/dl/ ./process && echo && echo "Renaming Files" && echo && docker run --rm -it -v $MYFILEBOT/process:/process -v $MYPLEX:/media -v data:/data rednoah/filebot -r -rename /process --format "{plex}" --db thetvdb --lang en --action copy --conflict override --output /media -non-strict && echo && echo "Setting Permissions" && echo && sudo chown -R dustin:dustin $MYPLEX/TV* && MYFILEBOT="/home/dustin/docker/filebot" && echo "Deleting Files" && echo && rm -rf $MYFILEBOT/process/*'
-          - trigger: "_gm"
-            replace: 'clear && echo "Getting Files" && echo && MYFILEBOT="/home/dustin/docker/filebot" && MYPLEX="/home/dustin/docker/plex" && cd $MYFILEBOT && rsync --progress -avze ssh feral:/media/sdac1/msgedme/private/deluge/data/dlm/ ./process-m && echo && echo "Renaming Files" && echo && docker run --rm -it -v $MYFILEBOT/process-m:/process-m -v $MYPLEX:/media -v data:/data rednoah/filebot -r -rename /process-m --format "{plex}" --db themoviedb --lang en --action copy --conflict override --output /media -non-strict && echo && echo "Setting Permissions" && echo && sudo chown -R dustin:dustin $MYPLEX/Movies && MYFILEBOT="/home/dustin/docker/filebot" && echo "Deleting Files" && echo && rm -rf $MYFILEBOT/process-m/*'
           - trigger: "_path"
             replace: '/media/sdac1/msgedme/private/deluge/data/dl'
       '';
