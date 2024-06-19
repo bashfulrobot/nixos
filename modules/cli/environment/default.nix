@@ -20,8 +20,8 @@ in {
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     MANROFFOPT = "-c";
     XDG_SESSION_TYPE = "wayland";
-    # QT_QPA_PLATFORM = "wayland"; # Done in avalanche
-    # NIXOS_OZONE_WL = 1; # fixed electron apps blurriness # Done in avalanche
+    QT_QPA_PLATFORM = "wayland"; # Done in avalanche
+    NIXOS_OZONE_WL = 1; # fixed electron apps blurriness # Done in avalanche
     WARP_ENABLE_WAYLAND = 1; # Needed for Warp Terminal to use Wayland
   };
   };
