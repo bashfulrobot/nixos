@@ -36,35 +36,35 @@ in {
 
       home.file.".config/espanso/match/ascii.yml".text = ''
         matches:
-            - trigger: "#shrug"
+            - trigger: "_shrug"
               replace: ¯\\_(ツ)_/¯
-            - trigger: "#flip"
+            - trigger: "_flip"
               replace: (╯°□°）╯︵ ┻━┻
-            - trigger: "#unflip"
+            - trigger: "_unflip"
               replace: ┬──┬ ノ( ゜-゜ノ)
-            - trigger: "#lenny"
+            - trigger: "_lenny"
               replace: ( ͡° ͜ʖ ͡°)
       '';
 
       home.file.".config/espanso/match/base.yml".text = ''
         matches:
-            - trigger: "#noarch"
+            - trigger: "_noarch"
               replace: "Well, actually I do NOT use Arch, I run NixOS - (╯°□°）╯︵ ┻━┻"
       '';
 
       home.file.".config/espanso/match/c920cam.yml".text = ''
         matches:
-            - trigger: "#zm"
+            - trigger: "_zm"
               replace: v4l2-ctl -d /dev/video0 --set-ctrl zoom_absolute=
-            - trigger: "#br"
+            - trigger: "_br"
               replace: v4l2-ctl -d /dev/video0 --set-ctrl brightness=
-            - trigger: "#sat"
+            - trigger: "_sat"
               replace: v4l2-ctl -d /dev/video0 --set-ctrl saturation=160
       '';
 
       home.file.".config/espanso/match/cmd.yml".text = ''
         matches:
-            - trigger: "#pip"
+            - trigger: "_pip"
               replace: "{{output}}"
               vars:
                 - name: output
@@ -76,21 +76,21 @@ in {
 
       home.file.".config/espanso/match/date.yml".text = ''
         matches:
-            - trigger: "#date"
+            - trigger: "_date"
               replace: "{{mydate}}"
               vars:
                 - name: mydate
                   type: date
                   params:
                       format: "%Y-%m-%d"
-            - trigger: "#7d"
+            - trigger: "_7d"
               replace: "{{output}}"
               vars:
                   - name: output
                     type: shell
                     params:
                         cmd: "date +%F -d '+7 days'"
-            - trigger: "#2h"
+            - trigger: "_2h"
               replace: "{{output}}"
               vars:
                   - name: output
@@ -101,60 +101,60 @@ in {
 
       home.file.".config/espanso/match/emoji.yml".text = ''
         matches:
-            - trigger: "#lk"
+            - trigger: "_lk"
               replace: 👀
-            - trigger: "#sm"
+            - trigger: "_sm"
               replace: 🙂
-            - trigger: "#fu"
+            - trigger: "_fu"
               replace: 🖕
-            - trigger: "#th"
+            - trigger: "_th"
               replace: 👍
-            - trigger: "#cry"
+            - trigger: "_cry"
               replace: 😭
-            - trigger: "#up"
+            - trigger: "_up"
               replace: 👆
-            - trigger: "#fp"
+            - trigger: "_fp"
               replace: 🤦
-            - trigger: "#po"
+            - trigger: "_po"
               replace: 🤔
-            - trigger: "#rol"
+            - trigger: "_rol"
               replace: 🤣
       '';
 
       home.file.".config/espanso/match/git.yml".text = ''
         matches:
-          - trigger: "#gcb"
+          - trigger: "_gcb"
             replace: 'fix: :bug: $|$'
-          - trigger: "#gcd"
+          - trigger: "_gcd"
             replace: 'docs: :memo: $|$'
-          - trigger: "#gcr"
+          - trigger: "_gcr"
             replace: 'refactor: :recycle: $|$'
-          - trigger: "#gcf"
+          - trigger: "_gcf"
             replace: 'feat: :sparkles: $|$'
-          - trigger: "#gcc"
+          - trigger: "_gcc"
             replace: 'chore: :art: $|$'
-          - trigger: "#gci"
+          - trigger: "_gci"
             replace: 'chore: :tada: Initial Commit $|$'
-          - trigger: "#gcv"
+          - trigger: "_gcv"
             replace: 'chore: :pushpin: Initial Commit $|$'
 
       '';
 
       home.file.".config/espanso/match/media.yml".text = ''
         matches:
-          - trigger: "#feral"
+          - trigger: "_feral"
             replace: 'lftp -u msgedme aether.feralhosting.com -e "cd /media/sdac1/msgedme/private/deluge/data/"'
-          - trigger: "#dl"
+          - trigger: "_dl"
             replace: MYFILEBOT="/home/dustin/docker/filebot" && cd $MYFILEBOT && rsync --progress -avze ssh feral:/media/sdac1/msgedme/private/deluge/data/dl/ ./process
-          - trigger: "#rnt"
+          - trigger: "_rnt"
             replace: 'MYFILEBOT="/home/dustin/docker/filebot"&& MYPLEX="/home/dustin/docker/plex" && cd $MYFILEBOT && docker run --rm -it -v $MYFILEBOT/process:/process -v $MYPLEX:/media -v data:/data rednoah/filebot -r -rename /process --format "{plex}" --db thetvdb --lang en --action copy --conflict override --output /media -non-strict && sudo chown -R dustin:dustin $MYPLEX/TV*'
-          - trigger: "#rnm"
+          - trigger: "_rnm"
             replace: 'MYFILEBOT="/home/dustin/docker/filebot";MYPLEX="/home/dustin/docker/plex";cd $MYFILEBOT; docker run --rm -it -v $MYFILEBOT/process:/process -v $MYPLEX:/media -v data:/data rednoah/filebot -r -rename /process --format "{plex}" --db themoviedb --lang en --action copy --conflict override --output /media -non-strict; sudo chown -R dustin:dustin $MYPLEX/Movies'
-          - trigger: "#gtv"
+          - trigger: "_gtv"
             replace: 'clear && echo "Getting Files" && echo && MYFILEBOT="/home/dustin/docker/filebot" && MYPLEX="/home/dustin/docker/plex" && cd $MYFILEBOT && rsync --progress -avze ssh feral:/media/sdac1/msgedme/private/deluge/data/dl/ ./process && echo && echo "Renaming Files" && echo && docker run --rm -it -v $MYFILEBOT/process:/process -v $MYPLEX:/media -v data:/data rednoah/filebot -r -rename /process --format "{plex}" --db thetvdb --lang en --action copy --conflict override --output /media -non-strict && echo && echo "Setting Permissions" && echo && sudo chown -R dustin:dustin $MYPLEX/TV* && MYFILEBOT="/home/dustin/docker/filebot" && echo "Deleting Files" && echo && rm -rf $MYFILEBOT/process/*'
-          - trigger: "#gm"
+          - trigger: "_gm"
             replace: 'clear && echo "Getting Files" && echo && MYFILEBOT="/home/dustin/docker/filebot" && MYPLEX="/home/dustin/docker/plex" && cd $MYFILEBOT && rsync --progress -avze ssh feral:/media/sdac1/msgedme/private/deluge/data/dlm/ ./process-m && echo && echo "Renaming Files" && echo && docker run --rm -it -v $MYFILEBOT/process-m:/process-m -v $MYPLEX:/media -v data:/data rednoah/filebot -r -rename /process-m --format "{plex}" --db themoviedb --lang en --action copy --conflict override --output /media -non-strict && echo && echo "Setting Permissions" && echo && sudo chown -R dustin:dustin $MYPLEX/Movies && MYFILEBOT="/home/dustin/docker/filebot" && echo "Deleting Files" && echo && rm -rf $MYFILEBOT/process-m/*'
-          - trigger: "#path"
+          - trigger: "_path"
             replace: '/media/sdac1/msgedme/private/deluge/data/dl'
       '';
 
@@ -179,9 +179,9 @@ in {
 
       home.file.".config/espanso/match/tmux.yml".text = ''
         matches:
-          - trigger: "#sync"
+          - trigger: "_sync"
             replace: setw synchronize-panes on
-          - trigger: "#unsync"
+          - trigger: "_unsync"
             replace: setw synchronize-panes off
       '';
 
