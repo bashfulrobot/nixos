@@ -44,8 +44,6 @@ in {
 
   config = lib.mkIf config.programs.espanso.enable {
     home.packages = [ config.programs.espanso.package ];
-    # config = lib.mkIf config.programs.espanso.enable {
-    #   home-manager.users."${user-settings.user.username}".packages = [ config.programs.espanso.package ];
 
     # Here you can add more configuration, for example, setting up environment
     # variables, startup services, etc., specific to espanso
