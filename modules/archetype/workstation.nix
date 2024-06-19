@@ -58,6 +58,12 @@ in {
       sfdc.enable = true;
       teamviewer.enable = true;
       anydesk.enable = true;
+      betterbird.enable = false;
+      xmind.enable = true;
+      bluemail.enable = false;
+      todoist.enable = true;
+      gcal-br.enable = true;
+      gmail-br.enable = true;
     };
 
     cli = {
@@ -84,12 +90,6 @@ in {
       k8sgpt.enable = true;
       kubitect.enable = false;
       dagger.enable = false;
-      betterbird.enable = false;
-      xmind.enable = true;
-      bluemail.enable = false;
-      todoist.enable = true;
-      gcal-br.enable = true;
-      gmail-br.enable = true;
     };
 
     dev = {
