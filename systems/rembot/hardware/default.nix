@@ -6,6 +6,7 @@
     ./boot.nix
     ./hardware-configuration.nix
     ./amdgpu.nix
+    ./kernel.nix
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
     inputs.nixos-hardware.nixosModules.common-gpu-amd
