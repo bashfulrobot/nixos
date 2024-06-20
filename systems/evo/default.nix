@@ -4,7 +4,8 @@
   imports = [ # Include the results of the hardware scan.
 
     ./hardware # hardware specific configuration
-    ../../modules/autoimport.nix # autoimport modules
+    ../../modules # autoimport modules
+    ../../archetype # autoimport archetype modules
 
   ];
 
