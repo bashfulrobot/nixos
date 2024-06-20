@@ -32,35 +32,19 @@ in {
         # Currently supported browsers are "brave" or "chromium".
         browser = "brave";
       };
-      firefox.enable = false;
-      epiphany = {
-        enable = false;
-        useFlatpak = false;
-      };
-      mullvad.enable = false;
       readitlater.enable = true;
-      celeste.enable = false;
-      cosmic-web-apps.enable = false;
-      obs.enable = false;
-      delfin.enable = false;
-      openvscode-server.enable = false;
       vscode.enable = true;
       nixpkgs-search.enable = true;
       nixos-discourse.enable = true;
       hm-search.enable = true;
       github-code-search.enable = true;
-      seabird.enable = false;
       kvm.enable = true;
-      steam.enable = false;
       vitally.enable = true;
       gcal-sysdig.enable = true;
       gmail-sysdig.enable = true;
       sfdc.enable = true;
       teamviewer.enable = true;
-      anydesk.enable = false;
-      betterbird.enable = false;
       xmind.enable = true;
-      bluemail.enable = false;
       todoist.enable = true;
       gcal-br.enable = true;
       gmail-br.enable = true;
@@ -75,21 +59,15 @@ in {
       helix.enable = false;
       spotify-player.enable = true;
       rclone.enable = false; # WIP
-      comics-downloader.enable = false;
+      comics-downloader.enable = true;
       common.enable = true;
       espanso.enable = false;
       environment.enable = true;
       bash.enable = true;
       fish.enable = true;
-      alacritty.enable = false;
       tailscale.enable = true;
-      ptyxis.enable = false;
       blackbox-terminal.enable = true;
-      linkr.enable = false;
       docker.enable = true;
-      k8sgpt.enable = false;
-      kubitect.enable = false;
-      dagger.enable = false;
     };
 
     dev = {
