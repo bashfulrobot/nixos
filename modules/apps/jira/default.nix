@@ -9,7 +9,7 @@ let
 
   # I temp create an app in brave to download all the icons, then I place then in the correct folder
   jiraSysdigApp = makeDesktopApp {
-    name = "Jiras";
+    name = "Jira";
     url = "https://sysdig.atlassian.net/jira/software/c/projects/FR/issues?jql=project%20%3D%20%22FR%22%20ORDER%20BY%20created%20DESC";
     binary = "${pkgs.brave}/bin/brave";
     startupWMClass = "brave-sysdig.atlassian.net__jira_software_c_projects_FR_issues-Default";
