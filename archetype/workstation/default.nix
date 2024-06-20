@@ -36,6 +36,7 @@ in {
       vscode.enable = true;
       nixpkgs-search.enable = true;
       nixos-discourse.enable = true;
+      nixos-wiki.enable = true;
       hm-search.enable = true;
       github-code-search.enable = true;
       kvm.enable = true;
