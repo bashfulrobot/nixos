@@ -77,7 +77,7 @@ in {
       rclone.enable = false; # WIP
       comics-downloader.enable = false;
       common.enable = true;
-      espanso.enable = true;
+      espanso.enable = false;
       environment.enable = true;
       bash.enable = true;
       fish.enable = true;
