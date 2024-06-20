@@ -39,7 +39,7 @@ in {
       };
       mullvad.enable = false;
       readitlater.enable = true;
-      celeste.enable = true;
+      celeste.enable = false;
       cosmic-web-apps.enable = false;
       obs.enable = false;
       delfin.enable = false;
@@ -49,7 +49,7 @@ in {
       nixos-discourse.enable = true;
       hm-search.enable = true;
       github-code-search.enable = true;
-      seabird.enable = true;
+      seabird.enable = false;
       kvm.enable = true;
       steam.enable = false;
       vitally.enable = true;
@@ -57,7 +57,7 @@ in {
       gmail-sysdig.enable = true;
       sfdc.enable = true;
       teamviewer.enable = true;
-      anydesk.enable = true;
+      anydesk.enable = false;
       betterbird.enable = false;
       xmind.enable = true;
       bluemail.enable = false;
@@ -71,8 +71,8 @@ in {
       instruqt.enable = true;
       git.enable = true;
       lunarvim.enable = false;
-      nvim.enable = false;
-      helix.enable = true;
+      nvim.enable = true;
+      helix.enable = false;
       spotify-player.enable = true;
       rclone.enable = false; # WIP
       comics-downloader.enable = false;
@@ -83,11 +83,11 @@ in {
       fish.enable = true;
       alacritty.enable = true;
       tailscale.enable = true;
-      ptyxis.enable = true;
+      ptyxis.enable = false;
       blackbox-terminal.enable = false;
       linkr.enable = false;
       docker.enable = true;
-      k8sgpt.enable = true;
+      k8sgpt.enable = false;
       kubitect.enable = false;
       dagger.enable = false;
     };
