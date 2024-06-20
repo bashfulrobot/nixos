@@ -45,6 +45,7 @@ in {
       gmail-sysdig.enable = true;
       sfdc.enable = true;
       jira.enable = true;
+      confluence.enable = true;
       teamviewer.enable = true;
       xmind.enable = true;
       todoist.enable = true;
