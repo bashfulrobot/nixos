@@ -5,8 +5,8 @@
 
     ./hardware # hardware specific configuration
     ./video # video specific configuration
-    ../../modules # autoimport modules
-    ../../archetype # autoimport archetype modules
+    ../../modules/autoimport.nix # autoimport modules
+    ../../archetype/autoimport.nix # autoimport archetype modules
   ];
   # User name specified in the settings
   users.default.enable = true;
