@@ -186,6 +186,17 @@ in {
             set NS (kubectl get ns | grep Terminating | awk 'NR==1 {print $1}')
             kubectl get namespace $NS -o json | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/" | kubectl replace --raw /api/v1/namespaces/$NS/finalize -f -
           '';
+
+          get_containers_in_pods = ''
+            if test -z $argv[1]
+                echo "Please provide a namespace."
+                return 1
+            end
+
+            set namespace $argv[1]
+
+            kubectl get pods -n $namespace -o jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.name}{", "}{end}{end}' && echo
+          '';
         };
         shellAbbrs = {
           k = "kubectl";
