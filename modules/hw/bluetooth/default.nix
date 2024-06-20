@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, user-settings, ... }:
 let cfg = config.hw.bluetooth;
 in {
   options = {
