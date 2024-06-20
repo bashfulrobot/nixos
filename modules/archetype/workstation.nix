@@ -81,7 +81,7 @@ in {
       environment.enable = true;
       bash.enable = true;
       fish.enable = true;
-      alacritty.enable = true;
+      alacritty.enable = false;
       tailscale.enable = true;
       ptyxis.enable = false;
       blackbox-terminal.enable = true;
