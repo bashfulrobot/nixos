@@ -69,7 +69,6 @@ in {
       bash.enable = true;
       fish.enable = true;
       tailscale.enable = true;
-      blackbox-terminal.enable = true;
       docker.enable = true;
     };
 
