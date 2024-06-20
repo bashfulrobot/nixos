@@ -84,7 +84,7 @@ in {
       alacritty.enable = true;
       tailscale.enable = true;
       ptyxis.enable = false;
-      blackbox-terminal.enable = false;
+      blackbox-terminal.enable = true;
       linkr.enable = false;
       docker.enable = true;
       k8sgpt.enable = false;
