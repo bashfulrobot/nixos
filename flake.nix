@@ -52,7 +52,7 @@
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
       # Load user settings
       user-settings =
-        builtins.fromJSON (builtins.readFile "${self}/settings/setttings.json");
+        builtins.fromJSON (builtins.readFile "${self}/settings/settings.json");
     in {
       nixosConfigurations = {
         # evo = new work laptop hostname
