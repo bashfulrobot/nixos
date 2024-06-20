@@ -24,7 +24,7 @@ in {
     apps.gmail-sysdig.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable the Sysdig Google Calendar App.";
+      description = "Enable the Sysdig Google Calendar app.";
     };
   };
 

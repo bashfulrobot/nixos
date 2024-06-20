@@ -24,7 +24,7 @@ in {
     apps.hm-search.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable the Home Manager Search App.";
+      description = "Enable the Home Manager Search app.";
     };
   };
 

@@ -24,7 +24,7 @@ in {
     apps.sfdc.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable the SFDC App.";
+      description = "Enable the SFDC app.";
     };
   };
 

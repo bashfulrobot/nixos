@@ -25,7 +25,7 @@ in {
     apps.nixpkgs-search.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable the nixpkgs search App.";
+      description = "Enable the nixpkgs search app.";
     };
   };
 

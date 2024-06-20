@@ -24,7 +24,7 @@ in {
     apps.gcal-br.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable the Bashfulrobot Google Calendar App.";
+      description = "Enable the Bashfulrobot Google Calendar app.";
     };
   };
 

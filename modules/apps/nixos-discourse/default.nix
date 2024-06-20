@@ -24,7 +24,7 @@ in {
     apps.nixos-discourse.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable the NixOS Discourse App.";
+      description = "Enable the NixOS Discourse app.";
     };
   };
 

@@ -24,7 +24,7 @@ in {
     apps.github-code-search.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable the Github Code Search App.";
+      description = "Enable the Github Code Search app.";
     };
   };
 
