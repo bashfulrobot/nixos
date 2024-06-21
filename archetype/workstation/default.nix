@@ -43,6 +43,7 @@ in {
       vitally.enable = true;
       gcal-sysdig.enable = true;
       gmail-sysdig.enable = true;
+      github.enable = true;
       sfdc.enable = true;
       jira.enable = true;
       confluence.enable = true;

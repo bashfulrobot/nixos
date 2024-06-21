@@ -38,26 +38,35 @@ help:
 # # Print the directory where the justfile is located
 # root:
 #     @echo {{justfile_directory()}}
+# Final build and garbage collect
+final-build:
+    @just rebuild
+    @just garbage-build-cache
+# Final build and garbage collect, will reboot
+final-build-reboot:
+    @just rebuild
+    @just garbage-build-cache
+    @sudo reboot
 # Rebuild nixos cfg on your current host.
 rebuild:
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}}
     # @just _sway-reload
 # Rebuild nixos cfg on your current host without git commit.
 dev-rebuild:
-    @git add .
+    @git add -A
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}}
     # @just _sway-reload
 # Test nixos cfg on your current host without git commit. Switches, but does not create a bootloader entry
 dev-test:
-    @git add .
+    @git add -A
     @sudo nixos-rebuild test --impure --flake .#\{{`hostname`}}
 # Test (with Trace) nixos cfg on your current host without git commit. Switches, but does not create a bootloader entry
 dev-test-trace:
-    @git add .
+    @git add -A
     @sudo nixos-rebuild test --impure --flake .#\{{`hostname`}} --show-trace
 # Rebuild and trace nixos cfg on your current host without git commit.
 dev-rebuild-trace:
-    @git add .
+    @git add -A
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}} --show-trace
     # @just _sway-reload
 # Rebuild nixos cfg on your current host with show-trace.
@@ -79,7 +88,7 @@ garbage:
 
 ### The below will delete from the Nix store everything that is not used by the current generations of each  profile
 # Garbage collect all, clear build cache
-garbage-buiild-cache:
+garbage-build-cache:
     @sudo nix-collect-garbage -d
 # update nix database for use with comma
 nixdb:
