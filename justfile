@@ -87,7 +87,12 @@ upgrade-system:
 # Garbage Collect items older than 5 days on the current host
 garbage:
     @sudo nix-collect-garbage --delete-older-than 5d
-
+# git reset and clean - unstage any changes and revert your working directory to the last commit,remove any untracked files and directories. Used to resolve conflicts due to syncthing
+repo-conflict:
+    @git reset --hard HEAD
+    @git clean -fd
+garbage:
+    @sudo nix-collect-garbage --delete-older-than 5d
 ### The below will delete from the Nix store everything that is not used by the current generations of each  profile
 # Garbage collect all, clear build cache
 garbage-build-cache:
