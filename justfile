@@ -40,10 +40,12 @@ help:
 #     @echo {{justfile_directory()}}
 # Final build and garbage collect
 final-build:
+    @just garbage-build-cache
     @just rebuild
     @just garbage-build-cache
 # Final build and garbage collect, will reboot
 final-build-reboot:
+    @just garbage-build-cache
     @just rebuild
     @just garbage-build-cache
     @sudo reboot
