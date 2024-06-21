@@ -26,6 +26,7 @@ in {
           if cfg.browser == "chromium" then pkgs.chromium else pkgs.brave;
         commandLineArgs = [ "--ozone-platform-hint=auto" ];
         extensions = [
+          { id = "cofpegcepiccpobikjoddpmmocficdjj"; } # bookmark search
           { id = "cfpenpohaapdgnkglcbgjiooipcbcebi"; } # easy window resize
           # { id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
           #{ id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
