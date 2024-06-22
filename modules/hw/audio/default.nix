@@ -34,3 +34,4 @@ in {
       ];
   };
 }
+# sudo alsactl store - fixes  error: failed to import hw:0 use case configuration -2
