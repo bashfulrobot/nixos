@@ -27,6 +27,7 @@ in {
         commandLineArgs = [ "--ozone-platform-hint=auto" ];
         extensions = [
           { id = "cofpegcepiccpobikjoddpmmocficdjj"; } # bookmark search
+          { id = "cdglnehniifkbagbbombnjghhcihifij"; } # kagi search
           { id = "cfpenpohaapdgnkglcbgjiooipcbcebi"; } # easy window resize
           # { id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
           #{ id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
