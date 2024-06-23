@@ -28,7 +28,7 @@ in {
         extensions = [
           { id = "cofpegcepiccpobikjoddpmmocficdjj"; } # bookmark search
           { id = "cdglnehniifkbagbbombnjghhcihifij"; } # kagi search
-          { id = "cfpenpohaapdgnkglcbgjiooipcbcebi"; } # easy window resize
+          # { id = "cfpenpohaapdgnkglcbgjiooipcbcebi"; } # easy window resize
           # { id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
           #{ id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
           { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; } # 1password
@@ -43,7 +43,7 @@ in {
           { id = "kbfnbcaeplbcioakkpcpgfkobkghlhen"; } # grammarly
           { id = "pbmlfaiicoikhdbjagjbglnbfcbcojpj"; } # simplify
           { id = "jldhpllghnbhlbpcmnajkpdmadaolakh"; } # todoist
-          { id = "kgjfgplpablkjnlkjmjdecgdpfankdle"; } # zoom
+          # { id = "kgjfgplpablkjnlkjmjdecgdpfankdle"; } # zoom
           #{ id = "lcbjdhceifofjlpecfpeimnnphbcjgnc"; } # xbrowsersync
           #{ id = "niloccemoadcdkdjlinkgdfekeahmflj"; } # pocket
           { id = "liecbddmkiiihnedobmlmillhodjkdmb"; } # Loom video recording
@@ -65,9 +65,9 @@ in {
             id = "jpfpebmajhhopeonhlcgidhclcccjcik";
           } # Speed dial extention
           # { id = "akahnknmcbmgodngfjcflnaljdbhnlfo"; } # Vertical Tabs in Side Panel - Not needed in brave
-          { id = "ncppfjladdkdaemaghochfikpmghbcpc"; } # Open as popup
+          # { id = "ncppfjladdkdaemaghochfikpmghbcpc"; } # Open as popup
           #{ id = "oodfdmglhbbkkcngodjjagblikmoegpa"; } # t.ly url shortener
-          { id = "bkdgflcldnnnapblkhphbgpggdiikppg"; } # duckduckgo
+          # { id = "bkdgflcldnnnapblkhphbgpggdiikppg"; } # duckduckgo
           { id = "blkggjdmcfjdbmmmlfcpplkchpeaiiab"; } # Omnivore
           # id = "lbaenccijpceocophfjmecmiipgmacoi"; } # Wizardshot
         ];
