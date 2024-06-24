@@ -197,6 +197,15 @@ in {
 
             kubectl get pods -n $namespace -o jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.name}{", "}{end}{end}' && echo
           '';
+
+          get_libvirt_networks = ''
+                for net in (sudo virsh net-list --all | awk 'NR>2 {print $1}')
+                if test -n "$net"
+                    echo "Network: $net"
+                    sudo virsh net-info $net | grep 'Bridge:'
+                end
+            end
+          '';
         };
         shellAbbrs = {
           k = "kubectl";
