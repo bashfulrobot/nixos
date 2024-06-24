@@ -13,7 +13,7 @@
       # Note
       # - for every routed network created in Terrraform, you need to add a new internal interface here
       # - and a static route needs to be added to the LAN router for the new network
-      internalInterfaces = [ "virbr3" "virbr4" ]; # Your KVM bridge interface
+      internalInterfaces = [ "virbr1" "virbr2" "virbr3" "virbr4" "virbr5" "virbr6" "virbr7" ]; # Your KVM bridge interface
     };
     firewall = {
       enable = true;
@@ -21,8 +21,8 @@
       allowedUDPPorts = [ ]; # Empty since we're allowing all traffic
       extraCommands = ''
         # Allow all incoming and outgoing traffic on internal LAN interface
-        iptables -A INPUT -i virbr3 -j ACCEPT
-        iptables -A OUTPUT -o virbr3 -j ACCEPT
+        # iptables -A INPUT -i virbr3 -j ACCEPT
+        # iptables -A OUTPUT -o virbr3 -j ACCEPT
       '';
     };
   };
