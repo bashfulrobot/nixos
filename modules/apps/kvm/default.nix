@@ -32,7 +32,7 @@ in {
     virtualisation = {
       libvirtd = {
         enable = true;
-        allowedBridges = [ "virbr0" "br0" ];
+        allowedBridges = [ "virbr0" "br0" "virbr1" "virbr2" "virbr3" "virbr4" "virbr5" "virbr6" "virbr7" ];
         onBoot = "start";
         onShutdown = "suspend";
         # https://github.com/tompreston/qemu-ovmf-swtpm
