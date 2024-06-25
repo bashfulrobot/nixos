@@ -34,27 +34,10 @@
       allowedTCPPorts = [ ]; # Empty since we're allowing all traffic
       allowedUDPPorts = [ ]; # Empty since we're allowing all traffic
       extraCommands = lib.mkBefore ''
-        # Allow all incoming and outgoing traffic on internal interfaces
-          ${
-            lib.concatMapStringsSep "\n" (interface: ''
-              iptables -A INPUT -i ${interface} -j ACCEPT
-              iptables -A OUTPUT -o ${interface} -j ACCEPT
-            '') [ "virbr2" "virbr3" "virbr4" "virbr5" "virbr6" "virbr7" ]
-          }
-
-          # Allow all incoming and outgoing traffic on the external interface
-          iptables -A INPUT -i br0 -j ACCEPT
-          iptables -A OUTPUT -o br0 -j ACCEPT
-
-          # Allow inbound traffic to the private subnet on virbr1
-          iptables -A FORWARD -d 172.16.150.0/24 -o virbr1 -j ACCEPT
-          # Allow outbound traffic from the private subnet on virbr1
-          iptables -A FORWARD -s 172.16.150.0/24 -i virbr1 -j ACCEPT
-          # Allow traffic between virtual machines on virbr1
-          iptables -A FORWARD -i virbr1 -o virbr1 -j ACCEPT
-          # Reject everything else on virbr1
-          iptables -A FORWARD -i virbr1 -j REJECT --reject-with icmp-port-unreachable
-          iptables -A FORWARD -o virbr1 -j REJECT --reject-with icmp-port-unreachable
+        # Allow all incoming and outgoing traffic on all interfaces
+        iptables -A INPUT -j ACCEPT
+        iptables -A OUTPUT -j ACCEPT
+        iptables -A FORWARD -j ACCEPT
       '';
     };
   };
