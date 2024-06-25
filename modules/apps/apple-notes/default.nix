@@ -2,7 +2,7 @@
 { user-settings, config, pkgs, lib, makeDesktopItem, ... }:
 
 let
-  cfg = config.apple-notes;
+  cfg = config.apps.apple-notes;
 
   # Import the makeDesktopApp function
   makeDesktopApp = pkgs.callPackage ../../../lib/cbb-webwrap { };
@@ -21,7 +21,7 @@ let
 in {
 
   options = {
-    apple-notes.enable = lib.mkOption {
+    apps.apple-notes.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable the Bashfulrobot Google Calendar app.";
