@@ -24,6 +24,7 @@ in {
       };
 
     apps = {
+      apple-notes.enable = true;
       nautilus.enable = true;
       common.enable = true;
       one-password.enable = true;
