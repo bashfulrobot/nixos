@@ -26,6 +26,7 @@ in {
 
         packages = [
           pkgs.vimPlugins.CopilotChat-nvim
+          pkgs.vimPlugins.vim-multiple-cursors
           (pkgs.jeezyvim.nixvimExtend {
             # you can put anything under the "Options" section of the NixVim docs here
             # https://nix-community.github.io/nixvim/
