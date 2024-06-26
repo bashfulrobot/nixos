@@ -1,6 +1,11 @@
-{ user-settings, pkgs, config, lib, ... }:
-let cfg = config.cli.common;
-
+{
+  user-settings,
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.cli.common;
 in {
   options = {
     cli.common.enable = lib.mkOption {
@@ -80,6 +85,7 @@ in {
       broot # Fuzzy finder
       dysk # Mounted Disk Info
       appimage-run # Run AppImages
+      glow # Render Markdown on the CLI
     ];
 
     # programs.nh = {
@@ -94,11 +100,11 @@ in {
           enable = true;
           enableFishIntegration = true;
         };
-        tmux = { enable = true; };
-        bat = { enable = true; };
-        jq = { enable = true; };
-        k9s = { enable = true; };
-        btop = { enable = true; };
+        tmux = {enable = true;};
+        bat = {enable = true;};
+        jq = {enable = true;};
+        k9s = {enable = true;};
+        btop = {enable = true;};
 
         # zellij = {
         #   enable = true;
@@ -110,7 +116,7 @@ in {
         #   enableFishIntegration = true;
         # };
 
-        carapace = { enable = true; };
+        carapace = {enable = true;};
       };
     };
   };
