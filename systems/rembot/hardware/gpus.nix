@@ -5,6 +5,9 @@
   # Make sure Xserver uses the `amdgpu` driver
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
-  # For 32 bit applications
-  hardware.opengl.driSupport32Bit = true;
+  graphics = {
+      # For 32 bit applications
+      enable32Bit = true;
+      enable = true;
+    };
 }

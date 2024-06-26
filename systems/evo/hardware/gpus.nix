@@ -17,8 +17,13 @@
   hardware = {
     opengl = {
       enable = true;
-      driSupport32Bit = true;
       # extraPackages = [ pkgs.intel-media-driver pkgs.vaapiVdpau ];
+    };
+
+    graphics = {
+      # For 32 bit applications
+      enable32Bit = true;
+      enable = true;
     };
 
     nvidia = {
@@ -58,7 +63,7 @@
       nvidiaSettings = true;
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
 
       # # Special config to load the latest (535 or 550) driver for the support of the 4070 SUPER
       # package = let
