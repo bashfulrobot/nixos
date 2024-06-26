@@ -68,7 +68,9 @@ in {
           hint-color-rgba = "rgb(122, 162, 247)";
           gap-inner = 6;
           gap-outer = 6;
-          active-hint-border-radius = 6;
+          active-hint-border-radius = 10;
+          show-title = false;
+          show-skip-taskbar = false;
         };
 
         "org/gnome/shell/extensions/user-theme" = {
