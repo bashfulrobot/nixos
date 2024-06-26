@@ -26,7 +26,7 @@ in {
 
         packages = [
           pkgs.vimPlugins.CopilotChat-nvim
-          pkgs.vimPlugins.vim-multiple-cursors
+          # pkgs.vimPlugins.vim-multiple-cursors
           (pkgs.jeezyvim.nixvimExtend {
             # you can put anything under the "Options" section of the NixVim docs here
             # https://nix-community.github.io/nixvim/
@@ -111,7 +111,7 @@ in {
                 diffview.enable = pkgs.lib.mkForce false;
                 helm.enable = pkgs.lib.mkForce true;
                 lazygit.enable = true;
-                multicursors.enable = pkgs.lib.mkForce false;
+                multicursors.enable = pkgs.lib.mkForce true;
                 nix.enable = pkgs.lib.mkForce true;
                 nix-develop.enable = pkgs.lib.mkForce true;
                 nvim-colorizer.enable = pkgs.lib.mkForce true;
