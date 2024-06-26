@@ -14,8 +14,6 @@ in {
     environment.systemPackages = with pkgs; [
       # TODO: refactor these packages out into the proper moduls/suites
 
-
-
       ### Dev
       watchman # file watcher
       # gitnuro # git client
@@ -113,7 +111,7 @@ in {
       solaar # Linux manager for many Logitech keyboards, mice
       mplayer # Video player
 
-      zoom-us # video conferencing
+      zoom-us # video conferencing - broken currently
       # tuba # Mastodon client
       morgen # AI calendar - testing
       # protonvpn-gui # VPN client

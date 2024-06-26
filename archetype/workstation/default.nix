@@ -24,6 +24,7 @@ in {
       };
 
     apps = {
+      zoom-web.enable = true;
       apple-notes.enable = true;
       nautilus.enable = true;
       common.enable = true;
