@@ -1,7 +1,17 @@
 { user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.desktops.gnome;
-  # Used in my home manager code at the bottom of the file.
+
+# removes the icon from the panel. No setting currently supported in gnome extension.
+# https://github.com/pop-os/shell/issues/1274
+  pop-shell-no-icon = pkgs.gnomeExtensions.pop-shell.overrideAttrs (oldAttrs: {
+    postInstall = ''
+      ${oldAttrs.postInstall or ""}
+      substituteInPlace $out/share/gnome-shell/extensions/pop-shell@system76.com/extension.js \
+        --replace "panel.addToStatusArea('pop-shell', indicator.button);" "// panel.addToStatusArea('pop-shell', indicator.button);"
+    '';
+  });
+
 in {
   options = {
     desktops.gnome.enable = lib.mkOption {
@@ -58,7 +68,8 @@ in {
       # gnomeExtensions.paperwm # tilig window manager
       gnomeExtensions.blur-my-shell # Blur my Shell
       gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
-      gnomeExtensions.pop-shell # Pop Shell
+      # gnomeExtensions.pop-shell # Pop Shell
+      pop-shell-no-icon
       gnomeExtensions.appindicator # AppIndicator support
       gnomeExtensions.do-not-disturb-while-screen-sharing-or-recording # Automatically switches on the "Do Not Disturb" mode while screen sharing or screen recording. As soon as screen sharing/recording is over, "Do Not Disturb" mode will be switched back off.
       # gnomeExtensions.easyScreenCast # Simplifies the use of the video recording function integrated in gnome shell
