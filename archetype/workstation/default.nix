@@ -24,6 +24,7 @@ in {
       };
 
     apps = {
+      pairdrop.enable = true;
       zoom-web.enable = true;
       apple-notes.enable = true;
       nautilus.enable = true;
