@@ -2,7 +2,7 @@
 { user-settings, config, pkgs, lib, makeDesktopItem, ... }:
 
 let
-  cfg = config.apps.zoom-web;
+  cfg = config.apps.pairdrop;
 
   # Import the makeDesktopApp function
   makeDesktopApp = pkgs.callPackage ../../../lib/cbb-webwrap { };
@@ -22,7 +22,7 @@ let
 in {
 
   options = {
-    apps.zoom-web.enable = lib.mkOption {
+    apps.pairdrop.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable the nixpkgs search app.";
