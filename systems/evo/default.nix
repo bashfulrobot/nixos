@@ -20,8 +20,12 @@
   # snowfallorg.avalanche.desktop.enable = true;
   # desktops.avalanche.enable = true;
   desktops = {
-    gnome.enable = true;
-    addons.wayland.enable = true;
+    sway = {
+      enable = true;
+      laptop = true;
+    };
+#    gnome.enable = true;
+ #   addons.wayland.enable = true;
   };
   # desktops = {
   #   hyprland.enable = true;
