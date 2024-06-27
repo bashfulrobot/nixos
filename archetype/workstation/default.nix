@@ -91,6 +91,7 @@ in {
       scripts = {
         hw-scan.enable = true;
         screenshots.enable = true;
+        gmail-url.enable = true;
       };
     };
 
