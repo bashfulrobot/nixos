@@ -36,9 +36,9 @@ in {
 
     # Might not be needed
     security = {
-      pam ={
+      pam = {
         services = {
-          swaylock = {};
+          swaylock = { };
           # keyring does not start otherwise - enable once I go to lightdm
           # lightdm.enableGnomeKeyring = true;
         };
@@ -366,6 +366,8 @@ in {
           gnome = {
             evolution-data-server.enable = true;
             gnome-online-accounts.enable = true;
+            # Enable the gnome-keyring secrets vault.
+            # Will be exposed through DBus to programs willing to store secrets
             gnome-keyring.enable = true;
           };
           gvfs.enable = true;
@@ -378,9 +380,6 @@ in {
               variant = "";
             };
           };
-          # Enable the gnome-keyring secrets vault.
-          # Will be exposed through DBus to programs willing to store secrets.
-          gnome.gnome-keyring.enable = true;
           accounts-daemon.enable = true;
           greetd = {
             enable = true;
