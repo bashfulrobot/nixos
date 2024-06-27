@@ -1,12 +1,12 @@
 # nix-community/nixpkgs-wayland: Automated, pre-built packages for Wayland (sway/wlroots) tools for NixOS. - https://github.com/nix-community/nixpkgs-wayland?tab=readme-ov-file#sway
 { user-settings, pkgs, config, lib, inputs, ... }:
 let
-  cfg = config.sway;
+  cfg = config.desktops.sway;
   # Used in my home manager code at the bottom of the file.
 
 in {
   options = {
-    sway.enable = lib.mkOption {
+    desktops.sway.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable pantheon Desktop";
