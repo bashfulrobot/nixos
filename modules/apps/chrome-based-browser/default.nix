@@ -77,11 +77,13 @@ in {
         ".config/chromium-flags.conf".text = ''
           --enable-features=UseOzonePlatform
           --ozone-platform=wayland
+          --enable-features=WaylandWindowDecorations
         '';
       } else if cfg.browser == "brave" then {
         ".config/brave-flags.conf".text = ''
           --enable-features=UseOzonePlatform
           --ozone-platform=wayland
+          --enable-features=WaylandWindowDecorations
         '';
       } else
         {

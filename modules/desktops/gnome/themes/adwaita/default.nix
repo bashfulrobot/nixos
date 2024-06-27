@@ -1,7 +1,6 @@
 { user-settings, pkgs, config, lib, inputs, ... }:
 
-let
-  cfg = config.desktops.gnome.themes.adwaita;
+let cfg = config.desktops.gnome.themes.adwaita;
 
 in {
   options = {
@@ -21,6 +20,25 @@ in {
         target = ".local/share/backgrounds/skullskates.png";
       };
 
+      # If you use 1 pixel border the theme's shadow can leak underneath, also sway's border can only be without border radius
+      home.file."gtk-3.0/gtk.css".text = ''
+        /** Some apps use titlebar class and some window */
+        .titlebar,
+        window {
+          border-radius: 0;
+          box-shadow: none;
+        }
+
+        /** also remove shadows */
+        decoration {
+          box-shadow: none;
+        }
+
+        decoration:backdrop {
+          box-shadow: none;
+        }
+      '';
+
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 
         "org/gnome/desktop/interface" = {
@@ -32,7 +50,7 @@ in {
           icon-theme = "Adwaita";
         };
         "org/gnome/extensions/appindicator" = {
-          icon-saturation = 0.99999999999999989;
+          icon-saturation = 0.9999999999999999;
 
         };
 
@@ -66,9 +84,7 @@ in {
           ctive-hint-border-radius = 6;
         };
 
-        "org/gnome/shell/extensions/user-theme" = {
-          name = "Adwaita";
-        };
+        "org/gnome/shell/extensions/user-theme" = { name = "Adwaita"; };
 
       };
 

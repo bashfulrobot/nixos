@@ -17,7 +17,10 @@
     workstation.enable = true;
   };
 
-  desktops.gnome.enable = true;
+  desktops = {
+    gnome.enable = true;
+    addons.wayland.enable = true;
+  };
   # desktops = {
   #   hyprland.enable = true;
   #   addons.waybar.enable = true;
