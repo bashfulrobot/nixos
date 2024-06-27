@@ -20,6 +20,9 @@ in {
     home-manager.users."${user-settings.user.username}" = {
       programs.fish = {
         enable = true;
+        shellInit = ''
+          # Shell Init
+        '';
         interactiveShellInit = ''
           set fish_greeting # Disable greeting
         '';

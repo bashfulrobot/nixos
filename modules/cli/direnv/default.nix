@@ -11,10 +11,19 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ direnv envsubst ];
+    environment.systemPackages = with pkgs; [ envsubst ];
 
     home-manager.users."${user-settings.user.username}" = {
-
+      programs.direnv = {
+        enable = true;
+        enableBashIntegration = true;
+        enableFishIntegration = true;
+        config.global = {
+          load_dotenv = true;
+          strict_env = true;
+          warn_timeout = "400ms";
+        };
+      };
     };
   };
 }
