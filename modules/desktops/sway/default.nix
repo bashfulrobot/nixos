@@ -11,7 +11,7 @@ in {
       default = false;
       description = "Enable sway Desktop";
     };
-    laptop = lib.mkOption {
+    desktops.sway.laptop = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Indicate if the system is a laptop";
