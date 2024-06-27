@@ -350,6 +350,7 @@ in {
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
           ];
         };
 
@@ -421,6 +422,12 @@ in {
             binding = "<Super>n";
             command = "/etc/profiles/per-user/dustin/bin/nautilus ~/dev";
             name = "open files in ~/dev";
+          };
+           "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8" =
+          {
+            binding = "<Control><Alt>g";
+            command = "gmail-url";
+            name = "Transform gmail url to archive url on your clipboard";
           };
       };
     };
