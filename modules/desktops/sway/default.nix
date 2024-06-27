@@ -125,7 +125,7 @@ in {
       # Conditional laptop-specific configuration
       (lib.mkIf cfg.laptop {
         users.users."${user-settings.user.username}".extraGroups = [ "video" ];
-        programs.light.enable = true;
+        # programs.light.enable = true;
         # Additional laptop-specific configurations can go here
       })
       {
