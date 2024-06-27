@@ -17,7 +17,6 @@ in {
       programs.direnv = {
         enable = true;
         enableBashIntegration = true;
-        enableFishIntegration = true;
         config.global = {
           load_dotenv = true;
           strict_env = true;
