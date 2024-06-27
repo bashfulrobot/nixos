@@ -9,7 +9,7 @@ in {
     desktops.sway.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable pantheon Desktop";
+      description = "Enable sway Desktop";
     };
     laptop = lib.mkOption {
       type = lib.types.bool;
