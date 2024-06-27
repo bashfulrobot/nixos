@@ -111,7 +111,7 @@ in {
       solaar # Linux manager for many Logitech keyboards, mice
       mplayer # Video player
 
-      zoom-us # video conferencing - broken currently
+      # zoom-us # video conferencing - broken currently
       # tuba # Mastodon client
       morgen # AI calendar - testing
       # protonvpn-gui # VPN client
