@@ -1,9 +1,9 @@
 { user-settings, pkgs, secrets, config, lib, ... }:
-let cfg = config.direnv;
+let cfg = config.cli.direnv;
 
 in {
   options = {
-    direnv.enable = lib.mkOption {
+    cli.direnv.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable direnv and envsubst.";
