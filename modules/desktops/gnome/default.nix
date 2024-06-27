@@ -425,7 +425,7 @@ in {
           };
            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8" =
           {
-            binding = "<Control><Alt>g";
+            binding = "<Control><Alt><Super>g";
             command = "gmail-url";
             name = "Transform gmail url to archive url on your clipboard";
           };

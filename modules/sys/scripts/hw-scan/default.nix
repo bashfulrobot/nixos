@@ -1,22 +1,26 @@
-{ user-settings, pkgs, config, lib, ... }:
+{ user-settings, pkgs, lib, config, ... }:
+
 let
   cfg = config.sys.scripts.hw-scan;
-  hwScan = ''
-    #!/usr/bin/env bash
+  hwScan = pkgs.writeShellApplication {
+    name = "hw-scan";
 
-    sudo -E docker run -it \
-          -v /dev:/dev:ro \
-          -v /lib/modules:/lib/modules:ro \
-          -v /etc/os-release:/etc/os-release:ro \
-          -v /var/log:/var/log:ro \
-          --privileged --net=host --pid=host \
-          linuxhw/hw-probe -all -upload
+    runtimeInputs = [ pkgs.docker ];
 
-     exit 0
+    text = ''
+        #!/usr/bin/env bash
 
-  '';
+      sudo -E docker run -it \
+            -v /dev:/dev:ro \
+            -v /lib/modules:/lib/modules:ro \
+            -v /etc/os-release:/etc/os-release:ro \
+            -v /var/log:/var/log:ro \
+            --privileged --net=host --pid=host \
+            linuxhw/hw-probe -all -upload
 
-
+       exit 0
+    '';
+  };
 in {
   options = {
     sys.scripts.hw-scan.enable = lib.mkOption {
@@ -25,14 +29,11 @@ in {
       description = "Enable the hw-scan script.";
     };
   };
-
   config = lib.mkIf cfg.enable {
+    #   environment.systemPackages = [ hwScan ];
     home-manager.users."${user-settings.user.username}" = {
-      home.packages = with pkgs;
-        [
-          (writeScriptBin "hardware-scan.sh" hwScan)
-
-        ];
+      home.packages = with pkgs; [ hwScan ];
     };
   };
+
 }
