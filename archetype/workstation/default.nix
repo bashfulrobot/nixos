@@ -58,6 +58,7 @@ in {
     };
 
     cli = {
+      direnv.enable = true;
       sysdig-cli-scanner.enable = true;
       instruqt.enable = true;
       git.enable = true;
