@@ -131,7 +131,7 @@ in {
       {
 
         home.file.".config/sway/config".text = ''
-                  # Default config for sway
+          # Default config for sway
           #
           # Copy this to ~/.config/sway/config and edit it to your liking.
           #
