@@ -113,20 +113,20 @@ in {
 
       # zoom-us # video conferencing - broken currently
       # tuba # Mastodon client
-      morgen # AI calendar - testing
+      # morgen # AI calendar - testing
       # protonvpn-gui # VPN client
       kooha # Screen recorder for x11/Wayland
-      flameshot # Screen capture - currently has a bug
+      # flameshot # Screen capture - currently has a bug
       satty # annotation
       _1password-gui # password management GUI
       # helvum # A GTK patchbay for pipewire
       obsidian # note-taking app
       virt-manager # virtual machine manager
       #droidcam # use iPhone as a camera input
-      yaru-theme # gtk theme
-      pop-gtk-theme # gtk theme
-      gruvbox-gtk-theme # theme
-      gruvbox-dark-icons-gtk # theme icons
+      # yaru-theme # gtk theme
+      # pop-gtk-theme # gtk theme
+      # gruvbox-gtk-theme # theme
+      # gruvbox-dark-icons-gtk # theme icons
       colorpicker # colour picker
 
       # microsoft-edge # web browser
