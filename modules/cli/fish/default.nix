@@ -22,6 +22,7 @@ in {
         enable = true;
         shellInit = ''
           # Shell Init
+          direnv hook fish | source
         '';
         interactiveShellInit = ''
           set fish_greeting # Disable greeting
