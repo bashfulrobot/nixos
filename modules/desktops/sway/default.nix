@@ -36,6 +36,7 @@ in {
 
     # Might not be needed
     security = {
+      polkit.enable = true;
       pam = {
         services = {
           swaylock = { };
@@ -118,10 +119,7 @@ in {
 
     ##### Home Manager Config options #####
     home-manager.users."${user-settings.user.username}" = lib.mkMerge [
-      {
 
-        security.polkit.enable = true;
-      }
       # Conditional laptop-specific configuration
       (lib.mkIf cfg.laptop {
         users.users."${user-settings.user.username}".extraGroups = [ "video" ];
