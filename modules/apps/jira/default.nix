@@ -12,7 +12,7 @@ let
     name = "Jira";
     url = "https://sysdig.atlassian.net/jira/software/c/projects/FR/issues?jql=project%20%3D%20%22FR%22%20ORDER%20BY%20created%20DESC";
     binary = "${pkgs.brave}/bin/brave";
-    startupWMClass = "brave-sysdig.atlassian.net__jira_software_c_projects_FR_issues-Default";
+    myStartupWMClass = "brave-sysdig.atlassian.net__jira_software_c_projects_FR_issues-Default";
     iconSizes = [ "16" "32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

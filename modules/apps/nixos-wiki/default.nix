@@ -12,7 +12,7 @@ let
     name = "Nixos Wiki";
     url = "https://wiki.nixos.org/wiki/NixOS_Wiki";
     binary = "${pkgs.brave}/bin/brave";
-    startupWMClass = "brave-wiki.nixos.org__wiki_NixOS_Wiki-Default";
+    myStartupWMClass = "brave-wiki.nixos.org__wiki_NixOS_Wiki-Default";
     iconSizes = [ "16" "32" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

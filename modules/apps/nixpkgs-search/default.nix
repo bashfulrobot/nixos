@@ -12,7 +12,7 @@ let
     name = "Nixpkgs Search";
     url = "https://search.nixos.org/packages";
     binary = "${pkgs.brave}/bin/brave";
-    startupWMClass = "brave-search.nixos.org__packages-Default";
+    myStartupWMClass = "brave-search.nixos.org__packages-Default";
     iconSizes = [ "16" "32" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

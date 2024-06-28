@@ -12,7 +12,7 @@ let
     name = "Zoom Web";
     url = "https://sysdig.zoom.us/meeting#/upcoming";
     binary = "${pkgs.brave}/bin/brave";
-    startupWMClass = "brave-sysdig.zoom.us__meeting-Default";
+    myStartupWMClass = "brave-sysdig.zoom.us__meeting-Default";
     iconSizes = ["32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

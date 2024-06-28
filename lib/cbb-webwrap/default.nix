@@ -1,7 +1,7 @@
 { pkgs, lib, makeDesktopItem, ... }:
 
 let
-  makeDesktopApp = { name, url, binary, startupWMClass, iconSizes, iconPath }:
+  makeDesktopApp = { name, url, binary, myStartupWMClass, iconSizes, iconPath }:
     let
       desktopName =
         lib.strings.toLower (lib.strings.replaceStrings [ " " ] [ "_" ] name);
@@ -12,7 +12,7 @@ let
         type = "Application";
         name = desktopName;
         desktopName = name;
-        startupWMClass = startupWMClass;
+        startupWMClass = myStartupWMClass;
         # exec = ''
         #   ${binary} --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --new-window --app="${lib.escapeShellArg url}"
         # '';
@@ -46,7 +46,7 @@ let
           message = "binary is a required parameter for makeDesktopApp";
         }
         {
-          assertion = startupWMClass != null;
+          assertion = myStartupWMClass != null;
           message = "startupWMClass is a required parameter for makeDesktopApp";
         }
         {
@@ -58,7 +58,7 @@ let
           message = "iconPath is a required parameter for makeDesktopApp";
         }
       ];
-      desktopItem = desktopItem;
-      icons = icons;
+      inherit desktopItem;
+      inherit icons;
     };
 in makeDesktopApp
