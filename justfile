@@ -98,6 +98,9 @@ garbage-build-cache:
 # update nix database for use with comma
 nixdb:
     nix run 'nixpkgs#nix-index' --extra-experimental-features 'nix-command flakes'
+# lint nix files
+nix-lint:
+    fd -e nix --hidden --no-ignore --follow . -x statix check {}
 # Update Hardware Firmware
 run-fwup:
     @sudo fwupdmgr refresh --force

@@ -212,6 +212,7 @@ in {
           '';
         };
         shellAbbrs = {
+          nix-lint = "fd -e nix --hidden --no-ignore --follow . -x statix check {}";
           k = "kubectl";
           kcx = "kubectx";
           kns = "kubens";
