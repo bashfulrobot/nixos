@@ -91,6 +91,7 @@ garbage:
 repo-conflict:
     @git reset --hard HEAD
     @git clean -fd
+    @git pull
 ### The below will delete from the Nix store everything that is not used by the current generations of each  profile
 # Garbage collect all, clear build cache
 garbage-build-cache:
