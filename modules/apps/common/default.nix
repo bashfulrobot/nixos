@@ -57,6 +57,7 @@ in {
       nix-prefetch-github # Get sha256 info for GitHub
       comma # Nix command wrapper
       nodePackages.node2nix # Node to Nix
+      statix # nix linting
 
       ### Cloud
       openvscode-server # vscode in browser. Used for demos
