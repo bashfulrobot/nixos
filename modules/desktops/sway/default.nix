@@ -99,7 +99,7 @@ in {
 
     environment = {
 
-      systemPackages = with pkgs; [ networkmanager accountsservice iwd ];
+      systemPackages = with pkgs; [ networkmanager accountsservice iwd wpa_supplicant ];
     };
 
     # Enable variuos programs
