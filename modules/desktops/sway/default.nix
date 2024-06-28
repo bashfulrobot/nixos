@@ -28,10 +28,6 @@ in {
       })
     ];
 
-    # TODO I usually set this in my laptop/tower archetypes
-    # but seems to not be working in sway. Trying here
-    networking.networkmanager.enable = true;
-
     services = {
       # Configure keymap in X11
       xserver = {

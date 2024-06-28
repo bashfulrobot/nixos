@@ -17,16 +17,19 @@ in {
 
   config = lib.mkIf cfg.networkmanager.enable {
     # Enable networking
-    networking.networkmanager.enable = true;
-  } // lib.mkIf cfg.wifi.powersave {
-    # Enable wifi powersaving
-    environment.systemPackages = [
+    networking.networkmanager = lib.mkMerge [
+      { enable = true; }
+      (lib.mkIf cfg.host.evo {
+        # Enable wifi powersaving
+        environment.systemPackages = [
 
+        ];
+
+        # wifi powersaving
+        boot.extraModprobeConfig = ''
+          options iwlwifi power_save=1
+        '';
+      })
     ];
-
-    # wifi powersaving
-    boot.extraModprobeConfig = ''
-      options iwlwifi power_save=1
-    '';
   };
 }
