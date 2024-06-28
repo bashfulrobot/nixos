@@ -20,20 +20,46 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    # Disable autoSuspend; my Pantheon session kept auto-suspending
-    # - https://discourse.nixos.org/t/why-is-my-new-nixos-install-suspending/19500
-    # displayManager.gdm.autoSuspend = if (desktop == "pantheon") then true else false;
+    users = lib.mkMerge [
+      (lib.mkIf cfg.laptop {
+        users."${user-settings.user.username}".extraGroups = [ "video" ];
+        # programs.light.enable = true;
+        # Additional laptop-specific configurations can go here
+      })
+    ];
 
-    # xdg.portal = {
-    #   config = {
-    #     pantheon = {
-    #       default = [ "pantheon" "gtk" ];
-    #       "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-    #     };
-    #     # common.default = [ "*" ];
-    #   };
-    # };
+    # TODO I usually set this in my laptop/tower archetypes
+    # but seems to not be working in sway. Trying here
+    networking.networkmanager.enable = true;
 
+    services = {
+      # Configure keymap in X11
+      xserver = {
+        enable = true;
+        xkb = {
+          layout = "us";
+          variant = "";
+        };
+      };
+      gnome = {
+        evolution-data-server.enable = true;
+        gnome-online-accounts.enable = true;
+        # Enable the gnome-keyring secrets vault.
+        # Will be exposed through DBus to programs willing to store secrets
+        gnome-keyring.enable = true;
+      };
+      gvfs.enable = true;
+      accounts-daemon.enable = true;
+      greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+            user = "greeter";
+          };
+        };
+      };
+    };
     # Might not be needed
     security = {
       polkit.enable = true;
@@ -73,15 +99,7 @@ in {
 
     environment = {
 
-      systemPackages = with pkgs; [
-        yaru-theme
-        appeditor
-        formatter
-        pick-colour-picker
-        pantheon-tweaks
-        accountsservice
-      ];
-      pantheon.excludePackages = with pkgs; [ pkgs.pantheon.epiphany ];
+      systemPackages = with pkgs; [ networkmanager accountsservice iwd ];
     };
 
     # Enable variuos programs
@@ -118,343 +136,305 @@ in {
     };
 
     ##### Home Manager Config options #####
-    home-manager.users."${user-settings.user.username}" = lib.mkMerge [
+    home-manager.users."${user-settings.user.username}" = {
 
-      # Conditional laptop-specific configuration
-      (lib.mkIf cfg.laptop {
-        users.users."${user-settings.user.username}".extraGroups = [ "video" ];
-        # programs.light.enable = true;
-        # Additional laptop-specific configurations can go here
-      })
-      {
+      home.file.".config/sway/config".text = ''
+        # Default config for sway
+        #
+        # Copy this to ~/.config/sway/config and edit it to your liking.
+        #
+        # Read `man 5 sway` for a complete reference.
 
-        home.file.".config/sway/config".text = ''
-          # Default config for sway
-          #
-          # Copy this to ~/.config/sway/config and edit it to your liking.
-          #
-          # Read `man 5 sway` for a complete reference.
+        ### Variables
+        #
+        # Logo key. Use Mod1 for Alt.
+        set $mod Mod4
+        # Home row direction keys, like vim
+        set $left h
+        set $down j
+        set $up k
+        set $right l
+        # Your preferred terminal emulator
+        set $term foot
+        # Your preferred application launcher
+        # Note: pass the final command to swaymsg so that the resulting window can be opened
+        # on the original workspace that the command was run on.
+        set $menu dmenu_path | wmenu | xargs swaymsg exec --
 
-          ### Variables
-          #
-          # Logo key. Use Mod1 for Alt.
-          set $mod Mod4
-          # Home row direction keys, like vim
-          set $left h
-          set $down j
-          set $up k
-          set $right l
-          # Your preferred terminal emulator
-          set $term foot
-          # Your preferred application launcher
-          # Note: pass the final command to swaymsg so that the resulting window can be opened
-          # on the original workspace that the command was run on.
-          set $menu dmenu_path | wmenu | xargs swaymsg exec --
+        ### Kanshi Service
+        # give sway a little time to startup before starting kanshi.
+        exec sleep 5; systemctl --user start kanshi.service
+        ### Output configuration
+        #
+        # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
+        output * bg ~/Pictures/wallpapers/skullskates.png fill
+        #
+        # Example configuration:
+        #
+        #   output HDMI-A-1 resolution 1920x1080 position 1920,0
+        #
+        # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-          ### Kanshi Service
-          # give sway a little time to startup before starting kanshi.
-          exec sleep 5; systemctl --user start kanshi.service
-          ### Output configuration
-          #
-          # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-          output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-          #
-          # Example configuration:
-          #
-          #   output HDMI-A-1 resolution 1920x1080 position 1920,0
-          #
-          # You can get the names of your outputs by running: swaymsg -t get_outputs
+        ### Idle configuration
+        #
+        # Example configuration:
+        #
+        # exec swayidle -w \
+        #          timeout 300 'swaylock -f -c 000000' \
+        #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+        #          before-sleep 'swaylock -f -c 000000'
+        #
+        # This will lock your screen after 300 seconds of inactivity, then turn off
+        # your displays after another 300 seconds, and turn your screens back on when
+        # resumed. It will also lock your screen before your computer goes to sleep.
 
-          ### Idle configuration
-          #
-          # Example configuration:
-          #
-          # exec swayidle -w \
-          #          timeout 300 'swaylock -f -c 000000' \
-          #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          #          before-sleep 'swaylock -f -c 000000'
-          #
-          # This will lock your screen after 300 seconds of inactivity, then turn off
-          # your displays after another 300 seconds, and turn your screens back on when
-          # resumed. It will also lock your screen before your computer goes to sleep.
+        ### Input configuration
+        #
+        # Example configuration:
+        #
+        #   input "2:14:SynPS/2_Synaptics_TouchPad" {
+        #       dwt enabled
+        #       tap enabled
+        #       natural_scroll enabled
+        #       middle_emulation enabled
+        #   }
+        #
+        # You can get the names of your inputs by running: swaymsg -t get_inputs
+        # Read `man 5 sway-input` for more information about this section.
 
-          ### Input configuration
-          #
-          # Example configuration:
-          #
-          #   input "2:14:SynPS/2_Synaptics_TouchPad" {
-          #       dwt enabled
-          #       tap enabled
-          #       natural_scroll enabled
-          #       middle_emulation enabled
-          #   }
-          #
-          # You can get the names of your inputs by running: swaymsg -t get_inputs
-          # Read `man 5 sway-input` for more information about this section.
+        ### Key bindings
+        #
+        # Basics:
+        #
+            # Start a terminal
+            bindsym $mod+Return exec $term
 
-          ### Key bindings
-          #
-          # Basics:
-          #
-              # Start a terminal
-              bindsym $mod+Return exec $term
+            # Kill focused window
+            bindsym $mod+Shift+q kill
 
-              # Kill focused window
-              bindsym $mod+Shift+q kill
+            # Start your launcher
+            bindsym $mod+d exec $menu
 
-              # Start your launcher
-              bindsym $mod+d exec $menu
+            # Brightness
+            bindsym XF86MonBrightnessDown exec light -U 10
+            bindsym XF86MonBrightnessUp exec light -A 10
 
-              # Brightness
-              bindsym XF86MonBrightnessDown exec light -U 10
-              bindsym XF86MonBrightnessUp exec light -A 10
+            # Volume
+            bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
+            bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
+            bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
-              # Volume
-              bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
-              bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
-              bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+            # Drag floating windows by holding down $mod and left mouse button.
+            # Resize them with right mouse button + $mod.
+            # Despite the name, also works for non-floating windows.
+            # Change normal to inverse to use left mouse button for resizing and right
+            # mouse button for dragging.
+            floating_modifier $mod normal
 
-              # Drag floating windows by holding down $mod and left mouse button.
-              # Resize them with right mouse button + $mod.
-              # Despite the name, also works for non-floating windows.
-              # Change normal to inverse to use left mouse button for resizing and right
-              # mouse button for dragging.
-              floating_modifier $mod normal
+            # Reload the configuration file
+            bindsym $mod+Shift+c reload
 
-              # Reload the configuration file
-              bindsym $mod+Shift+c reload
+            # Exit sway (logs you out of your Wayland session)
+            bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+        #
+        # Moving around:
+        #
+            # Move your focus around
+            bindsym $mod+$left focus left
+            bindsym $mod+$down focus down
+            bindsym $mod+$up focus up
+            bindsym $mod+$right focus right
+            # Or use $mod+[up|down|left|right]
+            bindsym $mod+Left focus left
+            bindsym $mod+Down focus down
+            bindsym $mod+Up focus up
+            bindsym $mod+Right focus right
 
-              # Exit sway (logs you out of your Wayland session)
-              bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-          #
-          # Moving around:
-          #
-              # Move your focus around
-              bindsym $mod+$left focus left
-              bindsym $mod+$down focus down
-              bindsym $mod+$up focus up
-              bindsym $mod+$right focus right
-              # Or use $mod+[up|down|left|right]
-              bindsym $mod+Left focus left
-              bindsym $mod+Down focus down
-              bindsym $mod+Up focus up
-              bindsym $mod+Right focus right
+            # Move the focused window with the same, but add Shift
+            bindsym $mod+Shift+$left move left
+            bindsym $mod+Shift+$down move down
+            bindsym $mod+Shift+$up move up
+            bindsym $mod+Shift+$right move right
+            # Ditto, with arrow keys
+            bindsym $mod+Shift+Left move left
+            bindsym $mod+Shift+Down move down
+            bindsym $mod+Shift+Up move up
+            bindsym $mod+Shift+Right move right
+        #
+        # Workspaces:
+        #
+            # Switch to workspace
+            bindsym $mod+1 workspace number 1
+            bindsym $mod+2 workspace number 2
+            bindsym $mod+3 workspace number 3
+            bindsym $mod+4 workspace number 4
+            bindsym $mod+5 workspace number 5
+            bindsym $mod+6 workspace number 6
+            bindsym $mod+7 workspace number 7
+            bindsym $mod+8 workspace number 8
+            bindsym $mod+9 workspace number 9
+            bindsym $mod+0 workspace number 10
+            # Move focused container to workspace
+            bindsym $mod+Shift+1 move container to workspace number 1
+            bindsym $mod+Shift+2 move container to workspace number 2
+            bindsym $mod+Shift+3 move container to workspace number 3
+            bindsym $mod+Shift+4 move container to workspace number 4
+            bindsym $mod+Shift+5 move container to workspace number 5
+            bindsym $mod+Shift+6 move container to workspace number 6
+            bindsym $mod+Shift+7 move container to workspace number 7
+            bindsym $mod+Shift+8 move container to workspace number 8
+            bindsym $mod+Shift+9 move container to workspace number 9
+            bindsym $mod+Shift+0 move container to workspace number 10
+            # Note: workspaces can have any name you want, not just numbers.
+            # We just use 1-10 as the default.
+        #
+        # Layout stuff:
+        #
+            # You can "split" the current object of your focus with
+            # $mod+b or $mod+v, for horizontal and vertical splits
+            # respectively.
+            bindsym $mod+b splith
+            bindsym $mod+v splitv
 
-              # Move the focused window with the same, but add Shift
-              bindsym $mod+Shift+$left move left
-              bindsym $mod+Shift+$down move down
-              bindsym $mod+Shift+$up move up
-              bindsym $mod+Shift+$right move right
-              # Ditto, with arrow keys
-              bindsym $mod+Shift+Left move left
-              bindsym $mod+Shift+Down move down
-              bindsym $mod+Shift+Up move up
-              bindsym $mod+Shift+Right move right
-          #
-          # Workspaces:
-          #
-              # Switch to workspace
-              bindsym $mod+1 workspace number 1
-              bindsym $mod+2 workspace number 2
-              bindsym $mod+3 workspace number 3
-              bindsym $mod+4 workspace number 4
-              bindsym $mod+5 workspace number 5
-              bindsym $mod+6 workspace number 6
-              bindsym $mod+7 workspace number 7
-              bindsym $mod+8 workspace number 8
-              bindsym $mod+9 workspace number 9
-              bindsym $mod+0 workspace number 10
-              # Move focused container to workspace
-              bindsym $mod+Shift+1 move container to workspace number 1
-              bindsym $mod+Shift+2 move container to workspace number 2
-              bindsym $mod+Shift+3 move container to workspace number 3
-              bindsym $mod+Shift+4 move container to workspace number 4
-              bindsym $mod+Shift+5 move container to workspace number 5
-              bindsym $mod+Shift+6 move container to workspace number 6
-              bindsym $mod+Shift+7 move container to workspace number 7
-              bindsym $mod+Shift+8 move container to workspace number 8
-              bindsym $mod+Shift+9 move container to workspace number 9
-              bindsym $mod+Shift+0 move container to workspace number 10
-              # Note: workspaces can have any name you want, not just numbers.
-              # We just use 1-10 as the default.
-          #
-          # Layout stuff:
-          #
-              # You can "split" the current object of your focus with
-              # $mod+b or $mod+v, for horizontal and vertical splits
-              # respectively.
-              bindsym $mod+b splith
-              bindsym $mod+v splitv
+            # Switch the current container between different layout styles
+            bindsym $mod+s layout stacking
+            bindsym $mod+w layout tabbed
+            bindsym $mod+e layout toggle split
 
-              # Switch the current container between different layout styles
-              bindsym $mod+s layout stacking
-              bindsym $mod+w layout tabbed
-              bindsym $mod+e layout toggle split
+            # Make the current focus fullscreen
+            bindsym $mod+f fullscreen
 
-              # Make the current focus fullscreen
-              bindsym $mod+f fullscreen
+            # Toggle the current focus between tiling and floating mode
+            bindsym $mod+Shift+space floating toggle
 
-              # Toggle the current focus between tiling and floating mode
-              bindsym $mod+Shift+space floating toggle
+            # Swap focus between the tiling area and the floating area
+            bindsym $mod+space focus mode_toggle
 
-              # Swap focus between the tiling area and the floating area
-              bindsym $mod+space focus mode_toggle
+            # Move focus to the parent container
+            bindsym $mod+a focus parent
+        #
+        # Scratchpad:
+        #
+            # Sway has a "scratchpad", which is a bag of holding for windows.
+            # You can send windows there and get them back later.
 
-              # Move focus to the parent container
-              bindsym $mod+a focus parent
-          #
-          # Scratchpad:
-          #
-              # Sway has a "scratchpad", which is a bag of holding for windows.
-              # You can send windows there and get them back later.
+            # Move the currently focused window to the scratchpad
+            bindsym $mod+Shift+minus move scratchpad
 
-              # Move the currently focused window to the scratchpad
-              bindsym $mod+Shift+minus move scratchpad
+            # Show the next scratchpad window or hide the focused scratchpad window.
+            # If there are multiple scratchpad windows, this command cycles through them.
+            bindsym $mod+minus scratchpad show
+        #
+        # Resizing containers:
+        #
+        mode "resize" {
+            # left will shrink the containers width
+            # right will grow the containers width
+            # up will shrink the containers height
+            # down will grow the containers height
+            bindsym $left resize shrink width 10px
+            bindsym $down resize grow height 10px
+            bindsym $up resize shrink height 10px
+            bindsym $right resize grow width 10px
 
-              # Show the next scratchpad window or hide the focused scratchpad window.
-              # If there are multiple scratchpad windows, this command cycles through them.
-              bindsym $mod+minus scratchpad show
-          #
-          # Resizing containers:
-          #
-          mode "resize" {
-              # left will shrink the containers width
-              # right will grow the containers width
-              # up will shrink the containers height
-              # down will grow the containers height
-              bindsym $left resize shrink width 10px
-              bindsym $down resize grow height 10px
-              bindsym $up resize shrink height 10px
-              bindsym $right resize grow width 10px
+            # Ditto, with arrow keys
+            bindsym Left resize shrink width 10px
+            bindsym Down resize grow height 10px
+            bindsym Up resize shrink height 10px
+            bindsym Right resize grow width 10px
 
-              # Ditto, with arrow keys
-              bindsym Left resize shrink width 10px
-              bindsym Down resize grow height 10px
-              bindsym Up resize shrink height 10px
-              bindsym Right resize grow width 10px
+            # Return to default mode
+            bindsym Return mode "default"
+            bindsym Escape mode "default"
+        }
+        bindsym $mod+r mode "resize"
 
-              # Return to default mode
-              bindsym Return mode "default"
-              bindsym Escape mode "default"
-          }
-          bindsym $mod+r mode "resize"
+        #
+        # Status Bar:
+        #
+        # Read `man 5 sway-bar` for more information about this section.
+        bar {
+            position top
 
-          #
-          # Status Bar:
-          #
-          # Read `man 5 sway-bar` for more information about this section.
-          bar {
-              position top
+            # When the status_command prints a new line to stdout, swaybar updates.
+            # The default just shows the current date and time.
+            status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
-              # When the status_command prints a new line to stdout, swaybar updates.
-              # The default just shows the current date and time.
-              status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+            colors {
+                statusline #ffffff
+                background #323232
+                inactive_workspace #32323200 #32323200 #5c5c5c
+            }
+        }
 
-              colors {
-                  statusline #ffffff
-                  background #323232
-                  inactive_workspace #32323200 #32323200 #5c5c5c
-              }
-          }
+        include @sysconfdir@/sway/config.d/*
+      '';
 
-          include @sysconfdir@/sway/config.d/*
-        '';
+      services = {
+        gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
+        # https://nixos.wiki/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
+        mpris-proxy.enable = true;
+      };
 
-        services = {
-          gnome = {
-            evolution-data-server.enable = true;
-            gnome-online-accounts.enable = true;
-            # Enable the gnome-keyring secrets vault.
-            # Will be exposed through DBus to programs willing to store secrets
-            gnome-keyring.enable = true;
-          };
-          gvfs.enable = true;
+      # gtk = {
+      #   enable = true;
+      #   cursorTheme = {
+      #     name = "elementary";
+      #     package = pkgs.pantheon.elementary-icon-theme;
+      #     size = 32;
+      #   };
 
-          # Configure keymap in X11
-          xserver = {
-            enable = true;
-            xkb = {
-              layout = "us";
-              variant = "";
-            };
-          };
-          accounts-daemon.enable = true;
-          greetd = {
-            enable = true;
-            settings = {
-              default_session = {
-                command =
-                  "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-                user = "greeter";
-              };
-            };
-          };
-          gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
-          # https://nixos.wiki/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
-          mpris-proxy.enable = true;
+      #   font = {
+      #     name = "Work Sans 12";
+      #     package = pkgs.work-sans;
+      #   };
+
+      #   gtk2 = {
+      #     configLocation = "${user-settings.user.home}/.gtkrc-2.0";
+      #     extraConfig = ''
+      #       gtk-application-prefer-dark-theme = 1
+      #       gtk-decoration-layout = ":minimize,maximize,close"
+      #       gtk-theme-name = "io.elementary.stylesheet.bubblegum"
+      #     '';
+      #   };
+
+      #   gtk3 = {
+      #     extraConfig = {
+      #       gtk-application-prefer-dark-theme = 1;
+      #       gtk-decoration-layout = ":minimize,maximize,close";
+      #     };
+      #   };
+
+      #   gtk4 = {
+      #     extraConfig = {
+      #       gtk-application-prefer-dark-theme = 1;
+      #       gtk-decoration-layout = ":minimize,maximize,close";
+      #     };
+      #   };
+
+      #   iconTheme = {
+      #     name = "elementary";
+      #     package = pkgs.pantheon.elementary-icon-theme;
+      #   };
+
+      #   theme = {
+      #     name = "io.elementary.stylesheet.slate";
+      #     package = pkgs.pantheon.elementary-gtk-theme;
+      #   };
+      # };
+
+      home.pointerCursor = {
+        package = pkgs.gnome.adwaita-icon-theme;
+        name = "Adwaita ";
+        size = 32;
+        x11 = {
+          enable = true;
+          defaultCursor = "Adwaita";
         };
+        gtk.enable = true;
+      };
 
-        # gtk = {
-        #   enable = true;
-        #   cursorTheme = {
-        #     name = "elementary";
-        #     package = pkgs.pantheon.elementary-icon-theme;
-        #     size = 32;
-        #   };
-
-        #   font = {
-        #     name = "Work Sans 12";
-        #     package = pkgs.work-sans;
-        #   };
-
-        #   gtk2 = {
-        #     configLocation = "${user-settings.user.home}/.gtkrc-2.0";
-        #     extraConfig = ''
-        #       gtk-application-prefer-dark-theme = 1
-        #       gtk-decoration-layout = ":minimize,maximize,close"
-        #       gtk-theme-name = "io.elementary.stylesheet.bubblegum"
-        #     '';
-        #   };
-
-        #   gtk3 = {
-        #     extraConfig = {
-        #       gtk-application-prefer-dark-theme = 1;
-        #       gtk-decoration-layout = ":minimize,maximize,close";
-        #     };
-        #   };
-
-        #   gtk4 = {
-        #     extraConfig = {
-        #       gtk-application-prefer-dark-theme = 1;
-        #       gtk-decoration-layout = ":minimize,maximize,close";
-        #     };
-        #   };
-
-        #   iconTheme = {
-        #     name = "elementary";
-        #     package = pkgs.pantheon.elementary-icon-theme;
-        #   };
-
-        #   theme = {
-        #     name = "io.elementary.stylesheet.slate";
-        #     package = pkgs.pantheon.elementary-gtk-theme;
-        #   };
-        # };
-
-        home.pointerCursor = {
-          package = pkgs.gnome.adwaita-icon-theme;
-          name = "Adwaita ";
-          size = 32;
-          x11 = {
-            enable = true;
-            defaultCursor = "Adwaita";
-          };
-          gtk.enable = true;
-        };
-
-        dconf.settings = with inputs.home-manager.lib.hm.gvariant; { };
-      }
-    ];
-
+      dconf.settings = with inputs.home-manager.lib.hm.gvariant; { };
+    };
   };
 }
