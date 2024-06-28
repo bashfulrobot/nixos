@@ -20,6 +20,38 @@
 # Note - modules/apps/syncthing/default.nix is a good example with multiple options, and the use of `mkMerge` to combine them.
 # Without `mkMerge`, the last option will override the previous ones.
 #
+
+# ANOTHER EXAMPLE
+
+# { pkgs, config, lib, ... }:
+# let cfg = config.hw.networking;
+# in {
+#   options.hw.networking.networkmanager.enable = lib.mkOption {
+#     type = lib.types.bool;
+#     default = false;
+#     description = "Enable networkmanager.";
+#   };
+
+#   options.hw.networking.wifi.powersave = lib.mkOption {
+#     type = lib.types.bool;
+#     default = false;
+#     description = "Enable wifi powersaving.";
+#   };
+
+#   config = lib.mkMerge [
+#     (lib.mkIf cfg.networkmanager.enable {>
+#       # Enable networking
+#       networking.networkmanager.enable = true;
+#     })
+#     (lib.mkIf cfg.wifi.powersave {
+#       # Enable wifi powersaving
+#       boot.extraModprobeConfig = ''
+#         options iwlwifi power_save=1
+#       '';
+#     })
+#   ];
+# }
+
 # =============================================================================
 
 { user-settings, pkgs, config, lib, ... }:
