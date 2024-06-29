@@ -44,6 +44,21 @@
         "type": "github"
       }
     },
+    "catppuccin": {
+      "locked": {
+        "lastModified": 1719592953,
+        "narHash": "sha256-pvWudX7LM7nFkutIxi5KCjv8RITAuiA547MtRZJ25LE=",
+        "owner": "catppuccin",
+        "repo": "nix",
+        "rev": "63e0859743908a53e58b3ceeca06a145a45c4435",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nix",
+        "type": "github"
+      }
+    },
     "devshell": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -614,6 +629,7 @@
     "root": {
       "inputs": {
         "avalanche": "avalanche",
+        "catppuccin": "catppuccin",
         "envycontrol": "envycontrol",
         "home-manager": "home-manager",
         "hyprswitch": "hyprswitch",

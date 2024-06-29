@@ -17,6 +17,8 @@
 
     nvim.url = "github:bashfulrobot/jvim";
 
+    catppuccin.url = "github:catppuccin/nix";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +40,7 @@
     , nix-flatpak, nur,
     #hyprswitch,
     #avalanche,
-    nvim, ... }:
+    nvim, catppuccin, ... }:
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.
@@ -63,6 +65,7 @@
             ./systems/evo
             nur.nixosModules.nur
             nix-flatpak.nixosModules.nix-flatpak
+            catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -89,6 +92,7 @@
             ./systems/rembot
             nur.nixosModules.nur
             nix-flatpak.nixosModules.nix-flatpak
+            catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
 
             {
