@@ -61,6 +61,8 @@ in {
       polkit.enable = true;
       pam = {
         services = {
+
+          greetd = { enableGnomeKeyring = true; };
           swaylock = { };
           # keyring does not start otherwise - enable once I go to lightdm
           # lightdm.enableGnomeKeyring = true;
@@ -95,7 +97,12 @@ in {
 
     environment = {
 
-      systemPackages = with pkgs; [ networkmanager accountsservice iwd wpa_supplicant ];
+      systemPackages = with pkgs; [
+        networkmanager
+        accountsservice
+        iwd
+        wpa_supplicant
+      ];
     };
 
     # Enable variuos programs
@@ -186,14 +193,15 @@ in {
 
         ### Input configuration
         #
+        # Get device with: swaymsg -t get_inputs
         # Example configuration:
         #
-        #   input "2:14:SynPS/2_Synaptics_TouchPad" {
-        #       dwt enabled
-        #       tap enabled
-        #       natural_scroll enabled
-        #       middle_emulation enabled
-        #   }
+          input "1267:12970:VEN_04F3:00_04F3:32AA_Touchpad" {
+              dwt enabled
+              tap enabled
+              natural_scroll disabled
+              middle_emulation enabled
+          }
         #
         # You can get the names of your inputs by running: swaymsg -t get_inputs
         # Read `man 5 sway-input` for more information about this section.
@@ -206,7 +214,7 @@ in {
             bindsym $mod+Return exec $term
 
             # Kill focused window
-            bindsym $mod+Shift+q kill
+            bindsym $mod+q kill
 
             # Start your launcher
             bindsym $mod+d exec $menu
