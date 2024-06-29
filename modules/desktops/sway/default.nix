@@ -29,6 +29,15 @@ in {
     ];
 
     services = {
+      displayManager = {
+        defaultSession = "sway";
+        sddm = {
+          enable = true;
+          wayland.enable = true;
+          autoNumlock = true;
+          package = pkgs.kdePackages.sddm;
+        };
+      };
       # Configure keymap in X11
       xserver = {
         enable = true;
@@ -46,23 +55,23 @@ in {
       };
       gvfs.enable = true;
       accounts-daemon.enable = true;
-      greetd = {
-        enable = true;
-        settings = {
-          default_session = {
-            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-            user = "greeter";
-          };
-        };
-      };
+      # greetd = {
+      #   enable = true;
+      #   settings = {
+      #     default_session = {
+      #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+      #       user = "greeter";
+      #     };
+      #   };
+      # };
     };
     # Might not be needed
     security = {
       polkit.enable = true;
       pam = {
         services = {
-
-          greetd = { enableGnomeKeyring = true; };
+          sddm.enableGnomeKeyring = true;
+          # greetd = { enableGnomeKeyring = true; };
           swaylock = { };
           # keyring does not start otherwise - enable once I go to lightdm
           # lightdm.enableGnomeKeyring = true;
@@ -86,12 +95,13 @@ in {
         noto-fonts-emoji
         font-awesome
         source-han-sans
-        source-han-sans-japanese
-        source-han-serif-japanese
+        # source-han-sans-japanese
+        # source-han-serif-japanese
+        work-sans
       ];
       fontconfig.defaultFonts = {
-        serif = [ "Noto Serif" "Source Han Serif" ];
-        sansSerif = [ "Noto Sans" "Source Han Sans" ];
+        serif = [ "Work Sans" "Noto Serif" "Source Han Serif" ];
+        sansSerif = [ "Work Sans" "Noto Sans" "Source Han Sans" ];
       };
     };
 
@@ -100,8 +110,7 @@ in {
       systemPackages = with pkgs; [
         networkmanager
         accountsservice
-        iwd
-        wpa_supplicant
+        work-sans # font
       ];
     };
 
@@ -371,6 +380,10 @@ in {
             }
         }
 
+        ### Visual
+        #
+        default_border pixel 2
+
         include @sysconfdir@/sway/config.d/*
       '';
 
@@ -379,6 +392,8 @@ in {
         # https://nixos.wiki/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
         mpris-proxy.enable = true;
       };
+
+      # ##### THeme
 
       # gtk = {
       #   enable = true;

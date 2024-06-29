@@ -23,15 +23,11 @@
     sway = {
       enable = true;
       laptop = true;
+      themes.catppuccin.enable = true;
     };
 #    gnome.enable = true;
- #   addons.wayland.enable = true;
+   addons.wayland.enable = true;
   };
-  # desktops = {
-  #   hyprland.enable = true;
-  #   addons.waybar.enable = true;
-  # };
-
   # desktops.pantheon.enable = true;
 
   apps = {

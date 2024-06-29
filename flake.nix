@@ -2,16 +2,11 @@
   description = "NixOS configuration for Dustin Krysak";
 
   inputs = {
-    avalanche = {
-      url = "github:snowfallorg/avalanche";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    envycontrol.url = "github:bayasdev/envycontrol";
+    # envycontrol.url = "github:bayasdev/envycontrol";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
@@ -24,21 +19,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Hyprswitch (for windows switching in Hyprland)
-    hyprswitch = { url = "github:h3rmt/hyprswitch/release"; };
-
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
-    kolide-launcher = {
-      url = "github:/kolide/nix-agent/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, envycontrol
-    , nix-flatpak, nur,
-    #hyprswitch,
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware,
+    # envycontrol,
+    nix-flatpak, nur,
     #avalanche,
     nvim, catppuccin, ... }:
     # with inputs;
@@ -46,7 +34,6 @@
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.
       workstationOverlays = [
         nur.overlay
-        #avalanche.overlays.default
         nvim.overlays.default
       ];
       # Load secrets. This folder is encryted with git-crypt
@@ -72,6 +59,10 @@
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
+                users."${user-settings.user.username}" =
+                  {
+                    imports = [ catppuccin.homeManagerModules.catppuccin ];
+                  };
               };
 
               nixpkgs = {
@@ -100,6 +91,10 @@
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
+                users."${user-settings.user.username}" =
+                  {
+                    imports = [ catppuccin.homeManagerModules.catppuccin ];
+                  };
               };
 
               nixpkgs = {

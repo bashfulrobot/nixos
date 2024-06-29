@@ -70,6 +70,10 @@ in {
           # { id = "bkdgflcldnnnapblkhphbgpggdiikppg"; } # duckduckgo
           { id = "blkggjdmcfjdbmmmlfcpplkchpeaiiab"; } # Omnivore
           # id = "lbaenccijpceocophfjmecmiipgmacoi"; } # Wizardshot
+          { id = "bkkmolkhemgaeaeggcmfbghljjjoofoh"; } #  Catppuccin Mocha theme
+          { id = "olhelnoplefjdmncknfphenjclimckaf"; } #  Catppuccin Frappe theme
+          { id = "cmpdlhmnmjhihmcfnigoememnffkimlk"; } #  Catppuccin Macchiato theme
+          { id = "jhjnalhegpceacdhbplhnakmkdliaddd"; } #  Catppuccin Latte theme
         ];
       };
       # force brave to use wayland - https://skerit.com/en/make-electron-applications-use-the-wayland-renderer
