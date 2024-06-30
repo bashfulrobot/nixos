@@ -39,7 +39,6 @@ in {
         background = "~/Pictures/wallpapers/skullskates.png";
         font = "Work Sans";
         fontSize = "18";
-        loginBackground = "~/Pictures/wallpapers/skullskates.png";
       };
     };
 
