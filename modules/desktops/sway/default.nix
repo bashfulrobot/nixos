@@ -36,6 +36,7 @@ in {
           wayland.enable = true;
           autoNumlock = true;
           package = pkgs.kdePackages.sddm;
+
         };
       };
       # Configure keymap in X11
@@ -443,12 +444,9 @@ in {
       # };
 
       home.pointerCursor = {
-        package = pkgs.gnome.adwaita-icon-theme;
-        name = "Adwaita ";
         size = 32;
         x11 = {
           enable = true;
-          defaultCursor = "Adwaita";
         };
         gtk.enable = true;
       };

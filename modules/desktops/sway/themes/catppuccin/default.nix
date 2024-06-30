@@ -1,6 +1,10 @@
 { user-settings, catppuccin, pkgs, config, lib, ... }:
-let cfg = config.desktops.sway.themes.catppuccin;
-
+let
+  cfg = config.desktops.sway.themes.catppuccin;
+  # “latte”, “frappe”, “macchiato”, “mocha”
+  themeFlavor = "macchiato";
+  # “blue”, “flamingo”, “green”, “lavender”, “maroon”, “mauve”, “peach”, “pink”, “red”, “rosewater”, “sapphire”, “sky”, “teal”, “yellow”
+  themeAccent = "mauve";
 in {
 
   options = {
@@ -16,25 +20,26 @@ in {
     # Regular nix configuration
     catppuccin = {
       enable = true;
-      flavor = "macchiato";
-      # “blue”, “flamingo”, “green”, “lavender”, “maroon”, “mauve”, “peach”, “pink”, “red”, “rosewater”, “sapphire”, “sky”, “teal”, “yellow”
-      accent = "mauve";
+      flavor = themeFlavor;
+      accent = themeAccent;
 
     };
 
     boot.loader.grub.catppuccin = {
       enable = true;
-      flavor = "macchiato";
+      flavor = themeFlavor;
 
     };
 
     services.displayManager = {
+
       sddm.catppuccin = {
         enable = true;
-        flavor = "macchiato";
+        flavor = themeFlavor;
         background = "~/Pictures/wallpapers/skullskates.png";
         font = "Work Sans";
         fontSize = "18";
+        loginBackground = "~/Pictures/wallpapers/skullskates.png";
       };
     };
 
@@ -42,9 +47,70 @@ in {
 
     home-manager.users."${user-settings.user.username}" = {
       # Home-manager configuration
+      catppuccin = {
+        enable = true;
+        flavor = themeFlavor;
+        accent = themeAccent;
+      };
+
+      programs = {
+        tmux.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+        };
+        swaylock.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+        };
+        neovim.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+        };
+        mpv.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+        };
+        lazygit.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+          accent = themeAccent;
+        };
+        k9s.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+        };
+        gitui.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+        };
+        fzf.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+        };
+        foot.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+        };
+      };
       wayland.windowManager.sway.catppuccin = {
         enable = true;
-        flavor = "macchiato";
+        flavor = themeFlavor;
+      };
+
+      gtk = {
+        catppuccin = {
+          enable = true;
+          accent = themeAccent;
+          flavor = themeFlavor;
+          icon = {
+            enable = true;
+            accent = themeAccent;
+          };
+          # “standard”, “compact”
+          size = "normal";
+          # “black”, “rimless”, “normal”
+          tweaks = "black";
+        };
       };
     };
   };
