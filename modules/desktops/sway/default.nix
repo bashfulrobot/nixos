@@ -8,7 +8,7 @@ let
     runtimeInputs = [ pkgs.upower pkgs.gnugrep pkgs.gawk ];
 
     text = ''
-      #!/usr/bin/env bash
+            #!/usr/bin/env bash
       # If not, do "killall swaybar" and $mod+Shift+c to reload the configuration.
 
       # The abbreviated weekday (e.g., "Sat"), followed by the ISO-formatted date
@@ -24,10 +24,7 @@ let
       # identifiers. i3 and sway convert the newline between battery state and
       # the charge percentage automatically to a space, producing a result like
       # "charging 59%" or "fully-charged 100%".
-      battery_info=$(upower --show-info $(upower --enumerate |\
-      grep 'BAT') |\
-      grep -E "state|percentage" |\
-      awk '{print $2}')
+      battery_info=$(upower --show-info "$(upower --enumerate | grep 'BAT')" | grep -E "state|percentage" | awk '{print $2}')
 
       # "amixer -M" gets the mapped volume for evaluating the percentage which
       # is more natural to the human ear according to "man amixer".
@@ -36,11 +33,11 @@ let
       # is muted or not.
       # "tr -d []" removes brackets around the volume.
       # Adapted from https://bbs.archlinux.org/viewtopic.php?id=89648
-      audio_volume=$(amixer -M get Master |\
-      awk '/Mono.+/ {print $6=="[off]" ?\
-      $4" 🔇": \
-      $4" 🔉"}' |\
-      tr -d '[]')
+      audio_volume=$(amixer -M get Master |
+           awk '/Mono.+/ {print $6=="[off]" ?\
+            $4" 🔇": \
+            $4" 🔉"}' |
+           tr -d '[]')
 
       # Additional emojis and characters for the status bar:
       # Electricity: ⚡ ↯ ⭍ 🔌
@@ -48,6 +45,7 @@ let
       # Separators: \| ❘ ❙ ❚
       # Misc: 🐧 💎 💻 💡 ⭐ 📁 ↑ ↓ ✉ ✅ ❎
       echo "$audio_volume $battery_info 🔋 $date_formatted"
+
     '';
   };
 
@@ -159,7 +157,7 @@ in {
         networkmanager
         accountsservice
         work-sans # fontswaybar script
-        swaybar-status #
+        swaybar-status
       ];
     };
 
