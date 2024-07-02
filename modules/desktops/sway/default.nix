@@ -420,7 +420,8 @@ in {
             # }
         # }
         # replace swaybar with waybar
-        bar swaybar_command waybar
+        # bar swaybar_command waybar
+        exec waybar
 
         ### Visual
         #
