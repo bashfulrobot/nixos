@@ -31,15 +31,18 @@ in {
 
     };
 
-    services.displayManager = {
+    services = {
+      displayManager = {
 
-      sddm.catppuccin = {
-        enable = true;
-        flavor = themeFlavor;
-        background = "~/Pictures/wallpapers/skullskates.png";
-        font = "Work Sans";
-        fontSize = "18";
+        sddm.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+          background = "~/Pictures/wallpapers/skullskates.png";
+          font = "Work Sans";
+          fontSize = "18";
+        };
       };
+
     };
 
     # environment.systemPackages = with pkgs; [ template-app ];
@@ -53,6 +56,10 @@ in {
       };
 
       programs = {
+        waybar.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+        };
         tmux.catppuccin = {
           enable = true;
           flavor = themeFlavor;
@@ -86,11 +93,20 @@ in {
           enable = true;
           flavor = themeFlavor;
         };
-        foot.catppuccin = {
+        foot = {
+          catppuccin = {
+            enable = true;
+            flavor = themeFlavor;
+          };
+        };
+      };
+      services = {
+        mako.catppuccin = {
           enable = true;
           flavor = themeFlavor;
         };
       };
+
       wayland.windowManager.sway.catppuccin = {
         enable = true;
         flavor = themeFlavor;
