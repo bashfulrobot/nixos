@@ -173,10 +173,11 @@ in {
     # xdg-desktop-portal exposes a series of D-Bus interfaces (APIs for file access, opening URIs, printing, etc)
     xdg.portal = {
       enable = true;
-      wlr.enable = true;
+      xdgOpenUsePortal = true;
+      # wlr.enable = true;
       # gtk portal needed to make gtk apps happy
       extraPortals =
-        [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
+        [ pkgs.xdg-desktop-portal-gtk ];
     };
 
     ##### Home Manager Config options #####
@@ -417,7 +418,7 @@ in {
             # }
         # }
         # replace swaybar with waybar
-        #bar swaybar_command waybar
+        bar swaybar_command waybar
 
         ### Visual
         #

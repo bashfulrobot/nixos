@@ -2,7 +2,7 @@
 
 {
   imports = [
-    # ./gpus.nix
+    ./gpus.nix
     ./boot.nix
     ./hardware-configuration.nix
     ./kernel.nix
