@@ -45,7 +45,7 @@ in {
 
     };
 
-    # environment.systemPackages = with pkgs; [ template-app ];
+    environment.systemPackages = with pkgs; [ catppuccin-gtk ];
 
     home-manager.users."${user-settings.user.username}" = {
       # Home-manager configuration
@@ -124,7 +124,7 @@ in {
           # “standard”, “compact”
           size = "normal";
           # “black”, “rimless”, “normal”
-          tweaks = "black";
+          tweaks = [ "black" ];
         };
       };
     };

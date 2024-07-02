@@ -1,7 +1,8 @@
 # nix-community/nixpkgs-wayland: Automated, pre-built packages for Wayland (sway/wlroots) tools for NixOS. - https://github.com/nix-community/nixpkgs-wayland?tab=readme-ov-file#sway
-{ user-settings, pkgs, config, lib, inputs, ... }:
+{ user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.desktops.sway;
+  sway-alttab = pkgs.callPackage ./sway-alttab/build { };
   # https://github.com/emersion/xdg-desktop-portal-wlr/wiki/"It-doesn't-work"-Troubleshooting-Checklist
   # note: this is pretty much the same as  /etc/sway/config.d/nixos.conf but also restarts
   # some user services to make sure they have the correct environment variables
@@ -115,6 +116,12 @@ in {
         # source-han-sans-japanese
         # source-han-serif-japanese
         work-sans
+        blueman
+        pavucontrol
+        grim
+        swappy
+        satty
+        sway-alttab
       ];
       fontconfig.defaultFonts = {
         serif = [ "Work Sans" "Noto Serif" "Source Han Serif" ];
@@ -131,7 +138,6 @@ in {
         light
         pulseaudio
         wob
-        zoom-us
         dbus-sway-environment
       ];
     };
@@ -162,13 +168,6 @@ in {
 
     };
     desktops.addons.waybar.enable = true;
-
-    #  QT settings
-    qt = {
-      enable = true;
-      platformTheme = "gnome";
-      style = "adwaita-dark";
-    };
 
     # xdg-desktop-portal exposes a series of D-Bus interfaces (APIs for file access, opening URIs, printing, etc)
     xdg.portal = {
@@ -274,6 +273,9 @@ in {
             bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
             bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
             bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+
+            # Take Screenshots
+            bindsym Ctrl+Alt+p exec grim -g "$(slurp)" - | swappy -f -
 
             # Drag floating windows by holding down $mod and left mouse button.
             # Resize them with right mouse button + $mod.
@@ -488,8 +490,6 @@ in {
         x11 = { enable = true; };
         gtk.enable = true;
       };
-
-      dconf.settings = with inputs.home-manager.lib.hm.gvariant; { };
     };
   };
 }

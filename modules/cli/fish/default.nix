@@ -45,8 +45,17 @@ in {
         #   }
         # ];
         functions = {
+          active_nixstore_pkg = ''
+            set -l query $argv
+            if test -z "$query"
+                echo "Usage: nix-find <search-term>"
+                return 1
+            end
 
-          fd_active_nixstore = ''
+            nix-store --query --requisites /run/current-system | grep --ignore-case $query
+          '';
+
+          active_nixstore_file = ''
             set search_term $argv[1]
             sudo fd -Hi $search_term (readlink -f /run/current-system/sw)
           '';
@@ -212,7 +221,8 @@ in {
           '';
         };
         shellAbbrs = {
-          nix-lint = "fd -e nix --hidden --no-ignore --follow . -x statix check {}";
+          nix-lint =
+            "fd -e nix --hidden --no-ignore --follow . -x statix check {}";
           k = "kubectl";
           kcx = "kubectx";
           kns = "kubens";
