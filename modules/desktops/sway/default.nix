@@ -6,10 +6,10 @@ let
   # https://github.com/emersion/xdg-desktop-portal-wlr/wiki/"It-doesn't-work"-Troubleshooting-Checklist
   # note: this is pretty much the same as  /etc/sway/config.d/nixos.conf but also restarts
   # some user services to make sure they have the correct environment variables
-    dbus-sway-environment = pkgs.writeShellApplication {
+  dbus-sway-environment = pkgs.writeShellApplication {
     name = "dbus-sway-environment";
 
-    runtimeInputs = [  ];
+    runtimeInputs = [ ];
 
     text = ''
         #!/usr/bin/env bash
@@ -178,8 +178,7 @@ in {
       xdgOpenUsePortal = true;
       # wlr.enable = true;
       # gtk portal needed to make gtk apps happy
-      extraPortals =
-        [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
 
     ##### Home Manager Config options #####
@@ -206,7 +205,9 @@ in {
         # Your preferred application launcher
         # Note: pass the final command to swaymsg so that the resulting window can be opened
         # on the original workspace that the command was run on.
-        set $menu dmenu_path | wmenu | xargs swaymsg exec --
+        # set $menu dmenu_path | wmenu | xargs swaymsg exec --
+        # set $menu tofi-drun | xargs swaymsg exec --
+        set $menu tofi-drun --drun-launch=true
 
         ### Kanshi Service
         # give sway a little time to startup before starting kanshi.
@@ -433,6 +434,24 @@ in {
         include @sysconfdir@/sway/config.d/*
       '';
 
+      programs.tofi = {
+        enable = true;
+        settings = {
+          anchor = "top";
+          width = "100%";
+          height = 30;
+          horizontal = true;
+          prompt-text = " run: ";
+          outline-width = 0;
+          border-width = 0;
+          min-input-width = 120;
+          result-spacing = 15;
+          padding-top = 0;
+          padding-bottom = 0;
+          padding-left = 0;
+          padding-right = 0;
+        };
+      };
       services = {
         mako.enable = true;
         gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;

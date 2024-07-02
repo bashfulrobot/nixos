@@ -56,6 +56,10 @@ in {
       };
 
       programs = {
+        tofi.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+        };
         waybar.catppuccin = {
           enable = true;
           flavor = themeFlavor;
