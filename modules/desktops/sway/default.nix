@@ -390,7 +390,7 @@ in {
           #     # When the status_command prints a new line to stdout, swaybar updates.
           #     # The default just shows the current date and time.
           #     #status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-          #     status_command waybar
+
 
               # colors {
               #   statusline #cdd6f4
@@ -399,7 +399,7 @@ in {
               # }
           # }
           # replace swaybar with waybar
-          bar swaybar_command waybar
+          #bar swaybar_command waybar
 
           ### Visual
           #
