@@ -43,7 +43,10 @@ in {
       })
     ];
 
-    cli.foot.enable = true;
+    cli = {
+      foot.enable = true;
+      yazi.enable = true;
+    };
 
     services = {
       displayManager = {
