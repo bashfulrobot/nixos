@@ -69,7 +69,7 @@ dev-test-trace:
 # Rebuild and trace nixos cfg on your current host without git commit.
 dev-rebuild-trace:
     @git add -A
-    @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}} --show-trace
+    @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}} --show-trace > ~/dev/nix/nixos/rebuild-trace.log 2>&1
     # @just _sway-reload
 # Rebuild nixos cfg on your current host with show-trace.
 rebuild-trace:
