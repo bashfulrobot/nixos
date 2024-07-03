@@ -232,7 +232,8 @@ in {
          #set $menu tofi-drun --drun-launch=true
          # rofi
         #  set $menu "rofi -combi-modi drun,run -show combi"
-        set $menu "rofi -show drun"
+        set $menu "rofi -show drun -display-drun '>' -theme-str 'window {width: 20%;}'"
+        set $ssh-menu "rofi -show ssh -display-drun '>' -theme-str 'window {width: 20%;}'"
 
           ### Kanshi Service
           # give sway a little time to startup before starting kanshi.
@@ -245,7 +246,7 @@ in {
           ### alt-tab
           #
           # Emulate a form of alt tab
-          bindsym Alt+Tab exec rofi -show window
+          bindsym Alt+Tab exec rofi -show window -theme-str 'window {width: 20%;}'
 
           ### Launch VSCode
           #
@@ -313,6 +314,7 @@ in {
 
               # Start your launcher
               bindsym $mod+d exec $menu
+              bindsym $mod+Alt+d exec $ssh-menu
 
               # Brightness
               bindsym XF86MonBrightnessDown exec light -U 10
@@ -324,7 +326,7 @@ in {
               bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
               # Take Screenshots
-              bindsym Ctrl+Alt+p exec grim -g "$(slurp)" - | swappy -f -
+              bindsym Ctrl+Alt+p exec "sh -c 'grim -g \"$(slurp)\" - | swappy -f -'"
 
               # Drag floating windows by holding down $mod and left mouse button.
               # Resize them with right mouse button + $mod.
