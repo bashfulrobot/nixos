@@ -2,7 +2,6 @@
 { user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.desktops.sway;
-  sway-alttab = pkgs.callPackage ./sway-alttab/build { };
   # https://github.com/emersion/xdg-desktop-portal-wlr/wiki/"It-doesn't-work"-Troubleshooting-Checklist
   # note: this is pretty much the same as  /etc/sway/config.d/nixos.conf but also restarts
   # some user services to make sure they have the correct environment variables
@@ -141,7 +140,6 @@ in {
         grim
         swappy
         satty
-        sway-alttab
       ];
     };
 
@@ -206,8 +204,10 @@ in {
         # Note: pass the final command to swaymsg so that the resulting window can be opened
         # on the original workspace that the command was run on.
         # set $menu dmenu_path | wmenu | xargs swaymsg exec --
-        # set $menu tofi-drun | xargs swaymsg exec --
-        set $menu tofi-drun --drun-launch=true
+      #tofi menu
+       #set $menu tofi-drun --drun-launch=true
+       # rofi
+       set $menu "rofi -combi-modi drun,run -show combi"
 
         ### Kanshi Service
         # give sway a little time to startup before starting kanshi.
@@ -217,9 +217,10 @@ in {
         #
         exec dbus-sway-environment
 
-        ### alt-tab daemon
+        ### alt-tab
         #
-        exec sway-alttab
+        # Emulate a form of alt tab
+        bindsym Alt+Tab exec rofi -show window
 
         ### Output configuration
         #
@@ -437,6 +438,27 @@ in {
 
         include @sysconfdir@/sway/config.d/*
       '';
+
+programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+    cycle = true;
+    font = "Liga SFMono Nerd Font 16";
+    terminal = "${pkgs.foot}/bin/foot";
+    extraConfig = {
+      show-icons = true;
+      # icon-theme = "GruvboxPlus";
+      #   display-ssh = "󰣀 ssh:";
+      # display-run = "󱓞 run:";
+      # display-drun = "󰣖 drun:";
+      # display-window = "󱂬 window:";
+      # display-combi = "󰕘 combi:";
+      # display-filebrowser = "󰉋 filebrowser:";
+
+      # dpi =  120;
+    };
+
+  };
 
       programs.tofi = {
         enable = true;

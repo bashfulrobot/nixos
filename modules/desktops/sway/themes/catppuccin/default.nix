@@ -85,6 +85,10 @@ in {
           flavor = themeFlavor;
           accent = themeAccent;
         };
+        rofi.catppuccin = {
+          enable = true;
+          flavor = themeFlavor;
+        };
         k9s.catppuccin = {
           enable = true;
           flavor = themeFlavor;
