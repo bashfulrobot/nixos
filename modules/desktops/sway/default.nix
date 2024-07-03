@@ -157,6 +157,8 @@ in {
         wob
         dbus-sway-environment
         lockman
+        bluez
+        bluez-tools
         blueman
         pavucontrol
         grim
