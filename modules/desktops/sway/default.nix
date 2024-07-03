@@ -248,18 +248,18 @@ in {
 
           ### Launch VSCode
           #
-          $mod+e exec code
+          bindsym Ctrl+Alt+e exec code
 
           ### Launch Browser
           #
-          $mod+b exec brave
+          bindsym Ctrl+Alt+b exec brave
 
           ### Lock Screen
           #
           # lock command for keyboard shortcut
           set $lockman exec lockman
           # lock my screen
-          bindsym $mod+Alt+l exec $lockman
+          bindsym Ctrl+Alt+l exec $lockman
 
           ### Output configuration
           #
