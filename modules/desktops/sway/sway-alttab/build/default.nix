@@ -1,6 +1,6 @@
 # https://crates.io/crates/sway-alttab/1.1.2
 
-# nix-prefetch-url https://github.com/ereduled/sway-alttab/releases/download/v1.1.3/sway-alttab
+# nix-prefetch-url https://github.com/autolyticus/sway-alttab/releases/tag/v1.1.3
 
 { lib, pkgs, ... }:
 pkgs.stdenvNoCC.mkDerivation {
@@ -9,8 +9,8 @@ pkgs.stdenvNoCC.mkDerivation {
 
   src = pkgs.fetchurl {
     url =
-      "https://github.com/ereduled/sway-alttab/releases/download/v1.1.3/sway-alttab";
-    sha256 = "1vf0bk7i6nrs2lrxcyhq1rsypsypcci8mc7bcg0439crq5xa29qj";
+      "https://github.com/autolyticus/sway-alttab/releases/tag/v1.1.3";
+    sha256 = "0z4mm46xlv9cfyw6w1j6sn2s3d11g31bsdan2pdf8carqlfxdy3j";
   };
 
   phases = [ "installPhase" ]; # Removes all phases except installPhase

@@ -217,6 +217,10 @@ in {
         #
         exec dbus-sway-environment
 
+        ### Alt-Tab
+        #
+        exec sway-alttab
+
         ### Output configuration
         #
         # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
@@ -450,6 +454,8 @@ in {
           padding-bottom = 0;
           padding-left = 0;
           padding-right = 0;
+          font = "Work Sans";
+          font-size = 12;
         };
       };
       services = {
