@@ -450,6 +450,8 @@ in {
           padding-bottom = 0;
           padding-left = 0;
           padding-right = 0;
+          font = "Work Sans";
+          font-size = 12;
         };
       };
       services = {
