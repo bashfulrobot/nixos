@@ -246,6 +246,14 @@ in {
           # Emulate a form of alt tab
           bindsym Alt+Tab exec rofi -show window
 
+          ### Launch VSCode
+          #
+          $mod+e exec code
+
+          ### Launch Browser
+          #
+          $mod+b exec brave
+
           ### Lock Screen
           #
           # lock command for keyboard shortcut
