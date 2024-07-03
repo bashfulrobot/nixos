@@ -19,6 +19,16 @@ let
       systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
     '';
   };
+  alttab = pkgs.writeShellApplication {
+    name = "alttab";
+
+    runtimeInputs = [ ];
+
+    text = ''
+      #!/usr/bin/env bash
+      exec ${pkgs.sway-alttab}/bin/sway-alttab "$@"
+    '';
+  };
 in {
   options = {
     desktops.sway.enable = lib.mkOption {
@@ -125,6 +135,7 @@ in {
         swappy
         satty
         sway-alttab
+        alttab
       ];
       fontconfig.defaultFonts = {
         serif = [ "Work Sans" "Noto Serif" "Source Han Serif" ];
@@ -217,9 +228,9 @@ in {
         #
         exec dbus-sway-environment
 
-        ### Alt-Tab
+        ### alt-tab daemon
         #
-        exec sway-alttab
+        exec alttab
 
         ### Output configuration
         #
