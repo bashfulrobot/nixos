@@ -231,7 +231,8 @@ in {
         #tofi menu
          #set $menu tofi-drun --drun-launch=true
          # rofi
-         set $menu "rofi -combi-modi drun,run -show combi"
+        #  set $menu "rofi -combi-modi drun,run -show combi"
+        set $menu "rofi -show drun"
 
           ### Kanshi Service
           # give sway a little time to startup before starting kanshi.
