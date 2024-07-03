@@ -17,10 +17,20 @@
     workstation.enable = true;
   };
 
-  desktops = {
-    gnome.enable = true;
-    addons.wayland.enable = true;
+ desktops = {
+    sway = {
+      enable = true;
+      laptop = false;
+      themes.catppuccin.enable = true;
+    };
+#    gnome.enable = true;
+   addons.wayland.enable = true;
   };
+
+  # desktops = {
+  #   gnome.enable = true;
+  #   addons.wayland.enable = true;
+  # };
   # desktops = {
   #   hyprland.enable = true;
   #   addons.waybar.enable = true;
