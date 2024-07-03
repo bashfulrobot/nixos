@@ -10,7 +10,7 @@ pkgs.stdenvNoCC.mkDerivation {
   src = pkgs.fetchurl {
     url =
       "https://github.com/autolyticus/sway-alttab/releases/tag/v1.1.3";
-    sha256 = "0z4mm46xlv9cfyw6w1j6sn2s3d11g31bsdan2pdf8carqlfxdy3j";
+    sha256 = "sha256-vnz5N59tTvgU/G1BEabsyFCpA7OdTxpLXrzFN4jhzeg=";
   };
 
   phases = [ "installPhase" ]; # Removes all phases except installPhase
