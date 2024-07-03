@@ -164,6 +164,7 @@ in {
         grim
         swappy
         satty
+        shotman
       ];
     };
 
@@ -173,6 +174,7 @@ in {
         enable = true;
         wrapperFeatures.gtk = true;
         extraSessionCommands = ''
+          export XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots/"
           export XDG_SESSION_DESKTOP=sway
           export MOZ_ENABLE_WAYLAND=1
           export MOZ_USE_XINPUT2=1
@@ -216,7 +218,7 @@ in {
           ### Variables
           #
           # Logo key. Use Mod1 for Alt.
-          set $mod Mod4
+          set $mod $mod
           # Home row direction keys, like vim
           set $left h
           set $down j
@@ -326,7 +328,9 @@ in {
               bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
               # Take Screenshots
-              bindsym Ctrl+Alt+p exec "sh -c 'grim -g \"$(slurp)\" - | swappy -f -'"
+              bindsym Ctrl+Alt+p exec shotman --capture region --image-editor satty
+              # Anotate Screenshots
+              bindsym Ctrl+Alt+a exec /etc/profiles/per-user/dustin/bin/screenshot-annotate.sh
 
               # Drag floating windows by holding down $mod and left mouse button.
               # Resize them with right mouse button + $mod.
@@ -578,11 +582,11 @@ in {
       #   };
       # };
 
-      home.pointerCursor = {
-        size = 32;
-        x11 = { enable = true; };
-        gtk.enable = true;
-      };
+      # home.pointerCursor = {
+      #   size = 32;
+      #   x11 = { enable = true; };
+      #   gtk.enable = true;
+      # };
       home.file.".config/swappy/config".text = ''
         [Default]
         save_dir=$HOME/Pictures/Screenshots
