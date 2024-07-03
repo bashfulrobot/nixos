@@ -328,7 +328,7 @@ in {
               bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
               # Take Screenshots
-              bindsym Ctrl+Alt+p exec shotman --capture region --image-editor satty
+              bindsym Ctrl+Alt+p exec shotman --capture region
               # Anotate Screenshots
               bindsym Ctrl+Alt+a exec /etc/profiles/per-user/dustin/bin/screenshot-annotate.sh
 
