@@ -18,6 +18,26 @@ let
       systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
     '';
   };
+  lockman = pkgs.writeShellApplication {
+    name = "lockman";
+
+    runtimeInputs = [ ];
+
+    text = ''
+      #!/usr/bin/env bash
+
+      # Times the screen off and puts it to background
+        swayidle \
+            timeout 10 'swaymsg "output * dpms off"' \
+            resume 'swaymsg "output * dpms on"' &
+      # Locks the screen immediately
+        swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --grace 2 --fade-in 0.2
+        # Kills last background task so idle timer doesn't keep running
+        kill %%
+
+        exit 0
+    '';
+  };
 in {
   options = {
     desktops.sway.enable = lib.mkOption {
@@ -128,6 +148,7 @@ in {
     environment = {
 
       systemPackages = with pkgs; [
+        swayidle
         networkmanager
         accountsservice
         work-sans # font
@@ -135,6 +156,7 @@ in {
         pulseaudio
         wob
         dbus-sway-environment
+        lockman
         blueman
         pavucontrol
         grim
@@ -221,6 +243,13 @@ in {
           #
           # Emulate a form of alt tab
           bindsym Alt+Tab exec rofi -show window
+
+          ### Lock Screen
+          #
+          # lock command for keyboard shortcut
+          set $lockman exec lockman
+          # lock my screen
+          bindsym $mod+Alt+l exec $lockman
 
           ### Output configuration
           #
