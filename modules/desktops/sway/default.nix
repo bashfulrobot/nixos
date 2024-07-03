@@ -26,7 +26,7 @@ let
 
     text = ''
       #!/usr/bin/env bash
-      exec ${pkgs.sway-alttab}/bin/sway-alttab "$@"
+      exec ${pkgs.sway-alttab}/bin/sway-alttab
     '';
   };
 in {
