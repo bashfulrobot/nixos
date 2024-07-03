@@ -12,7 +12,7 @@
   # User name specified in the settings
   users.default.enable = true;
 
-  archetype = {
+  archetype = lib.trace "Arechetype ran" {
     tower.enable = true;
     workstation.enable = true;
   };
@@ -26,16 +26,6 @@
 #    gnome.enable = true;
    addons.wayland.enable = true;
   };
-
-  # desktops = {
-  #   gnome.enable = true;
-  #   addons.wayland.enable = true;
-  # };
-  # desktops = {
-  #   hyprland.enable = true;
-  #   addons.waybar.enable = true;
-  #   addons.hyprswitch.enable = true;
-  # };
 
   apps = {
     syncthing = {

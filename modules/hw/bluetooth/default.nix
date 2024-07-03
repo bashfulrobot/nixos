@@ -36,7 +36,7 @@ in {
 
     # Enable Bluetooth
     # High quality BT calls
-    hardware.bluetooth = {
+    hardware.bluetooth = lib.trace "bluetooth Hardware module ran" {
       enable = true;
       hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
       settings = {
@@ -49,7 +49,7 @@ in {
         };
       };
     };
-    home-manager.users."${user-settings.user.username}" = {
+    home-manager.users."${user-settings.user.username}" = lib.trace "bluetooth HM module ran" {
       # Some bluetooth headsets have buttons for pause/play or to skip to the next track. To make these buttons usable with media players supporting the dbus-based MPRIS standard,
       systemd.user.services.mpris-proxy = {
         description = "Mpris proxy";

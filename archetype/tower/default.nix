@@ -16,8 +16,8 @@ in {
       fwupd.enable = true;
       audio.enable = true;
       networking.networkmanager.enable = true;
-      bluetooth = {
-        enable = true;
+      bluetooth = lib.trace "hw.bluetooth module ran" {
+        enable = lib.trace "hw.bluetooth enabled" true;
         logitech.solaar = true;
         airpods.join = false;
       };
