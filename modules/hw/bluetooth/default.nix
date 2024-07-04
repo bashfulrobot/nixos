@@ -54,17 +54,12 @@ in {
     };
 
     home-manager.users."${user-settings.user.username}" =
-      lib.trace "bluetooth HM module ran" {
+      {
         # Some bluetooth headsets have buttons for pause/play or to skip to the next track. To make these buttons usable with media players supporting the dbus-based MPRIS standard,
-        # systemd.user.services.mpris-proxy = {
-        #   description = "Mpris proxy";
-        #   after = [ "network.target" "sound.target" ];
-        #   wantedBy = [ "default.target" ];
-        #   serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
-        # };
+        services.mpris-proxy.enable = true;
 
       };
 
-    hardware.logitech.wireless = lib.mkIf cfg.airpods.join { enable = true; };
+    hardware.logitech.wireless = lib.mkIf cfg.logitech.solaar { enable = true; };
   };
 }

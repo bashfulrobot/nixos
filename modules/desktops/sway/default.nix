@@ -218,7 +218,7 @@ in {
           ### Variables
           #
           # Logo key. Use Mod1 for Alt.
-          set $mod $mod
+          set $mod Mod4
           # Home row direction keys, like vim
           set $left h
           set $down j

@@ -1,4 +1,4 @@
-{ user-settings, catppuccin, pkgs, config, lib, ... }:
+{ user-settings, catppuccin, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.desktops.sway.themes.catppuccin;
   # “latte”, “frappe”, “macchiato”, “mocha”
@@ -45,9 +45,10 @@ in {
 
     };
 
-    environment.systemPackages = with pkgs; [ catppuccin-gtk ];
+    environment.systemPackages = with pkgs; [ catppuccin-gtk nwg-look ];
 
     home-manager.users."${user-settings.user.username}" = {
+      # imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
       # Home-manager configuration
       catppuccin = {
         enable = true;
@@ -120,7 +121,50 @@ in {
         flavor = themeFlavor;
       };
 
+      dconf = {
+        enable = true;
+        settings = {
+          "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
+        };
+      };
+
       gtk = {
+        # enable = true;
+        # cursorTheme = {
+        #   name = "Catppuccin-Macchiato-Dark";
+        #   package = pkgs.catppuccin-cursors.macchiatoDark;
+        # };
+        # iconTheme = {
+        #   name = "Papirus-Dark";
+        #   package = pkgs.papirus-icon-theme;
+        # };
+        # theme = {
+        #   # https://discourse.nixos.org/t/gtk-settings-suddenly-not-applying/47381/9
+        #   # name = "catppuccin-macchiato-blue-standard+default";
+        #   # Needs to match tweaks
+        #   name = "catppuccin-macchiato-blue-standard+rimless,black";
+
+        #   package = pkgs.catppuccin-gtk.override {
+        #     accents = [ themeAccent ];
+        #     # “standard”, “compact”
+        #     size = "compact";
+        #     # “black”, “rimless”, “normal”
+        #     tweaks = [ "rimless" "black" ];
+        #     variant = themeFlavor;
+        #   };
+        # };
+        # gtk3.extraConfig = {
+        #   Settings = ''
+        #     gtk-application-prefer-dark-theme=1
+        #   '';
+        # };
+
+        # gtk4.extraConfig = {
+        #   Settings = ''
+        #     gtk-application-prefer-dark-theme=1
+        #   '';
+        # };
+        ### - Deprecated
         catppuccin = {
           enable = true;
           accent = themeAccent;
@@ -130,9 +174,9 @@ in {
             accent = themeAccent;
           };
           # “standard”, “compact”
-          size = "normal";
+          size = "compact";
           # “black”, “rimless”, “normal”
-          tweaks = [ "black" ];
+          tweaks = [ "black" "rimless" ];
         };
       };
     };
