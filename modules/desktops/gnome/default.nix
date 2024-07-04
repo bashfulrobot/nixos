@@ -96,7 +96,7 @@ in {
       # gnomeExtensions.gsconnect # GSConnect
 
       # Gnome apps/services
-      gnome.nautilus # file manager
+      nautilus # file manager
       gnome.adwaita-icon-theme # icon theme
       gnome.gnome-settings-daemon # settings daemon
       gnome2.GConf # configuration database system for old apps

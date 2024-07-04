@@ -2,7 +2,6 @@
 let
   cfg = config.apps.nautilus;
 
-
 in {
   options = {
     apps.nautilus.enable = lib.mkOption {
@@ -16,7 +15,7 @@ in {
     home-manager.users."${user-settings.user.username}" = {
       home.packages = with pkgs;
         [
-          gnome.nautilus # file manager
+          nautilus # file manager
         ];
 
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
