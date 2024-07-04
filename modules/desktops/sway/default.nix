@@ -147,6 +147,10 @@ in {
 
     environment = {
 
+      variables = {
+        XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots";
+      };
+
       systemPackages = with pkgs; [
         swayidle
         networkmanager
@@ -165,7 +169,8 @@ in {
         swappy
         satty
         cosmic-screenshot
-        watershot
+        sway-contrib.grimshot
+        sway-contrib.inactive-windows-transparency
       ];
     };
 

@@ -15,6 +15,7 @@ in {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       font-awesome
+      work-sans
     ];
     home-manager.users."${user-settings.user.username}" = {
       programs.waybar = {
@@ -26,7 +27,7 @@ in {
               border: none;
               border-radius: 4px;
               /* `ttf-font-awesome` is required to be installed for icons */
-              font-family: "Roboto Mono Medium", Helvetica, Arial, sans-serif;
+              font-family: "Work Sans", "Roboto Mono Medium", Helvetica, Arial, sans-serif;
 
               /* adjust font-size value to your liking: */
               font-size: 10px;
