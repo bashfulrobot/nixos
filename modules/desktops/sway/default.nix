@@ -2,45 +2,8 @@
 { user-settings, pkgs, config, lib, ... }:
 let
   cfg = config.desktops.sway;
-  # https://github.com/emersion/xdg-desktop-portal-wlr/wiki/"It-doesn't-work"-Troubleshooting-Checklist
-  # note: this is pretty much the same as  /etc/sway/config.d/nixos.conf but also restarts
-  # some user services to make sure they have the correct environment variables
   dbus-sway-environment =
     pkgs.callPackage ./build/scripts/dbus-sway-environment.nix { };
-  lockman = pkgs.callPackage ./build/scripts/lockman.nix { };
-  # dbus-sway-environment = pkgs.writeShellApplication {
-  #   name = "dbus-sway-environment";
-
-  #   runtimeInputs = [ ];
-
-  #   text = ''
-  #       #!/usr/bin/env bash
-
-  #     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-  #     systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-  #     systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-  #   '';
-  # };
-  # lockman = pkgs.writeShellApplication {
-  #   name = "lockman";
-
-  #   runtimeInputs = [ ];
-
-  #   text = ''
-  #     #!/usr/bin/env bash
-
-  #     # Times the screen off and puts it to background
-  #       swayidle \
-  #         timeout 10 'swaymsg "output * dpms off"' \
-  #         resume 'swaymsg "output * dpms on"' &
-  #     # Locks the screen immediately
-  #       swaylock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --grace 2 --fade-in 0.2
-  #       # Kills last background task so idle timer doesn't keep running
-  #       kill %%
-
-  #       exit 0
-  #   '';
-  # };
 in {
   options = {
     desktops.sway.enable = lib.mkOption {
@@ -60,8 +23,6 @@ in {
     users = lib.mkMerge [
       (lib.mkIf cfg.laptop {
         users."${user-settings.user.username}".extraGroups = [ "video" ];
-        # programs.light.enable = true;
-        # Additional laptop-specific configurations can go here
       })
     ];
 
@@ -138,8 +99,6 @@ in {
         noto-fonts-emoji
         font-awesome
         source-han-sans
-        # source-han-sans-japanese
-        # source-han-serif-japanese
         work-sans
       ];
       fontconfig.defaultFonts = {
@@ -204,7 +163,7 @@ in {
     desktops.addons = {
       waybar.enable = true;
       swayidle.enable = true;
-      };
+    };
 
     # xdg-desktop-portal exposes a series of D-Bus interfaces (APIs for file access, opening URIs, printing, etc)
     xdg.portal = {
@@ -212,10 +171,8 @@ in {
       xdgOpenUsePortal = true;
       wlr.enable = true;
       # gtk portal needed to make gtk apps happy
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-wlr
-        ];
+      extraPortals =
+        [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
     };
 
     ##### Home Manager Config options #####

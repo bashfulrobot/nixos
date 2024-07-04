@@ -93,8 +93,8 @@ middle_emulation enabled
 bindsym $mod+q kill
 # ---
 # Start your launcher
-bindsym $mod+d exec $menu
-bindsym $mod+Alt+d exec $ssh-menu
+bindsym $mod+space exec $menu
+bindsym $mod+Alt+space exec $ssh-menu
 # ---
 # Take Screenshots
 bindsym $mod+Alt+p exec grimshot savecopy area
@@ -102,15 +102,16 @@ bindsym $mod+Alt+p exec grimshot savecopy area
 bindsym $mod+Alt+a exec /etc/profiles/per-user/dustin/bin/screenshot-annotate.sh
 # Power/Logout Menu
 #
+# bindsym $mod+p exec $pmenu
 bindsym $mod+p exec $pmenu
 # ---
 # Emulate a form of alt tab
-# bindsym Alt+Tab exec rofi -show window -theme-str 'window {width: 20%;}'
+bindsym Alt+Tab exec rofi -show window -show-icons -format '{w}' -theme-str 'window {width: 20%;}'
 ## Workspaces // Previous Window // <Alt> Tab ##
-bindsym Alt+Tab exec swayr switch-workspace
+# bindsym Alt+Tab exec swayr switch-workspace
 ## Workspaces // Previous Window Menu // 🪟 Tab ##
 # It's ordered by last use, and includes icons, app Ids and bold titles.
-bindsym $mod+Tab exec swayr switch-window
+# bindsym $mod+Tab exec swayr switch-window
 
 ## Media Keys
 #
@@ -141,7 +142,7 @@ bindsym XF86MonBrightnessUp   exec brightnessctl set +5%
 ## Apps
 #
 # Start a terminal
-bindsym $mod+Shift+t exec $term
+bindsym $mod+Return exec $term
 # ---
 # Launch VSCode
 bindsym $mod+Shift+e exec code
@@ -236,7 +237,7 @@ bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 
 # Swap focus between the tiling area and the floating area
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # Move focus to the parent container
 bindsym $mod+a focus parent
