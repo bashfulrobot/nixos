@@ -121,7 +121,6 @@ in {
         swayr
         wob
         dbus-sway-environment
-        lockman
         bluez
         bluez-tools
         blueman

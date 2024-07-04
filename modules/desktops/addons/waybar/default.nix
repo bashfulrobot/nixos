@@ -13,10 +13,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      font-awesome
-      work-sans
-    ];
+    environment.systemPackages = with pkgs; [ font-awesome work-sans ];
     home-manager.users."${user-settings.user.username}" = {
       programs.waybar = {
         enable = true;
@@ -327,9 +324,8 @@ in {
                 "spacing": 10
             },
             "clock": {
-                "format": "{:%I:%M }",
+                "format": "{:%H:%M }",
                 "format-alt": "{:%Y-%m-%d}"
-
             },
             "cpu": {
                 "format": "{usage}% ",
