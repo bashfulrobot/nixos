@@ -6,13 +6,13 @@ let
   # “latte”, “frappe”, “macchiato”, “mocha”
   themeFlavor = "macchiato";
   # "default" "purple" "pink" "red" "orange" "yellow" "green" "teal" "grey" "all"
-  themeAccent = "blue";
-  catppuccin-gtk-theme = pkgs.callPackage ./build {
-    accent = [ "default" ];
-    shade = "dark";
-    size = "compact";
-    tweaks = [ "macchiato" ];
-  };
+  themeAccent = "teal";
+  # catppuccin-gtk-theme = pkgs.callPackage ./build {
+  #   accent = [ "default" ];
+  #   shade = "dark";
+  #   size = "compact";
+  #   tweaks = [ "macchiato" ];
+  # };
 in {
 
   options = {
@@ -133,72 +133,73 @@ in {
         flavor = themeFlavor;
       };
 
-      dconf = {
+      # dconf = {
+      #   enable = true;
+      #   settings = {
+      #     "org/gnome/desktop/interface" = {
+      #       color-scheme = "prefer-dark";
+      #       document-font-name = "Work Sans 12";
+      #       font-name = "Work Sans 12";
+      #       monospace-font-name = "Victor Mono 13";
+      #       # cursor-theme = "Catppuccin-Macchiato-Dark";
+      #       gtk-theme = "catppuccin-gtk-theme-Dark-Compact-Macchiato";
+      #       icon-theme = "Papirus-Dark";
+      #     };
+      #   };
+      # };
+
+      gtk = {
         enable = true;
-        settings = {
-          "org/gnome/desktop/interface" = {
-            color-scheme = "prefer-dark";
-            document-font-name = "Work Sans 12";
-            font-name = "Work Sans 12";
-            monospace-font-name = "Victor Mono 13";
-            cursor-theme = "Catppuccin-Macchiato-Dark";
-            gtk-theme = "catppuccin-gtk-theme-Dark-Compact-Macchiato";
-            icon-theme = "Papirus-Dark";
+        cursorTheme = {
+          name = "Catppuccin-Macchiato-Dark";
+          package = pkgs.catppuccin-cursors.macchiatoDark;
+        };
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.papirus-icon-theme;
+        };
+        theme = {
+          # https://discourse.nixos.org/t/gtk-settings-suddenly-not-applying/47381/9
+          # name = "catppuccin-macchiato-blue-standard+default";
+          # Needs to match tweaks
+          name = "catppuccin-macchiato-blue-standard+rimless,black";
+
+          package = pkgs.catppuccin-gtk.override {
+            accents = [ themeAccent ];
+            # “standard”, “compact”
+            size = "compact";
+            # “black”, “rimless”, “normal”
+            tweaks = [ "rimless" "black" ];
+            variant = themeFlavor;
           };
         };
+        gtk3.extraConfig = {
+          Settings = ''
+            gtk-application-prefer-dark-theme=1
+          '';
+        };
+
+        gtk4.extraConfig = {
+          Settings = ''
+            gtk-application-prefer-dark-theme=1
+          '';
+        };
+        ### - Deprecated
+        #   catppuccin = {
+        #     enable = true;
+        #     accent = themeAccent;
+        #     flavor = themeFlavor;
+        #     icon = {
+        #       enable = true;
+        #       accent = themeAccent;
+        #     };
+        #     # “standard”, “compact”
+        #     size = "compact";
+        #     # “black”, “rimless”, “normal”
+        #     tweaks = [ "black" "rimless" ];
+        #   };
+        # };
       };
-
-      # gtk = {
-      # enable = true;
-      # cursorTheme = {
-      #   name = "Catppuccin-Macchiato-Dark";
-      #   package = pkgs.catppuccin-cursors.macchiatoDark;
-      # };
-      # iconTheme = {
-      #   name = "Papirus-Dark";
-      #   package = pkgs.papirus-icon-theme;
-      # };
-      # theme = {
-      #   # https://discourse.nixos.org/t/gtk-settings-suddenly-not-applying/47381/9
-      #   # name = "catppuccin-macchiato-blue-standard+default";
-      #   # Needs to match tweaks
-      #   name = "catppuccin-macchiato-blue-standard+rimless,black";
-
-      #   package = pkgs.catppuccin-gtk.override {
-      #     accents = [ themeAccent ];
-      #     # “standard”, “compact”
-      #     size = "compact";
-      #     # “black”, “rimless”, “normal”
-      #     tweaks = [ "rimless" "black" ];
-      #     variant = themeFlavor;
-      #   };
-      # };
-      # gtk3.extraConfig = {
-      #   Settings = ''
-      #     gtk-application-prefer-dark-theme=1
-      #   '';
-      # };
-
-      # gtk4.extraConfig = {
-      #   Settings = ''
-      #     gtk-application-prefer-dark-theme=1
-      #   '';
-      # };
-      ### - Deprecated
-      #   catppuccin = {
-      #     enable = true;
-      #     accent = themeAccent;
-      #     flavor = themeFlavor;
-      #     icon = {
-      #       enable = true;
-      #       accent = themeAccent;
-      #     };
-      #     # “standard”, “compact”
-      #     size = "compact";
-      #     # “black”, “rimless”, “normal”
-      #     tweaks = [ "black" "rimless" ];
-      #   };
-      # };
     };
   };
 }
