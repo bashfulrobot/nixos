@@ -54,7 +54,8 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
-      catppuccin-gtk-theme
+      # catppuccin-gtk-theme
+      catppuccin-gtk
       catppuccin-cursors.macchiatoDark
       papirus-icon-theme
     ];
