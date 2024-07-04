@@ -45,8 +45,7 @@ in {
         sddm.catppuccin = {
           enable = true;
           flavor = themeFlavor;
-          background =
-            "${user-settings.user.username}Pictures/wallpapers/skullskates.png"; # TODO - universal setting
+          background = "${user-settings.user.wallpaper}";
           font = "Work Sans";
           fontSize = "18";
         };
