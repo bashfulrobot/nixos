@@ -37,6 +37,7 @@ in {
         --enable-features=UseOzonePlatform
         --ozone-platform=wayland
         --enable-features=WaylandWindowDecorations
+        --force-device-scale-factor=1
       '';
     };
   };

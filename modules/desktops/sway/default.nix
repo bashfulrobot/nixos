@@ -156,8 +156,10 @@ in {
         networkmanager
         accountsservice
         work-sans # font
-        light
+        playerctl
+        brightnessctl
         pulseaudio
+        swayr
         wob
         dbus-sway-environment
         lockman

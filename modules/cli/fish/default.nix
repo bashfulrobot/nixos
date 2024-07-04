@@ -45,6 +45,9 @@ in {
         #   }
         # ];
         functions = {
+          show-sway-bindings = ''
+            rg bindsym ~/.config/sway/config | fzf --preview 'echo {}' --preview-window=up:3:wrap
+          '';
           active_nixstore_pkg = ''
             set -l query $argv
             if test -z "$query"
@@ -236,7 +239,7 @@ in {
           gc = "git add . && git commit -S && git push && git pull";
         };
         shellAliases = {
-          show-sway-bindings = "bat ~/.config/sway/config | rg bindsym";
+          # show-sway-bindings = "bat ~/.config/sway/config | rg bindsym";
           hm-logs =
             "sudo systemctl restart home-manager-dustin.service; journalctl -xeu home-manager-dustin.service";
           tailscale-up-lt =

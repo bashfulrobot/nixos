@@ -144,8 +144,11 @@ in {
             font-name = "Work Sans 12";
             monospace-font-name = "Victor Mono 13";
             # cursor-theme = "Catppuccin-Macchiato-Dark";
+            # cursor-size = 24;
             gtk-theme = "catppuccin-gtk-theme-Dark-Compact-Macchiato";
+            gtk-color-theme = "catppuccin-gtk-theme-Dark-Compact-Macchiato";
             icon-theme = "Papirus-Dark";
+            text-scaling-factor = 1.0;
           };
         };
       };

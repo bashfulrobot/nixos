@@ -82,12 +82,15 @@ in {
           --enable-features=UseOzonePlatform
           --ozone-platform=wayland
           --enable-features=WaylandWindowDecorations
+          --force-device-scale-factor=1
+
         '';
       } else if cfg.browser == "brave" then {
         ".config/brave-flags.conf".text = ''
           --enable-features=UseOzonePlatform
           --ozone-platform=wayland
           --enable-features=WaylandWindowDecorations
+          --force-device-scale-factor=1
         '';
       } else
         {

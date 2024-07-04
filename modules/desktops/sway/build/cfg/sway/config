@@ -84,8 +84,8 @@ middle_emulation enabled
 
 ### Key bindings
 #
-# Basics:
-#
+# Read - https://mark.stosberg.com/sway-keybindings/
+# may adopt
 
 ## System Level
 #
@@ -105,29 +105,52 @@ bindsym $mod+Alt+a exec /etc/profiles/per-user/dustin/bin/screenshot-annotate.sh
 bindsym $mod+p exec $pmenu
 # ---
 # Emulate a form of alt tab
-bindsym Alt+Tab exec rofi -show window -theme-str 'window {width: 20%;}'
+# bindsym Alt+Tab exec rofi -show window -theme-str 'window {width: 20%;}'
+## Workspaces // Previous Window // <Alt> Tab ##
+bindsym Alt+Tab exec swayr switch-workspace
+## Workspaces // Previous Window Menu // 🪟 Tab ##
+# It's ordered by last use, and includes icons, app Ids and bold titles.
+bindsym $mod+Tab exec swayr switch-window
 
 ## Media Keys
 #
-# Brightness
-bindsym XF86MonBrightnessDown exec light -U 10
-bindsym XF86MonBrightnessUp exec light -A 10
 # ---
-# Volume
-bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
-bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
-bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle
+## Media // Play/Pause Audio // ⏯️  ##
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPause exec playerctl pause
+
+## Media // Next Track //  ⏭️  ##
+## Media // Prev Track // ⏮  ##
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+
+## Media // Volume Up // 🔊 ##
+## Media // Volume Down // 🔉 ##
+## Media // Volume Mute // 🔇 ##
+# @DEFAULT_SINK@ is a useds by pactl to reference the default output, but it might
+# not be the current output.
+bindsym --locked XF86AudioRaiseVolume  exec pactl set-sink-volume @DEFAULT_SINK@ +3%
+bindsym --locked XF86AudioLowerVolume  exec pactl set-sink-volume @DEFAULT_SINK@ -3%
+bindsym --locked XF86AudioMute         exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+## Screen // Brightness Up // 🔆 ##
+## Screen // Brightness Down // 🔅 ##
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp   exec brightnessctl set +5%
 
 ## Apps
 #
 # Start a terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Shift+t exec $term
 # ---
 # Launch VSCode
-bindsym Ctrl+Alt+e exec code
+bindsym $mod+Shift+e exec code
 # ---
 # Launch Browser
-bindsym Ctrl+Alt+b exec brave
+bindsym $mod+Shift+b exec brave
+# ---
+# Launch Browser
+bindsym $mod+Shift+f exec nautilus
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -140,7 +163,7 @@ bindsym Ctrl+Alt+b exec brave
 bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+Alt+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
