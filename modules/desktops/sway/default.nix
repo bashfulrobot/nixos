@@ -164,7 +164,8 @@ in {
         grim
         swappy
         satty
-        shotman
+        cosmic-screenshot
+        watershot
       ];
     };
 
@@ -174,7 +175,6 @@ in {
         enable = true;
         wrapperFeatures.gtk = true;
         extraSessionCommands = ''
-          export XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots/"
           export XDG_SESSION_DESKTOP=sway
           export MOZ_ENABLE_WAYLAND=1
           export MOZ_USE_XINPUT2=1

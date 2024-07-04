@@ -2,24 +2,21 @@
 let cfg = config.hw.bluetooth;
 in {
   options = {
-
-    hw.bluetooth = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Enable bluetooth.";
-      };
-      logitech.solaar = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Enable logitech wireless for solaar.";
-      };
-      airpods.join = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description =
-          "Enable BR/EDR mode for AirPods connection. Disable after connection.";
-      };
+    hw.bluetooth.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable bluetooth.";
+    };
+    hw.bluetooth.logitech.solaar = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable logitech wireless for solaar.";
+    };
+    hw.bluetooth.airpods.join = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description =
+        "Enable BR/EDR mode for AirPods connection. Disable after connection.";
     };
   };
 
