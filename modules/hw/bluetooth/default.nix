@@ -39,7 +39,7 @@ in {
 
     # Enable Bluetooth
     # High quality BT calls
-    hardware.bluetooth = lib.trace "bluetooth Hardware module ran" {
+    hardware.bluetooth = {
       enable = true;
       powerOnBoot = true; # powers up the default Bluetooth controller on boot
       settings = {

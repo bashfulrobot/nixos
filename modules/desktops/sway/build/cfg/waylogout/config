@@ -1,0 +1,19 @@
+hide-cancel
+screenshots
+#font="Work Sans 2"
+#fa-font="Font Awesome 6 Free"
+effect-blur=7x5
+indicator-thickness=20
+ring-color=f2cdcd88
+inside-color=f5e0dc88
+text-color=cdd6f488
+line-color=00000000
+ring-selection-color=89b4fa88
+inside-selection-color=89b4fa66
+text-selection-color=cdd6f488
+line-selection-color=00000000
+lock-command="swaylock -i $HOME/Pictures/wallpapers/skullskates.png"
+logout-command="swaymsg exit"
+suspend-command="echo suspend"
+hibernate-command="echo hibernate"
+poweroff-command="echo poweroff"

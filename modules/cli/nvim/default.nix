@@ -14,7 +14,7 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    home-manager.users."${user-settings.user.username}" = lib.trace "nvim HM module ran"  {
+    home-manager.users."${user-settings.user.username}" = {
       home = {
 
         # packages = with pkgs;

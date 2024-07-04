@@ -12,7 +12,7 @@
   # User name specified in the settings
   users.default.enable = true;
 
-  archetype = lib.trace "Arechetype ran" {
+  archetype = {
     tower.enable = true;
     workstation.enable = true;
   };

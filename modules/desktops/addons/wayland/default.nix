@@ -31,6 +31,7 @@ in {
         GDK_BACKEND = "wayland,x11";
         MOZ_ENABLE_WAYLAND = "1";
         _JAVA_AWT_WM_NONREPARENTING = "1";
+        XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots";
       };
       home.file.".config/electron-flags.conf".text = ''
         --enable-features=UseOzonePlatform

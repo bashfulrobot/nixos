@@ -40,7 +40,8 @@ let
     dir="$HOME/Pictures/Screenshots"
 
     # Get the most recent screenshot
-    recent_screenshot=$(/run/current-system/sw/bin/ls -t "$dir"/Screenshot\ from\ *.png | head -n1)
+    # recent_screenshot=$(/run/current-system/sw/bin/ls -t "$dir"/Screenshot\ from\ *.png | head -n1)
+    recent_screenshot=$(/run/current-system/sw/bin/ls -t "$dir"/*.png | head -n1)
 
     # Check if a file was found
     if [[ -z "$recent_screenshot" ]]; then

@@ -5,39 +5,42 @@ let
   # https://github.com/emersion/xdg-desktop-portal-wlr/wiki/"It-doesn't-work"-Troubleshooting-Checklist
   # note: this is pretty much the same as  /etc/sway/config.d/nixos.conf but also restarts
   # some user services to make sure they have the correct environment variables
-  dbus-sway-environment = pkgs.writeShellApplication {
-    name = "dbus-sway-environment";
+  dbus-sway-environment =
+    pkgs.callPackage ./build/scripts/dbus-sway-environment.nix { };
+  lockman = pkgs.callPackage ./build/scripts/lockman.nix { };
+  # dbus-sway-environment = pkgs.writeShellApplication {
+  #   name = "dbus-sway-environment";
 
-    runtimeInputs = [ ];
+  #   runtimeInputs = [ ];
 
-    text = ''
-        #!/usr/bin/env bash
+  #   text = ''
+  #       #!/usr/bin/env bash
 
-      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-      systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-      systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-    '';
-  };
-  lockman = pkgs.writeShellApplication {
-    name = "lockman";
+  #     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+  #     systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+  #     systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+  #   '';
+  # };
+  # lockman = pkgs.writeShellApplication {
+  #   name = "lockman";
 
-    runtimeInputs = [ ];
+  #   runtimeInputs = [ ];
 
-    text = ''
-      #!/usr/bin/env bash
+  #   text = ''
+  #     #!/usr/bin/env bash
 
-      # Times the screen off and puts it to background
-        swayidle \
-            timeout 10 'swaymsg "output * dpms off"' \
-            resume 'swaymsg "output * dpms on"' &
-      # Locks the screen immediately
-        swaylock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --grace 2 --fade-in 0.2
-        # Kills last background task so idle timer doesn't keep running
-        kill %%
+  #     # Times the screen off and puts it to background
+  #       swayidle \
+  #         timeout 10 'swaymsg "output * dpms off"' \
+  #         resume 'swaymsg "output * dpms on"' &
+  #     # Locks the screen immediately
+  #       swaylock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --grace 2 --fade-in 0.2
+  #       # Kills last background task so idle timer doesn't keep running
+  #       kill %%
 
-        exit 0
-    '';
-  };
+  #       exit 0
+  #   '';
+  # };
 in {
   options = {
     desktops.sway.enable = lib.mkOption {
@@ -147,11 +150,8 @@ in {
 
     environment = {
 
-      variables = {
-        XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots";
-      };
-
       systemPackages = with pkgs; [
+        waylogout
         swayidle
         networkmanager
         accountsservice
@@ -180,315 +180,50 @@ in {
         enable = true;
         wrapperFeatures.gtk = true;
         extraSessionCommands = ''
-          export XDG_SESSION_DESKTOP=sway
-          export MOZ_ENABLE_WAYLAND=1
-          export MOZ_USE_XINPUT2=1
-          export XDG_SESSION_TYPE=wayland
-          export XDG_CURRENT_DESKTOP=sway
-          export WLR_NO_HARDWARE_CURSORS=1
-          export QT_QPA_PLATFORM=wayland
+            export XDG_SESSION_DESKTOP=sway
+            export MOZ_ENABLE_WAYLAND=1
+            export MOZ_USE_XINPUT2=1
+            export XDG_SESSION_TYPE=wayland
+            export XDG_CURRENT_DESKTOP=sway
+            export WLR_NO_HARDWARE_CURSORS=1
+            export QT_QPA_PLATFORM=wayland
           # --- Testing below
-          export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-          export QT_FONT_DPI=144
-          export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
-          export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
-          eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
+            export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+            export QT_FONT_DPI=144
+            export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
+            export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
+            eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
           # WLR_RENDERER_ALLOW_SOFTWARE=1
         '';
       };
       seahorse.enable = true;
 
     };
-    desktops.addons.waybar.enable = true;
+    desktops.addons = {
+      waybar.enable = true;
+      swayidle.enable = true;
+      };
 
     # xdg-desktop-portal exposes a series of D-Bus interfaces (APIs for file access, opening URIs, printing, etc)
     xdg.portal = {
       enable = true;
       xdgOpenUsePortal = true;
-      # wlr.enable = true;
+      wlr.enable = true;
       # gtk portal needed to make gtk apps happy
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-wlr
+        ];
     };
 
     ##### Home Manager Config options #####
     home-manager.users."${user-settings.user.username}" = {
 
-      home.file.".config/sway/config".text = ''
-          # Default config for sway
-          #
-          # Copy this to ~/.config/sway/config and edit it to your liking.
-          #
-          # Read `man 5 sway` for a complete reference.
-
-          ### Variables
-          #
-          # Logo key. Use Mod1 for Alt.
-          set $mod Mod4
-          # Home row direction keys, like vim
-          set $left h
-          set $down j
-          set $up k
-          set $right l
-          # Your preferred terminal emulator
-          set $term foot
-          # Your preferred application launcher
-          # Note: pass the final command to swaymsg so that the resulting window can be opened
-          # on the original workspace that the command was run on.
-          # set $menu dmenu_path | wmenu | xargs swaymsg exec --
-        #tofi menu
-         #set $menu tofi-drun --drun-launch=true
-         # rofi
-        #  set $menu "rofi -combi-modi drun,run -show combi"
-        set $menu "rofi -show drun -display-drun '>' -theme-str 'window {width: 20%;}'"
-        set $ssh-menu "rofi -show ssh -display-drun '>' -theme-str 'window {width: 20%;}'"
-
-          ### Kanshi Service
-          # give sway a little time to startup before starting kanshi.
-          exec sleep 5; systemctl --user start kanshi.service
-
-          ### DBUS Sway Fixes
-          #
-          exec dbus-sway-environment
-
-          ### alt-tab
-          #
-          # Emulate a form of alt tab
-          bindsym Alt+Tab exec rofi -show window -theme-str 'window {width: 20%;}'
-
-          ### Launch VSCode
-          #
-          bindsym Ctrl+Alt+e exec code
-
-          ### Launch Browser
-          #
-          bindsym Ctrl+Alt+b exec brave
-
-          ### Lock Screen
-          #
-          # lock command for keyboard shortcut
-          set $lockman exec lockman
-          # lock my screen
-          bindsym Ctrl+Alt+l exec $lockman
-
-          ### Output configuration
-          #
-          # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-          output * bg ~/Pictures/wallpapers/skullskates.png fill
-          #
-          # Example configuration:
-          #
-          #   output HDMI-A-1 resolution 1920x1080 position 1920,0
-          #
-          # You can get the names of your outputs by running: swaymsg -t get_outputs
-
-          ### Idle configuration
-          #
-          # Example configuration:
-          #
-          # exec swayidle -w \
-          #          timeout 300 'swaylock -f -c 000000' \
-          #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          #          before-sleep 'swaylock -f -c 000000'
-          #
-          # This will lock your screen after 300 seconds of inactivity, then turn off
-          # your displays after another 300 seconds, and turn your screens back on when
-          # resumed. It will also lock your screen before your computer goes to sleep.
-
-          ### Input configuration
-          #
-          # Get device with: swaymsg -t get_inputs
-          # Example configuration:
-          #
-            input "1267:12970:VEN_04F3:00_04F3:32AA_Touchpad" {
-                dwt enabled
-                tap enabled
-                natural_scroll disabled
-                middle_emulation enabled
-            }
-          #
-          # You can get the names of your inputs by running: swaymsg -t get_inputs
-          # Read `man 5 sway-input` for more information about this section.
-
-          ### Key bindings
-          #
-          # Basics:
-          #
-              # Start a terminal
-              bindsym $mod+Return exec $term
-
-              # Kill focused window
-              bindsym $mod+q kill
-
-              # Start your launcher
-              bindsym $mod+d exec $menu
-              bindsym $mod+Alt+d exec $ssh-menu
-
-              # Brightness
-              bindsym XF86MonBrightnessDown exec light -U 10
-              bindsym XF86MonBrightnessUp exec light -A 10
-
-              # Volume
-              bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
-              bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
-              bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
-
-              # Take Screenshots
-              bindsym Ctrl+Alt+p exec shotman --capture region
-              # Anotate Screenshots
-              bindsym Ctrl+Alt+a exec /etc/profiles/per-user/dustin/bin/screenshot-annotate.sh
-
-              # Drag floating windows by holding down $mod and left mouse button.
-              # Resize them with right mouse button + $mod.
-              # Despite the name, also works for non-floating windows.
-              # Change normal to inverse to use left mouse button for resizing and right
-              # mouse button for dragging.
-              floating_modifier $mod normal
-
-              # Reload the configuration file
-              bindsym $mod+Shift+c reload
-
-              # Exit sway (logs you out of your Wayland session)
-              bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-          #
-          # Moving around:
-          #
-              # Move your focus around
-              bindsym $mod+$left focus left
-              bindsym $mod+$down focus down
-              bindsym $mod+$up focus up
-              bindsym $mod+$right focus right
-              # Or use $mod+[up|down|left|right]
-              bindsym $mod+Left focus left
-              bindsym $mod+Down focus down
-              bindsym $mod+Up focus up
-              bindsym $mod+Right focus right
-
-              # Move the focused window with the same, but add Shift
-              bindsym $mod+Shift+$left move left
-              bindsym $mod+Shift+$down move down
-              bindsym $mod+Shift+$up move up
-              bindsym $mod+Shift+$right move right
-              # Ditto, with arrow keys
-              bindsym $mod+Shift+Left move left
-              bindsym $mod+Shift+Down move down
-              bindsym $mod+Shift+Up move up
-              bindsym $mod+Shift+Right move right
-          #
-          # Workspaces:
-          #
-              # Switch to workspace
-              bindsym $mod+1 workspace number 1
-              bindsym $mod+2 workspace number 2
-              bindsym $mod+3 workspace number 3
-              bindsym $mod+4 workspace number 4
-              bindsym $mod+5 workspace number 5
-              bindsym $mod+6 workspace number 6
-              bindsym $mod+7 workspace number 7
-              bindsym $mod+8 workspace number 8
-              bindsym $mod+9 workspace number 9
-              bindsym $mod+0 workspace number 10
-              # Move focused container to workspace
-              bindsym $mod+Shift+1 move container to workspace number 1
-              bindsym $mod+Shift+2 move container to workspace number 2
-              bindsym $mod+Shift+3 move container to workspace number 3
-              bindsym $mod+Shift+4 move container to workspace number 4
-              bindsym $mod+Shift+5 move container to workspace number 5
-              bindsym $mod+Shift+6 move container to workspace number 6
-              bindsym $mod+Shift+7 move container to workspace number 7
-              bindsym $mod+Shift+8 move container to workspace number 8
-              bindsym $mod+Shift+9 move container to workspace number 9
-              bindsym $mod+Shift+0 move container to workspace number 10
-              # Note: workspaces can have any name you want, not just numbers.
-              # We just use 1-10 as the default.
-          #
-          # Layout stuff:
-          #
-              # You can "split" the current object of your focus with
-              # $mod+b or $mod+v, for horizontal and vertical splits
-              # respectively.
-              bindsym $mod+b splith
-              bindsym $mod+v splitv
-
-              # Switch the current container between different layout styles
-              bindsym $mod+s layout stacking
-              bindsym $mod+w layout tabbed
-              bindsym $mod+e layout toggle split
-
-              # Make the current focus fullscreen
-              bindsym $mod+f fullscreen
-
-              # Toggle the current focus between tiling and floating mode
-              bindsym $mod+Shift+space floating toggle
-
-              # Swap focus between the tiling area and the floating area
-              bindsym $mod+space focus mode_toggle
-
-              # Move focus to the parent container
-              bindsym $mod+a focus parent
-          #
-          # Scratchpad:
-          #
-              # Sway has a "scratchpad", which is a bag of holding for windows.
-              # You can send windows there and get them back later.
-
-              # Move the currently focused window to the scratchpad
-              bindsym $mod+Shift+minus move scratchpad
-
-              # Show the next scratchpad window or hide the focused scratchpad window.
-              # If there are multiple scratchpad windows, this command cycles through them.
-              bindsym $mod+minus scratchpad show
-          #
-          # Resizing containers:
-          #
-          mode "resize" {
-              # left will shrink the containers width
-              # right will grow the containers width
-              # up will shrink the containers height
-              # down will grow the containers height
-              bindsym $left resize shrink width 10px
-              bindsym $down resize grow height 10px
-              bindsym $up resize shrink height 10px
-              bindsym $right resize grow width 10px
-
-              # Ditto, with arrow keys
-              bindsym Left resize shrink width 10px
-              bindsym Down resize grow height 10px
-              bindsym Up resize shrink height 10px
-              bindsym Right resize grow width 10px
-
-              # Return to default mode
-              bindsym Return mode "default"
-              bindsym Escape mode "default"
-          }
-          bindsym $mod+r mode "resize"
-
-          #
-          # Status Bar:
-          #
-          # Read `man 5 sway-bar` for more information about this section.
-          # bar {
-          #     position top
-
-          #     # When the status_command prints a new line to stdout, swaybar updates.
-          #     # The default just shows the current date and time.
-          #     #status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-              # colors {
-              #   statusline #cdd6f4
-              #   background #1e1e2e
-              #   inactive_workspace #1e1e2e00 #1e1e2e00 #a6adc8
-              # }
-          # }
-          # replace swaybar with waybar
-          # bar swaybar_command waybar
-          exec waybar
-
-          ### Visual
-          #
-          default_border pixel 2
-
-          include @sysconfdir@/sway/config.d/*
-      '';
+      home.file = {
+        ".config/sway/config".source = ./build/cfg/sway/config;
+        ".config/waylogout/config".source = ./build/cfg/waylogout/config;
+        ".config/swappy/config".source = ./build/cfg/swappy/config;
+      };
 
       programs.rofi = {
         enable = true;
@@ -592,18 +327,6 @@ in {
       #   x11 = { enable = true; };
       #   gtk.enable = true;
       # };
-      home.file.".config/swappy/config".text = ''
-        [Default]
-        save_dir=$HOME/Pictures/Screenshots
-        save_filename_format=ss-%Y%m%d-%H%M%S.png
-        show_panel=true
-        line_size=5
-        text_size=20
-        text_font=sans-serif
-        paint_mode=arrow
-        early_exit=true
-        fill_shape=false
-      '';
     };
   };
 }
