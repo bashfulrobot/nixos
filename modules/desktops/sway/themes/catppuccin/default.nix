@@ -46,7 +46,7 @@ in {
           enable = true;
           flavor = themeFlavor;
           background =
-            "$HOME/Pictures/wallpapers/skullskates.png"; # TODO - universal setting
+            "${user-settings.user.username}Pictures/wallpapers/skullskates.png"; # TODO - universal setting
           font = "Work Sans";
           fontSize = "18";
         };

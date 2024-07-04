@@ -39,7 +39,6 @@ in {
           wayland.enable = true;
           autoNumlock = true;
           package = pkgs.kdePackages.sddm;
-
         };
       };
       # Configure keymap in X11
