@@ -16,7 +16,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.gnupg.agent = {
       enable = true;
-      enableSSHSupport = true;
+      enableSSHSupport = false; # using ssh-agent
       pinentryPackage = pkgs.pinentry-gnome3;
     };
 
