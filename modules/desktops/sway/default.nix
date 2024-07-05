@@ -50,15 +50,7 @@ in {
     };
 
     services = {
-      # displayManager = {
-      #   #defaultSession = "SwayFX";
-      #   sddm = {
-      #     enable = true;
-      #     wayland.enable = true;
-      #     autoNumlock = true;
-      #     package = pkgs.kdePackages.sddm;
-      #   };
-      # };
+      displayManager = { defaultSession = "SwayFX"; };
       # Configure keymap in X11
       xserver = {
         enable = true;
@@ -67,6 +59,7 @@ in {
           variant = "";
         };
       };
+
       gnome = {
         evolution-data-server.enable = true;
         gnome-online-accounts.enable = true;
@@ -79,7 +72,6 @@ in {
 
       greetd = {
         enable = true;
-
         settings = {
           terminal = { vt = 7; };
           default_session = {
@@ -95,8 +87,14 @@ in {
       polkit.enable = true;
       pam = {
         services = {
-          # sddm.enableGnomeKeyring = true;
-          greetd = { enableGnomeKeyring = true; };
+          greetd = {
+            enableGnomeKeyring = true;
+            gnupg.enable = true;
+          };
+          login = {
+            enableGnomeKeyring = true;
+            gnupg.enable = true;
+          };
           swaylock = { };
           # keyring does not start otherwise - enable once I go to lightdm
           # lightdm.enableGnomeKeyring = true;
@@ -283,6 +281,7 @@ in {
         gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
         # https://nixos.wiki/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
         mpris-proxy.enable = true;
+        gnome-keyring.enable = true;
       };
 
       # ##### THeme
