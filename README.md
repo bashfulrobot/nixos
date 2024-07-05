@@ -2,7 +2,7 @@
 
 This repo contains the nixos cfg for a few of my systems. It tends to be under heavy development as I am still in the "keep trying things" phase of my Nix learnings. This repo has moved from Gnome -> Pantheon -> Hyprland - > Gnome -> sway -> Hyprland -> Gnome. You see where I am going with this. It "feels" like Gnome is where I plan to stay for some time. I found the user experience to be good, and the OOTB configuration seems to work best. It allows me to stop messing around to a degree and get "back to work."
 
-Which NIX is causing me to fail right now. "back to work." :)
+Which NIX is causing me to fail right now. I am "back to work." :)
 
 ## Status
 
@@ -50,20 +50,24 @@ archetype = {
     };
 ```
 
-### Home Manager Useage
+### Home Manager Usage
 
 - I do use Home Manager, but not in the usual pattern.
 - I hated having two different locations to configure the same application if I had to (or wanted to) use base nix and home manager config.
 - So, I figured out how to have it all in one file.
   The `modules/desktops/gnome/default.nix` have an excellent example of this. In that file you will see:
 
-```
+```nix
 # Above is traditional NixOS config
 
 ##### Home Manager Config options #####
     home-manager.users."${user-settings.user.username}" = {
 # Everything in here is home-manager config
 ```
+
+### Keyring
+
+At times, I have had it where the keyring would not unlock. The solution was to go nuclear with `rm ~/.local/share/keyrings/login.keyring, reboot, and let the keyring be recreated.
 
 ### Secrets
 
@@ -114,20 +118,20 @@ Getting the StartupWMClass is a pain in Wayland.
 ## TODO
 
 - sway
-  - [ ] Waybar: module backlight: Disabling module "backlight", No backlight found
-  - [ ] Waybar: some font awesome icons not showing in right side modules
-  - [ ] Waybar: add bluetooth icon, and lauch config app
-  - [ ] Waybar: ws 3 showing incorrect icon
-  - [ ] Waybar: [error] media stopped unexpectedly, is it endless?
-  - [ ] Waybar: [warning] Requested height: 5 is less than the minimum height: 27 required by the modules
-  - [ ] Waybar: make battery module optional on tower (no battery)
-  - [ ] Waybar: [warning] Mapping is not an object
-  - [ ] Waybar: [warning] Requested height: 5 is less than the minimum height: 27 required by the modules
-  - [ ] Sway: some apps not repecting rules for which ws to open on
-  - [ ] Login: greetd tui showing boot text over login form
-  - [ ] Login: keyring is not unlocking
-  - [ ] Login: maybe an alternate login manager?
-  - [ ] Theme: currently catppuccin, but gtk theme seems to be going away. Consider stock adwaita, or maybe yaru. Less theming to worry about.
-  - [ ] Reboot: Add desktop file
-  - [ ] Shutdown: Add desktop file
-  - [ ] Sleep: Add desktop file
+    - [ ] Waybar: module backlight: Disabling module "backlight", No backlight found
+    - [ ] Waybar: some font awesome icons not showing in right side modules
+    - [ ] Waybar: add bluetooth icon, and lauch config app
+    - [ ] Waybar: ws 3 showing incorrect icon
+    - [ ] Waybar: [error] media stopped unexpectedly, is it endless?
+    - [ ] Waybar: [warning] Requested height: 5 is less than the minimum height: 27 required by the modules
+    - [ ] Waybar: make battery module optional on tower (no battery)
+    - [ ] Waybar: [warning] Mapping is not an object
+    - [ ] Waybar: [warning] Requested height: 5 is less than the minimum height: 27 required by the modules
+    - [ ] Sway: some apps not repecting rules for which ws to open on
+    - [ ] Login: greetd tui showing boot text over login form
+    - [ ] Login: keyring is not unlocking
+    - [ ] Login: maybe an alternate login manager?
+    - [ ] Theme: currently catppuccin, but gtk theme seems to be going away. Consider stock adwaita, or maybe yaru. Less theming to worry about.
+    - [ ] Reboot: Add desktop file
+    - [ ] Shutdown: Add desktop file
+    - [ ] Sleep: Add desktop file
