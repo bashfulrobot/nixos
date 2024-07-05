@@ -5,6 +5,15 @@ let
   swayfx = inputs.swayfx.packages.x86_64-linux.default;
   dbus-sway-environment =
     pkgs.callPackage ./build/scripts/dbus-sway-environment.nix { };
+  greetdSwayConfig = pkgs.writeText "greetd-sway-config" ''
+    # `-l` activates layer-shell mode. Notice that `swaymsg exit` will run after gtkgreet.
+    exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
+    bindsym Mod4+shift+e exec swaynag \
+      -t warning \
+      -m 'What do you want to do?' \
+      -b 'Poweroff' 'systemctl poweroff' \
+      -b 'Reboot' 'systemctl reboot'
+  '';
 in {
   options = {
     desktops.sway.enable = lib.mkOption {
@@ -59,13 +68,16 @@ in {
       };
       gvfs.enable = true;
       accounts-daemon.enable = true;
-      # example gtk-greetd config - https://github.com/kira-bruneau/nixos-config/blob/ecd48379a1632be76fb75825312a3c9bce1228e4/environments/gui/sway.nix#L35
       greetd = {
         enable = true;
         settings = {
+          # default_session = {
+          #   command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd sway";
+          #   user = "${user-settings.user.username}";
+          # };
+
           default_session = {
-            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-            user = "greeter";
+            command = "${swayfx}/bin/sway --config ${greetdSwayConfig}";
           };
         };
       };
@@ -139,7 +151,8 @@ in {
     programs = {
       sway = {
         enable = true;
-        package = swayfx.overrideAttrs (old: { passthru.providedSessions = [ "sway" ]; });
+        package = swayfx.overrideAttrs
+          (old: { passthru.providedSessions = [ "sway" ]; });
         wrapperFeatures.gtk = true;
         extraSessionCommands = ''
             export XDG_SESSION_DESKTOP=sway
