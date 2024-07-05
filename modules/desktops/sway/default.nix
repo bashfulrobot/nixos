@@ -33,15 +33,15 @@ in {
     };
 
     services = {
-      displayManager = {
-        defaultSession = "SwayFX";
-        sddm = {
-          enable = true;
-          wayland.enable = true;
-          autoNumlock = true;
-          package = pkgs.kdePackages.sddm;
-        };
-      };
+      # displayManager = {
+      #   #defaultSession = "SwayFX";
+      #   sddm = {
+      #     enable = true;
+      #     wayland.enable = true;
+      #     autoNumlock = true;
+      #     package = pkgs.kdePackages.sddm;
+      #   };
+      # };
       # Configure keymap in X11
       xserver = {
         enable = true;
@@ -60,23 +60,23 @@ in {
       gvfs.enable = true;
       accounts-daemon.enable = true;
       # example gtk-greetd config - https://github.com/kira-bruneau/nixos-config/blob/ecd48379a1632be76fb75825312a3c9bce1228e4/environments/gui/sway.nix#L35
-      # greetd = {
-      #   enable = true;
-      #   settings = {
-      #     default_session = {
-      #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-      #       user = "greeter";
-      #     };
-      #   };
-      # };
+      greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+            user = "greeter";
+          };
+        };
+      };
     };
     # Might not be needed
     security = {
       polkit.enable = true;
       pam = {
         services = {
-          sddm.enableGnomeKeyring = true;
-          # greetd = { enableGnomeKeyring = true; };
+          # sddm.enableGnomeKeyring = true;
+          greetd = { enableGnomeKeyring = true; };
           swaylock = { };
           # keyring does not start otherwise - enable once I go to lightdm
           # lightdm.enableGnomeKeyring = true;

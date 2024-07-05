@@ -39,19 +39,19 @@ in {
 
     };
 
-    services = {
-      displayManager = {
+    # services = {
+    #   displayManager = {
 
-        sddm.catppuccin = {
-          enable = true;
-          flavor = themeFlavor;
-          background = "${user-settings.user.wallpaper}";
-          font = "Work Sans";
-          fontSize = "18";
-        };
-      };
+    #     sddm.catppuccin = {
+    #       enable = true;
+    #       flavor = themeFlavor;
+    #       background = "${user-settings.user.wallpaper}";
+    #       font = "Work Sans";
+    #       fontSize = "18";
+    #     };
+    #   };
 
-    };
+    # };
 
     environment.systemPackages = with pkgs; [
       catppuccin-gtk-theme
