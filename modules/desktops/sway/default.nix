@@ -5,14 +5,22 @@ let
   swayfx = inputs.swayfx.packages.x86_64-linux.default;
   dbus-sway-environment =
     pkgs.callPackage ./build/scripts/dbus-sway-environment.nix { };
+  # https://github.com/sbulav/dotfiles/blob/b5289888c8eeaec137512f628b83e3a136da300d/nix/modules/nixos/desktop/addons/regreet/default.nix#L26
   greetdSwayConfig = pkgs.writeText "greetd-sway-config" ''
-    # `-l` activates layer-shell mode. Notice that `swaymsg exit` will run after gtkgreet.
-    exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
+    exec "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP"
+    input "type:touchpad" {
+      tap enabled
+    }
+    seat seat0 xcursor_theme Bibata-Modern-Classic 24
+    xwayland disable
+
     bindsym Mod4+shift+e exec swaynag \
       -t warning \
       -m 'What do you want to do?' \
       -b 'Poweroff' 'systemctl poweroff' \
       -b 'Reboot' 'systemctl reboot'
+
+    exec "${lib.getExe config.programs.regreet.package} -l debug; swaymsg exit"
   '';
 in {
   options = {
@@ -68,19 +76,17 @@ in {
       };
       gvfs.enable = true;
       accounts-daemon.enable = true;
+
       greetd = {
         enable = true;
-        vt = 2;
-        settings = {
-          default_session = {
-            command =
-              "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd sway";
-            user = "${user-settings.user.username}";
-          };
 
-          # default_session = {
-          #   command = "${swayfx}/bin/sway --config ${greetdSwayConfig}";
-          # };
+        settings = {
+          terminal = { vt = 7; };
+          default_session = {
+            command = "env GTK_USE_PORTAL=0 ${
+                lib.getExe pkgs.swayfx
+              } --config ${greetdSwayConfig}";
+          };
         };
       };
     };
@@ -125,6 +131,16 @@ in {
     environment = {
 
       systemPackages = with pkgs; [
+
+        # Theme
+        (catppuccin-gtk.override {
+          accents = [ "mauve" ];
+          size = "compact";
+          variant = "mocha";
+        })
+        bibata-cursors
+        papirus-icon-theme
+        # Other
         waylogout
         swayidle
         networkmanager
@@ -151,6 +167,25 @@ in {
 
     # Enable variuos programs
     programs = {
+      regreet = {
+        enable = true;
+
+        settings = {
+          background = {
+            path = "${user-settings.user.wallpaper}";
+            fit = "Cover";
+          };
+          GTK = {
+            # TODO: move catppuccin to a separate module, or unicveral like wallpaper
+            cursor_theme_name = "Bibata-Modern-Classic";
+            font_name =
+              "FiraCode Nerd Font Regular 12"; # TODO: update to work-sans
+            icon_theme_name = "Papirus-Dark";
+            theme_name =
+              "Catppuccin-Mocha-Compact-Mauve-dark"; # TODO: update to match theme
+          };
+        };
+      };
       sway = {
         enable = true;
         package = swayfx.overrideAttrs
