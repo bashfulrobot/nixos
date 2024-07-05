@@ -55,7 +55,7 @@ archetype = {
 - I do use Home Manager, but not in the usual pattern.
 - I hated having two different locations to configure the same application if I had to (or wanted to) use base nix and home manager config.
 - So, I figured out how to have it all in one file.
-The `modules/desktops/gnome/default.nix` have an excellent example of this. In that file you will see:
+  The `modules/desktops/gnome/default.nix` have an excellent example of this. In that file you will see:
 
 ```
 # Above is traditional NixOS config
@@ -69,7 +69,7 @@ The `modules/desktops/gnome/default.nix` have an excellent example of this. In t
 
 - My secrets just use `git-crypt`.
 - I know about SOPs, etc., but I wanted to be able to make a secret substitution in my code.
-You can see its use in `modules/cli/git/default.nix`, such as (I was rendering a config file for a tool):
+  You can see its use in `modules/cli/git/default.nix`, such as (I was rendering a config file for a tool):
 
 ```
 [openai]
@@ -113,25 +113,18 @@ Getting the StartupWMClass is a pain in Wayland.
 
 ## TODO
 
-- Pantheon
-    - [ ] small window controls
-    - [ ] chromium web apps do not launch
-    - [x] set my preferred keyboard shortcuts for:
-        - [x] going to workspaces
-        - [x] closing windows
-        - [x] terminal launch
-        - [x] 1password
-    - [ ] no app indicators
-    - [x] missing panel until you use Superkey
-    - [ ] finish adding options to Pantheon for optional config
-    - [x] set wallpaper
-    - [ ] add a screenshot shortcut that accounts for the desktop keyboard
-    - [ ] set user photo
-    - [ ] The fingerprint reader seems to want a manual login after locking the laptop. You should be able to use a fingerprint.
-    - [ ] My screenshot OCR script seems to not work in Pantheon. I need to fix that.
-    - VSCode
-        - [x] vscode not seeing keyring
-
-- user name
-    - [ ] eval where the user name is used and make it a variable
-- [ ] Test A********
+- sway
+  - [ ] Waybar: module backlight: Disabling module "backlight", No backlight found
+  - [ ] Waybar: some font awesome icons not showing in right side modules
+  - [ ] Waybar: add bluetooth icon, and lauch config app
+  - [ ] Waybar: ws 3 showing incorrect icon
+  - [ ] Waybar: [error] media stopped unexpectedly, is it endless?
+  - [ ] Waybar: [warning] Requested height: 5 is less than the minimum height: 27 required by the modules
+  - [ ] Waybar: make battery module optional on tower (no battery)
+  - [ ] Waybar: [warning] Mapping is not an object
+  - [ ] Waybar: [warning] Requested height: 5 is less than the minimum height: 27 required by the modules
+  - [ ] Sway: some apps not repecting rules for which ws to open on
+  - [ ] Login: greetd tui showing boot text over login form
+  - [ ] Login: keyring is not unlocking
+  - [ ] Login: maybe an alternate login manager?
+  - [ ] Theme: currently catppuccin, but gtk theme seems to be going away. Consider stock adwaita, or maybe yaru. Less theming to worry about.

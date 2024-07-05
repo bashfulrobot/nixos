@@ -1,9 +1,13 @@
 # Icon search - https://fontawesome.com/search
-{ user-settings, pkgs, config, lib, inputs, ... }:
-let
+{
+  user-settings,
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   cfg = config.desktops.addons.waybar;
   # Used in my home manager code at the bottom of the file.
-
 in {
   options = {
     desktops.addons.waybar.enable = lib.mkOption {
@@ -14,7 +18,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ font-awesome work-sans ];
+    environment.systemPackages = with pkgs; [font-awesome work-sans];
     home-manager.users."${user-settings.user.username}" = {
       programs.waybar = {
         enable = true;
@@ -257,7 +261,6 @@ in {
               min-width: 16px;
           }
         '';
-
       };
       # TODO: example else if - https://github.com/MatthiasBenaets/nixos-config/blob/2d9d8c7f847e586d2e2ec14ed669416e4a758ea4/rsc/archive/dwm/waybar.nix#L49
       home.file.".config/waybar/config".text = ''
@@ -290,7 +293,7 @@ in {
                      "10": "",
                      "urgent": "",
                      "focused": "",
-                     "default": ""
+                     // "default": ""
                  }
              },
             "sway/mode": {
