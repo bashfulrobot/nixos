@@ -139,6 +139,7 @@ Note: I use Brave, which also works with Chromium or any browser supporting the 
     - [x] Login: greetd tui showing boot text over login form (now using regreet)
     - [x] Login: keyring is not unlocking (now using regreet)
     - [x] Login: maybe an alternate login manager?
+    - [ ] Login: theme it, and remove session selector (potentially)
     - [ ] Theme: currently catppuccin, but gtk theme seems to be going away. Consider stock adwaita, or maybe yaru. Less theming to worry about.
     - [x] Reboot: Add desktop file
     - [ ] Shutdown: Add desktop file
