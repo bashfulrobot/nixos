@@ -38,6 +38,9 @@ help:
 # # Print the directory where the justfile is located
 # root:
 #     @echo {{justfile_directory()}}
+# garbage-build-garbage-reboot
+nuke-build:
+    @nix-collect-garbage -d && rebuild && nix-collect-garbage -d && reboot
 # Final build and garbage collect
 final-build:
     @just garbage-build-cache
