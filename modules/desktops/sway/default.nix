@@ -165,7 +165,7 @@ in {
 
     # Enable variuos programs
     programs = {
-      programs.ssh.startAgent = true;
+      ssh.startAgent = true;
       regreet = {
         enable = true;
 
