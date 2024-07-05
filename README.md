@@ -68,7 +68,7 @@ archetype = {
 ### Keyring
 
 At times, I have had it where the keyring would not unlock. The solution was to go nuclear with `rm ~/.local/share/keyrings/login.keyring`, reboot, and let the keyring be recreated.
-be sure to run `ssh-add ~/.ssh/id_ed25519` and `ssh-add ~/.ssh/id_rsa` after reboot.
+be sure to run `ssh-add ~/.ssh/id_ed25519` and `ssh-add ~/.ssh/id_rsa` after reboot. Ensure ssh-agent is running.
 
 ### Secrets
 
