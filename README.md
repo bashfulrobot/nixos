@@ -128,3 +128,6 @@ Getting the StartupWMClass is a pain in Wayland.
   - [ ] Login: keyring is not unlocking
   - [ ] Login: maybe an alternate login manager?
   - [ ] Theme: currently catppuccin, but gtk theme seems to be going away. Consider stock adwaita, or maybe yaru. Less theming to worry about.
+  - [ ] Reboot: Add desktop file
+  - [ ] Shutdown: Add desktop file
+  - [ ] Sleep: Add desktop file
