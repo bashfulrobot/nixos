@@ -1,3 +1,4 @@
+# Icon search - https://fontawesome.com/search
 { user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.desktops.addons.waybar;
@@ -24,10 +25,11 @@ in {
               border: none;
               border-radius: 4px;
               /* `ttf-font-awesome` is required to be installed for icons */
-              font-family: "Work Sans", "Roboto Mono Medium", Helvetica, Arial, sans-serif;
+              /* font-family: "Work Sans", "Roboto Mono Medium", Helvetica, Arial, sans-serif; */
+              font-family: "Work Sans", "Roboto Mono Medium", "Font Awesome 6 Free", "Font Awesome 6 Brands", Helvetica, Arial, sans-serif;
 
               /* adjust font-size value to your liking: */
-              font-size: 10px;
+              font-size: 12px;
 
               min-height: 0;
           }
@@ -271,21 +273,26 @@ in {
             //"modules-right": ["pulseaudio", "network", "backlight","cpu","memory","battery", "battery#bat2", "clock", "tray"],
             "modules-right": ["pulseaudio", "network", "backlight", "battery","clock", "tray"],
             // Modules configuration
-            // "sway/workspaces": {
-            //     "disable-scroll": true,
-            //     "all-outputs": true,
-            //     "format": "{name}: {icon}",
-            //     "format-icons": {
-            //         "1": "",
-            //         "2": "",
-            //         "3": "",
-            //         "4": "",
-            //         "5": "",
-            //         "urgent": "",
-            //         "focused": "",
-            //         "default": ""
-            //     }
-            // },
+            "sway/workspaces": {
+                 "disable-scroll": true,
+                 "all-outputs": true,
+                 "format": "{name}: {icon}",
+                 "format-icons": {
+                     "1": "",
+                     "2": "",
+                     "3": "",
+                     "4": "",
+                     "5": "",
+                     "6": "",
+                     "7": "",
+                     "8": "",
+                     "9": "",
+                     "10": "",
+                     "urgent": "",
+                     "focused": "",
+                     "default": ""
+                 }
+             },
             "sway/mode": {
                 "format": "<span style=\"italic\">{}</span>"
             },

@@ -37,7 +37,7 @@ exec_always dbus-sway-environment
 ### Autostart Apps
 #
 # 1password
-exec_always /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/1password.desktop
+exec swaymsg "workspace 0; exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/1password.desktop
 
 ### Lock Screen
 #
@@ -327,5 +327,37 @@ blur_xray disable
 blur_passes 2
 blur_radius 4
 default_dim_inactive 0.3
+
+### Workspace assingments
+#
+# I have a funciton calles get_appid in my shell to get the app id of a window
+# also swaymsg -t get_tree will get you classes and the app id
+#
+# ws 2 - coding
+#
+assign [app_id="code-url-handler"] workspace number 2
+assign [app_id="brave-github.com__search-Default - coding"] workspace number 2
+assign [app_id="brave-search.nixos.org__packages-Default"] workspace number 2
+assign [app_id="brave-home-manager-options.extranix.com__-Default"] workspace number 2
+assign [app_id="brave-github.com__bashfulrobot_nixos-Default"] workspace number 2
+#
+# ws 8 - sysdig
+#
+assign [app_id="brave-sysdig.vitally.io__hubs_553ec776-875e-4a0e-a096-a3da3a0b6ea1_8acc40cb-e3ea-4da8-9570-4be27a10fff6-Default"] workspace number 8
+assign [app_id="brave-sysdig.lightning.force.com__lightning_r_Account_001j000000xlClCAAU_view-Default"] workspace number 8
+assign [app_id="brave-sysdig.atlassian.net__jira_software_c_projects_FR_issues-Default"] workspace number 8
+assign [app_id="brave-sysdig.atlassian.net__wiki_spaces_~62200ee98a4bb60068f21eea_overview-Default"] workspace number 8
+#
+# ws 9 - office
+#
+assign [app_id="brave-calendar.google.com__calendar_u_1-Default"] workspace number 9
+assign [app_id="brave-mail.google.com__mail_u_1_-Default"] workspace number 9
+assign [class="Todoist"] workspace number 9
+assign [app_id="brave-calendar.google.com__calendar_u_0-Default"] workspace number 9
+assign [app_id="brave-mail.google.com__mail_u_0_-Default"] workspace number 9
+# ws 10 - other
+#
+assign [app_id="1Password"] workspace number 10
+#
 
 include @sysconfdir@/sway/config.d/*

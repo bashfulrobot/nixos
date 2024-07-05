@@ -45,6 +45,9 @@ in {
         #   }
         # ];
         functions = {
+          get_appid = ''
+            swaymsg -t get_tree | grep app_id | awk '{gsub(/"|,/, "", $NF); print $NF}' | fzf | wl-copy --trim-newline
+          '';
           show-sway-bindings = ''
             rg bindsym ~/.config/sway/config | fzf --preview 'echo {}' --preview-window=up:3:wrap
           '';
