@@ -1,6 +1,5 @@
 { user-settings, pkgs, config, lib, ... }:
-let
-  cfg = config.sys.ssh;
+let cfg = config.sys.ssh;
 
 in {
 
@@ -17,6 +16,8 @@ in {
     services.openssh.enable = true;
 
     home-manager.users."${user-settings.user.username}" = {
+      services.ssh-agent.enable = true;
+      programs.ssh.addKeysToAgent = "yes";
       programs.ssh = {
         enable = true;
         extraConfig = ''
