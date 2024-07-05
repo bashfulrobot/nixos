@@ -136,7 +136,6 @@ in {
       fractal # Matrix Client
       slack # instant messaging
       signal-desktop # instant messaging
-      rocketchat-desktop # instant messaging
       # thunderbird # email client
       mailspring # email client
 

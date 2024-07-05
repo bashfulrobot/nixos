@@ -341,6 +341,11 @@ assign [app_id="brave-search.nixos.org__packages-Default"] workspace number 2
 assign [app_id="brave-home-manager-options.extranix.com__-Default"] workspace number 2
 assign [app_id="brave-github.com__bashfulrobot_nixos-Default"] workspace number 2
 #
+# ws 3 - IM
+#
+assign [app_id="Slack"] workspace number 3
+assign [app_id="brave-search.nixos.org__packages-Default"] workspace number 3
+#
 # ws 8 - sysdig
 #
 assign [app_id="brave-sysdig.vitally.io__hubs_553ec776-875e-4a0e-a096-a3da3a0b6ea1_8acc40cb-e3ea-4da8-9570-4be27a10fff6-Default"] workspace number 8

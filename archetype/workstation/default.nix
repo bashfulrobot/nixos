@@ -24,6 +24,7 @@ in {
       };
 
     apps = {
+      rocket-chat.enable = true;
       pairdrop.enable = true;
       zoom-web.enable = false;
       apple-notes.enable = true;
