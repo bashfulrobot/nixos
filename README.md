@@ -11,11 +11,11 @@ WIP, forever.
 ## Code Flow
 
 - All code under the `modules` folder is imported via `autoimport.nix`. The modules folder code is set up with options, which are not used unless you enable the options in your system config.
-- Then `archetype` on the systems of choice
+Then, `archetype` on the systems of choice
 
 ### Example of a system cfg
 
-```
+```nix
 
 # Shows using the archetype to enable a laptop and workstation
 archetype = {
@@ -55,7 +55,7 @@ archetype = {
 - I do use Home Manager, but not in the usual pattern.
 - I hated having two different locations to configure the same application if I had to (or wanted to) use base nix and home manager config.
 - So, I figured out how to have it all in one file.
-  The `modules/desktops/gnome/default.nix` have an excellent example of this. In that file you will see:
+  The `modules/desktops/gnome/default.nix` have an excellent example of this. In that file, you will see:
 
 ```nix
 # Above is traditional NixOS config
@@ -75,7 +75,7 @@ At times, I have had it where the keyring would not unlock. The solution was to 
 - I know about SOPs, etc., but I wanted to be able to make a secret substitution in my code.
   You can see its use in `modules/cli/git/default.nix`, such as (I was rendering a config file for a tool):
 
-```
+```toml
 [openai]
         api_base = "https://api.openai.com/v1"
         api_key = "${secrets.openai.api-key}"
@@ -96,15 +96,22 @@ The Espanso service is funny. At times, the service will not start after an upda
 
 ### Getting StartupWMClass For Web Apps
 
+#### Gnome
+
 Getting the StartupWMClass is a pain in Wayland.
 
 - I enabled the `Window Class` extension in Gnome.
-- Then you can use a command to get the class of the window.
-- see the `get_wm_class` fish shell function in my `fish` module.
+- Then, you can use a command to get the window's class.
+- See the `get_wm_class`` fish shell function in my`fish` module.
+
+#### Sway
+
+- I have a fish shell function to get the app id for the currently focused window. (`get_appid`)
 
 #### Steps for my setup
 
-- Note, I use brave, but this also works with chromium, or any browser that supports the same cli flags. You can set the desired brower in the module where you define the web app. See `modules/apps/gcal-br/default.nix` for an example.
+Note: I use Brave, which also works with Chromium or any browser supporting the same cli flags. You can set the desired browser in the module where you define the web app. See `modules/apps/gcal-br/default.nix` for an example.
+
 - Temporarily create a desktop shortcut for the site to wrap in brave
 - Copy the icons using the `lib/cbb-webwrap/copy-icons.`sh` script
 - Delete the app in brave
