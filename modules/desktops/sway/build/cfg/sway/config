@@ -303,10 +303,29 @@ exec waybar
 #
 default_border pixel 2
 
+### Gaps
+# Gaps
+gaps inner 5
+gaps outer 5
+
+# Smart Gaps and Borders
+smart_gaps off
+smart_borders off
+
+# Specific Gaps
+gaps top 5
+gaps right 5
+gaps bottom 5
+gaps left 5
+
 ### SwayFX
-# blur enable
-# corner_radius 10
-# shadows enable
-# shadows_on_csd enable
+blur enable
+corner_radius 10
+shadows enable
+shadows_on_csd enable
+blur_xray disable
+blur_passes 2
+blur_radius 4
+default_dim_inactive 0.3
 
 include @sysconfdir@/sway/config.d/*

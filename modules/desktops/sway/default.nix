@@ -34,7 +34,7 @@ in {
 
     services = {
       displayManager = {
-        defaultSession = "sway";
+        defaultSession = "SwayFX";
         sddm = {
           enable = true;
           wayland.enable = true;
@@ -139,8 +139,7 @@ in {
     programs = {
       sway = {
         enable = true;
-        # package = swayfx.overrideAttrs (old: { passthru.providedSessions = [ "sway" ]; });
-        package = pkgs.swayfx;
+        package = swayfx.overrideAttrs (old: { passthru.providedSessions = [ "sway" ]; });
         wrapperFeatures.gtk = true;
         extraSessionCommands = ''
             export XDG_SESSION_DESKTOP=sway
