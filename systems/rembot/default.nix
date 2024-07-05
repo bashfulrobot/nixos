@@ -37,6 +37,7 @@
       enable = true;
       reboot-firmware = true;
       reboot-windows = true;
+      reboot = true;
       seabird = true;
       beeper = true;
       monokle = false;

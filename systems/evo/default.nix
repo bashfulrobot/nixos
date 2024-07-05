@@ -44,6 +44,7 @@
       monokle = false;
       cursor = false;
       spacedrive = false;
+      reboot = true;
     };
   };
 

@@ -137,9 +137,9 @@ Note: I use Brave, which also works with Chromium or any browser supporting the 
     - [ ] Waybar: [warning] Requested height: 5 is less than the minimum height: 27 required by the modules
     - [ ] Sway: some apps not repecting rules for which ws to open on
     - [x] Login: greetd tui showing boot text over login form (now using regreet)
-    - [ ] Login: keyring is not unlocking (now using regreet)
+    - [x] Login: keyring is not unlocking (now using regreet)
     - [x] Login: maybe an alternate login manager?
     - [ ] Theme: currently catppuccin, but gtk theme seems to be going away. Consider stock adwaita, or maybe yaru. Less theming to worry about.
-    - [ ] Reboot: Add desktop file
+    - [x] Reboot: Add desktop file
     - [ ] Shutdown: Add desktop file
     - [ ] Sleep: Add desktop file
