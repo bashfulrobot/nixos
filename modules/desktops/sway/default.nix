@@ -70,6 +70,7 @@ in {
       accounts-daemon.enable = true;
       greetd = {
         enable = true;
+        vt = 2;
         settings = {
           default_session = {
             command =
