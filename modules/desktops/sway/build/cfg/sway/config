@@ -132,7 +132,7 @@ bindsym --locked XF86AudioPrev exec playerctl previous
 # not be the current output.
 bindsym --locked XF86AudioRaiseVolume  exec pactl set-sink-volume @DEFAULT_SINK@ +3%
 bindsym --locked XF86AudioLowerVolume  exec pactl set-sink-volume @DEFAULT_SINK@ -3%
-bindsym --locked XF86AudioMute         exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMute   exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 ## Screen // Brightness Up // 🔆 ##
 ## Screen // Brightness Down // 🔅 ##
@@ -302,5 +302,11 @@ exec waybar
 ### Visual
 #
 default_border pixel 2
+
+### SwayFX
+blur enable
+corner_radius 10
+shadows enable
+shadows_on_csd enable
 
 include @sysconfdir@/sway/config.d/*

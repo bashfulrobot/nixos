@@ -14,6 +14,8 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
+    swayfx.url = "github:WillPower3309/swayfx";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +26,7 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware,
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, swayfx,
     # envycontrol,
     nix-flatpak, nur,
     #avalanche,
@@ -32,10 +34,7 @@
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.
-      workstationOverlays = [
-        nur.overlay
-        nvim.overlays.default
-      ];
+      workstationOverlays = [ nur.overlay nvim.overlays.default ];
       # Load secrets. This folder is encryted with git-crypt
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
@@ -59,10 +58,9 @@
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
-                users."${user-settings.user.username}" =
-                  {
-                    imports = [ catppuccin.homeManagerModules.catppuccin ];
-                  };
+                users."${user-settings.user.username}" = {
+                  imports = [ catppuccin.homeManagerModules.catppuccin ];
+                };
               };
 
               nixpkgs = {
@@ -91,10 +89,9 @@
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
-                users."${user-settings.user.username}" =
-                  {
-                    imports = [ catppuccin.homeManagerModules.catppuccin ];
-                  };
+                users."${user-settings.user.username}" = {
+                  imports = [ catppuccin.homeManagerModules.catppuccin ];
+                };
               };
 
               nixpkgs = {

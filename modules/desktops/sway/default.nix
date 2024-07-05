@@ -1,7 +1,8 @@
 # nix-community/nixpkgs-wayland: Automated, pre-built packages for Wayland (sway/wlroots) tools for NixOS. - https://github.com/nix-community/nixpkgs-wayland?tab=readme-ov-file#sway
-{ user-settings, pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.desktops.sway;
+  swayfx = inputs.swayfx.packages.x86_64-linux.default;
   dbus-sway-environment =
     pkgs.callPackage ./build/scripts/dbus-sway-environment.nix { };
 in {
@@ -58,6 +59,7 @@ in {
       };
       gvfs.enable = true;
       accounts-daemon.enable = true;
+      # example gtk-greetd config - https://github.com/kira-bruneau/nixos-config/blob/ecd48379a1632be76fb75825312a3c9bce1228e4/environments/gui/sway.nix#L35
       # greetd = {
       #   enable = true;
       #   settings = {
@@ -137,6 +139,8 @@ in {
     programs = {
       sway = {
         enable = true;
+        # package = swayfx.overrideAttrs (old: { passthru.providedSessions = [ "sway" ]; });
+        package = pkgs.swayfx;
         wrapperFeatures.gtk = true;
         extraSessionCommands = ''
             export XDG_SESSION_DESKTOP=sway
@@ -178,6 +182,8 @@ in {
 
       home.file = {
         ".config/sway/config".source = ./build/cfg/sway/config;
+        # ".config/sway/config.d/keybindings".source = ./build/cfg/sway/config.d/keybindings;
+        # ".config/sway/config.d/default-keybindings".source = ./build/cfg/sway/config.d/default-keybindings;
         ".config/waylogout/config".source = ./build/cfg/waylogout/config;
         ".config/swappy/config".source = ./build/cfg/swappy/config;
       };
