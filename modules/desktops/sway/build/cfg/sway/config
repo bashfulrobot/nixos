@@ -304,9 +304,9 @@ exec waybar
 default_border pixel 2
 
 ### SwayFX
-blur enable
-corner_radius 10
-shadows enable
-shadows_on_csd enable
+# blur enable
+# corner_radius 10
+# shadows enable
+# shadows_on_csd enable
 
 include @sysconfdir@/sway/config.d/*
