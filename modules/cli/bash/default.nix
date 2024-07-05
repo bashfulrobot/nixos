@@ -77,7 +77,7 @@ in {
           kubectl = "${pkgs.kubecolor}/bin/kubecolor";
           dc = "${pkgs.docker}/bin/docker compose";
           ping = "${pkgs.gping}/bin/gping";
-          j = "${pkgs.just}/bin/just --choose";
+          j = "${pkgs.just}/bin/just --choose --unsorted";
           nixcfg = "${pkgs.man}/bin/man configuration.nix";
           hmcfg = "${pkgs.man}/bin/man home-configuration.nix";
           rustscan =

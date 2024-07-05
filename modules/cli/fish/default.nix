@@ -292,7 +292,7 @@ in {
           htop = "${pkgs.bottom}/bin/btm";
           #sed = "${pkgs.sd}/bin/sd";
           ping = "${pkgs.gping}/bin/gping";
-          just = "${pkgs.just}/bin/just --choose";
+          just = "${pkgs.just}/bin/just --choose --unsorted";
           nixcfg = "${pkgs.man}/bin/man configuration.nix";
           hmcfg = "${pkgs.man}/bin/man home-configuration.nix";
           rustscan =
