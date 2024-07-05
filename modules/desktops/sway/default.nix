@@ -71,14 +71,15 @@ in {
       greetd = {
         enable = true;
         settings = {
-          # default_session = {
-          #   command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd sway";
-          #   user = "${user-settings.user.username}";
-          # };
-
           default_session = {
-            command = "${swayfx}/bin/sway --config ${greetdSwayConfig}";
+            command =
+              "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd sway";
+            user = "${user-settings.user.username}";
           };
+
+          # default_session = {
+          #   command = "${swayfx}/bin/sway --config ${greetdSwayConfig}";
+          # };
         };
       };
     };
