@@ -12,7 +12,7 @@ let
     name = "Rocket Chat";
     url = "https://chat.developer.gov.bc.ca/channel/devops-sysdig";
     binary = "${pkgs.brave}/bin/brave";
-    myStartupWMClass = "brave-calendar.google.com__calendar_u_0_r-Default";
+    myStartupWMClass = "brave-chat.developer.gov.bc.ca__channel_devops-sysdig-Default";
     iconSizes = [ "32" "48" "64" "96" "128" "256" "512" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

@@ -344,7 +344,7 @@ assign [app_id="brave-github.com__bashfulrobot_nixos-Default"] workspace number 
 # ws 3 - IM
 #
 assign [app_id="Slack"] workspace number 3
-assign [app_id="brave-search.nixos.org__packages-Default"] workspace number 3
+assign [app_id="brave-chat.developer.gov.bc.ca__channel_devops-sysdig-Default"] workspace number 3
 #
 # ws 8 - sysdig
 #
