@@ -18,11 +18,6 @@ in {
       nix-settings.enable = true;
     };
 
-    sys = {
-      dconf.enable = true;
-      xdg.enable = true;
-      };
-
     apps = {
       rocket-chat.enable = true;
       pairdrop.enable = true;
@@ -85,6 +80,8 @@ in {
     };
 
     sys = {
+      dconf.enable = true;
+      xdg.enable = true;
       hosts.enable = true;
       fonts.enable = true;
       ssh.enable = true;
