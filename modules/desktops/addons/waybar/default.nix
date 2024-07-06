@@ -355,7 +355,7 @@ in {
             "backlight": {
                 // "device": "acpi_video1",
                 "format": "{percent}% ",
-                "format-icons": ["", ""]
+                "format-icons": ["", ""]
             },
             "battery": {
                 "states": {
@@ -369,7 +369,7 @@ in {
                 "format-alt": "{time} ",
                 // "format-good": "", // An empty format will hide the module
                 // "format-full": "",
-                // "format-icons": ["", "", "", "", ""]
+                "format-icons": ["", "", "", "", ""]
             },
             //"battery#bat2": {
             //    "bat": "BAT2"
