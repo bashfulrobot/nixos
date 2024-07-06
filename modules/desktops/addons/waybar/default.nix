@@ -132,7 +132,7 @@ in {
 
           #clock {
               background-color: #000000;
-              color: white;
+              color: #bbccdd;
           }
 
           #battery {
