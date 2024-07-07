@@ -166,6 +166,7 @@ in {
 
     # Enable variuos programs
     programs = {
+      ssh.askPassword = true;
       ssh.startAgent = true;
       regreet = {
         enable = true;
@@ -203,8 +204,10 @@ in {
             export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
             export QT_FONT_DPI=144
             export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
-            export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
+           # export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
+           export SSH_AUTH_SOCK;
             eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
+
           # WLR_RENDERER_ALLOW_SOFTWARE=1
         '';
       };
