@@ -148,6 +148,7 @@ in {
         brightnessctl
         pulseaudio
         swayr
+				sov # window overlay
         wob
         dbus-sway-environment
         bluez
