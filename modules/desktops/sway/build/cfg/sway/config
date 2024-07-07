@@ -299,6 +299,9 @@ bindsym $mod+r mode "resize"
 # bar swaybar_command waybar
 exec waybar
 
+# window overlays
+exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 500
+
 ### Visual
 #
 default_border pixel 2
