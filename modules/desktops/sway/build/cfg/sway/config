@@ -203,6 +203,7 @@ bindsym $mod+Shift+Right move right
 #bindsym $mod+8 workspace number 8
 #bindsym $mod+9 workspace number 9
 #bindsym $mod+0 workspace number 10
+
 #enable overlays with workspace keys
 bindsym --no-repeat $mod+1 workspace number 1; exec "echo 1 > /tmp/sovpipe"
 bindsym --no-repeat $mod+2 workspace number 2; exec "echo 1 > /tmp/sovpipe"
@@ -225,7 +226,6 @@ bindsym --release $mod+7 exec "echo 0 > /tmp/sovpipe"
 bindsym --release $mod+8 exec "echo 0 > /tmp/sovpipe"
 bindsym --release $mod+9 exec "echo 0 > /tmp/sovpipe"
 bindsym --release $mod+0 exec "echo 0 > /tmp/sovpipe"
-
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
