@@ -166,8 +166,10 @@ in {
 
     # Enable variuos programs
     programs = {
-      ssh.askPassword = true;
-      ssh.startAgent = true;
+      ssh = {
+        startAgent = true;
+        enableAskPassword = true;
+      };
       regreet = {
         enable = true;
 
