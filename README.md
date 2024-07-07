@@ -136,11 +136,12 @@ Note: I use Brave, which also works with Chromium or any browser supporting the 
     - [ ] Waybar: [warning] Mapping is not an object
     - [ ] Waybar: [warning] Requested height: 5 is less than the minimum height: 27 required by the modules
     - [ ] Sway: some apps not repecting rules for which ws to open on
-    - [x] Login: greetd tui showing boot text over login form (now using regreet)
-    - [x] Login: keyring is not unlocking (now using regreet)
-    - [x] Login: maybe an alternate login manager?
     - [ ] Login: theme it, and remove session selector (potentially)
     - [ ] Theme: currently catppuccin, but gtk theme seems to be going away. Consider stock adwaita, or maybe yaru. Less theming to worry about.
-    - [x] Reboot: Add desktop file
+    - [ ] ssh: ssh-agent not adding my keys automatically
+    - [ ] fonts: add FA pro
+    - [ ] sov: overlay not showing
+    - [ ] statusbar: evaluate i3blocks-rust with swaybar
+    - [ ] regreet: finish theme, and extra config
     - [ ] Shutdown: Add desktop file
     - [ ] Sleep: Add desktop file
