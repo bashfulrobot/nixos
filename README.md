@@ -139,12 +139,12 @@ Note: I use Brave, which also works with Chromium or any browser supporting the 
     - [ ] Waybar: make battery module optional on tower (no battery)
     - [ ] Waybar: [warning] Mapping is not an object
     - [ ] Waybar: [warning] Requested height: 5 is less than the minimum height: 27 required by the modules
-    - [ ] Sway: some apps not repecting rules for which ws to open on
+    - [ ] Sway: some apps do not respect rules for which ws to open on
     - [ ] Login: theme it, and remove session selector (potentially)
     - [ ] Theme: currently catppuccin, but gtk theme seems to be going away. Consider stock adwaita, or maybe yaru. Less theming to worry about.
     - [ ] ssh: ssh-agent not adding my keys automatically
     - [ ] fonts: add FA pro
-    - [ ] sov: overlay not showing
+    - [ ] sov: overlay not showing - opened issue upstream
     - [ ] statusbar: evaluate i3blocks-rust with swaybar
     - [ ] regreet: finish theme and extra config
     - [ ] Shutdown: Add desktop file
