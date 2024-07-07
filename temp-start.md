@@ -19,9 +19,3 @@ git remote rm origin
 git remote add origin git@github.com:bashfulrobot/nixos.git
 git push --set-upstream origin main
 ```
-
-## TODO
-
-- leverage a `shell.nix`
-- move to `disko`
-- Doc how to install with minimal iso, and use this repo during installation

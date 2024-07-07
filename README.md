@@ -125,6 +125,10 @@ Note: I use Brave, which also works with Chromium or any browser supporting the 
 
 ## TODO
 
+- Installation changes
+    - [ ] Leverage a `shell`.nix`
+    - [ ] Move to `disko``
+    - [ ] Doc how to install with minimal iso and use this repo during installation
 - sway
     - [ ] Waybar: module backlight: Disabling module "backlight", No backlight found
     - [ ] Waybar: some font awesome icons not showing in right side modules
@@ -142,6 +146,6 @@ Note: I use Brave, which also works with Chromium or any browser supporting the 
     - [ ] fonts: add FA pro
     - [ ] sov: overlay not showing
     - [ ] statusbar: evaluate i3blocks-rust with swaybar
-    - [ ] regreet: finish theme, and extra config
+    - [ ] regreet: finish theme and extra config
     - [ ] Shutdown: Add desktop file
     - [ ] Sleep: Add desktop file
