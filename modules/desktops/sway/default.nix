@@ -148,7 +148,7 @@ in {
         brightnessctl
         pulseaudio
         swayr
-				sov # window overlay
+        sov # window overlay
         wob
         dbus-sway-environment
         bluez
@@ -207,7 +207,7 @@ in {
             export QT_FONT_DPI=144
             export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
            # export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
-           export SSH_AUTH_SOCK;
+           #export SSH_AUTH_SOCK;
             eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
 
           # WLR_RENDERER_ALLOW_SOFTWARE=1
@@ -240,6 +240,9 @@ in {
         # ".config/sway/config.d/default-keybindings".source = ./build/cfg/sway/config.d/default-keybindings;
         ".config/waylogout/config".source = ./build/cfg/waylogout/config;
         ".config/swappy/config".source = ./build/cfg/swappy/config;
+        # https://discourse.nixos.org/t/how-to-set-up-a-system-wide-ssh-agent-that-would-work-on-all-terminals/14156/11?u=brnix
+        ".config/environment.d/ssh-agent.conf".source =
+          ./build/cfg/ssh-agent/ssh-agent.conf;
       };
 
       programs.rofi = {
