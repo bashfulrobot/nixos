@@ -130,7 +130,7 @@ in {
 
     environment = {
       variables = {
-        SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}"/keyring/ssh";
+        SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/keyring/ssh";
       };
 
       systemPackages = with pkgs; [
@@ -181,7 +181,7 @@ in {
             fit = "Cover";
           };
           GTK = {
-            # TODO: move catppuccin to a separate module, or unicveral like wallpaper
+            # TODO: move catppuccin to a separate module, or universal like wallpaper
             cursor_theme_name = "Bibata-Modern-Classic";
             font_name =
               "FiraCode Nerd Font Regular 12"; # TODO: update to work-sans
@@ -210,7 +210,7 @@ in {
           # TODO remove if not needed
           #export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
           export SSH_AUTH_SOCK=/run/user/${user-settings.user.id}/keyring/ssh
-          #eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
+          #eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 
           # WLR_RENDERER_ALLOW_SOFTWARE=1
         '';
