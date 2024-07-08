@@ -49,45 +49,6 @@ in {
       yazi.enable = true;
     };
 
-    # Define the user systemd service
-    systemd.user = {
-      sockets."gcr-ssh-agent" = {
-        Unit.Description = "GCR ssh-agent wrapper";
-
-        Socket = {
-          Priority = 6;
-          Backlog = 5;
-          ListenStream = "%t/gcr/ssh";
-          DirectoryMode = "0700";
-        };
-
-        Install.WantedBy = [ "sockets.target" ];
-      };
-
-      services.gcr-ssh-agent = {
-        Unit = {
-          Description = "GCR ssh-agent wrapper";
-          Requires = [ "gcr-ssh-agent.socket" ];
-        };
-
-        Service = {
-          Type = "simple";
-          StandardError = "journal";
-          # Use the runtime directory environment variable
-          Environment = "SSH_AUTH_SOCK=%t/gcr/ssh";
-          # Adjust the ExecStart path according to where the gcr-ssh-agent binary is located in NixOS
-          ExecStart = "${pkgs.gcr}/libexec/gcr-ssh-agent %t/gcr";
-          Restart = "on-failure";
-        };
-
-        Install = {
-          Also = [ "gcr-ssh-agent.socket" ];
-          WantedBy = [ "default.target" ];
-        };
-      };
-
-    };
-
     services = {
       dbus = {
         enable = true;
@@ -283,6 +244,44 @@ in {
     ##### Home Manager Config options #####
     home-manager.users."${user-settings.user.username}" = {
 
+      # Define the user systemd service
+      systemd.user = {
+        sockets."gcr-ssh-agent" = {
+          Unit.Description = "GCR ssh-agent wrapper";
+
+          Socket = {
+            Priority = 6;
+            Backlog = 5;
+            ListenStream = "%t/gcr/ssh";
+            DirectoryMode = "0700";
+          };
+
+          Install.WantedBy = [ "sockets.target" ];
+        };
+
+        services.gcr-ssh-agent = {
+          Unit = {
+            Description = "GCR ssh-agent wrapper";
+            Requires = [ "gcr-ssh-agent.socket" ];
+          };
+
+          Service = {
+            Type = "simple";
+            StandardError = "journal";
+            # Use the runtime directory environment variable
+            Environment = "SSH_AUTH_SOCK=%t/gcr/ssh";
+            # Adjust the ExecStart path according to where the gcr-ssh-agent binary is located in NixOS
+            ExecStart = "${pkgs.gcr}/libexec/gcr-ssh-agent %t/gcr";
+            Restart = "on-failure";
+          };
+
+          Install = {
+            Also = [ "gcr-ssh-agent.socket" ];
+            WantedBy = [ "default.target" ];
+          };
+        };
+
+      };
       home.file = {
         ".config/sway/config".source = ./build/cfg/sway/config;
         # ".config/sway/config.d/keybindings".source = ./build/cfg/sway/config.d/keybindings;
