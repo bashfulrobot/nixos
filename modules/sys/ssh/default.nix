@@ -18,7 +18,7 @@ in {
     home-manager.users."${user-settings.user.username}" = {
       # services.ssh-agent.enable = false;
       # programs.ssh.addKeysToAgent = "yes";
-      home.sessionVariables.SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}"/keyring/ssh";
+      home.sessionVariables.SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/keyring/ssh";
 
       programs.ssh = {
         enable = true;
