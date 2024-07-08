@@ -37,7 +37,7 @@ in {
           #{ id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
           #{ id = "lljedihjnnjjefafchaljkhbpfhfkdic"; } # jiffy reader
           #{ id = "haebnnbpedcbhciplfhjjkbafijpncjl"; } # tineye
-          #{ id = "fggkaccpbmombhnjkjokndojfgagejfb"; } # tactiq
+          { id = "fggkaccpbmombhnjkjokndojfgagejfb"; } # tactiq
           { id = "glnpjglilkicbckjpbgcfkogebgllemb"; } # okta
           { id = "gabdloknkpdefdpkkibplcfnkngbidim"; } # delugesiphon
           { id = "kbfnbcaeplbcioakkpcpgfkobkghlhen"; } # grammarly
