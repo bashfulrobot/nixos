@@ -130,7 +130,7 @@ in {
 
     environment = {
       variables = {
-        SSH_AUTH_SOCK = "${builtins.getEnv "XDG_RUNTIME_DIR"}/keyring/ssh";
+        SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}"/keyring/ssh";
       };
 
       systemPackages = with pkgs; [
@@ -209,9 +209,7 @@ in {
           export QT_FONT_DPI=144
           # TODO remove if not needed
           #export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
-          # export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
-          #export SSH_AUTH_SOCK;
-          export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
+          export SSH_AUTH_SOCK=/run/user/${user-settings.user.id}/keyring/ssh
           #eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
 
           # WLR_RENDERER_ALLOW_SOFTWARE=1
@@ -250,8 +248,6 @@ in {
         ".config/waylogout/config".source = ./build/cfg/waylogout/config;
         ".config/swappy/config".source = ./build/cfg/swappy/config;
         # https://discourse.nixos.org/t/how-to-set-up-a-system-wide-ssh-agent-that-would-work-on-all-terminals/14156/11?u=brnix
-        # ".config/environment.d/ssh-agent.conf".source =
-        # ./build/cfg/ssh-agent/ssh-agent.conf;
       };
 
       programs.rofi = {
