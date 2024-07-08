@@ -241,8 +241,7 @@ in {
         ".config/waylogout/config".source = ./build/cfg/waylogout/config;
         ".config/swappy/config".source = ./build/cfg/swappy/config;
         # https://discourse.nixos.org/t/how-to-set-up-a-system-wide-ssh-agent-that-would-work-on-all-terminals/14156/11?u=brnix
-        ".config/environment.d/ssh-agent.conf".source =
-          ./build/cfg/ssh-agent/ssh-agent.conf;
+        ".config/environment.d/ssh-agent.conf".source = ./build/cfg/ssh-agent/ssh-agent.conf;
       };
 
       programs.rofi = {
