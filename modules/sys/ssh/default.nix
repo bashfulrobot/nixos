@@ -16,14 +16,14 @@ in {
     services.openssh.enable = true;
 
     home-manager.users."${user-settings.user.username}" = {
-      services.ssh-agent.enable = true;
-      programs.ssh.addKeysToAgent = "yes";
+      # services.ssh-agent.enable = false;
+      # programs.ssh.addKeysToAgent = "yes";
       programs.ssh = {
         enable = true;
         extraConfig = ''
           Host github.com
             HostName github.com
-            IdentityFile ~/.ssh/id_rsa_temp
+            IdentityFile ~/.ssh/id_rsa
             User git
             AddKeysToAgent yes
           Host bitbucket.org
@@ -39,32 +39,32 @@ in {
           Host camino
             HostName 64.225.50.102
             User dustin
-            IdentityFile ~/.ssh/id_rsa_temp
+            IdentityFile ~/.ssh/id_rsa
             AddKeysToAgent yes
           Host remi
             HostName 72.51.28.133
             User dustin
-            IdentityFile ~/.ssh/id_rsa_temp
+            IdentityFile ~/.ssh/id_rsa
             AddKeysToAgent yes
           Host gigi
             HostName 100.96.21.6
             User dustin
-            IdentityFile ~/.ssh/id_rsa_temp
+            IdentityFile ~/.ssh/id_rsa
             AddKeysToAgent yes
           Host tower-ts
               HostName 100.89.2.33
               User dustin
-              IdentityFile ~/.ssh/id_rsa_temp
+              IdentityFile ~/.ssh/id_rsa
               AddKeysToAgent yes
           Host dt
               HostName 192.168.169.2
               User dustin
-              IdentityFile ~/.ssh/id_rsa_temp
+              IdentityFile ~/.ssh/id_rsa
               AddKeysToAgent yes
           Host ub-ubuntubudgieorg
               HostName 157.245.237.69
               User dustin
-              IdentityFile ~/.ssh/id_rsa_temp
+              IdentityFile ~/.ssh/id_rsa
               AddKeysToAgent yes
           Host ub-ubuntubudgieorg-nikola
               HostName 157.245.237.69
@@ -81,26 +81,26 @@ in {
           Host srv
               HostName 192.168.168.1
               User dustin
-              IdentityFile ~/.ssh/id_rsa_temp
+              IdentityFile ~/.ssh/id_rsa
               AddKeysToAgent yes
           Host srv-ts
                 HostName 100.123.211.36
                 User dustin
-                IdentityFile ~/.ssh/id_rsa_temp
+                IdentityFile ~/.ssh/id_rsa
                 AddKeysToAgent yes
           Host 100.123.211.36
                 User dustin
-                IdentityFile ~/.ssh/id_rsa_temp
+                IdentityFile ~/.ssh/id_rsa
                 AddKeysToAgent yes
           Host nixdo
               HostName 192.168.168.10
               User dustin
-              IdentityFile ~/.ssh/id_rsa_temp
+              IdentityFile ~/.ssh/id_rsa
               AddKeysToAgent yes
           Host rembot
             HostName 100.89.186.70
             User dustin
-            IdentityFile ~/.ssh/id_rsa_temp
+            IdentityFile ~/.ssh/id_rsa
             AddKeysToAgent yes
         '';
       };
@@ -110,14 +110,14 @@ in {
       #   target = ".ssh/id_rsa";
       # };
 
-      # home.file."id_rsa_temp" = {
-      #   source = ../../../secrets/ssh/id_rsa_temp;
-      #   target = ".ssh/id_rsa_temp";
+      # home.file."id_rsa" = {
+      #   source = ../../../secrets/ssh/id_rsa;
+      #   target = ".ssh/id_rsa";
       # };
 
-      # home.file."id_rsa_temp.pub" = {
-      #   source = ../../../secrets/ssh/id_rsa_temp.pub;
-      #   target = ".ssh/id_rsa_temp.pub";
+      # home.file."id_rsa.pub" = {
+      #   source = ../../../secrets/ssh/id_rsa.pub;
+      #   target = ".ssh/id_rsa.pub";
       # };
 
       # home.file."id_rsa.base64" = {

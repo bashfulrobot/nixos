@@ -91,10 +91,6 @@ in {
             enableGnomeKeyring = true;
             gnupg.enable = true;
           };
-          login = {
-            enableGnomeKeyring = true;
-            gnupg.enable = true;
-          };
           swaylock = { };
           # keyring does not start otherwise - enable once I go to lightdm
           # lightdm.enableGnomeKeyring = true;
@@ -151,6 +147,7 @@ in {
         sov # window overlay
         wob
         dbus-sway-environment
+        libsecret # needed to give other apps access to gnome-keyring
         bluez
         bluez-tools
         blueman
@@ -205,10 +202,10 @@ in {
           # --- Testing below
             export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
             export QT_FONT_DPI=144
-            export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
+          #export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
            # export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
            #export SSH_AUTH_SOCK;
-            eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
+          #eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
 
           # WLR_RENDERER_ALLOW_SOFTWARE=1
         '';
@@ -226,6 +223,10 @@ in {
       enable = true;
       xdgOpenUsePortal = true;
       wlr.enable = true;
+      config.common = {
+        default = [ "*" ];
+        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+      };
       # gtk portal needed to make gtk apps happy
       extraPortals =
         [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
@@ -241,7 +242,8 @@ in {
         ".config/waylogout/config".source = ./build/cfg/waylogout/config;
         ".config/swappy/config".source = ./build/cfg/swappy/config;
         # https://discourse.nixos.org/t/how-to-set-up-a-system-wide-ssh-agent-that-would-work-on-all-terminals/14156/11?u=brnix
-        ".config/environment.d/ssh-agent.conf".source = ./build/cfg/ssh-agent/ssh-agent.conf;
+        # ".config/environment.d/ssh-agent.conf".source =
+          # ./build/cfg/ssh-agent/ssh-agent.conf;
       };
 
       programs.rofi = {

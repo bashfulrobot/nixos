@@ -16,7 +16,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.gnupg.agent = {
       enable = true;
-      enableSSHSupport = false; # using ssh-agent
+      enableSSHSupport = false; # using gnome-keyring
       pinentryPackage = pkgs.pinentry-gnome3;
     };
 
@@ -29,7 +29,7 @@ in {
         enableBashIntegration = true;
         enableFishIntegration = true;
         # May not be needed. Testing
-        # enableSshSupport = true;
+        enableSshSupport = false; # using gnome-keyring
 
       };
 
