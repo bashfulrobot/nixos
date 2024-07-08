@@ -15,6 +15,8 @@ in {
     # Enable the OpenSSH daemon.
     services.openssh.enable = true;
 
+    home.sessionVariables.SSH_AUTH_SOCK = "${builtins.getEnv "XDG_RUNTIME_DIR"}/keyring/ssh";
+
     home-manager.users."${user-settings.user.username}" = {
       # services.ssh-agent.enable = false;
       # programs.ssh.addKeysToAgent = "yes";

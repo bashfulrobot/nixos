@@ -129,6 +129,9 @@ in {
     };
 
     environment = {
+      variables = {
+        SSH_AUTH_SOCK = "${builtins.getEnv "XDG_RUNTIME_DIR"}/keyring/ssh";
+      };
 
       systemPackages = with pkgs; [
 
@@ -208,6 +211,7 @@ in {
           #export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
           # export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
           #export SSH_AUTH_SOCK;
+          export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
           #eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
 
           # WLR_RENDERER_ALLOW_SOFTWARE=1
