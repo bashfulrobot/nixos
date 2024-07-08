@@ -183,6 +183,8 @@ in {
             fit = "Cover";
           };
           GTK = {
+            # Whether to use the dark theme
+            application_prefer_dark_theme = true;
             # TODO: move catppuccin to a separate module, or universal like wallpaper
             cursor_theme_name = "Bibata-Modern-Classic";
             font_name =
@@ -292,41 +294,38 @@ in {
 
       programs = {
         rofi = {
-        enable = true;
-        package = pkgs.rofi-wayland;
-        cycle = true;
-        font = "Liga SFMono Nerd Font 16";
-        terminal = "${pkgs.foot}/bin/foot";
-        extraConfig = {
-          show-icons = true;
-          # icon-theme = "GruvboxPlus";
-          #   display-ssh = "󰣀 ssh:";
-          # display-run = "󱓞 run:";
-          # display-drun = "󰣖 drun:";
-          # display-window = "󱂬 window:";
-          # display-combi = "󰕘 combi:";
-          # display-filebrowser = "󰉋 filebrowser:";
+          enable = true;
+          package = pkgs.rofi-wayland;
+          cycle = true;
+          font = "Liga SFMono Nerd Font 16";
+          terminal = "${pkgs.foot}/bin/foot";
+          extraConfig = {
+            show-icons = true;
+            # icon-theme = "GruvboxPlus";
+            #   display-ssh = "󰣀 ssh:";
+            # display-run = "󱓞 run:";
+            # display-drun = "󰣖 drun:";
+            # display-window = "󱂬 window:";
+            # display-combi = "󰕘 combi:";
+            # display-filebrowser = "󰉋 filebrowser:";
 
-          # dpi =  120;
+            # dpi =  120;
+          };
         };
-      };
-      keychain = {
-        enable = true;
-        # null or one of "local", "any", "local-once", "any-once"
-        inheritType = "any";
-        agents = ["ssh" "gpg"];
-        enableBashIntegration = true;
-        enableFishIntegration = true;
-        keys = [
-          "id_rsa"
-          "id_ed25519"
-        ];
-        # extraFlags = [ "--quiet" "--systemd" ];
-      };
+        keychain = {
+          enable = true;
+          # null or one of "local", "any", "local-once", "any-once"
+          inheritType = "any";
+          agents = [ "ssh" "gpg" ];
+          enableBashIntegration = true;
+          enableFishIntegration = true;
+          keys = [ "id_rsa" "id_ed25519" ];
+          # extraFlags = [ "--quiet" "--systemd" ];
+        };
 
       };
 
-services = {
+      services = {
         mako.enable = true;
         gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
         # https://nixos.wiki/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
@@ -334,7 +333,7 @@ services = {
         gnome-keyring = {
           enable = true;
           # components = [ "pkcs11" "secrets" "ssh" ];
-          components = [ "pkcs11" "secrets"];
+          components = [ "pkcs11" "secrets" ];
         };
       };
 
