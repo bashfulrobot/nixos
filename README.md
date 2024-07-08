@@ -142,8 +142,8 @@ Note: I use Brave, which also works with Chromium or any browser supporting the 
     - [ ] Sway: some apps do not respect rules for which ws to open on
     - [ ] Login: theme it, and remove session selector (potentially)
     - [ ] Theme: currently catppuccin, but gtk theme seems to be going away. Consider stock adwaita, or maybe yaru. Less theming to worry about.
-    - [ ] ssh: ssh-agent not adding my keys automatically - review: https://discourse.nixos.org/t/how-to-set-up-a-system-wide-ssh-agent-that-would-work-on-all-terminals/14156/11
-    - [ ] fonts: add FA pro
+    - [ ] ssh: ssh-agent not adding my keys automatically - review: <https://discourse.nixos.org/t/how-to-set-up-a-system-wide-ssh-agent-that-would-work-on-all-terminals/14156/11>
+    - [ ] fonts: add FA pro to build
     - [ ] sov: overlay not showing - opened issue upstream
     - [ ] statusbar: evaluate i3blocks-rust with swaybar
     - [ ] regreet: finish theme and extra config
