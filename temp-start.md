@@ -1,5 +1,7 @@
 # Temp Setup Instructions for a new machine
 
+need to figure out gcr setup
+
 ## How
 
 ```shell
