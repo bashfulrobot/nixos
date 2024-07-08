@@ -150,3 +150,4 @@ Note: I use Brave, which also works with Chromium or any browser supporting the 
     - [ ] Shutdown: Add desktop file
     - [ ] Sleep: Add desktop file
 - [ ] eval swayos configs to merge in as appropriate
+
