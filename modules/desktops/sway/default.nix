@@ -54,7 +54,7 @@ in {
         enable = true;
         # Make the gnome keyring work properly
         # Pulled from: https://github.com/jnsgruk/nixos-config/blob/8e9bb39ab6bb32fbeb62a5cc722e2b9e07acb50c/host/common/desktop/hyprland.nix#L42
-        packages = [ pkgs.gnome3.gnome-keyring pkgs.gcr ];
+        # packages = [ pkgs.gnome3.gnome-keyring pkgs.gcr ];
       };
       displayManager = { defaultSession = "SwayFX"; };
       # Configure keymap in X11
@@ -131,7 +131,7 @@ in {
     environment = {
       variables = {
         # SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/keyring/ssh";
-        SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/gcr/ssh";
+        # SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/gcr/ssh";
       };
 
       systemPackages = with pkgs; [
@@ -212,7 +212,7 @@ in {
           # TODO remove if not needed
           #export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
           #export SSH_AUTH_SOCK=/run/user/${user-settings.user.id}/keyring/ssh
-          export SSH_AUTH_SOCK=/run/user/${user-settings.user.id}/gcr/ssh
+          #export SSH_AUTH_SOCK=/run/user/${user-settings.user.id}/gcr/ssh
           #eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 
           # WLR_RENDERER_ALLOW_SOFTWARE=1
@@ -245,43 +245,43 @@ in {
     home-manager.users."${user-settings.user.username}" = {
 
       # Define the user systemd service
-      systemd.user = {
-        sockets."gcr-ssh-agent" = {
-          Unit.Description = "GCR ssh-agent wrapper";
+      # systemd.user = {
+      #   sockets."gcr-ssh-agent" = {
+      #     Unit.Description = "GCR ssh-agent wrapper";
 
-          Socket = {
-            Priority = 6;
-            Backlog = 5;
-            ListenStream = "%t/gcr/ssh";
-            DirectoryMode = "0700";
-          };
+      #     Socket = {
+      #       Priority = 6;
+      #       Backlog = 5;
+      #       ListenStream = "%t/gcr/ssh";
+      #       DirectoryMode = "0700";
+      #     };
 
-          Install.WantedBy = [ "sockets.target" ];
-        };
+      #     Install.WantedBy = [ "sockets.target" ];
+      #   };
 
-        services.gcr-ssh-agent = {
-          Unit = {
-            Description = "GCR ssh-agent wrapper";
-            Requires = [ "gcr-ssh-agent.socket" ];
-          };
+      #   services.gcr-ssh-agent = {
+      #     Unit = {
+      #       Description = "GCR ssh-agent wrapper";
+      #       Requires = [ "gcr-ssh-agent.socket" ];
+      #     };
 
-          Service = {
-            Type = "simple";
-            StandardError = "journal";
-            # Use the runtime directory environment variable
-            Environment = "SSH_AUTH_SOCK=%t/gcr/ssh";
-            # Adjust the ExecStart path according to where the gcr-ssh-agent binary is located in NixOS
-            ExecStart = "${pkgs.gcr}/libexec/gcr-ssh-agent %t/gcr";
-            Restart = "on-failure";
-          };
+      #     Service = {
+      #       Type = "simple";
+      #       StandardError = "journal";
+      #       # Use the runtime directory environment variable
+      #       Environment = "SSH_AUTH_SOCK=%t/gcr/ssh";
+      #       # Adjust the ExecStart path according to where the gcr-ssh-agent binary is located in NixOS
+      #       ExecStart = "${pkgs.gcr}/libexec/gcr-ssh-agent %t/gcr";
+      #       Restart = "on-failure";
+      #     };
 
-          Install = {
-            Also = [ "gcr-ssh-agent.socket" ];
-            WantedBy = [ "default.target" ];
-          };
-        };
+      #     Install = {
+      #       Also = [ "gcr-ssh-agent.socket" ];
+      #       WantedBy = [ "default.target" ];
+      #     };
+      #   };
 
-      };
+      # };
       home.file = {
         ".config/sway/config".source = ./build/cfg/sway/config;
         # ".config/sway/config.d/keybindings".source = ./build/cfg/sway/config.d/keybindings;
@@ -318,7 +318,8 @@ in {
         mpris-proxy.enable = true;
         gnome-keyring = {
           enable = true;
-          components = [ "pkcs11" "secrets" "ssh" ];
+          # components = [ "pkcs11" "secrets" "ssh" ];
+          components = [ "pkcs11" "secrets"];
         };
       };
 
