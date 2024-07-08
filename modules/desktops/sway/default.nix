@@ -189,7 +189,7 @@ in {
               "FiraCode Nerd Font Regular 12"; # TODO: update to work-sans
             icon_theme_name = "Papirus-Dark";
             theme_name =
-              "Catppuccin-Mocha-Compact-Mauve-dark"; # TODO: update to match theme
+              "catppuccin-gtk-theme-Dark-Compact-Macchiato"; # TODO: update to match theme
           };
         };
       };
