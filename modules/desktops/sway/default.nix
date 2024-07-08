@@ -290,7 +290,8 @@ in {
         ".config/swappy/config".source = ./build/cfg/swappy/config;
       };
 
-      programs.rofi = {
+      programs = {
+        rofi = {
         enable = true;
         package = pkgs.rofi-wayland;
         cycle = true;
@@ -308,10 +309,24 @@ in {
 
           # dpi =  120;
         };
+      };
+      keychain = {
+        enable = true;
+        # null or one of "local", "any", "local-once", "any-once"
+        inheritType = "any";
+        agents = ["ssh" "gpg"];
+        enableBashIntegration = true;
+        enableFishIntegration = true;
+        keys = [
+          "id_rsa"
+          "id_ed25519"
+        ];
+        # extraFlags = [ "--quiet" "--systemd" ];
+      };
 
       };
 
-      services = {
+services = {
         mako.enable = true;
         gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
         # https://nixos.wiki/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
