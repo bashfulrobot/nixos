@@ -30,9 +30,6 @@ in {
         enable = true;
         enableBashIntegration = true;
         enableFishIntegration = true;
-        # May not be needed. Testing
-        enableSshSupport = false; # using gnome-keyring
-
       };
     };
   };

@@ -49,6 +49,45 @@ in {
       yazi.enable = true;
     };
 
+    # Define the user systemd service
+    systemd.user = {
+      sockets."gcr-ssh-agent" = {
+        Unit.Description = "GCR ssh-agent wrapper";
+
+        Socket = {
+          Priority = 6;
+          Backlog = 5;
+          ListenStream = "%t/gcr/ssh";
+          DirectoryMode = "0700";
+        };
+
+        Install.WantedBy = [ "sockets.target" ];
+      };
+
+      services.gcr-ssh-agent = {
+        Unit = {
+          Description = "GCR ssh-agent wrapper";
+          Requires = [ "gcr-ssh-agent.socket" ];
+        };
+
+        Service = {
+          Type = "simple";
+          StandardError = "journal";
+          # Use the runtime directory environment variable
+          Environment = "SSH_AUTH_SOCK=%t/gcr/ssh";
+          # Adjust the ExecStart path according to where the gcr-ssh-agent binary is located in NixOS
+          ExecStart = "${pkgs.gcr}/libexec/gcr-ssh-agent %t/gcr";
+          Restart = "on-failure";
+        };
+
+        Install = {
+          Also = [ "gcr-ssh-agent.socket" ];
+          WantedBy = [ "default.target" ];
+        };
+      };
+
+    };
+
     services = {
       dbus = {
         enable = true;
@@ -130,7 +169,8 @@ in {
 
     environment = {
       variables = {
-        SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/keyring/ssh";
+        # SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/keyring/ssh";
+        SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/gcr/ssh";
       };
 
       systemPackages = with pkgs; [
@@ -167,6 +207,7 @@ in {
         cosmic-screenshot
         sway-contrib.grimshot
         sway-contrib.inactive-windows-transparency
+        gcr # gnome keyring
       ];
     };
 
@@ -209,7 +250,8 @@ in {
           export QT_FONT_DPI=144
           # TODO remove if not needed
           #export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
-          export SSH_AUTH_SOCK=/run/user/${user-settings.user.id}/keyring/ssh
+          #export SSH_AUTH_SOCK=/run/user/${user-settings.user.id}/keyring/ssh
+          export SSH_AUTH_SOCK=/run/user/${user-settings.user.id}/gcr/ssh
           #eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 
           # WLR_RENDERER_ALLOW_SOFTWARE=1
@@ -247,7 +289,6 @@ in {
         # ".config/sway/config.d/default-keybindings".source = ./build/cfg/sway/config.d/default-keybindings;
         ".config/waylogout/config".source = ./build/cfg/waylogout/config;
         ".config/swappy/config".source = ./build/cfg/swappy/config;
-        # https://discourse.nixos.org/t/how-to-set-up-a-system-wide-ssh-agent-that-would-work-on-all-terminals/14156/11?u=brnix
       };
 
       programs.rofi = {
