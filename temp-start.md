@@ -2,6 +2,8 @@
 
 need to figure out gcr setup.
 
+- currently using the `keychain` tool.
+
 ## How
 
 ```shell
