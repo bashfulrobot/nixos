@@ -19,3 +19,7 @@ git remote rm origin
 git remote add origin git@github.com:bashfulrobot/nixos.git
 git push --set-upstream origin main
 ```
+
+## Keychain set-up
+
+- Need to doc
