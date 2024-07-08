@@ -14,11 +14,13 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    programs.gnupg.agent = {
-      enable = true;
-      enableSSHSupport = false; # using gnome-keyring
-      pinentryPackage = pkgs.pinentry-gnome3;
-    };
+
+    #  removed, using home manager - testing. TODO remove if not needed.
+    # programs.gnupg.agent = {
+    #   enable = true;
+    #   enableSSHSupport = false; # using gnome-keyring
+    #   pinentryPackage = pkgs.pinentry-gnome3;
+    # };
 
     home-manager.users."${user-settings.user.username}" = {
       ### GPG
@@ -31,12 +33,6 @@ in {
         # May not be needed. Testing
         enableSshSupport = false; # using gnome-keyring
 
-      };
-
-      ### Gnome-Keyring
-      services.gnome-keyring = {
-        enable = true;
-        components = [ "pkcs11" "secrets" "ssh" ];
       };
     };
   };

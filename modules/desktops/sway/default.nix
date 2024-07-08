@@ -50,6 +50,12 @@ in {
     };
 
     services = {
+      dbus = {
+        enable = true;
+        # Make the gnome keyring work properly
+        # Pulled from: https://github.com/jnsgruk/nixos-config/blob/8e9bb39ab6bb32fbeb62a5cc722e2b9e07acb50c/host/common/desktop/hyprland.nix#L42
+        packages = [ pkgs.gnome3.gnome-keyring pkgs.gcr ];
+      };
       displayManager = { defaultSession = "SwayFX"; };
       # Configure keymap in X11
       xserver = {
@@ -163,10 +169,6 @@ in {
 
     # Enable variuos programs
     programs = {
-      ssh = {
-        startAgent = true;
-        enableAskPassword = true;
-      };
       regreet = {
         enable = true;
 
@@ -192,19 +194,20 @@ in {
           (old: { passthru.providedSessions = [ "sway" ]; });
         wrapperFeatures.gtk = true;
         extraSessionCommands = ''
-            export XDG_SESSION_DESKTOP=sway
-            export MOZ_ENABLE_WAYLAND=1
-            export MOZ_USE_XINPUT2=1
-            export XDG_SESSION_TYPE=wayland
-            export XDG_CURRENT_DESKTOP=sway
-            export WLR_NO_HARDWARE_CURSORS=1
-            export QT_QPA_PLATFORM=wayland
+          export XDG_SESSION_DESKTOP=sway
+          export MOZ_ENABLE_WAYLAND=1
+          export MOZ_USE_XINPUT2=1
+          export XDG_SESSION_TYPE=wayland
+          export XDG_CURRENT_DESKTOP=sway
+          export WLR_NO_HARDWARE_CURSORS=1
+          export QT_QPA_PLATFORM=wayland
           # --- Testing below
-            export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-            export QT_FONT_DPI=144
+          export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+          export QT_FONT_DPI=144
+          # TODO remove if not needed
           #export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
-           # export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
-           #export SSH_AUTH_SOCK;
+          # export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
+          #export SSH_AUTH_SOCK;
           #eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
 
           # WLR_RENDERER_ALLOW_SOFTWARE=1
@@ -224,6 +227,7 @@ in {
       xdgOpenUsePortal = true;
       wlr.enable = true;
       config.common = {
+        # TODO - unserstand the next two lines
         default = [ "*" ];
         "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
       };
@@ -243,7 +247,7 @@ in {
         ".config/swappy/config".source = ./build/cfg/swappy/config;
         # https://discourse.nixos.org/t/how-to-set-up-a-system-wide-ssh-agent-that-would-work-on-all-terminals/14156/11?u=brnix
         # ".config/environment.d/ssh-agent.conf".source =
-          # ./build/cfg/ssh-agent/ssh-agent.conf;
+        # ./build/cfg/ssh-agent/ssh-agent.conf;
       };
 
       programs.rofi = {
@@ -267,32 +271,15 @@ in {
 
       };
 
-      programs.tofi = {
-        enable = true;
-        settings = {
-          anchor = "top";
-          width = "100%";
-          height = 30;
-          horizontal = true;
-          prompt-text = " run: ";
-          outline-width = 0;
-          border-width = 0;
-          min-input-width = 120;
-          result-spacing = 15;
-          padding-top = 0;
-          padding-bottom = 0;
-          padding-left = 0;
-          padding-right = 0;
-          font = "Work Sans";
-          font-size = 12;
-        };
-      };
       services = {
         mako.enable = true;
         gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
         # https://nixos.wiki/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
         mpris-proxy.enable = true;
-        gnome-keyring.enable = true;
+        gnome-keyring = {
+          enable = true;
+          components = [ "pkcs11" "secrets" "ssh" ];
+        };
       };
 
       # ##### THeme

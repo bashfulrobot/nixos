@@ -103,6 +103,7 @@ in {
         api_base = "https://api.openai.com/v1"
         api_key = "${secrets.openai.api-key}"
         #model = "gpt-3.5-turbo-16k"
+        # model = "GPT-4o"
         retries = 2
         proxy = ""
 

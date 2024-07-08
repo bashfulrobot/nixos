@@ -153,6 +153,10 @@ bindsym $mod+Shift+b exec brave
 # Launch Browser
 bindsym $mod+Shift+f exec nautilus
 
+# Converty gmail URLS
+# bindsym $mod+Shift+Ctrl+g exec gmail-url
+bindsym $mod+Shift+g exec gmail-url
+
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.

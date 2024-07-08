@@ -20,6 +20,9 @@ in {
       # programs.ssh.addKeysToAgent = "yes";
       programs.ssh = {
         enable = true;
+        # TODO - test this. needed or not?
+        # startAgent = true;
+        # enableAskPassword = true;
         extraConfig = ''
           Host github.com
             HostName github.com
