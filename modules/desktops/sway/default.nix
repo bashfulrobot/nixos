@@ -327,7 +327,18 @@ in {
       };
 
       services = {
-        mako.enable = true;
+        # Notifications
+        mako = {
+          enable = true;
+          icons = true;
+          font = "Work Sans 12";
+          borderRadius = 6;
+          borderSize = 2;
+          # margin = "10";
+          padding = "25";
+          # "top-right", "top-center", "top-left", "bottom-right", "bottom-center", "bottom-left", "center"
+          anchor = "top-center";
+        };
         gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
         # https://nixos.wiki/wiki/Bluetooth#Using_Bluetooth_headsets_with_PulseAudio
         mpris-proxy.enable = true;

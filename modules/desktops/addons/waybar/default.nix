@@ -381,6 +381,7 @@ in {
                 "format-linked": "{ifname} (No IP) ",
                 "format-disconnected": "Disconnected ",
                 "format-alt": "{ifname}: {ipaddr}/{cidr}"
+                "on-right-click": "nmtui"
             },
             "pulseaudio": {
                 // "scroll-step": 1, // %, can be a float
@@ -390,7 +391,8 @@ in {
                 "format-muted": " {format_source}",
                 "format-source": "{volume}% ",
                 "format-source-muted": "",
-                "on-click": "pavucontrol"
+                //"on-click": "pavucontrol"
+                "on-right-click": "pavucontrol"
             },
             "custom/media": {
                 "format": " {}",
