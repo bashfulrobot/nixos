@@ -28,7 +28,7 @@ in {
       one-password.enable = true;
       chrome-based-browser = {
         enable = true;
-        # Currently supported browsers are "brave" or "chromium".
+        # Currently supported browsers are "brave", "vivaldi" or "chromium".
         browser = "brave";
       };
       readitlater.enable = true;
