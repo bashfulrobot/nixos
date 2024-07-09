@@ -10,7 +10,7 @@ in {
         description = "Enable a chrome based browser.";
       };
       browser = lib.mkOption {
-        type = lib.types.enum [ "chromium" "brave" ];
+        type = lib.types.enum [ "chromium" "brave" "vivaldi" ];
         default = "chromium";
         description = "The browser to use.";
       };
@@ -20,20 +20,35 @@ in {
 
   config = lib.mkIf cfg.enable {
     home-manager.users."${user-settings.user.username}" = {
+
+      # Conditionally include vivaldi-ffmpeg-codecs
+      home.packages =
+        lib.optional (cfg.browser == "vivaldi") pkgs.vivaldi-ffmpeg-codecs;
+
       programs.chromium = {
         enable = true;
-        package =
-          if cfg.browser == "chromium" then pkgs.chromium else pkgs.brave;
+        package = if cfg.browser == "chromium" then
+          pkgs.chromium
+        else if cfg.browser == "vivaldi" then
+          pkgs.vivaldi
+        else
+          pkgs.brave;
         commandLineArgs = [ "--ozone-platform-hint=auto" ];
         extensions = [
           { id = "cofpegcepiccpobikjoddpmmocficdjj"; } # bookmark search
-          { id = "cdglnehniifkbagbbombnjghhcihifij"; } # kagi search
+          {
+            id = "cdglnehniifkbagbbombnjghhcihifij";
+          } # kagi search
           # { id = "cfpenpohaapdgnkglcbgjiooipcbcebi"; } # easy window resize
           # { id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
           #{ id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
-          { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; } # 1password
+          {
+            id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
+          } # 1password
           # { id = "kfimphpokifbjgmjflanmfeppcjimgah"; } # inoreader
-          { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # dark reader
+          {
+            id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
+          } # dark reader
           #{ id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
           #{ id = "lljedihjnnjjefafchaljkhbpfhfkdic"; } # jiffy reader
           #{ id = "haebnnbpedcbhciplfhjjkbafijpncjl"; } # tineye
@@ -42,17 +57,25 @@ in {
           { id = "gabdloknkpdefdpkkibplcfnkngbidim"; } # delugesiphon
           { id = "kbfnbcaeplbcioakkpcpgfkobkghlhen"; } # grammarly
           { id = "pbmlfaiicoikhdbjagjbglnbfcbcojpj"; } # simplify
-          { id = "jldhpllghnbhlbpcmnajkpdmadaolakh"; } # todoist
+          {
+            id = "jldhpllghnbhlbpcmnajkpdmadaolakh";
+          } # todoist
           # { id = "kgjfgplpablkjnlkjmjdecgdpfankdle"; } # zoom
           #{ id = "lcbjdhceifofjlpecfpeimnnphbcjgnc"; } # xbrowsersync
           #{ id = "niloccemoadcdkdjlinkgdfekeahmflj"; } # pocket
-          { id = "liecbddmkiiihnedobmlmillhodjkdmb"; } # Loom video recording
+          {
+            id = "liecbddmkiiihnedobmlmillhodjkdmb";
+          } # Loom video recording
           #{ id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
           { id = "oeopbcgkkoapgobdbedcemjljbihmemj"; } # Checker Plus for Mail
-          { id = "hkhggnncdpfibdhinjiegagmopldibha"; } # Checker Plus for Cal
+          {
+            id = "hkhggnncdpfibdhinjiegagmopldibha";
+          } # Checker Plus for Cal
           #{ id = "hefhjoddehdhdgfjhpnffhopoijdfnak"; } # Privacy Party
           { id = "ghbmnnjooekpmoecnnnilnnbdlolhkhi"; } # Google docs offline
-          { id = "pcmpcfapbekmbjjkdalcgopdkipoggdi"; } # Markdown downloader
+          {
+            id = "pcmpcfapbekmbjjkdalcgopdkipoggdi";
+          } # Markdown downloader
           #{ id = "gcaimhkfmliahedmeklebabdgagipbia"; } # Archive Today
           #{ id = "mphkdfmipddgfobjhphabphmpdckgfhb"; } # obsidian clipper
           #{ id = "egejbknaophaadmhijkepokfchkbnelc"; } # bypass medium
@@ -68,12 +91,16 @@ in {
           # { id = "ncppfjladdkdaemaghochfikpmghbcpc"; } # Open as popup
           #{ id = "oodfdmglhbbkkcngodjjagblikmoegpa"; } # t.ly url shortener
           # { id = "bkdgflcldnnnapblkhphbgpggdiikppg"; } # duckduckgo
-          { id = "blkggjdmcfjdbmmmlfcpplkchpeaiiab"; } # Omnivore
+          {
+            id = "blkggjdmcfjdbmmmlfcpplkchpeaiiab";
+          } # Omnivore
           # id = "lbaenccijpceocophfjmecmiipgmacoi"; } # Wizardshot
-          { id = "bkkmolkhemgaeaeggcmfbghljjjoofoh"; } #  Catppuccin Mocha theme
-          { id = "olhelnoplefjdmncknfphenjclimckaf"; } #  Catppuccin Frappe theme
-          { id = "cmpdlhmnmjhihmcfnigoememnffkimlk"; } #  Catppuccin Macchiato theme
-          { id = "jhjnalhegpceacdhbplhnakmkdliaddd"; } #  Catppuccin Latte theme
+          { id = "bkkmolkhemgaeaeggcmfbghljjjoofoh"; } # Catppuccin Mocha theme
+          { id = "olhelnoplefjdmncknfphenjclimckaf"; } # Catppuccin Frappe theme
+          {
+            id = "cmpdlhmnmjhihmcfnigoememnffkimlk";
+          } # Catppuccin Macchiato theme
+          { id = "jhjnalhegpceacdhbplhnakmkdliaddd"; } # Catppuccin Latte theme
         ];
       };
       # force brave to use wayland - https://skerit.com/en/make-electron-applications-use-the-wayland-renderer
@@ -87,6 +114,13 @@ in {
         '';
       } else if cfg.browser == "brave" then {
         ".config/brave-flags.conf".text = ''
+          --enable-features=UseOzonePlatform
+          --ozone-platform=wayland
+          --enable-features=WaylandWindowDecorations
+          --force-device-scale-factor=1
+        '';
+      } else if cfg.browser == "vivaldi" then {
+        ".config/vivaldi-stable.conf".text = ''
           --enable-features=UseOzonePlatform
           --ozone-platform=wayland
           --enable-features=WaylandWindowDecorations
