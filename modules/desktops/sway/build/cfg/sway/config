@@ -104,6 +104,13 @@ bindsym $mod+Alt+a exec /etc/profiles/per-user/dustin/bin/screenshot-annotate.sh
 #
 # bindsym $mod+p exec $pmenu
 bindsym $mod+p exec $pmenu
+
+# Turn monitor on/off
+# turn on all displays:
+bindsym --locked $mod+Alt+m output * dpms on
+# turn off all displays:
+bindsym --locked $mod+Shift+m output * dpms off
+
 # ---
 # Emulate a form of alt tab
 bindsym Alt+Tab exec rofi -show window -show-icons -format '{w}' -theme-str 'window {width: 20%;}'
