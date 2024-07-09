@@ -149,5 +149,7 @@ Note: I use Brave, which also works with Chromium or any browser supporting the 
     - [ ] regreet: finish theme and extra config
     - [ ] Shutdown: Add desktop file
     - [ ] Sleep: Add desktop file
+- [x] Chrome-based browers module: add vivaldi support
+- [ ] Chrome-based browers module: test vivaldi, just code has landed
+- [ ] Chrome-based browers module: investigate Vivaldi modding - https://wiki.archlinux.org/title/Vivaldi#Modding
 - [ ] eval swayos configs to merge in as appropriate
-
