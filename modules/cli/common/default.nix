@@ -17,6 +17,10 @@ in {
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      ### Nix Tools
+      nix-index # Nix package indexer
+      comma # Nix command wrapper
+
       xdg-utils
       tcpdump
       silver-searcher

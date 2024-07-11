@@ -27,7 +27,7 @@ in {
       httpie # HTTP client
 
       just # command runner
-      doppler # secret management tool
+      # doppler # secret management tool
 
       nodejs-18_x # JavaScript runtime
       # postman # API testing tool
@@ -48,17 +48,8 @@ in {
 
       yai # Your AI Terminal
 
-      ### Nix Tools
-      # Nixd
-      # https://github.com/nix-community/nixd/blob/main/docs/editor-setup.md
-      #nixd # nix language server
-      nixfmt # Nix code formatter
-      nixfmt-rfc-style # Nix code formatter
-      nix-index # Nix package indexer
-      nix-prefetch-github # Get sha256 info for GitHub
-      comma # Nix command wrapper
-      nodePackages.node2nix # Node to Nix
-      statix # nix linting
+
+
 
       ### Cloud
       openvscode-server # vscode in browser. Used for demos

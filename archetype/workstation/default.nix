@@ -77,6 +77,7 @@ in {
       go.enable = true;
       npm.enable = true;
       python.enable = true;
+      nix.enable = true;
     };
 
     sys = {
