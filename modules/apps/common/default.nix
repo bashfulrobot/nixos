@@ -15,6 +15,7 @@ in {
       # TODO: refactor these packages out into the proper moduls/suites
 
       ### Dev
+      turtle # version control gui
       zed-editor # text editor
       watchman # file watcher
       # gitnuro # git client
@@ -47,9 +48,6 @@ in {
       cosmic-edit # editor from system 76
 
       yai # Your AI Terminal
-
-
-
 
       ### Cloud
       openvscode-server # vscode in browser. Used for demos
