@@ -91,6 +91,7 @@ in {
       appimage-run # Run AppImages
       glow # Render Markdown on the CLI
       #inlyne # inlyne is a command-line tool to inline CSS and JS files into HTML files
+      jnv # json filtering with jq
     ];
 
     # programs.nh = {
