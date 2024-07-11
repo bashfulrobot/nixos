@@ -41,6 +41,7 @@ _default:
 # Test nixos cfg on your current host without git commit. Switches, but does not create a bootloader entry
 dev-test:
     @git add -A
+    @just garbage-build-cache
     @sudo nixos-rebuild test --impure --flake .#\{{`hostname`}}
 # git reset and clean - unstage any changes and revert your working directory to the last commit,remove any untracked files and directories. Used to resolve conflicts due to syncthing
 repo-conflict:
@@ -53,6 +54,7 @@ nix-lint:
 # Rebuild nixos cfg on your current host without git commit.
 dev-rebuild:
     @git add -A
+    @just garbage-build-cache
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}}
     # @just _sway-reload
 # Final build and garbage collect, will reboot
@@ -83,10 +85,12 @@ rebuild:
 # Test (with Trace) nixos cfg on your current host without git commit. Switches, but does not create a bootloader entry
 dev-test-trace:
     @git add -A
+    @just garbage-build-cache
     @sudo nixos-rebuild test --impure --flake .#\{{`hostname`}} --show-trace
 # Rebuild and trace nixos cfg on your current host without git commit.
 dev-rebuild-trace:
     @git add -A
+    @just garbage-build-cache
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}} --show-trace > ~/dev/nix/nixos/rebuild-trace.log 2>&1
     # @just _sway-reload
 # Rebuild nixos cfg on your current host with show-trace.
