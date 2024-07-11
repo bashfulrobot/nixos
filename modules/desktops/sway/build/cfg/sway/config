@@ -46,7 +46,7 @@ exec swaymsg "workspace 0; exec /run/current-system/sw/bin/dex /run/current-syst
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg ~/Pictures/wallpapers/skullskates.png fill
+output * bg ~/Pictures/wallpapers/red-skulls.jpg fill
 #
 # Example configuration:
 #

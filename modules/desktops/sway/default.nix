@@ -180,7 +180,7 @@ in {
         settings = {
           background = {
             # path = "${user-settings.user.wallpaper}";
-            path = "/home/dustin/Pictures/wallpapers/skullskates.png";
+            path = "/home/dustin/Pictures/wallpapers/red-skulls.jpg";
             fit = "Cover";
           };
           GTK = {

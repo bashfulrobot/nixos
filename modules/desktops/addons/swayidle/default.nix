@@ -5,7 +5,7 @@ let
   pgrep = "${pkgs.procps}/bin/pgrep";
   pactl = "${pkgs.pulseaudio}/bin/pactl";
   swaymsg = "${pkgs.sway}/bin/swaymsg";
-  my-wallpaper = "$HOME/Pictures/wallpapers/skullskates.png"; # TODO set global
+  my-wallpaper = "$HOME/Pictures/wallpapers/red-skulls.jpg"; # TODO set global
 
   isLocked = "${pgrep} -x ${swaylock}";
   lockTime = 10 * 60; # TODO: configurable desktop (10 min)/laptop (4 min)

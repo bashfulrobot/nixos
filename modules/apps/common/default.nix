@@ -15,7 +15,6 @@ in {
       # TODO: refactor these packages out into the proper moduls/suites
 
       ### Dev
-      turtle # version control gui
       zed-editor # text editor
       watchman # file watcher
       # gitnuro # git client
