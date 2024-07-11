@@ -59,6 +59,7 @@ in {
             end
 
             nix-store --query --requisites /run/current-system | grep --ignore-case $query
+            #exa -R (nix-store --query --requisites /run/current-system | grep --ignore-case $query)
           '';
 
           active_nixstore_file = ''

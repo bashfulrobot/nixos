@@ -71,6 +71,7 @@ in {
       fish.enable = true;
       tailscale.enable = true;
       docker.enable = true;
+      gemini-cli.enable = true;
     };
 
     dev = {
