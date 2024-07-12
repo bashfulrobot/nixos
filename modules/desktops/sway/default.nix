@@ -145,6 +145,7 @@ in {
         bibata-cursors
         papirus-icon-theme
         # Other
+        wdisplays # monitor coniguration
         waylogout
         swayidle
         networkmanager
