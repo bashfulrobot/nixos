@@ -14,6 +14,10 @@ in {
     environment.systemPackages = with pkgs; [
       # TODO: refactor these packages out into the proper moduls/suites
 
+      gnome-disk-utility
+      transmission_4
+      deluge-gtk
+
       ### Dev
       zed-editor # text editor
       watchman # file watcher
