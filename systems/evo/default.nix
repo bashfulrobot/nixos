@@ -19,15 +19,20 @@
 
   # snowfallorg.avalanche.desktop.enable = true;
   # desktops.avalanche.enable = true;
-  desktops = {
-    sway = {
-      enable = true;
-      laptop = true;
-      themes.catppuccin.enable = true;
-    };
-#    gnome.enable = true;
+   desktops = {
+      # sway = {
+      #   enable = true;
+      #   laptop = false;
+      #   themes.catppuccin.enable = true;
+      # };
+   gnome.enable = true;
    addons.wayland.enable = true;
   };
+
+  # Testing
+  # services.xserver.enable = true;
+  # services.xserver.desktopManager.budgie.enable = true;
+  # services.xserver.displayManager.lightdm.enable = true;
   # desktops.pantheon.enable = true;
 
   apps = {
