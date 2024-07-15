@@ -1,4 +1,6 @@
-{ user-settings, pkgs, config, lib, ... }:
+## Keychain set-up
+
+{ user-settings, config, lib, ... }:
 let cfg = config.sys.ssh;
 
 in {
@@ -27,6 +29,8 @@ in {
         # startAgent = true;
         # enableAskPassword = true;
         extraConfig = ''
+          # Host *
+          #   IdentityAgent ~/.1password/agent.sock
           Host github.com
             HostName github.com
             IdentityFile ~/.ssh/id_rsa_temp
@@ -81,9 +85,13 @@ in {
           Host ub-docker-root
               HostName 134.209.129.108
               User dustin
+              IdentityFile ~/.ssh/id_rsa_temp
+              AddKeysToAgent yes
           Host ub-docker-admin
               HostName 134.209.129.108
               User docker-admin
+              IdentityFile ~/.ssh/id_rsa_temp
+              AddKeysToAgent yes
           Host srv
               HostName 192.168.168.1
               User dustin
