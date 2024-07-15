@@ -7,7 +7,7 @@ let
   makeDesktopApp = pkgs.callPackage ../../../lib/cbb-webwrap { };
 
   # I temp create an app in brave to download all the icons, then I place then in the correct folder
-  zoomWebApp = makeDesktopApp {
+  whatsappWebApp = makeDesktopApp {
     name = "Whatsapp";
     url = "https://web.whatsapp.com/";
     binary = "${pkgs.brave}/bin/brave";
@@ -30,8 +30,8 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    environment.systemPackages = [ zoomWebApp.desktopItem ]
-      ++ zoomWebApp.icons;
+    environment.systemPackages =whatsappoomWebApp.desktopItem ]
+      whatsappoomWebApp.icons;
 
     # home-manager.users."${user-settings.user.username}" = {
 
