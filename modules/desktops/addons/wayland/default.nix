@@ -20,7 +20,8 @@ in {
       # wshowkeys # Show keys pressed in wayland
       wl-clipboard # Wayland clipboard - needed for espanso
       wl-color-picker # Wayland color picker
-      xwaylandvideobridge # Utility to allow streaming Wayland windows to X applications
+      # below adds white square to screen - bug
+      # xwaylandvideobridge # Utility to allow streaming Wayland windows to X applications
     ];
 
     home-manager.users."${user-settings.user.username}" = {
