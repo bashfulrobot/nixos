@@ -58,7 +58,7 @@ in {
 
     environment.systemPackages = with pkgs; [
       libadwaita # Adwaita libs
-      gnome.gnome-tweaks # Gnome Tweaks
+      gnome-tweaks # Gnome Tweaks
       pinentry-gnome3 # Gnome3 pinentry
       # Gnome Extensions
       gnomeExtensions.user-themes # User Themes
@@ -97,23 +97,23 @@ in {
 
       # Gnome apps/services
       nautilus # file manager
-      gnome.adwaita-icon-theme # icon theme
+      adwaita-icon-theme # icon theme
       gnome.gnome-settings-daemon # settings daemon
       gnome2.GConf # configuration database system for old apps
     ];
 
     environment.gnome.excludePackages = with pkgs; [
-      gnome.cheese # photo booth
+      cheese # photo booth
       gedit # text editor
-      gnome.yelp # help viewer
-      gnome.file-roller # archive manager
-      gnome.geary # email client
+      yelp # help viewer
+      file-roller # archive manager
+      geary # email client
 
       # these should be self explanatory
       gnome.gnome-maps
       gnome.gnome-music
       gnome-photos
-      gnome.gnome-system-monitor
+      gnome-system-monitor
       gnome.gnome-weather
 
       # disable gnome extensions
