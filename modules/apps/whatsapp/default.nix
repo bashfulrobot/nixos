@@ -30,8 +30,8 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    environment.systemPackages =whatsappoomWebApp.desktopItem ]
-      whatsappoomWebApp.icons;
+    environment.systemPackages = [ whatsappWebApp.desktopItem ]
+      ++ whatsappWebApp.icons;
 
     # home-manager.users."${user-settings.user.username}" = {
 
