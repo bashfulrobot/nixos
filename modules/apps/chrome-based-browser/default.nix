@@ -14,6 +14,11 @@ in {
         default = "chromium";
         description = "The browser to use.";
       };
+      disableWayland = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Disable Wayland support.";
+      };
     };
 
   };
@@ -104,32 +109,67 @@ in {
         ];
       };
       # force brave to use wayland - https://skerit.com/en/make-electron-applications-use-the-wayland-renderer
-      home.file = if cfg.browser == "chromium" then {
-        ".config/chromium-flags.conf".text = ''
-          --enable-features=UseOzonePlatform
-          --ozone-platform=wayland
-          --enable-features=WaylandWindowDecorations
-          --force-device-scale-factor=1
+      # home.file = if cfg.browser == "chromium" then {
+      #   ".config/chromium-flags.conf".text = ''
+      #     --enable-features=UseOzonePlatform
+      #     --ozone-platform=wayland
+      #     --enable-features=WaylandWindowDecorations
+      #     --force-device-scale-factor=1
 
-        '';
-      } else if cfg.browser == "brave" then {
-        ".config/brave-flags.conf".text = ''
-          --enable-features=UseOzonePlatform
-          --ozone-platform=wayland
-          --enable-features=WaylandWindowDecorations
-          --force-device-scale-factor=1
-        '';
-      } else if cfg.browser == "vivaldi" then {
-        ".config/vivaldi-stable.conf".text = ''
-          --enable-features=UseOzonePlatform
-          --ozone-platform=wayland
-          --enable-features=WaylandWindowDecorations
-          --force-device-scale-factor=1
-        '';
-      } else
+      #   '';
+      # } else if cfg.browser == "brave" then {
+      #   ".config/brave-flags.conf".text = ''
+      #     --enable-features=UseOzonePlatform
+      #     --ozone-platform=wayland
+      #     --enable-features=WaylandWindowDecorations
+      #     --force-device-scale-factor=1
+      #   '';
+      # } else if cfg.browser == "vivaldi" then {
+      #   ".config/vivaldi-stable.conf".text = ''
+      #     --enable-features=UseOzonePlatform
+      #     --ozone-platform=wayland
+      #     --enable-features=WaylandWindowDecorations
+      #     --force-device-scale-factor=1
+      #   '';
+      # } else
+      #   {
+      #     # Handle other browsers here
+      #   };
+      home.file = let
+        browserConfig = if !cfg.disableWayland then
+          if cfg.browser == "chromium" then {
+            ".config/chromium-flags.conf".text = ''
+              --enable-features=UseOzonePlatform
+              --ozone-platform=wayland
+              --enable-features=WaylandWindowDecorations
+              --force-device-scale-factor=1
+            '';
+          } else if cfg.browser == "brave" then {
+            ".config/brave-flags.conf".text = ''
+              --enable-features=UseOzonePlatform
+              --ozone-platform=wayland
+              --enable-features=WaylandWindowDecorations
+              --force-device-scale-factor=1
+            '';
+          } else if cfg.browser == "vivaldi" then {
+            ".config/vivaldi-stable.conf".text = ''
+              --enable-features=UseOzonePlatform
+              --ozone-platform=wayland
+              --enable-features=WaylandWindowDecorations
+              --force-device-scale-factor=1
+            '';
+          } else
+            { }
+        else
+          { };
+      in lib.mkMerge [
+        browserConfig
         {
-          # Handle other browsers here
-        };
+          # Add other home.file configurations here
+          # Example:
+          # ".config/other-config.conf".text = "other configuration settings";
+        }
+      ];
     };
   };
 }

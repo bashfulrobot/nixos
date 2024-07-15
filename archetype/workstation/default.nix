@@ -26,11 +26,11 @@ in {
       nautilus.enable = true;
       common.enable = true;
       one-password.enable = true;
-      chrome-based-browser = {
-        enable = true;
-        # Currently supported browsers are "brave", "vivaldi" or "chromium".
-        browser = "brave";
-      };
+      # chrome-based-browser = {
+      #   enable = true;
+      #   # Currently supported browsers are "brave", "vivaldi" or "chromium".
+      #   browser = "brave";
+      # };
       readitlater.enable = true;
       vscode.enable = true;
       nixpkgs-search.enable = true;
