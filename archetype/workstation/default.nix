@@ -19,6 +19,7 @@ in {
     };
 
     apps = {
+      whatsapp.enable = true;
       rocket-chat.enable = true;
       pairdrop.enable = true;
       zoom-web.enable = false;
