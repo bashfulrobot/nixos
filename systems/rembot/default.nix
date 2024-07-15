@@ -17,7 +17,7 @@
     workstation.enable = true;
   };
 
-#  desktops = {
+ desktops = {
 #     sway = {
 #       enable = true;
 #       laptop = false;
