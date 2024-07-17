@@ -8,4 +8,4 @@ modules/workstation/desktops/gnome/themes/dracula/pro/dracula.zip
 modules/workstation/desktops/gnome/themes/dracula/dracula.zip
 .spacedrive
 rebuild-trace.log
-flake.lock-pre-upg
+flake.lock-pre-upg*
