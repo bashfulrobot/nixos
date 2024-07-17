@@ -66,6 +66,7 @@ final-build-reboot:
 # Update Flake
 upgrade-system:
     # @nix flake update --commit-lock-file
+    @cp flake.lock flake.lock-pre-upg-delete
     @nix flake update
     @sudo nixos-rebuild switch --impure --upgrade --flake .#\{{`hostname`}} --show-trace
     # @just _sway-reload
