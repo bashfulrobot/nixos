@@ -6,7 +6,7 @@ in {
     hw.audio.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable centralised hosts file.";
+      description = "Enable sound on my workstations.";
     };
   };
 
