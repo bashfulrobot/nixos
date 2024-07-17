@@ -18,12 +18,12 @@
   };
 
    desktops = {
-      # sway = {
-      #   enable = true;
-      #   laptop = false;
-      #   themes.catppuccin.enable = true;
-      # };
-   gnome.enable = true;
+      sway = {
+        enable = true;
+        laptop = false;
+        themes.catppuccin.enable = true;
+      };
+  #  gnome.enable = true;
    addons.wayland.enable = true;
   };
 
