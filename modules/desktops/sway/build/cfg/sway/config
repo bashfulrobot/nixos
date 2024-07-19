@@ -164,6 +164,9 @@ bindsym $mod+Shift+f exec nautilus
 # bindsym $mod+Shift+Ctrl+g exec gmail-url
 bindsym $mod+Shift+g exec gmail-url
 
+# Start 1Password Quick Access
+bindsym Control+Shift+Space exec /usr/bin/1password --quick-access
+
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.
