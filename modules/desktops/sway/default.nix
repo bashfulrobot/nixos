@@ -12,7 +12,7 @@ let
       tap enabled
     }
     seat seat0 xcursor_theme Bibata-Modern-Classic 24
-    xwayland disable
+    xwayland enable
 
     bindsym Mod4+shift+e exec swaynag \
       -t warning \
@@ -170,6 +170,7 @@ in {
         sway-contrib.grimshot
         sway-contrib.inactive-windows-transparency
         gcr # gnome keyring
+        xwayland # needed for xwayland
       ];
     };
 
@@ -199,6 +200,7 @@ in {
       };
       sway = {
         enable = true;
+        xwayland.enable = true;
         package = swayfx.overrideAttrs
           (old: { passthru.providedSessions = [ "sway" ]; });
         wrapperFeatures.gtk = true;

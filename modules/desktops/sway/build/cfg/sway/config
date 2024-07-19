@@ -403,4 +403,7 @@ assign [app_id="brave-mail.google.com__mail_u_0_-Default"] workspace number 9
 assign [app_id="1Password"] workspace number 10
 #
 
+# Enable xWayland
+xwayland enable
+
 include @sysconfdir@/sway/config.d/*
