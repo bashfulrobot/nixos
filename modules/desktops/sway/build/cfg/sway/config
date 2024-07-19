@@ -409,4 +409,4 @@ assign [app_id="1Password"] workspace number 10
 # Enable xWayland
 xwayland enable
 
-include @sysconfdir@/sway/config.d/*
+include ~/.config/sway/config.d/*

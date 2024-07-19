@@ -292,6 +292,7 @@ in {
         ".config/sway/config".source = ./build/cfg/sway/config;
         # ".config/sway/config.d/keybindings".source = ./build/cfg/sway/config.d/keybindings;
         # ".config/sway/config.d/default-keybindings".source = ./build/cfg/sway/config.d/default-keybindings;
+        ".config/sway/config.d/test".source = ./build/cfg/sway/config.d/test;
         ".config/waylogout/config".source = ./build/cfg/waylogout/config;
         ".config/swappy/config".source = ./build/cfg/swappy/config;
       };

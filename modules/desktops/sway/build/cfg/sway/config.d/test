@@ -1,0 +1,2 @@
+# Launch Whats App
+bindsym $mod+Shift+Ctrl+w exec dex /nix/store/fabryyxipl50n6c5gw8gqww5bcksa8lp-system-path/share/applications/whatsapp.desktop

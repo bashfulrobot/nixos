@@ -106,6 +106,7 @@ in {
             id = "cmpdlhmnmjhihmcfnigoememnffkimlk";
           } # Catppuccin Macchiato theme
           { id = "jhjnalhegpceacdhbplhnakmkdliaddd"; } # Catppuccin Latte theme
+          { id = "pgbdljpkijehgoacbjpolaomhkoffhnl"; } #email tracking for work
         ];
       };
       # force brave to use wayland - https://skerit.com/en/make-electron-applications-use-the-wayland-renderer
