@@ -92,6 +92,7 @@ in {
       glow # Render Markdown on the CLI
       #inlyne # inlyne is a command-line tool to inline CSS and JS files into HTML files
       jnv # json filtering with jq
+      krew # pkg manager for kubectl plugins
     ];
 
     # programs.nh = {
