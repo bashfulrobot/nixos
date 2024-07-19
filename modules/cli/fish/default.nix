@@ -66,30 +66,30 @@ in {
             set search_term $argv[1]
             sudo fd -Hi $search_term (readlink -f /run/current-system/sw)
           '';
+          # Not working for OP yet.
+          # op_signin = ''
+          #   op list templates >> /dev/null 2>&1
+          #   	if test $status -ne 0
+          #   		eval (op signin)
+          #   	end
+          # '';
 
-          op_signin = ''
-            op list templates >> /dev/null 2>&1
-            	if test $status -ne 0
-            		eval (op signin)
-            	end
-          '';
+          # op_get_names = ''
+          #   op item list | jq -r '.[].overview.title'
+          # '';
 
-          op_get_names = ''
-            op item list | jq -r '.[].overview.title'
-          '';
+          # op_get_entry = ''
+          #     set json (op item get "$argv[1]")
+          #   	set username (echo $json | jq -r '.details.fields[]|select(.designation=="username")|.value')
+          #   	set password (echo $json | jq -r '.details.fields[]|select(.designation=="password")|.value')
+          #   	echo "item: $argv[1] | user: $username | pass: $password"
+          # '';
 
-          op_get_entry = ''
-              set json (op item get "$argv[1]")
-            	set username (echo $json | jq -r '.details.fields[]|select(.designation=="username")|.value')
-            	set password (echo $json | jq -r '.details.fields[]|select(.designation=="password")|.value')
-            	echo "item: $argv[1] | user: $username | pass: $password"
-          '';
-
-          oppw = ''
-            op_signin
-            	set opname (op_get_names | fzf)
-            	op_get_entry $opname
-          '';
+          # oppw = ''
+          #   op_signin
+          #   	set opname (op_get_names | fzf)
+          #   	op_get_entry $opname
+          # '';
 
           get_wm_class = ''
             gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/Windows --method org.gnome.Shell.Extensions.Windows.List | grep -Po '"wm_class_instance":"\K[^"]*'
