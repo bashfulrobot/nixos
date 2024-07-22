@@ -20,7 +20,7 @@ in {
       ### Nix Tools
       nix-index # Nix package indexer
       comma # Nix command wrapper
-
+			ydotool #xdotool alternative. window automation
       xdg-utils
       tcpdump
       silver-searcher
