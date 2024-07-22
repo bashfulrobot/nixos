@@ -18,7 +18,8 @@
   };
 
   desktops = {
-    sway = {
+    # sway = {
+    sway-dev = {
       enable = true;
       laptop = false;
       themes.catppuccin.enable = true;
