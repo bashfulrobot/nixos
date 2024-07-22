@@ -127,6 +127,7 @@ in {
       fractal # Matrix Client
       slack # instant messaging
       signal-desktop # instant messaging
+      element-desktop # Matrix Client
       # thunderbird # email client
       mailspring # email client
 
