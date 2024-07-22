@@ -171,6 +171,9 @@ in {
         sway-contrib.inactive-windows-transparency
         gcr # gnome keyring
         xwayland # needed for xwayland
+        overskride # bluetooth settings
+        pasystray # pulse audio tray
+        networkmanagerapplet # network manager applet
       ];
     };
 
