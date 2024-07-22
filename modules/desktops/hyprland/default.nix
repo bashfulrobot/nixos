@@ -54,19 +54,6 @@ in {
       gvfs.enable = true;
 
       accounts-daemon.enable = true;
-
-      # greetd = {
-      #   enable = true;
-      #   settings = {
-      #     terminal = { vt = 7; };
-      #     default_session = {
-      #       command = "env GTK_USE_PORTAL=0 ${
-      #           lib.getExe pkgs.swayfx
-      #         } --config ${greetdSwayConfig}";
-      #     };
-      #   };
-      # };
-
     };
 
     # Might not be needed
@@ -81,15 +68,6 @@ in {
         };
       };
     };
-
-    # kanshi systemd service
-    # systemd.user.services.kanshi = {
-    #   description = "kanshi daemon";
-    #   serviceConfig = {
-    #     Type = "simple";
-    #     ExecStart = "${pkgs.kanshi}/bin/kanshi -c kanshi_config_file";
-    #   };
-    # };
 
     fonts = {
       packages = with pkgs; [
