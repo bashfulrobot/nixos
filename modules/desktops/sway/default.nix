@@ -172,6 +172,7 @@ in {
         gcr # gnome keyring
         xwayland # needed for xwayland
         overskride # bluetooth settings
+        blueberry # bluetooth settings
         pasystray # pulse audio tray
         networkmanagerapplet # network manager applet
       ];
