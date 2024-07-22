@@ -266,37 +266,11 @@ in {
             "height": 5, // Waybar height (to be removed for auto height)
             // "width": 1280, // Waybar width
             // Choose the order of the modules
-            "modules-left": ["hyprland/workspaces", "sway/workspaces", "sway/mode", "custom/media"],
-            "modules-center": ["hyprland/window, "sway/window"],
+            "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
+            "modules-center": ["sway/window"],
             //"modules-right": ["pulseaudio", "network", "backlight","cpu","memory","battery", "battery#bat2", "clock", "tray"],
             "modules-right": ["pulseaudio", "network", "backlight", "battery","clock", "tray"],
             // Modules configuration
-            "hyprland/submap": {
-          "format": " {}"
-          "max-length": 14
-          "tooltip": false
-        }
-            "hyprland/workspaces": {
-                 "disable-scroll": true,
-                 "all-outputs": true,
-                 "show-special": true,
-                 "format": "{name}: {icon}",
-                 "format-icons": {
-                     "1": "",
-                     "2": "",
-                     "3": "",
-                     "4": "",
-                     "5": "",
-                     "6": "",
-                     "7": "",
-                     "8": "",
-                     "9": "",
-                     "10": "",
-                     "urgent": "",
-                     "focused": "",
-                     // "default": ""
-                 }
-             },
             "sway/workspaces": {
                  "disable-scroll": true,
                  "all-outputs": true,
@@ -317,18 +291,6 @@ in {
                      // "default": ""
                  }
              },
-             "hyprland/window": {
-          "format": "{}"
-          "separate-outputs": true
-          "max-length": 35
-          "rewrite": {
-            "(.*) - Mozilla Firefox": "🦊 $1"
-            "(.*) - LibreWolf": "🐺 $1"
-            "(.*) - Brave":  "🦁 $1"
-            "(.*).epub(.*)": "󰂽 $1"
-            "(.*)foot": " Terminal $1"
-          }
-        },
             "sway/mode": {
                 "format": "<span style=\"italic\">{}</span>"
             },

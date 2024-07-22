@@ -54,7 +54,7 @@ in {
         enable = true;
         # Make the gnome keyring work properly
         # Pulled from: https://github.com/jnsgruk/nixos-config/blob/8e9bb39ab6bb32fbeb62a5cc722e2b9e07acb50c/host/common/desktop/hyprland.nix#L42
-        # packages = [ pkgs.gnome3.gnome-keyring pkgs.gcr ];
+        packages = with pkgs; [ gcr ];
       };
       displayManager = { defaultSession = "SwayFX"; };
       # Configure keymap in X11
@@ -180,6 +180,7 @@ in {
 
     # Enable variuos programs
     programs = {
+      nm-applet.enable = true;
       regreet = {
         enable = true;
 
@@ -335,6 +336,9 @@ in {
       };
 
       services = {
+        blueman-applet.enable = true;
+        pasystray.enable = true;
+        network-manager-applet.enable = true;
         # Notifications
         mako = {
           enable = true;

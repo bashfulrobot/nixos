@@ -40,10 +40,10 @@ exec_always dbus-sway-environment
 # replace swaybar with waybar
 # bar swaybar_command waybar
 exec waybar
-exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/pasystray.desktop
-exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/nm-applet.desktop
-exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/blueman-manager.desktop
-exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/1password.desktop
+# exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/pasystray.desktop
+# exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/nm-applet.desktop
+# exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/blueman-manager.desktop
+# exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/1password.desktop
 
 ### Lock Screen
 #
@@ -110,6 +110,10 @@ bindsym $mod+Alt+a exec /etc/profiles/per-user/dustin/bin/screenshot-annotate.sh
 #
 # bindsym $mod+p exec $pmenu
 bindsym $mod+p exec $pmenu
+
+# Open 1 password
+# bindsym Ctrl+Alt+p exec /run/current-system/sw/bin/dex /run/current-system/sw/sha
+# re/applications/1password.desktop
 
 # Turn monitor on/off
 # turn on all displays:

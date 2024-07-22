@@ -35,11 +35,14 @@ in {
       _1password.enable = true;
       _1password-gui = {
         enable = true;
-        polkitPolicyOwners = [ "${user-settings.user.username}" ];
+        # polkitPolicyOwners = [ "${user-settings.user.username}" ];
+        # polkitPolicyOwners = [ dustin ];
+        polkitPolicyOwners = config.users.groups.wheel.members;
       };
 
     };
 
+    # used in Gnome
     home-manager.users."${user-settings.user.username}" = {
       home.file."1password.desktop" = {
         source = ./1password.desktop;
