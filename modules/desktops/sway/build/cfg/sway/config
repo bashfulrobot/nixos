@@ -333,9 +333,14 @@ bindsym $mod+r mode "resize"
 #   inactive_workspace #1e1e2e00 #1e1e2e00 #a6adc8
 # }
 # }
+
+### Auto start
 # replace swaybar with waybar
 # bar swaybar_command waybar
 exec waybar
+exec pasystray
+exec nm-applet
+exec overskride
 
 # window overlays
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 500
