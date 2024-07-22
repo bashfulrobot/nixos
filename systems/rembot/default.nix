@@ -17,14 +17,15 @@
     workstation.enable = true;
   };
 
-   desktops = {
-      sway = {
-        enable = true;
-        laptop = false;
-        themes.catppuccin.enable = true;
-      };
-  #  gnome.enable = true;
-   addons.wayland.enable = true;
+  desktops = {
+    # sway = {
+    #   enable = true;
+    #   laptop = false;
+    #   themes.catppuccin.enable = true;
+    # };
+    hyprland = { enable = true; };
+    #  gnome.enable = true;
+    addons.wayland.enable = true;
   };
 
   # Testing
@@ -39,11 +40,11 @@
     };
 
     chrome-based-browser = {
-        enable = true;
-        # Currently supported browsers are "brave", "vivaldi" or "chromium".
-        browser = "brave";
-        disableWayland = false;
-      };
+      enable = true;
+      # Currently supported browsers are "brave", "vivaldi" or "chromium".
+      browser = "brave";
+      disableWayland = false;
+    };
 
     desktopFile = {
       enable = true;

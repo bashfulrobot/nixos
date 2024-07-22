@@ -21,12 +21,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, swayfx,
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware,hyprland, swayfx,
     # envycontrol,
     nix-flatpak, nur,
     #avalanche,

@@ -360,35 +360,6 @@ in {
       # };
 
       programs = {
-        #   rofi = {
-        #     enable = true;
-        #     package = pkgs.rofi-wayland;
-        #     cycle = true;
-        #     font = "Liga SFMono Nerd Font 16";
-        #     terminal = "${pkgs.foot}/bin/foot";
-        #     extraConfig = {
-        #       show-icons = true;
-        #       # icon-theme = "GruvboxPlus";
-        #       #   display-ssh = "󰣀 ssh:";
-        #       # display-run = "󱓞 run:";
-        #       # display-drun = "󰣖 drun:";
-        #       # display-window = "󱂬 window:";
-        #       # display-combi = "󰕘 combi:";
-        #       # display-filebrowser = "󰉋 filebrowser:";
-
-        #       # dpi =  120;
-        #     };
-        #   };
-        #   keychain = {
-        #     enable = true;
-        #     # null or one of "local", "any", "local-once", "any-once"
-        #     inheritType = "any";
-        #     agents = [ "ssh" "gpg" ];
-        #     enableBashIntegration = true;
-        #     enableFishIntegration = true;
-        #     keys = [ "id_rsa" "id_ed25519" ];
-        #     # extraFlags = [ "--quiet" "--systemd" ];
-        #   };
 
         hyprlock = {
           enable = true;
