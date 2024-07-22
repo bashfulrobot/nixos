@@ -120,6 +120,7 @@ in {
       # gruvbox-gtk-theme # theme
       # gruvbox-dark-icons-gtk # theme icons
       colorpicker # colour picker
+      overskribe # bluetooth settings
 
       # microsoft-edge # web browser
 
