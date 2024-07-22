@@ -49,7 +49,24 @@ in {
       yazi.enable = true;
     };
 
+    # patch blueberry to work in the tray
+    systemd.user.services.blueberry-tray = {
+      path = with pkgs;
+        [
+          (blueberry.overrideAttrs (old: {
+            patches = (old.patches or [ ])
+              ++ [ ./build/patch/blueberry-tray-fix.patch ];
+            buildInputs = old.buildInputs ++ [ pkgs.libappindicator-gtk3 ];
+          }))
+        ];
+      script = "blueberry-tray; while true; do sleep 3600; done";
+      restartIfChanged = true;
+    };
+
     services = {
+
+      blueman.enable = true;
+
       dbus = {
         enable = true;
         # Make the gnome keyring work properly
@@ -172,7 +189,6 @@ in {
         gcr # gnome keyring
         xwayland # needed for xwayland
         overskride # bluetooth settings
-        blueberry # bluetooth settings
         pasystray # pulse audio tray
         networkmanagerapplet # network manager applet
       ];
@@ -180,7 +196,10 @@ in {
 
     # Enable variuos programs
     programs = {
-      nm-applet.enable = true;
+      nm-applet = {
+        enable = true;
+        indicator = true;
+      };
       regreet = {
         enable = true;
 
