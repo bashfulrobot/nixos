@@ -36,8 +36,14 @@ exec_always dbus-sway-environment
 
 ### Autostart Apps
 #
-# 1password
-exec swaymsg "workspace 0; exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/1password.desktop
+
+# replace swaybar with waybar
+# bar swaybar_command waybar
+exec waybar
+exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/pasystray.desktop
+exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/nm-applet.desktop
+exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/blueman-manager.desktop
+exec /run/current-system/sw/bin/dex /run/current-system/sw/share/applications/1password.desktop
 
 ### Lock Screen
 #
@@ -333,14 +339,6 @@ bindsym $mod+r mode "resize"
 #   inactive_workspace #1e1e2e00 #1e1e2e00 #a6adc8
 # }
 # }
-
-### Auto start
-# replace swaybar with waybar
-# bar swaybar_command waybar
-exec waybar
-exec pasystray
-exec nm-applet
-exec overskride
 
 # window overlays
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 500
