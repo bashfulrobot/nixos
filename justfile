@@ -41,8 +41,9 @@ _default:
 # Test nixos cfg on your current host without git commit. Switches, but does not create a bootloader entry
 dev-test:
     @git add -A
-    @just garbage-build-cache
-    @sudo nixos-rebuild test --impure --flake .#\{{`hostname`}}
+    # @just garbage-build-cache
+    # @sudo nixos-rebuild test --fast--impure --flake .#\{{`hostname`}}
+    @sudo nixos-rebuild dry-build --fast --impure --flake .#\{{`hostname`}}
 # git reset and clean - unstage any changes and revert your working directory to the last commit,remove any untracked files and directories. Used to resolve conflicts due to syncthing
 repo-conflict:
     @git reset --hard HEAD

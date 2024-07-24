@@ -21,12 +21,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprswitch.url = "github:h3rmt/hyprswitch/release";
+
+    ironbar = {
+      url = "github:JakeStanger/ironbar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, swayfx,
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, swayfx
+    , hyprswitch, ironbar,
     # envycontrol,
     nix-flatpak, nur,
     #avalanche,

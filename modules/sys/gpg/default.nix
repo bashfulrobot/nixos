@@ -30,6 +30,7 @@ in {
         enable = true;
         enableBashIntegration = true;
         enableFishIntegration = true;
+        pinentryPackage = pkgs.pinentry-curses;
       };
     };
   };

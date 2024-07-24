@@ -1,6 +1,6 @@
 ## Keychain set-up
 
-{ user-settings, config, lib, ... }:
+{ user-settings, config, lib, pkgs, ... }:
 let cfg = config.sys.ssh;
 
 in {
@@ -17,17 +17,22 @@ in {
     # Enable the OpenSSH daemon.
     services.openssh.enable = true;
 
+    programs.ssh = {
+      startAgent = true;
+      enableAskPassword = true;
+      askPassword = "${pkgs.seahorse}/libexec/seahorse/ssh-askpass";
+    };
+
     home-manager.users."${user-settings.user.username}" = {
       services.ssh-agent.enable = true;
-      programs.ssh.addKeysToAgent = "yes";
+
       # home.sessionVariables.SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/keyring/ssh";
       #home.sessionVariables.SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/gcr/ssh";
 
       programs.ssh = {
         enable = true;
-        # TODO - test this. needed or not?
-        # startAgent = true;
-        # enableAskPassword = true;
+        addKeysToAgent = "yes";
+
         extraConfig = ''
           # Host *
           #   IdentityAgent ~/.1password/agent.sock
