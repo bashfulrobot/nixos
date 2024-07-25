@@ -30,7 +30,7 @@
     chrome-based-browser = {
       enable = true;
       # Currently supported browsers are "brave", "vivaldi" or "chromium".
-      browser = "vivaldi";
+      browser = "chromium";
       disableWayland = false;
     };
 
