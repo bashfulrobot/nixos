@@ -108,7 +108,7 @@ in {
         useSystemTheme=false
         userEmailAddress=dustin.krysak@sysdig.com
         wp7SxMcjSJFBNLZxmvmhiZblEk02wF92Z97IxH70iwg%23=1687724404
-        xwayland=false
+        xwayland=true
         z7UzTv6fymc7VL7mkEr5yW%2BoMtcxRRzxQcv2wMwHwr0%23=1715974536
         znoEUQ3i3sNVespocs1Z51gOKhB8BpDvq9yP8N8oamk%23=1701381603
         zsHRLUSwqqaWPJNlEwmNAnzkqUIP1YEJyBli58yqS7k%23=1706257381

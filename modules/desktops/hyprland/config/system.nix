@@ -8,20 +8,20 @@ let
   # Define your environment variables here
   envVars = {
     NIXOS_OZONE_WL = "1";
-    _JAVA_AWT_WM_NONREPARENTING = "1";
-    CLUTTER_BACKEND = "wayland";
-    GDK_BACKEND = "wayland";
-    MOZ_ENABLE_WAYLAND = "1";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots";
     QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    SDL_VIDEODRIVER = "wayland";
-    XDG_SESSION_TYPE = "wayland";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-    XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots";
-
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     MANROFFOPT = "-c";
     WARP_ENABLE_WAYLAND = 1; # Needed for Warp Terminal to use Wayland
+    MOZ_ENABLE_WAYLAND = "1";
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+    CLUTTER_BACKEND = "wayland";
+    GDK_BACKEND = "wayland";
+    SDL_VIDEODRIVER = "wayland";
   };
 in {
 
@@ -37,6 +37,7 @@ in {
     environment = {
       systemPackages = [ dbus-hyprland-environment ];
       sessionVariables = envVars;
+      variables = envVars;
     };
 
     fonts = {
