@@ -17,21 +17,11 @@
   # User name specified in the settings
   users.default.enable = true;
 
-  # snowfallorg.avalanche.desktop.enable = true;
-  # desktops.avalanche.enable = true;
   desktops = {
     hyprland = {
       enable = true;
     };
-    #  gnome.enable = true;
-    # addons.wayland.enable = true;
   };
-
-  # Testing
-  # services.xserver.enable = true;
-  # services.xserver.desktopManager.budgie.enable = true;
-  # services.xserver.displayManager.lightdm.enable = true;
-  # desktops.pantheon.enable = true;
 
   apps = {
     syncthing = {

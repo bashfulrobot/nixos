@@ -18,21 +18,8 @@
   };
 
   desktops = {
-    # sway = {
-    # # sway-dev = {
-    #   enable = true;
-    #   laptop = false;
-    #   themes.catppuccin.enable = true;
-    # };
     hyprland = { enable = true; };
-    #  gnome.enable = true;
-    # addons.wayland.enable = true;
   };
-
-  # Testing
-  # services.xserver.enable = true;
-  # services.xserver.desktopManager.budgie.enable = true;
-  # services.xserver.displayManager.lightdm.enable = true;
 
   apps = {
     syncthing = {

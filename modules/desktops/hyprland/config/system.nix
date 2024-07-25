@@ -3,6 +3,8 @@
 let
 
   cfg = config.desktops.hyprland.config.system;
+  dbus-hyprland-environment =
+    pkgs.callPackage ./build/scripts/dbus-hyprland-environment.nix { };
   # Define your environment variables here
   envVars = {
     NIXOS_OZONE_WL = "1";
@@ -32,7 +34,10 @@ in {
   };
   config = lib.mkIf cfg.enable {
 
-    environment.sessionVariables = envVars;
+    environment = {
+      systemPackages = [ dbus-hyprland-environment ];
+      sessionVariables = envVars;
+    };
 
     fonts = {
       packages = with pkgs; [
@@ -49,13 +54,25 @@ in {
       };
     };
 
+    # Whether to enable the RealtimeKit system service, which hands out realtime scheduling priority to user processes on demand. For example, the PulseAudio server uses this to acquire realtime priority.
+    security.rtkit.enable = true;
+
+    services.dbus = {
+      enable = true;
+      # Make the gnome keyring work properly
+      # Pulled from: https://github.com/jnsgruk/nixos-config/blob/8e9bb39ab6bb32fbeb62a5cc722e2b9e07acb50c/host/common/desktop/hyprland.nix#L42
+      # packages = with pkgs; [ gcr ];
+    };
+
     xdg.portal = {
       enable = true;
       xdgOpenUsePortal = true;
       wlr.enable = true;
       # gtk portal needed to make gtk apps happy
       extraPortals =
-        [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
+        [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
+      # [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
+
     };
 
     ##### Home Manager Config options #####
@@ -64,11 +81,11 @@ in {
         sessionVariables = envVars;
 
         file.".config/electron-flags.conf".text = ''
-        --enable-features=UseOzonePlatform
-        --ozone-platform=wayland
-        --enable-features=WaylandWindowDecorations
-        --force-device-scale-factor=1
-      '';
+          --enable-features=UseOzonePlatform
+          --ozone-platform=wayland
+          --enable-features=WaylandWindowDecorations
+          --force-device-scale-factor=1
+        '';
 
       };
     };

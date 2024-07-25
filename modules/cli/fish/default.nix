@@ -333,9 +333,9 @@ in {
           upgrade =
             "clear && cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just upgrade-system";
           dev-rebuild =
-            "clear && cd ~/dev/nix/nixos/; rm -f /home/dustin/.config/mimeapps.list && ${pkgs.just}/bin/just dev-test";
-          test-rebuild =
             "clear && cd ~/dev/nix/nixos/; rm -f /home/dustin/.config/mimeapps.list && ${pkgs.just}/bin/just dev-rebuild";
+          test-rebuild =
+            "clear && cd ~/dev/nix/nixos/; rm -f /home/dustin/.config/mimeapps.list && ${pkgs.just}/bin/just dev-test";
           kubitect =
             "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/kubitect";
           # comics-downloader = "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/comics-downloader";

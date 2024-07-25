@@ -27,8 +27,7 @@ in {
             position = "top";
             margin = "10 20 -5 20";
             modules-center = [ "clock" ];
-            modules-right =
-              [ "network#down" "network#up" "tray" "custom/power" ];
+            modules-right = [ "network#down" "network#up" "tray" "custom/power" ];
             modules-left = [ "hyprland/workspaces" "hyprland/submap" ];
 
             "network#down" = {

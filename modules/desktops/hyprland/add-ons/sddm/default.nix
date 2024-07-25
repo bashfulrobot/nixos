@@ -14,7 +14,7 @@ in {
       [
         (elegant-sddm.override {
           themeConfig.General = {
-            background = toString ./skullskates.png;
+            background = toString ./skull-skates.png;
             backgroundMode = "fill";
             # FacesDir = toString ./;
             CursorTheme = "Bibata-Modern-Classic";
@@ -98,7 +98,7 @@ in {
       };
     };
 
-    # Ensures SDDM starts after the service.
+    # # Ensures SDDM starts after the service.
     systemd.services.sddm = { after = [ "sddm-avatar.service" ]; };
 
     home-manager.users.${user-settings.user.username} = {
