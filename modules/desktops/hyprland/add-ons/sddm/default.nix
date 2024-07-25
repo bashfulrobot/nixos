@@ -14,7 +14,7 @@ in {
       [
         (elegant-sddm.override {
           themeConfig.General = {
-            background = toString ./skull-skates.png;
+            background = toString ./skullskates-gigabyte.jpg;
             backgroundMode = "fill";
             # FacesDir = toString ./;
             CursorTheme = "Bibata-Modern-Classic";
