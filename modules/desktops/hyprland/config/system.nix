@@ -14,6 +14,8 @@ let
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     SDL_VIDEODRIVER = "wayland";
     XDG_SESSION_TYPE = "wayland";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+    XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots";
 
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     MANROFFOPT = "-c";
@@ -58,7 +60,17 @@ in {
 
     ##### Home Manager Config options #####
     home-manager.users."${user-settings.user.username}" = {
-      home.sessionVariables = envVars;
+      home = {
+        sessionVariables = envVars;
+
+        file.".config/electron-flags.conf".text = ''
+        --enable-features=UseOzonePlatform
+        --ozone-platform=wayland
+        --enable-features=WaylandWindowDecorations
+        --force-device-scale-factor=1
+      '';
+
+      };
     };
   };
 }

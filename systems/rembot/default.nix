@@ -18,15 +18,15 @@
   };
 
   desktops = {
-    sway = {
-    # sway-dev = {
-      enable = true;
-      laptop = false;
-      themes.catppuccin.enable = true;
-    };
-    # hyprland = { enable = true; };
+    # sway = {
+    # # sway-dev = {
+    #   enable = true;
+    #   laptop = false;
+    #   themes.catppuccin.enable = true;
+    # };
+    hyprland = { enable = true; };
     #  gnome.enable = true;
-    addons.wayland.enable = true;
+    # addons.wayland.enable = true;
   };
 
   # Testing

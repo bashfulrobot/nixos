@@ -12,6 +12,7 @@ in {
     };
   };
 
+# TODO: Merge with Hyprland config
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       xorg.xwininfo # Get StartupWMClass from a window in xwayland
