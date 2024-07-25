@@ -5,24 +5,28 @@ let
   cfg = config.desktops.hyprland.config.system;
   dbus-hyprland-environment =
     pkgs.callPackage ./build/scripts/dbus-hyprland-environment.nix { };
-  # Define your environment variables here
-  envVars = {
-    NIXOS_OZONE_WL = "1";
-    XDG_SESSION_TYPE = "wayland";
+  # Define your session variables here
+  sessionVars = {
+    XDG_SESSION_TYPE = "Hyprland";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots";
-    QT_QPA_PLATFORM = "wayland";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     MANROFFOPT = "-c";
-    WARP_ENABLE_WAYLAND = 1; # Needed for Warp Terminal to use Wayland
+  };
+  # Define your env variables here
+  envVars = {
+    NIXOS_OZONE_WL = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
     MOZ_ENABLE_WAYLAND = "1";
     _JAVA_AWT_WM_NONREPARENTING = "1";
+    WARP_ENABLE_WAYLAND = 1; # Needed for Warp Terminal to use Wayland
     CLUTTER_BACKEND = "wayland";
-    GDK_BACKEND = "wayland";
+    GDK_BACKEND = "wayland,x11";
     SDL_VIDEODRIVER = "wayland";
-  };
+    };
 in {
 
   options = {
@@ -36,7 +40,7 @@ in {
 
     environment = {
       systemPackages = [ dbus-hyprland-environment ];
-      sessionVariables = envVars;
+      sessionVariables = sessionVars;
       variables = envVars;
     };
 
@@ -68,7 +72,11 @@ in {
     xdg.portal = {
       enable = true;
       xdgOpenUsePortal = true;
-      wlr.enable = true;
+      # wlr.enable = true;
+      config = {
+        common.default = [ "gtk" ];
+        hyprland.default = [ "gtk" "hyprland" ];
+      };
       # gtk portal needed to make gtk apps happy
       extraPortals =
         [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
@@ -79,7 +87,7 @@ in {
     ##### Home Manager Config options #####
     home-manager.users."${user-settings.user.username}" = {
       home = {
-        sessionVariables = envVars;
+        sessionVariables = sessionVars;
 
         file.".config/electron-flags.conf".text = ''
           --enable-features=UseOzonePlatform
