@@ -25,7 +25,7 @@ let
     _JAVA_AWT_WM_NONREPARENTING = "1";
     WARP_ENABLE_WAYLAND = 1; # Needed for Warp Terminal to use Wayland
     CLUTTER_BACKEND = "wayland";
-    GDK_BACKEND = "wayland,x11";
+    GDK_BACKEND = "wayland";
     SDL_VIDEODRIVER = "wayland";
     };
 in {
