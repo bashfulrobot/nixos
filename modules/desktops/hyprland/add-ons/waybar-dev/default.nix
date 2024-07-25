@@ -4,7 +4,7 @@ let
   cfg = config.desktops.hyprland.add-ons.waybar-dev;
   theme = user-settings.theme.CatppuccinMacchiato;
   # waybar-clock-hover =
-    # pkgs.callPackage ./build/scripts/waybar-clock-hover.nix { };
+  # pkgs.callPackage ./build/scripts/waybar-clock-hover.nix { };
 in {
   options.desktops.hyprland.add-ons.waybar-dev.enable = mkOption {
     type = types.bool;
@@ -13,8 +13,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      #waybar-clock-hover
+    environment.systemPackages = with pkgs;
+      [
+        #waybar-clock-hover
       ];
 
     home-manager.users.${user-settings.user.username} = {
@@ -26,8 +27,9 @@ in {
             layer = "top";
             position = "top";
             margin = "10 20 -5 20";
-            modules-center = [ "clock" ];
-            modules-right = [ "network#down" "network#up" "tray" "custom/power" ];
+            modules-center = [ "hyprland/window" ];
+            modules-right =
+              [ "network#down" "network#up" "clock" "tray" "custom/power" ];
             modules-left = [ "hyprland/workspaces" "hyprland/submap" ];
 
             "network#down" = {
@@ -49,23 +51,28 @@ in {
               tooltip = false;
             };
 
-          #   "custom/clock" = {
-          #     format = " {}";
-          #     exec = pkgs.writeShellScript "waybar-clock" ''
-          #       #!/run/current-system/sw/bin/env bash
-          #       my-date=$(date '+%Y-%m-%d')
-          #       my-time=$(date '+%H:%M')
-          #       echo "$my-date $my-time"
-          # '';
-          #     interval = 1;
-          #     # tooltip = "exec /etc/profiles/per-user/dustin/bin/waybar-clock-hover tooltip";
-          #     timezone = "America/Vancouver";
-          #   };
+            #   "custom/clock" = {
+            #     format = " {}";
+            #     exec = pkgs.writeShellScript "waybar-clock" ''
+            #       #!/run/current-system/sw/bin/env bash
+            #       my-date=$(date '+%Y-%m-%d')
+            #       my-time=$(date '+%H:%M')
+            #       echo "$my-date $my-time"
+            # '';
+            #     interval = 1;
+            #     # tooltip = "exec /etc/profiles/per-user/dustin/bin/waybar-clock-hover tooltip";
+            #     timezone = "America/Vancouver";
+            #   };
 
             "custom/power" = {
               format = "󰤆 ";
               tooltip = true;
               on-click = "${pkgs.nwg-bar}/bin/nwg-bar";
+            };
+
+            "hyprland/window" = {
+              "max-length" = 200;
+              "separate-outputs" = true;
             };
 
             "hyprland/workspaces" = {
