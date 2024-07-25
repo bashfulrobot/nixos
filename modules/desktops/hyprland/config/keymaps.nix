@@ -29,7 +29,7 @@ in {
               "$mod, Q, killactive"
 
               # Lock screen
-              "$mod, L, exec, hyprlock"
+              "$mod SHIFT, L, exec, hyprlock"
 
               # Reload the configuration file
               "$mod SHIFT, c, execr, hyprctl reload"
