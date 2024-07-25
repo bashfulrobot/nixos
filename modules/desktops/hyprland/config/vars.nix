@@ -33,7 +33,7 @@ in {
 
             # Default applications
             "$terminal" = "foot";
-            "$browser" = "brave";
+            "$browser" = "vivaldi";
             "$gui-editor" = "code";
             "$cli-editor" = "nvim";
             "$filemanager" = "pcmanfm";
