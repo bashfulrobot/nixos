@@ -28,9 +28,9 @@ in {
         wlrctl # Command line utility for miscellaneous wlroots Wayland extensions
         # wshowkeys # Show keys pressed in wayland
         wl-clipboard # Wayland clipboard - needed for espanso
-        wl-color-picker # Wayland color picker
-        # below adds white square to screen - bug
-        # xwaylandvideobridge # Utility to allow streaming Wayland windows to X applications
+        hyprpicker # Wayland color picker
+        # below adds white square to screen - bug - but about to test in hyprland
+        xwaylandvideobridge # Utility to allow streaming Wayland windows to X applications
       ];
     };
 
