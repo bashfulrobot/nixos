@@ -27,8 +27,13 @@ in {
             exec-once = [
               # "${pkgs.swaybg}/bin/swaybg -o $monleft -i ~/.config/hypr/wallpapers/tokyonight01-left.png"
               # "${pkgs.swaybg}/bin/swaybg -o $monright -i ~/.config/hypr/wallpapers/tokyonight01-right.png"
-              "${pkgs.swaybg}/bin/swaybg -i ~/.config/hypr/wallpapers/wallpaper.png"
-              "pcmanfm --desktop"
+              "${pkgs.swaybg}/bin/swaybg -m fit -i ~/.config/hypr/wallpapers/wallpaper.png"
+              "${pkgs.pcmanfm}/bin/pcmanfm --desktop"
+              "${pkgs.blueman}/bin/blueman-tray"
+              "${pkgs.networkmanagerapplet}/bin/nm-applet"
+              "${pkgs._1password-gui}/bin/1password-gui"
+              "${pkgs.slack}/bin/slack"
+
             ];
 
           };

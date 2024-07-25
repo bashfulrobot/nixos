@@ -29,7 +29,7 @@ in {
             margin = "10 20 -5 20";
             modules-center = [ "hyprland/window" ];
             modules-right =
-              [ "network#down" "network#up" "clock" "tray" "custom/power" ];
+              [ "clock" "tray" "custom/power" ];
             modules-left = [ "hyprland/workspaces" "hyprland/submap" ];
 
             "network#down" = {
@@ -49,6 +49,11 @@ in {
               interval = 1;
               timezone = "America/Vancouver";
               tooltip = false;
+            };
+
+            "tray" = {
+              # "icon-size" = 21;
+              spacing = 5;
             };
 
             #   "custom/clock" = {

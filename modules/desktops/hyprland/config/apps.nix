@@ -31,6 +31,8 @@ in {
         hyprpicker # Wayland color picker
         # below adds white square to screen - bug - but about to test in hyprland
         xwaylandvideobridge # Utility to allow streaming Wayland windows to X applications
+        networkmanagerapplet # NetworkManager systray applet
+        pavucontrol # PulseAudio Volume Control
       ];
     };
 
@@ -43,6 +45,8 @@ in {
 
     ##### Home Manager Config options #####
     home-manager.users."${user-settings.user.username}" = {
+
+      services.pasystray.enable = true;
 
       home.file = {
         ".config/pcmanfm/default/pcmanfm.conf".source =
