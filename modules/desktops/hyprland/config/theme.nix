@@ -12,6 +12,10 @@ let
   # from user-settings
   theme = user-settings.theme.CatppuccinMacchiato;
 
+  # cursor settings
+  myCursorTheme = "Bibata-Modern-Classic";
+  myCursorSize = "24";
+
   # “latte”, “frappe”, “macchiato”, “mocha”
   themeFlavor = "macchiato";
   # "default" "purple" "pink" "red" "orange" "yellow" "green" "teal" "grey" "all"
@@ -131,13 +135,14 @@ in {
             document-font-name = "Work Sans 12";
             font-name = "Work Sans 12";
             monospace-font-name = "Victor Mono 13";
-            # cursor-theme = "Catppuccin-Macchiato-Dark";
-            # cursor-size = 24;
             gtk-theme = "catppuccin-gtk-theme-Dark-Compact-Macchiato";
             gtk-color-theme = "catppuccin-gtk-theme-Dark-Compact-Macchiato";
             icon-theme = "Papirus-Dark";
             text-scaling-factor = 1.0;
+            cursor-theme = myCursorTheme;
+            cursor-size = myCursorSize;
           };
+
         };
       };
       # END TESTING
@@ -197,8 +202,16 @@ in {
           gtk.enable = true;
           # x11.enable = true;
           package = pkgs.bibata-cursors;
-          name = "Bibata-Modern-Classic";
-          size = 16;
+          name = myCursorTheme;
+          size = myCursorSize;
+        };
+
+        sessionVariables = {
+          XCURSOR_SIZE = myCursorSize;
+          XCURSOR_THEME = myCursorTheme;
+          HYPRCURSOR_SIZE = myCursorSize;
+          QT_CURSOR_THEME = myCursorTheme;
+          QT_CURSOR_SIZE = myCursorSize;
         };
 
         # file."tokyonight01-right.png" = {
