@@ -10,6 +10,7 @@ let
     XDG_SESSION_TYPE = "Hyprland";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots";
+    # XDG_RUNTIME_DIR = "/run/user/${user-settings.user.id}";
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     MANROFFOPT = "-c";
   };
@@ -40,7 +41,7 @@ in {
 
     environment = {
       systemPackages = [ dbus-hyprland-environment ];
-      sessionVariables = sessionVars;
+      # sessionVariables = sessionVars;
       variables = envVars;
     };
 
