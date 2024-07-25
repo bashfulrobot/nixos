@@ -32,7 +32,7 @@
     chrome-based-browser = {
       enable = true;
       # Currently supported browsers are "brave", "vivaldi" or "chromium".
-      browser = "brave";
+      browser = "vivaldi";
     };
 
     desktopFile = {
