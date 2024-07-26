@@ -55,6 +55,11 @@ nix-lint:
 # Rebuild nixos cfg on your current host without git commit.
 dev-rebuild:
     @git add -A
+    @sudo nixos-rebuild switch --impure --flake .#rembot
+    # @just _sway-reload
+# Rebuild nixos cfg without the cache.
+dev-rebuild-no-cache:
+    @git add -A
     @sudo nixos-rebuild switch --impure --flake .#rembot --option binary-caches ''
     # @just _sway-reload
 # Final build and garbage collect, will reboot
