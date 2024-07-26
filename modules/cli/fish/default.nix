@@ -51,9 +51,6 @@ in {
           get_window_title = ''
             hyprctl clients | grep 'class:' | awk '{print $2}' | fzf | wl-copy --trim-newline
           '';
-          show-sway-bindings = ''
-            rg bindsym ~/.config/sway/config | fzf --preview 'echo {}' --preview-window=up:3:wrap
-          '';
           active_nixstore_pkg = ''
             set -l query $argv
             if test -z "$query"
