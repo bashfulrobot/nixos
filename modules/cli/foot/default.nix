@@ -20,7 +20,9 @@ in {
         settings = {
           main = {
             shell = "${pkgs.fish}/bin/fish";
-            font = "Fira Code:size=12";
+            font = "Fira Code:size=12, Font Awesome 6 Free :size=12, Font Awesome 6 Free Regular:size=12, Font Awesome 6 Free Solid:size=12, Font Awesome 6 Brands:size=12";
+            # font = "Victor Mono:size=12, Font Awesome 6 Free :size=12, Font Awesome 6 Free Regular:size=12, Font Awesome 6 Free Solid:size=12, Font Awesome 6 Brands:size=12";
+
             # font = "Code OnePiece:size=26, Noto Color Emoji:size=25";
             # font-bold = "Code OnePiece:size=26, Noto Color Emoji:size=25";
             letter-spacing = "1";
