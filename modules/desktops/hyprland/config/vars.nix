@@ -33,10 +33,10 @@ in {
 
             # Default applications
             "$terminal" = "foot";
-            "$browser" = "vivaldi";
+            "$browser" = "chromium";
             "$gui-editor" = "code";
             "$cli-editor" = "nvim";
-            "$filemanager" = "pcmanfm";
+            "$filemanager" = "caja";
 
             # Screenshots
             "$screenshotarea" =

@@ -19,7 +19,10 @@ in {
     environment = {
       systemPackages = with pkgs; [
         accountsservice
-        pcmanfm
+        # pcmanfm
+        mate.caja-with-extensions
+        mate.caja-extensions
+        mate.python-caja
         grimblast
         swappy
         bemoji
@@ -48,11 +51,11 @@ in {
 
       services.pasystray.enable = true;
 
-      home.file = {
-        ".config/pcmanfm/default/pcmanfm.conf".source =
-          ./build/cfg/pcmanfm/pcmanfm.conf;
-        ".config/swappy/config".source = ./build/cfg/swappy/config;
-      };
+      # home.file = {
+      #   ".config/pcmanfm/default/pcmanfm.conf".source =
+      #     ./build/cfg/pcmanfm/pcmanfm.conf;
+      #   ".config/swappy/config".source = ./build/cfg/swappy/config;
+      # };
 
     };
   };
