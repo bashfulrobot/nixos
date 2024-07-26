@@ -322,7 +322,7 @@ in {
           #mpd,
           #battery,
           #backlight-slider,
-          #backlight,
+          #backlight {
           color: ${theme.active};
           padding-right: 8px;
           }
