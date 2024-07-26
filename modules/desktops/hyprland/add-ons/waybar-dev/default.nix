@@ -315,7 +315,7 @@ in {
           padding-right: 8px;
           }
 
-          #custom-overflow",
+          #custom-overflow,
           #pulseaudio,
           #bluetooth,
           #network,
@@ -339,12 +339,12 @@ in {
           min-height: 80px;
           min-width: 10px;
           border-radius: 5px;
-          background-color: black;
+          background-color: ${theme.background};
           }
           #backlight-slider highlight {
           min-width: 10px;
           border-radius: 5px;
-          background-color: red;
+          background-color: ${theme.error};
           }
 
           #tray {
