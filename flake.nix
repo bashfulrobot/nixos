@@ -3,42 +3,26 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    # envycontrol.url = "github:bayasdev/envycontrol";
-
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-
     nvim.url = "github:bashfulrobot/jvim";
-
     catppuccin.url = "github:catppuccin/nix";
-
-    swayfx.url = "github:WillPower3309/swayfx";
-
+    hyprswitch.url = "github:h3rmt/hyprswitch/release";
+    hyprland.url = "github:hyprwm/Hyprland";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprswitch.url = "github:h3rmt/hyprswitch/release";
-
-    ironbar = {
-      url = "github:JakeStanger/ironbar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    # Use dev branch
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     # currently used for FF extensions
-    nur.url = "github:nix-community/NUR";
+    # nur.url = "github:nix-community/NUR";
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, swayfx
-    , hyprswitch, ironbar,
-    # envycontrol,
-    nix-flatpak, nur,
-    #avalanche,
-    nvim, catppuccin, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, hyprswitch
+    , hyprland, nix-flatpak, nur, nvim, catppuccin, ... }:
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.

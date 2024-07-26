@@ -19,6 +19,8 @@ in {
       hyprland = {
         enable = true;
         xwayland.enable = true;
+        # Use the flake package vs the nixpkgs package
+        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
         portalPackage = pkgs.xdg-desktop-portal-hyprland;
       };
     };
