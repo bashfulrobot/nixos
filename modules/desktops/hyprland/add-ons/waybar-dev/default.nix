@@ -30,8 +30,9 @@ in {
 
             ##### ----- Modules Alignment
             modules-left = [ "hyprland/workspaces" "hyprland/submap" ];
-            modules-center = [ "hyprland/window" ];
-            modules-right = [ "mpd" "clock" "battery" "custom/power" "group/overflow" ];
+            # modules-center = [ "hyprland/window" ];
+            modules-center = [ "clock" ];
+            modules-right = [ "mpd" "battery" "custom/power" "group/overflow" ];
 
             ##### ----- Define Groups
 
