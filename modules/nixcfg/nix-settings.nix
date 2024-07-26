@@ -17,6 +17,8 @@ in {
     in {
       settings = {
         experimental-features = [ "nix-command" "flakes" ];
+        max-jobs = 4;
+        cores = 4;
         http-connections = 50;
         warn-dirty = false;
         log-lines = 50;
