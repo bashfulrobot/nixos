@@ -28,21 +28,13 @@ in {
             position = "top";
             margin = "10 20 -5 20";
 
-            ##### Modules Alignment
+            ##### ----- Modules Alignment
             modules-left = [ "hyprland/workspaces" "hyprland/submap" ];
             modules-center = [ "hyprland/window" ];
             modules-right = [ "mpd" "clock" "battery" "custom/power" "group/overflow" ];
-            # modules-right = [
-            #   "mpd"
-            #   "clock"
-            #   "backlight/slider"
-            #   "battery"
-            #   "network"
-            #   "tray"
-            #   "custom/power"
-            # ];
 
-            ##### Define Groups
+            ##### ----- Define Groups
+
             "group/overflow" = {
               orientation = "inherit";
               drawer = {
@@ -53,7 +45,7 @@ in {
               modules = [ "custom/overflow" "backlight/slider" "network" "tray" ];
             };
 
-            ###### Define Modules
+            ###### ----- Define Modules
 
             "custom/overflow" = {
               format = "";
