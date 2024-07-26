@@ -27,17 +27,17 @@ in {
               # only allow shadows for floating windows
               "noshadow, floating:0"
 
-              "float, class:^(1Password)$"
-              "stayfocused,title:^(Quick Access — 1Password)$"
-              "dimaround,title:^(Quick Access — 1Password)$"
-              "noanim,title:^(Quick Access — 1Password)$"
+              # "float, class:^(1Password)$"
+              # "stayfocused,title:^(Quick Access — 1Password)$"
+              # "dimaround,title:^(Quick Access — 1Password)$"
+              # "noanim,title:^(Quick Access — 1Password)$"
 
               # Window floating and layout
               "float, class:^(pavucontrol)$"
               "float, class:^(obs)$"
               "float, class:^(gnome-calculator|org.gnome.Calculator)$"
-              "float, class:^(pamac-manager)$"
-              "float, class:^(eog)$"
+              "float, class:^(caja)$"
+
               "float, class:^(blueman-manager)$"
               "float, class:^(nm-connection-editor)$"
               "float, title:^(File Transfer*)$"
@@ -59,10 +59,10 @@ in {
               "float, title:^(Picture-in-Picture)$"
               "pin, title:^(Picture-in-Picture)$"
 
-              "float, class:^(1Password)$"
-              "stayfocused,title:^(Quick Access — 1Password)$"
-              "dimaround,title:^(Quick Access — 1Password)$"
-              "noanim,title:^(Quick Access — 1Password)$"
+              # "float, class:^(1Password)$"
+              # "stayfocused,title:^(Quick Access — 1Password)$"
+              # "dimaround,title:^(Quick Access — 1Password)$"
+              # "noanim,title:^(Quick Access — 1Password)$"
 
               "float, class:^(org.gnome.*)$"
               "float, class:^(pavucontrol)$"
@@ -72,21 +72,24 @@ in {
               "float, title:(Open|Progress|Save File)"
               "center, title:(Open|Progress|Save File)"
               "pin, title:(Open|Progress|Save File)"
-              "float, class:^(code)$"
-              "center, class:^(code)$"
-              "pin, class:^(code)$"
+              "float, class:^(xdg-desktop-portal-gtk)$"
+              "center, class:^(xdg-desktop-portal-gtk)$"
+              "pin, class:^(xdg-desktop-portal-gtk)$"
 
-              # assign windows to workspaces
-              # "workspace 1 silent, class:[Ff]irefox"
-              # "workspace 2 silent, class:[Oo]bsidian"
-              # "workspace 2 silent, class:google-chrome"
-              # "workspace 2 silent, class:[Rr]ambox"
-              # "workspace 1 silent, class:[Ss]ignal"
-              # "workspace 5 silent, class:code-url-handler"
+# assign windows to workspaces
+              "workspace 1 silent, class:[Cc]hromium-browser"
+              "workspace 2 silent, class:code-url-handler"
+              "workspace 3 silent, class:[Ss]lack"
+
+              "workspace 7 silent, class:^(brave-sysdig.vitally.io.*)$"
+              "workspace 8 silent, class:^(brave-mail.google.com.*)$"
+              "workspace 8 silent, class:^(brave-calendar.google.com.*)$"
+
+              "workspace 9, class:^(1[Pp]assword)$"
 
               # throw sharing indicators away
-              "workspace special silent, title:^(Firefox — Sharing Indicator)$"
-              "workspace special silent, title:^(.*is sharing (your screen|a window).)$"
+              # "workspace special silent, title:^(Firefox — Sharing Indicator)$"
+              # "workspace special silent, title:^(.*is sharing (your screen|a window).)$"
             ];
 
           };
