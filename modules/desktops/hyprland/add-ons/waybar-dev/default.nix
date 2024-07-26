@@ -42,14 +42,13 @@ in {
                 children-class = "not-power";
                 transition-left-to-right = true;
               };
-              modules = [ "custom/overflow" "backlight/slider" "network" "tray" ];
+              modules =
+                [ "custom/overflow" "backlight/slider" "network" "tray" ];
             };
 
             ###### ----- Define Modules
 
-            "custom/overflow" = {
-              format = "";
-            };
+            "custom/overflow" = { format = ""; };
 
             "network#down" = {
               format = "󰁅 {bandwidthDownBits}";
@@ -229,26 +228,18 @@ in {
           }
 
           #battery {
-          background-color: #000000;
+          background-color: ${theme.background};
           color: white;
           }
 
           #battery.charging {
-          color: #ffffff;
-          background-color: #000000;
+          color: ${theme.foreground};
+          background-color: ${theme.background};
           }
-
-          /*
-          @keyframes blink {
-          to {
-          background-color: #ffffff;
-          color: #000000;
-          }
-          } */
 
           #battery.critical:not(.charging) {
           background-color: ${theme.error};
-          color: #ffffff;
+          color: ${theme.foreground};
           animation-name: blink;
           animation-duration: 0.5s;
           animation-timing-function: linear;
@@ -275,7 +266,7 @@ in {
           }
           /*
           window#waybar.solo {
-          background-color: #FFFFFF;
+          background-color: ${theme.background};
           } */
 
           #workspaces button {
@@ -324,13 +315,14 @@ in {
           padding-right: 8px;
           }
 
+          #custom-overflow",
           #pulseaudio,
           #bluetooth,
           #network,
           #mpd,
           #battery,
           #backlight-slider,
-          #backlight {
+          #backlight,
           color: ${theme.active};
           padding-right: 8px;
           }
