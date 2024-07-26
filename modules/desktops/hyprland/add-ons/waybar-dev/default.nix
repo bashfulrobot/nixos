@@ -230,7 +230,7 @@ in {
 
           #battery {
           background-color: ${theme.background};
-          color: white;
+          color: ${theme.foreground};
           }
 
           #battery.charging {
