@@ -64,9 +64,9 @@ in {
               # "dimaround,title:^(Quick Access — 1Password)$"
               # "noanim,title:^(Quick Access — 1Password)$"
 
-              "float, class:^(org.gnome.*)$"
-              "float, class:^(pavucontrol)$"
-              "float, class:(blueberry.py)"
+              # "float, class:^(org.gnome.*)$"
+              # "float, class:^(pavucontrol)$"
+              # "float, class:(blueberry.py)"
 
               # make pop-up file dialogs floating, centred, and pinned
               "float, title:(Open|Progress|Save File)"
@@ -76,11 +76,12 @@ in {
               "center, class:^(xdg-desktop-portal-gtk)$"
               "pin, class:^(xdg-desktop-portal-gtk)$"
 
-# assign windows to workspaces
+              # assign windows to workspaces
               "workspace 1 silent, class:[Cc]hromium-browser"
               "workspace 2 silent, class:code-url-handler"
               "workspace 3 silent, class:[Ss]lack"
 
+              # TODO: update classes for chromium
               "workspace 7 silent, class:^(brave-sysdig.vitally.io.*)$"
               "workspace 8 silent, class:^(brave-mail.google.com.*)$"
               "workspace 8 silent, class:^(brave-calendar.google.com.*)$"
