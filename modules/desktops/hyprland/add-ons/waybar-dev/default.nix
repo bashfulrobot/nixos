@@ -44,7 +44,7 @@ in {
                 transition-left-to-right = true;
               };
               modules =
-                [ "custom/overflow" "backlight/slider" "network" "tray" ];
+                [ "custom/overflow" "pulseaudio" "backlight/slider" "bluetooth" "network" "tray" ];
             };
 
             ###### ----- Define Modules
@@ -63,7 +63,7 @@ in {
               interval = 1;
             };
 
-            network = {
+            "network" = {
               #interface = "wlp2*"; # (Optional) To force the use of this interface
               format-wifi = "{essid} ({signalStrength}%) ";
               format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
@@ -73,7 +73,7 @@ in {
               on-click-right = "nmtui";
             };
 
-            pulseaudio = {
+            "pulseaudio" = {
               #"scroll-step = 1; // %, can be a float
               format = "{volume}%{format_source}";
               format-bluetooth = "{volume}%{format_source}";
@@ -84,7 +84,7 @@ in {
               on-click-right = "pavucontrol";
             };
 
-            bluetooth = {
+            "bluetooth" = {
               format = " {status}";
               format-connected = " {device_alias}";
               format-connected-battery =
@@ -105,7 +105,7 @@ in {
               tooltip-format-enumerate-connected-battery =
                 "{device_alias}	{device_address}	{device_battery_percentage}%";
             };
-            clock = {
+            "clock" = {
               format = "{:%H:%M }";
               format-alt = "{:%Y-%m-%d}";
               interval = 1;
@@ -158,7 +158,7 @@ in {
               max-length = 100;
             };
 
-            mpd = {
+            "mpd" = {
               format =
                 "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ";
               format-disconnected = "Disconnected ";
@@ -179,13 +179,13 @@ in {
               tooltip-format = "MPD (connected)";
               tooltip-format-disconnected = "MPD (disconnected)";
             };
-            backlight = {
+            "backlight" = {
               # device = "acpi_video1";
               format = "{percent}% ";
               format-icons = [ "" "" ];
             };
 
-            battery = {
+            "battery" = {
               states = {
                 good = 95;
                 warning = 30;
