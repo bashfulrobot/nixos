@@ -176,10 +176,10 @@ NetworkWidget: true
 SensorTooltips: false
 
 # The size of the of the circular sensors
-SensorSize: 20
+SensorSize: 15
 
 # The size of the network icon
-NetworkIconSize: 20
+NetworkIconSize: 15
 
 # Enables tray icons
 EnableSNI: true
@@ -192,7 +192,7 @@ EnableSNI: true
 # The wildcard filter '*' does not work for SNIIconName and SNIDisabled
 
 # Scale everything down to 25 pixels ('*' as filter means everything)
-SNIIconSize: *, 20
+SNIIconSize: *, 15
 # Explicitly make OBS a bit smaller than default
 #SNIIconSize: OBS, 23
 # Nudges the Discord icon a bit down
