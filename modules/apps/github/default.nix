@@ -11,7 +11,7 @@ let
   githubApp = makeDesktopApp {
     name = "Github";
     url = "https://github.com/bashfulrobot/nixos";
-    binary = "${pkgs.brave}/bin/brave";
+    binary = "${pkgs.chromium}/bin/chromium";
     myStartupWMClass = "brave-github.com__bashfulrobot_nixos-Default";
     iconSizes = [ "32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
