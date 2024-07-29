@@ -12,7 +12,7 @@ let
     name = "Pairdrop";
     url = "https://pairdrop.srvrs.co/";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "brave-pairdrop.srvrs.co__-Default";
+    myStartupWMClass = "chrome-pairdrop.srvrs.co__-Default";
     iconSizes = ["32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

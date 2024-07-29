@@ -12,7 +12,7 @@ let
     name = "Github";
     url = "https://github.com/bashfulrobot/nixos";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "brave-github.com__bashfulrobot_nixos-Default";
+    myStartupWMClass = "chrome-github.com__bashfulrobot_nixos-Default";
     iconSizes = [ "32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

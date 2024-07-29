@@ -12,7 +12,7 @@ let
     name = "Rocket Chat";
     url = "https://chat.developer.gov.bc.ca/channel/devops-sysdig";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "brave-chat.developer.gov.bc.ca__channel_devops-sysdig-Default";
+    myStartupWMClass = "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Default";
     iconSizes = [ "32" "48" "64" "96" "128" "256" "512" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons
