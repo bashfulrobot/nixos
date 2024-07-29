@@ -59,6 +59,14 @@ in {
 
         };
 
+        "org/gnome/desktop/wm/preferences" = {
+          # button-layout = "appmenu:minimize,maximize,close";
+          button-layout = "";
+          num-workspaces = 4;
+          theme = "Tokyonight-Dark";
+
+        };
+
         # "org/gnome/desktop/sound" = { theme-name = "tokyonight-gtk-theme"; };
 
         "org/gnome/desktop/background" = {
