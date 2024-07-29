@@ -11,7 +11,7 @@ let
   rocketchatApp = makeDesktopApp {
     name = "Rocket Chat";
     url = "https://chat.developer.gov.bc.ca/channel/devops-sysdig";
-    binary = "${pkgs.brave}/bin/brave";
+    binary = "${pkgs.chromium}/bin/chromium";
     myStartupWMClass = "brave-chat.developer.gov.bc.ca__channel_devops-sysdig-Default";
     iconSizes = [ "32" "48" "64" "96" "128" "256" "512" ];
     # iconSizes = [ "256" ]; # forcing large icon use

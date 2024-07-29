@@ -10,7 +10,7 @@ let
   whatsappWebApp = makeDesktopApp {
     name = "Whatsapp";
     url = "https://web.whatsapp.com/";
-    binary = "${pkgs.brave}/bin/brave";
+    binary = "${pkgs.chromium}/bin/chromium";
     myStartupWMClass = "brave-web.whatsapp.com__-Default";
     iconSizes = ["32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use

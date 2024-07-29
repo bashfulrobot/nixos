@@ -11,7 +11,7 @@ let
   nixosWikiApp = makeDesktopApp {
     name = "Nixos Wiki";
     url = "https://wiki.nixos.org/wiki/NixOS_Wiki";
-    binary = "${pkgs.brave}/bin/brave";
+    binary = "${pkgs.chromium}/bin/chromium";
     myStartupWMClass = "brave-wiki.nixos.org__wiki_NixOS_Wiki-Default";
     iconSizes = [ "16" "32" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
