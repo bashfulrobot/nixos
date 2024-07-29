@@ -79,6 +79,7 @@ in {
       gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
       gnomeExtensions.looking-glass-button # Toggle the Looking Glass visibility by clicking on a panel icon.
       gnomeExtensions.window-calls # allows me to run my fish funciton to get the wmc_class of a window
+      gnomeExtensions.hide-top-bar # Hide the top bar except in overview
 
       ## Extentions to try, or diusabled due to gnome shell version
       #gnomeExtensions.next-up # Show your next calendar event in the status bar
@@ -120,7 +121,6 @@ in {
       gnomeExtensions.applications-menu
       gnomeExtensions.auto-move-windows
       gnomeExtensions.gtk4-desktop-icons-ng-ding
-      gnomeExtensions.hide-top-bar
       gnomeExtensions.launch-new-instance
       gnomeExtensions.light-style
       gnomeExtensions.native-window-placement
