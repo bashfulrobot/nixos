@@ -6,7 +6,7 @@ in {
     apps.mullvad.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable centralised hosts file.";
+      description = "Enable mullvad vpn";
     };
   };
 

@@ -58,7 +58,8 @@ in {
     };
 
     cli = {
-      alacritty.enable = true;
+      blackbox-terminal.enable = false;
+      alacritty.enable = false;
       direnv.enable = true;
       sysdig-cli-scanner.enable = true;
       instruqt.enable = true;

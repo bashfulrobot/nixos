@@ -51,8 +51,9 @@ in {
           # Colours specified in the theme folder
 
           window = {
-            decorations = "full";
+            # decorations = "full";
             # decorations = "none";
+            decorations = "Buttonless";
             # startup_mode = "Windowed";
             # set in stylix
             # opacity = 0.96;

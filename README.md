@@ -100,6 +100,7 @@ The Espanso service is funny. At times, the service will not start after an upda
 - `upgrade` the system.
 - Unregister the Espanso service with `espanso service unregister`
 - `reboot`, and let the `services.espanso.enable = true;` in my config, start the service.
+- TODO: test- espanso stop; espanso start --unmanaged
 
 ### Getting StartupWMClass For Web Apps
 

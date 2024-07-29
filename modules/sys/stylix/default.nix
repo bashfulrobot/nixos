@@ -2,6 +2,7 @@
 
 { user-settings, config, lib, pkgs, ... }:
 let cfg = config.sys.stylix;
+sf-mono-liga-font = pkgs.callPackage ../fonts/build/sfpro/liga { };
 
 in {
 
@@ -52,8 +53,8 @@ in {
         };
 
         monospace = {
-          package = pkgs.fira-code-nerdfont;
-          name = "FiraCode Nerd Font";
+          package = sf-mono-liga-font;
+          name = "Liga SFMono Nerd Font";
         };
 
         emoji = {
