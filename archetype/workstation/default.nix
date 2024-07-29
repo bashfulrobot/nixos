@@ -76,6 +76,8 @@ in {
       tailscale.enable = true;
       docker.enable = true;
       gemini-cli.enable = true;
+      foot.enable = true;
+      yazi.enable = true;
     };
 
     dev = {
