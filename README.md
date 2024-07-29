@@ -2,7 +2,13 @@
 
 This repo contains the nixos cfg for a few of my systems. It tends to be under heavy development as I am still in the "keep trying things" phase of my Nix learnings. This repo has moved from Gnome -> Pantheon -> Hyprland - > Gnome -> sway -> Hyprland -> Gnome. You see where I am going with this. It "feels" like Gnome is where I plan to stay for some time. I found the user experience to be good, and the OOTB configuration seems to work best. It allows me to stop messing around to a degree and get "back to work."
 
-Which NIX is causing me to fail right now. I am "back to work." :)
+Gnome works for me now with:
+
+- pop-shell for tiling
+- just perfection to remove window controls, hide my panel unless I am in overwiew, etc
+- stylix
+
+It is now truely minimal in apperance which is what my brain needs. And most stuff looks the same!
 
 ## Status
 
@@ -105,18 +111,14 @@ Getting the StartupWMClass is a pain in Wayland.
 - Then, you can use a command to get the window's class.
 - See the `get_wm_class`` fish shell function in my`fish` module.
 
-#### Sway
-
-- I have a fish shell function to get the app id for the currently focused window. (`get_appid`)
-
 #### Steps for my setup
 
-Note: I use Brave, which also works with Chromium or any browser supporting the same cli flags. You can set the desired browser in the module where you define the web app. See `modules/apps/gcal-br/default.nix` for an example.
+Note: I use Chromium, which also works with Brave or any browser supporting the same cli flags. You can set the desired browser in the module where you define the web app. See `modules/apps/gcal-br/default.nix` for an example.
 
-- Temporarily create a desktop shortcut for the site to wrap in brave
-- Copy the icons using the `lib/cbb-webwrap/copy-icons.`sh` script
-- Delete the app in brave
-- run `brave --new-window --app="https://URL"` and leave it running
+- Temporarily create a desktop shortcut for the site to wrap in Chromium
+- Copy the icons using the `lib/cbb-webwrap/copy-icons.`sh` script (have `copy-icons` alias, or `copy_icons` script in your path)
+- Delete the app in Chromium
+- run `chromium --new-window --app="https://URL"` and leave it running
 - Run `get_wm_class` in the terminal to get the StartupWMClass (save it somewhere)
 - I have a nix function for creating a web app in `lib/cbb-webwrap/default.nix`An excellent example of how to use that nix function can be seen in `modules/apps/gcal-br/default.nix`
 - Icons will be funky until you log out and back in or reboot
@@ -129,27 +131,8 @@ Note: I use Brave, which also works with Chromium or any browser supporting the 
     - [ ] Leverage a `shell`.nix`
     - [ ] Move to `disko``
     - [ ] Doc how to install with minimal iso and use this repo during installation
-- sway
-    - [ ] Waybar: module backlight: Disabling module "backlight", No backlight found
-    - [ ] Waybar: some font awesome icons not showing in right side modules
-    - [ ] Waybar: add bluetooth icon, and lauch config app
-    - [ ] Waybar: ws 3 showing incorrect icon
-    - [ ] Waybar: [error] media stopped unexpectedly, is it endless?
-    - [ ] Waybar: [warning] Requested height: 5 is less than the minimum height: 27 required by the modules
-    - [ ] Waybar: make battery module optional on tower (no battery)
-    - [ ] Waybar: [warning] Mapping is not an object
-    - [ ] Waybar: [warning] Requested height: 5 is less than the minimum height: 27 required by the modules
-    - [ ] Sway: some apps do not respect rules for which ws to open on
-    - [ ] Login: theme it, and remove session selector (potentially)
-    - [ ] Theme: currently catppuccin, but gtk theme seems to be going away. Consider stock adwaita, or maybe yaru. Less theming to worry about.
-    - [ ] ssh: ssh-agent not adding my keys automatically - review: <https://discourse.nixos.org/t/how-to-set-up-a-system-wide-ssh-agent-that-would-work-on-all-terminals/14156/11>
-    - [ ] fonts: add FA pro to build
-    - [ ] sov: overlay not showing - opened issue upstream
-    - [ ] statusbar: evaluate i3blocks-rust with swaybar
-    - [ ] regreet: finish theme and extra config
-    - [ ] Shutdown: Add desktop file
-    - [ ] Sleep: Add desktop file
-- [x] Chrome-based browers module: add vivaldi support
-- [ ] Chrome-based browers module: test vivaldi, just code has landed
-- [ ] Chrome-based browers module: investigate Vivaldi modding - https://wiki.archlinux.org/title/Vivaldi#Modding
-- [ ] eval swayos configs to merge in as appropriate
+- [ ] Merge all wallpaper references to use a wallpaper from a single location
+- [ ] conditional to put the proper scaled wallpaper on my laptop
+- [ ] strip out unused code
+- [ ] Test cosmic when ready to maybe replace gnome
+- [ ] go through TODO comments in code
