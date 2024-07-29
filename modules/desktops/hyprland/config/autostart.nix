@@ -29,7 +29,8 @@ in {
               # "${pkgs.swaybg}/bin/swaybg -o $monright -i ~/.config/hypr/wallpapers/tokyonight01-right.png"
               "${pkgs.swaybg}/bin/swaybg -i ~/.config/hypr/wallpapers/wallpaper.png"
               "${pkgs._1password-gui}/bin/1password-gui"
-              "${pkgs.slack}/bin/slack"
+              #"${pkgs.slack}/bin/slack"
+              "/run/current-system/sw/bin/gBar bar 0"
 
             ];
 

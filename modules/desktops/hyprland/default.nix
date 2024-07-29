@@ -42,7 +42,8 @@ in {
       add-ons = {
         hyprlock.enable = true;
         waybar.enable = false;
-        waybar-dev.enable = true;
+        waybar-dev.enable = false;
+        gbar.enable = true;
         rofi.enable = true;
         sddm.enable = true;
         hyprexpo.enable = false;

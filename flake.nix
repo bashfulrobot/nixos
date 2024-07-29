@@ -9,6 +9,7 @@
     catppuccin = { url = "github:catppuccin/nix"; };
     hyprswitch = { url = "github:h3rmt/hyprswitch/release"; };
     hyprland = { url = "github:hyprwm/Hyprland"; };
+    gBar.url = "github:scorpion-26/gBar";
     # Use dev branch
     # hyprland = { url = "git+https://github.com/hyprwm/Hyprland?submodules=1"; };
     home-manager = {

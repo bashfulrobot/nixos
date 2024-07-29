@@ -32,19 +32,32 @@ in {
             modules-left = [ "hyprland/workspaces" "hyprland/submap" ];
             # modules-center = [ "hyprland/window" ];
             modules-center = [ "clock" ];
-            modules-right = [ "mpd" "battery" "custom/power" "group/overflow" ];
+            modules-right = [
+              "mpd"
+              "battery"
+              "bluetooth"
+              "pulseaudio"
+              "network"
+              "tray"
+              "custom/power"
+              # "group/overflow"
+            ];
 
             ##### ----- Define Groups
 
             "group/overflow" = {
-              orientation = "inherit";
+              orientation = "horizontal";
               drawer = {
                 transition-duration = 500;
                 children-class = "not-power";
                 transition-left-to-right = true;
               };
-              modules =
-                [ "custom/overflow" "pulseaudio" "backlight/slider" "bluetooth" "network" "tray" ];
+              modules = [
+                "custom/overflow"
+
+                # "backlight/slider"
+
+              ];
             };
 
             ###### ----- Define Modules
@@ -65,9 +78,9 @@ in {
 
             "network" = {
               #interface = "wlp2*"; # (Optional) To force the use of this interface
-              format-wifi = "{essid} ({signalStrength}%) ";
-              format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
-              format-linked = "{ifname} (No IP) ";
+              format-wifi = " {essid} ({signalStrength}%)";
+              format-ethernet = " {ifname}: {ipaddr}/{cidr}";
+              format-linked = " {ifname} (No IP)";
               format-disconnected = "Disconnected ";
               format-alt = "{ifname}: {ipaddr}/{cidr}";
               on-click-right = "nmtui";
@@ -181,7 +194,7 @@ in {
             };
             "backlight" = {
               # device = "acpi_video1";
-              format = "{percent}% ";
+              format = "{icon} {percent}% ";
               format-icons = [ "" "" ];
             };
 
@@ -191,9 +204,9 @@ in {
                 warning = 30;
                 critical = 15;
               };
-              format = "{capacity}% ";
-              format-charging = "{capacity}%";
-              format-plugged = "{capacity}%";
+              format = "{icon} {capacity}% ";
+              format-charging = "{icon} {capacity}%";
+              format-plugged = "{icon} {capacity}%";
               format-alt = "{time} ";
               # format-good = ""; # An empty format will hide the module
               # #format-full = "";
@@ -316,7 +329,7 @@ in {
           padding-right: 8px;
           }
 
-          #custom-overflow,
+          #overflow,
           #pulseaudio,
           #bluetooth,
           #network,
