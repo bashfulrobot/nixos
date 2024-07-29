@@ -51,7 +51,7 @@ in {
           font-name = "Work Sans 12";
           monospace-font-name = "Victor Mono 13";
           cursor-theme = "Adwaita";
-          gtk-theme = "Tokyonight-Dark-BL-LB";
+          gtk-theme = "Tokyonight-Dark";
           icon-theme = "Tokyonight-Dark";
         };
         "org/gnome/extensions/appindicator" = {
@@ -92,7 +92,7 @@ in {
         };
 
         "org/gnome/shell/extensions/user-theme" = {
-          name = "Tokyonight-Dark-BL-LB";
+          name = "Tokyonight-Dark";
         };
 
       };
