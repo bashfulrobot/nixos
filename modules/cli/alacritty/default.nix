@@ -1,6 +1,5 @@
 { user-settings, config, pkgs, lib, ... }:
-let
-  cfg = config.cli.alacritty;
+let cfg = config.cli.alacritty;
 
 in {
 
@@ -41,13 +40,12 @@ in {
           bell = {
             animation = "EaseOutQuart";
             duration = 100;
-            color = "0x1d2021";
+            # color = "0x1d2021";
           };
 
           cursor = {
             style = "Block";
             unfocused_hollow = true;
-            # blinking = "Always";
           };
 
           # Colours specified in the theme folder
@@ -56,7 +54,8 @@ in {
             decorations = "full";
             # decorations = "none";
             # startup_mode = "Windowed";
-            opacity = 0.96;
+            # set in stylix
+            # opacity = 0.96;
             dynamic_padding = true;
             padding = {
               x = 30;
@@ -64,31 +63,32 @@ in {
             };
           };
 
-          font = {
-            # Old font - ""Liga SFMono Nerd Font"
-            # Old font - "MesloLGS NF"
-            normal = {
-              family = "Victor Mono";
-              style = "Regular";
-            };
-            bold = {
-              family = "Victor Mono";
-              style = "Bold";
-            };
-            italic = {
-              family = "Victor Mono";
-              style = "Italic";
-            };
-            bold_italic = {
-              family = "Victor Mono";
-              style = "Bold Italic";
-            };
-            size = 18;
-            offset = {
-              x = 1;
-              y = 1;
-            };
-          };
+          # set in stylix
+          # font = {
+          #   # Old font - ""Liga SFMono Nerd Font"
+          #   # Old font - "MesloLGS NF"
+          #   normal = {
+          #     family = "Victor Mono";
+          #     style = "Regular";
+          #   };
+          #   bold = {
+          #     family = "Victor Mono";
+          #     style = "Bold";
+          #   };
+          #   italic = {
+          #     family = "Victor Mono";
+          #     style = "Italic";
+          #   };
+          #   bold_italic = {
+          #     family = "Victor Mono";
+          #     style = "Bold Italic";
+          #   };
+          #   size = 18;
+          #   offset = {
+          #     x = 1;
+          #     y = 1;
+          #   };
+          # };
           hints = {
             enabled = [{
               regex = ''
