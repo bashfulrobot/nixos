@@ -8,7 +8,6 @@ let
   aharoni-font = pkgs.callPackage ./build/aharoni { };
   monaspace-font = pkgs.callPackage ./build/monaspace { };
 
-
 in {
 
   options = {
@@ -35,6 +34,7 @@ in {
         fira
         fira-code
         fira-code-symbols
+        fira-code-nerdfont
         font-awesome
         cantarell-fonts
         # comic-mono
