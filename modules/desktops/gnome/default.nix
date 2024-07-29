@@ -390,7 +390,7 @@ in {
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" =
           {
             binding = "<Super>b";
-            command = "brave";
+            command = "chromium";
             name = "Browser";
           };
 
