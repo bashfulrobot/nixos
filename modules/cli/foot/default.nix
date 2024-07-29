@@ -1,30 +1,30 @@
 { user-settings, pkgs, secrets, config, lib, ... }:
 let
   cfg = config.cli.foot;
-  footDesktopFile = pkgs.writeTextFile {
-    name = "foot.desktop";
-    text = ''
-      [Desktop Entry]
-      Version=1.0
-      Name=Foot Terminal
-      Comment=A fast, lightweight and minimalistic Wayland terminal emulator
-      Exec=${pkgs.foot}/bin/foot
-      Icon=${pkgs.foot}/share/icons/hicolor/48x48/apps/foot.png
-      Terminal=false
-      Type=Application
-      Categories=System;TerminalEmulator;
-    '';
-    installPhase = ''
-      mkdir -p $out/share/applications
-      cp $src $out/share/applications/foot.desktop
-    '';
+  footDesktopItem = pkgs.makeDesktopItem {
+    name = "foot";
+    exec = "${pkgs.foot}/bin/foot";
+    icon = "${pkgs.foot}/share/icons/hicolor/48x48/apps/foot.png";
+    comment = "A fast, lightweight and minimalistic Wayland terminal emulator";
+    categories = "System;TerminalEmulator;";
   };
+
   footIcon = pkgs.stdenv.mkDerivation {
     name = "foot-icon";
     src = ./foot.png;
     installPhase = ''
       mkdir -p $out/share/icons/hicolor/48x48/apps
       cp $src $out/share/icons/hicolor/48x48/apps/foot.png
+    '';
+  };
+
+  footPackage = pkgs.stdenv.mkDerivation {
+    name = "foot-package";
+    srcs = [ footDesktopItem footIcon ];
+    installPhase = ''
+      mkdir -p $out/share/applications
+      cp ${footDesktopItem}/share/applications/foot.desktop $out/share/applications/foot.desktop
+      cp -r ${footIcon}/share/icons $out/share/icons
     '';
   };
 in {
@@ -37,7 +37,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ footDesktopFile footIcon ];
+    environment.systemPackages = with pkgs; [ footPackage ];
 
     home-manager.users."${user-settings.user.username}" = {
 
