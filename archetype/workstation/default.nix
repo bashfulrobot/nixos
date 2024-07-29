@@ -96,6 +96,7 @@ in {
         hw-scan.enable = true;
         screenshots.enable = true;
         gmail-url.enable = true;
+        copy_icons.enable = true;
       };
     };
 

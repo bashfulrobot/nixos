@@ -1,7 +1,7 @@
 { user-settings, pkgs, lib, config, ... }:
 
 let
-  cfg = config.sys.scripts.restic;
+  cfg = config.sys.scripts.copy_icons;
   copyIcons = pkgs.writeShellApplication {
     name = "copy_icons";
 
@@ -37,7 +37,7 @@ let
   };
 in {
   options = {
-    sys.scripts.restic.enable = lib.mkOption {
+    sys.scripts.copy_icons.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable the copy_icons.";
