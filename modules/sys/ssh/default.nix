@@ -17,14 +17,14 @@ in {
     # Enable the OpenSSH daemon.
     services.openssh.enable = true;
 
-    programs.ssh = {
-      startAgent = true;
-      enableAskPassword = true;
-      askPassword = "${pkgs.seahorse}/libexec/seahorse/ssh-askpass";
-    };
+    # programs.ssh = {
+    #   startAgent = true;
+    #   enableAskPassword = true;
+    #   askPassword = "${pkgs.seahorse}/libexec/seahorse/ssh-askpass";
+    # };
 
     home-manager.users."${user-settings.user.username}" = {
-      services.ssh-agent.enable = true;
+      # services.ssh-agent.enable = true;
 
       # home.sessionVariables.SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/keyring/ssh";
       #home.sessionVariables.SSH_AUTH_SOCK = "/run/user/${user-settings.user.id}/gcr/ssh";
