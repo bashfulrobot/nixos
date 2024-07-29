@@ -16,11 +16,11 @@ in {
   config = lib.mkIf cfg.enable {
 
     #  removed, using home manager - testing. TODO remove if not needed.
-    # programs.gnupg.agent = {
-    #   enable = true;
-    #   enableSSHSupport = false; # using gnome-keyring
-    #   pinentryPackage = pkgs.pinentry-gnome3;
-    # };
+    programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryPackage = pkgs.pinentry-gnome3;
+    };
 
     home-manager.users."${user-settings.user.username}" = {
       ### GPG
@@ -30,7 +30,7 @@ in {
         enable = true;
         enableBashIntegration = true;
         enableFishIntegration = true;
-        pinentryPackage = pkgs.pinentry-curses;
+        pinentryPackage = pkgs.pinentry-gnome3;
       };
     };
   };

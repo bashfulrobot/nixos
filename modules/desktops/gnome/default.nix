@@ -135,6 +135,13 @@ in {
     home-manager.users."${user-settings.user.username}" = {
       home.sessionVariables = { XDG_CURRENT_DESKTOP = "gnome"; };
 
+      services.gnome-keyring = {
+        enable = true;
+        # Ensure all are enabled. Could not find docs
+        # stating the defaults.
+        components = [ "pkcs11" "secrets" "ssh"];
+      };
+
       home.file.".face" = {
         source = ./.face;
         target = ".face";
