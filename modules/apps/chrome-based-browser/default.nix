@@ -46,20 +46,18 @@ in {
           } # kagi search
           # { id = "cfpenpohaapdgnkglcbgjiooipcbcebi"; } # easy window resize
           # { id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
-          #{ id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
-          {
             id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
           } # 1password
           # { id = "kfimphpokifbjgmjflanmfeppcjimgah"; } # inoreader
           {
             id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
           } # dark reader
-          #{ id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
+          { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
           #{ id = "lljedihjnnjjefafchaljkhbpfhfkdic"; } # jiffy reader
           #{ id = "haebnnbpedcbhciplfhjjkbafijpncjl"; } # tineye
           { id = "fggkaccpbmombhnjkjokndojfgagejfb"; } # tactiq
           { id = "glnpjglilkicbckjpbgcfkogebgllemb"; } # okta
-          { id = "gabdloknkpdefdpkkibplcfnkngbidim"; } # delugesiphon
+          # { id = "gabdloknkpdefdpkkibplcfnkngbidim"; } # delugesiphon
           { id = "kbfnbcaeplbcioakkpcpgfkobkghlhen"; } # grammarly
           { id = "pbmlfaiicoikhdbjagjbglnbfcbcojpj"; } # simplify
           {
@@ -71,7 +69,7 @@ in {
           {
             id = "liecbddmkiiihnedobmlmillhodjkdmb";
           } # Loom video recording
-          #{ id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
+          { id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
           { id = "oeopbcgkkoapgobdbedcemjljbihmemj"; } # Checker Plus for Mail
           {
             id = "hkhggnncdpfibdhinjiegagmopldibha";
@@ -82,7 +80,7 @@ in {
             id = "pcmpcfapbekmbjjkdalcgopdkipoggdi";
           } # Markdown downloader
           #{ id = "gcaimhkfmliahedmeklebabdgagipbia"; } # Archive Today
-          #{ id = "mphkdfmipddgfobjhphabphmpdckgfhb"; } # obsidian clipper
+          { id = "mphkdfmipddgfobjhphabphmpdckgfhb"; } # obsidian clipper
           #{ id = "egejbknaophaadmhijkepokfchkbnelc"; } # bypass medium
           { id = "egiemoacchfofdhhlfhkdcacgaopncmi"; } # URL/Tab Manager
           { id = "bcelhaineggdgbddincjkdmokbbdhgch"; } # Mail message URL
@@ -106,6 +104,7 @@ in {
             id = "cmpdlhmnmjhihmcfnigoememnffkimlk";
           } # Catppuccin Macchiato theme
           { id = "jhjnalhegpceacdhbplhnakmkdliaddd"; } # Catppuccin Latte theme
+          { id = "enpfonmmpgoinjpglildebkaphbhndek"; } # Tokyonight
           { id = "pgbdljpkijehgoacbjpolaomhkoffhnl"; } #email tracking for work
         ];
       };
