@@ -28,12 +28,6 @@
       host.evo = true;
     };
 
-    chrome-based-browser = {
-      enable = true;
-      # Currently supported browsers are "brave", "vivaldi" or "chromium".
-      browser = "chromium";
-    };
-
     desktopFile = {
       enable = true;
       reboot-firmware = true;

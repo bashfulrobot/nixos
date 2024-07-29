@@ -28,11 +28,12 @@ in {
       nautilus.enable = true;
       common.enable = true;
       one-password.enable = true;
-      # chrome-based-browser = {
-      #   enable = true;
-      #   # Currently supported browsers are "brave", "vivaldi" or "chromium".
-      #   browser = "brave";
-      # };
+      chrome-based-browser = {
+        enable = true;
+        # Currently supported browsers are "brave", "vivaldi" or "chromium".
+        browser = "chromium";
+        disableWayland = false;
+      };
       readitlater.enable = true;
       vscode.enable = true;
       nixpkgs-search.enable = true;
@@ -53,6 +54,7 @@ in {
       todoist.enable = true;
       gcal-br.enable = true;
       gmail-br.enable = true;
+      intercom.enable = true;
     };
 
     cli = {

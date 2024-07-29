@@ -28,13 +28,6 @@
       host.rembot = true;
     };
 
-    chrome-based-browser = {
-      enable = true;
-      # Currently supported browsers are "brave", "vivaldi" or "chromium".
-      browser = "chromium";
-      disableWayland = false;
-    };
-
     desktopFile = {
       enable = true;
       reboot-firmware = true;
