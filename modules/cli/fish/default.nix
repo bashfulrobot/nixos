@@ -45,12 +45,12 @@ in {
         #   }
         # ];
         functions = {
-          get_window_class = ''
-            , hyprctl clients | grep 'class:' | awk '{print $2}' | fzf | wl-copy --trim-newline
-          '';
-          get_window_title = ''
-            , hyprctl clients | grep 'class:' | awk '{print $2}' | fzf | wl-copy --trim-newline
-          '';
+          # get_window_class = ''
+          #   , hyprctl clients | grep 'class:' | awk '{print $2}' | fzf | wl-copy --trim-newline
+          # '';
+          # get_window_title = ''
+          #   , hyprctl clients | grep 'class:' | awk '{print $2}' | fzf | wl-copy --trim-newline
+          # '';
           active_nixstore_pkg = ''
             set -l query $argv
             if test -z "$query"
