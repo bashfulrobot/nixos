@@ -63,7 +63,6 @@ in {
       # Gnome Extensions
       gnomeExtensions.user-themes # User Themes
       gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
-      gnomeExtensions.just-perfection # Just Perfection
       # gnomeExtensions.fly-pie # Fly Pie mouse menu
       # gnomeExtensions.paperwm # tilig window manager
       gnomeExtensions.blur-my-shell # Blur my Shell
@@ -274,7 +273,7 @@ in {
           double-super-to-appgrid = false;
           keyboard-layout = false;
           osd = true;
-          panel = true;
+          panel = false;
           panel-in-overview = true;
           panel-notification-icon = true;
           ripple-box = false;
