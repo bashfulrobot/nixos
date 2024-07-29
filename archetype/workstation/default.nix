@@ -89,6 +89,7 @@ in {
     };
 
     sys = {
+      stylix.enable = true;
       dconf.enable = true;
       xdg.enable = true;
       hosts.enable = true;
