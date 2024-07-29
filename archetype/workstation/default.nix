@@ -58,6 +58,7 @@ in {
     };
 
     cli = {
+      alacritty.enable = true;
       direnv.enable = true;
       sysdig-cli-scanner.enable = true;
       instruqt.enable = true;
@@ -76,7 +77,7 @@ in {
       tailscale.enable = true;
       docker.enable = true;
       gemini-cli.enable = true;
-      foot.enable = true;
+      foot.enable = false;
       yazi.enable = true;
     };
 
