@@ -10,6 +10,10 @@
     hyprswitch = { url = "github:h3rmt/hyprswitch/release"; };
     hyprland = { url = "github:hyprwm/Hyprland"; };
     gBar.url = "github:scorpion-26/gBar";
+    # This allows automatic styling based on active Wallpaper.
+    # Homepage: https://github.com/danth/stylix
+    # Manual:   https://danth.github.io/stylix
+    stylix.url = "github:danth/stylix";
     # Use dev branch
     # hyprland = { url = "git+https://github.com/hyprwm/Hyprland?submodules=1"; };
     home-manager = {
@@ -23,7 +27,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, hyprswitch
-    , hyprland, nix-flatpak, nur, nvim, catppuccin, ... }:
+    , hyprland, nix-flatpak, nur, nvim, catppuccin, stylix, ... }:
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.
@@ -46,6 +50,7 @@
             nix-flatpak.nixosModules.nix-flatpak
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
+            stylix.nixosModules.stylix
             {
               home-manager = {
                 useUserPackages = true;
@@ -76,6 +81,7 @@
             nix-flatpak.nixosModules.nix-flatpak
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
+            stylix.nixosModules.stylix
 
             {
               home-manager = {
