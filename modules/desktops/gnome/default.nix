@@ -281,8 +281,8 @@ in {
           show-apps-button = true;
           startup-status = 0;
           theme = true;
-          # top-panel-position = 0; #top
-          top-panel-position = 1; # bottom
+          top-panel-position = 0; #top
+          # top-panel-position = 1; # bottom
           weather = false;
           window-demands-attention-focus = true;
           window-menu-take-screenshot-button = false;
