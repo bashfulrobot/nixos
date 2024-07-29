@@ -40,101 +40,142 @@ in {
           pkgs.brave;
         commandLineArgs = [ "--ozone-platform-hint=auto" ];
         extensions = [
-          { id = "cofpegcepiccpobikjoddpmmocficdjj"; } # bookmark search
+          # bookmark search
+          {
+            id = "cofpegcepiccpobikjoddpmmocficdjj";
+          }
+          # kagi search
           {
             id = "cdglnehniifkbagbbombnjghhcihifij";
-          } # kagi search
-          # { id = "cfpenpohaapdgnkglcbgjiooipcbcebi"; } # easy window resize
-          # { id = "khnpeclbnipcdacdkhejifenadikeghk"; } # asana
+          }
+          # 1password
+          {
             id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
-          } # 1password
-          # { id = "kfimphpokifbjgmjflanmfeppcjimgah"; } # inoreader
+          }
+          # dark reader
           {
             id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
-          } # dark reader
-          { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
-          #{ id = "lljedihjnnjjefafchaljkhbpfhfkdic"; } # jiffy reader
-          #{ id = "haebnnbpedcbhciplfhjjkbafijpncjl"; } # tineye
-          { id = "fggkaccpbmombhnjkjokndojfgagejfb"; } # tactiq
-          { id = "glnpjglilkicbckjpbgcfkogebgllemb"; } # okta
-          # { id = "gabdloknkpdefdpkkibplcfnkngbidim"; } # delugesiphon
-          { id = "kbfnbcaeplbcioakkpcpgfkobkghlhen"; } # grammarly
-          { id = "pbmlfaiicoikhdbjagjbglnbfcbcojpj"; } # simplify
+          }
+          # ublock origin
+          {
+            id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
+          }
+          # tactiq
+          {
+            id = "fggkaccpbmombhnjkjokndojfgagejfb";
+          }
+          # okta
+          {
+            id = "glnpjglilkicbckjpbgcfkogebgllemb";
+          }
+          # grammarly
+          {
+            id = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
+          }
+          # simplify
+          {
+            id = "pbmlfaiicoikhdbjagjbglnbfcbcojpj";
+          }
+          # todoist
           {
             id = "jldhpllghnbhlbpcmnajkpdmadaolakh";
-          } # todoist
-          # { id = "kgjfgplpablkjnlkjmjdecgdpfankdle"; } # zoom
-          #{ id = "lcbjdhceifofjlpecfpeimnnphbcjgnc"; } # xbrowsersync
-          #{ id = "niloccemoadcdkdjlinkgdfekeahmflj"; } # pocket
+          }
+          # Loom video recording
           {
             id = "liecbddmkiiihnedobmlmillhodjkdmb";
-          } # Loom video recording
-          { id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
-          { id = "oeopbcgkkoapgobdbedcemjljbihmemj"; } # Checker Plus for Mail
+          }
+          # Privacy Badger
+          {
+            id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";
+          }
+          # Checker Plus for Mail
+          {
+            id = "oeopbcgkkoapgobdbedcemjljbihmemj";
+          }
+          # Checker Plus for Cal
           {
             id = "hkhggnncdpfibdhinjiegagmopldibha";
-          } # Checker Plus for Cal
-          #{ id = "hefhjoddehdhdgfjhpnffhopoijdfnak"; } # Privacy Party
-          { id = "ghbmnnjooekpmoecnnnilnnbdlolhkhi"; } # Google docs offline
+          }
+          # Google docs offline
+          {
+            id = "ghbmnnjooekpmoecnnnilnnbdlolhkhi";
+          }
+          # Markdown downloader
           {
             id = "pcmpcfapbekmbjjkdalcgopdkipoggdi";
-          } # Markdown downloader
-          #{ id = "gcaimhkfmliahedmeklebabdgagipbia"; } # Archive Today
-          { id = "mphkdfmipddgfobjhphabphmpdckgfhb"; } # obsidian clipper
-          #{ id = "egejbknaophaadmhijkepokfchkbnelc"; } # bypass medium
-          { id = "egiemoacchfofdhhlfhkdcacgaopncmi"; } # URL/Tab Manager
-          { id = "bcelhaineggdgbddincjkdmokbbdhgch"; } # Mail message URL
-          { id = "cfpdompphcacgpjfbonkdokgjhgabpij"; } # Glean browser extension
-          { id = "gphhapmejobijbbhgpjhcjognlahblep"; } # gnome extention plugins
-          { id = "miancenhdlkbmjmhlginhaaepbdnlllc"; } # copy to clipboard
+          }
+          # obsidian clipper
+          {
+            id = "mphkdfmipddgfobjhphabphmpdckgfhb";
+          }
+          # URL/Tab Manager
+          {
+            id = "egiemoacchfofdhhlfhkdcacgaopncmi";
+          }
+          # Mail message URL
+          {
+            id = "bcelhaineggdgbddincjkdmokbbdhgch";
+          }
+          # Glean browser extension
+          {
+            id = "cfpdompphcacgpjfbonkdokgjhgabpij";
+          }
+          # gnome extention plugin
+          {
+            id = "gphhapmejobijbbhgpjhcjognlahblep";
+          }
+          # copy to clipboard
+          {
+            id = "miancenhdlkbmjmhlginhaaepbdnlllc";
+          }
+          # Speed dial extention
           {
             id = "jpfpebmajhhopeonhlcgidhclcccjcik";
-          } # Speed dial extention
-          # { id = "akahnknmcbmgodngfjcflnaljdbhnlfo"; } # Vertical Tabs in Side Panel - Not needed in brave
-          # { id = "ncppfjladdkdaemaghochfikpmghbcpc"; } # Open as popup
-          #{ id = "oodfdmglhbbkkcngodjjagblikmoegpa"; } # t.ly url shortener
-          # { id = "bkdgflcldnnnapblkhphbgpggdiikppg"; } # duckduckgo
+          }
+          # Omnivore
           {
             id = "blkggjdmcfjdbmmmlfcpplkchpeaiiab";
-          } # Omnivore
-          # id = "lbaenccijpceocophfjmecmiipgmacoi"; } # Wizardshot
-          { id = "bkkmolkhemgaeaeggcmfbghljjjoofoh"; } # Catppuccin Mocha theme
-          { id = "olhelnoplefjdmncknfphenjclimckaf"; } # Catppuccin Frappe theme
+          }
+          # Tokyonight
           {
-            id = "cmpdlhmnmjhihmcfnigoememnffkimlk";
-          } # Catppuccin Macchiato theme
-          { id = "jhjnalhegpceacdhbplhnakmkdliaddd"; } # Catppuccin Latte theme
-          { id = "enpfonmmpgoinjpglildebkaphbhndek"; } # Tokyonight
-          { id = "pgbdljpkijehgoacbjpolaomhkoffhnl"; } #email tracking for work
+            id = "enpfonmmpgoinjpglildebkaphbhndek";
+          }
+          # email tracking for work
+          {
+            id = "pgbdljpkijehgoacbjpolaomhkoffhnl";
+          }
+          # zoom
+          # {
+          #   id = "kgjfgplpablkjnlkjmjdecgdpfankdle";
+          # }
+          # xbrowsersync
+          # {
+          #   id = "lcbjdhceifofjlpecfpeimnnphbcjgnc";
+          # }
+          # Catppuccin Mocha theme
+          # {
+          #   id = "bkkmolkhemgaeaeggcmfbghljjjoofoh";
+          # }
+          # Catppuccin Frappe theme
+          # {
+          #   id = "olhelnoplefjdmncknfphenjclimckaf";
+          # }
+          # Catppuccin Macchiato theme
+          # {
+          #   id = "cmpdlhmnmjhihmcfnigoememnffkimlk";
+          # }
+          # Catppuccin Latte theme
+          # {
+          #   id = "jhjnalhegpceacdhbplhnakmkdliaddd";
+          # }
+          # tineye
+          # {
+          #     id = "haebnnbpedcbhciplfhjjkbafijpncjl";
+          # }
+
         ];
       };
       # force brave to use wayland - https://skerit.com/en/make-electron-applications-use-the-wayland-renderer
-      # home.file = if cfg.browser == "chromium" then {
-      #   ".config/chromium-flags.conf".text = ''
-      #     --enable-features=UseOzonePlatform
-      #     --ozone-platform=wayland
-      #     --enable-features=WaylandWindowDecorations
-      #     --force-device-scale-factor=1
-
-      #   '';
-      # } else if cfg.browser == "brave" then {
-      #   ".config/brave-flags.conf".text = ''
-      #     --enable-features=UseOzonePlatform
-      #     --ozone-platform=wayland
-      #     --enable-features=WaylandWindowDecorations
-      #     --force-device-scale-factor=1
-      #   '';
-      # } else if cfg.browser == "vivaldi" then {
-      #   ".config/vivaldi-stable.conf".text = ''
-      #     --enable-features=UseOzonePlatform
-      #     --ozone-platform=wayland
-      #     --enable-features=WaylandWindowDecorations
-      #     --force-device-scale-factor=1
-      #   '';
-      # } else
-      #   {
-      #     # Handle other browsers here
-      #   };
       home.file = let
         browserConfig = if !cfg.disableWayland then
           if cfg.browser == "chromium" then {
@@ -166,8 +207,7 @@ in {
         browserConfig
         {
           # Add other home.file configurations here
-          # Example:
-          # ".config/other-config.conf".text = "other configuration settings";
+
         }
       ];
     };
