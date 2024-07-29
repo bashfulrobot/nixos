@@ -30,7 +30,7 @@ let
       fi
 
       # Copy all files from the Icons subdirectory to the target directory
-      cp $HOME/.config/chromium/Default/Web\ Applications/Manifest\ Resources/*/Icons/* $target_path
+      "cp $HOME/.config/chromium/Default/Web\ Applications/Manifest\ Resources/*/Icons/* $target_path"
 
       exit 0
     '';
