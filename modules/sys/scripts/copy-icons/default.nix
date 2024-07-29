@@ -26,11 +26,11 @@ let
       target_path="$HOME/dev/nix/nixos/modules/apps/$target_dir/icons/"
 
       if [ ! -d "$target_path" ]; then
-          mkdir -p $target_path
+          mkdir -p "$target_path"
       fi
 
       # Copy all files from the Icons subdirectory to the target directory
-      "cp $HOME/.config/chromium/Default/Web\ Applications/Manifest\ Resources/*/Icons/* $target_path"
+      cp "$HOME/.config/chromium/Default/Web\ Applications/Manifest\ Resources/*/Icons/*" "$target_path"
 
       exit 0
     '';
