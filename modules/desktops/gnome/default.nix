@@ -79,16 +79,13 @@ in {
       gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
       gnomeExtensions.looking-glass-button # Toggle the Looking Glass visibility by clicking on a panel icon.
       gnomeExtensions.window-calls # allows me to run my fish funciton to get the wmc_class of a window
-      gnomeExtensions.hide-top-bar # Hide the top bar except in overview
 
       ## Extentions to try, or diusabled due to gnome shell version
       #gnomeExtensions.next-up # Show your next calendar event in the status bar
-      #gnomeExtensions.hide-top-bar # Hide the top bar except in overview
+
       # gnomeExtensions.gtk4-desktop-icons-ng-ding # Libadwaita/Gtk4 port of Desktop Icons NG with GSconnect Integration, Drag and Drop on to Dock or Dash.
       # gnomeExtensions.gtk-title-bar # Remove title bars for non-GTK apps with minimal interference with the default workflow
       # gnomeExtensions.toggle-alacritty # Toggles Alacritty window via hotkey: Alt+z
-      # Screenshot Directory
-      # Hide Top Bar
       # Grand Theft Focus
       # gnomeExtensions.unite # Unite
       # gnomeExtensions.forge
@@ -131,6 +128,8 @@ in {
       gnomeExtensions.window-list
       gnomeExtensions.windownavigator
       gnomeExtensions.workspace-indicator
+      # I can hide with thejust perfection extension
+      gnomeExtensions.hide-top-bar # Hide the top bar except in overview
     ];
 
     ##### Home Manager Config options #####
