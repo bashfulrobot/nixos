@@ -18,9 +18,9 @@
   users.default.enable = true;
 
   desktops = {
-    hyprland = {
-      enable = true;
-    };
+    hyprland = { enable = false; };
+    gnome = { enable = true; };
+    addons = { wayland.enable = true; };
   };
 
   apps = {
