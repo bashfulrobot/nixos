@@ -90,6 +90,7 @@ in {
       autorestic # restic automation tool
 
       ### GUI
+      video-trimmer # video editor
       gimp-with-plugins # image editor
       inkscape-with-extensions # vector graphics editor
       xournalpp # note taking/pdf annotator
