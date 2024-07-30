@@ -131,7 +131,6 @@ in {
       mkdir -p /var/lib/AccountsService/{icons,users}
       cp ${user-settings.user.home}/dev/nix/nixos/modules/desktops/gnome/.face /var/lib/AccountsService/icons/${user-settings.user.username}
       echo -e "[User]\nIcon=/var/lib/AccountsService/icons/${user-settings.user.username}\n" > /var/lib/AccountsService/users/${user-settings.user.username}
-
     '';
 
     ##### Home Manager Config options #####
@@ -145,10 +144,12 @@ in {
         components = [ "pkcs11" "secrets" "ssh" ];
       };
 
-      home.file.".face" = {
-        source = ./.face;
-        target = ".face";
-      };
+      # TODO: testing if the activation script solves this issue too.
+      # defined in this file: system.activationScripts.script
+      # home.file.".face" = {
+      #   source = ./.face;
+      #   target = ".face";
+      # };
 
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
         #  Set Media Keys
