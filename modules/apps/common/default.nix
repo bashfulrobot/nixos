@@ -90,6 +90,7 @@ in {
       autorestic # restic automation tool
 
       ### GUI
+      vlc # media player
       losslesscut-bin # video editor
       gimp-with-plugins # image editor
       inkscape-with-extensions # vector graphics editor
