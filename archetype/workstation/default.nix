@@ -19,6 +19,7 @@ in {
     };
 
     apps = {
+      vidcutter.enable = true;
       zoom-us.enable = true;
       whatsapp.enable = true;
       rocket-chat.enable = true;
