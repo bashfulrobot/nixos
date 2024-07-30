@@ -1,5 +1,40 @@
+# Options: https://search.nixos.org/options?channel=unstable&show=programs.chromium.extraOpts&from=0&size=50&sort=relevance&type=packages&query=programs.chromium
 { user-settings, pkgs, config, lib, ... }:
-let cfg = config.apps.chrome-based-browser;
+let
+  cfg = config.apps.chrome-based-browser;
+
+  chromiumIcon = pkgs.fetchurl {
+    url =
+      "https://upload.wikimedia.org/wikipedia/commons/2/28/Chromium_Logo.svg";
+    sha256 =
+      "sha256-vLAX3+o5ENErSPsabpUNK1JHYw8A9KPo5TaB+OdQRt4="; # Replace with actual hash
+  };
+
+  chromiumDesktopItem = pkgs.makeDesktopItem {
+    name = "chromium";
+    desktopName = "Chromium";
+    genericName = "Chromium Web Browser";
+    comment = "Access the Internet";
+    exec = "${pkgs.chromium}/bin/chromium %U";
+    startupWMClass = "chromium-browser";
+    startupNotify = true;
+    terminal = false;
+    icon = chromiumIcon;
+    type = "Application";
+    categories = [ "Network" "WebBrowser" ];
+  };
+
+  chromiumPackage = pkgs.stdenv.mkDerivation {
+    name = "chromium-package";
+    srcs = [ chromiumDesktopItem ];
+    installPhase = ''
+      mkdir -p $out/share/applications
+      cp ${chromiumDesktopItem}/share/applications/chromium.desktop $out/share/applications/chromium.desktop
+      mkdir -p $out/share/icons/hicolor/scalable/apps
+      cp ${chromiumIcon} $out/share/icons/hicolor/scalable/apps/chromium.svg
+    '';
+  };
+
 in {
 
   options = {
@@ -7,211 +42,167 @@ in {
       enable = lib.mkOption {
         type = lib.types.bool;
         default = false;
-        description = "Enable a chrome based browser.";
-      };
-      browser = lib.mkOption {
-        type = lib.types.enum [ "chromium" "ungoogled-chromium" "brave" "vivaldi" ];
-        default = "chromium";
-        description = "The browser to use.";
-      };
-      disableWayland = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Disable Wayland support.";
+        description = "Enable a chromium based browser.";
       };
     };
 
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users."${user-settings.user.username}" = {
 
-      # Conditionally include vivaldi-ffmpeg-codecs
-      home.packages =
-        lib.optional (cfg.browser == "vivaldi") pkgs.vivaldi-ffmpeg-codecs;
+    environment.systemPackages = with pkgs; [
+      chromiumPackage
+      (pkgs.chromium.override { enableWideVine = true; })
+    ];
 
-      programs.chromium = {
-        enable = true;
-        package = if cfg.browser == "chromium" then
-          pkgs.chromium
-        else if cfg.browser == "ungoogled-chromium" then
-          pkgs.ungoogled-chromium
-        else if cfg.browser == "vivaldi" then
-          pkgs.vivaldi
-        else
-          pkgs.brave;
-        commandLineArgs = [ "--ozone-platform-hint=auto" ];
-        extensions = [
-          # bookmark search
-          {
-            id = "cofpegcepiccpobikjoddpmmocficdjj";
-          }
-          # kagi search
-          {
-            id = "cdglnehniifkbagbbombnjghhcihifij";
-          }
-          # 1password
-          {
-            id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa";
-          }
-          # dark reader
-          {
-            id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
-          }
-          # ublock origin
-          {
-            id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
-          }
-          # tactiq
-          {
-            id = "fggkaccpbmombhnjkjokndojfgagejfb";
-          }
-          # okta
-          {
-            id = "glnpjglilkicbckjpbgcfkogebgllemb";
-          }
-          # grammarly
-          {
-            id = "kbfnbcaeplbcioakkpcpgfkobkghlhen";
-          }
-          # simplify
-          {
-            id = "pbmlfaiicoikhdbjagjbglnbfcbcojpj";
-          }
-          # todoist
-          {
-            id = "jldhpllghnbhlbpcmnajkpdmadaolakh";
-          }
-          # Loom video recording
-          {
-            id = "liecbddmkiiihnedobmlmillhodjkdmb";
-          }
-          # Privacy Badger
-          {
-            id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";
-          }
-          # Checker Plus for Mail
-          {
-            id = "oeopbcgkkoapgobdbedcemjljbihmemj";
-          }
-          # Checker Plus for Cal
-          {
-            id = "hkhggnncdpfibdhinjiegagmopldibha";
-          }
-          # Google docs offline
-          {
-            id = "ghbmnnjooekpmoecnnnilnnbdlolhkhi";
-          }
-          # Markdown downloader
-          {
-            id = "pcmpcfapbekmbjjkdalcgopdkipoggdi";
-          }
-          # obsidian clipper
-          {
-            id = "mphkdfmipddgfobjhphabphmpdckgfhb";
-          }
-          # URL/Tab Manager
-          {
-            id = "egiemoacchfofdhhlfhkdcacgaopncmi";
-          }
-          # Mail message URL
-          {
-            id = "bcelhaineggdgbddincjkdmokbbdhgch";
-          }
-          # Glean browser extension
-          {
-            id = "cfpdompphcacgpjfbonkdokgjhgabpij";
-          }
-          # gnome extention plugin
-          {
-            id = "gphhapmejobijbbhgpjhcjognlahblep";
-          }
-          # copy to clipboard
-          {
-            id = "miancenhdlkbmjmhlginhaaepbdnlllc";
-          }
-          # Speed dial extention
-          {
-            id = "jpfpebmajhhopeonhlcgidhclcccjcik";
-          }
-          # Omnivore
-          {
-            id = "blkggjdmcfjdbmmmlfcpplkchpeaiiab";
-          }
-          # Tokyonight
-          {
-            id = "enpfonmmpgoinjpglildebkaphbhndek";
-          }
-          # email tracking for work
-          {
-            id = "pgbdljpkijehgoacbjpolaomhkoffhnl";
-          }
-          # zoom
-          # {
-          #   id = "kgjfgplpablkjnlkjmjdecgdpfankdle";
-          # }
-          # xbrowsersync
-          # {
-          #   id = "lcbjdhceifofjlpecfpeimnnphbcjgnc";
-          # }
-          # Catppuccin Mocha theme
-          # {
-          #   id = "bkkmolkhemgaeaeggcmfbghljjjoofoh";
-          # }
-          # Catppuccin Frappe theme
-          # {
-          #   id = "olhelnoplefjdmncknfphenjclimckaf";
-          # }
-          # Catppuccin Macchiato theme
-          # {
-          #   id = "cmpdlhmnmjhihmcfnigoememnffkimlk";
-          # }
-          # Catppuccin Latte theme
-          # {
-          #   id = "jhjnalhegpceacdhbplhnakmkdliaddd";
-          # }
-          # tineye
-          # {
-          #     id = "haebnnbpedcbhciplfhjjkbafijpncjl";
-          # }
+    programs.chromium = {
+      enable = true;
+      extensions = [
+        # bookmark search
+        "cofpegcepiccpobikjoddpmmocficdjj"
+        # kagi search
+        "cdglnehniifkbagbbombnjghhcihifij"
+        # 1password
+        "aeblfdkhhhdcdjpifhhbdiojplfjncoa"
+        # dark reader
+        "eimadpbcbfnmbkopoojfekhnkhdbieeh"
+        # ublock origin
+        "cjpalhdlnbpafiamejdnhcphjbkeiagm"
+        # tactiq
+        "fggkaccpbmombhnjkjokndojfgagejfb"
+        # okta
+        "glnpjglilkicbckjpbgcfkogebgllemb"
+        # grammarly
+        "kbfnbcaeplbcioakkpcpgfkobkghlhen"
+        # simplify
+        "pbmlfaiicoikhdbjagjbglnbfcbcojpj"
+        # todoist
+        "jldhpllghnbhlbpcmnajkpdmadaolakh"
+        # Loom video recording
+        "liecbddmkiiihnedobmlmillhodjkdmb"
+        # Privacy Badger
+        "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"
+        # Checker Plus for Mail
+        "oeopbcgkkoapgobdbedcemjljbihmemj"
+        # Checker Plus for Cal
+        "hkhggnncdpfibdhinjiegagmopldibha"
+        # Google docs offline
+        "ghbmnnjooekpmoecnnnilnnbdlolhkhi"
+        # Markdown downloader
+        "pcmpcfapbekmbjjkdalcgopdkipoggdi"
+        # obsidian clipper
+        "mphkdfmipddgfobjhphabphmpdckgfhb"
+        # URL/Tab Manager
+        "egiemoacchfofdhhlfhkdcacgaopncmi"
+        # Mail message URL
+        "bcelhaineggdgbddincjkdmokbbdhgch"
+        # Glean browser extension
+        "cfpdompphcacgpjfbonkdokgjhgabpij"
+        # gnome extention plugin
+        "gphhapmejobijbbhgpjhcjognlahblep"
+        # copy to clipboard
+        "miancenhdlkbmjmhlginhaaepbdnlllc"
+        # Speed dial extention
+        "jpfpebmajhhopeonhlcgidhclcccjcik"
+        # Omnivore
+        "blkggjdmcfjdbmmmlfcpplkchpeaiiab"
+        # Tokyonight
+        "enpfonmmpgoinjpglildebkaphbhndek"
+        # email tracking for work
+        "pgbdljpkijehgoacbjpolaomhkoffhnl"
+        # zoom
+        # "kgjfgplpablkjnlkjmjdecgdpfankdle"
+        # xbrowsersync
+        # "lcbjdhceifofjlpecfpeimnnphbcjgnc"
+        # Catppuccin Mocha theme
+        # "bkkmolkhemgaeaeggcmfbghljjjoofoh"
+        # Catppuccin Frappe theme
+        # "olhelnoplefjdmncknfphenjclimckaf"
+        # Catppuccin Macchiato theme
+        # "cmpdlhmnmjhihmcfnigoememnffkimlk"
+        # Catppuccin Latte theme
+        # "jhjnalhegpceacdhbplhnakmkdliaddd"
+        # tineye
+        # "haebnnbpedcbhciplfhjjkbafijpncjl"
 
-        ];
-      };
-      # force brave to use wayland - https://skerit.com/en/make-electron-applications-use-the-wayland-renderer
-      home.file = let
-        browserConfig = if !cfg.disableWayland then
-          if cfg.browser == "chromium" || cfg.browser == "ungoogled-chromium" then {
-            ".config/chromium-flags.conf".text = ''
-              --enable-features=UseOzonePlatform
-              --ozone-platform=wayland
-              --enable-features=WaylandWindowDecorations
-              --force-device-scale-factor=1
-            '';
-          } else if cfg.browser == "brave" then {
-            ".config/brave-flags.conf".text = ''
-              --enable-features=UseOzonePlatform
-              --ozone-platform=wayland
-              --enable-features=WaylandWindowDecorations
-              --force-device-scale-factor=1
-            '';
-          } else if cfg.browser == "vivaldi" then {
-            ".config/vivaldi-stable.conf".text = ''
-              --enable-features=UseOzonePlatform
-              --ozone-platform=wayland
-              --enable-features=WaylandWindowDecorations
-              --force-device-scale-factor=1
-            '';
-          } else
-            { }
-        else
-          { };
-      in lib.mkMerge [
-        browserConfig
-        {
-          # Add other home.file configurations here
-
-        }
       ];
+      initialPrefs = {
+        "https_only_mode_auto_enabled" = true;
+        "privacy_guide" = { "viewed" = true; };
+        "safebrowsing" = {
+          "enabled" = false;
+          "enhanced" = false;
+        };
+        "autofill" = {
+          "credit_card_enabled" = false;
+          # "profile_enabled" = false;
+        };
+        "search" = { "suggest_enabled" = false; };
+        "browser" = {
+          "clear_data" = {
+            "cache" = false;
+            "browsing_data" = false;
+            "cookies" = false;
+            "cookies_basic" = false;
+            "download_history" = true;
+            "form_data" = true;
+            "time_period" = 4;
+            "time_period_basic" = 4;
+          };
+          "has_seen_welcome_page" = true;
+          "theme" = { "follows_system_colors" = true; };
+        };
+        "enable_do_not_track" = true;
+        "https_only_mode_enabled" = true;
+        "intl"."selected_languages" = "en-CA,en-US";
+        "payments"."can_make_payment_enabled" = false;
+      };
+      extraOpts = {
+        "BrowserSignin" = 0;
+        "SyncDisabled" = true;
+        "PasswordManagerEnabled" = false;
+        "SpellcheckEnabled" = true;
+        "SpellcheckLanguage" = [ "en-CA" "en-US" ];
+
+        "CloudReportingEnabled" = false;
+        "SafeBrowsingEnabled" = false;
+        "ReportSafeBrowsingData" = false;
+        "AllowDinosaurEasterEgg" = false; # : (
+        "AllowOutdatedPlugins" = true;
+        "DefaultBrowserSettingEnabled" = false;
+        "PromotionalTabsEnabled" = false;
+        "MetricsReportingEnabled" = false;
+        "PaymentMethodQueryEnabled" = false;
+        "ShoppingListEnabled" = false;
+
+        "AlwaysOpenPdfExternally" = true;
+        "ShowHomeButton" = false;
+
+        "AutofillAddressEnabled" = false;
+        "AutofillCreditCardEnabled" = false;
+
+        # voice assistant
+        # "VoiceInteractionContextEnabled" = false;
+        # "VoiceInteractionHotwordEnabled" = false;
+        # "VoiceInteractionQuickAnswersEnabled" = false;
+      };
+      "defaultSearchProviderEnabled" = true;
+      "defaultSearchProviderSearchURL" =
+        "https://kagi.com/search?q={searchTerms}";
+      "defaultSearchProviderSuggestURL" =
+        "https://kagi.com/api/autosuggest?q={searchTerms}";
+    };
+
+    home-manager.users."${user-settings.user.username}" = {
+      # force chromium to use wayland - https://skerit.com/en/make-electron-applications-use-the-wayland-renderer
+      home.file.".config/chromium-flags.conf".text = ''
+        --enable-features=UseOzonePlatform
+        --ozone-platform=wayland
+        --enable-features=WaylandWindowDecorations,CanvasOopRasterization
+        --force-device-scale-factor=1
+        --ozone-platform-hint=auto
+        --enable-gpu-rasterization
+      '';
     };
   };
 }
