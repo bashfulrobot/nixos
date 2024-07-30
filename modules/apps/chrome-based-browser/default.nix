@@ -111,7 +111,7 @@ in {
         # email tracking for work
         "pgbdljpkijehgoacbjpolaomhkoffhnl"
         # zoom
-        # "kgjfgplpablkjnlkjmjdecgdpfankdle"
+        "kgjfgplpablkjnlkjmjdecgdpfankdle"
         # xbrowsersync
         # "lcbjdhceifofjlpecfpeimnnphbcjgnc"
         # Catppuccin Mocha theme
