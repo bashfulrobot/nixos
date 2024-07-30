@@ -17,10 +17,7 @@
     workstation.enable = true;
   };
 
-  desktops = {
-    hyprland = { enable = false; };
-    gnome = { enable = true; };
-  };
+  desktops.gnome.enable = true;
 
   apps = {
     syncthing = {

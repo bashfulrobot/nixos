@@ -26,24 +26,25 @@ in {
         target = ".local/share/backgrounds/skullskates.png";
       };
 
+      # done in stylix
       # If you use 1 pixel border the theme's shadow can leak underneath, also sway's border can only be without border radius
-      home.file."gtk-3.0/gtk.css".text = ''
-        /** Some apps use titlebar class and some window */
-        .titlebar,
-        window {
-          border-radius: 0;
-          box-shadow: none;
-        }
+      # home.file.".config/gtk-3.0/gtk.css".text = ''
+      #   /** Some apps use titlebar class and some window */
+      #   .titlebar,
+      #   window {
+      #     border-radius: 0;
+      #     box-shadow: none;
+      #   }
 
-        /** also remove shadows */
-        decoration {
-          box-shadow: none;
-        }
+      #   /** also remove shadows */
+      #   decoration {
+      #     box-shadow: none;
+      #   }
 
-        decoration:backdrop {
-          box-shadow: none;
-        }
-      '';
+      #   decoration:backdrop {
+      #     box-shadow: none;
+      #   }
+      # '';
 
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 

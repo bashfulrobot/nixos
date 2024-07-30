@@ -29,9 +29,7 @@ in {
         wayland.enable = true;
       };
       gnome.themes = {
-        nord.enable = false;
         tokyonight.enable = true;
-        adwaita.enable = false;
       };
     };
 
