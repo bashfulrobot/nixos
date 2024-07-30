@@ -58,13 +58,10 @@ in {
     };
 
     cli = {
-      blackbox-terminal.enable = false;
-      alacritty.enable = false;
       direnv.enable = true;
       sysdig-cli-scanner.enable = true;
       instruqt.enable = true;
       git.enable = true;
-      lunarvim.enable = false;
       nvim.enable = true;
       helix.enable = false;
       spotify-player.enable = true;
@@ -78,7 +75,6 @@ in {
       tailscale.enable = true;
       docker.enable = true;
       gemini-cli.enable = true;
-      foot.enable = false;
       yazi.enable = true;
     };
 
