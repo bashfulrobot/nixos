@@ -27,7 +27,7 @@ in {
       };
       extraConfig = ''
         ShowDelay=2
-        DeviceScale=1
+        DeviceScale=2
       '';
     };
 
