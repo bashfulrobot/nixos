@@ -51,7 +51,7 @@ in {
   config = lib.mkIf cfg.enable {
 
     environment.systemPackages = with pkgs; [
-      chromiumPackage
+      # chromiumPackage
       (pkgs.chromium.override { enableWideVine = true; })
     ];
 
