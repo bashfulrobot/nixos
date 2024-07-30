@@ -2,8 +2,8 @@
 let
   cfg = config.desktops.gnome;
 
-# removes the icon from the panel. No setting currently supported in gnome extension.
-# https://github.com/pop-os/shell/issues/1274
+  # removes the icon from the panel. No setting currently supported in gnome extension.
+  # https://github.com/pop-os/shell/issues/1274
   pop-shell-no-icon = pkgs.gnomeExtensions.pop-shell.overrideAttrs (oldAttrs: {
     postInstall = ''
       ${oldAttrs.postInstall or ""}
@@ -28,9 +28,7 @@ in {
         # Enable Wayland specific settings
         wayland.enable = true;
       };
-      gnome.themes = {
-        tokyonight.enable = true;
-      };
+      gnome.themes = { tokyonight.enable = true; };
     };
 
     xdg.portal.config.common.default = [ "*" ];
@@ -129,6 +127,13 @@ in {
       gnomeExtensions.hide-top-bar # Hide the top bar except in overview
     ];
 
+    system.activationScripts.script.text = ''
+      mkdir -p /var/lib/AccountsService/{icons,users}
+      cp ${user-settings.user.home}/dev/nix/nixos/modules/desktops/gnome/.face /var/lib/AccountsService/icons/${user-settings.user.username}
+      echo -e "[User]\nIcon=/var/lib/AccountsService/icons/${user-settings.user.username}\n" > /var/lib/AccountsService/users/${user-settings.user.username}
+
+    '';
+
     ##### Home Manager Config options #####
     home-manager.users."${user-settings.user.username}" = {
       home.sessionVariables = { XDG_CURRENT_DESKTOP = "gnome"; };
@@ -137,7 +142,7 @@ in {
         enable = true;
         # Ensure all are enabled. Could not find docs
         # stating the defaults.
-        components = [ "pkcs11" "secrets" "ssh"];
+        components = [ "pkcs11" "secrets" "ssh" ];
       };
 
       home.file.".face" = {
@@ -287,7 +292,7 @@ in {
           show-apps-button = true;
           startup-status = 0;
           theme = true;
-          top-panel-position = 0; #top
+          top-panel-position = 0; # top
           # top-panel-position = 1; # bottom
           weather = false;
           window-demands-attention-focus = true;
@@ -429,7 +434,7 @@ in {
             command = "/etc/profiles/per-user/dustin/bin/nautilus ~/dev";
             name = "open files in ~/dev";
           };
-           "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8" =
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8" =
           {
             binding = "<Control><Alt><Super>g";
             command = "gmail-url";
