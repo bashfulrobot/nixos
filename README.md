@@ -93,6 +93,14 @@ be sure to run `ssh-add ~/.ssh/id_ed25519` and `ssh-add ~/.ssh/id_rsa` after reb
 
 ## Notes
 
+### Too Many Files Open
+
+I have run into this only once, but it is one of those things that I will forget on how to fix.
+
+- open a `bash` shell (does not seem to work in `fish`).
+- run the command `ulimit -n 4096`.
+- in the same shell, run your rebuild.
+
 ### Espanso
 
 The Espanso service is funny. At times, the service will not start after an update. The fix "seems" to be:
