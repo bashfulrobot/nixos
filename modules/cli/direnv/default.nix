@@ -16,6 +16,9 @@ in {
     home-manager.users."${user-settings.user.username}" = {
       programs.direnv = {
         enable = true;
+        # caching builds
+        # https://github.com/nix-community/nix-direnv
+        nix-direnv.enable = true;
         enableBashIntegration = true;
         config.global = {
           load_dotenv = true;

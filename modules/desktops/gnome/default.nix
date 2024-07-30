@@ -236,9 +236,10 @@ in {
 
           fullscreen-launcher = true;
           mouse-cursor-follows-active-window = false;
-          show-title = true;
+          show-title = false;
           smart-gaps = true;
           tile-by-default = true;
+          # search = "<Super>space";
         };
 
         "org/gnome/shell" = {
@@ -362,6 +363,7 @@ in {
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
           {
             binding = "<Super>t";
+            # binding = "<Super>space";
             command = "kgx";
             # command = "alactitty";
             name = "Terminal";
