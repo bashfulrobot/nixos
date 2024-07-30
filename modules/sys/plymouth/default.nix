@@ -18,7 +18,7 @@ in {
 
     ];
     # Enable dconf
-    programs.plymouth = {
+    boot.plymouth = {
       enable = true;
       font = "${pkgs.work-sans}/share/fonts/opentype/WorkSans-Regular.ttf";
       logo = pkgs.fetchurl {
