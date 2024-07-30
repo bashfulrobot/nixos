@@ -30,7 +30,7 @@ in {
       one-password.enable = true;
       chrome-based-browser = {
         enable = true;
-        # Currently supported browsers are "brave", "vivaldi" or "chromium".
+        # Currently supported browsers are "brave", "vivaldi", "ungoogled-chromium" or "chromium".
         browser = "chromium";
         disableWayland = false;
       };
