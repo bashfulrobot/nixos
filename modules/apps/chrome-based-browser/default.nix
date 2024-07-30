@@ -10,7 +10,7 @@ in {
         description = "Enable a chrome based browser.";
       };
       browser = lib.mkOption {
-        type = lib.types.enum [ "chromium" "brave" "vivaldi" ];
+        type = lib.types.enum [ "chromium" "ungoogled-chromium" "brave" "vivaldi" ];
         default = "chromium";
         description = "The browser to use.";
       };
@@ -34,6 +34,8 @@ in {
         enable = true;
         package = if cfg.browser == "chromium" then
           pkgs.chromium
+        else if cfg.browser == "ungoogled-chromium" then
+          pkgs.ungoogled-chromium
         else if cfg.browser == "vivaldi" then
           pkgs.vivaldi
         else
@@ -178,7 +180,7 @@ in {
       # force brave to use wayland - https://skerit.com/en/make-electron-applications-use-the-wayland-renderer
       home.file = let
         browserConfig = if !cfg.disableWayland then
-          if cfg.browser == "chromium" then {
+          if cfg.browser == "chromium" || cfg.browser == "ungoogled-chromium" then {
             ".config/chromium-flags.conf".text = ''
               --enable-features=UseOzonePlatform
               --ozone-platform=wayland
