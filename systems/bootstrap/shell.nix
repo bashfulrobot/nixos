@@ -1,3 +1,5 @@
+# run with:
+# export NIXPKGS_ALLOW_UNFREE=1; nix-shell --impure shell.nix
 { pkgs ? import <nixpkgs> { } }:
 let
   # Define the bash script
@@ -15,7 +17,7 @@ let
           cd nixos
           1password
           echo "Please log in to 1Password GUI, and enable the CLI and press Enter to continue..."
-          read -p ""
+          read -r -p ""
           op read "op://Personal/ssh_key_id_rsa/public key" > $WORKING_DIR/id_rsa.pub
           op read "op://Personal/ssh_key_id_rsa/private key" > $WORKING_DIR/id_rsa
           op read "op://Personal/ssh_key_id_ed25519/public key" > $WORKING_DIR/id_ed25519.pub
@@ -31,7 +33,7 @@ let
           echo "Select a system name:"
           echo "1) rembot"
           echo "2) evo"
-          read -p "Enter the number corresponding to your choice: " system_choice
+          read -r -p "Enter the number corresponding to your choice: " system_choice
 
           case $system_choice in
             1)
@@ -87,9 +89,6 @@ in pkgs.mkShell {
     _1password
     wget
     unzip
-    lsblk
     bootstrap
   ];
-
-  nixpkgs.config = { experimental-features = [ "nix-command" "flakes" ]; };
 }
