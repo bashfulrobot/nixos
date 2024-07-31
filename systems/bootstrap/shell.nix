@@ -50,18 +50,18 @@ let
 
         sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko $WORKING_DIR/nixos/systems/$SYSTEM_NAME/hardware/disko.nix
 
-        mount | grep /mnt
+        sudo mount | grep /mnt
 
-        nixos-generate-config --no-filesystems --root /mnt
+        sudo nixos-generate-config --no-filesystems --root /mnt
 
-        cp /mnt/etc/nixos/hardware-configuration.nix $WORKING_DIR/nixos/systems/$SYSTEM_NAME/hardware/hardware-configuration.nix
+        sudo cp /mnt/etc/nixos/hardware-configuration.nix $WORKING_DIR/nixos/systems/$SYSTEM_NAME/hardware/hardware-configuration.nix
 
-        mkdir -p /mnt/bootstrapped/$SYSTEM_NAME
+        sudo mkdir -p /mnt/bootstrapped/$SYSTEM_NAME
 
-        cp -r $WORKING_DIR /mnt/bootstrapped/$SYSTEM_NAME/
+        sudo cp -r $WORKING_DIR /mnt/bootstrapped/$SYSTEM_NAME/
 
         # Run nixos-install against an impure flake in $WORKING_DIR/nixos
-        nixos-install --flake "$WORKING_DIR/nixos#$SYSTEM_NAME" --impure
+        sudo nixos-install --flake "$WORKING_DIR/nixos#$SYSTEM_NAME" --impure
   '';
 
   # Create the shell application using writeShellApplication
