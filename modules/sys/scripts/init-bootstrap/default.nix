@@ -13,24 +13,25 @@ let
       echo "remember to grab the hardware configuration file from the bootstrapped system in /bootstrapped"
       sleep 5
 
-      1password
-      echo "Please log in to 1Password GUI, and enable the CLI and press Enter to continue..."
-      read -p ""
-      op read "op://Personal/ssh_key_id_rsa/public key" > ~/.ssh/id_rsa.pub
-      op read "op://Personal/ssh_key_id_rsa/private key" > ~/.ssh/id_rsa
-      op read "op://Personal/ssh_key_id_ed25519/public key" > ~/.ssh/id_ed25519.pub
-      op read "op://Personal/ssh_key_id_ed25519/private key" > ~/.ssh/id_ed25519
-      op document get "git-crypt-key" --out-file=./git-crypt-key
-      mv ./git-crypt-key ~/.gnupg/git-crypt-key
-      sudo chown -R $(whoami):users ~/.ssh/id_rsa ~/.ssh/id_ed25519 ~/.gnupg/git-crypt-key
-      chmod 600 ~/.ssh/id_rsa ~/.ssh/id_ed25519
+      cd /bootstrapped/$(hostname)/
+      cp .gnupg/git-crypt-key ~/.gnupg/git-crypt-key
+      cp .ssh/id_* ~/.ssh/
+      sudo chown -R $(whoami):users ~/.ssh/id_* ~/.gnupg/git-crypt-key
+      chmod 600 ~/.ssh/id_*
       chmod 700 ~/.gnupg/git-crypt-key
       mkdir -p ~/dev/nix/
       sudo mv /bootstrapped ~/dev/nix/
       sudo chown -R $(whoami):users ~/dev/nix/bootstrapped
+      sudo chmod 700 ~/dev/nix/bootstrapped
       echo "still need to do:"
       echo
-      echo
+      echo "- sudo tailscale login —accept-routes=true —ssh"
+      echo "- Update Tailscale name"
+      echo "- Set key to not expire"
+      echo "- Update Tailscale ips in syncthing"
+      echo "- Ensure ids are correct in syncthing"
+      echo "- Rebuild"
+      echo "- Check if syncthing is working. (localhost:8384)"
 
       exit 0
     '';
