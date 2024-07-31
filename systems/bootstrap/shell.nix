@@ -16,15 +16,19 @@ let
           mv nixos-main nixos
           cd nixos
           nohup 1password &
-          echo "Please log in to 1Password GUI, and enable the CLI and press Enter to continue..."
+          echo "Please log in to 1Password GUI, and export keys and press Enter to continue..."
           read -r -p ""
-          op read "op://Personal/ssh_key_id_rsa/public key" > $WORKING_DIR/id_rsa.pub
-          op read "op://Personal/ssh_key_id_rsa/private key" > $WORKING_DIR/id_rsa
-          op read "op://Personal/ssh_key_id_ed25519/public key" > $WORKING_DIR/id_ed25519.pub
-          op read "op://Personal/ssh_key_id_ed25519/private key" > $WORKING_DIR/id_ed25519
-          op document get "git-crypt-key" --out-file=./git-crypt-key
-          mv ./git-crypt-key $WORKING_DIR/git-crypt-key
-          chmod 600 $WORKING_DIR/id_rsa $WORKING_DIR/id_ed25519 $WORKING_DIR/git-crypt-key
+          # op read "op://Personal/ssh_key_id_rsa/public key" > $WORKING_DIR/id_rsa.pub
+          # op read "op://Personal/ssh_key_id_rsa/private key" > $WORKING_DIR/id_rsa
+          # op read "op://Personal/ssh_key_id_ed25519/public key" > $WORKING_DIR/id_ed25519.pub
+          # op read "op://Personal/ssh_key_id_ed25519/private key" > $WORKING_DIR/id_ed25519
+          # op document get "git-crypt-key" --out-file=./git-crypt-key
+          mv /home/nixos/Downloads/git-crypt-key $WORKING_DIR/git-crypt-key
+          mv /home/nixos/Downloads/id_rsa.pub $WORKING_DIR/id_rsa.pub
+          mv /home/nixos/Downloads/id_rsa $WORKING_DIR/id_rsa
+          mv /home/nixos/Downloads/id_ed25519.pub $WORKING_DIR/id_ed25519.pub
+          mv /home/nixos/Downloads/id_ed25519 $WORKING_DIR/id_ed25519
+          chmod 600 $WORKING_DIR/id_* $WORKING_DIR/git-crypt-key
           git-crypt unlock $WORKING_DIR/git-crypt-key
           git-crypt status -f
           git-crypt status
