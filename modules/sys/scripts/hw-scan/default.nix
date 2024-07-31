@@ -8,7 +8,7 @@ let
     runtimeInputs = [ pkgs.docker ];
 
     text = ''
-        #!/usr/bin/env bash
+        #!/run/current-system/sw/bin/env bash
 
       sudo -E docker run -it \
             -v /dev:/dev:ro \

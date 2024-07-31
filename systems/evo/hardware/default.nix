@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./gpus.nix
     ./boot.nix
+    # ./disko.nix
+    ./gpus.nix
     ./hardware-configuration.nix
     ./kernel.nix
     # inputs.nixos-hardware.nixosModules.common-cpu-intel
@@ -19,10 +20,13 @@
   ];
 
   services = {
-    kmscon.extraConfig = lib.mkForce ''
+    kmscon = {
+      enable = true;
+      extraConfig = lib.mkForce ''
       font-size=24
       xkb-layout=us
     '';
+    };
   };
 
 }

@@ -8,7 +8,7 @@ let
     runtimeInputs = [ pkgs.xclip pkgs.gnugrep ];
 
     text = ''
-      #!/usr/bin/env bash
+      #!/run/current-system/sw/bin/env bash
 
       # Step 1: Get the current URL from the clipboard
       current_url=$(xclip -o -selection clipboard)

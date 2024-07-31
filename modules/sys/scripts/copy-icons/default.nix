@@ -8,7 +8,7 @@ let
     runtimeInputs = [ ];
 
     text = ''
-      #!/usr/bin/env bash
+      #!/run/current-system/sw/bin/env bash
 
       # Copy all icons from Chromium Web Apps to the target directory
 

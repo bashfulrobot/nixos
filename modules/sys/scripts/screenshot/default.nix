@@ -2,7 +2,7 @@
 let
   cfg = config.sys.scripts.screenshots;
   screenshotOCR = ''
-    #!/usr/bin/env bash
+    #!/run/current-system/sw/bin/env bash
 
     # Directory where screenshots are stored
     dir="$HOME/Pictures/Screenshots"
@@ -34,7 +34,7 @@ let
   '';
 
   screenshotAnnotateScript = ''
-    #!/usr/bin/env bash
+    #!/run/current-system/sw/bin/env bash
 
     # Directory where screenshots are stored
     dir="$HOME/Pictures/Screenshots"

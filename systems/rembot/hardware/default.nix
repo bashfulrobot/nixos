@@ -4,8 +4,9 @@
   imports = [
 
     ./boot.nix
-    ./hardware-configuration.nix
+    # ./disko.nix
     ./gpus.nix
+    ./hardware-configuration.nix
     ./kernel.nix
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
