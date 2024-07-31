@@ -28,7 +28,7 @@ in {
         # Enable Wayland specific settings
         wayland.enable = true;
       };
-      gnome.themes = { tokyonight.enable = true; };
+      gnome.themes = { tokyonight.enable = false; };
     };
 
     xdg.portal.config.common.default = [ "*" ];

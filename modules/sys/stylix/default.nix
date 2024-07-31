@@ -18,12 +18,12 @@ in {
 
     stylix = {
       enable = true;
-      image = ./wallpapers/skullskates.png;
+      image = ./wallpapers/trees.png;
       # one of “stretch”, “fill”, “fit”, “center”, “tile”
       imageScalingMode = "fill";
       polarity = "dark"; # or "light" - forcing dark
-      base16Scheme =
-        "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+      # base16Scheme =
+        # "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
       cursor = {
         package = pkgs.bibata-cursors;
         name = "Bibata-Modern-Ice";
