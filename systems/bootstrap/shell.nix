@@ -58,6 +58,7 @@ let
         sudo cp -r $WORKING_DIR /mnt/bootstrapped/$SYSTEM_NAME/
 
         # Run nixos-install against an impure flake in $WORKING_DIR/nixos
+        ulimit -n 4096
         sudo nixos-install --flake "$WORKING_DIR/nixos#$SYSTEM_NAME" --impure
   '';
 
