@@ -15,7 +15,7 @@ let
           unzip main.zip
           mv nixos-main nixos
           cd nixos
-          1password
+          nohup 1password &
           echo "Please log in to 1Password GUI, and enable the CLI and press Enter to continue..."
           read -r -p ""
           op read "op://Personal/ssh_key_id_rsa/public key" > $WORKING_DIR/id_rsa.pub
