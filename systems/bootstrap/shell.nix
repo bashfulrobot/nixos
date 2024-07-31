@@ -1,17 +1,8 @@
-# Shell for bootstrapping flake-enabled nix and home-manager
-# Access development shell with  'nix develop' or (legacy) 'nix-shell'
-{ pkgs ? import <nixpkgs> { } }: {
-  default = pkgs.mkShell {
-    name = "bashfulrobot-bootstrap--flake";
-    # Enable experimental features without having to specify the argument
-    NIX_CONFIG = "experimental-features = nix-command flakes";
-
-    # Define the bootstrap bash script
-    bootstrapScript = pkgs.writeShellApplication {
-      name = "bootstrap";
-      runtimeInputs = [ pkgs.bash ];
-      text = ''
-          #!/run/current-system/sw/bin/env bash
+{ pkgs ? import <nixpkgs> { } }:
+let
+  # Define the bash script
+  bootstrapScript = ''
+    #!/run/current-system/sw/bin/env bash
 
           WORKING_DIR="/tmp/bootstrap"
 
@@ -69,32 +60,36 @@
 
         # Run nixos-install against an impure flake in $WORKING_DIR/nixos
         nixos-install --flake "$WORKING_DIR/nixos#$SYSTEM_NAME" --impure
+  '';
 
-      '';
-
-      nativeBuildInputs = with pkgs; [
-        nix
-        home-manager
-        git
-        git-crypt
-        neovim
-        just
-        fish
-        vscode
-        nano
-        just
-        nixfmt
-        statix
-        _1password-gui
-        _1password
-        wget
-        unzip
-        lsblk
-        bootstrapScript
-      ];
-      shellHook = ''
-        exec fish
-      '';
-    };
+  # Create the shell application using writeShellApplication
+  bootstrap = pkgs.writeShellApplication {
+    name = "bootstrap";
+    runtimeInputs = [ pkgs.bash ];
+    text = bootstrapScript;
   };
+in pkgs.mkShell {
+  # nativeBuildInputs is usually what you want -- tools you need to run
+  nativeBuildInputs = with pkgs.buildPackages; [
+    nix
+    home-manager
+    git
+    git-crypt
+    neovim
+    just
+    fish
+    vscode
+    nano
+    just
+    nixfmt
+    statix
+    _1password-gui
+    _1password
+    wget
+    unzip
+    lsblk
+    bootstrap
+  ];
+
+  nixpkgs.config = { experimental-features = [ "nix-command" "flakes" ]; };
 }
