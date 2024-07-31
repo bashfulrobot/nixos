@@ -5,9 +5,9 @@
     name = "bashfulrobot-bootstrap--flake";
     # Enable experimental features without having to specify the argument
     NIX_CONFIG = "experimental-features = nix-command flakes";
-    nativeBuildInputs = with pkgs; [ nix home-manager git ];
+    nativeBuildInputs = with pkgs; [ nix home-manager git git-crypt neovim just fish];
     shellHook = ''
-      exec zsh
+      exec fish
     '';
   };
 }
