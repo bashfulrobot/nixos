@@ -3,7 +3,7 @@
 {
   imports = [
     ./boot.nix
-    # ./disko.nix
+    ./disko.nix
     ./gpus.nix
     ./hardware-configuration.nix
     ./kernel.nix

@@ -101,6 +101,7 @@ in {
         screenshots.enable = true;
         gmail-url.enable = true;
         copy_icons.enable = true;
+        init-bootstrap.enable = true;
       };
     };
 

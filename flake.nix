@@ -21,13 +21,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # currently used for FF extensions
     # nur.url = "github:nix-community/NUR";
 
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, hyprswitch
-    , hyprland, nix-flatpak, nur, nvim, catppuccin, stylix, ... }:
+    , hyprland, nix-flatpak, nur, nvim, catppuccin, stylix, disko, ... }:
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.
@@ -51,6 +56,7 @@
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
+            disko.nixosModules.disko
             {
               home-manager = {
                 useUserPackages = true;
@@ -82,7 +88,7 @@
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
-
+            #  disko.nixosModules.disko - not in use yet, next reload
             {
               home-manager = {
                 useUserPackages = true;

@@ -1,6 +1,6 @@
 # Shell for bootstrapping flake-enabled nix and home-manager
 # Access development shell with  'nix develop' or (legacy) 'nix-shell'
-{ pkgs ? (import ./nixpkgs.nix) { } }: {
+{ pkgs ? import <nixpkgs> {} }: {
   default = pkgs.mkShell {
     name = "bashfulrobot-bootstrap--flake";
     # Enable experimental features without having to specify the argument
@@ -36,9 +36,39 @@
         git-crypt status -f
         git-crypt status
 
+        # Prompt for system name
+        echo "Select a system name:"
+        echo "1) rembot"
+        echo "2) evo"
+        read -p "Enter the number corresponding to your choice: " system_choice
+
+        case $system_choice in
+          1)
+            SYSTEM_NAME="rembot"
+            ;;
+          2)
+            SYSTEM_NAME="evo"
+            ;;
+          *)
+            echo "Invalid selection"
+            exit 1
+            ;;
+        esac
+
+      sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko $WORKING_DIR/nixos/systems/$SYSTEM_NAME/hardware/disko.nix
+
+      mount | grep /mnt
+
+      nixos-generate-config --no-filesystems --root /mnt
+
+      cp /mnt/etc/nixos/hardware-configuration.nix $WORKING_DIR/nixos/systems/$SYSTEM_NAME/hardware/hardware-configuration.nix
+
+      cp -r $WORKING_DIR /mnt/bootstrapped/${SYSTEM_NAME}/
+
+      # Run nixos-install against an impure flake in $WORKING_DIR/nixos
+      nixos-install --flake "$WORKING_DIR/nixos#${SYSTEM_NAME}" --impure
 
       '';
-    };
 
     nativeBuildInputs = with pkgs; [
       nix
@@ -49,12 +79,15 @@
       just
       fish
       vscode
+      nano
       just
       nixfmt
+      statix
       _1password-gui
       _1password
       wget
       unzip
+      lsblk
       bootstrapScript
     ];
     shellHook = ''
