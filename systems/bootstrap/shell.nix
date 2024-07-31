@@ -25,9 +25,9 @@ let
           mv /home/nixos/Downloads/id_ed25519.pub $WORKING_DIR/.ssh/id_ed25519.pub
           mv /home/nixos/Downloads/id_ed25519 $WORKING_DIR/.ssh/id_ed25519
           chmod 600 $WORKING_DIR/.ssh/id_* $WORKING_DIR/.gnupg/git-crypt-key
-          git-crypt unlock $WORKING_DIR/.gnupg/git-crypt-key
-          git-crypt status -f
-          git-crypt status
+          #git-crypt unlock $WORKING_DIR/.gnupg/git-crypt-key
+          #git-crypt status -f
+          #git-crypt status
 
           # Prompt for system name
           echo "Select a system name:"
