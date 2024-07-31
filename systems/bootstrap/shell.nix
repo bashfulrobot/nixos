@@ -63,10 +63,12 @@
 
         cp /mnt/etc/nixos/hardware-configuration.nix $WORKING_DIR/nixos/systems/$SYSTEM_NAME/hardware/hardware-configuration.nix
 
-        cp -r $WORKING_DIR /mnt/bootstrapped/${SYSTEM_NAME}/
+        mkdir -p /mnt/bootstrapped/$SYSTEM_NAME
+
+        cp -r $WORKING_DIR /mnt/bootstrapped/$SYSTEM_NAME/
 
         # Run nixos-install against an impure flake in $WORKING_DIR/nixos
-        nixos-install --flake "$WORKING_DIR/nixos#${SYSTEM_NAME}" --impure
+        nixos-install --flake "$WORKING_DIR/nixos#$SYSTEM_NAME" --impure
 
       '';
 
