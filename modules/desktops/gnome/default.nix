@@ -54,34 +54,17 @@ in {
       # Gnome Extensions
       gnomeExtensions.user-themes # User Themes
       gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
-      # gnomeExtensions.fly-pie # Fly Pie mouse menu
-      # gnomeExtensions.paperwm # tilig window manager
       gnomeExtensions.blur-my-shell # Blur my Shell
       gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
-      # gnomeExtensions.pop-shell # Pop Shell
       pop-shell-no-icon
       gnomeExtensions.appindicator # AppIndicator support
-      gnomeExtensions.do-not-disturb-while-screen-sharing-or-recording # Automatically switches on the "Do Not Disturb" mode while screen sharing or screen recording. As soon as screen sharing/recording is over, "Do Not Disturb" mode will be switched back off.
-      # gnomeExtensions.easyScreenCast # Simplifies the use of the video recording function integrated in gnome shell
+      gnomeExtensions.do-not-disturb-while-screen-sharing-or-recording # Automatically switches on the
       gnomeExtensions.fullscreen-notifications # Enables all notifications in fullscreen mode
       gnomeExtensions.undecorate # Add undecorate item in window menu. Use ALT+Space to show window menu
       gnomeExtensions.solaar-extension # Allow Solaar to support certain features on non X11 systems
       gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
       gnomeExtensions.looking-glass-button # Toggle the Looking Glass visibility by clicking on a panel icon.
       gnomeExtensions.window-calls # allows me to run my fish funciton to get the wmc_class of a window
-
-      ## Extentions to try, or diusabled due to gnome shell version
-      #gnomeExtensions.next-up # Show your next calendar event in the status bar
-
-      # gnomeExtensions.gtk4-desktop-icons-ng-ding # Libadwaita/Gtk4 port of Desktop Icons NG with GSconnect Integration, Drag and Drop on to Dock or Dash.
-      # gnomeExtensions.gtk-title-bar # Remove title bars for non-GTK apps with minimal interference with the default workflow
-      # gnomeExtensions.toggle-alacritty # Toggles Alacritty window via hotkey: Alt+z
-      # Grand Theft Focus
-      # gnomeExtensions.unite # Unite
-      # gnomeExtensions.forge
-      # gnomeExtensions.syncthing-indicator # Shell indicator for starting, monitoring and controlling the Syncthing daemon using SystemD
-      # gnomeExtensions.syncthing-icon # Display Syncthing Icon in Top Bar
-      # gnomeExtensions.gsconnect # GSConnect
 
       # Gnome apps/services
       nautilus # file manager
@@ -169,24 +152,6 @@ in {
           padding = 20;
         };
 
-        "org/gnome/shell/extensions/unite" = {
-          desktop-name-text = "rembot";
-          enable-titlebar-actions = true;
-          extend-left-box = false;
-          greyscale-tray-icons = true;
-          hide-activities-button = "always";
-          hide-app-menu-icon = true;
-          hide-dropdown-arrows = true;
-          hide-window-titlebars = "maximized";
-          notifications-position = "right";
-          reduce-panel-spacing = false;
-          show-desktop-name = false;
-          show-legacy-tray = true;
-          show-window-buttons = "maximized";
-          show-window-title = "never";
-          window-buttons-theme = "auto";
-        };
-
         "org/gnome/shell/extensions/bluetooth-quick-connect" = {
           bluetooth-auto-power-on = true;
           refresh-button-on = true;
@@ -196,10 +161,6 @@ in {
         "org/gnome/shell/extensions/blur-my-shell" = {
           brightness = 0.7;
           sigma = 35;
-        };
-
-        "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
-          compatibility = false;
         };
 
         "org/gnome/mutter" = {
@@ -244,17 +205,17 @@ in {
         "org/gnome/shell" = {
           enabled-extensions = [
             "quick-settings-audio-panel@rayzeq.github.io"
-            "unite@hardpixel.eu"
             "appindicatorsupport@rgcjonas.gmail.com"
             "bluetooth-quick-connect@bjarosze.gmail.com"
             "pop-shell@system76.com"
-            "do-not-disturb-while-screen-sharing-or-recording@marcinjahn.com"
-            "GPU_profile_selector@lorenzo9904.gmail.com"
             "window-calls@domandoman.xyz"
             "just-perfection-desktop@just-perfection"
+            "solaar-extension@sidevesh"
           ];
 
           disabled-extensions = [
+            "do-not-disturb-while-screen-sharing-or-recording@marcinjahn.com"
+            "GPU_profile_selector@lorenzo9904.gmail.com"
             "hidetopbar@mathieu.bidon.ca"
             "forge@jmmaranan.com"
             "gtk4-ding@smedius.gitlab.com"
@@ -269,7 +230,6 @@ in {
             "blur-my-shell@aunetx"
             "undecorate@sun.wxg@gmail.com"
             "user-theme@gnome-shell-extensions.gcampax.github.com"
-            "solaar-extension@sidevesh"
             "fullscreen-notifications@sorrow.about.alice.pm.me"
           ];
         };
