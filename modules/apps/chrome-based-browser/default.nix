@@ -198,10 +198,9 @@ in {
       home.file.".config/chromium-flags.conf".text = ''
         --enable-features=UseOzonePlatform
         --ozone-platform=wayland
-        --enable-features=WaylandWindowDecorations,CanvasOopRasterization
+        --enable-features=WaylandWindowDecorations
         --force-device-scale-factor=1
         --ozone-platform-hint=auto
-        --enable-gpu-rasterization
       '';
     };
   };
