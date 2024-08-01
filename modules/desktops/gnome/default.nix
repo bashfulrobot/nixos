@@ -247,17 +247,30 @@ in {
             "unite@hardpixel.eu"
             "appindicatorsupport@rgcjonas.gmail.com"
             "bluetooth-quick-connect@bjarosze.gmail.com"
-            "blur-my-shell@aunetx"
-            "just-perfection-desktop@just-perfection"
-            "user-theme@gnome-shell-extensions.gcampax.github.com"
-            # "forge@jmmaranan.com"
             "pop-shell@system76.com"
             "do-not-disturb-while-screen-sharing-or-recording@marcinjahn.com"
-            "fullscreen-notifications@sorrow.about.alice.pm.me"
-            "solaar-extension@sidevesh"
-            "undecorate@sun.wxg@gmail.com"
             "GPU_profile_selector@lorenzo9904.gmail.com"
             "window-calls@domandoman.xyz"
+            "just-perfection-desktop@just-perfection"
+          ];
+
+          disabled-extensions = [
+            "hidetopbar@mathieu.bidon.ca"
+            "forge@jmmaranan.com"
+            "gtk4-ding@smedius.gitlab.com"
+            "do-not-disturb-while-screen-sharing-or-recording@marcinjahn.com"
+            "window-list@gnome-shell-extensions.gcampax.github.com"
+            "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
+            "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
+            "lgbutton@glerro.gnome.gitlab.io"
+            "gTile@vibou"
+            "syncthing@gnome.2nv2u.com"
+            "light-style@gnome-shell-extensions.gcampax.github.com"
+            "blur-my-shell@aunetx"
+            "undecorate@sun.wxg@gmail.com"
+            "user-theme@gnome-shell-extensions.gcampax.github.com"
+            "solaar-extension@sidevesh"
+            "fullscreen-notifications@sorrow.about.alice.pm.me"
           ];
         };
 
