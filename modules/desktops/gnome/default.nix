@@ -28,16 +28,10 @@ in {
         # Enable Wayland specific settings
         wayland.enable = true;
       };
-      gnome.themes = { tokyonight.enable = false; };
+      gnome.themes.visuals.enable = true;
     };
 
     xdg.portal.config.common.default = [ "*" ];
-
-    # services.xserver.enable = true;
-
-    # Enable the GNOME Desktop Environment.
-    #services.xserver.displayManager.gdm.enable = true;
-    #services.xserver.desktopManager.gnome.enable = true;
 
     services.xserver = {
       enable = true;
@@ -54,6 +48,7 @@ in {
 
     environment.systemPackages = with pkgs; [
       libadwaita # Adwaita libs
+      pulseaudio # Need pactl for gnome ext
       gnome-tweaks # Gnome Tweaks
       pinentry-gnome3 # Gnome3 pinentry
       # Gnome Extensions

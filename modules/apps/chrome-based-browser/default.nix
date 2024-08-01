@@ -158,7 +158,6 @@ in {
         "payments"."can_make_payment_enabled" = false;
       };
       extraOpts = {
-        "OsColorMode" = "dark";
         "BrowserSignin" = 0;
         "SyncDisabled" = true;
         "PasswordManagerEnabled" = false;
