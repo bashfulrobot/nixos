@@ -14,7 +14,7 @@ in {
     hardware.logitech = {
       wireless = {
         enable = true;
-        enbableGraphical = true;
+        enableGraphical = true;
       };
     };
   };
