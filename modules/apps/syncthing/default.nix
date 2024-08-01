@@ -239,9 +239,9 @@ in {
 
             "evo" = {
               # tailscale only
-              addresses = [ "tcp://100.100.5.18:22000" ];
+              addresses = [ "tcp://100.109.38.51:22000" ];
               id =
-                "36KPYH2-THROZYW-NYUM6MT-WYJZ2J7-QGU3LX6-NCKKZ7V-NIG3NK4-5VI3FQU";
+                "TSGLJ6F-D6A2GHQ-WQFPRJR-XLUWGEJ-OP255QK-UQSBMPR-PS7VLS4-LICQDQO";
             };
 
           };
