@@ -8,6 +8,8 @@ set dotenv-load
 set ignore-comments
 # Search justfile in parent directory if the first recipe on the command line is not found.
 set fallback
+# Set the shell to bash
+set shell := ["bash", "-cu"]
 
 # "_" hides the recipie from listings
 _default:
@@ -71,6 +73,7 @@ final-build-reboot:
 # Update Flake
 upgrade-system:
     # @nix flake update --commit-lock-file
+    ulimit -n 4096
     @cp flake.lock flake.lock-pre-upg-$(hostname)-$(date +%Y-%m-%d_%H-%M-%S)
     @nix flake update
     @sudo nixos-rebuild switch --impure --upgrade --flake .#\{{`hostname`}} --show-trace
