@@ -150,7 +150,7 @@ in {
             "time_period_basic" = 4;
           };
           "has_seen_welcome_page" = true;
-          # "theme" = { "follows_system_colors" = true; };
+          "theme" = { "follows_system_colors" = true; };
         };
         "enable_do_not_track" = true;
         "https_only_mode_enabled" = true;
@@ -158,6 +158,7 @@ in {
         "payments"."can_make_payment_enabled" = false;
       };
       extraOpts = {
+        "OsColorMode" = "dark";
         "BrowserSignin" = 0;
         "SyncDisabled" = true;
         "PasswordManagerEnabled" = false;
