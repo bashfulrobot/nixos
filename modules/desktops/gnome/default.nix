@@ -54,7 +54,6 @@ in {
       # Gnome Extensions
       gnomeExtensions.user-themes # User Themes
       gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
-      gnomeExtensions.blur-my-shell # Blur my Shell
       gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
       pop-shell-no-icon
       gnomeExtensions.appindicator # AppIndicator support
@@ -158,11 +157,6 @@ in {
           show-battery-value-on = false;
         };
 
-        "org/gnome/shell/extensions/blur-my-shell" = {
-          brightness = 0.7;
-          sigma = 35;
-        };
-
         "org/gnome/mutter" = {
           center-new-windows = true;
           edge-tiling = false; # for pop-shell
@@ -227,7 +221,6 @@ in {
             "gTile@vibou"
             "syncthing@gnome.2nv2u.com"
             "light-style@gnome-shell-extensions.gcampax.github.com"
-            "blur-my-shell@aunetx"
             "undecorate@sun.wxg@gmail.com"
             "user-theme@gnome-shell-extensions.gcampax.github.com"
             "fullscreen-notifications@sorrow.about.alice.pm.me"
