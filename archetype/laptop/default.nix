@@ -13,6 +13,7 @@ in {
   config = lib.mkIf cfg.enable {
 
     hw = {
+      general.enable = true;
       fwupd.enable = true;
       audio.enable = true;
       touchpad.enable = true;

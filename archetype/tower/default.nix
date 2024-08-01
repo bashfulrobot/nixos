@@ -14,6 +14,8 @@ in {
 
     hw = {
       fwupd.enable = true;
+      general.enable = true;
+      logitech.enable = true;
       audio.enable = true;
       networking.networkmanager.enable = true;
       bluetooth = {
