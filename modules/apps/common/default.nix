@@ -23,23 +23,15 @@ in {
       watchman # file watcher
       # gitnuro # git client
       # zola # static site generator
-      ollama # Run AI Models
-      bruno # API Tester
-      # ngrok
       pkg-config # allows packages to find out information about other packages
       codespelunker # code exploration tool
       httpie # HTTP client
 
       just # command runner
       # doppler # secret management tool
-
       nodejs-18_x # JavaScript runtime
-      # postman # API testing tool
-      sftpman # SftpMan consists of a CLI and a GTK application that make it simpler to setup and mount SSHFS/SFTP file systems.
       # jetbrains.goland # Go IDE
-      rclone-browser # Graphical Frontend to Rclone written in Qt
-      # sublime4 # code editor
-      #sublime-merge # GUI Git Client
+      # rclone-browser # Graphical Frontend to Rclone written in Qt
       # Causes:error: Package ‘python-2.7.18.6’ in /nix/store/zb2695k9v4hmjdki97p0yhd4mys270fs-source/pkgs/development/interpreters/python/cpython/2.7/default.nix:330 is marked as insecure, refusing to evaluate.
       # oni2 # code editor
       shadowenv # environment variable manager
@@ -68,21 +60,21 @@ in {
       # kubeone # Kubernetes cluster management
       talosctl # Talos OS management tool - diabled until https://github.com/NixOS/nixpkgs/issues/264127 is fixed.
       kompose # Kubernetes container orchestration
-      vultr-cli # Vultr cloud management
+      # vultr-cli # Vultr cloud management
       kubectl # Kubernetes command-line tool
       kubectx # Kubernetes context switcher
       kubecolor # colorize kubectl output
       kubernetes-helm # Kubernetes package manager
       eksctl # AWS EKS management tool
       awscli2 # AWS command line interface
-      google-cloud-sdk # Google Cloud SDK
+      # google-cloud-sdk # Google Cloud SDK
       aws-iam-authenticator # AWS IAM authentication tool
       terraform # infrastructure as code tool
       ctop # container process monitoring
       # virter # libvirtd management CLI client
 
       ### Networking
-      wgnord # nordvpn over wireguard
+      # wgnord # nordvpn over wireguard
       # localsend # send files locally # bug, need to troubleshoot TODO
 
       ### Backup
@@ -91,24 +83,19 @@ in {
 
       ### GUI
       vlc # media player
-      losslesscut-bin # video editor
       gimp-with-plugins # image editor
       inkscape-with-extensions # vector graphics editor
       xournalpp # note taking/pdf annotator
       # minder # mindmapping
-      gnome.gnome-boxes # desktop vms
       # junction # default app selector
       #insync # Google Drive Sync Client
-      # whatsapp-emoji-font # WhatsApp emoji font - pegs CPU to 100% on build
       evince # pdf viewer
       foliate # ebook reader
       libreoffice # office suite
       solaar # Linux manager for many Logitech keyboards, mice
       mplayer # Video player
 
-      # tuba # Mastodon client
       # morgen # AI calendar - testing
-      # protonvpn-gui # VPN client
       kooha # Screen recorder for x11/Wayland
       # flameshot # Screen capture - currently has a bug
       satty # annotation
@@ -116,14 +103,8 @@ in {
       # helvum # A GTK patchbay for pipewire
       obsidian # note-taking app
       virt-manager # virtual machine manager
-      #droidcam # use iPhone as a camera input
       # yaru-theme # gtk theme
-      # pop-gtk-theme # gtk theme
-      # gruvbox-gtk-theme # theme
-      # gruvbox-dark-icons-gtk # theme icons
       colorpicker # colour picker
-
-      # microsoft-edge # web browser
 
       # Communication
       fractal # Matrix Client
