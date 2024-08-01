@@ -19,14 +19,15 @@
 
   ];
 
-  services = {
-    kmscon = {
-      enable = true;
-      extraConfig = lib.mkForce ''
-      font-size=24
-      xkb-layout=us
-    '';
-    };
-  };
+  # TODO: testing removal due to error
+  # services = {
+  #   kmscon = {
+  #     enable = true;
+  #     extraConfig = lib.mkForce ''
+  #     font-size=24
+  #     xkb-layout=us
+  #   '';
+  #   };
+  # };
 
 }
