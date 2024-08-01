@@ -19,7 +19,7 @@ in {
       fprintd.enable = false;
       networking = {
         networkmanager.enable = true;
-        wifi.powersave = true;
+        wifi.powersave = false;
       };
       bluetooth = {
         enable = true;
