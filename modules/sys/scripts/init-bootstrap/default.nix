@@ -13,7 +13,7 @@ let
       echo "remember to grab the hardware configuration file from the bootstrapped system in /bootstrapped"
       sleep 5
 
-      cd /bootstrapped/$(hostname)/
+      cd /bootstrapped/"$(hostname)"/
       cp .gnupg/git-crypt-key ~/.gnupg/git-crypt-key
       cp .ssh/id_* ~/.ssh/
       sudo chown -R "$(whoami)":users ~/.ssh/id_* ~/.gnupg/git-crypt-key
