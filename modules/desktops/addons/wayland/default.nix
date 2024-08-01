@@ -34,6 +34,8 @@ in {
         MOZ_ENABLE_WAYLAND = "1";
         _JAVA_AWT_WM_NONREPARENTING = "1";
         XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots";
+        NIXOS_OZONE_WL = 1; # fixed electron apps blurriness
+        WARP_ENABLE_WAYLAND = 1; # Needed for Warp Terminal to use Wayland
       };
       home.file.".config/electron-flags.conf".text = ''
         --enable-features=UseOzonePlatform

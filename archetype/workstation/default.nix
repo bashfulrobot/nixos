@@ -71,7 +71,6 @@ in {
       comics-downloader.enable = true;
       common.enable = true;
       espanso.enable = false;
-      environment.enable = false; # enable only if gnome is enabled
       bash.enable = true;
       fish.enable = true;
       tailscale.enable = true;
