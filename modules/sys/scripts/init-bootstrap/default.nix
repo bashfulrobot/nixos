@@ -16,12 +16,12 @@ let
       cd /bootstrapped/$(hostname)/
       cp .gnupg/git-crypt-key ~/.gnupg/git-crypt-key
       cp .ssh/id_* ~/.ssh/
-      sudo chown -R $(whoami):users ~/.ssh/id_* ~/.gnupg/git-crypt-key
+      sudo chown -R "$(whoami)":users ~/.ssh/id_* ~/.gnupg/git-crypt-key
       chmod 600 ~/.ssh/id_*
       chmod 700 ~/.gnupg/git-crypt-key
       mkdir -p ~/dev/nix/
       sudo mv /bootstrapped ~/dev/nix/
-      sudo chown -R $(whoami):users ~/dev/nix/bootstrapped
+      sudo chown -R "$(whoami)":users ~/dev/nix/bootstrapped
       sudo chmod 700 ~/dev/nix/bootstrapped
       echo "still need to do:"
       echo
