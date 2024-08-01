@@ -4,9 +4,9 @@
   imports = [
     ./boot.nix
     ./disko.nix
-    ./gpus.nix
+    # ./gpus.nix
     ./hardware-configuration.nix
-    ./kernel.nix
+    # ./kernel.nix
     # inputs.nixos-hardware.nixosModules.common-cpu-intel
     # inputs.nixos-hardware.nixosModules.common-hidpi
     # inputs.nixos-hardware.nixosModules.common-pc

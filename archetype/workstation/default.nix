@@ -87,7 +87,7 @@ in {
     };
 
     sys = {
-      plymouth.enable = true;
+      plymouth.enable = false;
       stylix.enable = true;
       dconf.enable = true;
       xdg.enable = true;
