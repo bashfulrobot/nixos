@@ -15,6 +15,9 @@ in {
     services.fwupd.enable = true;
 
     # Enable all firmware regarldess of license
-    hardware.enableAllFirmware = true;
+    hardware = {
+      enableAllFirmware = true;
+      enableRedistributableFirmware = true;
+      };
   };
 }
