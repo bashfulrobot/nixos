@@ -6,7 +6,7 @@ let
   sf-mono-liga-font = pkgs.callPackage ./build/sfpro/liga { };
   inter-font = pkgs.callPackage ./build/inter { }; # Helvetica Replacement
   aharoni-font = pkgs.callPackage ./build/aharoni { };
-  monaspace-font = pkgs.callPackage ./build/monaspace { };
+  # monaspace-font = pkgs.callPackage ./build/monaspace { };
 
 in {
 
@@ -23,9 +23,9 @@ in {
     home-manager.users."${user-settings.user.username}" = {
 
       fonts.fontconfig.enable = true;
-
+      # fc-list | grep [font name] -> before the ":" is the font name
       home.packages = with pkgs; [
-        monaspace-font
+        # monaspace-font
         aharoni-font
         inter-font
         sfpro-font
@@ -45,8 +45,14 @@ in {
         helvetica-neue-lt-std
         # nerdfonts
         # (nerdfonts.override {
-        #   fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" "SourceCodePro" ];
+        #   fonts =
+        #     [ "FiraCode" "DroidSansMono" "JetBrainsMono" "SourceCodePro" ];
         # })
+        # if you hover over the download links on the site, the name of the zip file is the font name.
+        (nerdfonts.override {
+          fonts =
+            [ "DroidSansMono" "JetBrainsMono" "Ubuntu" "UbuntuMono" "UbuntuSans" ];
+        })
       ];
     };
   };

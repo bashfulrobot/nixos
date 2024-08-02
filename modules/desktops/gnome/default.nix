@@ -292,6 +292,7 @@ in {
         "org/gnome/Console" = {
           theme = "auto";
           font-scale = 1.5;
+          custom-font = "UbuntuMono Nerd Font Mono 13";
         };
 
         "org/gnome/settings-daemon/plugins/media-keys" = {
