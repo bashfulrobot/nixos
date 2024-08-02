@@ -52,17 +52,13 @@ in {
       gnome-tweaks # Gnome Tweaks
       pinentry-gnome3 # Gnome3 pinentry
       # Gnome Extensions
-      gnomeExtensions.user-themes # User Themes
+      # gnomeExtensions.user-themes # User Themes
       gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
       gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
       pop-shell-no-icon
       gnomeExtensions.appindicator # AppIndicator support
-      gnomeExtensions.do-not-disturb-while-screen-sharing-or-recording # Automatically switches on the
-      gnomeExtensions.fullscreen-notifications # Enables all notifications in fullscreen mode
-      gnomeExtensions.undecorate # Add undecorate item in window menu. Use ALT+Space to show window menu
       gnomeExtensions.solaar-extension # Allow Solaar to support certain features on non X11 systems
       gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
-      gnomeExtensions.looking-glass-button # Toggle the Looking Glass visibility by clicking on a panel icon.
       gnomeExtensions.window-calls # allows me to run my fish funciton to get the wmc_class of a window
 
       # Gnome apps/services
@@ -72,37 +68,39 @@ in {
       gnome2.GConf # configuration database system for old apps
     ];
 
-    environment.gnome.excludePackages = with pkgs; [
+    environment.gnome.excludePackages = (with pkgs; [
+      # for packages that are pkgs.*
+      gnome-tour
+      gnome-connections
       cheese # photo booth
       gedit # text editor
       yelp # help viewer
       file-roller # archive manager
-      geary # email client
-
-      # these should be self explanatory
-      gnome.gnome-maps
-      gnome.gnome-music
+      geary # email reader
       gnome-photos
       gnome-system-monitor
-      gnome.gnome-weather
-
-      # disable gnome extensions
-      gnomeExtensions.applications-menu
-      gnomeExtensions.auto-move-windows
-      gnomeExtensions.gtk4-desktop-icons-ng-ding
-      gnomeExtensions.launch-new-instance
-      gnomeExtensions.light-style
-      gnomeExtensions.native-window-placement
-      gnomeExtensions.next-up
-      gnomeExtensions.places-status-indicator
-      gnomeExtensions.removable-drive-menu
-      gnomeExtensions.screenshot-window-sizer
-      gnomeExtensions.window-list
-      gnomeExtensions.windownavigator
-      gnomeExtensions.workspace-indicator
-      # I can hide with thejust perfection extension
-      gnomeExtensions.hide-top-bar # Hide the top bar except in overview
-    ];
+    ]) ++ (with pkgs.gnome; [
+      # for packages that are pkgs.gnome.*
+      gnome-maps
+      gnome-music
+      gnome-weather
+    ]) ++ (with pkgs.gnomeExtensions; [
+      # for packages that are pkgs.gnomeExtensions.*
+      applications-menu
+      auto-move-windows
+      gtk4-desktop-icons-ng-ding
+      launch-new-instance
+      light-style
+      native-window-placement
+      next-up
+      places-status-indicator
+      removable-drive-menu
+      screenshot-window-sizer
+      window-list
+      windownavigator
+      workspace-indicator
+      hide-top-bar
+    ]);
 
     system.activationScripts.script.text = ''
       mkdir -p /var/lib/AccountsService/{icons,users}
@@ -144,11 +142,6 @@ in {
           font-hinting = "full";
           locate-pointer = true;
           gtk-enable-primary-paste = true;
-        };
-
-        "org/gnome/shell/extensions/libpanel" = {
-          row-spacing = 24;
-          padding = 20;
         };
 
         "org/gnome/shell/extensions/bluetooth-quick-connect" = {
@@ -208,12 +201,10 @@ in {
           ];
 
           disabled-extensions = [
-            "do-not-disturb-while-screen-sharing-or-recording@marcinjahn.com"
             "GPU_profile_selector@lorenzo9904.gmail.com"
             "hidetopbar@mathieu.bidon.ca"
             "forge@jmmaranan.com"
             "gtk4-ding@smedius.gitlab.com"
-            "do-not-disturb-while-screen-sharing-or-recording@marcinjahn.com"
             "window-list@gnome-shell-extensions.gcampax.github.com"
             "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
             "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
@@ -221,9 +212,7 @@ in {
             "gTile@vibou"
             "syncthing@gnome.2nv2u.com"
             "light-style@gnome-shell-extensions.gcampax.github.com"
-            "undecorate@sun.wxg@gmail.com"
             "user-theme@gnome-shell-extensions.gcampax.github.com"
-            "fullscreen-notifications@sorrow.about.alice.pm.me"
           ];
         };
 
@@ -304,12 +293,6 @@ in {
           theme = "auto";
           font-scale = 1.5;
         };
-
-        "org/gnome/shell/extensions/do-not-disturb-while-screen-sharing-or-recording" =
-          {
-            dnd-on-screen-recording = true;
-            dnd-on-screen-sharing = true;
-          };
 
         "org/gnome/settings-daemon/plugins/media-keys" = {
           custom-keybindings = [
