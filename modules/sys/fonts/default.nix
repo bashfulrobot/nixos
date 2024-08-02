@@ -1,3 +1,4 @@
+# TODO: Clean up fonts - what am I "actually" using?
 { user-settings, pkgs, config, lib, ... }:
 
 let
