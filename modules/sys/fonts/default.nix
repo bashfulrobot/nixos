@@ -39,6 +39,7 @@ in {
         cantarell-fonts
         # comic-mono
         victor-mono
+        jetbrains-mono
         # Meslo Nerd Font patched for Powerlevel10k
         meslo-lgs-nf
         # Helvetica for Camino
