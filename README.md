@@ -146,8 +146,9 @@ Note: I use Chromium, which also works with Brave or any browser supporting the 
 ## TODO
 
 - Installation changes
-    - [ ] Leverage a `shell`.nix`
-    - [ ] Move to `disko``
+    - [x] Leverage a `shell`.nix`
+    - [x] Move to `disko` for `evo` laptop
+    - [ ] Move to `disko` for `rembot` tower
     - [ ] Doc how to install with minimal iso and use this repo during installation
 - [ ] Merge all wallpaper references to use a wallpaper from a single location
 - [ ] conditional to put the proper scaled wallpaper on my laptop
