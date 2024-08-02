@@ -106,6 +106,12 @@ in {
       mkdir -p /var/lib/AccountsService/{icons,users}
       cp ${user-settings.user.home}/dev/nix/nixos/modules/desktops/gnome/.face /var/lib/AccountsService/icons/${user-settings.user.username}
       echo -e "[User]\nIcon=/var/lib/AccountsService/icons/${user-settings.user.username}\n" > /var/lib/AccountsService/users/${user-settings.user.username}
+
+      chown root:root /var/lib/AccountsService/users/${user-settings.user.username}
+      chmod 0600 /var/lib/AccountsService/users/${user-settings.user.username}
+
+      chown root:root /var/lib/AccountsService/icons/${user-settings.user.username}
+      chmod 0444 /var/lib/AccountsService/icons/${user-settings.user.username}
     '';
 
     ##### Home Manager Config options #####
