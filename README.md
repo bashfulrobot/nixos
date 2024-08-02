@@ -127,7 +127,7 @@ Getting the StartupWMClass is a pain in Wayland.
 
 - I enabled the `Window Class` extension in Gnome.
 - Then, you can use a command to get the window's class.
-- See the `get_wm_class` fish shell function in my`fish` module.
+- See the `get_wm_class` fish shell function in my `fish` module.
 
 #### Steps for my setup
 
