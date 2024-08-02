@@ -114,29 +114,6 @@ in {
       chmod 0444 /var/lib/AccountsService/icons/${user-settings.user.username}
     '';
 
-# MUTTER PATCH--------------------------------------------------------------
-# NOTE - this could be something to watch as gnome updates
-# More info (Dynamic triple buffering) - https://wiki.nixos.org/wiki/GNOME
-    nixpkgs.overlays = [
-      # GNOME 46: triple-buffering-v4-46
-      (final: prev: {
-        gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
-          mutter = gnomePrev.mutter.overrideAttrs (old: {
-            src = pkgs.fetchFromGitLab {
-              domain = "gitlab.gnome.org";
-              owner = "vanvugt";
-              repo = "mutter";
-              rev = "triple-buffering-v4-46";
-              hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
-            };
-          });
-        });
-      })
-    ];
-
-    nixpkgs.config.allowAliases = false;
-# MUTTER PATCH--------------------------------------------------------------
-
     ##### Home Manager Config options #####
     home-manager.users."${user-settings.user.username}" = {
       home.sessionVariables = { XDG_CURRENT_DESKTOP = "gnome"; };
