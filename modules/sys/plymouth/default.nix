@@ -15,11 +15,10 @@ in {
     environment.systemPackages = with pkgs; [
       plymouthIcon
     ];
-    # Enable dconf
     boot.plymouth = {
       enable = true;
       font = "${pkgs.work-sans}/share/fonts/opentype/WorkSans-Regular.ttf";
-      logo = "${plymouthIcon}/share/icons/hicolor/48x48/apps/Sysdig.png";
+      logo = "${plymouthIcon}/share/icons/hicolor/48x48/apps/plymouth.png";
       extraConfig = ''
         ShowDelay=0
         DeviceScale=2

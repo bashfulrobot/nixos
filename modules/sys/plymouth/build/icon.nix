@@ -4,13 +4,13 @@ stdenv.mkDerivation {
   name = "plymouth-icon";
   version = "1.0";
 
-  src = ./Sysdig.png;
+  src = ./plymouth.png;
 
   unpackPhase = "true"; # Skip the unpack phase
 
   installPhase = ''
     mkdir -p $out/share/icons/hicolor/48x48/apps
-    cp $src $out/share/icons/hicolor/48x48/apps/Sysdig.png
+    cp $src $out/share/icons/hicolor/48x48/apps/plymouth.png
   '';
 
   meta = {
