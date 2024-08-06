@@ -41,7 +41,6 @@ in {
       # ncdu # disk usage analyzer - replaced with gdu
 
       killall # kill all instances of a running app
-      # xfce.xfce4-terminal
       dex # open desktop files from the terminal
 
       tesseract # CLI OCR
@@ -56,7 +55,6 @@ in {
       pandoc # document converter
       dogdns # dig alternative
       xorg.xkill # kill client by X resource
-      # neofetch # system information tool
       imagemagick_light # image manipulation library
       coreutils # basic file, shell, and text manipulation
       wget # file download utility
