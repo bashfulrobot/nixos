@@ -269,7 +269,7 @@ in {
         };
         shellAliases = {
           copy-icons = "copy_icons";
-
+          ncdu = "gdu";
           hm-logs =
             "sudo systemctl restart home-manager-dustin.service; journalctl -xeu home-manager-dustin.service";
           tailscale-up-lt =
