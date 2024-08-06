@@ -19,7 +19,7 @@ in {
     };
 
     apps = {
-      zoom-us.enable = true;
+      zoom-us.enable = false;
       whatsapp.enable = true;
       rocket-chat.enable = true;
       pairdrop.enable = true;
