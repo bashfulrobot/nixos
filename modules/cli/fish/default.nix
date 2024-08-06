@@ -268,6 +268,8 @@ in {
           gc = "git add . && git commit -S && git push && git pull";
         };
         shellAliases = {
+          support-info = ", fastfetch --logo none -c /home/dustin/dev/nix/nixos/modules/cli/fastfetch/support.jsonc | xclip -selection clipboard";
+          support-info-extended = ", fastfetch --logo none -c /home/dustin/dev/nix/nixos/modules/cli/fastfetch/support-extended.jsonc | xclip -selection clipboard";
           copy-icons = "copy_icons";
           hm-logs =
             "sudo systemctl restart home-manager-dustin.service; journalctl -xeu home-manager-dustin.service";

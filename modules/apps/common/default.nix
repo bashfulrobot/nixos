@@ -14,6 +14,8 @@ in {
     environment.systemPackages = with pkgs; [
       # TODO: refactor these packages out into the proper moduls/suites
 
+      (opera.override { proprietaryCodecs = true; })
+
       gnome-disk-utility
       transmission_4
       deluge-gtk
