@@ -346,7 +346,7 @@ in {
             binding = "<Super>t";
             # binding = "<Super>space";
             # command = "kgx";
-            command = "alactitty";
+            command = "alacritty";
             name = "Terminal";
           };
 
