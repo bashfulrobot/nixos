@@ -97,7 +97,7 @@ in {
         # Mail message URL
         "bcelhaineggdgbddincjkdmokbbdhgch"
         # Glean browser extension
-        "cfpdompphcacgpjfbonkdokgjhgabpij"
+        # "cfpdompphcacgpjfbonkdokgjhgabpij" # overrides my speed dial extention
         # gnome extention plugin
         "gphhapmejobijbbhgpjhcjognlahblep"
         # copy to clipboard
