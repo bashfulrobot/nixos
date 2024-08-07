@@ -270,6 +270,7 @@ in {
         shellAliases = {
           support-info = ", fastfetch --logo none -c /home/dustin/dev/nix/nixos/modules/cli/fastfetch/support.jsonc | xclip -selection clipboard";
           support-info-extended = ", fastfetch --logo none -c /home/dustin/dev/nix/nixos/modules/cli/fastfetch/support-extended.jsonc | xclip -selection clipboard";
+          tshoot-last-boot = "sudo journalctl -b -1 | curl -F 'file=@-' 0x0.st";
           copy-icons = "copy_icons";
           hm-logs =
             "sudo systemctl restart home-manager-dustin.service; journalctl -xeu home-manager-dustin.service";

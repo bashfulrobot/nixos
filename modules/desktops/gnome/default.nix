@@ -223,16 +223,19 @@ in {
 
         "org/gnome/shell" = {
           enabled-extensions = [
-            "quick-settings-audio-panel@rayzeq.github.io"
-            "appindicatorsupport@rgcjonas.gmail.com"
-            "bluetooth-quick-connect@bjarosze.gmail.com"
             "pop-shell@system76.com"
-            "window-calls@domandoman.xyz"
-            "just-perfection-desktop@just-perfection"
-            "solaar-extension@sidevesh"
           ];
 
           disabled-extensions = [
+            # Normally Enabled
+            "quick-settings-audio-panel@rayzeq.github.io"
+            "appindicatorsupport@rgcjonas.gmail.com"
+            "bluetooth-quick-connect@bjarosze.gmail.com"
+
+            "window-calls@domandoman.xyz"
+            "just-perfection-desktop@just-perfection"
+            "solaar-extension@sidevesh"
+            # Normally Disabled
             "GPU_profile_selector@lorenzo9904.gmail.com"
             "hidetopbar@mathieu.bidon.ca"
             "forge@jmmaranan.com"
