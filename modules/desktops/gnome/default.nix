@@ -238,7 +238,6 @@ in {
             "appindicatorsupport@rgcjonas.gmail.com"
             # Normally Disabled
             "GPU_profile_selector@lorenzo9904.gmail.com"
-            "hidetopbar@mathieu.bidon.ca"
             "forge@jmmaranan.com"
             "gtk4-ding@smedius.gitlab.com"
             "window-list@gnome-shell-extensions.gcampax.github.com"
