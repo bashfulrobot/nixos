@@ -25,39 +25,12 @@ _default:
 #             echo "Skipping sway reload...";; \
 #     esac
 
-# Print `just` help
-# help:
-#     @just --help
-# # Print your hostname
-# host:
-#     @echo `hostname`
-# # Print your user name
-# user:
-#     @echo {{env_var('USER')}}
-# # Print your homedir
-# home:
-#     @echo {{env_var('HOME')}}
-# # Print the directory where the justfile is located
-# root:
-#     @echo {{justfile_directory()}}
 # Test nixos cfg on your current host without git commit. Switches, but does not create a bootloader entry
 dev-test:
     @git add -A
     # @just garbage-build-cache
     # @sudo nixos-rebuild test --fast--impure --flake .#\{{`hostname`}}
     @sudo nixos-rebuild dry-build --fast --impure --flake .#\{{`hostname`}}
-# git reset and clean - unstage any changes and revert your working directory to the last commit,remove any untracked files and directories. Used to resolve conflicts due to syncthing
-repo-conflict:
-    @git reset --hard HEAD
-    @git clean -fd
-    @git pull
-# lint nix files
-nix-lint:
-    fd -e nix --hidden --no-ignore --follow . -x statix check {}
-# check active kernel
-kernel:
-    @uname -r
-    @ls /boot/EFI/nixos/
 # Rebuild nixos cfg on your current host without git commit.
 dev-rebuild:
     @git add -A
@@ -70,46 +43,45 @@ dev-rebuild-no-cache:
     @rm -f /home/dustin/.config/mimeapps.list
     @sudo nixos-rebuild switch --impure --flake .#rembot --option binary-caches ''
     # @just _sway-reload
-# Final build and garbage collect, will reboot
-final-build-reboot:
-    @just garbage-build-cache
-    @just rebuild
-    @just garbage-build-cache
-    @sudo reboot
-# Update Flake
-upgrade-system:
-    # @nix flake update --commit-lock-file
-    ulimit -n 4096
-    @cp flake.lock flake.lock-pre-upg-$(hostname)-$(date +%Y-%m-%d_%H-%M-%S)
-    @nix flake update
-    @rm -f /home/dustin/.config/mimeapps.list
-    @sudo nixos-rebuild switch --impure --upgrade --flake .#\{{`hostname`}} --show-trace
-    # @just _sway-reload
-# update nix database for use with comma
-nixdb:
-    nix run 'nixpkgs#nix-index' --extra-experimental-features 'nix-command flakes'
-# Update Hardware Firmware
-run-fwup:
-    @sudo fwupdmgr refresh --force
-    @sudo fwupdmgr get-updates
-    @sudo fwupdmgr update
-# Rebuild nixos cfg on your current host.
-rebuild:
-    @rm -f /home/dustin/.config/mimeapps.list
-    @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}}
-    # @just _sway-reload
-
-# Test (with Trace) nixos cfg on your current host without git commit. Switches, but does not create a bootloader entry
-dev-test-trace:
-    @git add -A
-    @just garbage-build-cache
-    @sudo nixos-rebuild test --impure --flake .#\{{`hostname`}} --show-trace
 # Rebuild and trace nixos cfg on your current host without git commit.
 dev-rebuild-trace:
     @git add -A
     @just garbage-build-cache
     @rm -f /home/dustin/.config/mimeapps.list
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}} --show-trace > ~/dev/nix/nixos/rebuild-trace.log 2>&1
+    # @just _sway-reload
+# Test (with Trace) nixos cfg on your current host without git commit. Switches, but does not create a bootloader entry
+dev-test-trace:
+    @git add -A
+    @just garbage-build-cache
+    @sudo nixos-rebuild test --impure --flake .#\{{`hostname`}} --show-trace
+# Final build and garbage collect, will reboot
+final-build-reboot:
+    @just garbage-build-cache
+    @just rebuild
+    @just garbage-build-cache
+    @sudo reboot
+# Garbage Collect items older than 5 days on the current host
+garbage:
+    @sudo nix-collect-garbage --delete-older-than 5d
+### The below will delete from the Nix store everything that is not used by the current generations of each  profile
+# Garbage collect all, clear build cache
+garbage-build-cache:
+    @sudo nix-collect-garbage -d
+# check active kernel
+kernel:
+    @uname -r
+    @ls /boot/EFI/nixos/
+# lint nix files
+nix-lint:
+    fd -e nix --hidden --no-ignore --follow . -x statix check {}
+# update nix database for use with comma
+nixdb:
+    nix run 'nixpkgs#nix-index' --extra-experimental-features 'nix-command flakes'
+# Rebuild nixos cfg on your current host.
+rebuild:
+    @rm -f /home/dustin/.config/mimeapps.list
+    @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}}
     # @just _sway-reload
 # Rebuild nixos cfg on your current host with show-trace.
 rebuild-trace:
@@ -119,11 +91,22 @@ rebuild-trace:
 # Rebuild nixos cfg in a vm host with show-trace.
 rebuild-vm:
     @sudo nixos-rebuild build-vm --impure --flake .#\{{`hostname`}} --show-trace
-
-# Garbage Collect items older than 5 days on the current host
-garbage:
-    @sudo nix-collect-garbage --delete-older-than 5d
-### The below will delete from the Nix store everything that is not used by the current generations of each  profile
-# Garbage collect all, clear build cache
-garbage-build-cache:
-    @sudo nix-collect-garbage -d
+# git reset and clean - unstage any changes and revert your working directory to the last commit,remove any untracked files and directories. Used to resolve conflicts due to syncthing
+repo-conflict:
+    @git reset --hard HEAD
+    @git clean -fd
+    @git pull
+# Update Hardware Firmware
+run-fwup:
+    @sudo fwupdmgr refresh --force
+    @sudo fwupdmgr get-updates
+    @sudo fwupdmgr update
+# Update Flake
+upgrade-system:
+    # @nix flake update --commit-lock-file
+    ulimit -n 4096
+    @cp flake.lock flake.lock-pre-upg-$(hostname)-$(date +%Y-%m-%d_%H-%M-%S)
+    @nix flake update
+    @rm -f /home/dustin/.config/mimeapps.list
+    @sudo nixos-rebuild switch --impure --upgrade --flake .#\{{`hostname`}} --show-trace
+    # @just _sway-reload
