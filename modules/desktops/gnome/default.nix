@@ -58,7 +58,8 @@ in {
       pop-shell-no-icon
       gnomeExtensions.appindicator # AppIndicator support
       gnomeExtensions.solaar-extension # Allow Solaar to support certain features on non X11 systems
-      gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
+      gnomeExtensions.hide-top-bar # Hide Top Bar - alt to just perfeciton with less optionse
+      # gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
       gnomeExtensions.window-calls # allows me to run my fish funciton to get the wmc_class of a window
 
       # Gnome apps/services
@@ -224,17 +225,17 @@ in {
         "org/gnome/shell" = {
           enabled-extensions = [
             "pop-shell@system76.com"
+            "window-calls@domandoman.xyz"
+            "quick-settings-audio-panel@rayzeq.github.io"
+            "bluetooth-quick-connect@bjarosze.gmail.com"
+            "solaar-extension@sidevesh"
+            "hidetopbar@mathieu.bidon.ca"
           ];
 
           disabled-extensions = [
             # Normally Enabled
-            "quick-settings-audio-panel@rayzeq.github.io"
+            "just-perfection-desktop@just-perfection" # locks up gnome after last update. Sad Face.
             "appindicatorsupport@rgcjonas.gmail.com"
-            "bluetooth-quick-connect@bjarosze.gmail.com"
-
-            "window-calls@domandoman.xyz"
-            "just-perfection-desktop@just-perfection"
-            "solaar-extension@sidevesh"
             # Normally Disabled
             "GPU_profile_selector@lorenzo9904.gmail.com"
             "hidetopbar@mathieu.bidon.ca"
@@ -251,6 +252,13 @@ in {
           ];
         };
 
+        "org/gnome/shell/extensions/hidetopbar" = {
+          shortcut-keybind = "<Alt><Super>b";
+          enable-active-window = false;
+          enable-intellihide = false;
+          keep-round-corners = true;
+          mouse-sensitive = true;
+        };
         "org/gnome/shell/extensions/quick-settings-audio-panel" = {
           always-show-input-slider = true;
           media-control = "move";
