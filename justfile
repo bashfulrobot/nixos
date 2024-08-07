@@ -54,6 +54,10 @@ repo-conflict:
 # lint nix files
 nix-lint:
     fd -e nix --hidden --no-ignore --follow . -x statix check {}
+# check active kernel
+kernel:
+    @uname -r
+    @ls /boot/EFI/nixos/
 # Rebuild nixos cfg on your current host without git commit.
 dev-rebuild:
     @git add -A
