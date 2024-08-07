@@ -217,7 +217,7 @@ in {
           fullscreen-launcher = true;
           mouse-cursor-follows-active-window = false;
           show-title = false;
-          smart-gaps = true;
+          smart-gaps = false;
           tile-by-default = true;
           # search = "<Super>space";
         };
