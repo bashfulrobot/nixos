@@ -907,6 +907,26 @@
         "type": "indirect"
       }
     },
+    "nvchad4nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1721964147,
+        "narHash": "sha256-VqT5Jkdg03lny5NCfJkd2gdTlaJ6R5vYctCcTnP8Y2Q=",
+        "owner": "NvChad",
+        "repo": "nix",
+        "rev": "3f162f053f019326bcc40b2dfb2f767e5f064099",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NvChad",
+        "repo": "nix",
+        "type": "github"
+      }
+    },
     "nvim": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -939,6 +959,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nur": "nur",
+        "nvchad4nix": "nvchad4nix",
         "nvim": "nvim",
         "stylix": "stylix"
       }
