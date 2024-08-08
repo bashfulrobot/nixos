@@ -50,6 +50,7 @@ in {
         ];
     };
 
+    # A set of shell script fragments that are executed when a NixOS system configuration is activated. Examples are updating /etc, creating accounts, and so on. Since these are executed every time you boot the system or run nixos-rebuild, it’s important that they are idempotent and fast.
     system.activationScripts.diff = {
       supportsDryActivaton = true;
       # TODO: where is $systemConfig defined?
