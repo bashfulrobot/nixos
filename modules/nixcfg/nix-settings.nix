@@ -41,7 +41,22 @@ in {
       };
     };
 
-    programs.nix-ld.enable = true;
+    programs.nix-ld = {
+      enable = true;
+      libraries = with pkgs;
+        [
+          # Add any missing dynamic libraries here for unpackages programs
+          # here, and not in the environment.systemPackages.
+        ];
+    };
+
+    system.activationScripts.diff = {
+      supportsDryActivaton = true;
+      # TODO: where is $systemConfig defined?
+      text = ''
+        ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nvd}/bin diff /run/current-system "$systemConfig"
+      '';
+    };
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
