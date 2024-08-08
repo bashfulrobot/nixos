@@ -59,8 +59,8 @@ in {
       pop-shell-no-icon
       gnomeExtensions.appindicator # AppIndicator support
       gnomeExtensions.solaar-extension # Allow Solaar to support certain features on non X11 systems
-      gnomeExtensions.hide-top-bar # Hide Top Bar - alt to just perfeciton with less optionse
-      # gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
+      gnomeExtensions.hide-top-bar # Hide Top Bar - alt to ]just perfeciton with less optionse
+      gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
       gnomeExtensions.window-calls # allows me to run my fish funciton to get the wmc_class of a window
 
       # Gnome apps/services
@@ -116,12 +116,12 @@ in {
       chmod 0444 /var/lib/AccountsService/icons/${user-settings.user.username}
     '';
 
-# MUTTER PATCH--------------------------------------------------------------
-# NOTE - this could be something to watch as gnome updates
-#
-# Currently breaks my build with Stylix.
-#
-# More info (Dynamic triple buffering) - https://wiki.nixos.org/wiki/GNOME
+    # MUTTER PATCH--------------------------------------------------------------
+    # NOTE - this could be something to watch as gnome updates
+    #
+    # Currently breaks my build with Stylix.
+    #
+    # More info (Dynamic triple buffering) - https://wiki.nixos.org/wiki/GNOME
     # nixpkgs.overlays = [
     #   # GNOME 46: triple-buffering-v4-46
     #   (final: prev: {
@@ -140,7 +140,7 @@ in {
     # ];
 
     # nixpkgs.config.allowAliases = false;
-# MUTTER PATCH--------------------------------------------------------------
+    # MUTTER PATCH--------------------------------------------------------------
 
     ##### Home Manager Config options #####
     home-manager.users."${user-settings.user.username}" = {
@@ -230,7 +230,7 @@ in {
             "quick-settings-audio-panel@rayzeq.github.io"
             "bluetooth-quick-connect@bjarosze.gmail.com"
             "solaar-extension@sidevesh"
-            "hidetopbar@mathieu.bidon.ca"
+	          "hidetopbar@mathieu.bidon.ca"
           ];
 
           disabled-extensions = [

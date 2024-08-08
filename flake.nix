@@ -6,6 +6,10 @@
     nixos-hardware = { url = "github:NixOS/nixos-hardware/master"; };
     nix-flatpak = { url = "github:gmodena/nix-flatpak"; };
     nvim = { url = "github:bashfulrobot/jvim"; };
+    nvchad4nix = {
+      url = "github:NvChad/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin = { url = "github:catppuccin/nix"; };
     hyprswitch = { url = "github:h3rmt/hyprswitch/release"; };
     hyprland = { url = "github:hyprwm/Hyprland"; };
@@ -32,7 +36,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, hyprswitch
-    , hyprland, nix-flatpak, nur, nvim, catppuccin, stylix, disko, ... }:
+    , hyprland, nix-flatpak, nur, nvim, catppuccin, stylix, disko, nvchad4nix, ... }:
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.
