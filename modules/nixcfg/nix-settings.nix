@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 let cfg = config.nixcfg.nix-settings;
 in {
 
@@ -50,14 +50,15 @@ in {
         ];
     };
 
+    # TODO: fix this, it's not working
     # A set of shell script fragments that are executed when a NixOS system configuration is activated. Examples are updating /etc, creating accounts, and so on. Since these are executed every time you boot the system or run nixos-rebuild, it’s important that they are idempotent and fast.
-    system.activationScripts.diff = {
-      # supportsDryActivaton = true;
-      # TODO: where is $systemConfig defined?
-      text = ''
-        ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nvd}/bin diff /run/current-system "$systemConfig"
-      '';
-    };
+    # system.activationScripts.diff = {
+    #   # supportsDryActivaton = true;
+    #   # TODO: where is $systemConfig defined?
+    #   text = ''
+    #     ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nvd}/bin diff /run/current-system "$systemConfig"
+    #   '';
+    # };
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
