@@ -53,6 +53,7 @@ in {
       pinentry-gnome3 # Gnome3 pinentry
       # Gnome Extensions
       # gnomeExtensions.user-themes # User Themes
+      gnomeExtensions.prime-helper # Prime Helper
       gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
       gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
       pop-shell-no-icon
