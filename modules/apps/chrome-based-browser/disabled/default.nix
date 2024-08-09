@@ -185,25 +185,25 @@ in {
               --enable-features=UseOzonePlatform
               --ozone-platform=wayland
               --enable-features=WaylandWindowDecorations
-              --force-device-scale-factor=1
               --ozone-platform-hint=auto
             '';
+            # --force-device-scale-factor=1
           } else if cfg.browser == "brave" then {
             ".config/brave-flags.conf".text = ''
               --enable-features=UseOzonePlatform
               --ozone-platform=wayland
               --enable-features=WaylandWindowDecorations
-              --force-device-scale-factor=1
               --ozone-platform-hint=auto
             '';
+            # --force-device-scale-factor=1
           } else if cfg.browser == "vivaldi" then {
             ".config/vivaldi-stable.conf".text = ''
               --enable-features=UseOzonePlatform
               --ozone-platform=wayland
               --enable-features=WaylandWindowDecorations
-              --force-device-scale-factor=1
               --ozone-platform-hint=auto
             '';
+            # --force-device-scale-factor=1
           } else
             { }
         else
