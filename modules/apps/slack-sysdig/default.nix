@@ -2,17 +2,17 @@
 { user-settings, config, pkgs, lib, makeDesktopItem, ... }:
 
 let
-  cfg = config.apps.zoom-web;
+  cfg = config.apps.slack-sysdig;
 
   # Import the makeDesktopApp function
   makeDesktopApp = pkgs.callPackage ../../../lib/cbb-webwrap { };
 
   # I temp create an app in brave to download all the icons, then I place then in the correct folder
-  zoomWebApp = makeDesktopApp {
-    name = "Zoom Web";
-    url = "https://app.zoom.us/wc/home";
+  sysdigSlackWebApp = makeDesktopApp {
+    name = "Sysdig Slack";
+    url = "https://app.slack.com/client/T03A6N692";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "chrome-app.zoom.us__wc_home-Default";
+    myStartupWMClass = "chrome-app.slack.com__client_T03A6N692-Default";
     iconSizes = ["32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons
@@ -22,17 +22,17 @@ let
 in {
 
   options = {
-    apps.zoom-web.enable = lib.mkOption {
+    apps.slack-sysdig.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Enable the nixpkgs search app.";
+      description = "Enable the sysdig slack web app.";
     };
   };
 
   config = lib.mkIf cfg.enable {
 
-    environment.systemPackages = [ zoomWebApp.desktopItem ]
-      ++ zoomWebApp.icons;
+    environment.systemPackages = [ sysdigSlackWebApp.desktopItem ]
+      ++ sysdigSlackWebApp.icons;
 
     # home-manager.users."${user-settings.user.username}" = {
 
