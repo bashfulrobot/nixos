@@ -110,7 +110,7 @@ in {
 
       # Communication
       fractal # Matrix Client
-      slack # instant messaging
+      # slack # instant messaging Visual bug. Using web app for now
       signal-desktop # instant messaging
       element-desktop # Matrix Client
       # thunderbird # email client

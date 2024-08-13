@@ -23,7 +23,7 @@ in {
       whatsapp.enable = true;
       rocket-chat.enable = true;
       pairdrop.enable = true;
-      zoom-web.enable = false;
+      zoom-web.enable = true;
       apple-notes.enable = true;
       nautilus.enable = true;
       common.enable = true;
@@ -57,6 +57,10 @@ in {
       gcal-br.enable = true;
       gmail-br.enable = true;
       intercom.enable = true;
+      slack-cilium.enable = true;
+      slack-k8s.enable = true;
+      slack-sysdig.enable = true;
+      slack-talos.enable = true;
     };
 
     cli = {
