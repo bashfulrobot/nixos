@@ -15,15 +15,9 @@ in {
 
     home-manager.users."${user-settings.user.username}" = {
       # Getting yaru cursor, sound and icon themes
-      home.packages = with pkgs; [ 
-        # tokyonight-gtk-theme 
+      home.packages = with pkgs; [
         work-sans
         ];
-      # https://github.com/kevin-nel/tokyo-night-gtksourceview
-      # home.file."tokyo-night.xml" = {
-      #   source = ./config/tokyo-night.xml;
-      #   target = ".local/share/gtksourceview-5/styles/tokyo-night.xml";
-      # };
       home.file."trees.png" = {
         source = ../../../../sys/stylix/wallpapers/trees.png;
         target = ".local/share/backgrounds/trees.png";
@@ -32,27 +26,12 @@ in {
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 
         "org/gnome/desktop/interface" = {
-          # set in stylix
-          # document-font-name = "Work Sans 12";
           font-name = "Work Sans 12";
-          # set in stylix
-          # monospace-font-name = "Victor Mono 13";
-          # set in stylix
-          # cursor-theme = "Adwaita";
-          # set in stylix
-          # gtk-theme = "Tokyonight-Dark";
-          # icon-theme = "Tokyonight-Dark";
         };
-        "org/gnome/extensions/appindicator" = {
-          # icon-saturation = 0.9999999999999999;
-
-        };
-
         "org/gnome/desktop/wm/preferences" = {
           # button-layout = "appmenu:minimize,maximize,close";
           # button-layout = "";
-          num-workspaces = 4;
-          # theme = "Tokyonight-Dark";
+          num-workspaces = 9;
 
         };
 
