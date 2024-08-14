@@ -1,5 +1,11 @@
-{ user-settings, pkgs, config, lib, ... }:
-let cfg = config.apps.zoom-us;
+{ user-settings, pkgs, config, lib, inputs, ... }:
+let
+  cfg = config.apps.zoom-us;
+  # Needed for pinning version
+  zoomPkgs = import inputs.nixpkgs-zoom {
+    system = "x86_64-linux";
+    config.allowUnfree = true;
+  };
 
 in {
   options = {
@@ -8,12 +14,19 @@ in {
       default = false;
       description = "Enable the zoom-us desktop.";
     };
+    apps.zoom-us.downgrade = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Use an older version zoom-us desktop taht works for me.";
+    };
   };
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs;
       [
-        zoom-us # video conferencing - broken currently
+        (if cfg.downgrade then zoomPkgs.zoom-us else zoom-us)
+        # zoomPkgs.zoom-us
+        #zoom-us # video conferencing - broken currently
       ];
 
     systemd.tmpfiles.rules = [

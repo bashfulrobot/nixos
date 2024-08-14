@@ -19,7 +19,10 @@ in {
     };
 
     apps = {
-      zoom-us.enable = false;
+      zoom-us = {
+        enable = true;
+        downgrade = true;
+      };
       whatsapp.enable = true;
       rocket-chat.enable = true;
       pairdrop.enable = true;
@@ -69,7 +72,8 @@ in {
       sysdig-cli-scanner.enable = true;
       instruqt.enable = true;
       git.enable = true;
-      nvim.enable = true;
+      nixvim.enable = true;
+      nvim.enable = false;
       helix.enable = false;
       spotify-player.enable = true;
       rclone.enable = false; # WIP

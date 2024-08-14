@@ -2,6 +2,11 @@
   description = "NixOS configuration for Dustin Krysak";
 
   inputs = {
+
+    # Pin zoom at a working verison
+    nixpkgs-zoom.url =
+      "github:NixOS/nixpkgs/06031e8a5d9d5293c725a50acf01242193635022";
+
     nixpkgs = { url = "github:nixos/nixpkgs/nixos-unstable"; };
     nixos-hardware = { url = "github:NixOS/nixos-hardware/master"; };
     nix-flatpak = { url = "github:gmodena/nix-flatpak"; };
@@ -25,6 +30,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +46,8 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, hyprswitch
-    , hyprland, nix-flatpak, nur, nvim, catppuccin, stylix, disko, nvchad4nix, ... }:
+    , hyprland, nix-flatpak, nur, nvim, catppuccin, stylix, disko, nvchad4nix
+    , nixpkgs-zoom, nixvim, ... }:
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.
@@ -61,6 +72,7 @@
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
             disko.nixosModules.disko
+            nixvim.nixosModules.nixvim
             {
               home-manager = {
                 useUserPackages = true;
@@ -92,6 +104,7 @@
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
+            nixvim.nixosModules.nixvim
             #  disko.nixosModules.disko - not in use yet, next reload
             {
               home-manager = {
