@@ -86,6 +86,13 @@ in {
 
       keymaps = [
         {
+          key = "<leader>g";
+          action = ":LazyGit<cr>";
+          mode = "n";
+          options.silent = true;
+          options.desc = "Lazygit";
+        }
+        {
           key = "<C-s>";
           action = "<CMD>w<CR>";
           options.desc = "Save";
@@ -276,6 +283,7 @@ in {
       ];
 
       plugins = {
+        lazygit.enable = true;
         lualine.enable = true;
         barbar.enable = true;
         gitgutter = {
