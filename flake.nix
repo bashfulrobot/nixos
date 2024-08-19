@@ -41,7 +41,7 @@
     };
 
     # currently used for FF extensions
-    # nur.url = "github:nix-community/NUR";
+    nur.url = "github:nix-community/NUR";
 
   };
 

@@ -37,6 +37,7 @@ in {
       #   browser = "chromium";
       #   disableWayland = false;
       # };
+      firefox.enable = true;
       chrome-based-browser.enable = true;
 
       readitlater.enable = true;
