@@ -17,7 +17,11 @@
   # User name specified in the settings
   users.default.enable = true;
 
-  desktops.gnome.enable = true;
+  desktops = {
+    gnome.enable = true;
+    # meant to work with gnome - testing
+    hyprland.enable = false;
+  };
 
   apps = {
     syncthing = {
