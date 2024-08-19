@@ -68,7 +68,7 @@ in {
       kubecolor # colorize kubectl output
       kubernetes-helm # Kubernetes package manager
       eksctl # AWS EKS management tool
-      awscli2 # AWS command line interface
+      #awscli2 # AWS command line interface
       # google-cloud-sdk # Google Cloud SDK
       aws-iam-authenticator # AWS IAM authentication tool
       terraform # infrastructure as code tool

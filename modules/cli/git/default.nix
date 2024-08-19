@@ -14,7 +14,7 @@ in {
 
       home.packages = with pkgs; [
         git-crypt # repository encryption
-        gptcommit # git commit message generator
+        #gptcommit # git commit message generator
       ];
 
       programs = {
