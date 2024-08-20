@@ -13,7 +13,7 @@ in {
   config = lib.mkIf cfg.enable {
     # environment.systemPackages = with pkgs; [  ];
     # Prevent the new user dialog in zsh
-    system.userActivationScripts.zshrc = "touch .zshrc";
+    # system.userActivationScripts.zshrc = "touch .zshrc";
 
     home-manager.users."${user-settings.user.username}" = {
 
@@ -44,10 +44,10 @@ in {
               { name = "zsh-users/zsh-syntax-highlighting"; }
               { name = "zsh-users/zsh-history-substring-search"; }
               { name = "ptavares/zsh-direnv"; }
-              {
-                name = "romkatv/powerlevel10k";
-                tags = [ "as:theme" "depth:1" ];
-              } # Installations with additional options. For the list of options, please refer to Zplug README.
+              # {
+                # name = "romkatv/powerlevel10k";
+                # tags = [ "as:theme" "depth:1" ];
+              # } # Installations with additional options. For the list of options, please refer to Zplug README.
             ];
           };
         };
