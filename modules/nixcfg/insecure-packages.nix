@@ -12,9 +12,9 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    # nixpkgs.config.permittedInsecurePackages =
-      # [ "electron-22.3.27" "electron-24.8.6" "openssl-1.1.1v" "openssl-1.1.1w" ];
-      # [ "electron-25.9.0" ];
+    nixpkgs.config.permittedInsecurePackages = [ "jitsi-meet-1.0.8043" ];
+    # [ "electron-22.3.27" "electron-24.8.6" "openssl-1.1.1v" "openssl-1.1.1w" ];
+    # [ "electron-25.9.0" ];
   };
 
 }
