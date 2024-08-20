@@ -83,6 +83,7 @@ in {
       espanso.enable = false;
       bash.enable = true;
       fish.enable = true;
+      zsh.enable = true;
       tailscale.enable = true;
       docker.enable = true;
       gemini-cli.enable = true;
