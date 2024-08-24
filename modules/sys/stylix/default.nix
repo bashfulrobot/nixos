@@ -20,7 +20,8 @@ in {
 
     stylix = {
       enable = true;
-      image = ./wallpapers/trees.png;
+      # image = ./wallpapers/trees.png;
+      image = ./wallpapers/banksy-socialmedia.png;
       # one of “stretch”, “fill”, “fit”, “center”, “tile”
       imageScalingMode = "fill";
       polarity = "dark"; # or "light" - forcing dark
@@ -75,10 +76,10 @@ in {
           let inherit (withHashtag) base00 base05;
           in ''
                {
-                "schemeVersion": 2,
-                "enabled": true,
-                "fetchNews": true,
-                "theme": {
+              "schemeVersion": 2,
+              "enabled": true,
+              "fetchNews": true,
+              "theme": {
             	"mode": 1,
             	"brightness": 100,
             	"contrast": 100,
@@ -99,36 +100,36 @@ in {
             	"lightColorScheme": "Default",
             	"darkColorScheme": "Default",
             	"immediateModify": false
-                },
-                "presets": [],
-                "customThemes": [],
-                "enabledByDefault": true,
-                "enabledFor": [],
-                "disabledFor": [],
-                "changeBrowserTheme": false,
-                "syncSettings": false,
-                "syncSitesFixes": true,
-                "automation": {
+              },
+              "presets": [],
+              "customThemes": [],
+              "enabledByDefault": true,
+              "enabledFor": [],
+              "disabledFor": [],
+              "changeBrowserTheme": false,
+              "syncSettings": false,
+              "syncSitesFixes": true,
+              "automation": {
             	"enabled": false,
             	"mode": "",
             	"behavior": "OnOff"
-                },
-                "time": {
+              },
+              "time": {
             	"activation": "18:00",
             	"deactivation": "9:00"
-                },
-                "location": {
+              },
+              "location": {
             	"latitude": null,
             	"longitude": null
-                },
-                "previewNewDesign": true,
-                "enableForPDF": true,
-                "enableForProtectedPages": true,
-                "enableContextMenus": false,
-                "detectDarkTheme": false,
-                "displayedNews": [
+              },
+              "previewNewDesign": true,
+              "enableForPDF": true,
+              "enableForProtectedPages": true,
+              "enableContextMenus": false,
+              "detectDarkTheme": false,
+              "displayedNews": [
             	"thanks-2023"
-                ]
+              ]
             }
           '';
       };
