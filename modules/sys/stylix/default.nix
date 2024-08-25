@@ -20,8 +20,7 @@ in {
 
     stylix = {
       enable = true;
-      # image = ./wallpapers/trees.png;
-      image = ./wallpapers/banksy-socialmedia.png;
+      image = ./wallpapers/banksy-fire-hair.png;
       # one of “stretch”, “fill”, “fit”, “center”, “tile”
       imageScalingMode = "fill";
       polarity = "dark"; # or "light" - forcing dark
