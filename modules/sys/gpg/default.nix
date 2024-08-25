@@ -30,6 +30,7 @@ in {
         enable = true;
         enableBashIntegration = true;
         enableFishIntegration = true;
+        enableZshIntegration = true;
         pinentryPackage = pkgs.pinentry-gnome3;
       };
     };

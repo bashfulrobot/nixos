@@ -104,6 +104,8 @@ in {
         autojump = {
           enable = true;
           enableFishIntegration = true;
+          enableBashIntegration = true;
+          enableZshIntegration = true;
         };
         tmux = {enable = true;};
         bat = {enable = true;};

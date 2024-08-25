@@ -62,7 +62,7 @@ in {
       gnomeExtensions.solaar-extension # Allow Solaar to support certain features on non X11 systems
       gnomeExtensions.hide-top-bar # Hide Top Bar - alt to ]just perfeciton with less optionse
       gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
-      gnomeExtensions.window-calls # allows me to run my fish funciton to get the wmc_class of a window
+      gnomeExtensions.window-calls # allows me to run my fish/zsh funciton to get the wmc_class of a window
 
       # Gnome apps/services
       nautilus # file manager
