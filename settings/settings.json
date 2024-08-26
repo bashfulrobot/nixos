@@ -4,45 +4,6 @@
         "home": "/home/dustin",
         "full-name": "Dustin Krysak",
         "id": "1000",
-        "wallpaper": "/home/dustin/Pictures/wallpapers/skullskates.png"
-    },
-    "theme": {
-        "CatppuccinMacchiato": {
-            "rosewater": "#F4DBD6",
-            "flamingo": "#F0C6C6",
-            "pink": "#F5BDE6",
-            "mauve": "#C6A0F6",
-            "red": "#ED8796",
-            "maroon": "#EE99A0",
-            "peach": "#F5A97F",
-            "yellow": "#EED49F",
-            "green": "#A6DA95",
-            "teal": "#8BD5CA",
-            "sky": "#91D7E3",
-            "sapphire": "#7DC4E4",
-            "blue": "#8AADF4",
-            "lavender": "#B7BDF8",
-            "text": "#CDD6F4",
-            "subtext1": "#BAC2DE",
-            "subtext0": "#A6ADC8",
-            "overlay2": "#9399B2",
-            "overlay1": "#7F849C",
-            "overlay0": "#6C7086",
-            "surface2": "#585B70",
-            "surface1": "#45475A",
-            "surface0": "#313244",
-            "base": "#1E1E2E",
-            "mantle": "#181825",
-            "crust": "#11111B",
-            "background": "#313244",
-            "foreground": "#CDD6F4",
-            "shadow": "#7F849C",
-            "cursor": "#F5BDE6",
-            "active": "#8AADF4",
-            "inactive": "#7F849C",
-            "highlight": "#A6DA95",
-            "error": "#ED8796",
-            "warning": "#EED49F"
-        }
+        "wallpaper": "/home/dustin/dev/nix/nixos/modules/sys/stylix/wallpapers/banksy-fire-hair.png"
     }
 }
