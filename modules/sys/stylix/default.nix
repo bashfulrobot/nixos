@@ -1,10 +1,7 @@
-# # Keychain set-up
-
 { user-settings, config, lib, pkgs, ... }:
 let
   cfg = config.sys.stylix;
   sf-mono-liga-font = pkgs.callPackage ../fonts/build/sfpro/liga { };
-
 in {
   # imports = [ ./build/dark-reader.nix  ];
 
@@ -20,10 +17,11 @@ in {
 
     stylix = {
       enable = true;
-      image = ./wallpapers/banksy-fire-hair.png;
+      image = ./wallpapers/skulls.png;
       # one of “stretch”, “fill”, “fit”, “center”, “tile”
       imageScalingMode = "fill";
       polarity = "dark"; # or "light" - forcing dark
+
       # base16Scheme =
       # "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
       cursor = {
@@ -71,6 +69,16 @@ in {
     home-manager.users."${user-settings.user.username}" =
       let inherit (config.lib.stylix.colors) withHashtag;
       in {
+
+        # TODO: Testing override. If colours look funky,
+        # comment out.
+        # Some backgrounds use base01, and base00.
+        # You can override to use the same for both.
+        # It'll affect everything, so some other apps
+        # may look less than ideal.
+        # Origin: https://github.com/danth/stylix/discussions/455#discussioncomment-9911265
+        stylix.override.base01 = config.lib.stylix.colors.base00;
+
         home.file.".config/darkreader/config.json".text =
           let inherit (withHashtag) base00 base05;
           in ''

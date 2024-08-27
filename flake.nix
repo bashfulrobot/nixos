@@ -19,6 +19,7 @@
     hyprswitch = { url = "github:h3rmt/hyprswitch/release"; };
     hyprland = { url = "github:hyprwm/Hyprland"; };
     gBar.url = "github:scorpion-26/gBar";
+    zen-browser.url = "github:heywoodlh/flakes/main?dir=zen-browser";
     # This allows automatic styling based on active Wallpaper.
     # Homepage: https://github.com/danth/stylix
     # Manual:   https://danth.github.io/stylix
@@ -47,7 +48,7 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, hyprswitch
     , hyprland, nix-flatpak, nur, nvim, catppuccin, stylix, disko, nvchad4nix
-    , nixpkgs-zoom, nixvim, ... }:
+    , nixpkgs-zoom, nixvim, zen-browser, ... }:
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.

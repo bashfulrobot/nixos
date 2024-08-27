@@ -69,6 +69,7 @@ in {
 
     cli = {
       alacritty.enable = true;
+      wezterm.enable = false;
       direnv.enable = true;
       sysdig-cli-scanner.enable = true;
       instruqt.enable = true;

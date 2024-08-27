@@ -1,4 +1,4 @@
-{ user-settings, pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, inputs, ... }:
 let cfg = config.apps.common;
 
 in {
@@ -19,6 +19,7 @@ in {
       gnome-disk-utility
       transmission_4
       deluge-gtk
+      inputs.zen-browser.packages.x86_64-linux.zen-browser
 
       ### Dev
       zed-editor # text editor
