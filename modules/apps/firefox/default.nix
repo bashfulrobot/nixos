@@ -154,6 +154,9 @@ in {
                 "toolkit.telemetry.unifiedIsOptIn" = false;
                 "toolkit.telemetry.updatePing.enabled" = false;
 
+                "toolkit.legacyUserProfileCustomizations.stylesheets" =
+                  true; # enable userChrome.css
+
                 # Disable fx accounts
                 "identity.fxaccounts.enabled" = false;
                 # Disable "save password" prompt
