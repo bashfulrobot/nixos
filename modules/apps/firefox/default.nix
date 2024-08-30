@@ -81,6 +81,32 @@ in {
                 # Don't ask for download dir
                 "browser.download.useDownloadDir" = false;
 
+                # ui changes
+                # disable warning about about:config
+                "browser.aboutConfig.showWarning" = false;
+                # enable compact mode
+                "browser.compactmode.show" = true;
+                # enable dense UI
+                "browser.uidensity" = 1;
+
+                # let me close and open tabs without confirmation
+                "browser.tabs.closeWindowWithLastTab" =
+                  false; # don't close window when last tab is closed
+                "browser.tabs.loadBookmarksInTabs" =
+                  true; # open bookmarks in new tab
+                "browser.tabs.loadDivertedInBackground" =
+                  false; # open new tab in background
+                "browser.tabs.loadInBackground" =
+                  true; # open new tab in background
+                "browser.tabs.warnOnClose" =
+                  false; # don't warn when closing multiple tabs
+                "browser.tabs.warnOnCloseOtherTabs" =
+                  false; # don't warn when closing multiple tabs
+                "browser.tabs.warnOnOpen" =
+                  false; # don't warn when opening multiple tabs
+                "browser.tabs.warnOnQuit" =
+                  false; # don't warn when closing multiple tabs
+
                 # Disable crappy home activity stream page
                 "browser.newtabpage.activity-stream.feeds.topsites" = false;
                 "browser.newtabpage.activity-stream.showSponsoredTopSites" =
@@ -174,6 +200,17 @@ in {
                 };
 
               };
+
+              userChrome = ''
+                /* some css */
+                /* TAB BAR - HIDE ONE Tab [106+] - DO NOT use tabs below #nav-bar */
+                #tabbrowser-tabs .tabbrowser-tab:only-of-type,
+                #tabbrowser-tabs .tabbrowser-tab:only-of-type + #tabbrowser-arrowscrollbox-periphery{
+                  visibility: collapse !important;
+                }
+                #tabbrowser-tabs, #tabbrowser-arrowscrollbox {min-height:0!important;}
+                #TabsToolbar:not(:hover) #alltabs-button {display:none !important;}
+              '';
               # userChrome = ''
               #   #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
               #     display: none;
