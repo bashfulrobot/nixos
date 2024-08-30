@@ -205,14 +205,50 @@ in {
               };
 
               userChrome = ''
-                /* some css */
-                /* TAB BAR - HIDE ONE Tab [106+] - DO NOT use tabs below #nav-bar */
-                #tabbrowser-tabs .tabbrowser-tab:only-of-type,
-                #tabbrowser-tabs .tabbrowser-tab:only-of-type + #tabbrowser-arrowscrollbox-periphery{
-                  visibility: collapse !important;
+                /*
+                How To:
+                1. Find your firefox profile folder : https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data
+                2. create a "chrome" folder if it doesn't exist
+                3. Paste content of this gist in a "userChrome.css" file
+                4. Go to about:config and set toolkit.legacyUserProfileCustomizations.stylesheets to true
+                5. set browser.tabs.tabmanager.enabled to false (to hide the "tab search" button)
+                5. Restart Firefox
+                Don't hesitate to say if there are bugs, I only tested this for my workflow : I don't use tabs
+                at all but I want to see the bar if I open a tab by mistake (otherwise I sometimes lose a tab)
+                */
+
+                /* Copy the default settings for --tab-min-height as --hidetabs-tab-min-height */
+                :root {
+                    --hidetabs-tab-min-height: 33px;
                 }
-                #tabbrowser-tabs, #tabbrowser-arrowscrollbox {min-height:0!important;}
-                #TabsToolbar:not(:hover) #alltabs-button {display:none !important;}
+
+                :root[uidensity=compact] {
+                    --hidetabs-tab-min-height: 29px;
+                }
+
+                :root[uidensity=touch] {
+                    --hidetabs-tab-min-height: 41px;
+                }
+
+                /* Set --tab-min-height to 0px so tab bar can disappear */
+                #tabbrowser-tabs {
+                    --tab-min-height: 0px;
+                }
+
+                /* Restore minimum height when more than one tab */
+                #tabbrowser-tabs tab {
+                    min-height: var(--hidetabs-tab-min-height);
+                }
+
+                /* Collapse tab bar when there is only one tab (tab is both first & last) */
+                #tabbrowser-tabs tab[first-visible-tab="true"][last-visible-tab="true"] {
+                    visibility: collapse;
+                }
+
+                /* Hide the New Tab button when there is only one tab (first visible tab is
+                   adjacent to new tab button) */
+                #tabbrowser-tabs tab[first-visible-tab="true"] + #tabs-newtab-button {
+                    vis
               '';
               # userChrome = ''
               #   #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
