@@ -156,6 +156,7 @@ in {
 
                 "toolkit.legacyUserProfileCustomizations.stylesheets" =
                   true; # enable userChrome.css
+                "browser.tabs.tabmanager.enabled" = false; # hide tab search button
 
                 # Disable fx accounts
                 "identity.fxaccounts.enabled" = false;
