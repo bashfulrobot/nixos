@@ -17,7 +17,7 @@ in {
       fwupd.enable = true;
       audio.enable = true;
       touchpad.enable = true;
-      fprintd.enable = false;
+      fprintd.enable = true;
       networking = {
         networkmanager.enable = true;
         wifi.powersave = false;
