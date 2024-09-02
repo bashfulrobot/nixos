@@ -1,6 +1,7 @@
 { user-settings, pkgs, config, lib, inputs, ... }:
-let cfg = config.apps.firefox;
-
+let
+  cfg = config.apps.firefox;
+  # firefoxGnomeTheme = pkgs.callPackage ./build { inherit user-settings; };
 in {
   options = {
     apps.firefox.enable = lib.mkOption {
@@ -15,15 +16,16 @@ in {
     environment = {
       sessionVariables = { MOZ_USE_XINPUT2 = "1"; };
 
-      # systemPackages = with pkgs;
-      #   [
-      #     (pkgs.wrapFirefox
-      #       (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { })
-      #   ];
+      # systemPackages = with pkgs; [ firefoxGnomeTheme ];
 
     };
 
     home-manager.users."${user-settings.user.username}" = {
+
+      # home.packages = [ firefoxGnomeTheme ];
+
+      # home.file.".mozilla/firefox/profiles/dustin/chrome".source = "${firefoxGnomeTheme}/chrome";
+
       programs = {
         firefox = {
           enable = true;
@@ -156,7 +158,8 @@ in {
 
                 "toolkit.legacyUserProfileCustomizations.stylesheets" =
                   true; # enable userChrome.css
-                "browser.tabs.tabmanager.enabled" = false; # hide tab search button
+                "browser.tabs.tabmanager.enabled" =
+                  false; # hide tab search button
 
                 # Disable fx accounts
                 "identity.fxaccounts.enabled" = false;

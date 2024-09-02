@@ -82,11 +82,11 @@ in {
       geary # email reader
       gnome-photos
       gnome-system-monitor
-    ]) ++ (with pkgs.gnome; [
-      # for packages that are pkgs.gnome.*
       gnome-maps
       gnome-music
       gnome-weather
+    ]) ++ (with pkgs.gnome; [
+      # for packages that are pkgs.gnome.*
     ]) ++ (with pkgs.gnomeExtensions; [
       # for packages that are pkgs.gnomeExtensions.*
       applications-menu
