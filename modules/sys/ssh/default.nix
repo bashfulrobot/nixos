@@ -47,7 +47,7 @@ in {
           #   IdentityAgent ~/.1password/agent.sock
           #   AddKeysToAgent yes
           Host feral
-              HostName aether.feralhosting.com
+              HostName aion.feralhosting.com
               User msgedme
           Host camino
             HostName 64.225.50.102
