@@ -17,7 +17,7 @@ in {
 
     stylix = {
       enable = true;
-      image = ./wallpapers/trees.png;
+      image = ./wallpapers/autumn.png;
       # one of “stretch”, “fill”, “fit”, “center”, “tile”
       imageScalingMode = "fill";
       polarity = "dark"; # or "light" - forcing dark
