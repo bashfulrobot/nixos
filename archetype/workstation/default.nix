@@ -24,7 +24,10 @@ in {
         downgrade = true;
       };
       whatsapp.enable = true;
-      rocket-chat.enable = true;
+      rocket-chat = {
+        enable = true;
+        web = true;
+      };
       pairdrop.enable = true;
       zoom-web.enable = true;
       apple-notes.enable = true;

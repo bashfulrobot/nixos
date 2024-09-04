@@ -12,7 +12,8 @@ let
     name = "Rocket Chat";
     url = "https://chat.developer.gov.bc.ca/channel/devops-sysdig";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Default";
+    myStartupWMClass =
+      "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Default";
     iconSizes = [ "32" "48" "64" "96" "128" "256" "512" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons
@@ -26,12 +27,18 @@ in {
       default = false;
       description = "Enable the Rocket Chat app.";
     };
+    apps.rocket-chat.web = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Use the web version of Rocket Chat.";
+    };
   };
 
   config = lib.mkIf cfg.enable {
-
-    environment.systemPackages = [ rocketchatApp.desktopItem ]
-      ++ rocketchatApp.icons;
+    environment.systemPackages = if cfg.web then
+      [ rocketchatApp.desktopItem ] ++ rocketchatApp.icons
+    else
+      [ pkgs.rocketchat-desktop ];
 
     # home-manager.users."${user-settings.user.username}" = {
 
