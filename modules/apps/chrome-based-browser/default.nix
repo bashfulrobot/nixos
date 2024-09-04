@@ -112,6 +112,8 @@ in {
         "pgbdljpkijehgoacbjpolaomhkoffhnl"
         # zoom
         "kgjfgplpablkjnlkjmjdecgdpfankdle"
+        # Travel Arrow
+        "coplmfnphahpcknbchcehdikbdieognn"
         # xbrowsersync
         # "lcbjdhceifofjlpecfpeimnnphbcjgnc"
         # Catppuccin Mocha theme
