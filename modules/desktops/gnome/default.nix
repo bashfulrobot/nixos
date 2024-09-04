@@ -220,7 +220,7 @@ in {
           fullscreen-launcher = true;
           mouse-cursor-follows-active-window = false;
           show-title = false;
-          smart-gaps = false;
+          smart-gaps = true;
           tile-by-default = true;
           # search = "<Super>space";
         };
@@ -228,7 +228,9 @@ in {
         # TODO: move to nixpkg once packaged
         "org/gnome/shell/extensions/lilypad" = {
           lilypad-order = [
+            "StatusNotifierItem"
             "appindicator-legacy:Todoist:9486"
+            "appindicator-org.kde.StatusNotifierItem-18233-2"
             "sni"
             "appindicator-org.blueman.Tray"
             "pop-shell"
