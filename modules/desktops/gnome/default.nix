@@ -85,25 +85,26 @@ in {
       gnome-maps
       gnome-music
       gnome-weather
-    ]) ++ (with pkgs.gnome; [
-      # for packages that are pkgs.gnome.*
-    ]) ++ (with pkgs.gnomeExtensions; [
-      # for packages that are pkgs.gnomeExtensions.*
-      applications-menu
-      auto-move-windows
-      gtk4-desktop-icons-ng-ding
-      launch-new-instance
-      light-style
-      native-window-placement
-      next-up
-      places-status-indicator
-      removable-drive-menu
-      screenshot-window-sizer
-      window-list
-      windownavigator
-      workspace-indicator
-      hide-top-bar
-    ]);
+    ]) ++ (with pkgs.gnome;
+      [
+        # for packages that are pkgs.gnome.*
+      ]) ++ (with pkgs.gnomeExtensions; [
+        # for packages that are pkgs.gnomeExtensions.*
+        applications-menu
+        auto-move-windows
+        gtk4-desktop-icons-ng-ding
+        launch-new-instance
+        light-style
+        native-window-placement
+        next-up
+        places-status-indicator
+        removable-drive-menu
+        screenshot-window-sizer
+        window-list
+        windownavigator
+        workspace-indicator
+        hide-top-bar
+      ]);
 
     system.activationScripts.script.text = ''
       mkdir -p /var/lib/AccountsService/{icons,users}
@@ -224,6 +225,19 @@ in {
           # search = "<Super>space";
         };
 
+        # TODO: move to nixpkg once packaged
+        "org/gnome/shell/extensions/lilypad" = {
+          lilypad-order = [
+            "appindicator-legacy:Todoist:9486"
+            "sni"
+            "appindicator-org.blueman.Tray"
+            "pop-shell"
+          ];
+          reorder = false;
+          rightbox-order = [ "lilypad" ];
+          show-icons = false;
+        };
+
         "org/gnome/shell" = {
           enabled-extensions = [
             "pop-shell@system76.com"
@@ -231,14 +245,15 @@ in {
             "quick-settings-audio-panel@rayzeq.github.io"
             "bluetooth-quick-connect@bjarosze.gmail.com"
             "solaar-extension@sidevesh"
-            "hidetopbar@mathieu.bidon.ca"
+            "lilypad@shendrew.github.io"
+            "appindicatorsupport@rgcjonas.gmail.com"
           ];
 
           disabled-extensions = [
             # Normally Enabled
             "just-perfection-desktop@just-perfection" # locks up gnome after last update. Sad Face.
-            "appindicatorsupport@rgcjonas.gmail.com"
             # Normally Disabled
+            "hidetopbar@mathieu.bidon.ca"
             "GPU_profile_selector@lorenzo9904.gmail.com"
             "forge@jmmaranan.com"
             "gtk4-ding@smedius.gitlab.com"
