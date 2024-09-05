@@ -52,7 +52,7 @@ in {
       gnome-tweaks # Gnome Tweaks
       pinentry-gnome3 # Gnome3 pinentry
       # Gnome Extensions
-      # gnomeExtensions.user-themes # User Themes
+      gnomeExtensions.user-themes # User Themes
       gnomeExtensions.prime-helper # Prime Helper
       gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
       gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
@@ -178,12 +178,21 @@ in {
           font-hinting = "full";
           locate-pointer = true;
           gtk-enable-primary-paste = true;
+          # TODO: might not be needed with Stylix
+          gtk-theme = "adw-gtk3";
+          icon-theme = "Bibata-Modern-Ice";
+          cursor-theme = "Bibata-Modern-Ice";
         };
 
         "org/gnome/shell/extensions/bluetooth-quick-connect" = {
           bluetooth-auto-power-on = true;
           refresh-button-on = true;
           show-battery-value-on = false;
+        };
+
+        # TODO: move to stylix module
+        "org/gnome/shell/extensions/user-theme" = {
+          name = "Stylix";
         };
 
         "org/gnome/mutter" = {
@@ -227,14 +236,7 @@ in {
 
         # TODO: move to nixpkg once packaged
         "org/gnome/shell/extensions/lilypad" = {
-          lilypad-order = [
-            "StatusNotifierItem"
-            "appindicator-legacy:Todoist:9486"
-            "appindicator-org.kde.StatusNotifierItem-18233-2"
-            "sni"
-            "appindicator-org.blueman.Tray"
-            "pop-shell"
-          ];
+          lilypad-order = ["StatusNotifierItem" "appindicator-legacy:Todoist:9486" "appindicator-org.kde.StatusNotifierItem-18233-2" "appindicator-org.kde.StatusNotifierItem-21611-2" "sni" "appindicator-org.blueman.Tray" "pop-shell"];
           reorder = false;
           rightbox-order = [ "lilypad" ];
           show-icons = false;
@@ -249,6 +251,7 @@ in {
             "solaar-extension@sidevesh"
             "lilypad@shendrew.github.io"
             "appindicatorsupport@rgcjonas.gmail.com"
+            "user-theme@gnome-shell-extensions.gcampax.github.com"
           ];
 
           disabled-extensions = [
@@ -266,7 +269,6 @@ in {
             "gTile@vibou"
             "syncthing@gnome.2nv2u.com"
             "light-style@gnome-shell-extensions.gcampax.github.com"
-            "user-theme@gnome-shell-extensions.gcampax.github.com"
           ];
         };
 
