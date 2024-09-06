@@ -1,4 +1,4 @@
-{ user-settings, config, lib, pkgs, ... }:
+{ user-settings, config, lib, pkgs, inputs, ... }:
 let
   cfg = config.sys.stylix;
   sf-mono-liga-font = pkgs.callPackage ../fonts/build/sfpro/liga { };
