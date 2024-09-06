@@ -151,7 +151,7 @@ Note: I use Chromium, which also works with Brave or any browser supporting the 
     - [ ] Move to `disko` for `rembot` tower
     - [ ] Doc how to install with minimal iso and use this repo during installation
 - [ ] Merge all wallpaper references to use a wallpaper from a single location
-- [ ] conditional to put the proper scaled wallpaper on my laptop
+- [x] conditional to put the proper scaled wallpaper on my laptop
 - [ ] strip out unused code
 - [ ] Test cosmic when ready to maybe replace gnome
 - [ ] go through TODO comments in code
