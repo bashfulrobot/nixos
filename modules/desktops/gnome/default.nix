@@ -79,7 +79,6 @@ in {
       gedit # text editor
       yelp # help viewer
       file-roller # archive manager
-      geary # email reader
       gnome-photos
       gnome-system-monitor
       gnome-maps

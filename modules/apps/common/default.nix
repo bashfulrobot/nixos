@@ -116,6 +116,7 @@ in {
       element-desktop # Matrix Client
       # thunderbird # email client
       mailspring # email client
+      geary # email reader
 
     ];
 
