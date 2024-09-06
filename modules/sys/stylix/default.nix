@@ -79,6 +79,10 @@ in {
         # Origin: https://github.com/danth/stylix/discussions/455#discussioncomment-9911265
         stylix.override.base01 = config.lib.stylix.colors.base00;
 
+        dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
+          "org/gnome/shell/extensions/user-theme" = { name = "Stylix"; };
+        };
+
         home.file.".config/darkreader/config.json".text =
           let inherit (withHashtag) base00 base05;
           in ''
