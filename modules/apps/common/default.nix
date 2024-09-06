@@ -117,6 +117,7 @@ in {
       # thunderbird # email client
       mailspring # email client
       geary # email reader
+      evolution # email client
 
     ];
 
