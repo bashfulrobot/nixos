@@ -155,13 +155,6 @@ in {
         components = [ "pkcs11" "secrets" "ssh" ];
       };
 
-      # TODO: testing if the activation script solves this issue too.
-      # defined in this file: system.activationScripts.script
-      # home.file.".face" = {
-      #   source = ./.face;
-      #   target = ".face";
-      # };
-
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
         #  Set Media Keys
         "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -188,11 +181,6 @@ in {
           bluetooth-auto-power-on = true;
           refresh-button-on = true;
           show-battery-value-on = false;
-        };
-
-        # TODO: move to stylix module
-        "org/gnome/shell/extensions/user-theme" = {
-          name = "Stylix";
         };
 
         "org/gnome/mutter" = {

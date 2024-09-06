@@ -18,9 +18,6 @@ in {
     ### HOME MANAGER SETTINGS
     home-manager.users."${user-settings.user.username}" = {
 
-      # TODO: remove this code
-      # home.packages = with pkgs; [ mimeo ];
-
       programs.wezterm = {
         enable = true;
         enableZshIntegration = true;

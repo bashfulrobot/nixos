@@ -2,7 +2,6 @@
 
   # Bootloader.
   boot = {
-    # TODO: are these used in systemd-boot? Or GRUB?
     kernelParams = [ "quiet" "splash" ];
     loader = {
       efi.canTouchEfiVariables = true;

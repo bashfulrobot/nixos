@@ -11,13 +11,11 @@
   boot = {
 
     # https://forums.developer.nvidia.com/t/550-54-14-cannot-create-sg-table-for-nvkmskapimemory-spammed-when-launching-chrome-on-wayland/284775/26
-    # initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
 
     # TODO: confirm this works - and remove pervious line if not needed, or revert to it if this doesn't work.
     # https://discourse.nixos.org/t/nvidia-drivers-not-loading/40913/11?u=brnix
     # Don’t add nvidia-uvm to kernelModules, because we want nvidia-uvm be loaded only after udev rules for nvidia kernel module are applied.
 
-    #  removing "nvidia_uvm" as a test.
     initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_drm" ];
 
     # extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];

@@ -22,7 +22,7 @@ in {
         text = ''
           vivaldi-bin
           brave
-          chromium # TODO: Confirm if the bin is correct
+          chromium
           # wavebox
 
         '';
