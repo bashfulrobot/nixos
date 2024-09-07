@@ -23,9 +23,11 @@ in {
         shellInit = ''
           # Shell Init
           direnv hook fish | source
+          source /home/dustin/.config/op/plugins.sh
         '';
         interactiveShellInit = ''
           set fish_greeting # Disable greeting
+          source /home/dustin/.config/op/plugins.sh
         '';
         # plugins = [
         #   # Enable a plugin (here grc for colorized command output) from nixpkgs
