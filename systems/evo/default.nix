@@ -4,6 +4,7 @@
   imports = [ # Include the results of the hardware scan.
 
     ./hardware # hardware specific configuration
+    ./kvm-routing # kvm routing specific configuration
     ../../modules/autoimport.nix # autoimport modules
     ../../archetype/autoimport.nix # autoimport archetype modules
 
