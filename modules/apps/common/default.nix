@@ -22,6 +22,7 @@ in {
       inputs.zen-browser.packages.x86_64-linux.zen-browser
 
       ### Dev
+			gittyup # git gui client
       zed-editor # text editor
       watchman # file watcher
       # gitnuro # git client
