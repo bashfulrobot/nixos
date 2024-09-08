@@ -18,84 +18,15 @@ in {
       nix-settings.enable = true;
     };
 
-    apps = {
-      zoom-us = {
-        enable = true;
-        downgrade = true;
-      };
-      whatsapp.enable = true;
-      rocket-chat = {
-        enable = true;
-        web = true;
-      };
-
-      apple-notes.enable = true;
-      nautilus.enable = true;
-      common.enable = true;
-      one-password.enable = true;
-      # chrome-based-browser = {
-      #   enable = true;
-      #   # Currently supported browsers are "brave", "vivaldi", "ungoogled-chromium" or "chromium".
-      #   browser = "chromium";
-      #   disableWayland = false;
-      # };
-
-      # TODO: needs some work in my module
-      #  - extensions keep reordering
-      #  - Need to add extensions to the module
-      firefox.enable = false;
-      chrome-based-browser.enable = true;
-
-      vscode.enable = true;
-      nixpkgs-search.enable = true;
-      nixos-discourse.enable = true;
-      nixos-wiki.enable = true;
-      hm-search.enable = true;
-      github-code-search.enable = true;
-      kvm.enable = true;
-      vitally.enable = true;
-      gcal-sysdig.enable = true;
-      gmail-sysdig.enable = true;
-      github.enable = true;
-      sfdc.enable = true;
-      jira.enable = true;
-      confluence.enable = true;
-      xmind.enable = true;
-      todoist.enable = true;
-      gcal-br.enable = true;
-      gmail-br.enable = true;
-      intercom.enable = true;
-    };
-
-    cli = {
-      alacritty.enable = true;
-
-      direnv.enable = true;
-      sysdig-cli-scanner.enable = true;
-      instruqt.enable = true;
-      git.enable = true;
-      nixvim.enable = true;
-      nvim.enable = false;
-      helix.enable = false;
-      spotify-player.enable = true;
-
-      comics-downloader.enable = true;
-      common.enable = true;
-      espanso.enable = false;
-      bash.enable = true;
-      fish.enable = true;
-      zsh.enable = true;
-      tailscale.enable = true;
-      docker.enable = true;
-      gemini-cli.enable = true;
-      yazi.enable = true;
-    };
-
-    dev = {
-      go.enable = true;
-      npm.enable = true;
-      python.enable = true;
-      nix.enable = true;
+    suites = {
+      content-creation.enable = false;
+      dev.enable = true;
+      infrastructure.enable = true;
+      k8s.enable = true;
+      offcoms.enable = true;
+      sysdig.enable = true;
+      terminal.enable = true;
+      utilities.enable = true;
     };
 
     sys = {

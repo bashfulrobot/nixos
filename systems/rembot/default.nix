@@ -8,6 +8,7 @@
     ./kvm-routing # kvm routing specific configuration
     ../../modules/autoimport.nix # autoimport modules
     ../../archetype/autoimport.nix # autoimport archetype modules
+    ../../suites/autoimport.nix # autoimport suite modules
   ];
   # User name specified in the settings
   users.default.enable = true;

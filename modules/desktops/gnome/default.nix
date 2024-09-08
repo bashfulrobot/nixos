@@ -31,6 +31,8 @@ in {
       gnome.themes.visuals.enable = true;
     };
 
+    apps = { nautilus.enable = true; };
+
     xdg.portal.config.common.default = [ "*" ];
 
     services.xserver = {
@@ -65,7 +67,6 @@ in {
       gnomeExtensions.window-calls # allows me to run my fish/zsh funciton to get the wmc_class of a window
 
       # Gnome apps/services
-      nautilus # file manager
       adwaita-icon-theme # icon theme
       gnome.gnome-settings-daemon # settings daemon
       gnome2.GConf # configuration database system for old apps
@@ -223,7 +224,15 @@ in {
 
         # TODO: move to nixpkg once packaged
         "org/gnome/shell/extensions/lilypad" = {
-          lilypad-order = ["StatusNotifierItem" "appindicator-legacy:Todoist:9486" "appindicator-org.kde.StatusNotifierItem-18233-2" "appindicator-org.kde.StatusNotifierItem-21611-2" "sni" "appindicator-org.blueman.Tray" "pop-shell"];
+          lilypad-order = [
+            "StatusNotifierItem"
+            "appindicator-legacy:Todoist:9486"
+            "appindicator-org.kde.StatusNotifierItem-18233-2"
+            "appindicator-org.kde.StatusNotifierItem-21611-2"
+            "sni"
+            "appindicator-org.blueman.Tray"
+            "pop-shell"
+          ];
           reorder = false;
           rightbox-order = [ "lilypad" ];
           show-icons = false;

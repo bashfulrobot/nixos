@@ -17,6 +17,8 @@ in {
       # https://github.com/nix-community/nixd/blob/main/docs/editor-setup.md
       # lsp for nix - mayb e for zed
       #nixd # nix language server
+      nix-index # Nix package indexer
+      comma # Nix command wrapper
       nixfmt # Nix code formatter
       nixfmt-rfc-style # Nix code formatter
       nodePackages.node2nix # Node to Nix

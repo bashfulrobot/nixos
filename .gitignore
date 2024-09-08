@@ -9,3 +9,4 @@ modules/workstation/desktops/gnome/themes/dracula/dracula.zip
 .spacedrive
 rebuild-trace.log
 flake.lock-pre-upg*
+suites/office/default.nix
