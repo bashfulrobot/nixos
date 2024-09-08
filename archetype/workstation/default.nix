@@ -40,7 +40,10 @@ in {
       #   browser = "chromium";
       #   disableWayland = false;
       # };
-      firefox.enable = true;
+      # TODO: needs some work in my module
+      #  - extensions keep reordering
+      #  - Need to add extensions to the module
+      firefox.enable = false;
       chrome-based-browser.enable = true;
 
       readitlater.enable = true;
