@@ -28,8 +28,7 @@ in {
         enable = true;
         web = true;
       };
-      pairdrop.enable = true;
-      zoom-web.enable = false;
+
       apple-notes.enable = true;
       nautilus.enable = true;
       common.enable = true;
@@ -40,13 +39,13 @@ in {
       #   browser = "chromium";
       #   disableWayland = false;
       # };
+
       # TODO: needs some work in my module
       #  - extensions keep reordering
       #  - Need to add extensions to the module
       firefox.enable = false;
       chrome-based-browser.enable = true;
 
-      readitlater.enable = true;
       vscode.enable = true;
       nixpkgs-search.enable = true;
       nixos-discourse.enable = true;
@@ -61,21 +60,16 @@ in {
       sfdc.enable = true;
       jira.enable = true;
       confluence.enable = true;
-      teamviewer.enable = true;
       xmind.enable = true;
       todoist.enable = true;
       gcal-br.enable = true;
       gmail-br.enable = true;
       intercom.enable = true;
-      slack-cilium.enable = true;
-      slack-k8s.enable = true;
-      slack-sysdig.enable = true;
-      slack-talos.enable = true;
     };
 
     cli = {
       alacritty.enable = true;
-      wezterm.enable = false;
+
       direnv.enable = true;
       sysdig-cli-scanner.enable = true;
       instruqt.enable = true;
@@ -84,7 +78,7 @@ in {
       nvim.enable = false;
       helix.enable = false;
       spotify-player.enable = true;
-      rclone.enable = false; # WIP
+
       comics-downloader.enable = true;
       common.enable = true;
       espanso.enable = false;
