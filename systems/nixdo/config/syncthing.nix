@@ -12,7 +12,7 @@
     # Sets the group that Syncthing runs as
     group = "users";
     # Sets the Data Directory (the default sync directory, but we won’t use this)
-    dataDir = "/home/dustin";
+    dataDir = "${user-settings.user.home}";
     # Sets the Web Interface to listen on all interfaces (for machines that are headless, I set to 0.0.0.0, otherwise 127.0.0.1)
     # Todo - bind to tailscale IP
     guiAddress = "0.0.0.0:8384";
@@ -25,7 +25,7 @@
     # Sets the Config Directory (important because I sync it as a part of my .config files)
     # Note: if you don’t persist the configDir, the device ID will change after each nixos-rebuild switch.
     # ToDo - add a host variable, then add to sync
-    configDir = "/home/dustin/.config/syncthing/nixdo";
+    configDir = "${user-settings.user.home}/.config/syncthing/nixdo";
 
     # Declaring the devices - no automated way to grab the device ID’s.
     # Hop into the web interface of each device and go to Settings -> Show ID,
@@ -53,7 +53,7 @@
       };
       folders = {
         "Desktop" = {
-          path = "/home/dustin/Desktop";
+          path = "${user-settings.user.home}/Desktop";
           devices = [ "rembot" "evo" ];
           # keep just a handful of old versions of the config files. This ensures that I’m not eating up a ton of disk space, while giving me the ability to roll back far enough to resolve issues I create for myself.
           versioning = {
@@ -62,7 +62,7 @@
           };
         };
         "Documents" = {
-          path = "/home/dustin/Documents";
+          path = "${user-settings.user.home}/Documents";
           devices = [ "rembot" "evo" ];
 
           #  The gist of staggered versioning is Syncthing will keep new versions created with an RPO of down to 30 seconds for the first hour, hourly versions for the first day, daily versions for the first month, and weekly versions until the maxAge is reached.
@@ -77,7 +77,7 @@
           };
         };
         "Downloads" = {
-          path = "/home/dustin/Downloads";
+          path = "${user-settings.user.home}/Downloads";
           devices = [ "rembot" "evo" ];
           versioning = {
             type = "simple";
@@ -85,7 +85,7 @@
           };
         };
         "Music" = {
-          path = "/home/dustin/Music";
+          path = "${user-settings.user.home}/Music";
           devices = [ "rembot" "evo" ];
           versioning = {
             type = "simple";
@@ -93,7 +93,7 @@
           };
         };
         "Pictures" = {
-          path = "/home/dustin/Pictures";
+          path = "${user-settings.user.home}/Pictures";
           devices = [ "rembot" "evo" ];
           versioning = {
             type = "simple";
@@ -101,7 +101,7 @@
           };
         };
         "Videos" = {
-          path = "/home/dustin/Videos";
+          path = "${user-settings.user.home}/Videos";
           devices = [ "rembot" "evo" ];
           versioning = {
             type = "simple";
@@ -109,7 +109,7 @@
           };
         };
         "dev" = {
-          path = "/home/dustin/dev";
+          path = "${user-settings.user.home}/dev";
           devices = [ "rembot" "evo" ];
           versioning = {
             type = "staggered";
@@ -120,7 +120,7 @@
           };
         };
         ".gnupg" = {
-          path = "/home/dustin/.gnupg";
+          path = "${user-settings.user.home}/.gnupg";
           devices = [ "rembot" "evo" ];
           ignorePerms =
             false; # By default, Syncthing doesn't sync file permissions. This line enables it for this folder.
@@ -133,7 +133,7 @@
           };
         };
         ".aws" = {
-          path = "/home/dustin/.aws";
+          path = "${user-settings.user.home}/.aws";
           devices = [ "rembot" "evo" ];
           versioning = {
             type = "staggered";
@@ -144,7 +144,7 @@
           };
         };
         ".kube" = {
-          path = "/home/dustin/.kube";
+          path = "${user-settings.user.home}/.kube";
           devices = [ "rembot" "evo" ];
           versioning = {
             type = "staggered";
@@ -155,7 +155,7 @@
           };
         };
         ".doppler" = {
-          path = "/home/dustin/.doppler";
+          path = "${user-settings.user.home}/.doppler";
           devices = [ "rembot" "evo" ];
           versioning = {
             type = "staggered";
@@ -166,7 +166,7 @@
           };
         };
         "virter" = {
-          path = "/home/dustin/.config/virter";
+          path = "${user-settings.user.home}/.config/virter";
           devices = [ "rembot" "evo" ];
           versioning = {
             type = "staggered";
@@ -177,7 +177,7 @@
           };
         };
         "bin" = {
-          path = "/home/dustin/bin";
+          path = "${user-settings.user.home}/bin";
           devices = [ "rembot" "evo" ];
           versioning = {
             type = "staggered";
@@ -188,7 +188,7 @@
           };
         };
         "ms-edge" = {
-          path = "/home/dustin/.config/microsoft-edge";
+          path = "${user-settings.user.home}/.config/microsoft-edge";
           devices = [ "rembot" ];
           versioning = {
             type = "simple";

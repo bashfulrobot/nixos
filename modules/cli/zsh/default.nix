@@ -31,9 +31,9 @@ in {
           shellAliases = {
 
             support-info =
-              ", fastfetch --logo none -c /home/dustin/dev/nix/nixos/modules/cli/fastfetch/support.jsonc | xclip -selection clipboard";
+              ", fastfetch --logo none -c ${user-settings.user.home}/dev/nix/nixos/modules/cli/fastfetch/support.jsonc | xclip -selection clipboard";
             support-info-extended =
-              ", fastfetch --logo none -c /home/dustin/dev/nix/nixos/modules/cli/fastfetch/support-extended.jsonc | xclip -selection clipboard";
+              ", fastfetch --logo none -c ${user-settings.user.home}/dev/nix/nixos/modules/cli/fastfetch/support-extended.jsonc | xclip -selection clipboard";
             tshoot-last-boot =
               "sudo journalctl -b -1 | curl -F 'file=@-' 0x0.st";
             copy-icons = "copy_icons";
@@ -72,7 +72,7 @@ in {
             ny = "cd ~/dev/nix/nixos/; yazi";
             n = "cd ~/dev/nix/nixos/; nvim";
             nc =
-              "clear && cd ~/dev/nix/nixos && git add . && git commit -S && rm -f /home/dustin/.config/mimeapps.list && rebuild && cd ~/dev/nix/nixos && git push";
+              "clear && cd ~/dev/nix/nixos && git add . && git commit -S && rm -f ${user-settings.user.home}/.config/mimeapps.list && rebuild && cd ~/dev/nix/nixos && git push";
             ls = "${pkgs.eza}/bin/eza -al --octal-permissions --icons";
             # ls = "${pkgs.eza}/bin/eza -al --octal-permissions";
             font-cache-refresh = "sudo fc-cache -f -v";
@@ -101,9 +101,9 @@ in {
             upgrade =
               "clear && cd ~/dev/nix/nixos/; ${pkgs.just}/bin/just upgrade-system";
             dev-rebuild =
-              "clear && cd ~/dev/nix/nixos/; rm -f /home/dustin/.config/mimeapps.list && ${pkgs.just}/bin/just dev-rebuild";
+              "clear && cd ~/dev/nix/nixos/; rm -f ${user-settings.user.home}/.config/mimeapps.list && ${pkgs.just}/bin/just dev-rebuild";
             test-rebuild =
-              "clear && cd ~/dev/nix/nixos/; rm -f /home/dustin/.config/mimeapps.list && ${pkgs.just}/bin/just dev-test";
+              "clear && cd ~/dev/nix/nixos/; rm -f ${user-settings.user.home}/.config/mimeapps.list && ${pkgs.just}/bin/just dev-test";
             kubitect =
               "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/kubitect";
             # comics-downloader = "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/dustin/bin/comics-downloader";
