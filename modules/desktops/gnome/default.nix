@@ -173,7 +173,7 @@ in {
           gtk-enable-primary-paste = true;
           # TODO: might not be needed with Stylix
           gtk-theme = "adw-gtk3";
-          icon-theme = "Bibata-Modern-Ice";
+          icon-theme = "Adwaita";
           cursor-theme = "Bibata-Modern-Ice";
         };
 
