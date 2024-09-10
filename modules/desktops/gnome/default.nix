@@ -383,8 +383,8 @@ in {
           {
             binding = "<Super>t";
             # binding = "<Super>space";
-            # command = "kgx";
-            command = "alacritty";
+            command = "kgx";
+            # command = "alacritty";
             name = "Terminal";
           };
 
