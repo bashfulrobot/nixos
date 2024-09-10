@@ -50,10 +50,11 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    environment.systemPackages = with pkgs; [
-      # chromiumPackage
-      (pkgs.chromium.override { enableWideVine = true; })
-    ];
+    environment.systemPackages = with pkgs;
+      [
+        # chromiumPackage
+        (pkgs.chromium.override { enableWideVine = true; })
+      ];
 
     programs.chromium = {
       enable = true;
@@ -197,13 +198,37 @@ in {
 
     home-manager.users."${user-settings.user.username}" = {
       # force chromium to use wayland - https://skerit.com/en/make-electron-applications-use-the-wayland-renderer
-      home.file.".config/chromium-flags.conf".text = ''
-        --enable-features=UseOzonePlatform
-        --ozone-platform=wayland
-        --enable-features=WaylandWindowDecorations
-        --ozone-platform-hint=auto
-      '';
-        #  --force-device-scale-factor=1
+      # home.file.".config/chromium-flags.conf".text = ''
+      #   --enable-features=UseOzonePlatform
+      #   --ozone-platform=wayland
+      #   --enable-features=WaylandWindowDecorations
+      #   --ozone-platform-hint=auto
+      #   --gtk-version=4
+      # '';
+      #  --force-device-scale-factor=1
+
+      home.file = let
+        flags = ''
+          --enable-features=UseOzonePlatform
+          --ozone-platform=wayland
+          --enable-features=WaylandWindowDecorations
+          --ozone-platform-hint=auto
+          --gtk-version=4
+        '';
+      in {
+        ".config/chromium-flags.conf".text = flags;
+        ".config/electron-flags.conf".text = flags;
+        ".config/electron-flags16.conf".text = flags;
+        ".config/electron-flags17.conf".text = flags;
+        ".config/electron-flags18.conf".text = flags;
+        ".config/electron-flags19.conf".text = flags;
+        ".config/electron-flags20.conf".text = flags;
+        ".config/electron-flags21.conf".text = flags;
+        ".config/electron-flags22.conf".text = flags;
+        ".config/electron-flags23.conf".text = flags;
+        ".config/electron-flags24.conf".text = flags;
+        ".config/electron-flags25.conf".text = flags;
+      };
     };
   };
 }
