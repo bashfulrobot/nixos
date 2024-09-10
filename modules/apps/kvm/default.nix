@@ -17,6 +17,7 @@ in {
     # Install necessary packages
     environment.systemPackages = with pkgs; [
       virt-viewer
+      virt-manager
       spice
       spice-gtk
       spice-protocol
