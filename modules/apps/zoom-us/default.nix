@@ -22,13 +22,24 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs;
-      [
-        (if cfg.downgrade then zoomPkgs.zoom-us else zoom-us)
-        # zoomPkgs.zoom-us
-        #zoom-us # video conferencing - broken currently
-      ];
 
+    # Working, but testing below.
+    # environment.systemPackages = with pkgs;
+    #   [
+    #     (if cfg.downgrade then zoomPkgs.zoom-us else zoom-us)
+    #   ];
+environment.systemPackages = with pkgs;
+      [
+        (if cfg.downgrade then zoomPkgs.zoom-us else zoom-us.overrideAttrs (attrs: {
+          nativeBuildInputs = (attrs.nativeBuildInputs or []) ++ [ bbe ];
+          postFixup = ''
+            cp $out/opt/zoom/zoom .
+            bbe -e 's/\0manjaro\0/\0nixos\0\0\0/' < zoom > $out/opt/zoom/zoom
+          '' + (attrs.postFixup or "") + ''
+            sed -i 's|Exec=|Exec=env XDG_CURRENT_DESKTOP="gnome" |' $out/share/applications/Zoom.desktop
+          '';
+        }))
+      ];
     systemd.tmpfiles.rules = [
       "L+ /usr/libexec/xdg-desktop-portal - - - - ${pkgs.xdg-desktop-portal}/libexec/xdg-desktop-portal"
     ];
