@@ -19,6 +19,9 @@ in {
       yazi.enable = true;
     };
 
+    # A fuse filesystem that dynamically populates contents of /bin and /usr/bin/ so that it contains all executables from the PATH of the requesting process. This allows executing FHS based programs on a non-FHS system. For example, this is useful to execute shebangs on NixOS that assume hard coded locations like /bin or /usr/bin etc.
+    services.envfs.enable = true;
+
     environment.systemPackages = with pkgs; [
       # --- Shell experience
       fzf # command-line fuzzy finder
