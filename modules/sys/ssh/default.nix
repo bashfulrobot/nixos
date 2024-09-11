@@ -100,6 +100,14 @@ in {
               User dustin
               IdentityFile ~/.ssh/id_ed25519
               AddKeysToAgent yes
+          Host 192.168.168.1
+              HostName 192.168.168.1
+              User dustin
+              IdentityFile ~/.ssh/id_ed25519
+              AddKeysToAgent yes
+              Port 22
+              StrictHostKeyChecking no
+              UserKnownHostsFile /dev/null
           Host srv-ts
                 HostName 100.123.211.36
                 User dustin
