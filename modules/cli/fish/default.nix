@@ -290,6 +290,7 @@ in {
           sysdig-cli-scanner-get = ''
             curl -LO "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/$(curl -L -s https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt)/linux/amd64/sysdig-cli-scanner"'';
           kubectl = "${pkgs.kubecolor}/bin/kubecolor";
+          ips = "ip -o -4 addr list | awk '{print $2, $4}'";
           ipull = "instruqt track pull";
           ipush = "instruqt track push";
           ilog = "instruqt track logs";

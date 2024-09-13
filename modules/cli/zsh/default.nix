@@ -43,6 +43,7 @@ in {
               "sudo tailscale up --ssh --accept-routes --operator=$USER";
             oc = "~/.npm-packages/bin/opencommit";
             ncdu = "${pkgs.gdu}/bin/gdu";
+            ips = "ip -o -4 addr list | awk '{print $2, $4}'";
             ".." = "cd ..";
             "..." = "cd ../..";
             "...." = "cd ../../..";
