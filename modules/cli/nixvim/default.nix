@@ -25,6 +25,12 @@ in {
           desc = "Unfold All";
         }
         {
+          event = "TextYankPost";
+          desc = "Highlight when yanking (copying) text";
+          callback.__raw = "vim.highlight.on_yank";
+          group = "nixvim";
+        }
+        {
           event = "BufWrite";
           command = "%s/\\s\\+$//e";
           desc = "Remove Whitespaces";
@@ -49,6 +55,9 @@ in {
             "Fixed cursor location on markdown (for preview) and enable wrapping";
         }
       ];
+
+      # related to "TextYankPost" event
+      autoGroups.nixvim.clear = true;
 
       opts = {
         number = true;
@@ -290,6 +299,10 @@ in {
           enable = true;
           defaultMaps = false;
         };
+        todo-comments = {
+          enable = true;
+          signs = true;
+        };
         mini = {
           enable = true;
           modules = {
@@ -379,7 +392,8 @@ in {
         lsp = {
           enable = true;
           servers = {
-            nil-ls.enable = true;
+            # nil-ls.enable = true;
+            nixd.enable = true;
             svelte.enable = true;
             html.enable = true;
             cssls.enable = true;
