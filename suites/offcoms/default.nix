@@ -44,7 +44,7 @@ in {
 
     environment.systemPackages = with pkgs; [
       # Browsers
-      inputs.zen-browser.packages.x86_64-linux.zen-browser
+      #inputs.zen-browser.packages.x86_64-linux.zen-browser
       (opera.override { proprietaryCodecs = true; })
 
       # PDF
