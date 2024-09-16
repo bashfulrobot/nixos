@@ -21,6 +21,7 @@ in {
     suites = {
       content-creation.enable = false;
       dev.enable = true;
+      entertainment.enable = true;
       infrastructure.enable = true;
       k8s.enable = true;
       offcoms.enable = true;

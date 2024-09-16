@@ -82,29 +82,26 @@ in {
       file-roller # archive manager
       gnome-photos
       gnome-system-monitor
-      gnome-maps
+      #gnome-maps
       gnome-music
       gnome-weather
-    ]) ++ (with pkgs.gnome;
-      [
-        # for packages that are pkgs.gnome.*
-      ]) ++ (with pkgs.gnomeExtensions; [
-        # for packages that are pkgs.gnomeExtensions.*
-        applications-menu
-        auto-move-windows
-        gtk4-desktop-icons-ng-ding
-        launch-new-instance
-        light-style
-        native-window-placement
-        next-up
-        places-status-indicator
-        removable-drive-menu
-        screenshot-window-sizer
-        window-list
-        windownavigator
-        workspace-indicator
-        hide-top-bar
-      ]);
+    ]) ++ (with pkgs.gnomeExtensions; [
+      # for packages that are pkgs.gnomeExtensions.*
+      applications-menu
+      auto-move-windows
+      gtk4-desktop-icons-ng-ding
+      launch-new-instance
+      light-style
+      native-window-placement
+      next-up
+      places-status-indicator
+      removable-drive-menu
+      screenshot-window-sizer
+      window-list
+      windownavigator
+      workspace-indicator
+      hide-top-bar
+    ]);
 
     system.activationScripts.script.text = ''
       mkdir -p /var/lib/AccountsService/{icons,users}
