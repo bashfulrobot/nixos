@@ -72,36 +72,38 @@ in {
       gnome2.GConf # configuration database system for old apps
     ];
 
-    environment.gnome.excludePackages = (with pkgs; [
-      # for packages that are pkgs.*
-      gnome-tour
-      gnome-connections
-      cheese # photo booth
-      gedit # text editor
-      yelp # help viewer
-      file-roller # archive manager
-      gnome-photos
-      gnome-system-monitor
-      #gnome-maps
-      gnome-music
-      gnome-weather
-    ]) ++ (with pkgs.gnomeExtensions; [
-      # for packages that are pkgs.gnomeExtensions.*
-      applications-menu
-      auto-move-windows
-      gtk4-desktop-icons-ng-ding
-      launch-new-instance
-      light-style
-      native-window-placement
-      next-up
-      places-status-indicator
-      removable-drive-menu
-      screenshot-window-sizer
-      window-list
-      windownavigator
-      workspace-indicator
-      hide-top-bar
-    ]);
+# TODO: generates error.
+#  error: undefined variable 'gnome-maps'
+    # environment.gnome.excludePackages = (with pkgs; [
+    #   # for packages that are pkgs.*
+    #   gnome-tour
+    #   gnome-connections
+    #   cheese # photo booth
+    #   gedit # text editor
+    #   yelp # help viewer
+    #   file-roller # archive manager
+    #   gnome-photos
+    #   gnome-system-monitor
+    #   gnome-maps
+    #   gnome-music
+    #   gnome-weather
+    # ]) ++ (with pkgs.gnomeExtensions; [
+    #   # for packages that are pkgs.gnomeExtensions.*
+    #   applications-menu
+    #   auto-move-windows
+    #   gtk4-desktop-icons-ng-ding
+    #   launch-new-instance
+    #   light-style
+    #   native-window-placement
+    #   next-up
+    #   places-status-indicator
+    #   removable-drive-menu
+    #   screenshot-window-sizer
+    #   window-list
+    #   windownavigator
+    #   workspace-indicator
+    #   hide-top-bar
+    # ]);
 
     system.activationScripts.script.text = ''
       mkdir -p /var/lib/AccountsService/{icons,users}
