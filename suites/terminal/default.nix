@@ -23,7 +23,7 @@ in {
     services.envfs.enable = true;
 
     environment.systemPackages = with pkgs; [
-      termius # ssh client. syncs with phone. 
+
 			# --- Shell experience
       fzf # command-line fuzzy finder
       tealdeer # command-line help utility
