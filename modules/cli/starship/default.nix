@@ -14,7 +14,7 @@ in {
     environment.systemPackages = with pkgs; [ ];
 
     home-manager.users."${user-settings.user.username}" = {
-      starship = {
+      programs.starship = {
         enable = true;
         enableZshIntegration = true;
         enableFishIntegration = true;
