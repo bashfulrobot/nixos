@@ -17,7 +17,7 @@ in {
 
     stylix = {
       enable = true;
-      image = ./wallpapers/bender-c3pio-daft-punk.png;
+      image = ./wallpapers/bender-c3pio-daft-punk-orange.png;
       # one of “stretch”, “fill”, “fit”, “center”, “tile”
       imageScalingMode = "fill";
       polarity = "dark"; # or "light" - forcing dark
