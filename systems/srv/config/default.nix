@@ -20,8 +20,15 @@
 
   # Configure keymap in X11
   services.xserver = {
-   layout = "us";
-   xkbVariant = "";
+    layout = "us";
+    xkbVariant = "";
+  };
+
+  # Configure nix
+  nixcfg = {
+    home-manager.enable = true;
+    insecure-packages.enable = true;
+    nix-settings.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
