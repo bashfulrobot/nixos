@@ -29,11 +29,11 @@ in {
     #   name = "flathub-beta"; location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
     # }];
 
-    services.flatpak.packages = [
+    # services.flatpak.packages = [
       # {
       #   appId = "com.brave.Browser";
       #   origin = "flathub";
       # }
-    ];
+    # ];
   };
 }
