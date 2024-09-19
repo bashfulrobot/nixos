@@ -380,7 +380,6 @@ in {
         yazi.enableFishIntegration = true;
         nix-index.enableFishIntegration = true;
         eza.enableFishIntegration = true;
-        direnv.enableFishIntegration = true;
         autojump.enableFishIntegration = true;
       };
 
