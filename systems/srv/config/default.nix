@@ -3,10 +3,12 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./kvm-routing.nix
+    ./lid-power.nix
     ./services.nix
     ./software.nix
     ./users.nix
     ../../../modules/workstation/hosts
+    ../../../modules/apps/kvm
   ];
 
   # Enable flakes and nix commands
@@ -19,10 +21,10 @@
   i18n.defaultLocale = "en_CA.UTF-8";
 
   # Configure keymap in X11
-  #services.xserver = {
-  #  layout = "us";
-  #  xkbVariant = "";
-  #};
+  services.xserver = {
+   layout = "us";
+   xkbVariant = "";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
