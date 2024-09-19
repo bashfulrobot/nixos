@@ -270,8 +270,10 @@ in {
           gc = "git add . && git commit -S && git push && git pull";
         };
         shellAliases = {
-          support-info = ", fastfetch --logo none -c ${user-settings.user.home}/dev/nix/nixos/modules/cli/fastfetch/support.jsonc | xclip -selection clipboard";
-          support-info-extended = ", fastfetch --logo none -c ${user-settings.user.home}/dev/nix/nixos/modules/cli/fastfetch/support-extended.jsonc | xclip -selection clipboard";
+          support-info =
+            ", fastfetch --logo none -c ${user-settings.user.home}/dev/nix/nixos/modules/cli/fastfetch/support.jsonc | xclip -selection clipboard";
+          support-info-extended =
+            ", fastfetch --logo none -c ${user-settings.user.home}/dev/nix/nixos/modules/cli/fastfetch/support-extended.jsonc | xclip -selection clipboard";
           tshoot-last-boot = "sudo journalctl -b -1 | curl -F 'file=@-' 0x0.st";
           copy-icons = "copy_icons";
           echo-home = "echo ${user-settings.user.home}";
@@ -352,27 +354,33 @@ in {
 
       };
 
-      programs.fzf = {
-        enable = true;
-        enableFishIntegration = true;
-        defaultCommand = "fd --type f ${fd-flags}";
-        fileWidgetCommand = "fd --type f ${fd-flags}";
-        changeDirWidgetCommand = "fd --type d ${fd-flags}";
-      };
-
-      programs.atuin = {
-        enable = true;
-        enableFishIntegration = true;
-        flags = [ "--disable-up-arrow" ];
-        settings = {
-          auto_sync = true;
-          sync_frequency = "5m";
-          sync_address = "https://api.atuin.sh";
-          search_mode = "fuzzy";
-          filter_mode_shell_up_key_binding = "directory";
-          style = "compact";
-
+      programs = {
+        fzf = {
+          enable = true;
+          enableFishIntegration = true;
+          defaultCommand = "fd --type f ${fd-flags}";
+          fileWidgetCommand = "fd --type f ${fd-flags}";
+          changeDirWidgetCommand = "fd --type d ${fd-flags}";
         };
+        atuin = {
+          enable = true;
+          enableFishIntegration = true;
+          flags = [ "--disable-up-arrow" ];
+          settings = {
+            auto_sync = true;
+            sync_frequency = "5m";
+            sync_address = "https://api.atuin.sh";
+            search_mode = "fuzzy";
+            filter_mode_shell_up_key_binding = "directory";
+            style = "compact";
+
+          };
+        };
+        yazi.enableFishIntegration = true;
+        nix-index.enableFishIntegration = true;
+        eza.enableFishIntegration = true;
+        direnv.enableFishIntegration = true;
+        autojump.enableFishIntegration = true;
       };
 
       home.packages = with pkgs; [
