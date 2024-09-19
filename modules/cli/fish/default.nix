@@ -258,6 +258,7 @@ in {
           nix-lint =
             "fd -e nix --hidden --no-ignore --follow . -x statix check {}";
           k = "kubectl";
+          t = "talosctl";
           kcx = "kubectx";
           kns = "kubens";
           tf = "terraform";
