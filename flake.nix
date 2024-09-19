@@ -149,7 +149,6 @@
             # catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
-            nixvim.nixosModules.nixvim
             {
               home-manager = {
                 useUserPackages = true;
