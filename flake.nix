@@ -144,6 +144,12 @@
             nixvim.nixosModules.nixvim
             # Below not used, but autoimport fails without this
             nix-flatpak.nixosModules.nix-flatpak
+            # nur.nixosModules.nur
+            nix-flatpak.nixosModules.nix-flatpak
+            # catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            stylix.nixosModules.stylix
+            nixvim.nixosModules.nixvim
             {
               home-manager = {
                 useUserPackages = true;
