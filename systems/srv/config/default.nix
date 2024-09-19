@@ -7,7 +7,6 @@
     ./services.nix
     ./software.nix
     ./users.nix
-    ../../../modules/workstation/hosts
     ../../../modules/apps/kvm
   ];
 
