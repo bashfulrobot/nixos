@@ -14,7 +14,7 @@
   networking = {
     nat = {
       enable = true;
-      externalInterface = "wlp0s20f3"; # Your external interface
+      externalInterface = "enp3s0"; # Your external interface
       # Note
       # - for every routed network created in Terrraform, you need to add a new internal interface here
       # - and a static route needs to be added to the LAN router for the new network
