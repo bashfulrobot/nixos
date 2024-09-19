@@ -142,6 +142,8 @@
             ./systems/srv
             home-manager.nixosModules.home-manager
             nixvim.nixosModules.nixvim
+            # Below not used, but autoimport fails without this
+            nix-flatpak.nixosModules.nix-flatpak
             {
               home-manager = {
                 useUserPackages = true;
