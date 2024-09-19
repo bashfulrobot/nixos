@@ -7,7 +7,6 @@
     ./services.nix
     ./software.nix
     ./users.nix
-    ../../../modules/apps/kvm
   ];
 
   # Enable flakes and nix commands
