@@ -134,11 +134,30 @@
           modules = [ ./systems/nixdo ];
         };
 
-        # srv = server hostname
+        # srv = new work laptop hostname
         srv = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit user-settings inputs secrets; };
           system = "x86_64-linux";
-          modules = [ ./systems/srv ];
+          modules = [
+            ./systems/srv
+            home-manager.nixosModules.home-manager
+            nixvim.nixosModules.nixvim
+            {
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = true;
+                extraSpecialArgs = { inherit user-settings secrets; };
+                users."${user-settings.user.username}" = {
+                  imports = [];
+                };
+              };
+
+              nixpkgs = {
+                # Allow unfree packages
+                config.allowUnfree = true;
+              };
+            }
+          ];
         };
       };
     };
