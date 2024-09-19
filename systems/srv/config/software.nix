@@ -5,7 +5,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
     wget
     curl
     tmux
@@ -19,23 +18,21 @@
     eza
     ripgrep
     du-dust
-    starship
     tree
-    tailscale
     just
     nixfmt
-    fish
+    gdu
   ];
 
-  # Install Docker
+  apps = { kvm.enable = true; };
 
-  virtualisation = {
-    docker = {
-      enable = true;
-      autoPrune = {
-        enable = true;
-        dates = "weekly";
-      };
-    };
+  cli = {
+    tailscale.enable = true;
+    docker.enable = true;
+    starship.enable = true;
+    fish.enable = true;
+    yazi.enable = true;
+    nixvim.enable = true;
   };
+
 }
