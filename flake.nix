@@ -133,6 +133,13 @@
           system = "x86_64-linux";
           modules = [ ./systems/nixdo ];
         };
+
+        # srv = server hostname
+        srv = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit user-settings inputs secrets; };
+          system = "x86_64-linux";
+          modules = [ ./systems/srv ];
+        };
       };
     };
 }
