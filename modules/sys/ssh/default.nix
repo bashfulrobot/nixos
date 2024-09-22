@@ -109,11 +109,11 @@ in {
               StrictHostKeyChecking no
               UserKnownHostsFile /dev/null
           Host srv-ts
-                HostName 100.123.211.36
+                HostName 100.64.187.14
                 User dustin
                 IdentityFile ~/.ssh/id_ed25519
                 AddKeysToAgent yes
-          Host 100.123.211.36
+          Host 100.64.187.14
                 User dustin
                 IdentityFile ~/.ssh/id_rsa_temp
                 AddKeysToAgent yes

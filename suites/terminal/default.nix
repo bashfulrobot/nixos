@@ -35,6 +35,7 @@ in {
       tree # directory structure viewer
       broot # Fuzzy finder
       eza # ls and exa alternative
+			btop # top alternative
     ];
 
     home-manager.users."${user-settings.user.username}" = {

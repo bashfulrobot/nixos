@@ -319,13 +319,12 @@ in {
           # ls = "${pkgs.eza}/bin/eza -al --octal-permissions";
           font-cache-refresh = "sudo fc-cache -f -v";
           font-list = "fc-list";
-          cat = "${pkgs.bat}/bin/bat";
           grep = "${pkgs.ripgrep}/bin/rg";
           du = "${pkgs.du-dust}/bin/dust";
           ps = "${pkgs.procs}/bin/procs";
           man = "${pkgs.tealdeer}/bin/tldr";
-          top = "${pkgs.bottom}/bin/btm";
-          htop = "${pkgs.bottom}/bin/btm";
+          top = "${pkgs.btop}/bin/btop";
+          htop = "${pkgs.btop}/bin/btop";
           #sed = "${pkgs.sd}/bin/sd";
           ping = "${pkgs.gping}/bin/gping";
           # just = "${pkgs.just}/bin/just --choose --unsorted";
