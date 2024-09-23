@@ -68,7 +68,7 @@ in {
 
       # Gnome apps/services
       adwaita-icon-theme # icon theme
-      gnome.gnome-settings-daemon # settings daemon
+      gnome-settings-daemon # settings daemon
       gnome2.GConf # configuration database system for old apps
     ];
 
