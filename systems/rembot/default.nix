@@ -23,7 +23,7 @@
   cli = {
     # currenly has AMD specific apps. Do not run on my laptop (Nvidia.
     # TODO: split module to have an nvida/AMD option.)
-    local-ai.enable = true;
+    local-ai.enable = false;
   };
 
   apps = {
