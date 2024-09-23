@@ -295,6 +295,7 @@ in {
         lazygit.enable = true;
         lualine.enable = true;
         barbar.enable = true;
+        web-devicons.enable = true;
         gitgutter = {
           enable = true;
           defaultMaps = false;
