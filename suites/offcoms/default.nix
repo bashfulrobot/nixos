@@ -29,6 +29,7 @@ in {
       #  - Need to add extensions to the module
       firefox.enable = false;
       chrome-based-browser.enable = true;
+      vivaldi.enable = true;
 
       #  --- Organize
       xmind.enable = true;
