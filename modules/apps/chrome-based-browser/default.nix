@@ -82,7 +82,7 @@ in {
         # Loom video recording
         "liecbddmkiiihnedobmlmillhodjkdmb"
         # Privacy Badger
-        "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"
+        #"pkehgijcmpdhfbdbbnkijodmdjhbjlgp"
         # Checker Plus for Mail
         "oeopbcgkkoapgobdbedcemjljbihmemj"
         # Checker Plus for Cal
@@ -92,7 +92,7 @@ in {
         # Markdown downloader
         "pcmpcfapbekmbjjkdalcgopdkipoggdi"
         # obsidian clipper
-        "mphkdfmipddgfobjhphabphmpdckgfhb"
+        #"mphkdfmipddgfobjhphabphmpdckgfhb"
         # URL/Tab Manager
         "egiemoacchfofdhhlfhkdcacgaopncmi"
         # Mail message URL
@@ -108,13 +108,13 @@ in {
         # Omnivore
         "blkggjdmcfjdbmmmlfcpplkchpeaiiab"
         # Tokyonight
-        "enpfonmmpgoinjpglildebkaphbhndek"
+        #"enpfonmmpgoinjpglildebkaphbhndek"
         # email tracking for work
-        "pgbdljpkijehgoacbjpolaomhkoffhnl"
+        #"pgbdljpkijehgoacbjpolaomhkoffhnl"
         # zoom
         "kgjfgplpablkjnlkjmjdecgdpfankdle"
         # Travel Arrow
-        "coplmfnphahpcknbchcehdikbdieognn"
+        #"coplmfnphahpcknbchcehdikbdieognn"
         # xbrowsersync
         # "lcbjdhceifofjlpecfpeimnnphbcjgnc"
         # Catppuccin Mocha theme
