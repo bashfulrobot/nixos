@@ -248,6 +248,7 @@ in {
             "lilypad@shendrew.github.io"
             "appindicatorsupport@rgcjonas.gmail.com"
             "user-theme@gnome-shell-extensions.gcampax.github.com"
+            "caffeine@patapon.info"
           ];
 
           disabled-extensions = [
@@ -266,6 +267,11 @@ in {
             "syncthing@gnome.2nv2u.com"
             "light-style@gnome-shell-extensions.gcampax.github.com"
           ];
+        };
+
+        "ong/gnome/shell/extensions/caffeine" = {
+          enable-fullscreen = false;
+          duration-timer = 2;
         };
 
         "org/gnome/shell/extensions/hidetopbar" = {
