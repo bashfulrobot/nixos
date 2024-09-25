@@ -47,8 +47,9 @@ in {
     environment.systemPackages = with pkgs; [
       # Browsers
       #inputs.zen-browser.packages.x86_64-linux.zen-browser
-      (opera.override { proprietaryCodecs = true; })
-      brave
+      #(opera.override { proprietaryCodecs = true; })
+      #brave
+      google-chrome
 
       # PDF
       xournalpp # note taking/pdf annotator
