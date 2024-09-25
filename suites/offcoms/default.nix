@@ -30,7 +30,7 @@ in {
       firefox.enable = false;
       chrome-based-browser.enable = true;
       vivaldi.enable = false;
-      ms-edge.enable = true;
+      ms-edge.enable = false;
 
       #  --- Organize
       xmind.enable = true;
@@ -48,6 +48,7 @@ in {
       # Browsers
       #inputs.zen-browser.packages.x86_64-linux.zen-browser
       (opera.override { proprietaryCodecs = true; })
+      brave
 
       # PDF
       xournalpp # note taking/pdf annotator
