@@ -28,7 +28,7 @@ in {
       #  - extensions keep reordering
       #  - Need to add extensions to the module
       firefox.enable = false;
-      chrome-based-browser.enable = true;
+      chrome-based-browser.enable = false;
       vivaldi.enable = false;
       ms-edge.enable = false;
 

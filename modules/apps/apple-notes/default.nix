@@ -11,7 +11,7 @@ let
   gcalBashfulrobotApp = makeDesktopApp {
     name = "Apple Notes";
     url = "https://www.icloud.com/notes/";
-    binary = "${pkgs.chromium}/bin/chromium";
+    binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
     myStartupWMClass = "chrome-www.icloud.com__notes_-Default";
     iconSizes = [ "32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use

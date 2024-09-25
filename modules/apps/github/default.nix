@@ -11,7 +11,7 @@ let
   githubApp = makeDesktopApp {
     name = "Github";
     url = "https://github.com/bashfulrobot/nixos";
-    binary = "${pkgs.chromium}/bin/chromium";
+    binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
     myStartupWMClass = "chrome-github.com__bashfulrobot_nixos-Default";
     iconSizes = [ "32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use

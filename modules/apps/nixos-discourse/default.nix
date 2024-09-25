@@ -11,7 +11,7 @@ let
   nixosDiscourseApp = makeDesktopApp {
     name = "NixOS Discourse";
     url = "https://discourse.nixos.org/";
-    binary = "${pkgs.chromium}/bin/chromium";
+    binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
     myStartupWMClass = "chrome-discourse.nixos.org__-Default";
     iconSizes = [ "32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
