@@ -302,7 +302,8 @@ in {
         };
         todo-comments = {
           enable = true;
-          signs = true;
+          settings = { signs = true; };
+
         };
         mini = {
           enable = true;
@@ -399,7 +400,7 @@ in {
             html.enable = true;
             cssls.enable = true;
             eslint.enable = true;
-            tsserver.enable = true;
+            ts-ls.enable = true;
             pyright.enable = true;
             tailwindcss = {
               enable = true;
