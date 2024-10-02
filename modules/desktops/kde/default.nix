@@ -49,6 +49,11 @@ in {
 
       home.packages = with pkgs; [ ];
       programs = { };
+
+      home.file.".face.icon" = {
+        source = ./.face.icon;
+        target = ".face.icon";
+      };
     };
 
   };
