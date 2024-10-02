@@ -11,7 +11,7 @@ let
     name = "Whatsapp";
     url = "https://web.whatsapp.com/";
     binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
-    myStartupWMClass = "chrome-web.whatsapp.com__-Default";
+    myStartupWMClass = "chrome-web.whatsapp.com__-Profile_4";
     iconSizes = ["32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

@@ -12,7 +12,7 @@ let
     name = "Sysdig Calendar";
     url = "https://calendar.google.com/calendar/u/1";
     binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
-    myStartupWMClass = "chrome-calendar.google.com__calendar_u_1-Default";
+    myStartupWMClass = "chrome-calendar.google.com__calendar_u_1-Profile_4";
     iconSizes = [ "32" "48" "64" "96" "128" "256" "512" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

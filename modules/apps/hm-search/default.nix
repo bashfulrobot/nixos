@@ -12,7 +12,7 @@ let
     name = "Home Manager Search";
     url = "https://home-manager-options.extranix.com/";
     binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
-    myStartupWMClass = "chrome-home-manager-options.extranix.com__-Default";
+    myStartupWMClass = "chrome-home-manager-options.extranix.com__-Profile_4";
     iconSizes = [ "32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons
