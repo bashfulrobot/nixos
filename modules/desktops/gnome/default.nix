@@ -174,7 +174,7 @@ in {
           # TODO: might not be needed with Stylix
           gtk-theme = "Adwaita";
           icon-theme = "Adwaita";
-          cursor-theme = "Adwaita";
+          cursor-theme = "adw-gtk3";
         };
 
         "org/gnome/shell/extensions/bluetooth-quick-connect" = {
