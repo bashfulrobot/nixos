@@ -172,9 +172,10 @@ in {
           locate-pointer = true;
           gtk-enable-primary-paste = true;
           # TODO: might not be needed with Stylix
-          gtk-theme = "Adwaita";
-          icon-theme = "Adwaita";
-          cursor-theme = "adw-gtk3";
+          # gtk-theme = "Adwaita";
+          # icon-theme = "Adwaita";
+          # cursor-theme = "adw-gtk3";
+          # cursor-theme = "Adwaita";
         };
 
         "org/gnome/shell/extensions/bluetooth-quick-connect" = {
