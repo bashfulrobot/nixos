@@ -22,7 +22,9 @@ in {
     (lib.mkIf cfg.networkmanager.enable {
       # Enable networking
       networking.networkmanager = { enable = true;
-      # This is related to udev not initializing devices. NetworkManager never completes startup because a WireGuard (tailscale) interface is never initialized by udev. A workaround is just putting the affected device into the unmanaged list.
+        # Unmanaged devices
+        # This is useful for devices that are managed by other services, like docker0
+        # testing for tailscale - https://github.com/NixOS/nixpkgs/issues/180175
       unmanaged = ["tailscale0" "docker0"];
       };
     })

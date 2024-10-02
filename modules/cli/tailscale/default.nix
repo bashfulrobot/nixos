@@ -1,6 +1,5 @@
 { user-settings, pkgs, secrets, config, lib, ... }:
-let
-  cfg = config.cli.tailscale;
+let cfg = config.cli.tailscale;
 
 in {
 
@@ -20,6 +19,10 @@ in {
       [
         tailscale # zero-config VP
       ];
+
+    # https://github.com/NixOS/nixpkgs/issues/180175#issuecomment-2372305193
+    systemd.services.tailscaled.after =
+      [ "NetworkManager-wait-online.service" ];
 
   };
 }
