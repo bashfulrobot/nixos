@@ -25,7 +25,7 @@ in {
 
     environment.systemPackages = with pkgs; [
 
-			# --- Shell experience
+      # --- Shell experience
       fzf # command-line fuzzy finder
       tealdeer # command-line help utility
       bottom # system monitoring tool
@@ -35,7 +35,7 @@ in {
       tree # directory structure viewer
       broot # Fuzzy finder
       eza # ls and exa alternative
-			btop # top alternative
+      btop # top alternative
     ];
 
     home-manager.users."${user-settings.user.username}" = {
@@ -45,6 +45,15 @@ in {
           enableFishIntegration = true;
           enableBashIntegration = true;
           enableZshIntegration = true;
+        };
+        zoxide = {
+          enable = true;
+          enableFishIntegration = true;
+          enableBashIntegration = true;
+          enableZshIntegration = true;
+          options = [
+            "--cmd cd" # just to stop me using cd
+          ];
         };
         tmux = { enable = true; };
         bat = { enable = true; };
