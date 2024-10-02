@@ -40,6 +40,10 @@ in {
       #  --- Comms
       gmail-br.enable = true;
 
+      # --- Utilities
+      gemini.enable = true;
+      notebooklm.enable = true;
+
     };
 
     cli = { espanso.enable = false; };
