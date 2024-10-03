@@ -18,6 +18,14 @@ in {
     services.displayManager.sddm.wayland.enable = true;
     services.desktopManager.plasma6.enable = true;
 
+    environment.systemPackages = with pkgs; [ kdePackages.kde-gtk-config ];
+
+    security.pam.services = {
+      sddm.enableKwallet = true;
+    };
+
+    programs.dconf.enable = true;
+
     environment.plasma6.excludePackages = with pkgs.kdePackages;
       [
         #   plasma-browser-integration
