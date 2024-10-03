@@ -11,15 +11,7 @@
     nixos-hardware = { url = "github:NixOS/nixos-hardware/master"; };
     nix-flatpak = { url = "github:gmodena/nix-flatpak"; };
     nvim = { url = "github:bashfulrobot/jvim"; };
-    nvchad4nix = {
-      url = "github:NvChad/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    catppuccin = { url = "github:catppuccin/nix"; };
-    hyprswitch = { url = "github:h3rmt/hyprswitch/release"; };
     hyprland = { url = "github:hyprwm/Hyprland"; };
-    gBar.url = "github:scorpion-26/gBar";
-    zen-browser.url = "github:heywoodlh/flakes/main?dir=zen-browser";
     # This allows automatic styling based on active Wallpaper.
     # Homepage: https://github.com/danth/stylix
     # Manual:   https://danth.github.io/stylix
@@ -44,20 +36,15 @@
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, hyprswitch
-    , hyprland, nix-flatpak, nur, nvim, catppuccin, stylix, disko, nvchad4nix
-    , nixpkgs-zoom, nixvim, zen-browser, niri, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, hyprland
+    , nix-flatpak, nur, nvim, stylix, disko, nixpkgs-zoom, nixvim,  ... }:
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.
-      workstationOverlays = [ nur.overlay nvim.overlays.default niri.overlays.niri ];
+      workstationOverlays =
+        [ nur.overlay nvim.overlays.default ];
       # Load secrets. This folder is encryted with git-crypt
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
@@ -74,19 +61,17 @@
             ./systems/evo
             nur.nixosModules.nur
             nix-flatpak.nixosModules.nix-flatpak
-            catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
             disko.nixosModules.disko
             nixvim.nixosModules.nixvim
-            niri.overlays.niri
             {
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
                 users."${user-settings.user.username}" = {
-                  imports = [ catppuccin.homeManagerModules.catppuccin inputs.niri.homeModules.niri ];
+                  imports = [];
                 };
               };
 
@@ -108,7 +93,6 @@
             ./systems/rembot
             nur.nixosModules.nur
             nix-flatpak.nixosModules.nix-flatpak
-            catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
             nixvim.nixosModules.nixvim
@@ -118,9 +102,7 @@
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
-                users."${user-settings.user.username}" = {
-                  imports = [ catppuccin.homeManagerModules.catppuccin ];
-                };
+                users."${user-settings.user.username}" = { imports = [ ]; };
               };
 
               nixpkgs = {
