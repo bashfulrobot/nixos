@@ -20,6 +20,8 @@
 
   desktops.gnome.enable = false;
   desktops.kde.enable = true;
+  desktops.hyprland.enable = false;
+  desktops.niri.enable = false;
 
   cli = {
     # currenly has AMD specific apps. Do not run on my laptop (Nvidia.

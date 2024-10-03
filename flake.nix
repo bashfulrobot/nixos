@@ -44,15 +44,20 @@
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, hyprswitch
     , hyprland, nix-flatpak, nur, nvim, catppuccin, stylix, disko, nvchad4nix
-    , nixpkgs-zoom, nixvim, zen-browser, ... }:
+    , nixpkgs-zoom, nixvim, zen-browser, niri, ... }:
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.
-      workstationOverlays = [ nur.overlay nvim.overlays.default ];
+      workstationOverlays = [ nur.overlay nvim.overlays.default niri.overlays.niri ];
       # Load secrets. This folder is encryted with git-crypt
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
@@ -74,13 +79,14 @@
             stylix.nixosModules.stylix
             disko.nixosModules.disko
             nixvim.nixosModules.nixvim
+            niri.overlays.niri
             {
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
                 users."${user-settings.user.username}" = {
-                  imports = [ catppuccin.homeManagerModules.catppuccin ];
+                  imports = [ catppuccin.homeManagerModules.catppuccin inputs.niri.homeModules.niri ];
                 };
               };
 
@@ -154,9 +160,7 @@
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
-                users."${user-settings.user.username}" = {
-                  imports = [];
-                };
+                users."${user-settings.user.username}" = { imports = [ ]; };
               };
 
               nixpkgs = {
