@@ -53,7 +53,7 @@ in {
     # };
 
     home-manager.users."${user-settings.user.username}" = {
-
+      imports = [ ./build/plasma-manager.nix ];
       home.packages = with pkgs; [ ];
       programs = { };
 

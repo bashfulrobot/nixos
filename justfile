@@ -55,6 +55,9 @@ dev-test-trace:
     @git add -A
     @just garbage-build-cache
     @sudo nixos-rebuild test --impure --flake .#\{{`hostname`}} --show-trace
+# Export plasma config to nix
+export-plasma:
+    @nix run github:nix-community/plasma-manager > /home/dustin/dev/nix/nixos/modules/desktops/kde/build/plasma-manager.nix
 # Final build and garbage collect, will reboot
 final-build-reboot:
     @just garbage-build-cache

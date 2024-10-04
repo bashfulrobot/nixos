@@ -23,6 +23,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +44,7 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, hyprland
+  outputs = inputs@{ self, nixpkgs, home-manager, plasma-manager, nixos-hardware, hyprland
     , nix-flatpak, nur, nvim, stylix, disko, nixpkgs-zoom, nixvim,  ... }:
     # with inputs;
     let
@@ -71,7 +77,7 @@
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
                 users."${user-settings.user.username}" = {
-                  imports = [];
+                  imports = [inputs.plasma-manager.homeManagerModules.plasma-manager];
                 };
               };
 
@@ -102,7 +108,7 @@
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
-                users."${user-settings.user.username}" = { imports = [ ]; };
+                users."${user-settings.user.username}" = { imports = [ inputs.plasma-manager.homeManagerModules.plasma-manager ]; };
               };
 
               nixpkgs = {
