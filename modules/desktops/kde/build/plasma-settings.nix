@@ -1,4 +1,5 @@
 # nix run github:nix-community/plasma-manager > /home/dustin/dev/nix/nixos/modules/desktops/kde/build/plasma-manager.nix
+{ lib, ... }:
 {
   programs.plasma = {
     enable = true;
@@ -45,6 +46,44 @@
       # Add a new Meta+Shift+4 shortcut to move app to Desktop 4
       "kwin"."Window to Desktop 4" = "Meta+$,,Window to Desktop 4";
     };
+    # -- START PANELS
+    panels = [{
+      location = "left";
+      alignment = "center";
+      height = 34;
+      hiding = "autohide";
+      floating = true;
+      screen = 0;
+      extraSettings = ''
+        panel.lengthMode = "fit";
+      '';
+      widgets = [
+        # To get the names, it may be useful to look in the share/plasma/plasmoids folder of the nix-package the widget/plasmoid is from. Some packages which include some widgets/plasmoids are for example plasma-desktop and plasma-workspace.
+        {
+          name = "org.kde.plasma.kickoff";
+          config = { General.icon = "nix-snowflake-white"; };
+        }
+        {
+          name = "org.kde.plasma.icontasks";
+          config = {
+            General = {
+              showOnlyCurrentActivity = "false";
+              showOnlyCurrentDesktop = "false";
+              launchers = lib.concatStrings (lib.intersperse "," [
+                "applications:systemsettings.desktop"
+                "applications:org.kde.dolphin.desktop"
+                "applications:google-chrome.desktop"
+              ]);
+            };
+          };
+        }
+      ];
+    }
+
+      ];
+
+    # -- END PANELS
+
     configFile = {
       # Turn off the NumLock key by default
       "kcminputrc"."Keyboard"."NumLock" = 1;

@@ -57,10 +57,10 @@ in {
       home.packages = with pkgs; [ ];
       programs = { };
 
-      home.file.".config/plasma-org.kde.plasma.desktop-appletsrc" = {
-        source = ./build/plasma-org.kde.plasma.desktop-appletsrc;
-        target = ".config/plasma-org.kde.plasma.desktop-appletsrc";
-      };
+      # home.file.".config/plasma-org.kde.plasma.desktop-appletsrc" = {
+      #   source = ./build/plasma-org.kde.plasma.desktop-appletsrc;
+      #   target = ".config/plasma-org.kde.plasma.desktop-appletsrc";
+      # };
     };
 
   };
