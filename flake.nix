@@ -74,10 +74,11 @@
             {
               home-manager = {
                 useUserPackages = true;
+                sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
                 users."${user-settings.user.username}" = {
-                  imports = [inputs.plasma-manager.homeManagerModules.plasma-manager];
+                  imports = [];
                 };
               };
 
