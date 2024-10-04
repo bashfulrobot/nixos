@@ -15,6 +15,8 @@ let
     myStartupWMClass = "chrome-notebooklm.google.com__-Profile_4";
     iconSizes = [ "16" "32" "48" "64" "96" "128" "256" ];
     iconPath = ./icons; # path to icons
+    # Open In Browser vs Open as App
+    useAppFlag = false;
   };
 
 in {

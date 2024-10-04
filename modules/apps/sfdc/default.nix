@@ -16,6 +16,8 @@ let
     iconSizes = [ "16" "32" "48" "64" "96" "128" "180" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons
+    # Open In Browser vs Open as App
+    useAppFlag = false;
   };
 
 in {

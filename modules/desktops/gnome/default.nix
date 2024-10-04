@@ -249,13 +249,13 @@ in {
             "appindicatorsupport@rgcjonas.gmail.com"
             "caffeine@patapon.info"
             "user-theme@gnome-shell-extensions.gcampax.github.com"
+            "just-perfection-desktop@just-perfection" # locks up gnome after last update. Sad Face. Testing
           ];
 
           disabled-extensions = [
             # Normally Enabled
             "lilypad@shendrew.github.io"
-            "just-perfection-desktop@just-perfection" # locks up gnome after last update. Sad Face.
-            # Normally Disabled
+                        # Normally Disabled
             "hidetopbar@mathieu.bidon.ca"
             "GPU_profile_selector@lorenzo9904.gmail.com"
             "forge@jmmaranan.com"
