@@ -27,6 +27,10 @@ in {
 
         "org/gnome/desktop/interface" = {
           font-name = "Work Sans 12";
+          document-font-name = "Work Sans 12";
+          monospace-font-name = "Source Code Pro 10";
+          font-hinting = "full";
+          font-antialiasing = "rgba";
         };
         "org/gnome/desktop/wm/preferences" = {
           # button-layout = "appmenu:minimize,maximize,close";

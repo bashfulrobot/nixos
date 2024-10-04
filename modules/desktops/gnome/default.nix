@@ -247,8 +247,8 @@ in {
             "bluetooth-quick-connect@bjarosze.gmail.com"
             "solaar-extension@sidevesh"
             "appindicatorsupport@rgcjonas.gmail.com"
-            "user-theme@gnome-shell-extensions.gcampax.github.com"
             "caffeine@patapon.info"
+            "user-theme@gnome-shell-extensions.gcampax.github.com"
           ];
 
           disabled-extensions = [
