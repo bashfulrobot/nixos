@@ -14,7 +14,7 @@ in {
   config = lib.mkIf cfg.enable {
 
     # use regular package
-    environment.systemPackages = with pkgs; [ insync insync-nautilus insync-emblems-icons ];
+    environment.systemPackages = with pkgs; [ insync insync-nautilus insync-emblem-icons ];
 
     home-manager.users."${user-settings.user.username}" = {
 
