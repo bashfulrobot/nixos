@@ -12,25 +12,31 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    services.xserver.enable = true;
-    services.displayManager.sddm.enable = true;
-    services.displayManager.sddm.wayland.enable = true;
-    services.desktopManager.plasma6.enable = true;
-
-    environment.systemPackages = with pkgs; [ kdePackages.kde-gtk-config ];
-
-    security.pam.services = {
-      sddm.enableKwallet = true;
+    services = {
+      xserver.enable = true;
+      displayManager = {
+        sddm = {
+          enable = true;
+          wayland.enable = true;
+        };
+      };
+      desktopManager.plasma6.enable = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      kdePackages.kde-gtk-config
+      kdePackages.kio-gdrive
+    ];
+
+    security.pam.services = { sddm.enableKwallet = true; };
 
     programs.dconf.enable = true;
 
-    environment.plasma6.excludePackages = with pkgs.kdePackages;
-      [
-        #   plasma-browser-integration
+    # environment.plasma6.excludePackages = with pkgs.kdePackages;
+      # [
         #   konsole
         #   elisa
-      ];
+      # ];
 
     # Using the following example configuration, QT applications will have a look similar to the GNOME desktop, using a dark theme.
     # qt = {
@@ -54,8 +60,8 @@ in {
 
     home-manager.users."${user-settings.user.username}" = {
       imports = [ ./build/plasma-settings.nix ];
-      home.packages = with pkgs; [ ];
-      programs = { };
+      # home.packages = with pkgs; [ ];
+      # programs = { };
 
       # home.file.".config/plasma-org.kde.plasma.desktop-appletsrc" = {
       #   source = ./build/plasma-org.kde.plasma.desktop-appletsrc;

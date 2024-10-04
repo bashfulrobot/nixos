@@ -3,6 +3,8 @@
 {
   programs.plasma = {
     enable = true;
+    #  Make fully declarative
+    # overrideConfig = true;
     shortcuts = {
       # --- Applications ---
 
