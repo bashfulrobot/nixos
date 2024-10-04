@@ -73,11 +73,6 @@
       #  get all windows to show in alt tab
       "kwinrc"."TabBox"."ActivitiesMode" = 0;
       "kwinrc"."TabBox"."DesktopMode" = 0;
-      "kwin"."Walk Through Windows Alternative" = [ ];
-      "kwin"."Walk Through Windows Alternative (Reverse)" = [ ];
-      "kwin"."Walk Through Windows of Current Application Alternative" = [ ];
-      "kwin"."Walk Through Windows of Current Application Alternative (Reverse)" =
-        [ ];
       #  show click effect when clicking
       "kwinrc"."Plugins"."mouseclickEnabled" = true;
       # Rename Workspaced
