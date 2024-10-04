@@ -172,9 +172,9 @@ in {
           locate-pointer = true;
           gtk-enable-primary-paste = true;
           # TODO: might not be needed with Stylix
-          # gtk-theme = "Adwaita";
+          # gtk-theme = "Adwaita"; # breaks stylix on build
+          # gtk-theme = "adw-gtk3"; # currently broken, but needed in stylix.
           # icon-theme = "Adwaita";
-          # cursor-theme = "adw-gtk3";
           # cursor-theme = "Adwaita";
         };
 
@@ -246,7 +246,6 @@ in {
             "quick-settings-audio-panel@rayzeq.github.io"
             "bluetooth-quick-connect@bjarosze.gmail.com"
             "solaar-extension@sidevesh"
-            "lilypad@shendrew.github.io"
             "appindicatorsupport@rgcjonas.gmail.com"
             "user-theme@gnome-shell-extensions.gcampax.github.com"
             "caffeine@patapon.info"
@@ -254,6 +253,7 @@ in {
 
           disabled-extensions = [
             # Normally Enabled
+            "lilypad@shendrew.github.io"
             "just-perfection-desktop@just-perfection" # locks up gnome after last update. Sad Face.
             # Normally Disabled
             "hidetopbar@mathieu.bidon.ca"
