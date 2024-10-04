@@ -16,7 +16,8 @@ in {
       one-password.enable = true;
       apple-notes.enable = true;
 
-      insync.enable = true;
+      # TODO: broken
+      insync.enable = false;
 
       # --- Browsers
       # chrome-based-browser = {
