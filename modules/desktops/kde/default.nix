@@ -27,6 +27,7 @@ in {
       kdePackages.kde-gtk-config
       kdePackages.kio-gdrive
       kdePackages.kaccounts-integration
+      kdePackages.kaccounts-providers
     ];
 
     security.pam.services = { sddm.enableKwallet = true; };
