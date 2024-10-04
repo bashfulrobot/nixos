@@ -59,8 +59,8 @@ in {
       gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
       gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
       gnomeExtensions.caffeine # Prohibit Sleep
-      pop-shell-no-icon
-      # gnomeExtensions.pop-shell
+      # pop-shell-no-icon
+      gnomeExtensions.pop-shell
       gnomeExtensions.appindicator # AppIndicator support
       gnomeExtensions.solaar-extension # Allow Solaar to support certain features on non X11 systems
       gnomeExtensions.hide-top-bar # Hide Top Bar - alt to ]just perfeciton with less optionse
