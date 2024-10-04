@@ -8,5 +8,9 @@
       # Add a new Meta+E shortcut for VsCode
       "services/code.desktop"."_launch" = "Meta+E";
     };
+    configFile = {
+      # Turn off the NumLock key by default
+      "kcminputrc"."Keyboard"."NumLock" = 1;
+    };
   };
 }
