@@ -53,13 +53,13 @@ in {
     # };
 
     home-manager.users."${user-settings.user.username}" = {
-      imports = [ ./build/plasma-manager.nix ];
+      imports = [ ./build/plasma-settings.nix ];
       home.packages = with pkgs; [ ];
       programs = { };
 
-      home.file.".face.icon" = {
-        source = ./.face.icon;
-        target = ".face.icon";
+      home.file.".config/plasma-org.kde.plasma.desktop-appletsrc" = {
+        source = ./build/plasma-org.kde.plasma.desktop-appletsrc;
+        target = ".config/plasma-org.kde.plasma.desktop-appletsrc";
       };
     };
 

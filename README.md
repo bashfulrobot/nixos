@@ -143,6 +143,14 @@ Note: I use Chromium, which also works with Brave or any browser supporting the 
 - Enable web app in the `modules/archetype/workstation.nix` file (or as appropriate in your setup)
 - rebuild
 
+## KDE
+
+Plasma Manager does not capture "every" setting at this point in time. I have found that I need to go into the settings and adjust some things manually.
+
+### Manual Plasma Settings
+
+- Set the bar position to the left.
+
 ## TODO
 
 - Installation changes
