@@ -1,10 +1,22 @@
-# nix run github:nix-community/plasma-manager > /home/dustin/dev/nix/nixos/modules/desktops/kde/build/plasma-manager.nix
-{ lib, ... }:
+# references:
+#  - https://github.com/MatthiasBenaets/nix-config/blob/4052f95435b3251d05a4d18bdf7a69fd80c5c084/modules/desktops/kde.nix#L67
+#  -https://github.com/nix-community/plasma-manager/blob/trunk/examples/homeManager/home.nix
+
+{ lib, user-settings, ... }:
 {
   programs.plasma = {
     enable = true;
     #  Make fully declarative
     # overrideConfig = true;
+
+    workspace = {
+      clickItemTo = "select";
+      lookAndFeel = "org.kde.breezedark.desktop";
+      # cursor.theme = "Bibata-Modern-Ice";
+      # iconTheme = "Papirus-Dark";
+      wallpaper = "${user-settings.user.wallpaper}";
+    };
+
     shortcuts = {
       # --- Applications ---
 
@@ -18,8 +30,7 @@
       # --- Windows ---
 
       # Reassign the Meta+Q shortcut to show the activity switcher to Meta+A
-      "plasmashell"."manage activities" =
-        "Meta+A,Meta+Q,Show Activity Switcher";
+      "plasmashell"."manage activities" = "Meta+A,Meta+Q,Show Activity Switcher";
       # Reassign the Meta+Q shortcut to close windows to Meta+Q,Alt+F4
       "kwin"."Window Close" = "Meta+Q,Alt+F4,Close Window";
       # Add a new Meta+F shortcut to make windows fullscreen
@@ -28,17 +39,13 @@
       # --- Workspaces ---
 
       # Add a new Meta+1 shortcut to switch to Desktop 1
-      "kwin"."Switch to Desktop 1" =
-        [ "Meta+1" "Ctrl+F1,Ctrl+F1,Switch to Desktop 1" ];
+      "kwin"."Switch to Desktop 1" = "Meta+1";
       # Add a new Meta+2 shortcut to switch to Desktop 2
-      "kwin"."Switch to Desktop 2" =
-        [ "Ctrl+F2" "Meta+2,Ctrl+F2,Switch to Desktop 2" ];
+      "kwin"."Switch to Desktop 2" = "Meta+2";
       # Add a new Meta+3 shortcut to switch to Desktop 3
-      "kwin"."Switch to Desktop 3" =
-        [ "Ctrl+F3" "Meta+3,Ctrl+F3,Switch to Desktop 3" ];
+      "kwin"."Switch to Desktop 3" = "Meta+3";
       # Add a new Meta+4 shortcut to switch to Desktop 4
-      "kwin"."Switch to Desktop 4" =
-        [ "Meta+4" "Ctrl+F4,Ctrl+F4,Switch to Desktop 4" ];
+      "kwin"."Switch to Desktop 4" = "Meta+4";
       # Add a new Meta+Shift+1 shortcut to move app to Desktop 1
       "kwin"."Window to Desktop 1" = "Meta+!,,Window to Desktop 1";
       # Add a new Meta+Shift+2 shortcut to move app to Desktop 2
@@ -72,9 +79,9 @@
               showOnlyCurrentActivity = "false";
               showOnlyCurrentDesktop = "false";
               launchers = lib.concatStrings (lib.intersperse "," [
-                "applications:systemsettings.desktop"
-                "applications:org.kde.dolphin.desktop"
-                "applications:google-chrome.desktop"
+                # "applications:systemsettings.desktop"
+                # "applications:org.kde.dolphin.desktop"
+                # "applications:google-chrome.desktop"
               ]);
             };
           };
