@@ -1,6 +1,7 @@
 # references:
 #  - https://github.com/MatthiasBenaets/nix-config/blob/4052f95435b3251d05a4d18bdf7a69fd80c5c084/modules/desktops/kde.nix#L67
 #  - https://github.com/nix-community/plasma-manager/blob/trunk/examples/homeManager/home.nix
+#  - https://nix-community.github.io/plasma-manager/options.xhtml
 
 { lib, user-settings, ... }: {
   programs.plasma = {
