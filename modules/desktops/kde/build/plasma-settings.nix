@@ -47,13 +47,13 @@
       # Add a new Meta+4 shortcut to switch to Desktop 4
       "kwin"."Switch to Desktop 4" = "Meta+4";
       # Add a new Meta+Shift+1 shortcut to move app to Desktop 1
-      "kwin"."Window to Desktop 1" = "Meta+!,,Window to Desktop 1";
+      "kwin"."Window to Desktop 1" = "Meta+!";
       # Add a new Meta+Shift+2 shortcut to move app to Desktop 2
-      "kwin"."Window to Desktop 2" = "Meta+@,,Window to Desktop 2";
+      "kwin"."Window to Desktop 2" = "Meta+@";
       # Add a new Meta+Shift+3 shortcut to move app to Desktop 3
-      "kwin"."Window to Desktop 3" = "Meta+#,,Window to Desktop 3";
+      "kwin"."Window to Desktop 3" = "Meta+#";
       # Add a new Meta+Shift+4 shortcut to move app to Desktop 4
-      "kwin"."Window to Desktop 4" = "Meta+$,,Window to Desktop 4";
+      "kwin"."Window to Desktop 4" = "Meta+$";
     };
     # -- START PANELS
     panels = [{
