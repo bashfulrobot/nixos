@@ -11,7 +11,7 @@
 
     workspace = {
       clickItemTo = "select";
-      lookAndFeel = "org.kde.breezedark.desktop";
+      # lookAndFeel = "org.kde.breezedark.desktop";
       # cursor.theme = "Bibata-Modern-Ice";
       iconTheme = "breeze-dark";
       wallpaper = "${user-settings.user.wallpaper}";
