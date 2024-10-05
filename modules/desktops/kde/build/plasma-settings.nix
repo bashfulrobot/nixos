@@ -30,11 +30,11 @@
       # --- Windows ---
 
       # Reassign the Meta+Q shortcut to show the activity switcher to Meta+A
-      "plasmashell"."manage activities" = "Meta+A,Meta+Q,Show Activity Switcher";
+      "plasmashell"."manage activities" = "Meta+A";
       # Reassign the Meta+Q shortcut to close windows to Meta+Q,Alt+F4
-      "kwin"."Window Close" = "Meta+Q,Alt+F4,Close Window";
+      "kwin"."Window Close" = "Meta+Q";
       # Add a new Meta+F shortcut to make windows fullscreen
-      "kwin"."Window Fullscreen" = "Meta+F,,Make Window Fullscreen";
+      "kwin"."Window Fullscreen" = "Meta+F";
 
       # --- Workspaces ---
 
