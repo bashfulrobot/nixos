@@ -66,7 +66,7 @@
       height = 34;
       hiding = "autohide";
       floating = true;
-      screen = 0;
+      screen = "all";
       extraSettings = ''
         panel.lengthMode = "fit";
       '';
@@ -90,6 +90,9 @@
             };
           };
         }
+        "org.kde.plasma.clipboard"
+        "org.kde.plasma.systemtray"
+        "org.kde.plasma.digitalclock"
       ];
     }];
 
@@ -106,7 +109,7 @@
         transitionTime = 30;
       };
       effects = { shakeCursor.enable = true; };
-      titlebarButtons.right = [ "close" ];
+      # titlebarButtons.right = [ "close" ];
       virtualDesktops.names = [ "Main" "Dev" "Comms" "Other" ];
     };
 
@@ -114,27 +117,18 @@
 
     configFile = {
       # Set the default scale factor for Xwayland windows to 1.25
-      "kwinrc"."Xwayland"."Scale" = 1.25;
+      "kwinrc"."Xwayland"."Scale" = 1.0;
       # Enable the "Allow Tearing" option in the Compositing settings
       "kwinrc"."Compositing"."AllowTearing" = true;
       # Set notification popups to appear in the top center of the screen
       "plasmanotifyrc"."Notifications"."PopupPosition" = "TopCenter";
+      # Remove extra titlebar buttons from the window decoration
+      "kwinrc"."org.kde.kdecoration2"."ButtonsOnRight" = "X";
       #  get all windows to show in alt tab
       "kwinrc"."TabBox"."ActivitiesMode" = 0;
       "kwinrc"."TabBox"."DesktopMode" = 0;
       #  show click effect when clicking
       "kwinrc"."Plugins"."mouseclickEnabled" = true;
-
-      # Rename Workspaced
-      # "kwinrc"."Desktops"."Id_2" = "ecbf5aaf-cefd-45c4-9a3f-0b953a4d1c0e";
-      # "kwinrc"."Desktops"."Id_3" = "f180f867-0014-4d04-a7ba-f3572b7cbce6";
-      # "kwinrc"."Desktops"."Id_4" = "c0a7aefa-cc25-4abc-8669-c0ee1bbbd20b";
-      # "kwinrc"."Desktops"."Id_1" = "7dbc52e2-f403-40fc-a3be-25199516c16b";
-      # "kwinrc"."Desktops"."Name_1" = "Main";
-      # "kwinrc"."Desktops"."Name_2" = "Dev";
-      # "kwinrc"."Desktops"."Name_3" = "Comms";
-      # "kwinrc"."Desktops"."Name_4" = "Other";
-      # "kwinrc"."Desktops"."Number" = 4;
       #  kwallet settings
       "kwalletrc"."Wallet"."Prompt on Open" = true;
     };
