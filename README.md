@@ -162,4 +162,8 @@ Plasma Manager does not capture "every" setting at this point in time. I have fo
 - [x] conditional to put the proper scaled wallpaper on my laptop
 - [ ] strip out unused code
 - [ ] Test cosmic when ready to maybe replace gnome
+- [ ] Open bugs against Stylix
+    - [ ] transparent title bar on xwayland apps due to adw-gtk3 theme
+    - [ ] xwayland apps in fullscreen go to the corner
+    - [ ]  xwaayland apps such as slack are slightly smaller using gaps with pop-shell
 - [ ] go through TODO comments in code

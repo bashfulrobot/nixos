@@ -18,8 +18,8 @@
     workstation.enable = true;
   };
 
-  desktops.gnome.enable = true;
-  desktops.kde.enable = false;
+  desktops.gnome.enable = false;
+  desktops.kde.enable = true;
   desktops.hyprland.enable = false;
   desktops.niri.enable = false;
 

@@ -16,6 +16,8 @@ let
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons
     # iconPath = ././modules/apps/nixos-search/icons; # path to icons
+    # Open In Browser vs Open as App
+    useAppFlag = false;
   };
 
 in {

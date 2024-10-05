@@ -59,8 +59,8 @@ in {
       gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
       gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
       gnomeExtensions.caffeine # Prohibit Sleep
-      pop-shell-no-icon
-      # gnomeExtensions.pop-shell
+      # pop-shell-no-icon
+      gnomeExtensions.pop-shell
       gnomeExtensions.appindicator # AppIndicator support
       gnomeExtensions.solaar-extension # Allow Solaar to support certain features on non X11 systems
       gnomeExtensions.hide-top-bar # Hide Top Bar - alt to ]just perfeciton with less optionse
@@ -172,9 +172,9 @@ in {
           locate-pointer = true;
           gtk-enable-primary-paste = true;
           # TODO: might not be needed with Stylix
-          # gtk-theme = "Adwaita";
+          # gtk-theme = "Adwaita"; # breaks stylix on build
+          # gtk-theme = "adw-gtk3"; # currently broken, but needed in stylix.
           # icon-theme = "Adwaita";
-          # cursor-theme = "adw-gtk3";
           # cursor-theme = "Adwaita";
         };
 
@@ -246,16 +246,16 @@ in {
             "quick-settings-audio-panel@rayzeq.github.io"
             "bluetooth-quick-connect@bjarosze.gmail.com"
             "solaar-extension@sidevesh"
-            "lilypad@shendrew.github.io"
             "appindicatorsupport@rgcjonas.gmail.com"
-            "user-theme@gnome-shell-extensions.gcampax.github.com"
             "caffeine@patapon.info"
+            "user-theme@gnome-shell-extensions.gcampax.github.com"
+            "just-perfection-desktop@just-perfection" # locks up gnome after last update. Sad Face. Testing
           ];
 
           disabled-extensions = [
             # Normally Enabled
-            "just-perfection-desktop@just-perfection" # locks up gnome after last update. Sad Face.
-            # Normally Disabled
+            "lilypad@shendrew.github.io"
+                        # Normally Disabled
             "hidetopbar@mathieu.bidon.ca"
             "GPU_profile_selector@lorenzo9904.gmail.com"
             "forge@jmmaranan.com"

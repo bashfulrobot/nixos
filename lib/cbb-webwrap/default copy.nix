@@ -1,12 +1,12 @@
 { pkgs, lib, makeDesktopItem, ... }:
 
 let
-  makeDesktopApp = { name, url, binary, myStartupWMClass, iconSizes, iconPath, useAppFlag ? true }:
+  makeDesktopApp = { name, url, binary, myStartupWMClass, iconSizes, iconPath }:
     let
       desktopName =
         lib.strings.toLower (lib.strings.replaceStrings [ " " ] [ "_" ] name);
       scriptPath = pkgs.writeShellScriptBin desktopName ''
-        ${binary} --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --new-window --enable-features=WaylandWindowDecorations ${if useAppFlag then "--app=${url}" else "${url}"}
+        ${binary} --ozone-platform-hint=auto --force-dark-mode --enable-features=WebUIDarkMode --new-window --enable-features=WaylandWindowDecorations --app="${url}"
       '';
       desktopItem = makeDesktopItem {
         type = "Application";
