@@ -1,9 +1,8 @@
 # references:
 #  - https://github.com/MatthiasBenaets/nix-config/blob/4052f95435b3251d05a4d18bdf7a69fd80c5c084/modules/desktops/kde.nix#L67
-#  -https://github.com/nix-community/plasma-manager/blob/trunk/examples/homeManager/home.nix
+#  - https://github.com/nix-community/plasma-manager/blob/trunk/examples/homeManager/home.nix
 
-{ lib, user-settings, ... }:
-{
+{ lib, user-settings, ... }: {
   programs.plasma = {
     enable = true;
     #  Make fully declarative
@@ -13,8 +12,12 @@
       clickItemTo = "select";
       lookAndFeel = "org.kde.breezedark.desktop";
       # cursor.theme = "Bibata-Modern-Ice";
-      # iconTheme = "Papirus-Dark";
+      iconTheme = "breeze-dark";
       wallpaper = "${user-settings.user.wallpaper}";
+      splashScreen = {
+        theme = "None";
+        engine = "none";
+      };
     };
 
     shortcuts = {
@@ -87,35 +90,32 @@
           };
         }
       ];
-    }
-
-      ];
+    }];
 
     # -- END PANELS
 
+    kwin = {
+      nightLight = {
+        enable = true;
+        mode = "times";
+        time = {
+          evening = "20:00";
+          morning = "06:00";
+        };
+        transitionTime = 30;
+      };
+      effects = { shakeCursor.enable = true; };
+      titlebarButtons.right = [ "close" ];
+    };
+
+    input.keyboard.numlockOnStartup = "off";
+
     configFile = {
-      # Turn off the NumLock key by default
-      "kcminputrc"."Keyboard"."NumLock" = 1;
       # Set the default scale factor for Xwayland windows to 1.25
       "kwinrc"."Xwayland"."Scale" = 1.25;
       # Enable the "Allow Tearing" option in the Compositing settings
       "kwinrc"."Compositing"."AllowTearing" = true;
-      # Show large cursor when shaking the mouse
-      "kwinrc"."Plugins"."shakecursorEnabled" = true;
-      # Set the magnification level for the large cursor
-      "kwinrc"."Effect-shakecursor"."Magnification" = 7;
-      # Enable the Night Color feature
-      "kwinrc"."NightColor"."Active" = true;
-      # Set the Night Color mode to "Times" with a fixed evening begin time of 8:00 PM
-      "kwinrc"."NightColor"."EveningBeginFixed" = 2000;
-      "kwinrc"."NightColor"."Mode" = "Times";
-      # Remove extra titlebar buttons from the window decoration
-      "kwinrc"."org.kde.kdecoration2"."ButtonsOnRight" = "X";
-      # Set the default icon theme to Breeze Dark
-      "kdeglobals"."Icons"."Theme" = "breeze-dark";
-      # Remove the splash screen
-      "ksplashrc"."KSplash"."Engine" = "none";
-      "ksplashrc"."KSplash"."Theme" = "None";
+
       # Set notification popups to appear in the top center of the screen
       "plasmanotifyrc"."Notifications"."PopupPosition" = "TopCenter";
       #  get all windows to show in alt tab
