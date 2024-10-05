@@ -118,7 +118,7 @@
 
     configFile = {
       # Set the default scale factor for Xwayland windows to 1.25
-      "kwinrc"."Xwayland"."Scale" = 1.0;
+      "kwinrc"."Xwayland"."Scale" = 1.50;
       # Enable the "Allow Tearing" option in the Compositing settings
       "kwinrc"."Compositing"."AllowTearing" = true;
       # Set notification popups to appear in the top center of the screen
@@ -132,6 +132,8 @@
       "kwinrc"."Plugins"."mouseclickEnabled" = true;
       #  kwallet settings
       "kwalletrc"."Wallet"."Prompt on Open" = true;
+      # set padding for tiling
+      "kwinrc"."Tiling"."padding" = 8;
     };
   };
 }
