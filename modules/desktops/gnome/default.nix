@@ -241,7 +241,7 @@ in {
 
         "org/gnome/shell" = {
           enabled-extensions = [
-            "pop-shell@system76.com"
+
             "window-calls@domandoman.xyz"
             "quick-settings-audio-panel@rayzeq.github.io"
             "bluetooth-quick-connect@bjarosze.gmail.com"
@@ -254,6 +254,7 @@ in {
 
           disabled-extensions = [
             # Normally Enabled
+            "pop-shell@system76.com"
             "lilypad@shendrew.github.io"
                         # Normally Disabled
             "hidetopbar@mathieu.bidon.ca"
