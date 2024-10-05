@@ -106,6 +106,7 @@
       };
       effects = { shakeCursor.enable = true; };
       titlebarButtons.right = [ "close" ];
+      virtualDesktops.names = [ "Main" "Dev" "Comms" "Other" ];
     };
 
     input.keyboard.numlockOnStartup = "off";
@@ -115,7 +116,6 @@
       "kwinrc"."Xwayland"."Scale" = 1.25;
       # Enable the "Allow Tearing" option in the Compositing settings
       "kwinrc"."Compositing"."AllowTearing" = true;
-
       # Set notification popups to appear in the top center of the screen
       "plasmanotifyrc"."Notifications"."PopupPosition" = "TopCenter";
       #  get all windows to show in alt tab
@@ -123,16 +123,17 @@
       "kwinrc"."TabBox"."DesktopMode" = 0;
       #  show click effect when clicking
       "kwinrc"."Plugins"."mouseclickEnabled" = true;
+
       # Rename Workspaced
-      "kwinrc"."Desktops"."Id_2" = "ecbf5aaf-cefd-45c4-9a3f-0b953a4d1c0e";
-      "kwinrc"."Desktops"."Id_3" = "f180f867-0014-4d04-a7ba-f3572b7cbce6";
-      "kwinrc"."Desktops"."Id_4" = "c0a7aefa-cc25-4abc-8669-c0ee1bbbd20b";
-      "kwinrc"."Desktops"."Id_1" = "7dbc52e2-f403-40fc-a3be-25199516c16b";
-      "kwinrc"."Desktops"."Name_1" = "Main";
-      "kwinrc"."Desktops"."Name_2" = "Dev";
-      "kwinrc"."Desktops"."Name_3" = "Comms";
-      "kwinrc"."Desktops"."Name_4" = "Other";
-      "kwinrc"."Desktops"."Number" = 4;
+      # "kwinrc"."Desktops"."Id_2" = "ecbf5aaf-cefd-45c4-9a3f-0b953a4d1c0e";
+      # "kwinrc"."Desktops"."Id_3" = "f180f867-0014-4d04-a7ba-f3572b7cbce6";
+      # "kwinrc"."Desktops"."Id_4" = "c0a7aefa-cc25-4abc-8669-c0ee1bbbd20b";
+      # "kwinrc"."Desktops"."Id_1" = "7dbc52e2-f403-40fc-a3be-25199516c16b";
+      # "kwinrc"."Desktops"."Name_1" = "Main";
+      # "kwinrc"."Desktops"."Name_2" = "Dev";
+      # "kwinrc"."Desktops"."Name_3" = "Comms";
+      # "kwinrc"."Desktops"."Name_4" = "Other";
+      # "kwinrc"."Desktops"."Number" = 4;
       #  kwallet settings
       "kwalletrc"."Wallet"."Prompt on Open" = true;
     };
