@@ -11,6 +11,7 @@
 
     workspace = {
       clickItemTo = "select";
+      # lookAndFeel conflicts with splashScreen as the global theme usually sets the splashScreen.
       # lookAndFeel = "org.kde.breezedark.desktop";
       # cursor.theme = "Bibata-Modern-Ice";
       iconTheme = "breeze-dark";
