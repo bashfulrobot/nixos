@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 # https://github.com/dagger/dagger/releases
-let version = "0.9.5";
+let version = "0.13.3";
 in pkgs.stdenv.mkDerivation {
   name = "dagger";
   dontConfigure = true;

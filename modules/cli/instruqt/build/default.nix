@@ -1,5 +1,5 @@
 { lib, pkgs, ... }:
-let version = "2133-1c31f0d";
+let version = "2208-3ea4fac";
 in pkgs.stdenv.mkDerivation {
   name = "instruqt";
   src = pkgs.fetchzip {

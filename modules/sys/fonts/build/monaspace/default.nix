@@ -1,5 +1,5 @@
 { lib, pkgs, ... }:
-let version = "1.000";
+let version = "1.101";
 in pkgs.stdenvNoCC.mkDerivation {
   name = "monaspace-font";
   dontConfigure = true;

@@ -1,5 +1,5 @@
 { lib, pkgs, ... }:
-let version = "0.33.9-alpha";
+let version = "0.33.9";
 in pkgs.stdenv.mkDerivation {
   name = "comics-downloader";
   src = pkgs.fetchurl {

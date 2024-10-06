@@ -1,5 +1,5 @@
 { lib, pkgs, ... }:
-let version = "0.3.0";
+let version = "0.3.1";
 in pkgs.stdenv.mkDerivation {
   name = "gemini-cli";
   dontConfigure = true;
