@@ -32,7 +32,7 @@ in {
 
     sys = {
       plymouth.enable = true;
-      stylix.enable = true; # TODO: broken themes in gnome. TESTIN
+      stylix.enable = false; # TODO: broken themes in gnome. Transparent title bars
       dconf.enable = true;
       xdg.enable = true;
       hosts.enable = true;

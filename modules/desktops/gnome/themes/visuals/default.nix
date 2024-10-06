@@ -26,33 +26,33 @@ in {
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 
         "org/gnome/desktop/interface" = {
-          # Disabled because it is set in Stylix
-          # font-name = "Work Sans 12";
-          # document-font-name = "Work Sans 12";
-          # monospace-font-name = "Source Code Pro 10";
+          # Disable (fonts) when using Stylix
+          font-name = "Work Sans 12";
+          document-font-name = "Work Sans 12";
+          monospace-font-name = "Source Code Pro 10";
           font-hinting = "full";
           font-antialiasing = "rgba";
         };
         "org/gnome/desktop/wm/preferences" = {
           # button-layout = "appmenu:minimize,maximize,close";
           # button-layout = "";
-          num-workspaces = 9;
+          num-workspaces = 4;
 
         };
 
         # "org/gnome/desktop/sound" = { theme-name = "tokyonight-gtk-theme"; };
 
-        # Disabled because it is set in Stylix
-        # "org/gnome/desktop/background" = {
-        #   picture-uri =
-        #     "file:///home/dustin/.local/share/backgrounds/bender-c3pio-daft-punk.png";
-        #   picture-uri-dark =
-        #     "file:///home/dustin/.local/share/backgrounds/bender-c3pio-daft-punk.png";
-        #   color-shading-type = "solid";
-        #   picture-options = "zoom";
-        #   primary-color = "#000000";
-        #   secondary-color = "#000000";
-        # };
+        # Disable when using Stylix
+        "org/gnome/desktop/background" = {
+          picture-uri =
+            "file:///home/dustin/.local/share/backgrounds/bender-c3pio-daft-punk.png";
+          picture-uri-dark =
+            "file:///home/dustin/.local/share/backgrounds/bender-c3pio-daft-punk.png";
+          color-shading-type = "solid";
+          picture-options = "zoom";
+          primary-color = "#000000";
+          secondary-color = "#000000";
+        };
 
         "org/gnome/desktop/screensaver" = {
           picture-uri =
@@ -65,7 +65,7 @@ in {
 
         "org/gnome/shell/extensions/pop-shell" = {
           active-hint = false;
-          # hint-color-rgba = "rgb(122, 162, 247)";
+          hint-color-rgba = "rgb(122, 162, 247)";
           # gaps need to be the same.
           gap-inner = 8;
           gap-outer = 8;
