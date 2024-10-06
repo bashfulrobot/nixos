@@ -26,9 +26,10 @@ in {
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 
         "org/gnome/desktop/interface" = {
-          font-name = "Work Sans 12";
-          document-font-name = "Work Sans 12";
-          monospace-font-name = "Source Code Pro 10";
+          # Disabled because it is set in Stylix
+          # font-name = "Work Sans 12";
+          # document-font-name = "Work Sans 12";
+          # monospace-font-name = "Source Code Pro 10";
           font-hinting = "full";
           font-antialiasing = "rgba";
         };
@@ -41,16 +42,17 @@ in {
 
         # "org/gnome/desktop/sound" = { theme-name = "tokyonight-gtk-theme"; };
 
-        "org/gnome/desktop/background" = {
-          picture-uri =
-            "file:///home/dustin/.local/share/backgrounds/bender-c3pio-daft-punk.png";
-          picture-uri-dark =
-            "file:///home/dustin/.local/share/backgrounds/bender-c3pio-daft-punk.png";
-          color-shading-type = "solid";
-          picture-options = "zoom";
-          primary-color = "#000000";
-          secondary-color = "#000000";
-        };
+        # Disabled because it is set in Stylix
+        # "org/gnome/desktop/background" = {
+        #   picture-uri =
+        #     "file:///home/dustin/.local/share/backgrounds/bender-c3pio-daft-punk.png";
+        #   picture-uri-dark =
+        #     "file:///home/dustin/.local/share/backgrounds/bender-c3pio-daft-punk.png";
+        #   color-shading-type = "solid";
+        #   picture-options = "zoom";
+        #   primary-color = "#000000";
+        #   secondary-color = "#000000";
+        # };
 
         "org/gnome/desktop/screensaver" = {
           picture-uri =
