@@ -64,9 +64,10 @@ in {
         "org/gnome/shell/extensions/pop-shell" = {
           active-hint = false;
           # hint-color-rgba = "rgb(122, 162, 247)";
-          gap-inner = 10;
-          gap-outer = 10;
-          active-hint-border-radius = 10;
+          # gaps need to be the same.
+          gap-inner = 8;
+          gap-outer = 8;
+          active-hint-border-radius = 0;
           show-title = false;
           show-skip-taskbar = false;
         };

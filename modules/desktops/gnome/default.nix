@@ -250,11 +250,12 @@ in {
             "caffeine@patapon.info"
             "user-theme@gnome-shell-extensions.gcampax.github.com"
             "just-perfection-desktop@just-perfection" # locks up gnome after last update. Sad Face. Testing
+            "pop-shell@system76.com"
           ];
 
           disabled-extensions = [
             # Normally Enabled
-            "pop-shell@system76.com"
+
             "lilypad@shendrew.github.io"
                         # Normally Disabled
             "hidetopbar@mathieu.bidon.ca"
