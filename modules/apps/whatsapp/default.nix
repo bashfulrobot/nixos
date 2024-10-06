@@ -17,7 +17,7 @@ let
     iconPath = ./icons; # path to icons
     # iconPath = ././modules/apps/nixos-search/icons; # path to icons
     # Open In Browser vs Open as App
-    useAppFlag = false;
+    useAppFlag = true;
   };
 
 in {
