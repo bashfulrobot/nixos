@@ -67,8 +67,9 @@ in {
           active-hint = false;
           hint-color-rgba = "rgb(122, 162, 247)";
           # gaps need to be the same.
-          gap-inner = 8;
-          gap-outer = 8;
+          gap-inner = 6;
+          gap-outer = 6;
+          smart-gaps = false;
           active-hint-border-radius = 0;
           show-title = false;
           show-skip-taskbar = false;
