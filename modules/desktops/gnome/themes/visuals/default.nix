@@ -112,8 +112,8 @@ in {
           active-hint = false;
           hint-color-rgba = "rgb(122, 162, 247)";
           # gaps need to be the same.
-          gap-inner = 6;
-          gap-outer = 6;
+          gap-inner = 4;
+          gap-outer = 4;
           smart-gaps = false;
           active-hint-border-radius = 0;
           show-title = false;
