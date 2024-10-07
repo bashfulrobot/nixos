@@ -1,8 +1,8 @@
 { pkgs, config, lib, ... }:
-let cfg = config.sys.faltpaks;
+let cfg = config.sys.flatpaks;
 in {
   options = {
-    sys.faltpaks.enable = lib.mkOption {
+    sys.flatpaks.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable Flatpak Support.";

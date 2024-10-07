@@ -30,7 +30,7 @@ in {
       jira.enable = true;
       confluence.enable = true;
       intercom.enable = true;
-      slack-sysdig.enable = true;
+      slack-sysdig.enable = false;
     };
 
     cli = {

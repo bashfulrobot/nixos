@@ -39,9 +39,11 @@ in {
       xmind.enable = true;
       todoist.enable = true;
       gcal-br.enable = true;
+      minder.enable = true;
 
       #  --- Comms
       gmail-br.enable = true;
+      slack.enable = false; # slack flatpack
 
       # --- Utilities
       gemini.enable = true;

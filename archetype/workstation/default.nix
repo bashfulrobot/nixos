@@ -34,6 +34,7 @@ in {
       plymouth.enable = true;
       stylix.enable = false; # TODO: broken themes in gnome. Transparent title bars
       dconf.enable = true;
+      flatpaks.enable = true;
       xdg.enable = true;
       hosts.enable = true;
       fonts.enable = true;
