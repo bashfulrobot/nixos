@@ -23,6 +23,34 @@ in {
         target = ".local/share/backgrounds/bender-c3pio-daft-punk.png";
       };
 
+# window excetpions
+      home.file.".config/pop-shell/config.json".text = ''
+{
+  "float": [
+    {
+      "class": "pop-shell-example",
+      "title": "pop-shell-example"
+    },
+    {
+      "class": "firefox",
+      "title": "^(?!.*Mozilla Firefox).*$",
+      "disabled": true
+    },
+    {
+      "class": "zoom",
+      "disabled": false
+    },
+    {
+      "class": "Slack",
+      "disabled": false
+    }
+  ],
+  "skiptaskbarhidden": [],
+  "log_on_focus": false
+}
+
+      '';
+
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 
         "org/gnome/desktop/interface" = {
