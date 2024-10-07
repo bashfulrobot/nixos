@@ -50,20 +50,26 @@ in {
 
     environment.systemPackages = with pkgs; [
       libadwaita # Adwaita libs
+      adwaita-qt6 # Adwaita Qt theme
+      adwaita-icon-theme # Adwaita icons
+      vscode-extensions.piousdeer.adwaita-theme # Adwaita Theme for VSCode
+      gnome-randr # Xrandr-like CLI for configuring displays on GNOME/Wayland, on distros that don't support `wlr-randr`
+      gnome-firmware # Firmware updater
       pulseaudio # Need pactl for gnome ext
       gnome-tweaks # Gnome Tweaks
       pinentry-gnome3 # Gnome3 pinentry
       # Gnome Extensions
       gnomeExtensions.user-themes # User Themes
-      gnomeExtensions.prime-helper # Prime Helper
+      # gnomeExtensions.prime-helper # Prime Helper
       gnomeExtensions.bluetooth-quick-connect # Bluetooth Quick Connect
       gnomeExtensions.quick-settings-audio-panel # Quick Settings Audio Panel
       gnomeExtensions.caffeine # Prohibit Sleep
+      # gnomeExtensions.unite # Unite is a GNOME Shell extension which makes a few layout tweaks to the top panel and removes window decorations to make it look like Ubuntu Unity Shell
       # pop-shell-no-icon
       gnomeExtensions.pop-shell
       gnomeExtensions.appindicator # AppIndicator support
       gnomeExtensions.solaar-extension # Allow Solaar to support certain features on non X11 systems
-      gnomeExtensions.hide-top-bar # Hide Top Bar - alt to ]just perfeciton with less optionse
+      #gnomeExtensions.hide-top-bar # Hide Top Bar - alt to ]just perfeciton with less optionse
       gnomeExtensions.just-perfection # Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
       gnomeExtensions.window-calls # allows me to run my fish/zsh funciton to get the wmc_class of a window
 
@@ -172,10 +178,10 @@ in {
           locate-pointer = true;
           gtk-enable-primary-paste = true;
           # TODO: might not be needed with Stylix
-          # gtk-theme = "Adwaita"; # breaks stylix on build
+          gtk-theme = "Adwaita"; # breaks stylix on build
           # gtk-theme = "adw-gtk3"; # currently broken, but needed in stylix.
-          # icon-theme = "Adwaita";
-          # cursor-theme = "Adwaita";
+          icon-theme = "Adwaita";
+          cursor-theme = "Adwaita";
         };
 
         "org/gnome/shell/extensions/bluetooth-quick-connect" = {
@@ -211,16 +217,6 @@ in {
         "org/gnome/shell/extensions/appindicator" = {
           legacy-tray-enabled = true;
           tray-pos = "right";
-        };
-
-        "org/gnome/shell/extensions/pop-shell" = {
-
-          fullscreen-launcher = true;
-          mouse-cursor-follows-active-window = false;
-          show-title = false;
-          smart-gaps = true;
-          tile-by-default = true;
-          # search = "<Super>space";
         };
 
         # TODO: move to nixpkg once packaged
