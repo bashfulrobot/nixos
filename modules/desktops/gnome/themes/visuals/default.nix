@@ -43,7 +43,24 @@ in {
     {
       "class": "Slack",
       "disabled": false
+    },
+    {
+      "class": "Element",
+      "disabled": false
+    },
+    {
+      "class": "1Password",
+      "disabled": false
+    },
+    {
+      "class": "todoist",
+      "disabled": false
+    },
+    {
+      "class": "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Profile_4",
+      "disabled": false
     }
+
   ],
   "skiptaskbarhidden": [],
   "log_on_focus": false
