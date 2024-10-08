@@ -59,6 +59,7 @@ in {
       #(opera.override { proprietaryCodecs = true; })
       #brave
       google-chrome
+      tangram
 
       # PDF
       xournalpp # note taking/pdf annotator
