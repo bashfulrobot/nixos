@@ -53,10 +53,6 @@ in {
       "disabled": false
     },
     {
-      "class": "todoist",
-      "disabled": false
-    },
-    {
       "class": "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Profile_4",
       "disabled": false
     }
@@ -112,10 +108,10 @@ in {
           active-hint = false;
           hint-color-rgba = "rgb(122, 162, 247)";
           # gaps need to be the same.
-          gap-inner = 4;
-          gap-outer = 4;
+          gap-inner = mkUint32 4;
+          gap-outer = mkUint32 4;
           smart-gaps = false;
-          active-hint-border-radius = 0;
+          active-hint-border-radius = mkUint32 0;
           show-title = false;
           show-skip-taskbar = false;
         };
