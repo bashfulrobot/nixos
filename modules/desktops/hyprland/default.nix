@@ -99,6 +99,7 @@ in {
 
             # Run apps
             "$mod, B, exec, google-chrome-stable"
+            "$mod, E, exec, code"
             "$mod, T, exec, alacritty"
 
             # Screenshots
