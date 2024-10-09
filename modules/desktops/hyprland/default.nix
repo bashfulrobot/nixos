@@ -40,10 +40,11 @@ in {
 
     # If you start experiencing lag and FPS drops in games or programs like Blender on stable NixOS when using the Hyprland flake, it is most likely a mesa version mismatch between your system and Hyprland. You can fix this issue by using mesa from Hyprland’s nixpkgs input:
     hardware.graphics = {
+      enable = true;
       package = mesa-pkgs-unstable.mesa.drivers;
 
       # if you also want 32-bit support (e.g for Steam)
-      driSupport32Bit = true;
+      enable32Bit = true;
       package32 = mesa-pkgs-unstable.pkgsi686Linux.mesa.drivers;
     };
 
