@@ -82,7 +82,8 @@ in {
           bind = [
 
             # Run launcher
-            "$mod, Space, exec, wofi -show drun"
+            "$mod, Space, exec, wofi --show drun"
+
             # Close window
             "$mod, Q, killactive, "
 
