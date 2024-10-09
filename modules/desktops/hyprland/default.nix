@@ -82,7 +82,7 @@ in {
           bind = [
 
             # Run launcher
-            "$mod, Space, exec, wofi --show drun"
+            "$mod, Space, exec, wofi --show drun --insensitive --allow-images"
 
             # Close window
             "$mod, Q, killactive, "
