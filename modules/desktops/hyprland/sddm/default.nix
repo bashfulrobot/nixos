@@ -38,6 +38,11 @@ in {
 
     home-manager.users."${user-settings.user.username}" = {
 
+      home.file.".face.icon" = {
+        source = ./.face.icon;
+        target = ".face.icon";
+      };
+
     };
   };
 }
