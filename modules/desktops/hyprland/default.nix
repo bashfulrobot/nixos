@@ -30,6 +30,7 @@ in {
     # Optional, hint electron apps to use wayland:
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+    # I have ssh-agent running in my ssh-module, and addToAgent in my .ssh/config.
     services = {
       dbus.enable = true;
       gnome.gnome-keyring.enable = true;
