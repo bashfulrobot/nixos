@@ -76,7 +76,7 @@ in {
 
           ### --- Autostart
 
-          # exec-once = [ "waybar" ];
+          exec-once = [ "waybar" ];
 
           ### --- Keyboard bindings
 
