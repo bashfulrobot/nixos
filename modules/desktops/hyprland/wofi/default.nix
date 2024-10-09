@@ -21,7 +21,7 @@ in {
     home-manager.users."${user-settings.user.username}" = {
       programs.wofi = {
         enable = true;
-        style = { };
+        #style = { };
         settings = {
           image_size = 48;
           columns = 3;

@@ -13,7 +13,7 @@ in {
   config = lib.mkIf cfg.enable {
     cli = {
       starship.enable = true;
-      alacritty.enable = false;
+      alacritty.enable = true;
       bash.enable = true;
       fish.enable = true;
       zsh.enable = true;

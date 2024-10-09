@@ -1,5 +1,5 @@
 # https://wiki.hyprland.org/Nix/Hyprland-on-NixOS/
-{ user-settings, pkgs, config, lib, ... }:
+{ user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.desktops.hyprland;
 
@@ -25,7 +25,6 @@ in {
       # make sure to also set the portal package, so that they are in sync
       portalPackage =
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-      xwayland.hidpi = true;
       xwayland.enable = true;
     };
     # Optional, hint electron apps to use wayland:
@@ -57,7 +56,7 @@ in {
       wofi.enable = true;
     };
 
-    cli.alacritty.enable = true;
+    sys.stylix.enable = true;
 
     home-manager.users."${user-settings.user.username}" = {
 
@@ -74,7 +73,7 @@ in {
             "waybar"
           ];
           bind = [
-            "$mod, Space, exec, wofi"
+            "$mod, Space, exec, wofi --show"
             "$mod, B, exec, google-chrome-stable"
             "$mod, T, exec, alacritty"
             ", Print, exec, grimblast copy area"
