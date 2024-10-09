@@ -208,8 +208,8 @@ in {
           };
 
           general = {
-            gaps_in = 3;
-            gaps_out = 5;
+            gaps_in = 5;
+            gaps_out = 7;
             border_size = 2;
 
             layout = "dwindle";
