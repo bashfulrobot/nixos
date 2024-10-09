@@ -33,9 +33,7 @@ in {
     services = {
       dbus.enable = true;
       gnome.gnome-keyring.enable = true;
-      xserver = {
-        excludePackages = [ pkgs.xterm ];
-      };
+      xserver = { excludePackages = [ pkgs.xterm ]; };
     };
 
     xdg.portal = {
@@ -56,7 +54,10 @@ in {
 
     security = {
       rtkit.enable = true;
-      pam.services.login.enableGnomeKeyring = true;
+      pam.services = {
+        login.enableGnomeKeyring = true;
+        sddm.enableGnomeKeyring = true;
+      };
     };
 
     environment.systemPackages = with pkgs; [ ];
@@ -65,6 +66,7 @@ in {
       waybar.enable = true;
       wofi.enable = true;
       sddm.enable = true;
+      dbus.enable = true;
     };
 
     sys.stylix.enable = true;

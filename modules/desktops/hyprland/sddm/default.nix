@@ -1,7 +1,6 @@
 # https://wiki.hyprland.org/Nix/Hyprland-on-NixOS/
 { user-settings, pkgs, config, lib, ... }:
-let
-  cfg = config.desktops.hyprland.sddm;
+let cfg = config.desktops.hyprland.sddm;
 
 in {
   options = {
@@ -22,9 +21,19 @@ in {
       package = pkgs.sddm;
     };
 
-    environment.systemPackages = with pkgs; [
-
-    ];
+    environment.systemPackages = with pkgs;
+      [
+        (sddm-chili-theme.override {
+          themeConfig = {
+            background = config.stylix.image;
+            ScreenWidth = 1920;
+            ScreenHeight = 1080;
+            blur = true;
+            recursiveBlurLoops = 3;
+            recursiveBlurRadius = 5;
+          };
+        })
+      ];
 
     home-manager.users."${user-settings.user.username}" = {
 
