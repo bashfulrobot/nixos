@@ -30,8 +30,14 @@ in {
     # Optional, hint electron apps to use wayland:
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-    # Helps with screensharing
-    services.dbus.enable = true;
+    services = {
+      dbus.enable = true;
+      gnome.gnome-keyring.enable = true;
+      xserver = {
+        excludePackages = [ pkgs.xterm ];
+      };
+    };
+
     xdg.portal = {
       enable = true;
       wlr.enable = true;
@@ -48,13 +54,17 @@ in {
       package32 = mesa-pkgs-unstable.pkgsi686Linux.mesa.drivers;
     };
 
-    security.rtkit.enable = true;
+    security = {
+      rtkit.enable = true;
+      pam.services.login.enableGnomeKeyring = true;
+    };
 
     environment.systemPackages = with pkgs; [ ];
 
     desktops.hyprland = {
       waybar.enable = true;
       wofi.enable = true;
+      sddm.enable = true;
     };
 
     sys.stylix.enable = true;
