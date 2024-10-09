@@ -68,15 +68,69 @@ in {
         systemd.variables = [ "--all" ];
 
         settings = {
+
+          ### --- Variables
+
           "$mod" = "SUPER";
-          exec-once = [
-            "waybar"
-          ];
+
+          ### --- Autostart
+
+          exec-once = [ "waybar" ];
+
+          ### --- Keyboard bindings
+
           bind = [
+
+            # Run launcher
             "$mod, Space, exec, wofi --show"
+            # Close window
+            "$mainMod, Q, killactive, "
+
+            # Tiling
+            "$mainMod, V, togglefloating,"
+            "$mainMod, P, pseudo,"
+            "$mainMod, J, togglesplit,"
+
+            # Move focus
+            "$mainMod, left, movefocus, l"
+            "$mainMod, right, movefocus, r"
+            "$mainMod, up, movefocus, u"
+            "$mainMod, down, movefocus, d"
+
+            # Run apps
             "$mod, B, exec, google-chrome-stable"
             "$mod, T, exec, alacritty"
-            ", Print, exec, grimblast copy area"
+
+            # Screenshots
+            # ", Print, exec, grimblast copy area"
+            # "$mainMod, K, exec, hyprshot --mode window"
+            # "$mainMod, H, exec, hyprshot --mode region"
+
+            # Example special workspace (scratchpad)
+            "$mainMod, S, togglespecialworkspace, magic"
+            "$mainMod SHIFT, S, movetoworkspace, special:magic"
+
+            # Scroll through existing workspaces
+            "$mainMod, mouse_down, workspace, e+1"
+            "$mainMod, mouse_up, workspace, e-1"
+
+            # Application manager
+            "$mainMod, F, exec, rofi -show drun"
+
+            # Screen brightness
+            " , XF86MonBrightnessUp, exec, brightnessctl s +5%"
+            " , XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+
+            # Volume and Media Control
+            " , XF86AudioRaiseVolume, exec, pamixer -i 5 "
+            " , XF86AudioLowerVolume, exec, pamixer -d 5 "
+            " , XF86AudioMicMute, exec, pamixer --default-source -m"
+            " , XF86AudioMute, exec, pamixer -t"
+            " , XF86AudioPlay, exec, playerctl play-pause"
+            " , XF86AudioPause, exec, playerctl play-pause"
+            " , XF86AudioNext, exec, playerctl next"
+            " , XF86AudioPrev, exec, playerctl previous"
+
           ] ++ (
             # workspaces
             # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
@@ -88,6 +142,90 @@ in {
                 "$mod, ${ws}, workspace, ${toString (x + 1)}"
                 "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
               ]) 10));
+
+          ### --- Mouse Bindings
+
+          bindm = [
+            # Move/resize windows LMB/RMB
+            "bindm = $mainMod, mouse:272, movewindow"
+            "bindm = $mainMod, mouse:273, resizewindow"
+          ];
+
+          ### --- Input
+
+          input = {
+            kb_layout = "us";
+            kb_variant = "";
+            kb_model = "";
+            kb_options = "";
+            kb_rules = "";
+
+            follow_mouse = 1;
+
+            touchpad = { natural_scroll = true; };
+
+            sensitivity = 0;
+          };
+
+          ### --- Gestures
+
+          gestures = {
+            workspace_swipe = true;
+            workspace_swipe_fingers = 3;
+          };
+
+          ### --- Layouts
+
+          dwindle = {
+            pseudotile = true;
+            preserve_split = true;
+          };
+          master = { new_is_master = true; };
+
+          ### --- Visuals
+
+          env = [ "XCURSOR_SIZE, 24" ];
+
+          animations = {
+            enabled = true;
+            bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+            animation = [
+              "windows, 1, 7, myBezier"
+              "windowsOut, 1, 7, default, popin 80%"
+              "border, 1, 10, default"
+              "borderangle, 1, 8, default"
+              "fade, 1, 7, default"
+              "workspaces, 1, 6, default"
+            ];
+          };
+
+          general = {
+            gaps_in = 3;
+            gaps_out = 5;
+            border_size = 2;
+            "col.active_border" = "rgba(e759ffee) rgba(5a70ffee) 45deg";
+            "col.inactive_border" = "rgba(595959aa)";
+
+            layout = "dwindle";
+
+            allow_tearing = false;
+          };
+
+          decoration = {
+            rounding = 3;
+
+            blur = {
+              enabled = true;
+              size = 3;
+              passes = 1;
+            };
+
+            drop_shadow = true;
+            shadow_range = 4;
+            shadow_render_power = 3;
+            "col.shadow" = "rgba(1a1a1aee)";
+          };
+
         };
       };
 
