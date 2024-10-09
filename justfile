@@ -98,13 +98,12 @@ rebuild-vm:
 repo-conflict:
     @git fetch
     @git reset --hard origin/main
+    @git pull
 # git reset and clean - unstage any changes and revert your working directory to the last commit,remove any untracked files and directories. Used to resolve conflicts due to syncthing
 repo-conflict-nuke:
     @git reset --hard HEAD
     @git clean -fd
     @git pull
-    @git fetch
-    @git reset --hard origin/main
 
 # Update Hardware Firmware
 run-fwup:
