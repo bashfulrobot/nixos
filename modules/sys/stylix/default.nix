@@ -25,9 +25,8 @@ in {
       # base16Scheme =
       # "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
       cursor = {
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Ice";
-        # name = "Adwaita";
+        name = "Adwaita";
+        package = pkgs.adwaita-icon-theme;
         size = 32;
       };
       opacity = {
