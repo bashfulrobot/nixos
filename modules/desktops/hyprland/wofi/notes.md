@@ -1,0 +1,1 @@
+https://github.com/Misterio77/nix-config/blob/40d93549820c2c1aa26ffab698fe2cacec4f4a32/home/gabriel/features/desktop/common/wayland-wm/wofi.nix
