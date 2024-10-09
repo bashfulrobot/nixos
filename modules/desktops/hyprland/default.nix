@@ -73,9 +73,6 @@ in {
 
     home-manager.users."${user-settings.user.username}" = {
 
-      programs.kitty.enable =
-        true; # TODO: remove later - required for the default Hyprland confif
-
       wayland.windowManager.hyprland = {
         enable = true;
         systemd.variables = [ "--all" ];
