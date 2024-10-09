@@ -219,6 +219,13 @@ in {
             shadow_render_power = 3;
           };
 
+          ### --- Monitors
+
+          # monitor = [
+          #   "Main, 1920x1080@60, 0x0, 1"
+          #   "Secondary, 1920x1080@60, auto ,1" # for random monitors
+          # ];
+
         };
       };
 
