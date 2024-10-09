@@ -400,7 +400,7 @@ in {
             html.enable = true;
             cssls.enable = true;
             eslint.enable = true;
-            ts-ls.enable = true;
+            ts_ls.enable = true;
             pyright.enable = true;
             tailwindcss = {
               enable = true;
