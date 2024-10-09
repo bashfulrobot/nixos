@@ -82,20 +82,20 @@ in {
           bind = [
 
             # Run launcher
-            "$mod, Space, exec, wofi --show"
+            "$mod, Space, exec, wofi -show drun"
             # Close window
-            "$mainMod, Q, killactive, "
+            "$mod, Q, killactive, "
 
             # Tiling
-            "$mainMod, V, togglefloating,"
-            "$mainMod, P, pseudo,"
-            "$mainMod, J, togglesplit,"
+            "$mod, V, togglefloating,"
+            "$mod, P, pseudo,"
+            "$mod, J, togglesplit,"
 
             # Move focus
-            "$mainMod, left, movefocus, l"
-            "$mainMod, right, movefocus, r"
-            "$mainMod, up, movefocus, u"
-            "$mainMod, down, movefocus, d"
+            "$mod, left, movefocus, l"
+            "$mod, right, movefocus, r"
+            "$mod, up, movefocus, u"
+            "$mod, down, movefocus, d"
 
             # Run apps
             "$mod, B, exec, google-chrome-stable"
@@ -103,19 +103,16 @@ in {
 
             # Screenshots
             # ", Print, exec, grimblast copy area"
-            # "$mainMod, K, exec, hyprshot --mode window"
-            # "$mainMod, H, exec, hyprshot --mode region"
+            # "$mod, K, exec, hyprshot --mode window"
+            # "$mod, H, exec, hyprshot --mode region"
 
             # Example special workspace (scratchpad)
-            "$mainMod, S, togglespecialworkspace, magic"
-            "$mainMod SHIFT, S, movetoworkspace, special:magic"
+            "$mod, S, togglespecialworkspace, magic"
+            "$mod SHIFT, S, movetoworkspace, special:magic"
 
             # Scroll through existing workspaces
-            "$mainMod, mouse_down, workspace, e+1"
-            "$mainMod, mouse_up, workspace, e-1"
-
-            # Application manager
-            "$mainMod, F, exec, rofi -show drun"
+            "$mod, mouse_down, workspace, e+1"
+            "$mod, mouse_up, workspace, e-1"
 
             # Screen brightness
             " , XF86MonBrightnessUp, exec, brightnessctl s +5%"
@@ -147,8 +144,8 @@ in {
 
           bindm = [
             # Move/resize windows LMB/RMB
-            "bindm = $mainMod, mouse:272, movewindow"
-            "bindm = $mainMod, mouse:273, resizewindow"
+            "bindm = $mod, mouse:272, movewindow"
+            "bindm = $mod, mouse:273, resizewindow"
           ];
 
           ### --- Input
@@ -180,7 +177,6 @@ in {
             pseudotile = true;
             preserve_split = true;
           };
-          master = { new_is_master = true; };
 
           ### --- Visuals
 
