@@ -70,6 +70,9 @@ in {
 
         settings = {
           "$mod" = "SUPER";
+          exec-once = [
+            "waybar"
+          ];
           bind = [
             "$mod, Space, exec, wofi"
             "$mod, B, exec, google-chrome-stable"
