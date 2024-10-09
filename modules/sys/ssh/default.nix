@@ -25,7 +25,7 @@ in {
     # };
 
     home-manager.users."${user-settings.user.username}" = {
-      # services.ssh-agent.enable = true;
+      services.ssh-agent.enable = true;
 
       programs.ssh = {
         enable = true;
@@ -34,6 +34,9 @@ in {
         extraConfig = ''
           # Host *
           #   IdentityAgent ~/.1password/agent.sock
+          Host *
+            AddKeysToAgent yes
+            UseKeychain yes
           Host github.com
             HostName github.com
             IdentityFile ~/.ssh/id_rsa_temp

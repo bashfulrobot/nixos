@@ -12,3 +12,4 @@
 - [ ] What is the over on the clock in my waybar?
 - [ ] test keyring/ssh keys
 - [ ] setup screenshots
+- [ ] unlock keyring on login
