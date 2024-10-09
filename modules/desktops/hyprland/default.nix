@@ -72,9 +72,16 @@ in {
       dbus.enable = true;
     };
 
+    apps.epiphany.enable = true;
+
     sys.stylix.enable = true;
 
     home-manager.users."${user-settings.user.username}" = {
+
+      # Remove buttons, do not use them. Makes my theme look better.
+      dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
+        "org/gnome/desktop/wm/preferences" = { button-layout = ""; };
+      };
 
       wayland.windowManager.hyprland = {
         enable = true;
