@@ -56,10 +56,10 @@ in {
               on-click = "activate";
               sort-by-number = true;
               format-icons = {
-                "1" = '''';
-                "2" = ''󰈹'';
-                "3" = ''󰒱'';
-                "4" = ''󰧑'';
+                "1" = ''<span foreground="#A1EFD3"></span>'';
+                "2" = ''<span foreground="#FFE6B3">󰈹</span>'';
+                "3" = ''<span foreground="#91DDFF">󰒱</span>'';
+                "4" = ''<span foreground="#D4BFFF">󰧑</span>'';
               };
             };
 
@@ -67,9 +67,9 @@ in {
               format =
                 "{status_icon}<span weight='bold'>{artist}</span> | {title}";
               status-icons = {
-                playing = "󰎈";
-                paused = "󰏤";
-                stopped = "󰓛";
+                playing = "<span foreground='#A1EFD3'>󰎈</span> ";
+                paused = "<span foreground='#FFE6B3'>󰏤</span> ";
+                stopped = "<span foreground='#F48FB1'>󰓛</span> ";
               };
             };
 
@@ -78,35 +78,35 @@ in {
             "wlr/taskbar" = { on-click = "activate"; };
 
             pulseaudio = {
-              format = "󰓃 {volume}%";
+              format = "<span foreground='#F48FB1'>󰓃</span> {volume}%";
             };
 
             "network#interface" = {
-              format-ethernet = "󰣶 {ifname}";
-              format-wifi = "󰖩 {ifname}";
+              format-ethernet = "<span foreground='#91DDFF'>󰣶 </span> {ifname}";
+              format-wifi = "<span foreground='#91DDFF'>󰖩 </span>{ifname}";
               tooltip = true;
               tooltip-format = "{ipaddr}";
             };
 
             "network#speed" = {
               format =
-                "⇡ {bandwidthUpBits} ⇣ {bandwidthDownBits}";
+                "<span foreground='#78A8FF'>⇡</span>{bandwidthUpBits} <span foreground='#78A8FF'>⇣</span>{bandwidthDownBits}";
             };
 
             cpu = {
               format =
-                " {usage}% 󱐌 {avg_frequency}";
+                "<span foreground='#D4BFFF'>  </span>{usage}% <span foreground='#D4BFFF'>󱐌 </span>{avg_frequency}";
             };
 
             temperature = {
               format =
-                "{icon} {temperatureC} °C";
+                "<span foreground='#FFE6B3'>{icon} </span>{temperatureC} °C";
               format-icons = [ "" "" "" "󰈸" ];
             };
 
             clock = {
-              format = "  {:%H:%M}";
-              format-alt = "󰃭 {:%Y-%m-%d}";
+              format = "<span foreground='#A1EFD3'>  </span>{:%H:%M}";
+              format-alt = "<span foreground='#A1EFD3'󰃭  </span>{:%Y-%m-%d}";
             };
 
             tray = {
@@ -119,14 +119,22 @@ in {
         style = ''
           * {
             min-height: 0;
+            color: #CBE3E7;
           }
 
           window#waybar {
+            border-bottom: solid 2px #2D2B40;
             font-family: 'Inter', 'RobotoMono Nerd Font';
             font-size: 14px;
           }
 
+          tooltip {
+            background-color: #2D2B40;
+            color: #CBE3E7;
+          }
+
           #custom-nix {
+            color: #91DDFF;
             padding: 2px 8px;
           }
 
@@ -136,9 +144,11 @@ in {
           }
 
           #workspaces button.active {
+            background-color: #2D2B40;
           }
 
           #taskbar button.active {
+            background-color: #2D2B40;
           }
 
           .modules-right * {
@@ -147,11 +157,13 @@ in {
           }
 
           #mpris {
+            background-color: #2D2B40;
             padding: 0 8px;
             color: #8A889D;
           }
 
           #tray {
+            background-color: #2D2B40;
             padding: 0 8px 0 8px;
           }
 
