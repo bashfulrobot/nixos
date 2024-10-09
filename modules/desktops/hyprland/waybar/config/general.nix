@@ -1,5 +1,5 @@
 { pkgs, lib, ... }: {
-  persist.files = [ ".cache/colorpicker/colors" ];
+  # persist.files = [ ".cache/colorpicker/colors" ];
   programs.waybar.settings.mainBar = {
     modules-right = [ "group/together" "tray" ];
     "group/together" = {
