@@ -1,6 +1,7 @@
 # https://wiki.hyprland.org/Nix/Hyprland-on-NixOS/
 { user-settings, pkgs, config, lib, ... }:
 let cfg = config.desktops.hyprland.sddm;
+hostname = config.networking.hostName;
 
 in {
   options = {
@@ -26,8 +27,8 @@ in {
         (sddm-chili-theme.override {
           themeConfig = {
             background = config.stylix.image;
-            ScreenWidth = 1920;
-            ScreenHeight = 1080;
+            ScreenWidth = if hostname == "rembot" then 3440 else if hostname == "evo" then 2560 else 1920;
+            ScreenHeight = if hostname == "rembot" then 1440 else if hostname == "evo" then 1440 else 1080;
             blur = true;
             recursiveBlurLoops = 3;
             recursiveBlurRadius = 5;
