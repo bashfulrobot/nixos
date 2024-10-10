@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Bluetooth
+Exec=blueman-manager
+Terminal=false
+Type=Application
+Icon=blueman
+StartupWMClass=Blueman
+Comment=Bluetooth Manager

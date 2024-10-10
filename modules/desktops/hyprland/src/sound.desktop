@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Sound
+Exec=pavucontrol
+Terminal=false
+Type=Application
+Icon=pavucontrol
+Comment=PulseAudio Volume Control
+Categories=AudioVideo;Mixer;

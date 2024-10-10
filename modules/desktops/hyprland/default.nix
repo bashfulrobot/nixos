@@ -18,6 +18,19 @@ in {
 
   config = lib.mkIf cfg.enable {
 
+    desktops.hyprland = {
+      env.enable = true;
+      waybar.enable = true;
+      wofi.enable = true;
+      sddm.enable = true;
+      dbus.enable = true;
+      hypridle.enable = true;
+      hyprlock.enable = true;
+    };
+
+    apps.epiphany.enable = true;
+    sys.stylix.enable = true;
+
     programs.hyprland = {
       enable = true;
       # set the flake package
@@ -64,22 +77,26 @@ in {
       };
     };
 
-    environment.systemPackages = with pkgs; [ ];
-
-    desktops.hyprland = {
-      waybar.enable = true;
-      wofi.enable = true;
-      sddm.enable = true;
-      dbus.enable = true;
-      hypridle.enable = true;
-      hyprlock.enable = true;
-    };
-
-    apps.epiphany.enable = true;
-
-    sys.stylix.enable = true;
+    environment.systemPackages = with pkgs; [
+      brightnessctl
+      playerctl
+      # wpctl # Provided by the wireplumber package in modules/hw/audio/default.nix
+      # blueman # Bluetooth Manager # Provided by the bluetooth package in modules/hw/bluetooth/default.nix
+      #pamixer
+      pavucontrol # select sound output
+     ];
 
     home-manager.users."${user-settings.user.username}" = {
+
+      home.file."bluetooth.desktop" = {
+        source = ./src/bluetooth.desktop;
+        target = ".local/share/applications/bluetooth.desktop";
+      };
+
+      home.file."sound.desktop" = {
+        source = ./src/sound.desktop;
+        target = ".local/share/applications/sound.desktop";
+      };
 
       # Remove buttons, do not use them. Makes my theme look better.
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
@@ -112,9 +129,11 @@ in {
             "$mod, Q, killactive, "
             "$mod, F, fullscreen,"
             "$mod, L, exec, hyprlock"
+            "ALT,Tab,cyclenext"
+            "ALT,Tab,bringactivetotop"
 
             # Tiling
-            "$mod, V, togglefloating,"
+            "$mod SHIFT, F, togglefloating,"
             "$mod, P, pseudo,"
             "$mod, J, togglesplit,"
 
@@ -127,7 +146,7 @@ in {
             # Run apps
             "$mod, B, exec, google-chrome-stable"
             "$mod, E, exec, code"
-            "$mod, T, exec, alacritty"
+            "$mod, Return, exec, alacritty"
 
             # Screenshots
             # ", Print, exec, grimblast copy area"
@@ -147,10 +166,14 @@ in {
             " , XF86MonBrightnessDown, exec, brightnessctl s 5%-"
 
             # Volume and Media Control
-            " , XF86AudioRaiseVolume, exec, pamixer -i 5 "
-            " , XF86AudioLowerVolume, exec, pamixer -d 5 "
-            " , XF86AudioMicMute, exec, pamixer --default-source -m"
-            " , XF86AudioMute, exec, pamixer -t"
+            # " , XF86AudioRaiseVolume, exec, pamixer -i 5 "
+            # " , XF86AudioLowerVolume, exec, pamixer -d 5 "
+            # " , XF86AudioMicMute, exec, pamixer --default-source -m"
+            # " , XF86AudioMute, exec, pamixer -t"
+            " , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+            " , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+            " , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1"
+            " , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
             " , XF86AudioPlay, exec, playerctl play-pause"
             " , XF86AudioPause, exec, playerctl play-pause"
             " , XF86AudioNext, exec, playerctl next"
@@ -192,7 +215,11 @@ in {
 
             follow_mouse = 1;
 
-            touchpad = { natural_scroll = true; };
+            touchpad = {
+              natural_scroll = true;
+              disable_while_typing = true;
+              scroll_factor = 0.8;
+            };
 
             sensitivity = 0;
           };
@@ -232,14 +259,14 @@ in {
             gaps_in = 5;
             gaps_out = 7;
             border_size = 2;
-
+            resize_on_border = true;
             layout = "dwindle";
 
             allow_tearing = false;
           };
 
           decoration = {
-            rounding = 3;
+            rounding = 6;
 
             blur = {
               enabled = true;
@@ -258,6 +285,26 @@ in {
           #   "Main, 1920x1080@60, 0x0, 1"
           #   "Secondary, 1920x1080@60, auto ,1" # for random monitors
           # ];
+
+          ### --- Window Rules
+
+          windowrule = [
+          # "workspace 1      , title:Terminal"
+          # "workspace 2      , title:Web"
+          # "workspace 3      , title:Development"
+          # "workspace 4      , title:Chat"
+          # "workspace 8      , title:Steam"
+          # "workspace 10     , title:passwordManager"
+
+          # "noblur,^(?!(rofi))"
+
+          "center,^(wofi)$"
+          # "noborder,^(wofi)$"
+        ];
+
+        windowrulev2 = [
+          "suppressevent maximize, class:.*"
+        ];
 
         };
       };
