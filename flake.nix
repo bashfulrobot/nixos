@@ -12,6 +12,10 @@
     nix-flatpak = { url = "github:gmodena/nix-flatpak"; };
     nvim = { url = "github:bashfulrobot/jvim"; };
     hyprland = { url = "git+https://github.com/hyprwm/Hyprland?submodules=1"; };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     # This allows automatic styling based on active Wallpaper.
     # Homepage: https://github.com/danth/stylix
     # Manual:   https://danth.github.io/stylix
@@ -44,13 +48,13 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, plasma-manager, nixos-hardware, hyprland
-    , nix-flatpak, nur, nvim, stylix, disko, nixpkgs-zoom, nixvim,  ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, plasma-manager, nixos-hardware
+    , hyprland, hyprland-plugins, nix-flatpak, nur, nvim, stylix, disko, nixpkgs-zoom, nixvim, ...
+    }:
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.
-      workstationOverlays =
-        [ nur.overlay nvim.overlays.default ];
+      workstationOverlays = [ nur.overlay nvim.overlays.default ];
       # Load secrets. This folder is encryted with git-crypt
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
@@ -74,12 +78,11 @@
             {
               home-manager = {
                 useUserPackages = true;
-                sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+                sharedModules =
+                  [ plasma-manager.homeManagerModules.plasma-manager ];
                 useGlobalPkgs = true;
-                extraSpecialArgs = { inherit user-settings secrets; };
-                users."${user-settings.user.username}" = {
-                  imports = [];
-                };
+                extraSpecialArgs = { inherit user-settings secrets inputs; };
+                users."${user-settings.user.username}" = { imports = [ ]; };
               };
 
               nixpkgs = {
@@ -107,7 +110,8 @@
             {
               home-manager = {
                 useUserPackages = true;
-                sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+                sharedModules =
+                  [ plasma-manager.homeManagerModules.plasma-manager ];
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
                 users."${user-settings.user.username}" = { imports = [ ]; };
