@@ -1,10 +1,10 @@
 # Outstanding Config
 
-- [ ] Change font on `wofi`
+- [x] Change font on `wofi`
 - [ ] reboot keybind
 - [ ] shutdown keybind
-- [ ] reboot menu? (like in `wofi`)
-- [ ] Screen timeout/lock
+- [x] reboot menu? (like in `wofi`)
+- [x] Screen timeout/lock
 - [x] Increase gaps
 - [ ] add sound input/output switcher app
 - [ ] add workspace numbers
@@ -13,3 +13,6 @@
 - [ ] test keyring/ssh keys
 - [ ] setup screenshots
 - [ ] unlock keyring on login
+- [ ] Notifications
+- [ ] media keys
+- [x] fullscreen bind

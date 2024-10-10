@@ -1,4 +1,5 @@
 # https://wiki.hyprland.org/Nix/Hyprland-on-NixOS/
+# impliment scripts: https://github.com/anotherhadi/nixy/blob/3c2157260d27371419906f937e3f159c84b24e7e/home/scripts/brightness/default.nix
 { user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.desktops.hyprland;
@@ -70,6 +71,8 @@ in {
       wofi.enable = true;
       sddm.enable = true;
       dbus.enable = true;
+      hypridle.enable = true;
+      hyprlock.enable = true;
     };
 
     apps.epiphany.enable = true;
@@ -102,10 +105,13 @@ in {
           bind = [
 
             # Run launcher
-            "$mod, Space, exec, wofi --show drun --insensitive --allow-images"
+            "$mod, Space, exec, wofi"
+            #" $mod, Space, exec, wofi --show drun --insensitive --allow-images"
 
-            # Close window
+            # window
             "$mod, Q, killactive, "
+            "$mod, F, fullscreen,"
+            "$mod, L, exec, hyprlock"
 
             # Tiling
             "$mod, V, togglefloating,"
@@ -168,6 +174,11 @@ in {
             # Move/resize windows LMB/RMB
             "bindm = $mod, mouse:272, movewindow"
             "bindm = $mod, mouse:273, resizewindow"
+          ];
+
+          bindl = [
+            ",XF86AudioMute, exec, sound-toggle" # Toggle Mute
+            ",switch:Lid Switch, exec, hyprlock" # Lock when closing Lid
           ];
 
           ### --- Input
