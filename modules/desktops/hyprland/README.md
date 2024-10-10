@@ -16,3 +16,7 @@
 - [ ] Notifications
 - [ ] media keys
 - [x] fullscreen bind
+- [ ] add mute indicators in waybar
+- [ ] add mic vol/mute indicator in waybar
+- [ ] investigate why volume reflects over 100% in waybar, how to reset if needed
+- [ ] add wlogout, based on repo in my todoist.
