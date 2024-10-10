@@ -12,7 +12,7 @@
 - [ ] What is the over on the clock in my waybar?
 - [ ] test keyring/ssh keys
 - [ ] setup screenshots
-- [ ] unlock keyring on login
+- [x] unlock keyring on login
 - [ ] Notifications
 - [ ] media keys
 - [x] fullscreen bind
