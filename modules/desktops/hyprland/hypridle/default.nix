@@ -36,16 +36,16 @@ in {
           */
           listener = [
             {
-              timeout = 200;
+              timeout = 600; # 10 minutes
               on-timeout = "pidof hyprlock || hyprlock";
             }
             {
-              timeout = 300;
+              timeout = 900; # 15 minutes
               on-timeout = "hyprctl dispatch dpms off";
               on-resume = "hyprctl dispatch dpms on";
             }
             {
-              timeout = 900;
+              timeout = 1200; # 20 minutes
               on-timeout = "systemctl suspend";
             }
           ];

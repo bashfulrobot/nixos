@@ -78,13 +78,14 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
+      seahorse # Gnome Keyring
       brightnessctl
       playerctl
       # wpctl # Provided by the wireplumber package in modules/hw/audio/default.nix
       # blueman # Bluetooth Manager # Provided by the bluetooth package in modules/hw/bluetooth/default.nix
       #pamixer
       pavucontrol # select sound output
-     ];
+    ];
 
     home-manager.users."${user-settings.user.username}" = {
 
@@ -106,6 +107,11 @@ in {
       wayland.windowManager.hyprland = {
         enable = true;
         systemd.variables = [ "--all" ];
+
+        plugins = [
+          # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprfocus
+          #          inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+        ];
 
         settings = {
 
@@ -279,6 +285,23 @@ in {
             shadow_render_power = 3;
           };
 
+          ### --- Plugin Config
+
+          plugin = {
+            # hyprexpo = {
+            #   columns = 3;
+            #   gap_size = 5;
+            #   # bg_col = rgb (111111);
+            #   workspace_method =
+            #     "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+            #
+            #   enable_gesture = true; # laptop touchpad, 4 fingers
+            #   gesture_distance = 300; # how far is the "max"
+            #   gesture_positive =
+            #     true; # positive = swipe down. Negative = swipe up.
+            # };
+          };
+
           ### --- Monitors
 
           # monitor = [
@@ -289,22 +312,20 @@ in {
           ### --- Window Rules
 
           windowrule = [
-          # "workspace 1      , title:Terminal"
-          # "workspace 2      , title:Web"
-          # "workspace 3      , title:Development"
-          # "workspace 4      , title:Chat"
-          # "workspace 8      , title:Steam"
-          # "workspace 10     , title:passwordManager"
+            # "workspace 1      , title:Terminal"
+            # "workspace 2      , title:Web"
+            # "workspace 3      , title:Development"
+            # "workspace 4      , title:Chat"
+            # "workspace 8      , title:Steam"
+            # "workspace 10     , title:passwordManager"
 
-          # "noblur,^(?!(rofi))"
+            # "noblur,^(?!(rofi))"
 
-          "center,^(wofi)$"
-          # "noborder,^(wofi)$"
-        ];
+            "center,^(wofi)$"
+            # "noborder,^(wofi)$"
+          ];
 
-        windowrulev2 = [
-          "suppressevent maximize, class:.*"
-        ];
+          windowrulev2 = [ "suppressevent maximize, class:.*" ];
 
         };
       };
