@@ -235,7 +235,7 @@ in {
             follow_mouse = 1;
 
             touchpad = {
-              natural_scroll = true;
+              natural_scroll = false;
               disable_while_typing = true;
               scroll_factor = 0.8;
             };
