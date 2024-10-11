@@ -26,6 +26,8 @@ in {
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       SDL_VIDEODRIVER = "x11";
       MOZ_ENABLE_WAYLAND = "1";
+
+      HYPRSHOT_DIR = "${user-settings.user.home}/Pictures/Screenshots";
     };
 
     home-manager.users."${user-settings.user.username}" = {

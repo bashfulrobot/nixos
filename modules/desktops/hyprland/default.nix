@@ -26,10 +26,18 @@ in {
       dbus.enable = true;
       hypridle.enable = true;
       hyprlock.enable = true;
+      mako.enable = true;
     };
 
     apps.epiphany.enable = true;
-    sys.stylix.enable = true;
+
+    sys = {
+      stylix.enable = true;
+      scripts = {
+        screenshots.enable = true;
+        get_wm_class.enable = true;
+      };
+    };
 
     programs.hyprland = {
       enable = true;
@@ -78,7 +86,10 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
+      wl-clipboard
       seahorse # Gnome Keyring
+      hyprshot # screenshots
+      satty # annotation - screenshots
       brightnessctl
       playerctl
       # wpctl # Provided by the wireplumber package in modules/hw/audio/default.nix
@@ -155,9 +166,11 @@ in {
             "$mod, Return, exec, alacritty"
 
             # Screenshots
+            # Annotate script here: modules/sys/scripts/screenshot
             # ", Print, exec, grimblast copy area"
             # "$mod, K, exec, hyprshot --mode window"
-            # "$mod, H, exec, hyprshot --mode region"
+            "CTRL ALT, P, exec, hyprshot --mode region"
+            "CTRL ALT, A, exec, /etc/profiles/per-user/dustin/bin/screenshot-annotate.sh"
 
             # Example special workspace (scratchpad)
             "$mod, S, togglespecialworkspace, magic"
@@ -322,6 +335,8 @@ in {
             # "noblur,^(?!(rofi))"
 
             "center,^(wofi)$"
+            "center,com.gabm.satty"
+            "floating,com.gabm.satty"
             # "noborder,^(wofi)$"
           ];
 
