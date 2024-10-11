@@ -36,7 +36,6 @@ in {
           #   IdentityAgent ~/.1password/agent.sock
           Host *
             AddKeysToAgent yes
-            UseKeychain yes
           Host github.com
             HostName github.com
             IdentityFile ~/.ssh/id_rsa_temp
