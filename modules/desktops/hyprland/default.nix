@@ -336,7 +336,7 @@ in {
 
             "center,^(wofi)$"
             "center,com.gabm.satty"
-            "floating,com.gabm.satty"
+            "float,com.gabm.satty"
             # "noborder,^(wofi)$"
           ];
 
