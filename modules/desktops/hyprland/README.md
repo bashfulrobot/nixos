@@ -12,6 +12,7 @@
 
 - [x] test keyring/ssh keys
 - [x] setup screenshots
+- [x] make annotation window float
 - [x] unlock keyring on login
 - [x] Notifications
 - [x] media keys
