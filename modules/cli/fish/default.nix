@@ -93,10 +93,10 @@ in {
           #   	op_get_entry $opname
           # '';
 
-          get_wm_class = ''
-            gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/Windows --method org.gnome.Shell.Extensions.Windows.List | grep -Po '"wm_class_instance":"\K[^"]*'
-            gtk-update-icon-cache
-          '';
+          # get_wm_class = ''
+          #   gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/Windows --method org.gnome.Shell.Extensions.Windows.List | grep -Po '"wm_class_instance":"\K[^"]*'
+          #   gtk-update-icon-cache
+          # '';
           new-scratch = ''
             set date (date "+%Y-%m-%d")
             set filename "$date-$argv[1].md"
