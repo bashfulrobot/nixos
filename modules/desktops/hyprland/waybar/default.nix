@@ -33,33 +33,40 @@ in {
           mainBar = {
             margin = "0";
             layer = "top";
-            modules-left = [ "custom/nix" "wlr/workspaces" "mpris" ];
-            modules-center = [ "wlr/taskbar" ];
+            modules-left = [ "custom/nix" "hyprland/workspaces" "mpris" ];
+            modules-center = [ "wlr/taskbar" "hyprland/window" ];
             modules-right = [
               "pulseaudio"
               "network#interface"
               "network#speed"
               "cpu"
-              "temperature"
+              # "temperature"
               "clock"
-              "tray"
+              # "tray"
+              "group/systray"
+
             ];
 
-            persistent_workspaces = {
-              "1" = [ ];
-              "2" = [ ];
-              "3" = [ ];
+            "hyprland/workspaces" = {
+              active-only = true; # Only show active workspaces
+              all-outputs = true;
+              disable-scroll = true;
+              format = "{name}";
+              format-icons = {
+                active = "";
+                default = "";
+                sort-by-number = true;
+                urgent = "";
+              };
+              on-click = "activate";
             };
 
-            "wlr/workspaces" = {
-              format = "{icon}";
-              on-click = "activate";
-              sort-by-number = true;
-              format-icons = {
-                "1" = ''<span foreground="#A1EFD3"></span>'';
-                "2" = ''<span foreground="#FFE6B3">󰈹</span>'';
-                "3" = ''<span foreground="#91DDFF">󰒱</span>'';
-                "4" = ''<span foreground="#D4BFFF">󰧑</span>'';
+            "hyprland/window" = {
+              format = "{class}";
+              rewrite = {
+                "org.pwmt.zathura" = "zathura";
+                "org.qutebrowser.qutebrowser" = "qutebrowser";
+                "org.wezfurlong.wezterm" = "wezterm";
               };
             };
 
@@ -101,18 +108,55 @@ in {
             temperature = {
               format =
                 "<span foreground='#FFE6B3'>{icon} </span>{temperatureC} °C";
-              format-icons = [ "" "" "" "󰈸" ];
+              format-alt =
+                "<span foreground='#FFE6B3'>{icon} </span>{temperatureF} °F";
+              format-icons =
+                [ "" "" "" "" ]; # Updated to ensure distinct icons
             };
 
             clock = {
-              format = "<span foreground='#A1EFD3'>  </span>{:%H:%M}";
-              format-alt = "<span foreground='#A1EFD3'󰃭  </span>{:%Y-%m-%d}";
+              format = "<span foreground='#A1EFD3'>{:%H:%M}  </span>";
+              format-alt = "<span foreground='#A1EFD3'>{:%Y-%m-%d}  </span>";
+              tooltip-format = "<tt><small>{calendar}</small></tt>";
+              calendar = {
+                mode = "year";
+                mode-mon-col = 3;
+                weeks-pos = "right";
+                on-scroll = 1;
+                format = {
+                  months = "<span color='#ffead3'><b>{}</b></span>";
+                  days = "<span color='#ecc6d9'><b>{}</b></span>";
+                  weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+                  weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+                  today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+                };
+              };
+              actions = {
+                on-click-right = "mode";
+                on-scroll-up = "tz_up";
+                on-scroll-down = "tz_down";
+                # on-scroll-up = "shift_up";
+                # on-scroll-down = "shift_down";
+              };
             };
 
+            "group/systray" = {
+              "orientation" = "horizontal";
+              "modules" = [ "custom/showtray" "tray" ];
+              "drawer" = {
+                "transition-duration" = 300;
+                "children-class" = "minimized";
+              };
+            };
             tray = {
               icon-size = 16;
               spacing = 8;
             };
+            "custom/showtray" = {
+              "format" = "";
+              "tooltip" = false;
+            };
+
           };
         };
 
@@ -124,7 +168,7 @@ in {
 
           window#waybar {
             border-bottom: solid 2px #2D2B40;
-            font-family: 'Inter', 'RobotoMono Nerd Font';
+            font-family: 'Font Awesome 6 Free', 'Work Sans';
             font-size: 14px;
           }
 
