@@ -29,7 +29,10 @@ in {
       mako.enable = true;
     };
 
-    apps.epiphany.enable = true;
+    apps = {
+      epiphany.enable = true;
+      nautilus.enable = true;
+    };
 
     sys = {
       stylix.enable = true;
