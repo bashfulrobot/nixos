@@ -33,13 +33,15 @@ in {
           mainBar = {
             margin = "0";
             layer = "top";
-            modules-left = [ "custom/nix" "hyprland/workspaces" "mpris" ];
-            modules-center = [ "wlr/taskbar" "hyprland/window" ];
+            modules-left =
+              [ "custom/nix" "hyprland/window" "hyprland/workspaces" "mpris" ];
+            modules-center = [ "wlr/taskbar" ];
             modules-right = [
               "pulseaudio"
               "network#interface"
-              "network#speed"
-              "cpu"
+              # "network#speed"
+              "bluetooth"
+              # "cpu"
               # "temperature"
               "clock"
               # "tray"
@@ -48,7 +50,7 @@ in {
             ];
 
             "hyprland/workspaces" = {
-              active-only = true; # Only show active workspaces
+              active-only = false; # Only show active workspaces
               all-outputs = true;
               disable-scroll = true;
               format = "{name}";
@@ -64,9 +66,9 @@ in {
             "hyprland/window" = {
               format = "{class}";
               rewrite = {
-                "org.pwmt.zathura" = "zathura";
-                "org.qutebrowser.qutebrowser" = "qutebrowser";
-                "org.wezfurlong.wezterm" = "wezterm";
+                "code-url-handler" = "vscode";
+                # "org.qutebrowser.qutebrowser" = "qutebrowser";
+                # "org.wezfurlong.wezterm" = "wezterm";
               };
             };
 
@@ -74,30 +76,47 @@ in {
               format =
                 "{status_icon}<span weight='bold'>{artist}</span> | {title}";
               status-icons = {
-                playing = "<span foreground='#A1EFD3'>󰎈</span> ";
-                paused = "<span foreground='#FFE6B3'>󰏤</span> ";
-                stopped = "<span foreground='#F48FB1'>󰓛</span> ";
+                playing =
+                  "<span foreground='#A1EFD3'></span> "; # Font Awesome icon for playing
+                paused =
+                  "<span foreground='#FFE6B3'></span> "; # Font Awesome icon for paused
+                stopped =
+                  "<span foreground='#F48FB1'></span> "; # Font Awesome icon for stopped
               };
             };
 
-            "custom/nix" = { format = "󱄅 "; };
+            "custom/nix" = { format = " "; }; # Nerd Fonts NixOS icon
 
             "wlr/taskbar" = { on-click = "activate"; };
 
             pulseaudio = {
-              format = "<span foreground='#F48FB1'>󰓃</span> {volume}%";
+              format =
+                "<span foreground='#F48FB1'> </span>  {volume}%"; # Font Awesome icon for volume
+              on-click = "pavucontrol"; # Launch pavucontrol when clicked
             };
 
             "network#interface" = {
-              format-ethernet = "<span foreground='#91DDFF'>󰣶 </span> {ifname}";
-              format-wifi = "<span foreground='#91DDFF'>󰖩 </span>{ifname}";
+              format-ethernet =
+                "<span foreground='#91DDFF'> </span> {ifname}"; # Font Awesome icon for ethernet
+              format-wifi =
+                "<span foreground='#91DDFF'> </span>{ifname}"; # Font Awesome icon for wifi
               tooltip = true;
               tooltip-format = "{ipaddr}";
+              on-click =
+                "alacritty -e nmtui"; # Launch nmtui in Alacritty terminal
             };
 
             "network#speed" = {
               format =
                 "<span foreground='#78A8FF'>⇡</span>{bandwidthUpBits} <span foreground='#78A8FF'>⇣</span>{bandwidthDownBits}";
+            };
+
+            bluetooth = {
+              format =
+                "<span foreground='#A1EFD3'></span>"; # Font Awesome icon for Bluetooth
+              tooltip = true;
+              tooltip-format = "{status}"; # Show status on mouse over
+              on-click = "blueman-manager"; # Launch Blueman when clicked
             };
 
             cpu = {
