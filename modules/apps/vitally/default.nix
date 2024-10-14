@@ -11,7 +11,7 @@ let
   nixosSearchApp = makeDesktopApp {
     name = "Vitally";
     url = "https://sysdig.vitally.io/hubs/553ec776-875e-4a0e-a096-a3da3a0b6ea1/8acc40cb-e3ea-4da8-9570-4be27a10fff6";
-    binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
+    binary = "${pkgs.chromium}/bin/chromium";
     myStartupWMClass = "chrome-sysdig.vitally.io__hubs_553ec776-875e-4a0e-a096-a3da3a0b6ea1_8acc40cb-e3ea-4da8-9570-4be27a10fff6-Default";
     iconSizes = ["32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use

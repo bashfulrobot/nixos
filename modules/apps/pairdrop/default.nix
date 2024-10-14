@@ -11,8 +11,8 @@ let
   pairdropApp = makeDesktopApp {
     name = "Pairdrop";
     url = "https://pairdrop.srvrs.co/";
-    binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
-    myStartupWMClass = "chrome-pairdrop.srvrs.co__-Profile_4";
+    binary = "${pkgs.chromium}/bin/chromium";
+    myStartupWMClass = "chrome-pairdrop.srvrs.co__-Default";
     iconSizes = ["32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

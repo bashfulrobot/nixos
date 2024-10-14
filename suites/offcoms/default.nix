@@ -20,20 +20,19 @@ in {
       insync.enable = false;
 
       # --- Browsers
+      firefox.enable = false;
+      vivaldi.enable = false;
+      ms-edge.enable = false;
+      # TODO: needs some work in my module
+      #  - extensions keep reordering
+      #  - Need to add extensions to the module
       # chrome-based-browser = {
       #   enable = true;
       #   # Currently supported browsers are "brave", "vivaldi", "ungoogled-chromium" or "chromium".
       #   browser = "chromium";
       #   disableWayland = false;
       # };
-
-      # TODO: needs some work in my module
-      #  - extensions keep reordering
-      #  - Need to add extensions to the module
-      firefox.enable = false;
-      chrome-based-browser.enable = false;
-      vivaldi.enable = false;
-      ms-edge.enable = false;
+      chrome-based-browser.enable = true;
 
       #  --- Organize
       xmind.enable = true;
@@ -58,8 +57,8 @@ in {
       #inputs.zen-browser.packages.x86_64-linux.zen-browser
       #(opera.override { proprietaryCodecs = true; })
       #brave
-      google-chrome
-      tangram
+      # google-chrome
+      # tangram
 
       # PDF
       xournalpp # note taking/pdf annotator

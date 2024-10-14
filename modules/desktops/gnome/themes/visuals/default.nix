@@ -53,7 +53,7 @@ in {
       "disabled": false
     },
     {
-      "class": "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Profile_4",
+      "class": "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Default",
       "disabled": false
     }
 

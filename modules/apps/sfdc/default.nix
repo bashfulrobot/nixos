@@ -11,8 +11,8 @@ let
   sfdcApp = makeDesktopApp {
     name = "SFDC";
     url = "https://sysdig.lightning.force.com/lightning/r/Account/001j000000xlClCAAU/view";
-    binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
-    myStartupWMClass = "chrome-sysdig.lightning.force.com__lightning_r_Account_001j000000xlClCAAU_view-Profile_4";
+    binary = "${pkgs.chromium}/bin/chromium";
+    myStartupWMClass = "chrome-sysdig.lightning.force.com__lightning_r_Account_001j000000xlClCAAU_view-Default";
     iconSizes = [ "16" "32" "48" "64" "96" "128" "180" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

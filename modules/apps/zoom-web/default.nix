@@ -11,8 +11,8 @@ let
   zoomWebApp = makeDesktopApp {
     name = "Zoom Web";
     url = "https://app.zoom.us/wc/home";
-    binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
-    myStartupWMClass = "chrome-app.zoom.us__wc_home-Profile_4";
+    binary = "${pkgs.chromium}/bin/chromium";
+    myStartupWMClass = "chrome-app.zoom.us__wc_home-Default";
     iconSizes = ["32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

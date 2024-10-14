@@ -11,8 +11,8 @@ let
   notebookLmApp = makeDesktopApp {
     name = "NotebookLM";
     url = "https://notebooklm.google.com";
-    binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
-    myStartupWMClass = "chrome-notebooklm.google.com__-Profile_4";
+    binary = "${pkgs.chromium}/bin/chromium";
+    myStartupWMClass = "chrome-notebooklm.google.com__-Default";
     iconSizes = [ "16" "32" "48" "64" "96" "128" "256" ];
     iconPath = ./icons; # path to icons
     # Open In Browser vs Open as App

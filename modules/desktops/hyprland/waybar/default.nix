@@ -85,37 +85,37 @@ in {
               rewrite = {
                 "code-url-handler" = "VSCode";
                 "google-chrome" = "Chrome";
-                "chrome-calendar.google.com__calendar_u_1-Profile_4" =
+                "chrome-calendar.google.com__calendar_u_1-Default" =
                   "Sysdig Calendar";
                 "chrome-sysdig.vitally.io__hubs_553ec776-875e-4a0e-a096-a3da3a0b6ea1_8acc40cb-e3ea-4da8-9570-4be27a10fff6-Default" =
                   "Vitally";
-                "chrome-www.icloud.com__notes_-Profile_4" = "Apple Notes";
-                "chrome-sysdig.atlassian.net__wiki_spaces_~62200ee98a4bb60068f21eea_overview-Profile_4" =
+                "chrome-www.icloud.com__notes_-Default" = "Apple Notes";
+                "chrome-sysdig.atlassian.net__wiki_spaces_~62200ee98a4bb60068f21eea_overview-Default" =
                   "Confluence";
                 "chrome-calendar.google.com__calendar_u_1-Default" =
                   "BR Calendar";
-                "chrome-gemini.google.com__-Profile_4" = "Gemini";
-                "chrome-github.com__bashfulrobot_nixos-Profile_4" = "Github";
+                "chrome-gemini.google.com__-Default" = "Gemini";
+                "chrome-github.com__bashfulrobot_nixos-Default" = "Github";
                 "chrome-github.com__search-Default" = "Github Code Search";
                 "chrome-mail.google.com__mail_u_0_-Default" = "BR Mail";
-                "chrome-mail.google.com__mail_u_1_-Profile_4" = "Sysdig Mail";
-                "chrome-home-manager-options.extranix.com__-Profile_4" =
+                "chrome-mail.google.com__mail_u_1_-Default" = "Sysdig Mail";
+                "chrome-home-manager-options.extranix.com__-Default" =
                   "HM Search";
-                "chrome-app.intercom.com__a_inbox_tdx7wtfd_inbox_team_3988200-Profile_4" =
+                "chrome-app.intercom.com__a_inbox_tdx7wtfd_inbox_team_3988200-Default" =
                   "Intercom";
-                "chrome-sysdig.atlassian.net__jira_software_c_projects_FR_issues-Profile_4" =
+                "chrome-sysdig.atlassian.net__jira_software_c_projects_FR_issues-Default" =
                   "Jira";
-                "chrome-discourse.nixos.org__-Profile_4" = "NixOS Discourse";
-                "chrome-wiki.nixos.org__wiki_NixOS_Wiki-Profile_4" =
+                "chrome-discourse.nixos.org__-Default" = "NixOS Discourse";
+                "chrome-wiki.nixos.org__wiki_NixOS_Wiki-Default" =
                   "NixOS Wiki";
-                "chrome-search.nixos.org__packages-Profile_4" =
+                "chrome-search.nixos.org__packages-Default" =
                   "Nixpkgs Search";
-                "chrome-notebooklm.google.com__-Profile_4" = "NotebookLM";
-                "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Profile_4" =
+                "chrome-notebooklm.google.com__-Default" = "NotebookLM";
+                "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Default" =
                   "RocketChat";
-                "chrome-sysdig.lightning.force.com__lightning_r_Account_001j000000xlClCAAU_view-Profile_4" =
+                "chrome-sysdig.lightning.force.com__lightning_r_Account_001j000000xlClCAAU_view-Default" =
                   "SFDC";
-                "chrome-app.zoom.us__wc_home-Profile_4" = "Zoom Web";
+                "chrome-app.zoom.us__wc_home-Default" = "Zoom Web";
                 # "org.qutebrowser.qutebrowser" = "qutebrowser";
                 # "org.wezfurlong.wezterm" = "wezterm";
               };

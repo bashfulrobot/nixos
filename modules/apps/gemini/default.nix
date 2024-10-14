@@ -11,8 +11,8 @@ let
   geminiApp = makeDesktopApp {
     name = "Gemini";
     url = "https://gemini.google.com";
-    binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
-    myStartupWMClass = "chrome-gemini.google.com__-Profile_4";
+    binary = "${pkgs.chromium}/bin/chromium";
+    myStartupWMClass = "chrome-gemini.google.com__-Default";
     iconSizes = [ "32" "48" "64" "96" "128" "256" "540" ];
     iconPath = ./icons; # path to icons
     # Open In Browser vs Open as App

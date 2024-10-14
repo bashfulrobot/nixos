@@ -11,8 +11,8 @@ let
   sysdigSlackWebApp = makeDesktopApp {
     name = "Sysdig Slack";
     url = "https://app.slack.com/client/T03A6N692";
-    binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
-    myStartupWMClass = "chrome-app.slack.com__client_T03A6N692-Profile_4";
+    binary = "${pkgs.chromium}/bin/chromium";
+    myStartupWMClass = "chrome-app.slack.com__client_T03A6N692-Default";
     iconSizes = ["32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons
