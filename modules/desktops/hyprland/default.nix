@@ -89,6 +89,7 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
+      inputs.hyprswitch.packages.x86_64-linux.default # hyprswitch
       wl-clipboard
       seahorse # Gnome Keyring
       hyprshot # screenshots
@@ -135,7 +136,7 @@ in {
 
           ### --- Autostart
 
-          exec-once = [ "waybar" ];
+          exec-once = [ "waybar" "hyprswitch init &" ];
 
           ### --- Keyboard bindings
 
@@ -149,8 +150,10 @@ in {
             "$mod, Q, killactive, "
             "$mod, F, fullscreen,"
             "$mod, L, exec, hyprlock"
-            "ALT,Tab,cyclenext"
-            "ALT,Tab,bringactivetotop"
+            # "ALT,Tab,cyclenext"
+            # "ALT,Tab,bringactivetotop"
+            "ALT,Tab,exec, hyprswitch simple -s"
+            "ALT,Tab, SHIFT, exec, hyprswitch simple -s -r"
 
             # Tiling
             "$mod SHIFT, F, togglefloating,"

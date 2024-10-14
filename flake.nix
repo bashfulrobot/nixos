@@ -16,6 +16,7 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    hyprswitch.url = "github:h3rmt/hyprswitch/release";
     # This allows automatic styling based on active Wallpaper.
     # Homepage: https://github.com/danth/stylix
     # Manual:   https://danth.github.io/stylix
