@@ -53,7 +53,7 @@ in {
               User msgedme
           Host camino
             HostName 64.225.50.102
-            User dustin
+            User root
             IdentityFile ~/.ssh/id_rsa_temp
             AddKeysToAgent yes
           Host remi

@@ -152,8 +152,8 @@ in {
             "$mod, L, exec, hyprlock"
             # "ALT,Tab,cyclenext"
             # "ALT,Tab,bringactivetotop"
-            "ALT,Tab,exec, hyprswitch simple -s"
-            "ALT,Tab, SHIFT, exec, hyprswitch simple -s -r"
+            "ALT, Tab, exec, hyprswitch simple -s"
+            "ALT SHIFT, Tab, exec, hyprswitch simple -s -r"
 
             # Tiling
             "$mod SHIFT, F, togglefloating,"

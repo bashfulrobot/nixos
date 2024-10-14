@@ -97,7 +97,7 @@ in {
                 "chrome-gemini.google.com__-Profile_4" = "Gemini";
                 "chrome-github.com__bashfulrobot_nixos-Profile_4" = "Github";
                 "chrome-github.com__search-Default" = "Github Code Search";
-                "chrome-mail.google.com__mail_u_0_-Profile_4" = "BR Mail";
+                "chrome-mail.google.com__mail_u_0_-Default" = "BR Mail";
                 "chrome-mail.google.com__mail_u_1_-Profile_4" = "Sysdig Mail";
                 "chrome-home-manager-options.extranix.com__-Profile_4" =
                   "HM Search";
