@@ -12,7 +12,7 @@ let
     name = "Github Code Search";
     url = "https://github.com/search?type=code&auto_enroll=true";
     binary = "${pkgs.google-chrome}/bin/google-chrome-stable";
-    myStartupWMClass = "chrome-github.com__search-Profile_4";
+    myStartupWMClass = "chrome-github.com__search-Default";
     iconSizes = [ "32" "48" "64" "96" "128" "256" "512" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons
