@@ -1,4 +1,4 @@
-# https://wiki.hyprland.org/Nix/Hyprland-on-NixOS/
+# https://fontawesome.com/v6/icons?q=c&o=r&m=free
 { user-settings, pkgs, config, lib, ... }:
 let cfg = config.desktops.hyprland.waybar;
 
@@ -33,21 +33,38 @@ in {
           mainBar = {
             margin = "0";
             layer = "top";
-            modules-left =
-              [ "custom/nix" "hyprland/window" "hyprland/workspaces" "mpris" ];
-            modules-center = [ "wlr/taskbar" ];
+            modules-left = [
+              # "custom/nix"
+              "hyprland/workspaces"
+              # "hyprland/window"
+              "mpris"
+            ];
+            modules-center = [
+              # "wlr/taskbar"
+              "clock"
+              ];
             modules-right = [
-              "pulseaudio"
-              "network#interface"
+              # "custom/battery"
+              # "pulseaudio"
+              # "network#interface"
               # "network#speed"
-              "bluetooth"
+              # "bluetooth"
               # "cpu"
               # "temperature"
-              "clock"
+              # "clock"
               # "tray"
+              "hyprland/window"
               "group/systray"
-
             ];
+
+            "group/systray" = {
+              "orientation" = "horizontal";
+              "modules" = [ "custom/showtray" "custom/battery" "pulseaudio" "bluetooth" "network#interface" "tray" ];
+              "drawer" = {
+                "transition-duration" = 300;
+                "children-class" = "minimized";
+              };
+            };
 
             "hyprland/workspaces" = {
               active-only = false; # Only show active workspaces
@@ -67,6 +84,37 @@ in {
               format = "{class}";
               rewrite = {
                 "code-url-handler" = "vscode";
+                "chrome-calendar.google.com__calendar_u_1-Profile_4" =
+                  "Sysdig Calendar";
+                "chrome-sysdig.vitally.io__hubs_553ec776-875e-4a0e-a096-a3da3a0b6ea1_8acc40cb-e3ea-4da8-9570-4be27a10fff6-Default" =
+                  "Vitally";
+                "chrome-www.icloud.com__notes_-Profile_4" = "Apple Notes";
+                "chrome-sysdig.atlassian.net__wiki_spaces_~62200ee98a4bb60068f21eea_overview-Profile_4" =
+                  "Confluence";
+                "chrome-calendar.google.com__calendar_u_1-Default" =
+                  "BR Calendar";
+                "chrome-gemini.google.com__-Profile_4" = "Gemini";
+                "chrome-github.com__bashfulrobot_nixos-Profile_4" = "Github";
+                "chrome-github.com__search-Default" = "Github Code Search";
+                "chrome-mail.google.com__mail_u_0_-Profile_4" = "BR Mail";
+                "chrome-mail.google.com__mail_u_1_-Profile_4" = "Sysdig Mail";
+                "chrome-home-manager-options.extranix.com__-Profile_4" =
+                  "HM Search";
+                "chrome-app.intercom.com__a_inbox_tdx7wtfd_inbox_team_3988200-Profile_4" =
+                  "Intercom";
+                "chrome-sysdig.atlassian.net__jira_software_c_projects_FR_issues-Profile_4" =
+                  "Jira";
+                "chrome-discourse.nixos.org__-Profile_4" = "NixOS Discourse";
+                "chrome-wiki.nixos.org__wiki_NixOS_Wiki-Profile_4" =
+                  "NixOS Wiki";
+                "chrome-search.nixos.org__packages-Profile_4" =
+                  "Nixpkgs Search";
+                "chrome-notebooklm.google.com__-Profile_4" = "NotebookLM";
+                "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Profile_4" =
+                  "RocketChat";
+                "chrome-sysdig.lightning.force.com__lightning_r_Account_001j000000xlClCAAU_view-Profile_4" =
+                  "SFDC";
+                "chrome-app.zoom.us__wc_home-Profile_4" = "Zoom Web";
                 # "org.qutebrowser.qutebrowser" = "qutebrowser";
                 # "org.wezfurlong.wezterm" = "wezterm";
               };
@@ -89,19 +137,73 @@ in {
 
             "wlr/taskbar" = { on-click = "activate"; };
 
+            "custom/battery" = {
+              exec = pkgs.writeShellScript "waybar_battery" ''
+                NUM="$(cat /sys/class/power_supply/BAT0/capacity | tr -d '\n')"
+                STATE="$(cat /sys/class/power_supply/BAT0/status | tr -d '\n')"
+                BAT=""  # fa-battery-empty
+                if   [ "$STATE" = "Charging" ]; then
+                    BAT=""  # fa-battery-charging
+                elif [ "$STATE" = "Discharging" ]; then
+                    if   [ "$NUM" -gt "95" ]; then
+                        BAT=""  # fa-battery-full
+                    elif [ "$NUM" -gt "85" ]; then
+                        BAT=""  # fa-battery-three-quarters
+                    elif [ "$NUM" -gt "70" ]; then
+                        BAT=""  # fa-battery-half
+                    elif [ "$NUM" -gt "60" ]; then
+                        BAT=""  # fa-battery-half
+                    elif [ "$NUM" -gt "50" ]; then
+                        BAT=""  # fa-battery-half
+                    elif [ "$NUM" -gt "40" ]; then
+                        BAT=""  # fa-battery-quarter
+                    elif [ "$NUM" -gt "30" ]; then
+                        BAT=""  # fa-battery-quarter
+                    elif [ "$NUM" -gt "20" ]; then
+                        BAT=""  # fa-battery-quarter
+                    else
+                        BAT=""  # fa-battery-empty
+                    fi
+                fi
+                printf "$BAT  $NUM%%"
+              '';
+              restart-interval = 5;
+              tooltip = false;
+            };
+
             pulseaudio = {
-              format =
-                "<span foreground='#F48FB1'> </span>  {volume}%"; # Font Awesome icon for volume
-              on-click = "pavucontrol"; # Launch pavucontrol when clicked
+              reverse-scrolling = 1;
+              format = "{volume}% {icon} {format_source}";
+              alt-format = "{volume}% {icon} {format_source}";
+              format-bluetooth = "{volume}% {icon} {format_source}";
+              format-bluetooth-muted = "{volume}%  {icon} {format_source}";
+              format-muted = "{volume}%  {format_source}";
+              format-source = "{volume}% ";
+              format-source-muted = "{volume}% ";
+              format-icons = {
+                headphone = "";
+                hands-free = "";
+                headset = "";
+                phone = "";
+                portable = "";
+                car = "";
+                default = [ "" "" "" ];
+              };
+              on-click = "pavucontrol";
+              min-length = 13;
             };
 
             "network#interface" = {
               format-ethernet =
-                "<span foreground='#91DDFF'> </span> {ifname}"; # Font Awesome icon for ethernet
+                "<span foreground='#91DDFF'> </span>"; # Font Awesome icon for ethernet
               format-wifi =
-                "<span foreground='#91DDFF'> </span>{ifname}"; # Font Awesome icon for wifi
+                "<span foreground='#91DDFF'> </span>"; # Font Awesome icon for wifi
+              format-disconnected =
+                "<span foreground='#FF6C6B'> Disconnected</span>"; # Font Awesome icon for disconnected
+              format-connecting =
+                "<span foreground='#FFDD57'> Connecting...</span>"; # Font Awesome icon for connecting
               tooltip = true;
-              tooltip-format = "{ipaddr}";
+              tooltip-format = "{ifname}: {ipaddr}";
               on-click =
                 "alacritty -e nmtui"; # Launch nmtui in Alacritty terminal
             };
@@ -121,7 +223,7 @@ in {
 
             cpu = {
               format =
-                "<span foreground='#D4BFFF'>  </span>{usage}% <span foreground='#D4BFFF'>󱐌 </span>{avg_frequency}";
+                "<span foreground='#D4BFFF'>  </span>{usage}% <span foreground='#D4BFFF'>󱐌 </span>{avg_frequency}";
             };
 
             temperature = {
@@ -134,8 +236,10 @@ in {
             };
 
             clock = {
-              format = "<span foreground='#A1EFD3'>{:%H:%M}  </span>";
-              format-alt = "<span foreground='#A1EFD3'>{:%Y-%m-%d}  </span>";
+              format = "<span foreground='#A1EFD3'>{:%H:%M}</span>";
+              format-alt =
+                "<span foreground='#A1EFD3'>{:%Y-%m-%d}</span>"; # Added missing '>'
+              tooltip = true; # Ensure tooltip is enabled
               tooltip-format = "<tt><small>{calendar}</small></tt>";
               calendar = {
                 mode = "year";
@@ -159,20 +263,13 @@ in {
               };
             };
 
-            "group/systray" = {
-              "orientation" = "horizontal";
-              "modules" = [ "custom/showtray" "tray" ];
-              "drawer" = {
-                "transition-duration" = 300;
-                "children-class" = "minimized";
-              };
-            };
             tray = {
               icon-size = 16;
               spacing = 8;
             };
             "custom/showtray" = {
-              "format" = "";
+              # "format" = "";
+              "format" = "";
               "tooltip" = false;
             };
 
