@@ -100,6 +100,7 @@ in {
               rewrite = {
                 "code-url-handler" = "VSCode";
                 "google-chrome" = "Chrome";
+                "org.gnome.Epiphany" = "Web";
                 "chrome-calendar.google.com__calendar_u_1-Default" =
                   "Sysdig Calendar";
                 "chrome-sysdig.vitally.io__hubs_553ec776-875e-4a0e-a096-a3da3a0b6ea1_8acc40cb-e3ea-4da8-9570-4be27a10fff6-Default" =
