@@ -213,9 +213,9 @@ in {
               format-wifi =
                 "<span foreground='#91DDFF'> </span>"; # Font Awesome icon for wifi
               format-disconnected =
-                "<span foreground='#FF6C6B'> Disconnected</span>"; # Font Awesome icon for disconnected
+                "<span foreground='#FF6C6B'>  Disconnected</span>"; # Font Awesome icon for disconnected
               format-connecting =
-                "<span foreground='#FFDD57'> Connecting...</span>"; # Font Awesome icon for connecting
+                "<span foreground='#FFDD57'>  Connecting...</span>"; # Font Awesome icon for connecting
               tooltip = true;
               tooltip-format = "{ifname}: {ipaddr}";
               on-click =
