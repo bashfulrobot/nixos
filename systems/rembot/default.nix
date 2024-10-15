@@ -40,6 +40,7 @@
       reboot-firmware = true;
       reboot-windows = true;
       reboot = true;
+      shutdown = true;
       seabird = true;
       beeper = true;
       monokle = false;

@@ -41,6 +41,7 @@
       cursor = false;
       spacedrive = false;
       reboot = true;
+      shutdown = true;
     };
   };
 
