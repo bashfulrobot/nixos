@@ -1,6 +1,8 @@
 # https://fontawesome.com/v6/icons?q=c&o=r&m=free
 { user-settings, pkgs, config, lib, ... }:
-let cfg = config.desktops.hyprland.waybar;
+let
+  cfg = config.desktops.hyprland.waybar;
+  isLaptop = config.archetype.laptop.enable or false;
 
 in {
   options = {
@@ -42,7 +44,7 @@ in {
             modules-center = [
               # "wlr/taskbar"
               "clock"
-              ];
+            ];
             modules-right = [
               # "custom/battery"
               # "pulseaudio"
@@ -59,7 +61,20 @@ in {
 
             "group/systray" = {
               "orientation" = "horizontal";
-              "modules" = [ "custom/showtray" "custom/battery" "pulseaudio" "bluetooth" "network#interface" "tray" ];
+              "modules" = if isLaptop then [
+                "custom/showtray"
+                "custom/battery"
+                "pulseaudio"
+                "bluetooth"
+                "network#interface"
+                "tray"
+              ] else [
+                "custom/showtray"
+                "pulseaudio"
+                "bluetooth"
+                "network#interface"
+                "tray"
+              ];
               "drawer" = {
                 "transition-duration" = 300;
                 "children-class" = "minimized";
@@ -106,10 +121,8 @@ in {
                 "chrome-sysdig.atlassian.net__jira_software_c_projects_FR_issues-Default" =
                   "Jira";
                 "chrome-discourse.nixos.org__-Default" = "NixOS Discourse";
-                "chrome-wiki.nixos.org__wiki_NixOS_Wiki-Default" =
-                  "NixOS Wiki";
-                "chrome-search.nixos.org__packages-Default" =
-                  "Nixpkgs Search";
+                "chrome-wiki.nixos.org__wiki_NixOS_Wiki-Default" = "NixOS Wiki";
+                "chrome-search.nixos.org__packages-Default" = "Nixpkgs Search";
                 "chrome-notebooklm.google.com__-Default" = "NotebookLM";
                 "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Default" =
                   "RocketChat";
