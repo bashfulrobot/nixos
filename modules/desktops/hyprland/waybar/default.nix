@@ -87,7 +87,14 @@ in {
               disable-scroll = true;
               format = "{name}";
               format-icons = {
-                active = "";
+                # active = "";
+                active = {
+                  "1" = ""; # General workspace (home icon)
+                  "2" = ""; # Coding (code icon)
+                  "0" = ""; # Security (lock icon)
+                  "9" = ""; # IM communications (comments icon)
+                  "8" = ""; # Productivity (users icon)
+                };
                 default = "";
                 sort-by-number = true;
                 urgent = "";
