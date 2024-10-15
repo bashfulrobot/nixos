@@ -92,7 +92,7 @@ in {
                 "chrome-www.icloud.com__notes_-Default" = "Apple Notes";
                 "chrome-sysdig.atlassian.net__wiki_spaces_~62200ee98a4bb60068f21eea_overview-Default" =
                   "Confluence";
-                "chrome-calendar.google.com__calendar_u_1-Default" =
+                "chrome-calendar.google.com__calendar_u_0-Default" =
                   "BR Calendar";
                 "chrome-gemini.google.com__-Default" = "Gemini";
                 "chrome-github.com__bashfulrobot_nixos-Default" = "Github";
