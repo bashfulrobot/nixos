@@ -87,7 +87,15 @@ in {
               disable-scroll = true;
               format = "{name}";
               format-icons = {
-                active = "";
+                active = {
+                  "1" = ""; # Home (fa-home)
+                  "2" = ""; # Dev (fa-code)
+                  "8" = ""; # Productivity (fa-users)
+                  "9" = ""; # IM Communications (fa-comments)
+                  "0" = ""; # Security (fa-lock)
+                  default =
+                    ""; # General icon for other workspaces
+                };
                 default = "";
                 sort-by-number = true;
                 urgent = "";
