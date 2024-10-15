@@ -37,6 +37,7 @@ in {
 
       # --- Other
       ctop # container process monitoring
-    ];
+	    wakeonlan 
+];
   };
 }
