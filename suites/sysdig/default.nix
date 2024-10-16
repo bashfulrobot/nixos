@@ -18,6 +18,8 @@ in {
         downgrade = true;
       };
 
+      zoom-web.enable = true;
+
       rocket-chat = {
         enable = true;
         web = true;
