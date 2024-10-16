@@ -1,8 +1,11 @@
 # https://wiki.hyprland.org/Nix/Hyprland-on-NixOS/
 # impliment scripts: https://github.com/anotherhadi/nixy/blob/3c2157260d27371419906f937e3f159c84b24e7e/home/scripts/brightness/default.nix
+# hyprswitch docs - https://github.com/H3rmt/hyprswitch
 { user-settings, pkgs, config, lib, inputs, ... }:
 let
   cfg = config.desktops.hyprland;
+
+  rounding = "6";
 
   mesa-pkgs-unstable =
     inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -114,6 +117,67 @@ in {
         target = ".local/share/applications/sound.desktop";
       };
 
+      # base00: Default Background
+      # base01-05: Lighter to Darker Background
+      # base07: Default Foreground
+      home.file.".config/hyprswitch/style.css".text = ''
+        .client-image {
+            margin: 15px;
+        }
+
+        .client-index {
+        /* Hide the client-index element */
+        display: none;
+            margin: 6px;
+            padding: 5px;
+            font-size: inherit;
+            font-weight: bold;
+            border-radius: ${rounding}px;
+            border: none;
+            background-color: inherit;
+        }
+
+        .client {
+            border-radius: ${rounding}px;
+            border: none;
+            background-color: inherit;
+        }
+
+        .client:hover {
+            color: #${config.lib.stylix.colors.base01};
+            background-color: inherit;
+        }
+
+        .client_active {
+            border: none;
+        }
+
+        .workspace {
+            font-size: inherit;
+            font-weight: bold;
+            border-radius: ${rounding}px;
+            border: none;
+            background-color: inherit;
+        }
+
+        .workspace_special {
+            border: none;
+        }
+
+        .workspaces {
+            margin: 0px;
+        }
+
+        window {
+            font-size: 18px;
+            color: #${config.lib.stylix.colors.base00};
+            border-radius: ${rounding}px;
+
+            border: 2px solid #${config.lib.stylix.colors.base03};
+            opacity: initial;
+        }
+      '';
+
       # Remove buttons, do not use them. Makes my theme look better.
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
         "org/gnome/desktop/wm/preferences" = { button-layout = ""; };
@@ -133,10 +197,15 @@ in {
           ### --- Variables
 
           "$mod" = "SUPER";
+          "$key" = "TAB";
+          "$switch_release" = "SUPER_L";
 
           ### --- Autostart
 
-          exec-once = [ "waybar" "hyprswitch init &" ];
+          exec-once = [
+            "waybar"
+            "hyprswitch init --show-title --custom-css .~/.config/hyprswitch/style.css  &"
+          ];
 
           ### --- Keyboard bindings
 
@@ -150,10 +219,11 @@ in {
             "$mod, Q, killactive, "
             "$mod, F, fullscreen,"
             "$mod, L, exec, hyprlock"
-            # "ALT,Tab,cyclenext"
-            # "ALT,Tab,bringactivetotop"
-            "ALT, Tab, exec, hyprswitch simple -s"
-            "ALT SHIFT, Tab, exec, hyprswitch simple -s -r"
+            "ALT,Tab,cyclenext"
+            "ALT,Tab,bringactivetotop"
+
+            # open hyprswitch
+            "$mod, $key, exec, hyprswitch gui"
 
             # Tiling
             "$mod SHIFT, F, togglefloating,"
@@ -215,6 +285,16 @@ in {
                 "$mod, ${ws}, workspace, ${toString (x + 1)}"
                 "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
               ]) 10));
+
+          bindr = [
+            # close hyprswitch
+            "$mod, $switch_release, exec, hyprswitch close"
+          ];
+
+          bindrn = [
+            # close hyprswitch - if it somehow doesn't close on releasing $switch_release, escape can kill (doesnt switch)
+            ",escape, exec, hyprswitch close --kill"
+          ];
 
           ### --- Mouse Bindings
 
@@ -283,9 +363,14 @@ in {
           general = {
             gaps_in = 5;
             gaps_out = 7;
-            border_size = 2;
+            border_size = 3;
             resize_on_border = true;
             layout = "dwindle";
+            # Override stylix colours
+            "col.active_border" =
+              lib.mkForce ("0xff" + config.lib.stylix.colors.base08);
+            "col.inactive_border" =
+              lib.mkForce ("0x33" + config.lib.stylix.colors.base00);
 
             allow_tearing = false;
           };
