@@ -85,21 +85,20 @@ in {
               active-only = false; # Only show active workspaces
               all-outputs = true;
               disable-scroll = true;
-              format = "{name}";
+              format = "{icon}: <span size='xx-small' rise='10000'>{name}</span>";
               format-icons = {
-                active = {
-                  "1" = ""; # Home (fa-home)
-                  "2" = ""; # Dev (fa-code)
-                  "8" = ""; # Productivity (fa-users)
-                  "9" = ""; # IM Communications (fa-comments)
-                  "0" = ""; # Security (fa-lock)
-                  default =
-                    ""; # General icon for other workspaces
-                };
-                default = "";
-                sort-by-number = true;
-                urgent = "";
+
+                "1" = ""; # Home (fa-home)
+                "2" = ""; # Dev (fa-code)
+                "8" = ""; # Productivity (fa-users)
+                "9" = ""; # IM Communications (fa-comments)
+                "10" = ""; # Security (fa-lock)
+
+                # "active" = "";
+                "default" = "";
+                "urgent" = "";
               };
+              sort-by-number = true;
               on-click = "activate";
             };
 
@@ -139,8 +138,6 @@ in {
                 "chrome-sysdig.lightning.force.com__lightning_r_Account_001j000000xlClCAAU_view-Default" =
                   "SFDC";
                 "chrome-app.zoom.us__wc_home-Default" = "Zoom Web";
-                # "org.qutebrowser.qutebrowser" = "qutebrowser";
-                # "org.wezfurlong.wezterm" = "wezterm";
               };
             };
 
@@ -354,6 +351,10 @@ in {
           #tray * {
             padding: 0;
             margin: 0;
+          }
+
+          #custom-showtray {
+            font-size: 16px;
           }
         '';
       };
