@@ -115,6 +115,8 @@ in {
         #"pgbdljpkijehgoacbjpolaomhkoffhnl"
         # zoom
         "kgjfgplpablkjnlkjmjdecgdpfankdle"
+        # Floccus Bookmark Sync
+        "fnaicdffflnofjppbagibeoednhnbjhg"
         # Travel Arrow
         #"coplmfnphahpcknbchcehdikbdieognn"
         # xbrowsersync

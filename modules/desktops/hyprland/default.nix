@@ -125,9 +125,9 @@ in {
             margin: 15px;
         }
 
+        /*
         .client-index {
-        /* Hide the client-index element */
-        display: none;
+            Hide the client-index element
             margin: 6px;
             padding: 5px;
             font-size: inherit;
@@ -135,6 +135,12 @@ in {
             border-radius: ${rounding}px;
             border: none;
             background-color: inherit;
+        } */
+
+        .client-index {
+            /* Hide the client-index element */
+            display: none;
+            /*visibility: hidden;*/
         }
 
         .client {
@@ -204,7 +210,7 @@ in {
 
           exec-once = [
             "waybar"
-            "hyprswitch init --show-title --custom-css .~/.config/hyprswitch/style.css  &"
+            "hyprswitch init --show-title --custom-css .~/.config/hyprswitch/style.css &"
           ];
 
           ### --- Keyboard bindings
@@ -376,7 +382,7 @@ in {
           };
 
           decoration = {
-            rounding = 6;
+            rounding = rounding;
 
             blur = {
               enabled = true;
