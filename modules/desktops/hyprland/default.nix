@@ -58,6 +58,9 @@ in {
     # Optional, hint electron apps to use wayland:
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+    # Hide index in hyprswitch
+    environment.sessionVariables.NEXT_INDEX_MAX = "-1";
+
     # I have ssh-agent running in my ssh-module, and addToAgent in my .ssh/config.
     # Not working yet on login
 
