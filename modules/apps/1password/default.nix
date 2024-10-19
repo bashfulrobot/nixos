@@ -23,6 +23,7 @@ in {
           vivaldi-bin
           brave
           chromium
+          .zen-wrapped
           # wavebox
 
         '';

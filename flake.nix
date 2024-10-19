@@ -44,13 +44,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, plasma-manager, nixos-hardware
-    , hyprland, hyprland-plugins, nix-flatpak, nur, nvim, stylix, disko, nixpkgs-zoom, nixvim, ...
+    , hyprland, hyprland-plugins, nix-flatpak, nur, nvim, stylix, disko, nixpkgs-zoom, nixvim, zen-browser, ...
     }:
     # with inputs;
     let
