@@ -5,7 +5,7 @@ in pkgs.stdenv.mkDerivation {
   src = pkgs.fetchurl {
     url =
       "https://github.com/Girbons/comics-downloader/releases/download/v${version}/comics-downloader-linux-x86-64";
-    sha256 = "sha256-JlKIXTfRJCcmG9dLyNK6OQYEouAn7dbV5vz1ASN43vk=";
+    sha256 = "sha256-UQEPTugybOuyRXbHnj/SUosFVD5e5Ljs/MYIBQQnh9U=";
   };
   phases = [ "installPhase" "patchPhase" ];
   installPhase = ''

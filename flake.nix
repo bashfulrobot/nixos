@@ -7,6 +7,8 @@
     nixpkgs-zoom.url =
       "github:NixOS/nixpkgs/06031e8a5d9d5293c725a50acf01242193635022";
 
+    # nixpkgs = { url = "github:nixos/nixpkgs/nixos-24.05"; };
+    # nixpkgs-unstable = { url = "github:nixos/nixpkgs/nixos-unstable"; };
     nixpkgs = { url = "github:nixos/nixpkgs/nixos-unstable"; };
     nixos-hardware = { url = "github:NixOS/nixos-hardware/master"; };
     nix-flatpak = { url = "github:gmodena/nix-flatpak"; };
@@ -52,8 +54,8 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, plasma-manager, nixos-hardware
-    , hyprland, hyprland-plugins, nix-flatpak, nur, nvim, stylix, disko, nixpkgs-zoom, nixvim, zen-browser, ...
-    }:
+    , hyprland, hyprland-plugins, nix-flatpak, nur, nvim, stylix, disko
+    , nixpkgs-zoom, nixvim, zen-browser, ... }:
     # with inputs;
     let
       # Add overlays here, then pass the "workstationOverlays" reference into machine config.
