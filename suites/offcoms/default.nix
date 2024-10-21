@@ -23,7 +23,7 @@ in {
       firefox.enable = false;
       vivaldi.enable = false;
       ms-edge.enable = false;
-      zen-browser.enable = true;
+      zen-browser.enable = false;
 
       # TODO: needs some work in my module
       #  - extensions keep reordering
