@@ -28,7 +28,7 @@ in {
       kompose # Kubernetes container orchestration
       # vultr-cli # Vultr cloud management
       kubectl # Kubernetes command-line tool
-      kubectx # Kubernetes context switcher
+      # kubectx # Kubernetes context switcher TODO: RE-enable
       kubecolor # colorize kubectl output
       kubernetes-helm # Kubernetes package manager
       # butane # flatcar/ignition configuration

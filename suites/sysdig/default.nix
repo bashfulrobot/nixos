@@ -37,7 +37,7 @@ in {
 
     cli = {
       sysdig-cli-scanner.enable = true;
-      instruqt.enable = true;
+      instruqt.enable = false;
     };
   };
 }
