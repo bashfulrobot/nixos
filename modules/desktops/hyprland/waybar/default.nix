@@ -55,7 +55,7 @@ in {
               # "temperature"
               # "clock"
               # "tray"
-              "hyprland/window"
+              # "hyprland/window"
               "group/systray"
             ];
 
@@ -306,7 +306,7 @@ in {
           window#waybar {
             border-bottom: solid 2px #2D2B40;
             font-family: 'Font Awesome 6 Free', 'Work Sans';
-            font-size: 14px;
+            font-size: 8px;
           }
 
           tooltip {
