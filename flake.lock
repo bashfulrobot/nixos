@@ -754,11 +754,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1725107917,
-        "narHash": "sha256-6on3nwb3gB4t+P/2IExgGhVLVgAkF6ZiE5x+qcQHEXU=",
+        "lastModified": 1729758498,
+        "narHash": "sha256-8GELdDM3LB5ahvFk+RsE0BgQth8XwcJt+QfEiRyjTy4=",
         "owner": "h3rmt",
         "repo": "hyprswitch",
-        "rev": "f478c394ad6db5ba268f80052f1eb2366366b21e",
+        "rev": "1a7f9bf835473f5189400265c4fb7c7cdc01c662",
         "type": "github"
       },
       "original": {

@@ -20,9 +20,9 @@
   users.default.enable = true;
 
   desktops = {
-    gnome.enable = false;
+    gnome.enable = true;
     # meant to work with gnome - testing
-    hyprland.enable = true;
+    hyprland.enable = false;
     kde.enable = false;
   };
 
