@@ -62,6 +62,8 @@ in {
       # google-chrome
       # tangram
 
+      gromit-mpx # draw on screen
+
       # PDF
       xournalpp # note taking/pdf annotator
       evince # pdf viewer
