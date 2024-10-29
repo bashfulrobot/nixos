@@ -33,7 +33,6 @@ in {
           show-screenshot-ui = [ "<Control><Alt>p" ];
           switch-to-application-1 = [ ];
           switch-to-application-2 = [ ];
-          switch-to-application-3 = [ ];
           switch-to-application-4 = [ ];
         };
 
@@ -67,7 +66,7 @@ in {
           move-to-workspace-8 = [ "<Shift><Super>8" ];
           move-to-workspace-9 = [ "<Shift><Super>9" ];
           toggle-message-tray = [ "<Shift><Super>n" ];
-          panel-run-dialog = [ "<Super>space" ];
+          panel-run-dialog = [ ];
           switch-input-source = [ ];
           switch-input-source-backward = [ ];
         };
@@ -84,6 +83,7 @@ in {
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/"
           ];
         };
 
@@ -151,6 +151,13 @@ in {
             command = "gmail-url";
             name = "Transform gmail url to archive url on your clipboard";
           };
+          "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9" =
+          {
+            binding = "<Control>space";
+            command = "toggle-cursor-size";
+            name = "toggle large cursor in presentations";
+          };
+
       };
 
     };

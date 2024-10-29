@@ -46,6 +46,7 @@ in {
         gmail-url.enable = true;
         copy_icons.enable = true;
         init-bootstrap.enable = true;
+        toggle-cursor-size.enable = true;
       };
     };
 
