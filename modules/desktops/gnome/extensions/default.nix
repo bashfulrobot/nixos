@@ -1,4 +1,4 @@
-{ user-settings, lib, config, pkgs, ... }:
+{ user-settings, lib, config, pkgs, inputs, ... }:
 let
   cfg = config.desktops.gnome.extensions;
 
