@@ -21,7 +21,8 @@ let
         dconf write /org/gnome/desktop/interface/cursor-size 120
         dconf write /org/gnome/desktop/interface/cursor-theme "'Bibata-Modern-Amber'"
       else
-        echo "Current cursor size is not 120 or 25. No changes made."
+        dconf write /org/gnome/desktop/interface/cursor-size 120
+        dconf write /org/gnome/desktop/interface/cursor-theme "'Bibata-Modern-Amber'"
       fi
 
       exit 0
