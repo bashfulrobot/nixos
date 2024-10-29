@@ -303,7 +303,6 @@ in {
           controls-manager-spacing-size = 22;
           dash = true;
           dash-icon-size = 0;
-          double-super-to-appgrid = false;
           keyboard-layout = false;
           osd = true;
           panel = true;
