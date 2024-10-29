@@ -148,6 +148,16 @@ in {
         "ong/gnome/shell/extensions/unite" = {
           hide-window-titlebars = "always";
           show-window-title = "always";
+          extend-left-box = false;
+          reduce-panel-spacing = true;
+          greyscale-tray-icons = true;
+          show-appmenu-button = false;
+          hide-app-menu-icon = true;
+          use-activities-text = false;
+          show-desktop-name = false;
+          autofocus-windows = true;
+          enable-titlebar-actions = false;
+          window-buttons-theme = "default";
         };
 
         "org/gnome/shell/extensions/hidetopbar" = {
