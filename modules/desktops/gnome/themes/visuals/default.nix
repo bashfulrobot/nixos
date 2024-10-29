@@ -23,46 +23,7 @@ in {
         target = ".local/share/backgrounds/bender-c3pio-daft-punk.png";
       };
 
-# window excetpions
-      home.file.".config/pop-shell/config.json".text = ''
-{
-  "float": [
-    {
-      "class": "pop-shell-example",
-      "title": "pop-shell-example"
-    },
-    {
-      "class": "firefox",
-      "title": "^(?!.*Mozilla Firefox).*$",
-      "disabled": true
-    },
-    {
-      "class": "zoom",
-      "disabled": false
-    },
-    {
-      "class": "Slack",
-      "disabled": false
-    },
-    {
-      "class": "Element",
-      "disabled": false
-    },
-    {
-      "class": "1Password",
-      "disabled": false
-    },
-    {
-      "class": "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Default",
-      "disabled": false
-    }
 
-  ],
-  "skiptaskbarhidden": [],
-  "log_on_focus": false
-}
-
-      '';
 
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 
@@ -104,17 +65,7 @@ in {
           # secondary-color = "#000000";
         };
 
-        "org/gnome/shell/extensions/pop-shell" = {
-          active-hint = false;
-          hint-color-rgba = "rgb(122, 162, 247)";
-          # gaps need to be the same.
-          gap-inner = mkUint32 4;
-          gap-outer = mkUint32 4;
-          smart-gaps = false;
-          active-hint-border-radius = mkUint32 0;
-          show-title = false;
-          show-skip-taskbar = false;
-        };
+
       };
 
     };

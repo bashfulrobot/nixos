@@ -47,6 +47,20 @@ in {
     home-manager.users."${user-settings.user.username}" = {
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 
+        "org/gnome/desktop/interface" = {
+          color-scheme = "prefer-dark";
+          enable-animations = true;
+          font-antialiasing = "rgba";
+          font-hinting = "full";
+          locate-pointer = true;
+          gtk-enable-primary-paste = true;
+          # TODO: might not be needed with Stylix
+          gtk-theme = "Adwaita"; # breaks stylix on build
+          # gtk-theme = "adw-gtk3"; # currently broken, but needed in stylix.
+          icon-theme = "Adwaita";
+          cursor-theme = "Adwaita";
+        };
+
         "org/gnome/shell" = {
           # Enabled extensions
           enabled-extensions = [
@@ -171,7 +185,60 @@ in {
           show-icons = false;
         };
 
+        "org/gnome/shell/extensions/pop-shell" = {
+          active-hint = false;
+          hint-color-rgba = "rgb(122, 162, 247)";
+          # gaps need to be the same.
+          gap-inner = mkUint32 4;
+          gap-outer = mkUint32 4;
+          smart-gaps = false;
+          active-hint-border-radius = mkUint32 0;
+          show-title = false;
+          show-skip-taskbar = false;
+        };
+
       };
+
+      # window exceptions
+      home.file.".config/pop-shell/config.json".text = ''
+        {
+          "float": [
+            {
+              "class": "pop-shell-example",
+              "title": "pop-shell-example"
+            },
+            {
+              "class": "firefox",
+              "title": "^(?!.*Mozilla Firefox).*$",
+              "disabled": true
+            },
+            {
+              "class": "zoom",
+              "disabled": false
+            },
+            {
+              "class": "Slack",
+              "disabled": false
+            },
+            {
+              "class": "Element",
+              "disabled": false
+            },
+            {
+              "class": "1Password",
+              "disabled": false
+            },
+            {
+              "class": "chrome-chat.developer.gov.bc.ca__channel_devops-sysdig-Default",
+              "disabled": false
+            }
+
+          ],
+          "skiptaskbarhidden": [],
+          "log_on_focus": false
+        }
+
+      '';
 
     };
 
