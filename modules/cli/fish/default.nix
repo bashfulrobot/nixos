@@ -305,8 +305,7 @@ in {
           gos = "cd ~/Documents/Scratch/";
           gon = "cd ~/dev/nix/nixos";
           gon-e = "cd ~/dev/nix/nixos && code -r .";
-          do-update = "gon && git pull && just upgrade-system && nix-collect-garbage
- -d && rebuild && git add -A && git commit -S && git push";
+          do-update = "gon && git pull && just upgrade-system && nix-collect-garbage -d && rebuild && git add -A && git commit -S && git push";
           goagent = "cd ~/dev/sysdig/sysdig-agent-deploy/";
           goscreen = "cd ~/Pictures/Screenshots/";
           y = "cd ~/; yazi";
