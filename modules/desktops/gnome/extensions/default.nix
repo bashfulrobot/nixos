@@ -228,7 +228,7 @@ in {
             },
             {
               "class": "Slack",
-              "disabled": false
+              "disabled": true
             },
             {
               "class": "Element",
