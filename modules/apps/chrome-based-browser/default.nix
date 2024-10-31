@@ -107,8 +107,6 @@ in {
         "miancenhdlkbmjmhlginhaaepbdnlllc"
         # Speed dial extention
         "jpfpebmajhhopeonhlcgidhclcccjcik"
-        # Omnivore
-        "blkggjdmcfjdbmmmlfcpplkchpeaiiab"
         # Raindrop
         "ldgfbffkinooeloadekpmfoklnobpien"
         # Tokyonight

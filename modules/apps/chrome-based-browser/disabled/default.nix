@@ -134,10 +134,6 @@ in {
           {
             id = "jpfpebmajhhopeonhlcgidhclcccjcik";
           }
-          # Omnivore
-          {
-            id = "blkggjdmcfjdbmmmlfcpplkchpeaiiab";
-          }
           # Tokyonight
           {
             id = "enpfonmmpgoinjpglildebkaphbhndek";
