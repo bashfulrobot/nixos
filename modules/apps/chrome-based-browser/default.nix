@@ -109,6 +109,8 @@ in {
         "jpfpebmajhhopeonhlcgidhclcccjcik"
         # Omnivore
         "blkggjdmcfjdbmmmlfcpplkchpeaiiab"
+        # Raindrop
+        "ldgfbffkinooeloadekpmfoklnobpien"
         # Tokyonight
         #"enpfonmmpgoinjpglildebkaphbhndek"
         # email tracking for work
