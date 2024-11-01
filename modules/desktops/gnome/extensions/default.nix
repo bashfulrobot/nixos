@@ -69,7 +69,7 @@ in {
         "org/gnome/shell" = {
           # Enabled extensions
           enabled-extensions = [
-
+            "gsconnect@andyholmes.github.io"
             "window-calls@domandoman.xyz"
             "quick-settings-audio-panel@rayzeq.github.io"
             "bluetooth-quick-connect@bjarosze.gmail.com"
