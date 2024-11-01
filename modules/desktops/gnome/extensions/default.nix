@@ -24,6 +24,11 @@ in {
 
   config = lib.mkIf cfg.enable {
 
+    programs.kdeconnect = {
+      enable = true;
+      package = pkgs.gnomeExtensions.gsconnect;
+    };
+
     environment.systemPackages = with pkgs; [
       # pop-shell-no-icon
       # Gnome Extensions
