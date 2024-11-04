@@ -86,10 +86,6 @@ in {
       # thunderbird # email client
       #mailspring # email client
       #geary # email reader
-
-      # Utilities
-      _1password-gui # password management GUI
-      _1password # password manager cli
       pandoc # document converter
     ];
   };
