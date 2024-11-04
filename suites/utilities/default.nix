@@ -23,7 +23,7 @@ in {
       kooha # Screen recorder for x11/Wayland
       # flameshot # Screen capture - currently has a bug
       satty # annotation
-      colorpicker # colour picker
+      gcolor3
       ydotool # xdotool alternative. window automation
       tcpdump
       usbutils # usb utilities like lsusb
