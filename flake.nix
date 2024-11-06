@@ -54,11 +54,13 @@
     # currently used for FF extensions
     nur.url = "github:nix-community/NUR";
 
+    # System wide theme
+    catppuccin.url = "github:catppuccin/nix";
+
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager
-    , plasma-manager, nix-flatpak
-    , nur, nvim, disko, nixvim, ... }:
+    , plasma-manager, nix-flatpak, nur, nvim, disko, nixvim, catppuccin, ... }:
     # with inputs;
     let
 
@@ -102,6 +104,7 @@
             nix-flatpak.nixosModules.nix-flatpak
             home-manager.nixosModules.home-manager
             ## stylix.nixosModules.stylix
+            catppuccin.nixosModules.catppuccin
             disko.nixosModules.disko
             nixvim.nixosModules.nixvim
 
@@ -112,7 +115,7 @@
                   [ plasma-manager.homeManagerModules.plasma-manager ];
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets inputs; };
-                users."${user-settings.user.username}" = { imports = [ ]; };
+                users."${user-settings.user.username}" = { imports = [catppuccin.homeManagerModules.catppuccin ]; };
               };
 
               nixpkgs = {
@@ -141,6 +144,7 @@
             nix-flatpak.nixosModules.nix-flatpak
             home-manager.nixosModules.home-manager
             # stylix.nixosModules.stylix
+            catppuccin.nixosModules.catppuccin
             nixvim.nixosModules.nixvim
             #  disko.nixosModules.disko - not in use yet, next reload
 
@@ -151,7 +155,7 @@
                   [ plasma-manager.homeManagerModules.plasma-manager ];
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
-                users."${user-settings.user.username}" = { imports = [ ]; };
+                users."${user-settings.user.username}" = { imports = [catppuccin.homeManagerModules.catppuccin ]; };
               };
 
               nixpkgs = {
@@ -194,7 +198,6 @@
             nix-flatpak.nixosModules.nix-flatpak
             # nur.nixosModules.nur
             nix-flatpak.nixosModules.nix-flatpak
-            # catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             # stylix.nixosModules.stylix
 

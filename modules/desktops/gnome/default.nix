@@ -24,6 +24,10 @@ in {
       };
     };
 
+    sys = {
+      catppuccin-theme.enable = true;
+    };
+
     apps = { nautilus.enable = true; };
 
     xdg.portal.config.common.default = [ "*" ];
