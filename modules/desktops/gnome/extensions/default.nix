@@ -79,7 +79,7 @@ in {
             "user-theme@gnome-shell-extensions.gcampax.github.com"
             "just-perfection-desktop@just-perfection" # locks up gnome after last update. Sad Face. Testing
             "pop-shell@system76.com"
-            "unite@hardpixel.eu"
+
           ];
 
           # Disabled extensions
@@ -89,6 +89,7 @@ in {
             "lilypad@shendrew.github.io"
             # Normally Disabled
             "hidetopbar@mathieu.bidon.ca"
+            "unite@hardpixel.eu"
             "GPU_profile_selector@lorenzo9904.gmail.com"
             "forge@jmmaranan.com"
             "gtk4-ding@smedius.gitlab.com"
