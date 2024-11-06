@@ -41,6 +41,7 @@ in {
       ssh.enable = true;
       gpg.enable = true;
       scripts = {
+        run-zoom.enable = true;
         hw-scan.enable = true;
         screenshots.enable = true;
         gmail-url.enable = true;
