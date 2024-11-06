@@ -1,3 +1,4 @@
+# Docs: https://nix-community.github.io/nixvim/stable/
 { user-settings, pkgs, config, lib, ... }:
 let cfg = config.cli.nixvim;
 
@@ -225,25 +226,26 @@ in {
         }
         {
           mode = "n";
-          key = "<C-/>";
+          key = "<C-_>";
           action = "<Plug>(comment_toggle_linewise_current)";
           options.desc = "(Un)comment in Normal Mode";
         }
         {
           mode = "v";
-          key = "<C-/>";
+          key = "<C-_>";
           action = "<Plug>(comment_toggle_linewise_visual)";
           options.desc = "(Un)comment in Visual Mode";
         }
+        # the _ is misleading, it's actually / on the keyboard in nixvim
         {
           mode = "n";
-          key = "<C-S-/>";
+          key = "<C-S-_>";
           action = "<Plug>(comment_toggle_blockwise_current)";
           options.desc = "(Un)comment in Normal Mode";
         }
         {
           mode = "v";
-          key = "<C-S-/>";
+          key = "<C-S-_>";
           action = "<Plug>(comment_toggle_blockwise_visual)";
           options.desc = "(Un)comment in Visual Mode";
         }
@@ -291,19 +293,18 @@ in {
         }
       ];
 
+      # TODO: Broke on downgrade to stable. Need to fix after one good build on stable.
       plugins = {
         lazygit.enable = true;
         lualine.enable = true;
         barbar.enable = true;
-        web-devicons.enable = true;
         gitgutter = {
           enable = true;
           defaultMaps = false;
         };
         todo-comments = {
           enable = true;
-          settings = { signs = true; };
-
+          signs = true;
         };
         mini = {
           enable = true;
@@ -360,15 +361,14 @@ in {
         };
         treesitter = {
           enable = true;
+          indent = true;
           nixvimInjections = true;
           folding = false;
           nixGrammars = true;
-          settings = {
-            ensure_installed = "all";
-            highlight.enable = true;
-            incremental_selection.enable = true;
-            indent.enable = true;
-          };
+
+          ensureInstalled = "all";
+          incrementalSelection.enable = true;
+
         };
         treesitter-refactor = { enable = true; };
         nvim-colorizer = {
@@ -400,7 +400,7 @@ in {
             html.enable = true;
             cssls.enable = true;
             eslint.enable = true;
-            ts_ls.enable = true;
+            tsserver.enable = true;
             pyright.enable = true;
             tailwindcss = {
               enable = true;
@@ -489,23 +489,24 @@ in {
         };
         which-key = {
           enable = true;
-          settings = {
-            spec = [
-              {
-                __unkeyed-1 = "<leader>b";
-                desc = "Buffer";
-              }
-              {
-                __unkeyed-1 = "<leader>f";
+          # TODO: Not is stable yet
+          # settings = {
+          #   spec = [
+          #     {
+          #       __unkeyed-1 = "<leader>b";
+          #       desc = "Buffer";
+          #     }
+          #     {
+          #       __unkeyed-1 = "<leader>f";
 
-                desc = "Find";
-              }
-              {
-                __unkeyed-1 = "<leader>s";
-                desc = "Split Window";
-              }
-            ];
-          };
+          #       desc = "Find";
+          #     }
+          #     {
+          #       __unkeyed-1 = "<leader>s";
+          #       desc = "Split Window";
+          #     }
+          #   ];
+          # };
         };
         toggleterm = {
           enable = true;
@@ -518,6 +519,7 @@ in {
           };
         };
       };
+
       extraPlugins = with pkgs.vimPlugins; [
         friendly-snippets
         luasnip
@@ -528,7 +530,9 @@ in {
         vim-prettier
         (pkgs.vimUtils.buildVimPlugin rec {
           pname = "scope-nvim";
-          version = "cd27af77ad61a7199af5c28d27013fb956eb0e3e";
+          # version = "cd27af77ad61a7199af5c28d27013fb956eb0e3e";
+          # TODO: UPDATES
+          version = "932102696ead2b7ab9ff65017767b57e2722fdde";
           src = pkgs.fetchFromGitHub {
             owner = "tiagovla";
             repo = "scope.nvim";
@@ -538,12 +542,14 @@ in {
         })
         (pkgs.vimUtils.buildVimPlugin rec {
           pname = "follow-md-links.nvim";
-          version = "cf081a0a8e93dd188241a570b9a700b6a546ad1c";
+          # version = "cf081a0a8e93dd188241a570b9a700b6a546ad1c";
+          # TODO: UPDATES
+          version = "41a6d74636b4209571680d40f20f59a0bf30bf57";
           src = pkgs.fetchFromGitHub {
             owner = "jghauser";
             repo = "follow-md-links.nvim";
             rev = version;
-            sha256 = "sha256-ElgYrD+5FItPftpjDTdKAQR37XBkU8mZXs7EmAwEKJ4=";
+            sha256 = "sha256-ULQTE57SRA8uTuvg5LLJzcI5hOlXDrUwrHfm9+1pbe8=";
           };
         })
       ];

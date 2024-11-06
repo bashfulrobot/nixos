@@ -34,20 +34,17 @@ dev-test:
 # Rebuild nixos cfg on your current host without git commit.
 dev-rebuild:
     @git add -A
-    @rm -f /home/dustin/.config/mimeapps.list
     @sudo nixos-rebuild switch --impure --flake .#rembot
     # @just _sway-reload
 # Rebuild nixos cfg without the cache.
 dev-rebuild-no-cache:
     @git add -A
-    @rm -f /home/dustin/.config/mimeapps.list
     @sudo nixos-rebuild switch --impure --flake .#rembot --option binary-caches ''
     # @just _sway-reload
 # Rebuild and trace nixos cfg on your current host without git commit.
 dev-rebuild-trace:
     @git add -A
     @just garbage-build-cache
-    @rm -f /home/dustin/.config/mimeapps.list
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}} --show-trace > ~/dev/nix/nixos/rebuild-trace.log 2>&1
     # @just _sway-reload
 # Test (with Trace) nixos cfg on your current host without git commit. Switches, but does not create a bootloader entry
@@ -83,12 +80,10 @@ nixdb:
     nix run 'nixpkgs#nix-index' --extra-experimental-features 'nix-command flakes'
 # Rebuild nixos cfg on your current host.
 rebuild:
-    @rm -f /home/dustin/.config/mimeapps.list
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}}
     # @just _sway-reload
 # Rebuild nixos cfg on your current host with show-trace.
 rebuild-trace:
-    @rm -f /home/dustin/.config/mimeapps.list
     @sudo nixos-rebuild switch --impure --flake .#\{{`hostname`}} --show-trace
     @just _sway-reload
 # Rebuild nixos cfg in a vm host with show-trace.
@@ -107,7 +102,7 @@ repo-conflict-nuke:
 
 # Update Hardware Firmware
 run-fwup:
-    @sudo fwupdmgr refresh --force
+    # @sudo fwupdmgr refresh --force?
     @sudo fwupdmgr get-updates
     @sudo fwupdmgr update
 # Update Flake
@@ -116,6 +111,5 @@ upgrade-system:
     ulimit -n 4096
     @cp flake.lock flake.lock-pre-upg-$(hostname)-$(date +%Y-%m-%d_%H-%M-%S)
     @nix flake update
-    @rm -f /home/dustin/.config/mimeapps.list
     @sudo nixos-rebuild switch --impure --upgrade --flake .#\{{`hostname`}} --show-trace
     # @just _sway-reload

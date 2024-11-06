@@ -32,7 +32,8 @@ in {
       sudo = { enable = true; };
     };
 
-    environment.systemPackages = with pkgs; [ ];
+    # environment.systemPackages = with pkgs; [
+    # ];
 
     # security.pam.services = {
     #   sddm.enableKwallet = true;

@@ -1,4 +1,4 @@
-{ user-settings, config, lib, secrets, pkgs, ... }:
+{ user-settings, config, lib, secrets, pkgs, inputs, ... }:
 
 let
   cfg = config.apps.one-password;
@@ -33,9 +33,13 @@ in {
 
     # Enable the 1Passsword GUI with myself as an authorized user for polkit
     programs = {
-      _1password.enable = true;
+      _1password = {
+        enable = true;
+        package = pkgs.unstable._1password-cli;
+      };
       _1password-gui = {
         enable = true;
+        package = pkgs.unstable._1password-gui;
         # polkitPolicyOwners = [ "${user-settings.user.username}" ];
         # polkitPolicyOwners = [ dustin ];
         polkitPolicyOwners = config.users.groups.wheel.members;

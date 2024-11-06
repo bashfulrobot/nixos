@@ -62,7 +62,8 @@ in {
 
     home-manager.users."${user-settings.user.username}" = {
       imports = [ ./build/plasma-settings.nix ];
-      # home.packages = with pkgs; [ ];
+      # home.packages = with pkgs; [
+      # ];
       # programs = { };
 
       # home.file.".config/plasma-org.kde.plasma.desktop-appletsrc" = {

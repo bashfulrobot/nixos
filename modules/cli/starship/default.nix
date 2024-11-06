@@ -11,7 +11,10 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ ];
+
+    # environment.systemPackages = with pkgs; [
+    #
+    #  ];
 
     home-manager.users."${user-settings.user.username}" = {
       programs.starship = {

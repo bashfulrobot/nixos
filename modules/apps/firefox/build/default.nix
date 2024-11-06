@@ -5,7 +5,7 @@ let
 in stdenv.mkDerivation rec {
   pname = "firefox-gnome-theme";
   #   TODO: UPDATE ME
-  version = "129";
+  version = "132";
   src = fetchzip {
     url =
       "https://github.com/rafaelmardojai/firefox-gnome-theme/archive/refs/tags/v${version}.zip";

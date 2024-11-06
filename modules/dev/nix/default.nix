@@ -23,6 +23,7 @@ in {
       nixfmt-rfc-style # Nix code formatter
       nodePackages.node2nix # Node to Nix
       statix # nix linting
+      nixd # nix language server
       nix-prefetch-github # Get sha256 info for GitHub
     ];
     home-manager.users."${user-settings.user.username}" = {

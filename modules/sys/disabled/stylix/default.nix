@@ -17,7 +17,7 @@ in {
 
     stylix = {
       enable = true;
-      image = ./wallpapers/bender-c3pio-daft-punk.png;
+      image = ../wallpapers/bender-c3pio-daft-punk.png;
       # one of “stretch”, “fill”, “fit”, “center”, “tile”
       imageScalingMode = "fill";
       polarity = "dark"; # or "light" - forcing dark
@@ -26,7 +26,7 @@ in {
       # "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
       cursor = {
         name = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
+        package = pkgs.gnome.adwaita-icon-theme;
         size = 32;
       };
       opacity = {

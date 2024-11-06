@@ -16,7 +16,7 @@ in {
     apps = { };
 
     environment.systemPackages = with pkgs; [
-      gnome-disk-utility
+      gnome.gnome-disk-utility
       # TODO: COnfirm: ENabled with logitech.solaar, not needed?
       #solaar # Linux manager for many Logitech keyboards, mice
       # junction # default app selector

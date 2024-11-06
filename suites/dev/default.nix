@@ -1,4 +1,4 @@
-{ config, pkgs, lib, user-settings, ... }:
+{ config, pkgs, lib, user-settings, inputs, ... }:
 let cfg = config.suites.dev;
 in {
 
@@ -36,8 +36,7 @@ in {
       helix.enable = false;
     };
 
-    environment.systemPackages = with pkgs; [
-      zed-editor # text editor
+environment.systemPackages = with pkgs; [
       watchman # file watcher
       # gitnuro # git client
       # zola # static site generator
@@ -54,6 +53,7 @@ in {
       cosmic-edit # editor from system 76
       #openvscode-server # vscode in browser. Used for demos
       jnv # json filtering with jq
+      unstable.zed-editor # text editor
     ];
     home-manager.users."${user-settings.user.username}" = {
       programs = { jq = { enable = true; }; };

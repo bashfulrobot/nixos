@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 let cfg = config.archetype.workstation;
 in {
 
@@ -32,7 +32,7 @@ in {
 
     sys = {
       plymouth.enable = true;
-      #stylix.enable = false; # TODO: broken themes in gnome. Transparent title bars
+      # stylix.enable = false; # TODO: broken themes in gnome. Transparent title bars
       dconf.enable = true;
       flatpaks.enable = true;
       xdg.enable = true;

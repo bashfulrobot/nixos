@@ -12,7 +12,8 @@ in {
 
   config = lib.mkIf cfg.enable {
 
-    environment.systemPackages = with pkgs; [ ];
+    # environment.systemPackages = with pkgs; [
+    #  ];
 
     home-manager.users."${user-settings.user.username}" = {
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
@@ -151,7 +152,7 @@ in {
             command = "gmail-url";
             name = "Transform gmail url to archive url on your clipboard";
           };
-          "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9" =
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9" =
           {
             binding = "<Control>space";
             command = "toggle-cursor-size";

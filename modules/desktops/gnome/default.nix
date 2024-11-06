@@ -44,16 +44,15 @@ in {
     environment.systemPackages = with pkgs; [
       libadwaita # Adwaita libs
       adwaita-qt6 # Adwaita Qt theme
-      adwaita-icon-theme # Adwaita icons
+      gnome.adwaita-icon-theme # Adwaita icons
       vscode-extensions.piousdeer.adwaita-theme # Adwaita Theme for VSCode
       gnome-randr # Xrandr-like CLI for configuring displays on GNOME/Wayland, on distros that don't support `wlr-randr`
       gnome-firmware # Firmware updater
       pulseaudio # Need pactl for gnome ext
-      gnome-tweaks # Gnome Tweaks
+      gnome.gnome-tweaks # Gnome Tweaks
       pinentry-gnome3 # Gnome3 pinentry
       # Gnome apps/services
-      adwaita-icon-theme # icon theme
-      gnome-settings-daemon # settings daemon
+      gnome.gnome-settings-daemon # settings daemon
       gnome2.GConf # configuration database system for old apps
     ];
 
@@ -168,6 +167,7 @@ in {
         };
 
       };
+
     };
   };
 }

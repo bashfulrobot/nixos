@@ -38,7 +38,7 @@ in {
     };
 
     sys = {
-      stylix.enable = true;
+      # stylix.enable = true;
       scripts = {
         screenshots.enable = true;
         get_wm_class.enable = true;

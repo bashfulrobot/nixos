@@ -19,11 +19,9 @@ in {
         work-sans
         ];
       home.file."bender-c3pio-daft-punk.png" = {
-        source = ../../../../sys/stylix/wallpapers/bender-c3pio-daft-punk.png;
+        source = ../../../../sys/wallpapers/bender-c3pio-daft-punk.png;
         target = ".local/share/backgrounds/bender-c3pio-daft-punk.png";
       };
-
-
 
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
 
@@ -64,7 +62,6 @@ in {
           # primary-color = "#000000";
           # secondary-color = "#000000";
         };
-
 
       };
 
