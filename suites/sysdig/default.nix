@@ -14,8 +14,8 @@ in {
 
     apps = {
       zoom-us = {
-        enable = false;
-        downgrade = true;
+        enable = true;
+        downgrade = false;
       };
 
       zoom-web.enable = true;
