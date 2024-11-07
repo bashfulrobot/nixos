@@ -115,7 +115,9 @@
                   [ plasma-manager.homeManagerModules.plasma-manager ];
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets inputs; };
-                users."${user-settings.user.username}" = { imports = [catppuccin.homeManagerModules.catppuccin ]; };
+                users."${user-settings.user.username}" = {
+                  imports = [ catppuccin.homeManagerModules.catppuccin ];
+                };
               };
 
               nixpkgs = {
@@ -155,7 +157,9 @@
                   [ plasma-manager.homeManagerModules.plasma-manager ];
                 useGlobalPkgs = true;
                 extraSpecialArgs = { inherit user-settings secrets; };
-                users."${user-settings.user.username}" = { imports = [catppuccin.homeManagerModules.catppuccin ]; };
+                users."${user-settings.user.username}" = {
+                  imports = [ catppuccin.homeManagerModules.catppuccin ];
+                };
               };
 
               nixpkgs = {
@@ -194,11 +198,8 @@
             ./systems/srv
             home-manager.nixosModules.home-manager
             nixvim.nixosModules.nixvim
-            # Below not used, but autoimport fails without this
             nix-flatpak.nixosModules.nix-flatpak
-            # nur.nixosModules.nur
-            home-manager.nixosModules.home-manager
-            # stylix.nixosModules.stylix
+            catppuccin.nixosModules.catppuccin
 
             {
               home-manager = {
