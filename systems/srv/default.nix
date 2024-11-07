@@ -12,6 +12,7 @@
     # ../../modules/autoimport.nix # autoimport modules
     ../../modules/cli/nixvim
     ../../modules/cli/docker
+    ../../modules/cli/fish
     ../../modules/apps/kvm
   ];
 
