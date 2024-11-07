@@ -60,6 +60,11 @@
         nixvim.nixosModules.nixvim
       ];
 
+      serverModules = [
+        home-manager.nixosModules.home-manager
+        nixvim.nixosModules.nixvim
+      ];
+
       commonHomeManagerConfig = {
         home-manager = {
           useUserPackages = true;
@@ -90,7 +95,7 @@
         evo = makeSystem "evo" (commonModules ++ [ ./systems/evo commonHomeManagerConfig commonNixpkgsConfig ]);
         rembot = makeSystem "rembot" (commonModules ++ [ ./systems/rembot commonHomeManagerConfig commonNixpkgsConfig ]);
         nixdo = makeSystem "nixdo" [ ./systems/nixdo ];
-        srv = makeSystem "srv" (commonModules ++ [ ./systems/srv commonHomeManagerConfig commonNixpkgsConfig ]);
+        srv = makeSystem "srv" (serverModules ++ [ ./systems/srv commonHomeManagerConfig commonNixpkgsConfig ]);
       };
     };
 }
