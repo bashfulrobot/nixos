@@ -11,16 +11,19 @@
     ./config
     # ../../modules/autoimport.nix # autoimport modules
     # TODO: make an importable file of common server modules
+
+    # Common modules
     ../../modules/cli/nixvim
-    ../../modules/cli/docker
     ../../modules/cli/fish
     ../../modules/cli/starship
     ../../modules/cli/tailscale
     ../../modules/cli/yazi
-    ../../modules/apps/kvm
     ../../modules/nixcfg/home-mgr.nix
     ../../modules/nixcfg/insecure-packages.nix
     ../../modules/nixcfg/nix-settings.nix
+    # System Specific modules
+    ../../modules/cli/docker
+    ../../modules/apps/kvm
   ];
 
 }
