@@ -18,9 +18,9 @@ in {
       home.packages = with pkgs; [
         work-sans
         ];
-      home.file."bender-c3pio-daft-punk.png" = {
-        source = ../../../../sys/wallpapers/bender-c3pio-daft-punk.png;
-        target = ".local/share/backgrounds/bender-c3pio-daft-punk.png";
+      home.file."3pio-bender-catppuccin-mocha.png" = {
+        source = ../../../../sys/wallpapers/3pio-bender-catppuccin-mocha.png;
+        target = ".local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
       };
 
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
@@ -45,9 +45,9 @@ in {
         # Disable when using Stylix
         "org/gnome/desktop/background" = {
           picture-uri =
-            "file:///home/dustin/.local/share/backgrounds/bender-c3pio-daft-punk.png";
+            "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
           picture-uri-dark =
-            "file:///home/dustin/.local/share/backgrounds/bender-c3pio-daft-punk.png";
+            "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
           color-shading-type = "solid";
           picture-options = "zoom";
           primary-color = "#000000";
@@ -56,7 +56,7 @@ in {
 
         "org/gnome/desktop/screensaver" = {
           picture-uri =
-            "file:///home/dustin/.local/share/backgrounds/bender-c3pio-daft-punk.png";
+            "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
           # color-shading-type = "solid";
           picture-options = "zoom";
           # primary-color = "#000000";

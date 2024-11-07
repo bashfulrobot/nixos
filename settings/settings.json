@@ -4,7 +4,7 @@
         "home": "/home/dustin",
         "full-name": "Dustin Krysak",
         "id": "1000",
-        "wallpaper": "/home/dustin/dev/nix/nixos/modules/sys/wallpapers/bender-c3pio-daft-punk.png"
+        "wallpaper": "/home/dustin/dev/nix/nixos/modules/sys/wallpapers/3pio-bender-catppuccin-mocha.png"
     },
     "nix": {
         "release": "24.05"
