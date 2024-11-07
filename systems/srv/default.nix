@@ -9,7 +9,8 @@
     ./hardware
     ./networking
     ./config
-    ../../modules/autoimport.nix # autoimport modules
+    # ../../modules/autoimport.nix # autoimport modules
+    ../../modules/cli/nixvim
   ];
 
 }
