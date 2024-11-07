@@ -37,7 +37,8 @@ in {
     };
 
 environment.systemPackages = with pkgs; [
-      gptcommit
+      gptcommit # auto commit messages
+
       watchman # file watcher
       # gitnuro # git client
       # zola # static site generator
