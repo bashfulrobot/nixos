@@ -197,7 +197,6 @@
             # Below not used, but autoimport fails without this
             nix-flatpak.nixosModules.nix-flatpak
             # nur.nixosModules.nur
-            nix-flatpak.nixosModules.nix-flatpak
             home-manager.nixosModules.home-manager
             # stylix.nixosModules.stylix
 
