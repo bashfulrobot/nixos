@@ -99,6 +99,8 @@ in {
         "egiemoacchfofdhhlfhkdcacgaopncmi"
         # Mail message URL
         "bcelhaineggdgbddincjkdmokbbdhgch"
+        # Catppuccin Github icons
+        "lnjaiaapbakfhlbjenjkhffcdpoompki"
         # Glean browser extension
         # "cfpdompphcacgpjfbonkdokgjhgabpij" # overrides my speed dial extention
         # gnome extention plugin
@@ -109,8 +111,6 @@ in {
         "jpfpebmajhhopeonhlcgidhclcccjcik"
         # Raindrop
         "ldgfbffkinooeloadekpmfoklnobpien"
-        # Tokyonight
-        #"enpfonmmpgoinjpglildebkaphbhndek"
         # email tracking for work
         #"pgbdljpkijehgoacbjpolaomhkoffhnl"
         # zoom
@@ -122,7 +122,7 @@ in {
         # xbrowsersync
         # "lcbjdhceifofjlpecfpeimnnphbcjgnc"
         # Catppuccin Mocha theme
-        # "bkkmolkhemgaeaeggcmfbghljjjoofoh"
+        "bkkmolkhemgaeaeggcmfbghljjjoofoh"
         # Catppuccin Frappe theme
         # "olhelnoplefjdmncknfphenjclimckaf"
         # Catppuccin Macchiato theme
