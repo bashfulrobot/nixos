@@ -6,18 +6,16 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-    ./hardware
-    ./networking
-    ./config
-    # ../../modules/autoimport.nix # autoimport modules
-    # TODO: make an importable file of common server modules
 
     # Common modules
-    ../common-server-modules
-
-    # System Specific modules
-    ../../modules/cli/docker
-    ../../modules/apps/kvm
+    ../../modules/cli/nixvim
+    ../../modules/cli/fish
+    ../../modules/cli/starship
+    ../../modules/cli/tailscale
+    ../../modules/cli/yazi
+    ../../modules/nixcfg/home-mgr.nix
+    ../../modules/nixcfg/insecure-packages.nix
+    ../../modules/nixcfg/nix-settings.nix
   ];
 
 }
