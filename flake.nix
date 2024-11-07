@@ -31,12 +31,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    nixpkgs-zoom.url = "github:NixOS/nixpkgs/06031e8a5d9d5293c725a50acf01242193635022";
+    nixpkgs-zoom.url =
+      "github:NixOS/nixpkgs/06031e8a5d9d5293c725a50acf01242193635022";
     nur.url = "github:nix-community/NUR";
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, nix-flatpak, nur, nvim, disko, nixvim, catppuccin, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager
+    , plasma-manager, nix-flatpak, nur, nvim, disko, nixvim, catppuccin, ... }:
     let
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
@@ -46,11 +48,14 @@
         };
       };
 
-      workstationOverlays = [ nur.overlay nvim.overlays.default overlay-unstable ];
+      workstationOverlays =
+        [ nur.overlay nvim.overlays.default overlay-unstable ];
 
-      secrets = builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
+      secrets =
+        builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
 
-      user-settings = builtins.fromJSON (builtins.readFile "${self}/settings/settings.json");
+      user-settings =
+        builtins.fromJSON (builtins.readFile "${self}/settings/settings.json");
 
       commonModules = [
         nur.nixosModules.nur
@@ -60,10 +65,8 @@
         nixvim.nixosModules.nixvim
       ];
 
-      serverModules = [
-        home-manager.nixosModules.home-manager
-        nixvim.nixosModules.nixvim
-      ];
+      serverModules =
+        [ home-manager.nixosModules.home-manager nixvim.nixosModules.nixvim ];
 
       commonHomeManagerConfig = {
         home-manager = {
@@ -77,6 +80,16 @@
         };
       };
 
+      serverHomeManagerConfig = {
+        home-manager = {
+          useUserPackages = true;
+          sharedModules = [ ];
+          useGlobalPkgs = true;
+          extraSpecialArgs = { inherit user-settings secrets inputs; };
+          users."${user-settings.user.username}" = { imports = [ ]; };
+        };
+      };
+
       commonNixpkgsConfig = {
         nixpkgs = {
           overlays = workstationOverlays;
@@ -84,18 +97,24 @@
         };
       };
 
-      makeSystem = name: modules: nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit user-settings inputs secrets nixpkgs-unstable; };
-        system = "x86_64-linux";
-        modules = modules;
-      };
+      makeSystem = name: modules:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit user-settings inputs secrets nixpkgs-unstable;
+          };
+          system = "x86_64-linux";
+          modules = modules;
+        };
 
     in {
       nixosConfigurations = {
-        evo = makeSystem "evo" (commonModules ++ [ ./systems/evo commonHomeManagerConfig commonNixpkgsConfig ]);
-        rembot = makeSystem "rembot" (commonModules ++ [ ./systems/rembot commonHomeManagerConfig commonNixpkgsConfig ]);
+        evo = makeSystem "evo" (commonModules
+          ++ [ ./systems/evo commonHomeManagerConfig commonNixpkgsConfig ]);
+        rembot = makeSystem "rembot" (commonModules
+          ++ [ ./systems/rembot commonHomeManagerConfig commonNixpkgsConfig ]);
         nixdo = makeSystem "nixdo" [ ./systems/nixdo ];
-        srv = makeSystem "srv" (serverModules ++ [ ./systems/srv commonHomeManagerConfig commonNixpkgsConfig ]);
+        srv = makeSystem "srv" (serverModules
+          ++ [ ./systems/srv serverHomeManagerConfig commonNixpkgsConfig ]);
       };
     };
 }
