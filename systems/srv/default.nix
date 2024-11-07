@@ -14,6 +14,7 @@
     ../../modules/cli/docker
     ../../modules/cli/fish
     ../../modules/cli/starship
+    ../../modules/cli/tailscale
     ../../modules/apps/kvm
   ];
 
