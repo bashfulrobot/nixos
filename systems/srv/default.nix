@@ -11,6 +11,7 @@
     ./config
     # ../../modules/autoimport.nix # autoimport modules
     ../../modules/cli/nixvim
+    ../../modules/apps/kvm
   ];
 
 }
