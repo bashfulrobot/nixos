@@ -1,8 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
-
+  imports = [
     # Common modules
     ../../modules/cli/nixvim
     ../../modules/cli/fish
