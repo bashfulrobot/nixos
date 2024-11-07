@@ -18,6 +18,9 @@
     ../../modules/cli/tailscale
     ../../modules/cli/yazi
     ../../modules/apps/kvm
+    ../../modules/nixcfg/home-mgr.nix
+    ../../modules/nixcfg/insecure-packages.nix
+    ../../modules/nixcfg/nix-settings.nix
   ];
 
 }
