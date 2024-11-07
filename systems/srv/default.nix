@@ -13,6 +13,7 @@
     ../../modules/cli/nixvim
     ../../modules/cli/docker
     ../../modules/cli/fish
+    ../../modules/cli/starship
     ../../modules/apps/kvm
   ];
 
