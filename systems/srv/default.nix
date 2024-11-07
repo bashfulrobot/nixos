@@ -10,11 +10,13 @@
     ./networking
     ./config
     # ../../modules/autoimport.nix # autoimport modules
+    # TODO: make an importable file of common server modules
     ../../modules/cli/nixvim
     ../../modules/cli/docker
     ../../modules/cli/fish
     ../../modules/cli/starship
     ../../modules/cli/tailscale
+    ../../modules/cli/yazi
     ../../modules/apps/kvm
   ];
 
