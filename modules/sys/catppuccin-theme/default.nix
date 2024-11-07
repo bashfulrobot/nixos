@@ -6,7 +6,7 @@ let
   flavor = "mocha";
 
   # Type: one of “blue”, “flamingo”, “green”, “lavender”, “maroon”, “mauve”, “peach”, “pink”, “red”, “rosewater”, “sapphire”, “sky”, “teal”, “yellow”
-  accent = "mauve";
+  accent = "sky";
 
 in {
 
