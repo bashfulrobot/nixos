@@ -13,19 +13,19 @@ in {
   config = lib.mkIf cfg.enable {
 
     environment.systemPackages = with pkgs; [
-      sops # Secrets management
+      # sops # Secrets management
       kubeseal # k8s secrets management
       eksctl # AWS EKS management tool
       cilium-cli # cilium cli
       kustomize # Kubernetes configuration management
-      k0sctl # A bootstrapping and management tool for k0s clusters.
+      # k0sctl # A bootstrapping and management tool for k0s clusters.
       # vagrant # lab automation
       fluxcd # FluxCD Gitops Cli
       # argocd-autopilot # https://argocd-autopilot.readthedocs.io/en/stable/
       # argocd # Gitops - cli
       # kubeone # Kubernetes cluster management
       talosctl # Talos OS management tool - diabled until https://github.com/NixOS/nixpkgs/issues/264127 is fixed.
-      kompose # Kubernetes container orchestration
+      # kompose # Kubernetes container orchestration
       # vultr-cli # Vultr cloud management
       kubectl # Kubernetes command-line tool
       # kubectx # Kubernetes context switcher TODO: RE-enable
