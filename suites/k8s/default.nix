@@ -32,6 +32,7 @@ in {
       kubecolor # colorize kubectl output
       kubernetes-helm # Kubernetes package manager
       # butane # flatcar/ignition configuration
+      unstable.minikube # Local k8s cluster
 
     ];
     home-manager.users."${user-settings.user.username}" = {
