@@ -230,7 +230,7 @@ in {
             },
             {
               "class": "zoom",
-              "disabled": false
+              "disabled": true
             },
             {
               "class": "Slack",
