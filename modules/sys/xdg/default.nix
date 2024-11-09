@@ -11,10 +11,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs;
-      [
-        xdg-utils
-      ];
+    environment.systemPackages = with pkgs; [ xdg-utils ];
     # Enable xdg
     xdg = {
       mime.enable = true;
@@ -26,6 +23,9 @@ in {
 
     home-manager.users."${user-settings.user.username}" = {
       xdg = {
+        # TODO: remeber, forcing the file to be overwritten when home-manager is run
+        configFile."mimeapps.list".force = true;
+
         # desktopEntries.librewolf = {
         #   name = "LibreWolf";
         #   exec = "${pkgs.librewolf}/bin/librewolf";
