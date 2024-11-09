@@ -33,7 +33,7 @@ in {
     };
 
     apps = {
-      epiphany.enable = true;
+      epiphany.enable = false;
       nautilus.enable = true;
     };
 
