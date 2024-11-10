@@ -61,6 +61,8 @@ in {
     programs.chromium = {
       enable = true;
       extensions = [
+				# pushover 
+				“fcmngfmocgakhjghfmgbbhlkenccgpdh”
         # bookmark search
         "cofpegcepiccpobikjoddpmmocficdjj"
         # kagi search
