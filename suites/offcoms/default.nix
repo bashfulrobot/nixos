@@ -55,6 +55,7 @@ in {
     cli = { espanso.enable = false; };
 
     environment.systemPackages = with pkgs; [
+      projecteur # virtual laser pointer
       # Browsers
       #inputs.zen-browser.packages.x86_64-linux.zen-browser
       #(opera.override { proprietaryCodecs = true; })
