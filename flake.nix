@@ -63,10 +63,11 @@
         home-manager.nixosModules.home-manager
         catppuccin.nixosModules.catppuccin
         nixvim.nixosModules.nixvim
+        disko.nixosModules.disko
       ];
 
       serverModules =
-        [ home-manager.nixosModules.home-manager nixvim.nixosModules.nixvim ];
+        [ home-manager.nixosModules.home-manager nixvim.nixosModules.nixvim disko.nixosModules.disko ];
 
       commonHomeManagerConfig = {
         home-manager = {
