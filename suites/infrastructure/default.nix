@@ -16,6 +16,7 @@ in {
     cli = {
       tailscale.enable = true;
       docker.enable = true;
+      versitygw.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
@@ -37,7 +38,7 @@ in {
 
       # --- Other
       ctop # container process monitoring
-	    wakeonlan 
+	    wakeonlan
 ];
   };
 }
