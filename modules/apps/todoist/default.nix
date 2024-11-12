@@ -13,6 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ todoist-electron ];
+    environment.systemPackages = with pkgs; [ unstable.todoist-electron ];
   };
 }
