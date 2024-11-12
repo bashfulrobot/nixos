@@ -21,9 +21,10 @@
 
   desktops = {
     gnome.enable = false;
-    # meant to work with gnome - testing
-    hyprland.enable = true;
     kde.enable = false;
+    hyprland.enable = false;
+    niri.enable = false;
+    budgie.enable = true;
   };
 
   apps = {

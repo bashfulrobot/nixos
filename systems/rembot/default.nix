@@ -18,10 +18,13 @@
     workstation.enable = true;
   };
 
-  desktops.gnome.enable = false;
-  desktops.kde.enable = false;
-  desktops.hyprland.enable = true;
-  desktops.niri.enable = false;
+  desktops = {
+    gnome.enable = false;
+    kde.enable = false;
+    hyprland.enable = false;
+    niri.enable = false;
+    budgie.enable = true;
+  };
 
   cli = {
     # currenly has AMD specific apps. Do not run on my laptop (Nvidia.
