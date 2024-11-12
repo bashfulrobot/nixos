@@ -7,7 +7,7 @@ in pkgs.stdenv.mkDerivation {
   src = pkgs.fetchzip {
     url =
       "https://github.com/versity/versitygw/releases/download/v${version}/versitygw_v${version}_Linux_x86_64.tar.gz";
-    sha256 = "sha256-kwIp8KIvdp2VK/2SEDp2aRc/eAbkHOZxFjiuxKFt77c=";
+    sha256 = "sha256-5LAyeIeNEkdGeJYQ46yx2LiJ+iPhLl8WDA9crWvcwvs=";
     stripRoot = true;
   };
   phases = [ "installPhase" ];
