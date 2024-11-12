@@ -13,7 +13,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      vscode
+      unstable.vscode
     ];
     home-manager.users."${user-settings.user.username}" = {
 
