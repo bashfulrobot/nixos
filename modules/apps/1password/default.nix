@@ -24,8 +24,6 @@ in {
           brave
           chromium
           .zen-wrapped
-          # wavebox
-
         '';
         mode = "0755";
       };
@@ -41,8 +39,8 @@ in {
         enable = true;
         package = pkgs.unstable._1password-gui;
         # polkitPolicyOwners = [ "${user-settings.user.username}" ];
-        # polkitPolicyOwners = [ "dustin" config.users.groups.wheel.members];
-        polkitPolicyOwners = config.users.groups.wheel.members;
+        polkitPolicyOwners = [ "dustin" ];
+        # polkitPolicyOwners = config.users.groups.wheel.members;
       };
 
     };
