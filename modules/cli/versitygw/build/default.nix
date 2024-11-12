@@ -13,9 +13,9 @@ in pkgs.stdenv.mkDerivation {
   phases = [ "installPhase" ];
   installPhase = ''
     mkdir -p $out/bin
-    # ls $src/versitygw_v1.0.8_Linux_x86_64 > $out/bin/ls.txt
-    cp $src/versitygw_v1.0.8_Linux_x86_64/versitygw $out/bin/versitygw
-    chmod +x $out/bin/versitygw
+    # ls $src > $out/bin/ls.txt
+    cp $src/versitygw $out/bin/versitygw
+    # chmod +x $out/bin/versitygw
   '';
 
   meta = with lib; {
