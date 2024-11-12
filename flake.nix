@@ -38,7 +38,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager
-    , plasma-manager, nix-flatpak, nur, nvim, disko, nixvim, catppuccin, ... }:
+    , plasma-manager, nix-flatpak, nur, nvim, disko, nixvim, catppuccin, nixos-hardware, ... }:
     let
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
