@@ -39,6 +39,7 @@ in {
 
     sys = {
       # stylix.enable = true;
+      catppuccin-theme.enable = true;
       scripts = {
         screenshots.enable = true;
         get_wm_class.enable = true;

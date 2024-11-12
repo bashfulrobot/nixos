@@ -18,9 +18,9 @@
     workstation.enable = true;
   };
 
-  desktops.gnome.enable = true;
+  desktops.gnome.enable = false;
   desktops.kde.enable = false;
-  desktops.hyprland.enable = false;
+  desktops.hyprland.enable = true;
   desktops.niri.enable = false;
 
   cli = {
