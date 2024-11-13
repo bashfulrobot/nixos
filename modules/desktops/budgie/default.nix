@@ -159,7 +159,8 @@ in {
 
         "org/gnome/desktop/wm/preferences" = { num-workspaces = 4; };
 
-        "org/gnome/desktop/peripherals/mouse" = { natural-scroll = true; };
+        "org/gnome/desktop/peripherals/mouse" = { natural-scroll = false; };
+        "org/gnome/desktop/peripherals/touchpad" = { natural-scroll = false; };
 
         "org/gnome/desktop/interface" = {
           font-name = "Work Sans 12";
