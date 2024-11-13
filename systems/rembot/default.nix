@@ -23,7 +23,10 @@
     kde.enable = false;
     hyprland.enable = false;
     niri.enable = false;
-    budgie.enable = true;
+    budgie = {
+      enable = true;
+      enableHIDPI = true;
+    };
   };
 
   cli = {

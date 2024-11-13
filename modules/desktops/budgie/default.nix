@@ -26,6 +26,9 @@ let
 
       wpctl set-default "$source_id"
 
+      # Send notification
+      notify-send "Audio inputs set."
+
       exit 0
     '';
   };
@@ -35,6 +38,11 @@ in {
       type = lib.types.bool;
       default = false;
       description = "Enable Budgie Desktop.";
+    };
+    desktops.budgie.enableHIDPI = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable Budgie HiDPi Support.";
     };
 
   };
@@ -73,10 +81,12 @@ in {
             cursorTheme.name = "Bibata-Modern-Ice";
             draw-user-backgrounds = false;
             extraConfig = ''
-              enable-hidpi = on
+              ${if config.desktops.budgie.enableHIDPI then
+                "enable-hidpi = on;"
+              else
+                ""}
             '';
           };
-
         };
       };
 
