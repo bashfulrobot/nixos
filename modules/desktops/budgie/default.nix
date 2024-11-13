@@ -1,6 +1,34 @@
 { user-settings, secrets, lib, pkgs, config, inputs, ... }:
-# Investigate: https://github.com/pjones/plasma-manager
-let cfg = config.desktops.budgie;
+let
+  cfg = config.desktops.budgie;
+  setAudioInOut = pkgs.writeShellApplication {
+    name = "set-audio-in-out";
+
+    runtimeInputs = [ ];
+
+    text = ''
+      #!/run/current-system/sw/bin/env bash
+
+      # Extract the card ID for the Shure MV7 device
+      card_id=$(pactl list short cards | /run/current-system/sw/bin/grep 'Shure_Inc_Shure_MV7' | awk '{print $1}')
+
+      # Set the profile to "Digital Stereo (IEC958) Output + Mono Input"
+      pactl set-card-profile "$card_id" output:iec958-stereo+input:mono-fallback
+
+      # Get the ID for "Shure MV7 Digital Stereo"
+      sink_id=$(wpctl status | /run/current-system/sw/bin/grep -A 1 'Shure MV7 Digital Stereo' | /run/current-system/sw/bin/grep -oP '\d{3,}' | head -n 1)
+
+      # Get the ID for "Shure MV7 Mono"
+      source_id=$(wpctl status | /run/current-system/sw/bin/grep -A 1 'Shure MV7 Mono' | /run/current-system/sw/bin/grep -oP '\d{3,}' | head -n 1)
+
+      # Set the default sink and source
+      wpctl set-default "$sink_id"
+
+      wpctl set-default "$source_id"
+
+      exit 0
+    '';
+  };
 in {
   options = {
     desktops.budgie.enable = lib.mkOption {
@@ -8,6 +36,7 @@ in {
       default = false;
       description = "Enable Budgie Desktop.";
     };
+
   };
 
   config = lib.mkIf cfg.enable {
@@ -16,10 +45,12 @@ in {
 
       dbus.enable = true;
       gnome.gnome-keyring.enable = true;
+      gvfs.enable = true;
 
       xserver = {
         enable = true;
         excludePackages = [ pkgs.xterm ];
+
         # Configure keymap in X11
         xkb = {
           layout = "us";
@@ -28,11 +59,7 @@ in {
 
         desktopManager.budgie = {
           enable = true;
-          # extraPlugins = [
-          #   pkgs.budgie-analogue-clock-applet
-          #   pkgs.budgie-user-indicator-redux
-          #   pkgs.budgie-media-player-applet
-          # ];
+          extraPlugins = [ pkgs.budgiePlugins.budgie-media-player-applet ];
         };
 
         displayManager.lightdm = {
@@ -99,17 +126,25 @@ in {
         work-sans
         tela-icon-theme
         tela-circle-icon-theme
+        pulseaudio
+        setAudioInOut
       ];
-      budgie.excludePackages = with pkgs;
-        [
-
-        ];
+      budgie.excludePackages = with pkgs; [ gnome.gnome-terminal ];
     };
 
-    security.pam.services.lightdm.enableKwallet = true;
+    security = { pam.services = { lightdm.enableGnomeKeyring = true; }; };
 
     programs.dconf.enable = true;
     sys.catppuccin-theme.enable = true;
+
+    # wpctl status - look for proper ID
+    #  wpctl set-default ID - by id it knows sink our source.
+    hardware.pulseaudio = {
+      extraConfig = ''
+        set-default-sink alsa_output.usb-Shure_Inc_Shure_MV7-00.analog-stereo
+        set-default-source alsa_output.usb-Shure_Inc_Shure_MV7-00.analog-stereo.monitor
+      '';
+    };
 
     system.activationScripts.script.text = ''
       mkdir -p /var/lib/AccountsService/{icons,users}
@@ -160,11 +195,31 @@ in {
       };
 
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
+
+        "com.solus-project.budgie-panel:Budgie" = {
+          pinned-launchers = [
+            "chromium.desktop"
+            "code.desktop"
+            "slack.desktop"
+            "alacritty.desktop"
+            "minder.desktop"
+          ];
+        };
         "com/solus-project/budgie-wm" = {
           enable-unredirect = true;
           show-all-windows-tabswitcher = true;
           edge-tiling = true;
         };
+
+        "com/solus-project/budgie-panel/panels/{d4f8eb0a-a16d-11ef-af99-2cf05da6ad16}" =
+          {
+            dock-mode = false;
+            theme-regions = true;
+            enable-shadow = false;
+            transparency = "none";
+            spacing = 4;
+            size = 24;
+          };
 
         "com/solus-project/budgie-panel" = {
           notification-position = "BUDGIE_NOTIFICATION_POSITION_BOTTOM_RIGHT";
@@ -180,7 +235,10 @@ in {
 
         "org/gnome/mutter" = { edge-tiling = true; };
 
-        "org/gnome/desktop/wm/preferences" = { num-workspaces = 4; };
+        "org/gnome/desktop/wm/preferences" = {
+          num-workspaces = 4;
+          titlebar-font = "Work Sans Bold 10";
+        };
 
         "org/gnome/desktop/peripherals/mouse" = { natural-scroll = false; };
         "org/gnome/desktop/peripherals/touchpad" = { natural-scroll = false; };
@@ -188,13 +246,14 @@ in {
         "org/gnome/desktop/interface" = {
           font-name = "Work Sans 12";
           document-font-name = "Work Sans 12";
-          monospace-font-name = "Source Code Pro 10";
+          monospace-font-name = "UbuntuSansMono Nerd Font 10";
           font-hinting = "full";
           font-antialiasing = "rgba";
           gtk-theme = "catppuccin-mocha-sky-compact+black,rimless,normal";
           icon-theme = "Tela-black-dark";
           cursor-theme = "Bibata-Modern-Ice";
           color-scheme = "prefer-dark";
+          clock-format = "24h";
         };
 
         "org/gnome/desktop/background" = {

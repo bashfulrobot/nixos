@@ -39,9 +39,8 @@ in {
           # switch-windows = [ "<Alt>Tab" ];
           # switch-windows-backward = [ "<Shift><Alt>Tab" ];
           toggle-fullscreen = [ "<Super>f" ];
-          # maximize = [ "<Super>m" ];
-          maximize = [ ];
-          unmaximize = [ ];
+          maximize = [ "<Super>Up"];
+          unmaximize = ["<Super>Down" ];
           switch-to-workspace-1 = [ "<Super>1" ];
           switch-to-workspace-2 = [ "<Super>2" ];
           switch-to-workspace-3 = [ "<Super>3" ];
@@ -81,6 +80,7 @@ in {
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/"
           ];
         };
 
@@ -154,11 +154,20 @@ in {
             command = "toggle-cursor-size";
             name = "toggle large cursor in presentations";
           };
-          "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10" =
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10" =
           {
             binding = "<Control><Alt>p";
             command = "org.buddiesofbudgie.BudgieScreenshot -a";
             name = "Screentshot";
+          };
+
+        # wpctl status - look for proper ID
+        #  wpctl set-default ID - by id it knows sink our source.
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11" =
+          {
+            binding = "<Super><Shift>A";
+            command = "set-audio-in-out";
+            name = "Set Audio Devices";
           };
 
       };
