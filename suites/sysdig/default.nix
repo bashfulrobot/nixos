@@ -15,10 +15,11 @@ in {
     apps = {
       zoom-us = {
         enable = true;
+        useUnstable = true;
         downgrade = false;
       };
 
-      zoom-web.enable = true;
+      zoom-web.enable = false;
 
       rocket-chat = {
         enable = true;
