@@ -156,10 +156,8 @@ in {
         };
 
         "org/gnome/desktop/background" = {
-          picture-uri =
-            "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
-          picture-uri-dark =
-            "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
+          picture-uri = "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
+          picture-uri-dark = "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
           color-shading-type = "solid";
           picture-options = "zoom";
           primary-color = "#000000";
@@ -167,8 +165,7 @@ in {
         };
 
         "org/gnome/desktop/screensaver" = {
-          picture-uri =
-            "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
+          picture-uri = "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
           # color-shading-type = "solid";
           picture-options = "zoom";
           # primary-color = "#000000";
