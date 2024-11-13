@@ -96,6 +96,8 @@ in {
         catppuccinifier-gui
         catppuccinifier-cli
         work-sans
+        tela-icon-theme
+        tela-circle-icon-theme
       ];
       budgie.excludePackages = with pkgs;
         [
@@ -116,23 +118,14 @@ in {
       };
 
       # Create the satty.desktop file in the home folder
-      home.file.".local/share/applications/satty.desktop".text = ''
-        [Desktop Entry]
-        Name=Satty
-        Exec=satty %f
-        Type=Application
-        Terminal=true
-        MimeType=image/png;
-      '';
-
-      # Set satty as the default application for PNG files
-      xdg = {
-        enable = true;
-        mimeApps = {
-          defaultApplications = { "image/png" = "satty.desktop"; };
-          # associations = { "image/png" = "satty.desktop"; };
-        };
-      };
+      # home.file.".local/share/applications/satty.desktop".text = ''
+      #   [Desktop Entry]
+      #   Name=Satty
+      #   Exec=satty %f
+      #   Type=Application
+      #   Terminal=true
+      #   MimeType=image/png;
+      # '';
 
       home.sessionVariables.XDG_CURRENT_DESKTOP = "Budgie:GNOME";
 
@@ -166,6 +159,8 @@ in {
 
         "org/gnome/desktop/wm/preferences" = { num-workspaces = 4; };
 
+        "org/gnome/desktop/peripherals/mouse" = { natural-scroll = true; };
+
         "org/gnome/desktop/interface" = {
           font-name = "Work Sans 12";
           document-font-name = "Work Sans 12";
@@ -173,7 +168,7 @@ in {
           font-hinting = "full";
           font-antialiasing = "rgba";
           gtk-theme = "catppuccin-mocha-sky-compact+black,rimless,normal";
-          icon-theme = "Tela-dark";
+          icon-theme = "Tela-black-dark";
           cursor-theme = "Bibata-Modern-Ice";
           color-scheme = "prefer-dark";
         };

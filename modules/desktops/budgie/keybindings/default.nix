@@ -157,7 +157,7 @@ in {
           "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10" =
           {
             binding = "<Control><Alt>p";
-            command = "org.buddiesofbudgie.BudgieScreenshot -i";
+            command = "org.buddiesofbudgie.BudgieScreenshot -a";
             name = "Screentshot";
           };
 
