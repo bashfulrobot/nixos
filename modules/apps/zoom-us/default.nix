@@ -19,6 +19,11 @@ in {
       default = false;
       description = "Use an older version zoom-us desktop taht works for me.";
     };
+    apps.zoom-us.useUnstable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Use the unstable version of zoom-us desktop.";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -28,17 +33,22 @@ in {
     #   [
     #     (if cfg.downgrade then zoomPkgs.zoom-us else zoom-us)
     #   ];
-environment.systemPackages = with pkgs;
+    environment.systemPackages = with pkgs;
       [
-        (if cfg.downgrade then zoomPkgs.zoom-us else zoom-us.overrideAttrs (attrs: {
-          nativeBuildInputs = (attrs.nativeBuildInputs or []) ++ [ bbe ];
-          postFixup = ''
-            cp $out/opt/zoom/zoom .
-            bbe -e 's/\0manjaro\0/\0nixos\0\0\0/' < zoom > $out/opt/zoom/zoom
-          '' + (attrs.postFixup or "") + ''
-            sed -i 's|Exec=|Exec=env XDG_CURRENT_DESKTOP="gnome" |' $out/share/applications/Zoom.desktop
-          '';
-        }))
+        (if cfg.downgrade then
+          zoomPkgs.zoom-us
+        else if cfg.useUnstable then
+          unstable.zoom-us
+        else
+          zoom-us.overrideAttrs (attrs: {
+            nativeBuildInputs = (attrs.nativeBuildInputs or [ ]) ++ [ bbe ];
+            postFixup = ''
+              cp $out/opt/zoom/zoom .
+              bbe -e 's/\0manjaro\0/\0nixos\0\0\0/' < zoom > $out/opt/zoom/zoom
+            '' + (attrs.postFixup or "") + ''
+              sed -i 's|Exec=|Exec=env XDG_CURRENT_DESKTOP="gnome" |' $out/share/applications/Zoom.desktop
+            '';
+          }))
       ];
     systemd.tmpfiles.rules = [
       "L+ /usr/libexec/xdg-desktop-portal - - - - ${pkgs.xdg-desktop-portal}/libexec/xdg-desktop-portal"
