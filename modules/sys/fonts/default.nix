@@ -27,6 +27,7 @@ in {
       # fc-list | grep [font name] -> before the ":" is the font name
       home.packages = with pkgs; [
         # monaspace-font
+        work-sans
         aharoni-font
         inter-font
         sfpro-font

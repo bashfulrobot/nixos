@@ -53,6 +53,7 @@ in {
       };
 
     };
+    desktops.budgie.keybindings.enable = true;
 
     xdg.portal = {
       enable = true;
