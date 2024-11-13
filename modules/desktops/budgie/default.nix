@@ -37,13 +37,14 @@ in {
 
         displayManager.lightdm = {
           enable = true;
-          background = "/var/lib/wallpaper/bobby285271/current.jpg";
+          background =
+            "/home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
           greeters.slick = {
             enable = true;
-            theme.name = "Qogir-Dark";
-            iconTheme.name = "Qogir";
-            cursorTheme.name = "Qogir";
-            draw-user-backgrounds = false;
+            theme.name = "catppuccin-mocha-sky-compact+black,rimless,normal";
+            iconTheme.name = "Tela-black-dark";
+            cursorTheme.name = "Bibata-Modern-Ice";
+            draw-user-backgrounds = true;
             extraConfig = ''
               enable-hidpi = on
             '';
@@ -110,6 +111,18 @@ in {
     programs.dconf.enable = true;
     sys.catppuccin-theme.enable = true;
 
+    system.activationScripts.script.text = ''
+      mkdir -p /var/lib/AccountsService/{icons,users}
+      cp ${user-settings.user.home}/dev/nix/nixos/modules/desktops/gnome/.face /var/lib/AccountsService/icons/${user-settings.user.username}
+      echo -e "[User]\nIcon=/var/lib/AccountsService/icons/${user-settings.user.username}\n" > /var/lib/AccountsService/users/${user-settings.user.username}
+
+      chown root:root /var/lib/AccountsService/users/${user-settings.user.username}
+      chmod 0600 /var/lib/AccountsService/users/${user-settings.user.username}
+
+      chown root:root /var/lib/AccountsService/icons/${user-settings.user.username}
+      chmod 0444 /var/lib/AccountsService/icons/${user-settings.user.username}
+    '';
+
     home-manager.users."${user-settings.user.username}" = {
 
       home.file."3pio-bender-catppuccin-mocha.png" = {
@@ -134,6 +147,16 @@ in {
         # Ensure all are enabled. Could not find docs
         # stating the defaults.
         components = [ "pkcs11" "secrets" "ssh" ];
+      };
+
+      home.file.".face.icon" = {
+        source = ./.face.icon;
+        target = ".face.icon";
+      };
+
+      home.file.".face" = {
+        source = ./.face;
+        target = ".face";
       };
 
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
