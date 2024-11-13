@@ -55,9 +55,11 @@ in {
     };
     desktops.budgie.keybindings.enable = true;
 
-    xdg.portal = {
-      enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    xdg = {
+      portal = {
+        enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      };
     };
 
     environment = {
@@ -88,6 +90,7 @@ in {
           ]; # You can also specify multiple tweaks here
           variant = "mocha"; # "latte" "frappe" "macchiato" "mocha"
         })
+        satty
         catppuccin-cursors
         catppuccin-papirus-folders
         catppuccinifier-gui
@@ -110,6 +113,25 @@ in {
       home.file."3pio-bender-catppuccin-mocha.png" = {
         source = ../../sys/wallpapers/3pio-bender-catppuccin-mocha.png;
         target = ".local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
+      };
+
+      # Create the satty.desktop file in the home folder
+      home.file.".local/share/applications/satty.desktop".text = ''
+        [Desktop Entry]
+        Name=Satty
+        Exec=satty %f
+        Type=Application
+        Terminal=true
+        MimeType=image/png;
+      '';
+
+      # Set satty as the default application for PNG files
+      xdg = {
+        enable = true;
+        mimeApps = {
+          defaultApplications = { "image/png" = "satty.desktop"; };
+          # associations = { "image/png" = "satty.desktop"; };
+        };
       };
 
       home.sessionVariables.XDG_CURRENT_DESKTOP = "Budgie:GNOME";
@@ -157,8 +179,10 @@ in {
         };
 
         "org/gnome/desktop/background" = {
-          picture-uri = "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
-          picture-uri-dark = "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
+          picture-uri =
+            "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
+          picture-uri-dark =
+            "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
           color-shading-type = "solid";
           picture-options = "zoom";
           primary-color = "#000000";
@@ -166,7 +190,8 @@ in {
         };
 
         "org/gnome/desktop/screensaver" = {
-          picture-uri = "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
+          picture-uri =
+            "file:///home/dustin/.local/share/backgrounds/3pio-bender-catppuccin-mocha.png";
           # color-shading-type = "solid";
           picture-options = "zoom";
           # primary-color = "#000000";

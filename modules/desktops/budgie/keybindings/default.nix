@@ -25,13 +25,8 @@ in {
           volume-up = [ "AudioRaiseVolume" ];
         };
 
-        "org/gnome/mutter/keybindings" = {
-          toggle-tiled-left = [ ]; # for pop-shell
-          toggle-tiled-right = [ ]; # for pop-shell
-        };
-
         "org/gnome/shell/keybindings" = {
-          show-screenshot-ui = [ "<Control><Alt>p" ];
+          show-screenshot-ui = [ ];
           switch-to-application-1 = [ ];
           switch-to-application-2 = [ ];
           switch-to-application-4 = [ ];
@@ -85,6 +80,7 @@ in {
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/"
           ];
         };
 
@@ -157,6 +153,12 @@ in {
             binding = "<Control>space";
             command = "toggle-cursor-size";
             name = "toggle large cursor in presentations";
+          };
+          "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10" =
+          {
+            binding = "<Control><Alt>p";
+            command = "org.buddiesofbudgie.BudgieScreenshot -i";
+            name = "Screentshot";
           };
 
       };
