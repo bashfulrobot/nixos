@@ -44,7 +44,7 @@ in {
             theme.name = "catppuccin-mocha-sky-compact+black,rimless,normal";
             iconTheme.name = "Tela-black-dark";
             cursorTheme.name = "Bibata-Modern-Ice";
-            draw-user-backgrounds = true;
+            draw-user-backgrounds = false;
             extraConfig = ''
               enable-hidpi = on
             '';
