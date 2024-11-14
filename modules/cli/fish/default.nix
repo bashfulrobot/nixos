@@ -268,7 +268,7 @@ in {
           tfp = "terraform plan";
           tfs = "terraform state list";
           dc = "docker compose";
-          gc = "git add . && git commit -S && git push && git pull";
+          gc = "git pull && git add . && git commit -S && git push";
         };
         shellAliases = {
           support-info =

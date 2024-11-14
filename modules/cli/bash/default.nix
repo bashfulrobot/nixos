@@ -98,6 +98,7 @@ in {
             "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/${user-settings.user.username}/bin/kubitect";
           comics-downloader =
             "${pkgs.steam-run}/bin/steam-run /etc/profiles/per-user/${user-settings.user.username}/bin/comics-downloader";
+          gc = "git pull && git add . && git commit -S && git push";
         };
 
       };
