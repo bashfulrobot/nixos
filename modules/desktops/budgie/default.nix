@@ -1,30 +1,6 @@
 { user-settings, secrets, lib, pkgs, config, inputs, ... }:
 let
   cfg = config.desktops.budgie;
-  src = ./budgie-menu-symbolic.svg;
-  dest = share/icons/hicolor/scalable/actions;
-
-  overlays = [
-    (self: super: {
-      budgie-desktop = super.budgie.budgie-desktop.overrideAttrs
-        (oldAttrs: rec {
-          postInstall = ''
-            mkdir -p $out/$dest
-            cp $src $out/$dest/budgie-menu-symbolic.svg
-            ls $out/$dest
-          '';
-        });
-
-      budgie-desktop-with-plugins =
-        super.budgie.budgie-desktop-with-plugins.overrideAttrs (oldAttrs: rec {
-          postInstall = ''
-            mkdir -p $out/$dest
-            cp $src $out/$dest/budgie-menu-symbolic.svg
-            ls $out/$dest
-          '';
-        });
-    })
-  ];
 
   setAudioInOut = pkgs.writeShellApplication {
     name = "set-audio-in-out";
@@ -125,13 +101,8 @@ in {
       };
     };
 
-    nixpkgs.overlays = overlays;
-
     environment = {
       systemPackages = with pkgs; [
-        # Used in Overlays
-        budgie.budgie-desktop
-        budgie.budgie-desktop-with-plugins
 
         # Other packages
         # valid options can be seen here - https://github.com/NixOS/nixpkgs/blob/7ce8e7c4cf90492a631e96bcfe70724104914381/pkgs/data/themes/catppuccin-gtk/default.nix#L16
@@ -169,9 +140,9 @@ in {
         tela-icon-theme
         tela-circle-icon-theme
         pulseaudio
-        devilspie2
+        devilspie2 # Good tutorial - https://www.linux-magazine.com/Issues/2017/205/Tutorial-Devilspie2
         setAudioInOut
-
+        ulauncher # launcher
       ];
       budgie.excludePackages = with pkgs; [ gnome.gnome-terminal ];
     };
@@ -203,6 +174,22 @@ in {
     '';
 
     home-manager.users."${user-settings.user.username}" = {
+
+      home.file."ulauncher.desktop" = {
+        source = pkgs.writeText "ulauncher.desktop" ''
+          [Desktop Entry]
+          Version=1.0
+          Name=Ulauncher
+          Comment=Application launcher for Linux
+          Exec=ulauncher --hide-window
+          Icon=ulauncher
+          Terminal=false
+          Type=Application
+          Categories=Utility;
+          StartupNotify=false
+        '';
+        target = ".config/autostart/ulauncher.desktop";
+      };
 
       home.file."3pio-bender-catppuccin-mocha.png" = {
         source = ../../sys/wallpapers/3pio-bender-catppuccin-mocha.png;
@@ -256,16 +243,32 @@ in {
           edge-tiling = true;
         };
 
-        # TODO: Rfactor panel ID into variables for desktop/laptop
+        # TODO: Refactor panel ID into variables for desktop/laptop
+
         # Rembot
+        # TODO: replicate on EVO system
         "com/solus-project/budgie-panel/panels/{d4f8eb0a-a16d-11ef-af99-2cf05da6ad16}" =
           {
+            applets = [
+              "d52b0fd6-a16d-11ef-af99-2cf05da6ad16"
+              "d52bf824-a16d-11ef-af99-2cf05da6ad16"
+              "d52ec694-a16d-11ef-af99-2cf05da6ad16"
+              "d52a9e16-a16d-11ef-af99-2cf05da6ad16"
+              "d51c2bb0-a16d-11ef-af99-2cf05da6ad16"
+              "d52f13e2-a16d-11ef-af99-2cf05da6ad16"
+            ];
             dock-mode = false;
-            theme-regions = true;
             enable-shadow = false;
-            transparency = "none";
-            spacing = 4;
+            location = "bottom";
             size = 24;
+            spacing = 4;
+            theme-regions = true;
+            transparency = "none";
+          };
+        # TODO: replicate on EVO system
+        "com/solus-project/budgie-panel/applets/{d51c2bb0-a16d-11ef-af99-2cf05da6ad16}" =
+          {
+            position = 0;
           };
 
         # Evo

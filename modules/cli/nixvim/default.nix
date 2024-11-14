@@ -526,6 +526,7 @@ in {
         nvim-scrollbar
         orgmode
         onedarkpro-nvim
+        vim-visual-multi # Visual Multi Cursor
         vim-cool
         vim-prettier
         (pkgs.vimUtils.buildVimPlugin rec {
@@ -553,6 +554,12 @@ in {
           };
         })
       ];
+
+      extraConfigLua = ''
+        vim.g.VM_maps = {
+          [ 'Find Under' ] = "<C-n"
+        }
+      '';
     };
 
     home-manager.users."${user-settings.user.username}" = {
