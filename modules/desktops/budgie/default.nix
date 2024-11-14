@@ -236,7 +236,7 @@ in {
             menu-compact = true;
             menu-show-control-center-items = true;
             enable-menu-label = false;
-            menu-icon = "/home/dustin/Pictures/logos/nix.png";
+            menu-icon = "/home/dustin/dev/nix/nixos/modules/desktops/budgie/budgie-menu.png";
           };
 
         "com/solus-project/budgie-panel" = {
