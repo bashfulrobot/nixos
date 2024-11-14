@@ -15,6 +15,7 @@ in {
     environment.systemPackages = with pkgs; [
       # sops # Secrets management
       kubeseal # k8s secrets management
+      glooctl # k8s gateway api cli
       eksctl # AWS EKS management tool
       cilium-cli # cilium cli
       kustomize # Kubernetes configuration management

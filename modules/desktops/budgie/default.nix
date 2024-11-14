@@ -1,25 +1,30 @@
 { user-settings, secrets, lib, pkgs, config, inputs, ... }:
 let
   cfg = config.desktops.budgie;
+  src = ./budgie-menu-symbolic.svg;
+  dest = share/icons/hicolor/scalable/actions;
 
-  startHereSolusIcon = pkgs.stdenv.mkDerivation {
-    name = "start-here-solus-icon";
-    version = "1.0";
+  overlays = [
+    (self: super: {
+      budgie-desktop = super.budgie.budgie-desktop.overrideAttrs
+        (oldAttrs: rec {
+          postInstall = ''
+            mkdir -p $out/$dest
+            cp $src $out/$dest/budgie-menu-symbolic.svg
+            ls $out/$dest
+          '';
+        });
 
-    src = ./start-here-solus.svg;
-    unpackPhase = "true"; # Skip the unpack phase
-
-    installPhase = ''
-      mkdir -p $out/share/icons/hicolor/scalable/places
-      cp $src $out/share/icons/hicolor/scalable/places/start-here-solus.svg
-    '';
-
-    meta = with lib; {
-      description = "Start Here Solus Icon";
-      license = licenses.mit;
-      platforms = platforms.linux;
-    };
-  };
+      budgie-desktop-with-plugins =
+        super.budgie.budgie-desktop-with-plugins.overrideAttrs (oldAttrs: rec {
+          postInstall = ''
+            mkdir -p $out/$dest
+            cp $src $out/$dest/budgie-menu-symbolic.svg
+            ls $out/$dest
+          '';
+        });
+    })
+  ];
 
   setAudioInOut = pkgs.writeShellApplication {
     name = "set-audio-in-out";
@@ -120,8 +125,14 @@ in {
       };
     };
 
+    nixpkgs.overlays = overlays;
+
     environment = {
       systemPackages = with pkgs; [
+        # Used in Overlays
+        budgie.budgie-desktop
+        budgie.budgie-desktop-with-plugins
+        # Other packages
         # valid options can be seen here - https://github.com/NixOS/nixpkgs/blob/7ce8e7c4cf90492a631e96bcfe70724104914381/pkgs/data/themes/catppuccin-gtk/default.nix#L16
         (catppuccin-gtk.override {
           accents = [
@@ -158,7 +169,7 @@ in {
         tela-circle-icon-theme
         pulseaudio
         setAudioInOut
-        startHereSolusIcon
+
       ];
       budgie.excludePackages = with pkgs; [ gnome.gnome-terminal ];
     };
