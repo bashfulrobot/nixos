@@ -150,7 +150,7 @@ in {
           };
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9" =
           {
-            binding = "<Control><Alt>space";
+            binding = "<Control>space";
             command = "toggle-cursor-size";
             name = "toggle large cursor in presentations";
           };
