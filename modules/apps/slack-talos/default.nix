@@ -12,7 +12,7 @@ let
     name = "Talos Slack";
     url = "https://app.slack.com/client/TEJ3M0FRV";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "chrome-app.slack.com__client_TEJ3M0FRV-Default";
+    myStartupWMClass = "app.slack.com__client_TEJ3M0FRV";
     iconSizes = ["32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

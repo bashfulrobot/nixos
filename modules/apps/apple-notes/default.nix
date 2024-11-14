@@ -12,7 +12,7 @@ let
     name = "Apple Notes";
     url = "https://www.icloud.com/notes/";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "chrome-www.icloud.com__notes_-Default";
+    myStartupWMClass = "www.icloud.com__notes";
     iconSizes = [ "32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

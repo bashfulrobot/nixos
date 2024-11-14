@@ -12,7 +12,7 @@ let
     name = "Sysdig Mail";
     url = "https://mail.google.com/mail/u/1/#inbox";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "chrome-mail.google.com__mail_u_1_-Default";
+    myStartupWMClass = "mail.google.com__mail_u_1";
     iconSizes = [ "32" "48" "64" "96" "128" "192" "256" "512" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

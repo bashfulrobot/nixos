@@ -12,7 +12,7 @@ let
     name = "Intercom";
     url = "https://app.intercom.com/a/inbox/tdx7wtfd/inbox/team/3988200";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "chrome-app.intercom.com__a_inbox_tdx7wtfd_inbox_team_3988200-Default";
+    myStartupWMClass = "app.intercom.com__a_inbox_tdx7wtfd_inbox_team_3988200";
     iconSizes = [ "32" "48" "64" "96" "128" "256"];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons
