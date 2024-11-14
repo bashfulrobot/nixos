@@ -215,6 +215,7 @@ in {
             "minder.desktop"
           ];
         };
+
         "com/solus-project/budgie-wm" = {
           enable-unredirect = true;
           show-all-windows-tabswitcher = true;
@@ -229,6 +230,13 @@ in {
             transparency = "none";
             spacing = 4;
             size = 24;
+          };
+
+          "com/solus-project/budgie-panel/instance/budgie-menu/{d4fe5324-a16d-11ef-af99-2cf05da6ad16}" = {
+            menu-compact = true;
+            menu-show-control-center-items = true;
+            enable-menu-label = false;
+            menu-icon = "/home/dustin/Pictures/logos/nix.png";
           };
 
         "com/solus-project/budgie-panel" = {
