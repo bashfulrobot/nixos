@@ -93,10 +93,17 @@ in {
           #   	op_get_entry $opname
           # '';
 
+          # GNOME Shell Version
           # get_wm_class = ''
           #   gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/Windows --method org.gnome.Shell.Extensions.Windows.List | grep -Po '"wm_class_instance":"\K[^"]*'
           #   gtk-update-icon-cache
           # '';
+
+          # X11 / Budgie Version
+          get_wm_class = ''
+            xprop | grep WM_CLASS | awk -F '"' '{print $2}' | xclip -selection clipboard
+          '';
+
           new-scratch = ''
             set date (date "+%Y-%m-%d")
             set filename "$date-$argv[1].md"
@@ -305,7 +312,8 @@ in {
           gos = "cd ~/Documents/Scratch/";
           gon = "cd ~/dev/nix/nixos";
           gon-e = "cd ~/dev/nix/nixos && code -r .";
-          do-update = "gon && git pull && just upgrade-system && git add -A && git commit -S && git push";
+          do-update =
+            "gon && git pull && just upgrade-system && git add -A && git commit -S && git push";
           goagent = "cd ~/dev/sysdig/sysdig-agent-deploy/";
           goscreen = "cd ~/Pictures/Screenshots/";
           y = "cd ~/; yazi";
