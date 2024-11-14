@@ -12,7 +12,7 @@ let
     name = "Gemini";
     url = "https://gemini.google.com";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "gemini.google.com_";
+    myStartupWMClass = "gemini.google.com";
     iconSizes = [ "32" "48" "64" "96" "128" "256" "540" ];
     iconPath = ./icons; # path to icons
     # Open In Browser vs Open as App

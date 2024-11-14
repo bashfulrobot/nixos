@@ -12,7 +12,7 @@ let
     name = "NixOS Discourse";
     url = "https://discourse.nixos.org/";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "discourse.nixos.org_";
+    myStartupWMClass = "discourse.nixos.org";
     iconSizes = [ "32" "48" "64" "96" "128" "256" ];
     # iconSizes = [ "256" ]; # forcing large icon use
     iconPath = ./icons; # path to icons

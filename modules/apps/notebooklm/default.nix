@@ -12,7 +12,7 @@ let
     name = "NotebookLM";
     url = "https://notebooklm.google.com";
     binary = "${pkgs.chromium}/bin/chromium";
-    myStartupWMClass = "notebooklm.google.com_";
+    myStartupWMClass = "notebooklm.google.com";
     iconSizes = [ "16" "32" "48" "64" "96" "128" "256" ];
     iconPath = ./icons; # path to icons
     # Open In Browser vs Open as App
