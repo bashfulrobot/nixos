@@ -222,6 +222,8 @@ in {
           edge-tiling = true;
         };
 
+        # TODO: Rfactor panel ID into variables for desktop/laptop
+        # Rembot
         "com/solus-project/budgie-panel/panels/{d4f8eb0a-a16d-11ef-af99-2cf05da6ad16}" =
           {
             dock-mode = false;
@@ -232,11 +234,35 @@ in {
             size = 24;
           };
 
-          "com/solus-project/budgie-panel/instance/budgie-menu/{d4fe5324-a16d-11ef-af99-2cf05da6ad16}" = {
+        # Evo
+        "com/solus-project/budgie-panel/panels/{d86965e4-a15e-11ef-afa7-e02e0b11348d}" =
+          {
+            dock-mode = false;
+            theme-regions = true;
+            enable-shadow = false;
+            transparency = "none";
+            spacing = 4;
+            size = 24;
+          };
+
+        # Rembot
+        "com/solus-project/budgie-panel/instance/budgie-menu/{d4fe5324-a16d-11ef-af99-2cf05da6ad16}" =
+          {
             menu-compact = true;
             menu-show-control-center-items = true;
             enable-menu-label = false;
-            menu-icon = "/home/dustin/dev/nix/nixos/modules/desktops/budgie/budgie-menu.png";
+            menu-icon =
+              "/home/dustin/dev/nix/nixos/modules/desktops/budgie/budgie-menu.png";
+          };
+
+        # Laptop
+        "com/solus-project/budgie-panel/instance/budgie-menu/{d86d18f6-a15e-11ef-afa7-e02e0b11348d}" =
+          {
+            menu-compact = true;
+            menu-show-control-center-items = true;
+            enable-menu-label = false;
+            menu-icon =
+              "/home/dustin/dev/nix/nixos/modules/desktops/budgie/budgie-menu.png";
           };
 
         "com/solus-project/budgie-panel" = {
