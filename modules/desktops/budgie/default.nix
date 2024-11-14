@@ -132,6 +132,7 @@ in {
         # Used in Overlays
         budgie.budgie-desktop
         budgie.budgie-desktop-with-plugins
+
         # Other packages
         # valid options can be seen here - https://github.com/NixOS/nixpkgs/blob/7ce8e7c4cf90492a631e96bcfe70724104914381/pkgs/data/themes/catppuccin-gtk/default.nix#L16
         (catppuccin-gtk.override {
@@ -168,6 +169,7 @@ in {
         tela-icon-theme
         tela-circle-icon-theme
         pulseaudio
+        devilspie2
         setAudioInOut
 
       ];
