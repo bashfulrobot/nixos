@@ -1,6 +1,26 @@
 { user-settings, secrets, lib, pkgs, config, inputs, ... }:
 let
   cfg = config.desktops.budgie;
+
+  startHereSolusIcon = pkgs.stdenv.mkDerivation {
+    name = "start-here-solus-icon";
+    version = "1.0";
+
+    src = ./start-here-solus.svg;
+    unpackPhase = "true"; # Skip the unpack phase
+
+    installPhase = ''
+      mkdir -p $out/share/icons/hicolor/scalable/places
+      cp $src $out/share/icons/hicolor/scalable/places/start-here-solus.svg
+    '';
+
+    meta = with lib; {
+      description = "Start Here Solus Icon";
+      license = licenses.mit;
+      platforms = platforms.linux;
+    };
+  };
+
   setAudioInOut = pkgs.writeShellApplication {
     name = "set-audio-in-out";
 
@@ -138,6 +158,7 @@ in {
         tela-circle-icon-theme
         pulseaudio
         setAudioInOut
+        startHereSolusIcon
       ];
       budgie.excludePackages = with pkgs; [ gnome.gnome-terminal ];
     };
@@ -251,7 +272,7 @@ in {
             menu-compact = true;
             menu-show-control-center-items = true;
             enable-menu-label = false;
-            menu-icon = "/home/dustin/dev/nix/nixos/modules/desktops/budgie/budgie-menu.png";
+            # menu-icon = "/home/dustin/dev/nix/nixos/modules/desktops/budgie/budgie-menu.png";
           };
 
         # Laptop
@@ -260,7 +281,7 @@ in {
             menu-compact = true;
             menu-show-control-center-items = true;
             enable-menu-label = false;
-            menu-icon = "/home/dustin/dev/nix/nixos/modules/desktops/budgie/budgie-menu.png";
+            # menu-icon = "/home/dustin/dev/nix/nixos/modules/desktops/budgie/budgie-menu.png";
           };
 
         "com/solus-project/budgie-panel" = {
