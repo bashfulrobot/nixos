@@ -16,10 +16,10 @@ let
       pactl set-card-profile "$card_id" output:iec958-stereo+input:mono-fallback
 
       # Get the ID for "Shure MV7 Digital Stereo"
-      sink_id=$(wpctl status | /run/current-system/sw/bin/grep -A 1 'Shure MV7 Digital Stereo' | /run/current-system/sw/bin/grep -oP '\d{3,}' | head -n 1)
+      sink_id=$(wpctl status | /run/current-system/sw/bin/grep 'Shure MV7 Digital Stereo' | /run/current-system/sw/bin/grep -oP '\d{1,3}' | head -n 1)
 
       # Get the ID for "Shure MV7 Mono"
-      source_id=$(wpctl status | /run/current-system/sw/bin/grep -A 1 'Shure MV7 Mono' | /run/current-system/sw/bin/grep -oP '\d{3,}' | head -n 1)
+      source_id=$(wpctl status | /run/current-system/sw/bin/grep -A 1 'Shure MV7 Mono' | /run/current-system/sw/bin/grep -oP '\d{1,3}' | head -n 1)
 
       # Set the default sink and source
       wpctl set-default "$sink_id"
