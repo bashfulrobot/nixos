@@ -104,7 +104,7 @@ in {
             xprop | grep WM_CLASS | awk -F '"' '{print $2}' | xclip -selection clipboard
           '';
 
-          new-scratch = ''
+          scratch-new = ''
             set date (date "+%Y-%m-%d")
             set filename "$date-$argv[1].md"
             touch $filename
@@ -118,6 +118,12 @@ in {
             echo >> $filename
             nvim $filename
           '';
+
+          scratch = ''
+            cd ~/Documents/Scratch/
+            glow
+          '';
+
           run_nix_package = ''
             set -x NIXPKGS_ALLOW_UNFREE 1
             nix run nixpkgs#$argv[1] --impure
