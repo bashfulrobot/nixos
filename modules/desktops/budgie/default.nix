@@ -256,7 +256,7 @@ in {
           showSpotShade=true
           spotRotation=0
           spotShape=spotshapes/Circle.qml
-          spotSize=24
+          spotSize=48
           zoomFactor=2.5
         '';
       };
