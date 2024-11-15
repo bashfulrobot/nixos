@@ -66,7 +66,7 @@ in {
         # bookmark search
         "cofpegcepiccpobikjoddpmmocficdjj"
         # kagi search
-        "cdglnehniifkbagbbombnjghhcihifij"
+        # "cdglnehniifkbagbbombnjghhcihifij"
         # 1password
         "aeblfdkhhhdcdjpifhhbdiojplfjncoa"
         # dark reader
@@ -125,6 +125,8 @@ in {
         # "lcbjdhceifofjlpecfpeimnnphbcjgnc"
         # Catppuccin Mocha theme
         "bkkmolkhemgaeaeggcmfbghljjjoofoh"
+        # Perplexity AI
+        "bnaffjbjpgiagpondjlnneblepbdchol"
         # Catppuccin Frappe theme
         # "olhelnoplefjdmncknfphenjclimckaf"
         # Catppuccin Macchiato theme
@@ -195,11 +197,11 @@ in {
       #   # "VoiceInteractionHotwordEnabled" = false;
       #   # "VoiceInteractionQuickAnswersEnabled" = false;
       # };
-      "defaultSearchProviderEnabled" = true;
-      "defaultSearchProviderSearchURL" =
-        "https://kagi.com/search?q={searchTerms}";
-      "defaultSearchProviderSuggestURL" =
-        "https://kagi.com/api/autosuggest?q={searchTerms}";
+      # "defaultSearchProviderEnabled" = true;
+      # "defaultSearchProviderSearchURL" =
+      #   "https://kagi.com/search?q={searchTerms}";
+      # "defaultSearchProviderSuggestURL" =
+      #   "https://kagi.com/api/autosuggest?q={searchTerms}";
     };
 
     home-manager.users."${user-settings.user.username}" = {
