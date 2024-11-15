@@ -17,6 +17,12 @@ in {
 
     home-manager.users."${user-settings.user.username}" = {
       dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
+
+        #disable super key for default launcher in mutter
+        "org/gnome/mutter" = {
+        overlay-key = "";
+        };
+
         #  Set Media Keys
         "org/gnome/settings-daemon/plugins/media-keys" = {
           play = [ "AudioPlay" ];
@@ -151,7 +157,8 @@ in {
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9" =
           {
             binding = "<Control><Alt>space";
-            command = "toggle-cursor-size";
+            # command = "toggle-cursor-size";
+            command = "toggle-projecteur";
             name = "toggle large cursor in presentations";
           };
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10" =

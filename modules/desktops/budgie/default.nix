@@ -2,6 +2,22 @@
 let
   cfg = config.desktops.budgie;
 
+  toggleProjecteur = pkgs.writeShellApplication {
+    name = "toggle-projecteur";
+
+    runtimeInputs = [ ];
+
+    text = ''
+      #!/run/current-system/sw/bin/env bash
+      # if ! pgrep -x "projecteur" > /dev/null; then
+      #   projecteur &
+      #   sleep 3
+      # fi
+      projecteur -c preset=dk -c spot=toggle
+      exit 0
+    '';
+  };
+
   setAudioInOut = pkgs.writeShellApplication {
     name = "set-audio-in-out";
 
@@ -142,6 +158,7 @@ in {
         pulseaudio
         devilspie2 # Good tutorial - https://www.linux-magazine.com/Issues/2017/205/Tutorial-Devilspie2
         setAudioInOut
+        toggleProjecteur
         ulauncher # launcher
       ];
       budgie.excludePackages = with pkgs; [ gnome.gnome-terminal ];
@@ -175,8 +192,9 @@ in {
 
     home-manager.users."${user-settings.user.username}" = {
 
-      home.file."ulauncher.desktop" = {
-        source = pkgs.writeText "ulauncher.desktop" ''
+      home.file = {
+
+        ".config/autostart/ulauncher.desktop".text = ''
           [Desktop Entry]
           Version=1.0
           Name=Ulauncher
@@ -188,7 +206,59 @@ in {
           Categories=Utility;
           StartupNotify=false
         '';
-        target = ".config/autostart/ulauncher.desktop";
+
+        ".config/autostart/projecteur.desktop".text = ''
+          [Desktop Entry]
+          Type=Application
+          Exec=/run/current-system/sw/bin/projecteur
+          Name=Projecteur
+          GenericName=Linux/X11 application for the Logitech Spotlight device.
+          Icon=projecteur
+          Terminal=false
+          Categories=Office;Presentation;
+
+        '';
+
+        ".config/Projecteur/Projecteur.conf".text = ''
+          [General]
+          borderColor=@Variant(\0\0\0\x43\x1\xff\xff\xff\xff\xc3\xc3\0\0\0\0)
+          borderSize=8
+          cursor=13
+          dotColor=@Variant(\0\0\0\x43\x1\xff\xff\xff\xff\0\0\0\0\0\0)
+          enableZoom=true
+          multiScreenOverlay=false
+          shadeColor=@Variant(\0\0\0\x43\x1\xff\xff\"\"\"\"\"\"\0\0)
+          shadeOpacity=0.5
+          showBorder=true
+          showCenterDot=false
+          spotShape=spotshapes/Circle.qml
+          spotSize=24
+          zoomFactor=2.5
+
+          [Preset_dk]
+          Shape.Ngon\sides=3
+          Shape.Square\radius=20
+          Shape.Star\innerRadius=50
+          Shape.Star\points=5
+          borderColor=@Variant(\0\0\0\x43\x1\xff\xff\xff\xff\xc3\xc3\0\0\0\0)
+          borderOpacity=0.8
+          borderSize=8
+          cursor=13
+          dotColor=@Variant(\0\0\0\x43\x1\xff\xff\xff\xff\0\0\0\0\0\0)
+          dotOpacity=0.8
+          dotSize=5
+          enableZoom=true
+          multiScreenOverlay=false
+          shadeColor=@Variant(\0\0\0\x43\x1\xff\xff\"\"\"\"\"\"\0\0)
+          shadeOpacity=0.5
+          showBorder=true
+          showCenterDot=false
+          showSpotShade=true
+          spotRotation=0
+          spotShape=spotshapes/Circle.qml
+          spotSize=24
+          zoomFactor=2.5
+        '';
       };
 
       home.file."3pio-bender-catppuccin-mocha.png" = {
@@ -264,6 +334,7 @@ in {
             spacing = 4;
             theme-regions = true;
             transparency = "none";
+            autohide = "automatic";
           };
         # TODO: replicate on EVO system
         "com/solus-project/budgie-panel/applets/{d51c2bb0-a16d-11ef-af99-2cf05da6ad16}" =
