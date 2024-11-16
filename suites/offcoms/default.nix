@@ -15,6 +15,7 @@ in {
     apps = {
       one-password.enable = true;
       apple-notes.enable = true;
+      alpaca.enable = true;
 
       # TODO: broken
       insync.enable = false;
