@@ -56,6 +56,7 @@ environment.systemPackages = with pkgs; [
       #openvscode-server # vscode in browser. Used for demos
       jnv # json filtering with jq
       unstable.zed-editor # text editor
+      unstable.jetbrains.goland # Go IDE
     ];
     home-manager.users."${user-settings.user.username}" = {
       programs = { jq = { enable = true; }; };
