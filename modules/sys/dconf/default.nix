@@ -14,7 +14,7 @@ in {
     environment.systemPackages = with pkgs; [
       dconf
       dconf2nix
-      gnome.dconf-editor
+      dconf-editor
 
     ];
     # Enable dconf

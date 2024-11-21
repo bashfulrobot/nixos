@@ -20,14 +20,15 @@
   users.default.enable = true;
 
   desktops = {
-    gnome.enable = false;
+    gnome.enable = true;
     kde.enable = false;
     hyprland.enable = false;
     niri.enable = false;
     budgie = {
-      enable = true;
-      enableHIDPI = true;
+      enable = false;
+      enableHIDPI = false;
     };
+
   };
 
   apps = {
@@ -59,6 +60,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   # system.stateVersion = "23.11"; # Did you read the comment?
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 
 }

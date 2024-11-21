@@ -295,6 +295,8 @@ in {
 
       # TODO: Broke on downgrade to stable. Need to fix after one good build on stable.
       plugins = {
+
+        web-devicons.enable = true;
         lazygit.enable = true;
         lualine.enable = true;
         barbar.enable = true;
@@ -303,8 +305,10 @@ in {
           defaultMaps = false;
         };
         todo-comments = {
-          enable = true;
-          signs = true;
+          settings = {
+            enable = true;
+            signs = true;
+          };
         };
         mini = {
           enable = true;
@@ -360,14 +364,17 @@ in {
           };
         };
         treesitter = {
+          settings = {
+            incremental_selection.enable = true;
+            ensure_installed = "all";
+            indent.enable = true;
+          };
+
           enable = true;
-          indent = true;
+
           nixvimInjections = true;
           folding = false;
           nixGrammars = true;
-
-          ensureInstalled = "all";
-          incrementalSelection.enable = true;
 
         };
         treesitter-refactor = { enable = true; };
@@ -400,7 +407,7 @@ in {
             html.enable = true;
             cssls.enable = true;
             eslint.enable = true;
-            tsserver.enable = true;
+            ts_ls.enable = true;
             pyright.enable = true;
             tailwindcss = {
               enable = true;

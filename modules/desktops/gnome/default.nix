@@ -1,6 +1,38 @@
 { user-settings, pkgs, config, lib, inputs, ... }:
 let cfg = config.desktops.gnome;
 
+setAudioInOut = pkgs.writeShellApplication {
+    name = "set-audio-in-out";
+
+    runtimeInputs = [ ];
+
+    text = ''
+      #!/run/current-system/sw/bin/env bash
+
+      # Extract the card ID for the Shure MV7 device
+      card_id=$(pactl list short cards | /run/current-system/sw/bin/grep 'Shure_Inc_Shure_MV7' | awk '{print $1}')
+
+      # Set the profile to "Digital Stereo (IEC958) Output + Mono Input"
+      pactl set-card-profile "$card_id" output:iec958-stereo+input:mono-fallback
+
+      # Get the ID for "Shure MV7 Digital Stereo"
+      sink_id=$(wpctl status | /run/current-system/sw/bin/grep 'Shure MV7 Digital Stereo' | /run/current-system/sw/bin/grep -oP '\d{1,3}' | head -n 1)
+
+      # Get the ID for "Shure MV7 Mono"
+      source_id=$(wpctl status | /run/current-system/sw/bin/grep -A 1 'Shure MV7 Mono' | /run/current-system/sw/bin/grep -oP '\d{1,3}' | head -n 1)
+
+      # Set the default sink and source
+      wpctl set-default "$sink_id"
+
+      wpctl set-default "$source_id"
+
+      # Send notification
+      notify-send "Audio inputs set."
+
+      exit 0
+    '';
+  };
+
 in {
   options = {
     desktops.gnome.enable = lib.mkOption {
@@ -46,17 +78,18 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
+      setAudioInOut # Set audio input/output
       libadwaita # Adwaita libs
       adwaita-qt6 # Adwaita Qt theme
-      gnome.adwaita-icon-theme # Adwaita icons
+      adwaita-icon-theme # Adwaita icons
       vscode-extensions.piousdeer.adwaita-theme # Adwaita Theme for VSCode
       gnome-randr # Xrandr-like CLI for configuring displays on GNOME/Wayland, on distros that don't support `wlr-randr`
       gnome-firmware # Firmware updater
       pulseaudio # Need pactl for gnome ext
-      gnome.gnome-tweaks # Gnome Tweaks
+      gnome-tweaks # Gnome Tweaks
       pinentry-gnome3 # Gnome3 pinentry
       # Gnome apps/services
-      gnome.gnome-settings-daemon # settings daemon
+      gnome-settings-daemon # settings daemon
       gnome2.GConf # configuration database system for old apps
     ];
 
@@ -66,16 +99,16 @@ in {
       # for packages that are pkgs.*
       gnome-tour
       gnome-connections
-      gnome.cheese # photo booth
+      cheese # photo booth
       gedit # text editor
-      gnome.yelp # help viewer
-      gnome.file-roller # archive manager
+      yelp # help viewer
+      file-roller # archive manager
       gnome-photos
-      gnome.gnome-system-monitor
-      gnome.gnome-maps
-      gnome.gnome-music
-      gnome.gnome-weather
-      gnome.epiphany
+      gnome-system-monitor
+      gnome-maps
+      gnome-music
+      gnome-weather
+      epiphany
     ]) ++ (with pkgs.gnomeExtensions; [
       # for packages that are pkgs.gnomeExtensions.*
       applications-menu

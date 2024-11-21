@@ -85,6 +85,7 @@ in {
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/"
           ];
         };
 
@@ -157,6 +158,12 @@ in {
             binding = "<Control>space";
             command = "toggle-cursor-size";
             name = "toggle large cursor in presentations";
+          };
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10" =
+          {
+            binding = "<Super><Shift>A";
+            command = "set-audio-in-out";
+            name = "Set Audio Devices";
           };
 
       };

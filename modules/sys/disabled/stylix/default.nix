@@ -26,7 +26,7 @@ in {
       # "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
       cursor = {
         name = "Adwaita";
-        package = pkgs.gnome.adwaita-icon-theme;
+        package = pkgs.adwaita-icon-theme;
         size = 32;
       };
       opacity = {

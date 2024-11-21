@@ -29,7 +29,7 @@ in {
         # the Home Manager release notes for a list of state version
         # changes in each release.
         # stateVersion = "23.11";
-        stateVersion = "24.05";
+        stateVersion = "24.11";
       };
       programs.home-manager.enable = true;
     };

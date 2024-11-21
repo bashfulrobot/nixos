@@ -202,13 +202,13 @@ in {
         };
 
         "org/gnome/shell/extensions/pop-shell" = {
-          active-hint = false;
-          hint-color-rgba = "rgb(122, 162, 247)";
+          active-hint = true;
+          hint-color-rgba = "rgb(137, 220, 235)";
           # gaps need to be the same.
-          gap-inner = mkUint32 4;
-          gap-outer = mkUint32 4;
+          gap-inner = mkUint32 2;
+          gap-outer = mkUint32 2;
           smart-gaps = false;
-          active-hint-border-radius = mkUint32 0;
+          active-hint-border-radius = mkUint32 4;
           show-title = false;
           show-skip-taskbar = false;
         };
