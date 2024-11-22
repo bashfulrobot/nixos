@@ -86,6 +86,7 @@ in {
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/"
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/"
+"/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/"
           ];
         };
 
@@ -164,6 +165,13 @@ in {
             binding = "<Super><Shift>A";
             command = "set-audio-in-out";
             name = "Set Audio Devices";
+          };
+
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11" =
+          {
+            binding = "<Super><Shift>p";
+            command = "flatpak run com.onepassword.OnePassword";
+            name = "Open 1password flatpak as a workaround";
           };
 
       };
