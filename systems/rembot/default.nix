@@ -19,13 +19,13 @@
   };
 
   desktops = {
-    gnome.enable = false;
+    gnome.enable = true;
     kde.enable = false;
     hyprland.enable = false;
     niri.enable = false;
     budgie = {
-      enable = true;
-      enableHIDPI = true;
+      enable = false;
+      enableHIDPI = false;
     };
   };
 
