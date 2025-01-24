@@ -23,6 +23,7 @@ in {
       foliate # ebook reader
       mplayer # Video player
       # spotdl # Spotify downloader
+      mpv # Video Player - I use for remote youtube
     ];
   };
 }
